@@ -8,7 +8,7 @@
 echo --------------------------------------------
 echo Starting Git hook: commit-msg
 
-node common/scripts/install-run-rush.js commitlint -E $1 || exit $?
+node common/scripts/install-run-rush.js commitlint --edit $1 || exit $?
 
 echo Finished Git hook: commit-msg
 echo --------------------------------------------

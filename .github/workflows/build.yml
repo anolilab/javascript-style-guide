@@ -1,70 +1,70 @@
 name: Build and deploy
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: check consistent dependencies
-        run: node ./common/scripts/install-run-rush.js check
-      - name: check changelog
-        run: node ./common/scripts/install-run-rush.js change -v
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: install
-        run: node ./common/scripts/install-run-rush.js install --no-link
-      - name: link
-        run: node ./common/scripts/install-run-rush.js link
-      - name: build
-        run: node ./common/scripts/install-run-rush.js rebuild --verbose
-      - name: lint
-        run: node ./common/scripts/install-run-rush.js lint
-      - name: run unit tests
-        run: node ./common/scripts/install-run-rush.js test:unit
-      - name: upload code coverage to codecov
-        uses: codecov/codecov-action@v1
-      - name: run integration tests
-        run: node ./common/scripts/install-run-rush.js test:integration
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Use Node.js 12.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+            - name: check consistent dependencies
+              run: node ./common/scripts/install-run-rush.js check
+            - name: check changelog
+              run: node ./common/scripts/install-run-rush.js change -v
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: install
+              run: node ./common/scripts/install-run-rush.js install
+            #      - name: link
+            #        run: node ./common/scripts/install-run-rush.js link
+            - name: build
+              run: node ./common/scripts/install-run-rush.js rebuild --verbose
+            - name: lint
+              run: node ./common/scripts/install-run-rush.js lint
+            - name: run unit tests
+              run: node ./common/scripts/install-run-rush.js test:unit
+            - name: upload code coverage to codecov
+              uses: codecov/codecov-action@v1
+            - name: run integration tests
+              run: node ./common/scripts/install-run-rush.js test:integration
 
-  publish:
-    needs: build
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: install
-        run: node ./common/scripts/install-run-rush.js install --no-link
-      - name: link
-        run: node ./common/scripts/install-run-rush.js link
-      - name: build
-        run: node ./common/scripts/install-run-rush.js rebuild --verbose
-      - name: set git credentials
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-      - name: set npm credentials
-        run: echo //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - name: Bump versions
-        run: node ./common/scripts/install-run-rush.js version --bump --target-branch main
-      - name: publish
-        run: node ./common/scripts/install-run-rush.js publish -a -b main -p --set-access-level public --include-all
+    publish:
+        needs: build
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Use Node.js 12.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+            - name: install
+              run: node ./common/scripts/install-run-rush.js install
+            #      - name: link
+            #        run: node ./common/scripts/install-run-rush.js link
+            - name: build
+              run: node ./common/scripts/install-run-rush.js rebuild --verbose
+            - name: set git credentials
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+            - name: set npm credentials
+              run: echo //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc
+              env:
+                  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            - name: Bump versions
+              run: node ./common/scripts/install-run-rush.js version --bump --target-branch main
+            - name: publish
+              run: node ./common/scripts/install-run-rush.js publish -a -b main -p --set-access-level public --include-all

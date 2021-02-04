@@ -10,7 +10,7 @@ echo Starting Git hook: pre-commit
 
 node common/scripts/install-run-rush.js prettier --staged
 
-node common/scripts/install-run-rush.js sort-package-json */*/package.json
+node common/scripts/install-run-rush.js sort-package-json
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------

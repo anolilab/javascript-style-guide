@@ -155,7 +155,7 @@
       "commandKind": "global",
       "summary": "Used by the pre-commit Git hook. This command invokes Prettier to reformat staged changes.",
       "autoinstallerName": "rush-prettier",
-      "shellCommand": "pretty-quick --staged"
+      "shellCommand": "pretty-quick"
     },
     {
       "name": "eslint",
@@ -179,18 +179,25 @@
       "shellCommand": "textlint ./.build/ISSUE_TEMPLATE/** ./src/** ./docs/** ./README.md ./UPGRADE.md --fix"
     },
     {
+      "name": "commitlint",
+      "commandKind": "global",
+      "summary": "Used to run commitlint.",
+      "autoinstallerName": "rush-commitlint",
+      "shellCommand": "commitlint"
+    },
+    {
       "name": "jest",
       "commandKind": "global",
       "summary": "Used to run jest.",
       "autoinstallerName": "rush-jest",
-      "shellCommand": "jest"
+      "shellCommand": "jest --coverageDirectory ./coverage"
     },
     {
       "name": "jest-coverage",
       "commandKind": "global",
       "summary": "Used to run jest with coverage.",
       "autoinstallerName": "rush-jest",
-      "shellCommand": "jest --coverage --coverageDirectory ./coverage"
+      "shellCommand": "jest --coverage "
     },
     {
       "name": "sort-package-json",
@@ -326,5 +333,21 @@
     //     }
     //   ]
     // }
+
+    {
+     "parameterKind": "flag",
+     "longName": "--staged",
+     "description": "A custom flag parameter that is passed to the scripts that are invoked when prettier",
+     "associatedCommands": ["prettier"],
+     "required": false
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--edit",
+      "shortName": "-E",
+      "description": "A custom flag parameter that is passed to the scripts that are invoked when commitlint",
+      "associatedCommands": ["commitlint"],
+      "required": false
+    }
   ]
 }

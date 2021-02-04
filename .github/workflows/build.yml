@@ -14,9 +14,13 @@ jobs:
               with:
                   fetch-depth: 0
             - name: Use Node.js 12.x
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v2
               with:
                   node-version: 12.x
+            - name: set git credentials
+              run: |
+                  git config --local user.email "d.bannert@anolilab.de"
+                  git config --local user.name "Daniel Bannert"
             - name: check consistent dependencies
               run: node ./common/scripts/install-run-rush.js check
             - name: check changelog
@@ -29,10 +33,12 @@ jobs:
             #        run: node ./common/scripts/install-run-rush.js link
             - name: build
               run: node ./common/scripts/install-run-rush.js rebuild --verbose
-            - name: lint
-              run: node ./common/scripts/install-run-rush.js lint
+            - name: textlint
+              run: node ./common/scripts/install-run-rush.js textlint
+            - name: eslint
+              run: node ./common/scripts/install-run-rush.js eslint
             - name: run unit tests
-              run: node ./common/scripts/install-run-rush.js test:unit
+              run: node ./common/scripts/install-run-rush.js jest
             - name: upload code coverage to codecov
               uses: codecov/codecov-action@v1
             - name: run integration tests
@@ -47,19 +53,19 @@ jobs:
               with:
                   fetch-depth: 0
             - name: Use Node.js 12.x
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v2
               with:
                   node-version: 12.x
+            - name: set git credentials
+              run: |
+                  git config --local user.email "d.bannert@anolilab.de"
+                  git config --local user.name "Daniel Bannert"
             - name: install
               run: node ./common/scripts/install-run-rush.js install
             #      - name: link
             #        run: node ./common/scripts/install-run-rush.js link
             - name: build
               run: node ./common/scripts/install-run-rush.js rebuild --verbose
-            - name: set git credentials
-              run: |
-                  git config --local user.email "action@github.com"
-                  git config --local user.name "GitHub Action"
             - name: set npm credentials
               run: echo //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc
               env:

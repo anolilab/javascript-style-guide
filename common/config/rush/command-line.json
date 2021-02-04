@@ -342,10 +342,10 @@
      "required": false
     },
     {
-      "parameterKind": "flag",
+      "parameterKind": "string",
       "longName": "--edit",
-      "shortName": "-E",
       "description": "A custom flag parameter that is passed to the scripts that are invoked when commitlint",
+      "argumentName": "COMMIT_EDITMSG",
       "associatedCommands": ["commitlint"],
       "required": false
     }

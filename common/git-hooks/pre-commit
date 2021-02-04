@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# The hook should exit with non-zero status after issuing
+# an appropriate message if it wants to stop the commit.
+#
+# https://rushjs.io/pages/maintainer/git_hooks/
+
+echo --------------------------------------------
+echo Starting Git hook: pre-commit
+
+node common/scripts/install-run-rush.js prettier --staged
+
+node common/scripts/install-run-rush.js sort-package-json */*/package.json
+
+echo Finished Git hook: pre-commit
+echo --------------------------------------------

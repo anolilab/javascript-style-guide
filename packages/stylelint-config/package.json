@@ -1,0 +1,46 @@
+{
+    "name": "@anolilab/stylelint-config",
+    "version": "0.0.0",
+    "private": false,
+    "description": "Anolilab Coding Standard for stylelint.",
+    "keywords": [
+        "css",
+        "growcss",
+        "lint",
+        "styled-components",
+        "styleguide",
+        "stylelint"
+    ],
+    "homepage": "http://anolilab.com/nodejs/packages/browserslist-config",
+    "repository": "https://github.com/anolilab/javascript-style-guide.git",
+    "license": "MIT",
+    "author": {
+        "name": "Daniel Bannert",
+        "email": "d.bannert@anolilab.de"
+    },
+    "main": "index.js",
+    "files": [
+        "index.js",
+        "rules",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md"
+    ],
+    "dependencies": {
+        "stylelint-a11y": "^1.2.3",
+        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-no-unsupported-browser-features": "^4.1.4",
+        "stylelint-order": "^4.1.0"
+    },
+    "devDependencies": {
+        "postcss": "^8.2.4",
+        "stylelint": "^13.9.0"
+    },
+    "peerDependencies": {
+        "prettier": "^2.2.1",
+        "stylelint": "^13.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

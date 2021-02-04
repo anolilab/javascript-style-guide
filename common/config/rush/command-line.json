@@ -186,6 +186,13 @@
       "shellCommand": "commitlint"
     },
     {
+      "name": "commitizen",
+      "commandKind": "global",
+      "summary": "Used by the prepare-commit-msg Git hook. This command invokes commitizen to lint text files.",
+      "autoinstallerName": "rush-commitlint",
+      "shellCommand": "cz"
+    },
+    {
       "name": "jest",
       "commandKind": "global",
       "summary": "Used to run jest.",
@@ -347,6 +354,13 @@
       "description": "A custom flag parameter that is passed to the scripts that are invoked when commitlint",
       "argumentName": "COMMIT_EDITMSG",
       "associatedCommands": ["commitlint"],
+      "required": false
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--hook",
+      "description": "A custom flag parameter that is passed to the scripts that are invoked when commitizen",
+      "associatedCommands": ["commitizen"],
       "required": false
     }
   ]

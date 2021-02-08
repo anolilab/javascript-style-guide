@@ -27,17 +27,20 @@
         "LICENSE.md"
     ],
     "dependencies": {
+        "browserslist-config-anolilab": "workspace:^0.0.0",
         "stylelint-a11y": "^1.2.3",
-        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
         "stylelint-no-unsupported-browser-features": "^4.1.4",
-        "stylelint-order": "^4.1.0"
+        "stylelint-order": "^4.1.0",
+        "stylelint-require-units": "^1.0.1",
+        "stylelint-selector-no-empty": "^1.0.7"
     },
     "devDependencies": {
-        "postcss": "^8.2.4",
         "stylelint": "^13.9.0"
     },
     "peerDependencies": {
-        "prettier": "^2.2.1",
         "stylelint": "^13.9.0"
     },
     "publishConfig": {

@@ -20,6 +20,8 @@ const pluginRules = [
     "simple-import-sort",
     "switch-case",
     "unicorn",
+    "you-dont-need-lodash-underscore",
+    "you-dont-need-momentjs",
 
     // Security Rules
     "no-secrets",

@@ -45,7 +45,7 @@ $ npm install browserslist-config-anolilab --save-dev
 Alternatively, add this to `.browserslistrc` file:
 
 ```
-extends browserslist-config-growcss
+extends browserslist-config-anolilab
 ```
 
 or when using [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env)
@@ -57,7 +57,7 @@ or when using [babel-preset-env](https://github.com/babel/babel/tree/master/expe
             'env',
             {
                 targets: {
-                    browsers: require('browserslist-config-growcss'),
+                    browsers: require('browserslist-config-anolilab'),
                 },
             },
         ],

@@ -79,7 +79,7 @@ module.exports = {
         [
             "@anolilab/babel-preset",
             {
-                targets: Object.assign({}, require(browserslist - config - anolilab), {
+                targets: Object.assign({}, require("browserslist-config-anolilab"), {
                     chrome: 42,
                     explorer: 8,
                 }),

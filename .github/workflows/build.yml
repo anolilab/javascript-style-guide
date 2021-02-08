@@ -31,8 +31,8 @@ jobs:
               run: node ./common/scripts/install-run-rush.js install
             #            - name: build
             #              run: node ./common/scripts/install-run-rush.js rebuild --verbose
-            - name: textlint-config
-              run: node ./common/scripts/install-run-rush.js textlint-config
+            - name: textlint
+              run: node ./common/scripts/install-run-rush.js textlint
             - name: eslint
               run: node ./common/scripts/install-run-rush.js eslint
     #            - name: run unit tests

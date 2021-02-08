@@ -31,16 +31,16 @@ jobs:
               run: node ./common/scripts/install-run-rush.js install
             #            - name: build
             #              run: node ./common/scripts/install-run-rush.js rebuild --verbose
-            - name: textlint
-              run: node ./common/scripts/install-run-rush.js textlint
+            - name: textlint-config
+              run: node ./common/scripts/install-run-rush.js textlint-config
             - name: eslint
               run: node ./common/scripts/install-run-rush.js eslint
-            #            - name: run unit tests
-            #              run: node ./common/scripts/install-run-rush.js jest
-            - name: upload code coverage to codecov
-              uses: codecov/codecov-action@v1
-            - name: run integration tests
-              run: node ./common/scripts/install-run-rush.js test:integration
+    #            - name: run unit tests
+    #              run: node ./common/scripts/install-run-rush.js jest
+    #            - name: upload code coverage to codecov
+    #              uses: codecov/codecov-action@v1
+    #            - name: run integration tests
+    #              run: node ./common/scripts/install-run-rush.js test:integration
 
     publish:
         needs: build

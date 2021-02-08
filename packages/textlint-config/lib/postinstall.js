@@ -13,7 +13,7 @@ const writeFileAsync = promisify(fs.writeFile);
 // get the path to the host project.
 const projectPath = path.resolve(process.cwd(), "..", "..", "..");
 
-console.log("Configuring @anolilab/textlint", projectPath, "\n");
+console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
 
 /**
  * Writes .babelrc.js if it doesn't exist. Warns if it exists.

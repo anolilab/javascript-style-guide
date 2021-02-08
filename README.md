@@ -10,5 +10,7 @@ This project is a code style guide of all basic back- and front end project used
 [`@anolilab/eslint-config`](./packages/eslint-config)
 
 [`@anolilab/stylelint-config`](./packages/stylelint-config)
+    - A stylelint shareable config for Anolilab code style.
 
-[`@anolilab/textlint`](./packages/textlint)
+[`@anolilab/textlint`](packages/textlint-config)
+    - A textlint shareable config for Anolilab code style.

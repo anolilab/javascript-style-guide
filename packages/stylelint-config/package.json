@@ -2,14 +2,16 @@
     "name": "@anolilab/stylelint-config",
     "version": "0.0.0",
     "private": false,
-    "description": "Anolilab Coding Standard for stylelint.",
+    "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
         "css",
-        "growcss",
         "lint",
-        "styled-components",
-        "styleguide",
-        "stylelint"
+        "sass",
+        "scss",
+        "style",
+        "stylelint",
+        "stylelint-config",
+        "anolilab"
     ],
     "homepage": "http://anolilab.com/nodejs/packages/browserslist-config",
     "repository": "https://github.com/anolilab/javascript-style-guide.git",
@@ -20,6 +22,7 @@
     },
     "main": "index.js",
     "files": [
+        "lib",
         "index.js",
         "rules",
         "README.md",

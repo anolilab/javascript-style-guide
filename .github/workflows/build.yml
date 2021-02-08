@@ -69,4 +69,4 @@ jobs:
             - name: Bump versions
               run: node ./common/scripts/install-run-rush.js version --bump --target-branch main
             - name: publish
-              run: node ./common/scripts/install-run-rush.js publish -a -b main -p --set-access-level public --include-all
+              run: node ./common/scripts/install-run-rush.js publish -a -b main -p --set-access-level public --include-all --add-commit-details --version-policy production

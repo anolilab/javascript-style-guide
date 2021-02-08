@@ -29,16 +29,14 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: install
               run: node ./common/scripts/install-run-rush.js install
-            #      - name: link
-            #        run: node ./common/scripts/install-run-rush.js link
-            - name: build
-              run: node ./common/scripts/install-run-rush.js rebuild --verbose
+            #            - name: build
+            #              run: node ./common/scripts/install-run-rush.js rebuild --verbose
             - name: textlint
               run: node ./common/scripts/install-run-rush.js textlint
             - name: eslint
               run: node ./common/scripts/install-run-rush.js eslint
-            - name: run unit tests
-              run: node ./common/scripts/install-run-rush.js jest
+            #            - name: run unit tests
+            #              run: node ./common/scripts/install-run-rush.js jest
             - name: upload code coverage to codecov
               uses: codecov/codecov-action@v1
             - name: run integration tests
@@ -62,10 +60,8 @@ jobs:
                   git config --local user.name "Daniel Bannert"
             - name: install
               run: node ./common/scripts/install-run-rush.js install
-            #      - name: link
-            #        run: node ./common/scripts/install-run-rush.js link
-            - name: build
-              run: node ./common/scripts/install-run-rush.js rebuild --verbose
+            #            - name: build
+            #              run: node ./common/scripts/install-run-rush.js rebuild --verbose
             - name: set npm credentials
               run: echo //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc
               env:

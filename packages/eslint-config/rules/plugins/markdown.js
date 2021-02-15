@@ -3,6 +3,7 @@ module.exports = {
     overrides: [
         {
             files: ["*.md", "**/*.md"],
+            processor: "markdown/markdown",
             parserOptions: {
                 ecmacFeatures: {
                     impliedStrict: true,

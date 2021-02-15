@@ -30,10 +30,9 @@ const hasJsxRuntime = (() => {
         require.resolve("react/jsx-runtime.js");
 
         if (process.env.NO_LOGS === undefined) {
-            console.log(`@anolilab/eslint-config found react jsx-runtime. \n
-                Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope". \n
-                If you dont use the new react jsx-runtime in you project, please enable it manually.
-            `);
+            console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
+  Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
+  If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
         }
 
         return true;

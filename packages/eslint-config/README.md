@@ -7,13 +7,12 @@
 To install this config, run the following command.
 
 ```bash
-  npm install eslint @anolilab/eslint-config --save-dev
+  npm install eslint putout @anolilab/eslint-config --save-dev
 ```
 
 ## Usage
 
-If you don't have a `.eslintrc.js`, we will create the file for you after installing `@anolilab/eslint-config`,
-same happens if you use `prettier` in you project, we will create a `.prettierrc.js` if the file don't exist.
+If you don't have a `.eslintrc.js`, we will create the file for you after installing `@anolilab/eslint-config`.
 
 If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, with `@anolilab/eslint-config`.
 
@@ -23,7 +22,7 @@ If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, wi
 
 ```js
 module.exports = {
-    "extends": ["@anolilab/eslint-config"],
+    extends: ["@anolilab/eslint-config"],
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -52,31 +51,31 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 ### Node
 
 ```bash
-npm install --save-dev eslint eslint-plugin-node @anolilab/eslint-config
+npm install --save-dev eslint putout eslint-plugin-node @anolilab/eslint-config
 ```
 
 ### TypeScript
 
 ```bash
-npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin @anolilab/eslint-config
+npm install --save-dev eslint putout typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin @anolilab/eslint-config
 ```
 
 ### React
 
 ```bash
-  npm install --save-dev eslint babel-eslint eslint-plugin-react @anolilab/eslint-config
+  npm install --save-dev eslint putout babel-eslint eslint-plugin-react @anolilab/eslint-config
 ```
 
 or for the use of `TypeScript` in react
 
 ```bash
-npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react @anolilab/eslint-config
+npm install --save-dev eslint putout typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react @anolilab/eslint-config
 ```
 
 ### MDX
 
 ```bash
-npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
+npm install --save-dev eslint putout eslint-plugin-mdx @anolilab/eslint-config
 ```
 
 ### Let [Prettier](https://prettier.io/) handle style-related rules
@@ -216,6 +215,8 @@ Test plugins are loaded based on which testing tools you have listed in `devDepe
     - eslint-plugin-simple-import-sort
     - eslint-plugin-sort-keys-fix
     - eslint-plugin-unicorn
+    - eslint-plugin-you-dont-need-lodash-underscore
+    - eslint-plugin-you-dont-need-momentjs
 
 ## Troubleshooting
 

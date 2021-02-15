@@ -6,11 +6,9 @@
 # https://rushjs.io/pages/maintainer/git_hooks/
 
 echo --------------------------------------------
-echo Starting Git hook: pre-commit
+echo Starting Git hook: commit-msg
 
-node common/scripts/install-run-rush.js prettier --staged
+yarn commitlint --edit $1 || exit $?
 
-node common/scripts/install-run-rush.js sort-package-json
-
-echo Finished Git hook: pre-commit
+echo Finished Git hook: commit-msg
 echo --------------------------------------------

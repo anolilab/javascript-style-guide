@@ -1,7 +1,7 @@
 const isModuleAvailable = require("../../lib/is-module-available");
 const { consoleLog } = require("../../lib/loggers");
 
-let ruleset = "";
+let ruleset;
 
 switch (true) {
     case isModuleAvailable("react"):

@@ -1,11 +1,15 @@
-const { equals, indexOf, pipe, when } = require('ramda');
-
 const isModuleAvailable = require('./is-module-available');
 const { consoleLog } = require('./loggers');
 
 const moduleNotAvailable = (package_) => !isModuleAvailable(package_.split('@')[0]);
 
-const atLatest = when(pipe(indexOf('@'), equals(-1)), (pkg) => `${pkg}@latest`);
+const atLatest = (pkg) => {
+    if (pkg.split('@').indexOf('@') === -1) {
+        return `${pkg}@latest`;
+    }
+
+    return pkg
+}
 
 module.exports = function checkMissing(rules, extraInstallPackage) {
     const notInstalled = rules

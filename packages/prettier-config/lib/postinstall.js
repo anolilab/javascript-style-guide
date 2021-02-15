@@ -7,14 +7,13 @@ if (process.env.CI) {
 const fs = require("fs");
 const path = require("path");
 const { promisify } = require("util");
-const { hasAnyDep } = require("./utils");
 
 const writeFileAsync = promisify(fs.writeFile);
 
 // get the path to the host project.
 const projectPath = path.resolve(process.cwd(), "..", "..", "..");
 
-console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
+console.log("Configuring @anolilab/prettier-config", projectPath, "\n");
 
 /**
  * Writes .prettierrc.js if it doesn't exist. Warns if it exists.
@@ -25,7 +24,7 @@ const writePrettierRc = () => {
 
     if (fs.existsSync(prettierPath) || fs.existsSync(prettierPath.replace('.js', ''))) {
         console.warn(`⚠️  .prettierrc.js already exists;
-Make sure that it includes the following for @anolilab/eslint-config to work as it should:
+Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, null, 4)}\n`);
 
         return Promise.resolve();

@@ -3,7 +3,7 @@
 echo --------------------------------------------
 echo Starting Git hook: prepare-commit-msg
 
-exec < /dev/tty && common/scripts/install-run-rush.js commitizen --hook || true
+exec < /dev/tty && yarn commitizen --hook || true
 
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------

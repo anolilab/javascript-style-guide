@@ -6,35 +6,33 @@ const rules = ["best-practices", "errors", "style", "es6", "variables"];
 
 // Base plugin rules
 const pluginRules = [
-    "array-func",
     "eslint-comments",
-    "html",
     "import",
     "jsdoc",
     "json",
     "markdown",
-    "mdx",
     "optimize-regex",
     "promise",
     "putout",
     "simple-import-sort",
-    "switch-case",
     "unicorn",
     "you-dont-need-lodash-underscore",
     "you-dont-need-momentjs",
 
     // Security Rules
     "no-secrets",
-    "no-unsanitized",
-    "radar",
+    "radar"
 ];
 
 // Optionals rules based on project dependencies
 const depRules = [
+    "html",
+    "mdx",
+    "array-func",
     "redux",
+    "no-unsanitized",
     "lodash",
     ["lodash", "lodash-fp"],
-    "ramda",
     "react",
     ["mdx", "eslint-plugin-react"],
     ["react-a11y", "react"],

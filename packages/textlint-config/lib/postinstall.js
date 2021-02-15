@@ -16,7 +16,7 @@ const projectPath = path.resolve(process.cwd(), "..", "..", "..");
 console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
 
 /**
- * Writes .babelrc.js if it doesn't exist. Warns if it exists.
+ * Writes .textlintrc if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
     const eslintPath = path.join(projectPath, ".textlintrc");
@@ -167,7 +167,7 @@ const writeBabelRc = () => {
 
     if (fs.existsSync(eslintPath)) {
         console.warn(`⚠️  .textlintrc already exists;
-Make sure that it includes the following for @anolilab/textlint'
+Make sure that it includes the following for @anolilab/textlint-config'
 to work as it should: ${content}.`);
 
         return Promise.resolve();

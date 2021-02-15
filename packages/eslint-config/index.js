@@ -16,15 +16,13 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 module.exports = {
     extends: rules
         .map((plugin) => require.resolve(`./rules/${plugin.split("@")[0]}`))
-        .concat(
-            pluginRules.map((plugin) => require.resolve(`./rules/plugins/${plugin.split("@")[0]}`)),
-        ),
+        .concat(pluginRules.map((plugin) => require.resolve(`./rules/plugins/${plugin.split("@")[0]}`))),
     // @see https://www.npmjs.com/package/@rushstack/eslint-plugin-security
     plugins: ["@rushstack/eslint-plugin-security"],
     rules: {
         // This is disabled for tools because, for example, it is a common and safe practice for a tool
         // to read a RegExp from a config file and use it to filter files paths.
-        '@rushstack/security/no-unsafe-regexp': process.env.TRUSTED_TOOL ? 'off' : 'warn',
+        "@rushstack/security/no-unsafe-regexp": process.env.TRUSTED_TOOL ? "off" : "warn",
     },
     parserOptions: {
         ecmaVersion: 12,

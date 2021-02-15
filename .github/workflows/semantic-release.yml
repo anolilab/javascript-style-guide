@@ -20,6 +20,9 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
 
             - name: Use Node.js 12.x
               uses: actions/setup-node@v2

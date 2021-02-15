@@ -96,8 +96,7 @@ module.exports = {
         // Replace 'lines-between-class-members' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
         "lines-between-class-members": "off",
-        "@typescript-eslint/lines-between-class-members":
-            baseStyleRules["lines-between-class-members"],
+        "@typescript-eslint/lines-between-class-members": baseStyleRules["lines-between-class-members"],
 
         // Replace 'no-array-constructor' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
@@ -188,8 +187,7 @@ module.exports = {
         // Replace 'space-before-function-paren' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
         "space-before-function-paren": "off",
-        "@typescript-eslint/space-before-function-paren":
-            baseStyleRules["space-before-function-paren"],
+        "@typescript-eslint/space-before-function-paren": baseStyleRules["space-before-function-paren"],
 
         // Replace 'require-await' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-await.md
@@ -224,9 +222,9 @@ module.exports = {
             baseImportsRules["import/no-extraneous-dependencies"][0],
             {
                 ...baseImportsRules["import/no-extraneous-dependencies"][1],
-                devDependencies: baseImportsRules[
-                    "import/no-extraneous-dependencies"
-                ][1].devDependencies.map((glob) => glob.replace(/\bjs(x?)\b/g, "ts$1")),
+                devDependencies: baseImportsRules["import/no-extraneous-dependencies"][1].devDependencies.map((glob) =>
+                    glob.replace(/\bjs(x?)\b/g, "ts$1"),
+                ),
             },
         ],
     },

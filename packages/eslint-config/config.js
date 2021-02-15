@@ -21,7 +21,7 @@ const pluginRules = [
 
     // Security Rules
     "no-secrets",
-    "radar"
+    "radar",
 ];
 
 // Optionals rules based on project dependencies

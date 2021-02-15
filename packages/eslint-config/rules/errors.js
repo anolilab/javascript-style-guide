@@ -139,13 +139,7 @@ module.exports = {
         "no-unreachable-loop": [
             "error",
             {
-                ignore: [
-                    "WhileStatement",
-                    "DoWhileStatement",
-                    "ForStatement",
-                    "ForInStatement",
-                    "ForOfStatement",
-                ],
+                ignore: ["WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "ForOfStatement"],
             },
         ],
 

@@ -161,14 +161,7 @@ module.exports = {
         "jsx-a11y/no-static-element-interactions": [
             "error",
             {
-                handlers: [
-                    "onClick",
-                    "onMouseDown",
-                    "onMouseUp",
-                    "onKeyPress",
-                    "onKeyDown",
-                    "onKeyUp",
-                ],
+                handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
             },
         ],
 
@@ -177,14 +170,7 @@ module.exports = {
         "jsx-a11y/no-noninteractive-element-interactions": [
             "error",
             {
-                handlers: [
-                    "onClick",
-                    "onMouseDown",
-                    "onMouseUp",
-                    "onKeyPress",
-                    "onKeyDown",
-                    "onKeyUp",
-                ],
+                handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
             },
         ],
 

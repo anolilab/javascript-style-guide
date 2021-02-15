@@ -387,10 +387,7 @@ module.exports = {
 
         // only .jsx files may have JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-        "react/jsx-filename-extension": [
-            "error",
-            { extensions: [".jsx"].concat(hasAnyDep("rect") ? [".tsx"] : []) },
-        ],
+        "react/jsx-filename-extension": ["error", { extensions: [".jsx"].concat(hasAnyDep("rect") ? [".tsx"] : []) }],
 
         // prevent accidental JS comments from being injected into JSX as text
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
@@ -639,9 +636,7 @@ module.exports = {
     settings: {
         "import/resolver": {
             node: {
-                extensions: [".js", ".jsx", ".json"].concat(
-                    hasAnyDep("rect") ? [".ts", ".tsx", ".d.ts"] : [],
-                ),
+                extensions: [".js", ".jsx", ".json"].concat(hasAnyDep("rect") ? [".ts", ".tsx", ".d.ts"] : []),
             },
         },
         react: {

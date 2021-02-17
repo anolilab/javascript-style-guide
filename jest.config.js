@@ -3,4 +3,5 @@ module.exports = {
         "^.+\\.tsx?$": "ts-jest",
     },
     verbose: true,
+    setupFiles: ["<rootDir>/setup-tests.js"]
 };

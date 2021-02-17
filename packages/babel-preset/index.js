@@ -1,4 +1,6 @@
 const { declare } = require("@babel/helper-plugin-utils");
+const isModuleAvailable = require('./lib/is-module-available');
+const missing = require('./lib/missing');
 
 module.exports = declare((api, options) => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
@@ -7,7 +9,7 @@ module.exports = declare((api, options) => {
     const {
         modules = "auto",
         targets = null,
-        removePropTypes,
+        removePropTypes = false,
         looseClasses = false,
         looseComputedProperties = false,
         looseParameters = false,
@@ -23,6 +25,40 @@ module.exports = declare((api, options) => {
         throw new TypeError(
             '@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
         );
+    }
+
+    if (removePropTypes && !react) {
+        throw new Error('"removePropTypes" can\'t be enabled if react is disabled.')
+    }
+
+    let install = []
+
+    if (typescript) {
+        if (!isModuleAvailable('@babel/preset-typescript')) {
+            install.push('@babel/preset-typescript')
+        }
+
+        if (!isModuleAvailable('@babel/plugin-transform-typescript')) {
+            install.push('@babel/plugin-transform-typescript')
+        }
+
+        if (!isModuleAvailable('@babel/plugin-syntax-jsx')) {
+            install.push('@babel/plugin-syntax-jsx')
+        }
+    }
+
+    if (react) {
+        if (!isModuleAvailable('@babel/preset-react')) {
+            install.push('@babel/preset-react')
+        }
+
+        if (removePropTypes && !isModuleAvailable('babel-plugin-transform-react-remove-prop-types')) {
+            install.push('babel-plugin-transform-react-remove-prop-types')
+        }
+    }
+
+    if (install.length !== 0) {
+        missing(install)
     }
 
     const debug = typeof options.debug === "boolean" ? options.debug : false;
@@ -116,7 +152,7 @@ module.exports = declare((api, options) => {
                       ),
                   ]
                 : null,
-
+            require('@babel/plugin-proposal-export-namespace-from'),
             typescript ? require("@babel/plugin-transform-typescript") : null,
             // Transform dynamic import to require
             [
@@ -125,6 +161,7 @@ module.exports = declare((api, options) => {
                     noInterop: true,
                 },
             ],
+            typescript ? require('@babel/plugin-syntax-jsx') : null,
             // Adds syntax support for import()
             require("@babel/plugin-syntax-dynamic-import"),
             require("@babel/plugin-transform-property-mutators"),
@@ -132,6 +169,7 @@ module.exports = declare((api, options) => {
             require("@babel/plugin-transform-property-literals"),
             require("@babel/plugin-proposal-nullish-coalescing-operator"),
             require("@babel/plugin-proposal-numeric-separator"),
+            require("@babel/plugin-syntax-bigin"),
             require("@babel/plugin-proposal-optional-catch-binding"),
             require("@babel/plugin-proposal-optional-chaining"),
             [

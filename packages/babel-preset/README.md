@@ -2,7 +2,7 @@
 
 > A babel preset for transforming your JavaScript for Anolilab.
 
-Currently contains transforms for all stage 4 (ES2018) and stage 3 syntax.
+Currently, contains transforms for all stage 4 (ES2018) and stage 3 syntax.
 Additionally, stage 4 syntax that is excluded is as follows:
 
 -   generators: regenerator-runtime is too heavyweight for our use.
@@ -13,7 +13,7 @@ Additionally, stage 4 syntax that is excluded is as follows:
 ## Install
 
 ```sh
-$ npm install --save-dev @anolilab/babel-preset
+$ npm install --save-dev @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
 ## Usage
@@ -106,6 +106,12 @@ You may override our default debug option by providing your own `debug` key.
 
 ## Typescript Mode
 
+To use this preset please install
+
+```sh
+$ npm install --save-dev @babel/preset-typescript @babel/plugin-syntax-jsx
+```
+
 This preset can be configured to support `typescript`, using `"typescript": true` in our preset.
 
 ```json
@@ -122,6 +128,12 @@ This preset can be configured to support `typescript`, using `"typescript": true
 ```
 
 ## React Mode
+
+To use this preset please install
+
+```sh
+$ npm install --save-dev @babel/preset-react
+```
 
 This preset can be configured to support `react`, using `"react": true` in our preset.
 

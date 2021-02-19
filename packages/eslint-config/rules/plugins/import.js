@@ -260,7 +260,7 @@ module.exports = {
         "import/no-unused-modules": [
             "error",
             {
-                ignoreExports: [],
+                // ignoreExports: [], not used right now
                 missingExports: true,
                 unusedExports: true,
             },

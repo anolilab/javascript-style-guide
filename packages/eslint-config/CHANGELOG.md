@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [1.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.1...@anolilab/eslint-config@1.1.2) (2021-02-19)
+
+
+### Bug Fixes
+
+* disable ignoreExports in import.js ([dc680fb](https://github.com/anolilab/javascript-style-guide/commit/dc680fb433b7e04c66343a20740a60b07efa29ef))
+
 ### @anolilab/eslint-config [1.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.0...@anolilab/eslint-config@1.1.1) (2021-02-19)
 
 

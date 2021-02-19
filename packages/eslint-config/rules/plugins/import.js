@@ -124,9 +124,8 @@ module.exports = {
         "import/no-duplicates": "error",
 
         // disallow namespace imports
-        // TODO: enable?
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-namespace.md
-        "import/no-namespace": "off",
+        "import/no-namespace": "error",
 
         // Ensure consistent use of file extension within the import path
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
@@ -214,8 +213,7 @@ module.exports = {
 
         // This rule enforces that all exports are declared at the bottom of the file.
         // https://github.com/benmosher/eslint-plugin-import/blob/98acd6afd04dcb6920b81330114e146dc8532ea4/docs/rules/exports-last.md
-        // TODO: enable?
-        "import/exports-last": "off",
+        "import/exports-last": "error",
 
         // Reports when named exports are not grouped together in a single export declaration
         // or when multiple assignments to CommonJS module.exports or exports object are present
@@ -259,9 +257,8 @@ module.exports = {
 
         // Reports modules without any exports, or with unused exports
         // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
-        // TODO: enable, semver-major
         "import/no-unused-modules": [
-            "off",
+            "error",
             {
                 ignoreExports: [],
                 missingExports: true,

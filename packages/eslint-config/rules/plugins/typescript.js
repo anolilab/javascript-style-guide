@@ -1,7 +1,7 @@
 const { rules: baseBestPracticesRules } = require("../best-practices");
 const { rules: baseErrorsRules } = require("../errors");
 const { rules: baseES6Rules } = require("../es6");
-const { rules: baseImportsRules } = require("../imports");
+const { rules: baseImportsRules } = require("./import");
 const { rules: baseStyleRules } = require("../style");
 const { rules: baseVariablesRules } = require("../variables");
 

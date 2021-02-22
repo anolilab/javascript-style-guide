@@ -13,7 +13,6 @@ const pluginRules = [
     "markdown",
     "optimize-regex",
     "promise",
-    "putout",
     "simple-import-sort",
     "unicorn",
     "you-dont-need-lodash-underscore",

@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [1.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.2...@anolilab/eslint-config@1.1.3) (2021-02-22)
+
+
+### Bug Fixes
+
+* removed putout ([e238e09](https://github.com/anolilab/javascript-style-guide/commit/e238e090a23a2d47995b264450dd224267d77978))
+
 ### @anolilab/eslint-config [1.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.1...@anolilab/eslint-config@1.1.2) (2021-02-19)
 
 

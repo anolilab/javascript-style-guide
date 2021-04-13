@@ -1,3 +1,10 @@
+### @anolilab/stylelint-config [1.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@1.0.4...@anolilab/stylelint-config@1.0.5) (2021-04-13)
+
+
+### Bug Fixes
+
+* fixed stylelint config loading and added new test ([567cf25](https://github.com/anolilab/javascript-style-guide/commit/567cf254b02f0f74587f2ed81b537f075423ef41))
+
 ### @anolilab/stylelint-config [1.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@1.0.3...@anolilab/stylelint-config@1.0.4) (2021-04-13)
 
 

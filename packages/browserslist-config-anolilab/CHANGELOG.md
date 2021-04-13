@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@1.0.1...browserslist-config-anolilab@1.0.2) (2021-04-13)
+
+
+### Bug Fixes
+
+* fixed versions in browserlist config to get more users, added use of env config ([8ae906f](https://github.com/anolilab/javascript-style-guide/commit/8ae906f595326005eeacb15985654beaf0f21970))
+
 ### browserslist-config-anolilab [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@1.0.0...browserslist-config-anolilab@1.0.1) (2021-02-15)
 
 

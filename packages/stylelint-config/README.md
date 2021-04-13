@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-npm install --dev-save stylelint @anolilab/stylelint-config
+npm install --dev-save browserslist stylelint @anolilab/stylelint-config
 ```
 
 ## Usage
@@ -21,3 +21,13 @@ module.exports = {
     ]
 };
 ```
+
+Add this command to your `package.json` scripts section
+
+```json
+"scripts": {
+    "lint:css": "stylelint '**/*.{js,jsx,tsx,ts,less,css,scss,sass}'",
+    "lint:css:fix": "stylelint '**/*.{js,jsx,tsx,ts,less,css,scss,sass}' --fix",
+```
+
+> Note: this package use `browserslist` to detect the correct browserslist config.

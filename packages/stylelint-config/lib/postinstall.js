@@ -38,9 +38,30 @@ to work as it should: { presets: ["@anolilab/stylelint-config"] }.`);
     return writeFileAsync(eslintPath, content, "utf-8");
 };
 
+/**
+ * Writes .stylelintignore if it doesn't exist. Warns if it exists.
+ */
+const writeStylelintIgnore = () => {
+    const eslintPath = path.join(projectPath, ".stylelintignore");
+    const content = `package.json
+package-lock.json
+yarn.lock
+build/**
+node_modules/**
+.next/**
+`;
+
+    if (fs.existsSync(eslintPath)) {
+        return Promise.resolve();
+    }
+
+    return writeFileAsync(eslintPath, content, "utf-8");
+};
+
 (async () => {
     try {
         await writeStylelintRc();
+        await writeStylelintIgnore();
 
         console.log("😎  Everything went well, have fun!");
 

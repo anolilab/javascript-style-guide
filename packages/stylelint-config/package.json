@@ -29,6 +29,9 @@
         "CHANGELOG.md",
         "LICENSE.md"
     ],
+    "scripts": {
+        "postinstall": "node lib/postinstall.js"
+    },
     "dependencies": {
         "browserslist-config-anolilab": "1.0.1",
         "stylelint-a11y": "^1.2.3",

@@ -7,7 +7,7 @@
 To install this config, run the following command.
 
 ```bash
-  npm install eslint putout @anolilab/eslint-config --save-dev
+  npm install eslint @anolilab/eslint-config --save-dev
 ```
 
 ## Usage

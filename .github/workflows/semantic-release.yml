@@ -2,55 +2,57 @@
 
 name: "Semantic Release"
 
-on:
+on: # yamllint disable-line rule:truthy
     push:
         branches:
-            - +([0-9])?(.{+([0-9]),x}).x
-            - main
-            - next
-            - next-major
-            - alpha
-            - beta
+            - "([0-9])?(.{+([0-9]),x}).x"
+            - "main"
+            - "next"
+            - "next-major"
+            - "alpha"
+            - "beta"
 
 jobs:
     semantic-release:
         name: "Semantic Release"
 
-        runs-on: ubuntu-latest
+        if: "github.repository != 'narrowspark/php-library-template'"
+
+        runs-on: "ubuntu-latest"
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: "actions/checkout@v2"
               with:
                   fetch-depth: 0
                   persist-credentials: false
 
-            - name: Use Node.js 12.x
-              uses: actions/setup-node@v2
+            - name: "Use Node.js 12.x"
+              uses: "actions/setup-node@v2"
               with:
-                  node-version: 12.x
+                  node-version: "12.x"
 
-            - name: set git credentials
+            - name: "set git credentials"
               run: |
                   git config --local user.email "d.bannert@anolilab.de"
                   git config --local user.name "Daniel Bannert"
 
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+            - name: "Get yarn cache directory path"
+              id: "yarn-cache-dir-path"
+              run: "echo \"::set-output name=dir::$(yarn config get cacheFolder)\""
 
-            - uses: actions/cache@v2
-              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+            - uses: "actions/cache@v2"
+              id: "yarn-cache" # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
+                  key: "${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}"
                   restore-keys: |
                       ${{ runner.os }}-yarn-
 
-            - name: install
-              run: yarn install
+            - name: "install"
+              run: "yarn install"
 
             - name: "Semantic Release"
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-              run: yarn multi-semantic-release
+                  GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                  NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
+              run: "yarn multi-semantic-release"

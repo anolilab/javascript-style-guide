@@ -1,13 +1,24 @@
 # https://github.com/probot/settings
 
 branches:
-    - name: master
+    - name: "main"
+
+      # https://docs.github.com/en/rest/reference/repos#delete-branch-protection
+      # https://docs.github.com/en/rest/reference/repos#update-branch-protection
+
       protection:
           enforce_admins: false
+
           required_pull_request_reviews:
               dismiss_stale_reviews: true
               require_code_owner_reviews: true
               required_approving_review_count: 1
+
+          required_status_checks:
+              contexts: []
+
+              strict: false
+
           restrictions:
               # https://developer.github.com/v3/repos/branches/#parameters-1
 
@@ -15,83 +26,93 @@ branches:
               # Set to null to disable when using this configuration for a repository on a personal account.
 
               apps:
-                  - "dependabot-preview"
+                  - "semantic-release-bot"
+                  - "renovate"
               teams: []
+#               users: []
+
+# https://docs.github.com/en/rest/reference/issues#create-a-label
+# https://docs.github.com/en/rest/reference/issues#update-a-label
 
 labels:
-    - name: Added
+    - name: "Added"
       description: "Changelog Added"
-      color: 90db3f
+      color: "90db3f"
 
-    - name: Changed
+    - name: "Changed"
       description: "Changelog Changed"
-      color: fbca04
+      color: "fbca04"
 
     - name: "Dependency update"
       description: "Pull requests that update a dependency file"
-      color: e1f788
+      color: "e1f788"
 
-    - name: Deprecated
+    - name: "Deprecated"
       description: "Changelog Deprecated"
-      color: 1d76db
+      color: "1d76db"
 
-    - name: Duplicate
-      color: 000000
+    - name: "Duplicate"
+      color: "000000"
 
-    - name: Enhancement
-      color: d7e102
+    - name: "Enhancement"
+      color: "d7e102"
 
-    - name: Fixed
+    - name: "Stale"
+      color: "000000"
+
+    - name: "Fixed"
       description: "Changelog Fixed"
-      color: 9ef42e
+      color: "9ef42e"
 
-    - name: Removed
+    - name: "Removed"
       description: "Changelog Removed"
-      color: e99695
+      color: "e99695"
 
-    - name: Security
+    - name: "Security"
       description: "Changelog Security"
-      color: ed3e3b
+      color: "ed3e3b"
 
     - name: "Status: Good first issue"
-      color: d7e102
+      color: "d7e102"
 
     - name: "Status: Help wanted"
-      color: 85d84e
+      color: "85d84e"
 
     - name: "Status: Needs Work"
-      color: fad8c7
+      color: "fad8c7"
 
     - name: "Status: Waiting for feedback"
-      color: fef2c0
+      color: "fef2c0"
 
     - name: "Type: BC Break"
-      color: b60205
+      color: "b60205"
 
     - name: "Type: Bug"
-      color: b60205
+      color: "b60205"
 
     - name: "Type: Critical"
-      color: ff8c00
+      color: "ff8c00"
 
     - name: "Type: RFC"
-      color: fbca04
+      color: "fbca04"
 
     - name: "Type: Unconfirmed"
-      color: 444444
+      color: "444444"
 
     - name: "Type: Wontfix"
-      color: 000000
+      color: "000000"
 
     - name: "semantic-release"
-      color: ff0000
+      color: "ff0000"
+
+# https://docs.github.com/en/rest/reference/repos#update-a-repository
 
 repository:
-    allow_merge_commit: false
-    allow_rebase_merge: true
+    allow_merge_commit: true
+    allow_rebase_merge: false
     allow_squash_merge: false
     archived: false
-    default_branch: master
+    default_branch: "main"
     delete_branch_on_merge: true
     description: "This project is a code style guide of all basic back- and front end project used at Anolilab."
     has_downloads: true

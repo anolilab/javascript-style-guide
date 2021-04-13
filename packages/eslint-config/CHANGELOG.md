@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [1.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.3...@anolilab/eslint-config@1.1.4) (2021-04-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-promise to v5 ([4b0a156](https://github.com/anolilab/javascript-style-guide/commit/4b0a156b1730c7b581b5900df1cb3e12de2dea90))
+
 ### @anolilab/eslint-config [1.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.2...@anolilab/eslint-config@1.1.3) (2021-02-22)
 
 

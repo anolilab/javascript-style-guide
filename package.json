@@ -18,14 +18,15 @@
     ],
     "scripts": {
         "postinstall": "husky install",
-        "jest": "jest",
         "jest:coverage": "jest --coverageDirectory ./coverage --coverage",
         "lint:staged": "lint-staged",
         "lint:styles": "stylelint",
         "lint:text": "textlint ./.build/ISSUE_TEMPLATE/** ./src/** ./docs/** ./README.md ./UPGRADE.md --dry-run",
         "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
         "sort-package-json": "sort-package-json packages/**/package.json",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest",
+        "test:coverage": "jest",
+        "test:stylelint": "stylelint --formatter verbose --config ./packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css --syntax css"
     },
     "commitlint": {
         "extends": [

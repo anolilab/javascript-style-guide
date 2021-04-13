@@ -42,7 +42,7 @@ jobs:
               run: "yarn install"
 
             - name: "test and coverage"
-              run: "yarn run jest:coverage"
+              run: "yarn run test:coverage"
 
             - name: "test stylelint"
-              run: "stylelint --formatter verbose --config ./packages/stylelint-config/index.js ./packages/**/*.css --syntax css"
+              run: "yarn test:stylelint"

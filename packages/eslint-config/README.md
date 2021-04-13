@@ -51,31 +51,31 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 ### Node
 
 ```bash
-npm install --save-dev eslint putout eslint-plugin-node @anolilab/eslint-config
+npm install --save-dev eslint eslint-plugin-node @anolilab/eslint-config
 ```
 
 ### TypeScript
 
 ```bash
-npm install --save-dev eslint putout typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin @anolilab/eslint-config
+npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin @anolilab/eslint-config
 ```
 
 ### React
 
 ```bash
-  npm install --save-dev eslint putout babel-eslint eslint-plugin-react @anolilab/eslint-config
+  npm install --save-dev eslint babel-eslint eslint-plugin-react @anolilab/eslint-config
 ```
 
 or for the use of `TypeScript` in react
 
 ```bash
-npm install --save-dev eslint putout typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react @anolilab/eslint-config
+npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react @anolilab/eslint-config
 ```
 
 ### MDX
 
 ```bash
-npm install --save-dev eslint putout eslint-plugin-mdx @anolilab/eslint-config
+npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
 ```
 
 ### Let [Prettier](https://prettier.io/) handle style-related rules
@@ -200,7 +200,6 @@ Test plugins are loaded based on which testing tools you have listed in `devDepe
 
 ### List of used plugins
 
-    - @putout/plugin-apply-shorthand-properties
     - eslint-import-resolver-node
     - eslint-plugin-compat
     - eslint-plugin-eslint-comments
@@ -210,7 +209,6 @@ Test plugins are loaded based on which testing tools you have listed in `devDepe
     - eslint-plugin-no-secrets
     - eslint-plugin-optimize-regex
     - eslint-plugin-promise
-    - eslint-plugin-putout
     - eslint-plugin-radar
     - eslint-plugin-simple-import-sort
     - eslint-plugin-sort-keys-fix

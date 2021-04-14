@@ -172,6 +172,7 @@ module.exports = declare((api, options) => {
             require("@babel/plugin-syntax-bigin"),
             require("@babel/plugin-proposal-optional-catch-binding"),
             require("@babel/plugin-proposal-optional-chaining"),
+            require("@babel/plugin-syntax-bigint"),
             [
                 require("@babel/plugin-proposal-object-rest-spread"),
                 {

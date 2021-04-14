@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [1.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.4...@anolilab/eslint-config@1.1.5) (2021-04-14)
+
+
+### Bug Fixes
+
+* added missing root key to the eslint config ([024a8c2](https://github.com/anolilab/javascript-style-guide/commit/024a8c2ad3a3025f561b3bbc7ca291bc99536625))
+
 ### @anolilab/eslint-config [1.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.3...@anolilab/eslint-config@1.1.4) (2021-04-13)
 
 

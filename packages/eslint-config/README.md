@@ -64,7 +64,7 @@ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-e
 ### React
 
 ```bash
-  npm install --save-dev eslint babel-eslint eslint-plugin-react @anolilab/eslint-config
+  npm install --save-dev eslint babel-eslint eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
 ```
 
 or for the use of `TypeScript` in react

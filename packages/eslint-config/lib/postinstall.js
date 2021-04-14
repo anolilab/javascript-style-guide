@@ -22,6 +22,7 @@ console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
 const writeEslintRc = () => {
     const eslintPath = path.join(projectPath, ".eslintrc.js");
     const content = `module.exports = {
+    root: true,
     extends: ["@anolilab/eslint-config"],
     env: {
         // Your environments (which contains several predefined global variables)

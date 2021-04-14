@@ -22,6 +22,7 @@ If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, wi
 
 ```js
 module.exports = {
+    root: true,
     extends: ["@anolilab/eslint-config"],
     env: {
         // Your environments (which contains several predefined global variables)
@@ -69,7 +70,17 @@ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-e
 or for the use of `TypeScript` in react
 
 ```bash
-npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react @anolilab/eslint-config
+npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
+```
+
+Please extend the `.eslintrc.js` file with the correct `tsconfig.js` path.
+
+```js
+module.exports = {
+    parserOptions: {
+        project: "./tsconfig.eslint.json",
+    },
+}
 ```
 
 ### MDX

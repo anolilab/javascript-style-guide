@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [1.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.5...@anolilab/eslint-config@1.1.6) (2021-04-17)
+
+
+### Bug Fixes
+
+* fixed missing plugin call of unicorn ([ae7bab6](https://github.com/anolilab/javascript-style-guide/commit/ae7bab624fd0ff53c6e9b222b512da94e00aa293))
+
 ### @anolilab/eslint-config [1.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.4...@anolilab/eslint-config@1.1.5) (2021-04-14)
 
 

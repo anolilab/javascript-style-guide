@@ -1,4 +1,4 @@
-module.exports = {
+const arrayFunc = {
     plugins: ["array-func"],
     extends: ["plugin:array-func/recommended"],
     rules: {
@@ -10,3 +10,5 @@ module.exports = {
         "array-func/prefer-flat-map": 0,
     },
 };
+
+export default arrayFunc

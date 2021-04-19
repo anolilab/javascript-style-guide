@@ -1,4 +1,4 @@
-module.exports = {
+const style = {
     rules: {
         // enforce line breaks after opening and before closing array brackets
         // https://eslint.org/docs/rules/array-bracket-newline
@@ -147,7 +147,7 @@ module.exports = {
         // https://eslint.org/docs/rules/indent
         indent: [
             "error",
-            2,
+            4,
             {
                 SwitchCase: 1,
                 VariableDeclarator: 1,
@@ -625,3 +625,5 @@ module.exports = {
         "wrap-regex": "off",
     },
 };
+
+export default style

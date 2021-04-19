@@ -1,4 +1,4 @@
-module.exports = {
+const unicorn = {
     plugins: [
         "unicorn"
     ],
@@ -35,6 +35,7 @@ module.exports = {
         "unicorn/no-null": "error",
         "unicorn/no-object-as-default-parameter": "error",
         "unicorn/no-process-exit": "error",
+        "unicorn/no-static-only-class": "error",
         "unicorn/no-this-assignment": "error",
         "unicorn/no-unreadable-array-destructuring": "error",
         "unicorn/no-unsafe-regex": "off",
@@ -45,6 +46,7 @@ module.exports = {
         "unicorn/numeric-separators-style": "error",
         "unicorn/prefer-add-event-listener": "error",
         "unicorn/prefer-array-find": "error",
+        "unicorn/prefer-array-flat": "error",
         "unicorn/prefer-array-flat-map": "error",
         "unicorn/prefer-array-index-of": "error",
         "unicorn/prefer-array-some": "error",
@@ -71,6 +73,7 @@ module.exports = {
         "unicorn/prefer-string-slice": "error",
         "unicorn/prefer-string-starts-ends-with": "error",
         "unicorn/prefer-string-trim-start-end": "error",
+        "unicorn/prefer-switch": "error",
         "unicorn/prefer-ternary": "error",
         "unicorn/prefer-type-error": "error",
         "unicorn/prevent-abbreviations": "error",
@@ -78,3 +81,5 @@ module.exports = {
         "unicorn/throw-new-error": "error",
     },
 };
+
+export default unicorn

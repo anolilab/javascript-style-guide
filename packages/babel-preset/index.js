@@ -1,13 +1,13 @@
-const { declare } = require("@babel/helper-plugin-utils");
-const isModuleAvailable = require('./lib/is-module-available');
-const missing = require('./lib/missing');
+import { declare } from '@babel/helper-plugin-utils';
+import isModuleAvailable from './lib/is-module-available.js';
+import missing from './lib/missing.js';
 
-module.exports = declare((api, options) => {
+const bable = declare((api, options) => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
-    api.assertVersion("^7.0.0");
+    api.assertVersion('^7.13');
 
     const {
-        modules = "auto",
+        modules = 'auto',
         targets = null,
         removePropTypes = false,
         looseClasses = false,
@@ -21,14 +21,14 @@ module.exports = declare((api, options) => {
         runtimeHelpersUseESModules = !modules,
     } = options;
 
-    if (typeof modules !== "undefined" && typeof modules !== "boolean" && modules !== "auto") {
+    if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
         throw new TypeError(
             '@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
         );
     }
 
     if (removePropTypes && !react) {
-        throw new Error('"removePropTypes" can\'t be enabled if react is disabled.')
+        throw new Error('removePropTypes can\'t be enabled if react is disabled.')
     }
 
     let install = []
@@ -61,54 +61,54 @@ module.exports = declare((api, options) => {
         missing(install)
     }
 
-    const debug = typeof options.debug === "boolean" ? options.debug : false;
+    const debug = typeof options.debug === 'boolean' ? options.debug : false;
     const development =
-        typeof options.development === "boolean"
+        typeof options.development === 'boolean'
             ? options.development
-            : api.cache.using(() => process.env.NODE_ENV === "development");
+            : process.env.NODE_ENV === 'development';
 
     return {
         presets: [
             [
-                require("@babel/preset-env"),
+                '@babel/preset-env',
                 {
                     debug,
-                    exclude: ["transform-async-to-generator", "transform-regenerator"],
-                    modules: modules === false ? false : "auto",
+                    exclude: ['transform-async-to-generator', 'transform-regenerator'],
+                    modules: modules === false ? false : 'auto',
                     targets: targets,
                 },
             ],
             typescript
                 ? [
-                      require("@babel/preset-typescript"),
+                      '@babel/preset-typescript',
                       {
                           allExtensions: true,
                           isTSX: true,
                       },
                   ]
                 : null,
-            react ? [require("@babel/preset-react"), { development }] : null,
+            react ? ['@babel/preset-react', { development }] : null,
         ].filter(Boolean),
         plugins: [
             // class { handleClick = () => { } }
             // Enable loose mode to use assignment instead of defineProperty
             // See discussion in https://github.com/facebook/create-react-app/issues/4263
             [
-                require("@babel/plugin-proposal-class-properties"),
+                '@babel/plugin-proposal-class-properties',
                 {
                     loose: true,
                 },
             ],
             looseClasses
                 ? [
-                      require("@babel/plugin-transform-classes"),
+                      '@babel/plugin-transform-classes',
                       {
                           loose: true,
                       },
                   ]
                 : null,
             [
-                require("@babel/plugin-proposal-decorators"),
+                '@babel/plugin-proposal-decorators',
                 {
                     legacy: true,
                 },
@@ -116,7 +116,7 @@ module.exports = declare((api, options) => {
             // https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose
             looseComputedProperties
                 ? [
-                      require("@babel/plugin-transform-computed-properties"),
+                      '@babel/plugin-transform-computed-properties',
                       {
                           loose: true,
                       },
@@ -125,7 +125,7 @@ module.exports = declare((api, options) => {
             // https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose
             looseParameters
                 ? [
-                      require("@babel/plugin-transform-parameters"),
+                      '@babel/plugin-transform-parameters',
                       {
                           loose: true,
                       },
@@ -134,7 +134,7 @@ module.exports = declare((api, options) => {
             // https://babeljs.io/docs/en/next/babel-plugin-transform-template-literals.html#loose
             looseTemplateLiterals
                 ? [
-                      require("@babel/plugin-transform-template-literals"),
+                      '@babel/plugin-transform-template-literals',
                       {
                           loose: false,
                       },
@@ -142,54 +142,50 @@ module.exports = declare((api, options) => {
                 : null,
             react && removePropTypes
                 ? [
-                      require("babel-plugin-transform-react-remove-prop-types"),
+                      'babel-plugin-transform-react-remove-prop-types',
                       Object.assign(
                           {
-                              mode: "wrap",
-                              ignoreFilenames: ["node_modules"],
+                              mode: 'wrap',
+                              ignoreFilenames: ['node_modules'],
                           },
                           removePropTypes,
                       ),
                   ]
                 : null,
-            require('@babel/plugin-proposal-export-namespace-from'),
-            typescript ? require("@babel/plugin-transform-typescript") : null,
+            '@babel/plugin-proposal-export-namespace-from',
+            typescript ? '@babel/plugin-transform-typescript' : null,
             // Transform dynamic import to require
             [
-                require("babel-plugin-dynamic-import-node"),
+                'babel-plugin-dynamic-import-node',
                 {
                     noInterop: true,
                 },
             ],
-            typescript ? require('@babel/plugin-syntax-jsx') : null,
+            typescript ? '@babel/plugin-syntax-jsx' : null,
             // Adds syntax support for import()
-            require("@babel/plugin-syntax-dynamic-import"),
-            require("@babel/plugin-transform-property-mutators"),
-            require("@babel/plugin-transform-member-expression-literals"),
-            require("@babel/plugin-transform-property-literals"),
-            require("@babel/plugin-proposal-nullish-coalescing-operator"),
-            require("@babel/plugin-proposal-numeric-separator"),
-            require("@babel/plugin-syntax-bigin"),
-            require("@babel/plugin-proposal-optional-catch-binding"),
-            require("@babel/plugin-proposal-optional-chaining"),
-            require("@babel/plugin-syntax-bigint"),
+            '@babel/plugin-syntax-dynamic-import',
+            '@babel/plugin-transform-property-mutators',
+            '@babel/plugin-transform-member-expression-literals',
+            '@babel/plugin-transform-property-literals',
+            '@babel/plugin-proposal-nullish-coalescing-operator',
+            '@babel/plugin-proposal-numeric-separator',
+            '@babel/plugin-proposal-optional-catch-binding',
+            '@babel/plugin-proposal-optional-chaining',
+            '@babel/plugin-syntax-bigint',
             [
-                require("@babel/plugin-proposal-object-rest-spread"),
+                '@babel/plugin-proposal-object-rest-spread',
                 {
                     useBuiltIns: true,
                 },
             ],
             // https://babeljs.io/docs/en/babel-plugin-syntax-async-generators
-            require("@babel/plugin-syntax-async-generators"),
-            // fast-async is a Babel plugin that implements the ES7 keywords async and await
-            // using syntax transformation at compile-time, rather than generators.
-            require("fast-async"),
+            '@babel/plugin-syntax-async-generators',
             // Experimental macros support. Will be documented after it's had some time
             // in the wild.
-            require("babel-plugin-macros"),
+            'babel-plugin-macros',
             transformRuntime
                 ? [
-                      require("@babel/plugin-transform-runtime"),
+                      '@babel/plugin-transform-runtime',
                       {
                           absoluteRuntime: false,
                           corejs: false,
@@ -203,3 +199,5 @@ module.exports = declare((api, options) => {
         ].filter(Boolean),
     };
 });
+
+export default bable

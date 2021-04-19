@@ -1,5 +1,5 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-module.exports = {
+const reactHooks = {
     plugins: ["react-hooks"],
 
     parserOptions: {
@@ -18,3 +18,5 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error",
     },
 };
+
+export default reactHooks

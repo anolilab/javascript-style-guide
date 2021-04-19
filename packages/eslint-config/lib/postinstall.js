@@ -4,23 +4,23 @@ if (process.env.CI) {
     process.exit();
 }
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
-const { hasAnyDep } = require("./utils");
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
+import { hasAnyDep } from './utils.js';
 
-const writeFileAsync = promisify(fs.writeFile);
+const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = path.resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
+console.log('Configuring @anolilab/eslint-config', projectPath, '\n');
 
 /**
- * Writes .eslintrc.js if it doesn't exist. Warns if it exists.
+ * Writes .eslintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeEslintRc = () => {
-    const eslintPath = path.join(projectPath, ".eslintrc.js");
+    const eslintPath = join(projectPath, '.eslintrc.cjs');
     const content = `module.exports = {
     root: true,
     extends: ["@anolilab/eslint-config"],
@@ -44,22 +44,22 @@ const writeEslintRc = () => {
 };
 `;
 
-    if (fs.existsSync(eslintPath)) {
-        console.warn(`⚠️  .eslintrc.js already exists;
+    if (existsSync(eslintPath)) {
+        console.warn(`⚠️  .eslintrc.cjs already exists;
 Make sure that it includes the following for @anolilab/eslint-config'
 to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(eslintPath, content, 'utf-8');
 };
 
 /**
- * Writes .prettierrc.js if it doesn't exist. Warns if it exists.
+ * Writes .prettierrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = () => {
-    const prettierPath = path.join(projectPath, ".prettierrc.js");
+    const prettierPath = join(projectPath, '.prettierrc.cjs');
     const content = {
         // max 120 characters per line
         printWidth: 120,
@@ -72,17 +72,17 @@ const writePrettierRc = () => {
         // use single quotes
         singleQuote: false,
         // object's key is quoted only when necessary
-        quoteProps: "as-needed",
+        quoteProps: 'as-needed',
         // use double quotes instead of single quotes in jsx
         jsxSingleQuote: false,
         // no comma at the end
-        trailingComma: "all",
+        trailingComma: 'all',
         // spaces are required at the beginning and end of the braces
         bracketSpacing: true,
         // end tag of jsx need to wrap
         jsxBracketSameLine: false,
         // brackets are required for arrow function parameter, even when there is only one parameter
-        arrowParens: "always",
+        arrowParens: 'always',
         // format the entire contents of the file
         rangeStart: 0,
         rangeEnd: Infinity,
@@ -91,18 +91,18 @@ const writePrettierRc = () => {
         // No need to automatically insert @prettier at the beginning of the file
         insertPragma: false,
         // use default break criteria
-        proseWrap: "preserve",
+        proseWrap: 'preserve',
         // decide whether to break the html according to the display style
-        htmlWhitespaceSensitivity: "css",
+        htmlWhitespaceSensitivity: 'css',
         // vue files script and style tags indentation
         vueIndentScriptAndStyle: false,
         // lf for newline
-        endOfLine: "lf",
+        endOfLine: 'lf',
         // formats quoted code embedded
-        embeddedLanguageFormatting: "auto",
+        embeddedLanguageFormatting: 'auto',
     };
 
-    if (fs.existsSync(prettierPath) || fs.existsSync(prettierPath.replace('.js', ''))) {
+    if (existsSync(prettierPath) || existsSync(prettierPath.replace('.js', ''))) {
         console.warn(`⚠️  .prettierrc.js already exists;
 Make sure that it includes the following for @anolilab/eslint-config to work as it should:
 ${JSON.stringify(content, null, 4)}\n`);
@@ -113,7 +113,7 @@ ${JSON.stringify(content, null, 4)}\n`);
     return writeFileAsync(
         prettierPath,
         `module.exports = ${JSON.stringify(content, null, 2)}\n`,
-        "utf-8",
+        'utf-8',
     );
 };
 
@@ -121,9 +121,9 @@ ${JSON.stringify(content, null, 4)}\n`);
  * Writes .prettierignore if it doesn't exist. Warns if it exists.
  */
 const writePrettierIgnore = () => {
-    const prettierPath = path.join(projectPath, ".prettierignore");
+    const prettierPath = join(projectPath, '.prettierignore');
 
-    if (fs.existsSync(prettierPath)) {
+    if (existsSync(prettierPath)) {
         console.warn(`⚠️  .prettierignore already exists`);
 
         return Promise.resolve();

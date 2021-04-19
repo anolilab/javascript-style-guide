@@ -1,5 +1,5 @@
 // @see https://github.com/nickdeis/eslint-plugin-no-secrets
-module.exports = {
+const noSecrets = {
     overrides: [
         {
             plugins: ["no-secrets"],
@@ -18,3 +18,5 @@ module.exports = {
         },
     ],
 };
+
+export default noSecrets

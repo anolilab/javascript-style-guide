@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/stylelint-config",
-    "version": "1.0.5",
+    "version": "2.0.1",
     "private": false,
     "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
@@ -20,10 +20,11 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
-    "main": "index.js",
+    "type": "module",
+    "main": "index.cjs",
     "files": [
         "lib",
-        "index.js",
+        "index.cjs",
         "rules",
         "README.md",
         "CHANGELOG.md",
@@ -40,15 +41,18 @@
         "stylelint-no-unsupported-browser-features": "^4.1.4",
         "stylelint-order": "^4.1.0",
         "stylelint-require-units": "^1.0.1",
-        "stylelint-selector-no-empty": "^1.0.7"
+        "stylelint-selector-no-empty": "^1.0.8"
     },
     "devDependencies": {
-        "stylelint": "13.12.0",
-        "browserslist": "^4.16.4"
+        "browserslist": "^4.16.4",
+        "stylelint": "13.12.0"
     },
     "peerDependencies": {
-        "stylelint": "^13.9.0",
-        "browserslist": "^4.16.4"
+        "browserslist": "^4.16.4",
+        "stylelint": "^13.12.0"
+    },
+    "engines": {
+        "node": ">=12"
     },
     "publishConfig": {
         "access": "public"

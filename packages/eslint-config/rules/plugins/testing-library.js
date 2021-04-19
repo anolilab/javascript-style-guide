@@ -1,5 +1,5 @@
-const isModuleAvailable = require("../../lib/is-module-available");
-const { consoleLog } = require("../../lib/loggers");
+import isModuleAvailable from '../../lib/is-module-available';
+import { consoleLog } from '../../lib/loggers';
 
 let ruleset;
 
@@ -8,17 +8,13 @@ switch (true) {
         ruleset = "react";
         break;
 
-    case isModuleAvailable("vue"):
-        ruleset = "vue";
-        break;
-
     default:
-        ruleset = "recommended";
+        ruleset = "dom";
 }
 
 consoleLog(`  eslint-plugin-testing-library/${ruleset}`);
 
-module.exports = {
+const testingLibrary = {
     extends: [`plugin:testing-library/${ruleset}`],
     rules: {
         // Not included in jest/recommended
@@ -37,3 +33,5 @@ module.exports = {
         "testing-library/prefer-wait-for": 0,
     },
 };
+
+export default testingLibrary

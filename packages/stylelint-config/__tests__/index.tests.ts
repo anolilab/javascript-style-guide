@@ -1,4 +1,4 @@
-import Index from "./../index"
+import Index from "../index.cjs"
 
 describe("eslint", () => {
     it("should output no error", async () => {

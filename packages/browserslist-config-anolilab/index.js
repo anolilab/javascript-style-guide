@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "production": [
         "> 1%",
         "last 2 versions",

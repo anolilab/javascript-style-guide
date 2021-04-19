@@ -1,4 +1,6 @@
 // @see https://github.com/mdx-js/eslint-mdx/tree/master/packages/eslint-plugin-mdx
-module.exports = {
+const mdx = {
     extends: ["plugin:mdx/recommended"],
 };
+
+export default mdx

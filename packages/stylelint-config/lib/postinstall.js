@@ -4,30 +4,30 @@ if (process.env.CI) {
     process.exit();
 }
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
 
-const writeFileAsync = promisify(fs.writeFile);
+const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = path.resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/stylelint-config", projectPath, "\n");
+console.log('Configuring @anolilab/stylelint-config', projectPath, '\n');
 
 /**
  * Writes .stylelintrc.js if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = () => {
-    const eslintPath = path.join(projectPath, ".stylelintrc.js");
-    const content = `module.exports = {
+    const eslintPath = join(projectPath, '.stylelintrc.js');
+    const content = `export default {
     "extends": [
         "@anolilab/stylelint-config",
     ]
 };
 `;
 
-    if (fs.existsSync(eslintPath)) {
+    if (existsSync(eslintPath)) {
         console.warn(`⚠️  .stylelintrc.js already exists;
 Make sure that it includes the following for @anolilab/stylelint-config'
 to work as it should: { presets: ["@anolilab/stylelint-config"] }.`);
@@ -35,14 +35,14 @@ to work as it should: { presets: ["@anolilab/stylelint-config"] }.`);
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(eslintPath, content, 'utf-8');
 };
 
 /**
  * Writes .stylelintignore if it doesn't exist. Warns if it exists.
  */
 const writeStylelintIgnore = () => {
-    const eslintPath = path.join(projectPath, ".stylelintignore");
+    const eslintPath = join(projectPath, '.stylelintignore');
     const content = `package.json
 package-lock.json
 yarn.lock
@@ -51,7 +51,7 @@ node_modules/**
 .next/**
 `;
 
-    if (fs.existsSync(eslintPath)) {
+    if (existsSync(eslintPath)) {
         return Promise.resolve();
     }
 

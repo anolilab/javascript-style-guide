@@ -16,8 +16,6 @@ jobs:
     semantic-release:
         name: "Semantic Release"
 
-        if: "github.repository != 'narrowspark/php-library-template'"
-
         runs-on: "ubuntu-latest"
 
         steps:
@@ -50,6 +48,15 @@ jobs:
 
             - name: "install"
               run: "yarn install"
+
+            - name: "test and coverage"
+              run: "yarn run test:coverage"
+
+            - name: "test stylelint config"
+              run: "yarn test:stylelint"
+
+            - name: "test babel config"
+              run: "yarn test:babel"
 
             - name: "Semantic Release"
               env:

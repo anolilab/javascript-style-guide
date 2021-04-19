@@ -1,5 +1,5 @@
-const isModuleAvailable = require('./is-module-available');
-const { consoleLog } = require('./loggers');
+import isModuleAvailable from './is-module-available.js';
+import { consoleLog } from './loggers.js';
 
 const moduleNotAvailable = (package_) => !isModuleAvailable(package_.split('@')[0]);
 
@@ -8,10 +8,10 @@ const atLatest = (pkg) => {
         return `${pkg}@latest`;
     }
 
-    return pkg
-}
+    return pkg;
+};
 
-module.exports = function checkMissing(rules, extraInstallPackage) {
+export default function checkMissing(rules, extraInstallPackage) {
     const notInstalled = rules
         .map((plugin) => `eslint-plugin-${plugin}`)
         .filter((package_) => moduleNotAvailable(package_));

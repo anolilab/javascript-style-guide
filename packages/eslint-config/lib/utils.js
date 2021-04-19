@@ -1,33 +1,30 @@
 // From kcd-scripts
+import { existsSync, realpathSync } from 'fs';
+import { dirname, join } from 'path';
+import has from 'lodash.has';
+import arrify from 'arrify';
+import { cosmiconfigSync } from 'cosmiconfig';
+import { readPackageUpSync } from 'read-pkg-up';
 
-const fs = require('fs');
-const path = require('path');
-const arrify = require('arrify');
-const has = require('lodash.has');
-const readPkgUp = require('read-pkg-up');
-const { cosmiconfigSync } = require('cosmiconfig');
-
-const { packageJson: package_, path: packagePath } = readPkgUp.sync({
-    cwd: fs.realpathSync(process.cwd()),
+const { packageJson: package_, path: packagePath } = readPackageUpSync({
+    cwd: realpathSync(process.cwd()),
 });
-
-const appDirectory = path.dirname(packagePath);
-
-const fromRoot = (...p) => path.join(appDirectory, ...p);
-const hasFile = (...p) => fs.existsSync(fromRoot(...p));
-
 const hasPackageProperty = (properties) =>
     arrify(properties).some((property) => has(package_, property)); // eslint-disable-line lodash-fp/no-extraneous-function-wrapping
 
 const hasPackageSubProperty = (packageProperty) => (properties) =>
     hasPackageProperty(arrify(properties).map((p) => `${packageProperty}.${p}`));
 
-const hasScript = hasPackageSubProperty('scripts');
-const hasPeerDep = hasPackageSubProperty('peerDependencies');
-const hasDep = hasPackageSubProperty('dependencies');
-const hasDevelopmentDep = hasPackageSubProperty('devDependencies');
-const hasAnyDep = (args) => [hasDep, hasDevelopmentDep, hasPeerDep].some((fn) => fn(args));
-const hasTypescript = hasAnyDep('typescript') && hasFile('tsconfig.json');
+
+export const appDirectory = dirname(packagePath);
+export const fromRoot = (...p) => join(appDirectory, ...p);
+export const hasFile = (...p) => existsSync(fromRoot(...p));
+export const hasScript = hasPackageSubProperty('scripts');
+export const hasPeerDep = hasPackageSubProperty('peerDependencies');
+export const hasDep = hasPackageSubProperty('dependencies');
+export const hasDevelopmentDep = hasPackageSubProperty('devDependencies');
+export const hasAnyDep = (args) => [hasDep, hasDevelopmentDep, hasPeerDep].some((fn) => fn(args));
+export const hasTypescript = hasAnyDep('typescript') && hasFile('tsconfig.json');
 
 function environmentIsSet(name) {
     return (
@@ -48,27 +45,15 @@ function parseEnvironment(name, def) {
     return def;
 }
 
-function uniq(array) {
+export function uniq(array) {
     return [...new Set(array)];
 }
-
-function hasLocalConfig(moduleName, searchOptions = {}) {
+export function hasLocalConfig(moduleName, searchOptions = {}) {
     const explorerSync = cosmiconfigSync(moduleName, searchOptions);
     const result = explorerSync.search(packagePath);
 
     return result !== null;
 }
-
-module.exports = {
-    appDirectory,
-    fromRoot,
-    hasFile,
-    hasLocalConfig,
-    hasPkgProp: hasPackageProperty,
-    hasScript,
-    hasAnyDep,
-    hasTypescript,
-    parseEnv: parseEnvironment,
-    pkg: package_,
-    uniq,
-};
+export const hasPkgProp = hasPackageProperty;
+export const parseEnv = parseEnvironment;
+export const pkg = package_;

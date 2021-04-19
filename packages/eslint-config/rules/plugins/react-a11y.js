@@ -1,4 +1,4 @@
-module.exports = {
+const reactA11y = {
     plugins: ["jsx-a11y", "react"],
 
     parserOptions: {
@@ -259,3 +259,5 @@ module.exports = {
         ],
     },
 };
+
+export default reactA11y

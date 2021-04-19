@@ -1,11 +1,11 @@
-const { rules: baseBestPracticesRules } = require("../best-practices");
-const { rules: baseErrorsRules } = require("../errors");
-const { rules: baseES6Rules } = require("../es6");
-const { rules: baseImportsRules } = require("./import");
-const { rules: baseStyleRules } = require("../style");
-const { rules: baseVariablesRules } = require("../variables");
+import { rules as baseBestPracticesRules } from '../best-practices.js';
+import { rules as baseErrorsRules } from '../errors.js';
+import { rules as baseES6Rules } from '../es6.js';
+import { rules as baseImportsRules } from './import.js';
+import { rules as baseStyleRules } from '../style.js';
+import { rules as baseVariablesRules } from '../variables.js';
 
-module.exports = {
+const typescript = {
     extends: ["plugin:import/typescript"],
     plugins: ["@typescript-eslint"],
     parser: "@typescript-eslint/parser",
@@ -255,3 +255,5 @@ module.exports = {
         },
     ],
 };
+
+export default typescript

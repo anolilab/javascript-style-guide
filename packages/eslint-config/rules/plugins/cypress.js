@@ -1,4 +1,4 @@
-module.exports = {
+const cypress = {
     env: {
         "cypress/globals": true,
     },
@@ -11,3 +11,5 @@ module.exports = {
         "cypress/require-data-selectors": 0,
     },
 };
+
+export default cypress

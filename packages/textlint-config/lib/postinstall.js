@@ -4,22 +4,22 @@ if (process.env.CI) {
     process.exit();
 }
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
 
-const writeFileAsync = promisify(fs.writeFile);
+const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = path.resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
+console.log('Configuring @anolilab/textlint-config', projectPath, '\n');
 
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
-    const eslintPath = path.join(projectPath, ".textlintrc");
+    const eslintPath = join(projectPath, '.textlintrc');
     const content = `{
   "filters": {},
   "rules": {
@@ -165,7 +165,7 @@ const writeBabelRc = () => {
 }
 `;
 
-    if (fs.existsSync(eslintPath)) {
+    if (existsSync(eslintPath)) {
         console.warn(`⚠️  .textlintrc already exists;
 Make sure that it includes the following for @anolilab/textlint-config'
 to work as it should: ${content}.`);

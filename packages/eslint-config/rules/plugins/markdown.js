@@ -1,4 +1,4 @@
-module.exports = {
+const markdown = {
     plugins: ["markdown"],
     overrides: [
         {
@@ -22,3 +22,5 @@ module.exports = {
         },
     ],
 };
+
+export default markdown

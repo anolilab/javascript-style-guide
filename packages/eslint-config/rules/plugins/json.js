@@ -1,4 +1,4 @@
-module.exports = {
+const json = {
     extends: ["plugin:json/recommended-with-comments"],
     overrides: [
         {
@@ -38,3 +38,5 @@ module.exports = {
         "json/value-expected": 0,
     },
 };
+
+export default json

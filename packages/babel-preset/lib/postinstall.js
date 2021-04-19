@@ -4,29 +4,29 @@ if (process.env.CI) {
     process.exit();
 }
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
 
-const writeFileAsync = promisify(fs.writeFile);
+const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = path.resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/babel-preset", projectPath, "\n");
+console.log('Configuring @anolilab/babel-preset', projectPath, '\n');
 
 /**
- * Writes .babelrc.js if it doesn't exist. Warns if it exists.
+ * Writes babel.config.cjs if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
-    const eslintPath = path.join(projectPath, ".babelrc.js");
+    const eslintPath = join(projectPath, 'babel.config.cjs');
     const content = `module.exports = {
     presets: ["@anolilab/babel-preset"]
 };
 `;
 
-    if (fs.existsSync(eslintPath)) {
-        console.warn(`⚠️  .babelrc.js already exists;
+    if (existsSync(eslintPath)) {
+        console.warn(`⚠️  babel.config.cjs already exists;
 Make sure that it includes the following for @anolilab/babel-preset'
 to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
 

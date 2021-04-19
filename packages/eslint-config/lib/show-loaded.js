@@ -1,6 +1,6 @@
-const { consoleLog, consolePlugin } = require('./loggers');
+import { consoleLog, consolePlugin } from './loggers.js';
 
-module.exports = function showLoaded(rules, extraInstallPackage) {
+export default function showLoaded(rules, extraInstallPackage) {
     extraInstallPackage.forEach(([rule, package_]) => {
         if (rules.includes(rule)) {
             rules.push(package_);

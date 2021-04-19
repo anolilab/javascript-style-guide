@@ -1,4 +1,4 @@
-module.exports = {
+const errors = {
     rules: {
         // Enforce “for” loop update clause moving the counter in the right direction
         // https://eslint.org/docs/rules/for-direction
@@ -136,12 +136,7 @@ module.exports = {
 
         // Disallow loops with a body that allows only one iteration
         // https://eslint.org/docs/rules/no-unreachable-loop
-        "no-unreachable-loop": [
-            "error",
-            {
-                ignore: ["WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "ForOfStatement"],
-            },
-        ],
+        "no-unreachable-loop": "off", // error with typescript
 
         // disallow return/throw/break/continue inside finally blocks
         // https://eslint.org/docs/rules/no-unsafe-finally
@@ -180,3 +175,5 @@ module.exports = {
         "valid-typeof": ["error", { requireStringLiterals: true }],
     },
 };
+
+export default errors

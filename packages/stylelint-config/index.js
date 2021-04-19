@@ -8,7 +8,7 @@ const rules = [
     "./rules/standard",
 ];
 
-module.exports = {
+export default {
     extends: rules.map(require.resolve),
     rules: {
         "indentation": 4,

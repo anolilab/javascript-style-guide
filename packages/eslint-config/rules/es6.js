@@ -1,4 +1,4 @@
-module.exports = {
+const es6 = {
     env: {
         es6: true,
     },
@@ -216,3 +216,5 @@ module.exports = {
         "yield-star-spacing": ["error", "after"],
     },
 };
+
+export default es6

@@ -1,4 +1,4 @@
-module.exports = {
+const lodash = {
     plugins: ["lodash"],
     rules: {
         // Possible Errors
@@ -50,3 +50,5 @@ module.exports = {
         "lodash/prefer-times": 0,
     },
 };
+
+export default lodash

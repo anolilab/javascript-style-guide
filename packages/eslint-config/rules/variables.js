@@ -1,6 +1,6 @@
-const confusingBrowserGlobals = require("confusing-browser-globals");
+import confusingBrowserGlobals from 'confusing-browser-globals';
 
-module.exports = {
+const variables = {
     rules: {
         // enforce or disallow variable initializations at definition
         "init-declarations": "off",
@@ -51,3 +51,5 @@ module.exports = {
         "no-use-before-define": ["error", { functions: true, classes: true, variables: true }],
     },
 };
+
+export default variables

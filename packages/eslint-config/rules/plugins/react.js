@@ -1,7 +1,7 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-const assign = require("object.assign");
-const { hasAnyDep } = require("../../lib/utils");
-const baseStyleRules = require("./../style").rules;
+import assign from 'object.assign';
+import { hasAnyDep } from '../../lib/utils.js';
+import { rules as baseStyleRules } from '../style.js';
 
 const dangleRules = baseStyleRules["no-underscore-dangle"];
 
@@ -41,7 +41,7 @@ const hasJsxRuntime = (() => {
     }
 })();
 
-module.exports = {
+const react = {
     plugins: ["react"],
 
     parserOptions: {
@@ -379,7 +379,7 @@ module.exports = {
 
         // Enforce JSX indentation
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent": ["error", 4, { checkAttributes: true, indentLogicalExpressions: true }],
 
         // Disallow target="_blank" on links
         // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
@@ -650,3 +650,5 @@ module.exports = {
         ],
     },
 };
+
+export default react

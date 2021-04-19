@@ -8,7 +8,7 @@
 echo --------------------------------------------
 echo Starting Git hook: commit-msg
 
-yarn commitlint --edit $1 || exit $?
+yarn commitlint --config ./commitlint.config.cjs --edit $1 || exit $?
 
 echo Finished Git hook: commit-msg
 echo --------------------------------------------

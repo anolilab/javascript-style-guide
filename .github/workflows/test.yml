@@ -44,5 +44,8 @@ jobs:
             - name: "test and coverage"
               run: "yarn run test:coverage"
 
-            - name: "test stylelint"
+            - name: "test stylelint config"
               run: "yarn test:stylelint"
+
+            - name: "test babel config"
+              run: "yarn test:babel"

@@ -1,5 +1,5 @@
 // @see https://github.com/mysticatea/eslint-plugin-node#readme
-module.exports = {
+const node = {
     env: {
         node: true,
     },
@@ -41,3 +41,5 @@ module.exports = {
         "no-sync": "off",
     },
 };
+
+export default node

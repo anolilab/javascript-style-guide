@@ -4,26 +4,26 @@ if (process.env.CI) {
     process.exit();
 }
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
+import content from '../index.js';
 
-const writeFileAsync = promisify(fs.writeFile);
+const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = path.resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/prettier-config", projectPath, "\n");
+console.log('Configuring @anolilab/prettier-config', projectPath, '\n');
 
 /**
- * Writes .prettierrc.js if it doesn't exist. Warns if it exists.
+ * Writes .prettierrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = () => {
-    const prettierPath = path.join(projectPath, ".prettierrc.js");
-    const content = require("../index")
+    const prettierPath = join(projectPath, '.prettierrc.cjs');
 
-    if (fs.existsSync(prettierPath) || fs.existsSync(prettierPath.replace('.js', ''))) {
-        console.warn(`⚠️  .prettierrc.js already exists;
+    if (existsSync(prettierPath) || existsSync(prettierPath.replace('.cjs', ''))) {
+        console.warn(`⚠️  .prettierrc.cjs already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, null, 4)}\n`);
 
@@ -33,7 +33,7 @@ ${JSON.stringify(content, null, 4)}\n`);
     return writeFileAsync(
         prettierPath,
         `module.exports = ${JSON.stringify(content, null, 2)}\n`,
-        "utf-8",
+        'utf-8',
     );
 };
 
@@ -41,9 +41,9 @@ ${JSON.stringify(content, null, 4)}\n`);
  * Writes .prettierignore if it doesn't exist. Warns if it exists.
  */
 const writePrettierIgnore = () => {
-    const prettierPath = path.join(projectPath, ".prettierignore");
+    const prettierPath = join(projectPath, '.prettierignore');
 
-    if (fs.existsSync(prettierPath)) {
+    if (existsSync(prettierPath)) {
         console.warn(`⚠️  .prettierignore already exists`);
 
         return Promise.resolve();

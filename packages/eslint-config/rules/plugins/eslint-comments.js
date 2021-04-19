@@ -1,4 +1,4 @@
-module.exports = {
+const eslintComments = {
     extends: ["plugin:eslint-comments/recommended"],
     plugins: ["eslint-comments"],
     rules: {
@@ -9,3 +9,5 @@ module.exports = {
         "eslint-comments/require-description": 0,
     },
 };
+
+export default eslintComments

@@ -1,6 +1,7 @@
-const checkMissing = require("./lib/missing");
-const showLoaded = require("./lib/loaded");
-const { rules, pluginRules, extraInstallPackage } = require("./config");
+import path from 'path';
+import checkMissing from './lib/check-missing.js';
+import showLoaded from './lib/show-loaded.js';
+import { rules, pluginRules, extraInstallPackage } from './config.js';
 
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintConfigLoaded) {
@@ -15,8 +16,8 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 
 module.exports = {
     extends: rules
-        .map((plugin) => require.resolve(`./rules/${plugin.split("@")[0]}`))
-        .concat(pluginRules.map((plugin) => require.resolve(`./rules/plugins/${plugin.split("@")[0]}`))),
+        .map((plugin) => path.join(__dirname, `./rules/${plugin.split("@")[0]}`))
+        .concat(pluginRules.map((plugin) => path.join(__dirname, `./rules/plugins/${plugin.split("@")[0]}`))),
     // @see https://www.npmjs.com/package/@rushstack/eslint-plugin-security
     plugins: ["@rushstack/eslint-plugin-security"],
     rules: {

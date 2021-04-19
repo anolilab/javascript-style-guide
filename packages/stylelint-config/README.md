@@ -15,7 +15,7 @@ If you don't have a `.stylelintrc.js`, we will create the file for you after ins
 If you already have a `.stylelintrc.js`, then you can extend the `.stylelintrc.js`, with `@anolilab/stylelint-config`.
 
 ```js
-module.exports = {
+export default {
     "extends": [
         "@anolilab/stylelint-config",
     ]

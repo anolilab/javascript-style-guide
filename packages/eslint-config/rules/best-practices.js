@@ -1,4 +1,4 @@
-module.exports = {
+const bestPractices = {
     rules: {
         // enforces getter/setter pairs in objects
         "accessor-pairs": "off",
@@ -391,3 +391,5 @@ module.exports = {
         yoda: "error",
     },
 };
+
+export default bestPractices

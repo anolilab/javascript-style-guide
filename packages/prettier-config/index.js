@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     // max 120 characters per line
     printWidth: 120,
     // use 2 spaces for indentation

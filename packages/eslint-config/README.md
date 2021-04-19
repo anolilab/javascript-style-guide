@@ -1,6 +1,6 @@
-# eslint config
+# ESLint config
 
-> This package provides Anolilab's .eslintrc.js as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project's dependencies.
+> This package provides Anolilab's .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project's dependencies.
 
 ## Install
 
@@ -12,16 +12,16 @@ To install this config, run the following command.
 
 ## Usage
 
-If you don't have a `.eslintrc.js`, we will create the file for you after installing `@anolilab/eslint-config`.
+If you don't have a `.eslintrc.cjs`, we will create the file for you after installing `@anolilab/eslint-config`.
 
-If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, with `@anolilab/eslint-config`.
+If you already have a `.eslintrc.cjs`, then you can extend the `.eslintrc.cjs`, with `@anolilab/eslint-config`.
 
 > Note: Our default export contains all of our ESLint rules, including ECMAScript 6+. `@anolilab/eslint-config` use the `ecmaVersion`:`2021` as default.
 >
 > To change this configuration, change `env: { es2021: false, then active you needed env }` same for, `parserOptions: { "ecmaVersion": 2021 change the version }`
 
 ```js
-module.exports = {
+export default {
     root: true,
     extends: ["@anolilab/eslint-config"],
     env: {
@@ -73,10 +73,10 @@ or for the use of `TypeScript` in react
 npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
 ```
 
-Please extend the `.eslintrc.js` file with the correct `tsconfig.js` path.
+Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path.
 
 ```js
-module.exports = {
+export default {
     parserOptions: {
         project: "./tsconfig.eslint.json",
     },
@@ -95,15 +95,15 @@ Prettier is a code formatting tool that offers fewer options but is more profess
 
 Now that Prettier has become a necessary tool in front-end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it's good at.
 
-As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project's .prettierrc.js. Of course, we also provide a recommended Prettier configuration for your reference.
+As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project's .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
 
 `@anolilab/eslint-config` does not include all style-related rules, so there is no need to install `eslint-config-prettier`. Just install `prettier` and if you use `VSCode` the related plugins.
 
-Here is a `.prettierrc.js` configuration used by Anolilab Team for reference only:
+Here is a `.prettierrc.cjs` configuration used by Anolilab Team for reference only:
 
 ```js
-// .prettierrc.js
-module.exports = {
+// .prettierrc.cjs
+export default {
   // max 120 characters per line
   printWidth: 120,
   // use 2 spaces for indentation

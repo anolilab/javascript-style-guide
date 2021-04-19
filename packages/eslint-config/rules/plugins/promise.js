@@ -1,5 +1,5 @@
 // @see https://github.com/xjamundx/eslint-plugin-promise#readme
-module.exports = {
+const promise = {
     extends: ["plugin:promise/recommended"],
     plugins: ["promise"],
     rules: {
@@ -7,3 +7,5 @@ module.exports = {
         "promise/prefer-await-to-then": "off",
     },
 };
+
+export default promise

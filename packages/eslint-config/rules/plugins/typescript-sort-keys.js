@@ -1,4 +1,4 @@
-module.exports = {
+const typescriptSortKeys = {
     rules: {
         "typescript-sort-keys/interface": "error",
         "typescript-sort-keys/string-enum": "error",
@@ -13,3 +13,5 @@ module.exports = {
         },
     ],
 };
+
+export default typescriptSortKeys

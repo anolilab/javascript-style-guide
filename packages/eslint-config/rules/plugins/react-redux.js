@@ -1,5 +1,5 @@
 // @see https://github.com/DianaSuvorova/eslint-plugin-react-redux#readme
-module.exports = {
+const reactRedux = {
     extends: ["plugin:react-redux/recommended"],
     plugins: ["react-redux"],
     rules: {
@@ -7,3 +7,5 @@ module.exports = {
         "react-redux/mapStateToProps-prefer-selectors": "off",
     },
 };
+
+export default reactRedux

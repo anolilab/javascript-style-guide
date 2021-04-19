@@ -1,4 +1,4 @@
-module.exports = {
+const jest = {
     env: {
         jest: true,
     },
@@ -41,3 +41,5 @@ module.exports = {
         "jest/valid-title": 0,
     },
 };
+
+export default jest

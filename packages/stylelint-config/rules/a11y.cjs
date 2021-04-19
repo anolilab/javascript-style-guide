@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     plugins: ["stylelint-a11y"],
     rules: {
         // Require certain styles if the animation or transition in media features

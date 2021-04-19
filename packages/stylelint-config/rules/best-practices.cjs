@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     rules: {
         // Enabled to play well with both CSS and SCSS at-rules for readability.
         // https://stylelint.io/user-guide/rules/at-rule-empty-line-before

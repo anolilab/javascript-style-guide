@@ -1,3 +1,14 @@
+## browserslist-config-anolilab [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@1.0.2...browserslist-config-anolilab@2.0.0) (2021-04-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgraded node version to v12 and es modules
+
+### Features
+
+* added more tests ([0535ce4](https://github.com/anolilab/javascript-style-guide/commit/0535ce477766e80286e7f6aecf10bae33b5be594))
+
 ### browserslist-config-anolilab [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@1.0.1...browserslist-config-anolilab@1.0.2) (2021-04-13)
 
 

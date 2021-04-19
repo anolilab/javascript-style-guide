@@ -1,3 +1,10 @@
+### @anolilab/stylelint-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.0.0...@anolilab/stylelint-config@2.0.1) (2021-04-19)
+
+
+### Bug Fixes
+
+* stylelint does not support es modules ([e4a3469](https://github.com/anolilab/javascript-style-guide/commit/e4a346964ef65a7894154e004c1bdcc7733eb0cb))
+
 ## @anolilab/stylelint-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@1.0.5...@anolilab/stylelint-config@2.0.0) (2021-04-19)
 
 

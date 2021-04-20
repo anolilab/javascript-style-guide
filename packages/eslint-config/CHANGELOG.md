@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.0...@anolilab/eslint-config@2.0.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* added missing exit code to process.exit ([a94e9ed](https://github.com/anolilab/javascript-style-guide/commit/a94e9edfae21dbf9219c1c709d5aba95f9910d68))
+
 ## @anolilab/eslint-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.6...@anolilab/eslint-config@2.0.0) (2021-04-19)
 
 

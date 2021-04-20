@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 if (process.env.CI) {
-    process.exit();
+    process.exit(0);
 }
 
 import { writeFile, existsSync } from 'fs';
@@ -58,7 +58,7 @@ const writePrettierIgnore = () => {
 
         console.log("😎  Everything went well, have fun!");
 
-        process.exit();
+        process.exit(0);
     } catch (err) {
         console.log("😬  something went wrong:");
         console.error(err.message);

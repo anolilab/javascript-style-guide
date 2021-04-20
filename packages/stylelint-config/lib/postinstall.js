@@ -16,11 +16,11 @@ const projectPath = resolve(process.cwd(), '..', '..', '..');
 console.log('Configuring @anolilab/stylelint-config', projectPath, '\n');
 
 /**
- * Writes .stylelintrc.js if it doesn't exist. Warns if it exists.
+ * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = () => {
-    const eslintPath = join(projectPath, '.stylelintrc.js');
-    const content = `export default {
+    const eslintPath = join(projectPath, '.stylelintrc.cjs');
+    const content = `module.exports = {
     "extends": [
         "@anolilab/stylelint-config",
     ]
@@ -28,9 +28,7 @@ const writeStylelintRc = () => {
 `;
 
     if (existsSync(eslintPath)) {
-        console.warn(`⚠️  .stylelintrc.js already exists;
-Make sure that it includes the following for @anolilab/stylelint-config'
-to work as it should: { presets: ["@anolilab/stylelint-config"] }.`);
+        console.warn(`⚠️  .stylelintrc.cjs already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.`);
 
         return Promise.resolve();
     }

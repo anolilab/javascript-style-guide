@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.0.0...browserslist-config-anolilab@2.0.1) (2021-04-28)
+
+
+### Bug Fixes
+
+* changed browserslist files to cjs files ([74b77ef](https://github.com/anolilab/javascript-style-guide/commit/74b77ef8fb033d6673c6b2985a8ae913f69544f5))
+
 ## browserslist-config-anolilab [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@1.0.2...browserslist-config-anolilab@2.0.0) (2021-04-19)
 
 

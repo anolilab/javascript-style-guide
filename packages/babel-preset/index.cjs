@@ -65,7 +65,7 @@ module.exports = declare((api, options) => {
     const development =
         typeof options.development === 'boolean'
             ? options.development
-            : process.env.NODE_ENV === 'development';
+            : api.cache.using(() => process.env.NODE_ENV === "development");
 
     return {
         presets: [

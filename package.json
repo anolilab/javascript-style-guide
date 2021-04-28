@@ -27,7 +27,7 @@
         "test": "jest --config=./jest.config.cjs",
         "test:coverage": "jest --config=./jest.config.cjs --coverageDirectory=./coverage --coverage",
         "test:stylelint": "stylelint --formatter verbose --config packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css --syntax css",
-        "test:babel": "babel --config-file=./packages/babel-preset/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js"
+        "test:babel": "babel --config-file=./packages/babel-preset/index.cjs ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js"
     },
     "lint-staged": {
         "*.{js,jsx,less,md,json}": [

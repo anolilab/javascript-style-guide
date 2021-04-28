@@ -1,3 +1,11 @@
+### @anolilab/babel-preset [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.0.2...@anolilab/babel-preset@2.0.3) (2021-04-28)
+
+
+### Bug Fixes
+
+* changed babel-preset files to cjs files ([587c010](https://github.com/anolilab/javascript-style-guide/commit/587c010808267c01c3f4db0a68305938c19934bc))
+* changed files to cjs ([44d4d9e](https://github.com/anolilab/javascript-style-guide/commit/44d4d9ecb0e799ead2daf885d71e4cd3bb49fe75))
+
 ### @anolilab/babel-preset [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.0.1...@anolilab/babel-preset@2.0.2) (2021-04-20)
 
 

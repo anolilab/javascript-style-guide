@@ -1,4 +1,4 @@
-export default function isModuleAvailable(name) {
+module.exports = function isModuleAvailable(name) {
     try {
         require.resolve(name);
         return true;

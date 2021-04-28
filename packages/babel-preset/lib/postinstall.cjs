@@ -4,9 +4,9 @@ if (process.env.CI) {
     process.exit(0);
 }
 
-import { writeFile, existsSync } from 'fs';
-import { resolve, join } from 'path';
-import { promisify } from 'util';
+const { writeFile, existsSync } = require("fs");
+const { resolve, join } = require("path");
+const { promisify } = require("util");
 
 const writeFileAsync = promisify(writeFile);
 

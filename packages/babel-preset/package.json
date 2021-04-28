@@ -18,16 +18,16 @@
         "email": "d.bannert@anolilab.de"
     },
     "type": "module",
-    "main": "index.js",
+    "main": "index.cjs",
     "files": [
         "lib",
-        "index.js",
+        "index.cjs",
         "README.md",
         "CHANGELOG.md",
         "LICENSE.md"
     ],
     "scripts": {
-        "postinstall": "node lib/postinstall.js"
+        "postinstall": "node lib/postinstall.cjs"
     },
     "dependencies": {
         "@babel/helper-plugin-utils": "^7.13.0",

@@ -9,7 +9,7 @@ const atLatest = (pkg) => {
 /**
  * @param {Array<string>} notInstalled
  */
-export default function missing (notInstalled) {
+module.exports = function missing (notInstalled) {
     const s = notInstalled.length === 1 ? '' : 's';
 
     console.log(`\nOops! Something went wrong! :(

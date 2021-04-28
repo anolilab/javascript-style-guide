@@ -1,8 +1,8 @@
-import { declare } from '@babel/helper-plugin-utils';
-import isModuleAvailable from './lib/is-module-available.js';
-import missing from './lib/missing.js';
+const { declare } = require("@babel/helper-plugin-utils");
+const isModuleAvailable = require('./lib/is-module-available.cjs');
+const missing = require('./lib/missing.cjs');
 
-const bable = declare((api, options) => {
+module.exports = declare((api, options) => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
     api.assertVersion('^7.13');
 
@@ -199,5 +199,3 @@ const bable = declare((api, options) => {
         ].filter(Boolean),
     };
 });
-
-export default bable

@@ -1,3 +1,10 @@
+### @anolilab/textlint-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.1...@anolilab/textlint-config@2.0.2) (2021-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @textlint-rule/textlint-rule-no-invalid-control-character to v2 ([b2935fa](https://github.com/anolilab/javascript-style-guide/commit/b2935fad068cdaa02300926ec9403b6435948377))
+
 ### @anolilab/textlint-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.0...@anolilab/textlint-config@2.0.1) (2021-04-20)
 
 

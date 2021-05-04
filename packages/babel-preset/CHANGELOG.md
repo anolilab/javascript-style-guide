@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.0.3...@anolilab/babel-preset@2.0.4) (2021-05-04)
+
+
+### Bug Fixes
+
+* fixed babel-preset config with loose setting ([cd584f1](https://github.com/anolilab/javascript-style-guide/commit/cd584f14d5a5b3df549770e49bd9da8002696f98))
+
 ### @anolilab/babel-preset [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.0.2...@anolilab/babel-preset@2.0.3) (2021-04-28)
 
 

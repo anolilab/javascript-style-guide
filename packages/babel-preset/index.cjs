@@ -96,7 +96,19 @@ module.exports = declare((api, options) => {
             [
                 '@babel/plugin-proposal-class-properties',
                 {
-                    loose: true,
+                    loose: looseClasses,
+                },
+            ],
+            [
+                '@babel/plugin-proposal-private-methods',
+                {
+                    loose: looseClasses,
+                },
+            ],
+            [
+                '@babel/plugin-proposal-private-property-in-object',
+                {
+                    loose: looseClasses,
                 },
             ],
             looseClasses

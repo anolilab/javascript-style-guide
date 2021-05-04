@@ -1,7 +1,7 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
 const assign = require('object.assign');
 const { hasAnyDep } = require('../../lib/utils.cjs');
-const baseStyleRules = require('../style.cjs');
+const { rules: baseStyleRules } = require('../style.cjs');
 
 const dangleRules = baseStyleRules["no-underscore-dangle"];
 

@@ -1,6 +1,6 @@
-const baseBestPracticesRules = require('../best-practices.cjs');
-const errorsRules = require('../errorsRules.cjs');
-const styleRules = require('../styleRules.cjs');
+const { rules: baseBestPracticesRules } = require('../best-practices.cjs');
+const { rules: errorsRules } = require('../errorsRules.cjs');
+const { rules: styleRules } = require('../styleRules.cjs');
 
 module.exports = {
     plugins: ['babel'],

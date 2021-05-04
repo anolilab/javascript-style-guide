@@ -1,3 +1,10 @@
+### @anolilab/stylelint-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.0.3...@anolilab/stylelint-config@2.0.4) (2021-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint-config-standard to v22 ([88fe507](https://github.com/anolilab/javascript-style-guide/commit/88fe507888785bc3f85c2a705774bdd3cecf52ec))
+
 ### @anolilab/stylelint-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.0.2...@anolilab/stylelint-config@2.0.3) (2021-04-20)
 
 

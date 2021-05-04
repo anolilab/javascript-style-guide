@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.2...@anolilab/eslint-config@2.0.3) (2021-05-04)
+
+
+### Bug Fixes
+
+* moved es-lint config back to common modules ([136370f](https://github.com/anolilab/javascript-style-guide/commit/136370ff41a02aebb8869792326959da28f70145))
+
 ### @anolilab/eslint-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.1...@anolilab/eslint-config@2.0.2) (2021-05-04)
 
 

@@ -1,9 +1,9 @@
-const baseBestPracticesRules = require('../best-practices.cjs');
-const baseErrorsRules = require('../errors.cjs');
-const baseES6Rules = require('../es6.cjs');
-const baseImportsRules = require('./import.cjs');
-const baseStyleRules = require('../style.cjs');
-const baseVariablesRules = require('../variables.cjs');
+const { rules: baseBestPracticesRules } = require("../best-practices.cjs");
+const { rules: baseErrorsRules } = require("../errors.cjs");
+const { rules: baseES6Rules } = require("../es6.cjs");
+const { rules: baseImportsRules } = require("./import.cjs");
+const { rules: baseStyleRules } = require("../style.cjs");
+const { rules: baseVariablesRules } = require("../variables.cjs");
 
 module.exports = {
     extends: ["plugin:import/typescript"],

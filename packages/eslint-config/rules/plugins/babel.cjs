@@ -1,6 +1,6 @@
-const bestPractices = require('../best-practices.cjs');
-const errors = require('../errors.cjs');
-const style = require('../style.cjs');
+const baseBestPracticesRules = require('../best-practices.cjs');
+const errorsRules = require('../errorsRules.cjs');
+const styleRules = require('../styleRules.cjs');
 
 module.exports = {
     plugins: ['babel'],
@@ -8,29 +8,29 @@ module.exports = {
         camelcase: 'off',
         'babel/camelcase': [
             // Deep clone to avoid object mutation wierdness
-            style.camelcase[0],
-            { ...style.camelcase[1] },
+            styleRules.camelcase[0],
+            { ...styleRules.camelcase[1] },
         ],
 
         'new-cap': 'off',
-        'babel/new-cap': style['new-cap'],
+        'babel/new-cap': styleRules['new-cap'],
 
         'no-invalid-this': 'off',
-        'babel/no-invalid-this': bestPractices['no-invalid-this'],
+        'babel/no-invalid-this': baseBestPracticesRules['no-invalid-this'],
 
         'object-curly-spacing': 'off',
-        'babel/object-curly-spacing': style['object-curly-spacing'],
+        'babel/object-curly-spacing': styleRules['object-curly-spacing'],
 
         quotes: 'off',
-        'babel/quotes': style.quotes,
+        'babel/quotes': styleRules.quotes,
 
         semi: 'off',
-        'babel/semi': style.semi,
+        'babel/semi': styleRules.semi,
 
         'no-unused-expressions': 'off',
-        'babel/no-unused-expressions': bestPractices['no-unused-expressions'],
+        'babel/no-unused-expressions': baseBestPracticesRules['no-unused-expressions'],
 
         'valid-typeof': 'off',
-        'babel/valid-typeof': errors['valid-typeof'],
+        'babel/valid-typeof': errorsRules['valid-typeof'],
     }
 }

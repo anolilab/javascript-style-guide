@@ -8,16 +8,13 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
     checkMissing(pluginRules, extraInstallPackage);
     showLoaded(pluginRules, []);
 
-    // Disable some rules in unit tests
-    rules.push("test-overrides");
-
     global.hasAnolilabEsLintConfigLoaded = true;
 }
 
 module.exports = {
     extends: rules
-        .map((plugin) => path.join(__dirname, `./rules/${plugin.split("@")[0]}`))
-        .concat(pluginRules.map((plugin) => path.join(__dirname, `./rules/plugins/${plugin.split("@")[0]}`))),
+        .map((plugin) => path.join(__dirname, `./rules/${plugin.split("@")[0]}.cjs`))
+        .concat(pluginRules.map((plugin) => path.join(__dirname, `./rules/plugins/${plugin.split("@")[0]}.cjs`))),
     // @see https://www.npmjs.com/package/@rushstack/eslint-plugin-security
     plugins: ["@rushstack/eslint-plugin-security"],
     rules: {

@@ -21,7 +21,7 @@ If you already have a `.eslintrc.cjs`, then you can extend the `.eslintrc.cjs`, 
 > To change this configuration, change `env: { es2021: false, then active you needed env }` same for, `parserOptions: { "ecmaVersion": 2021 change the version }`
 
 ```js
-export default {
+module.exports = {
     root: true,
     extends: ["@anolilab/eslint-config"],
     env: {
@@ -168,7 +168,7 @@ The following plugins expand esLint to work with json files, and lint JavaScript
 - [eslint-plugin-json](https://github.com/azeemba/eslint-plugin-json)
 - [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown)
 
-When linting code snippets in Markdown files, a few [rules](./rules/plugins/markdown.js#L3) relating to globals and unused vars are disabled.
+When linting code snippets in Markdown files, a few [rules](rules/plugins/markdown.cjs#L3) relating to globals and unused vars are disabled.
 
 ### Library Plugins
 

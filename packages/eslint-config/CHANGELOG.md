@@ -56,14 +56,14 @@
 
 ### Bug Fixes
 
-* disable ignoreExports in import.js ([dc680fb](https://github.com/anolilab/javascript-style-guide/commit/dc680fb433b7e04c66343a20740a60b07efa29ef))
+* disable ignoreExports in import.cjs ([dc680fb](https://github.com/anolilab/javascript-style-guide/commit/dc680fb433b7e04c66343a20740a60b07efa29ef))
 
 ### @anolilab/eslint-config [1.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.1.0...@anolilab/eslint-config@1.1.1) (2021-02-19)
 
 
 ### Bug Fixes
 
-* fixed wrong import use in typescript.js ([a45fd58](https://github.com/anolilab/javascript-style-guide/commit/a45fd58bdce315a551daf7ef4e9c98276669107f))
+* fixed wrong import use in typescript.cjs ([a45fd58](https://github.com/anolilab/javascript-style-guide/commit/a45fd58bdce315a551daf7ef4e9c98276669107f))
 
 ## @anolilab/eslint-config [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@1.0.2...@anolilab/eslint-config@1.1.0) (2021-02-17)
 

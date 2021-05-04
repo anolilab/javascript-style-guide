@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.3...@anolilab/eslint-config@2.0.4) (2021-05-04)
+
+
+### Bug Fixes
+
+* fixed files resolution ([9f90225](https://github.com/anolilab/javascript-style-guide/commit/9f90225f4311fee59886e48a76305f8f83972dd9))
+
 ### @anolilab/eslint-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.2...@anolilab/eslint-config@2.0.3) (2021-05-04)
 
 

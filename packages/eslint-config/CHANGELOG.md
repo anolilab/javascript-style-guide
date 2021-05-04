@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.1...@anolilab/eslint-config@2.0.2) (2021-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-unicorn to v31 ([a583d48](https://github.com/anolilab/javascript-style-guide/commit/a583d4874e05e0de0271f18c348bc499b6790257))
+
 ### @anolilab/eslint-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.0...@anolilab/eslint-config@2.0.1) (2021-04-20)
 
 

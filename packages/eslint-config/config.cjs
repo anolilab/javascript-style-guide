@@ -6,9 +6,9 @@ const rules = ['best-practices', 'errors', 'style', 'es6', 'variables'];
 
 // Base plugin rules
 const pRules = [
+    'compat',
     'eslint-comments',
     'import',
-    'jsdoc',
     'json',
     'markdown',
     'optimize-regex',
@@ -25,13 +25,14 @@ const pRules = [
 
 // Optionals rules based on project dependencies
 const depRules = [
+    'array-func',
     'html',
     'mdx',
-    'array-func',
     'redux',
     'no-unsanitized',
     'lodash',
     ['lodash', 'lodash-fp'],
+    'jsdoc',
     'react',
     ['mdx', 'eslint-plugin-react'],
     ['react-a11y', 'react'],

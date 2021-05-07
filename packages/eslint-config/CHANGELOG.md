@@ -1,3 +1,11 @@
+### @anolilab/eslint-config [2.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.7...@anolilab/eslint-config@2.0.8) (2021-05-07)
+
+
+### Bug Fixes
+
+* fixed missing compat, moved jsdoc to dev ([4bb37a6](https://github.com/anolilab/javascript-style-guide/commit/4bb37a600b34aa8e0877267ca7eacf2745a01b46))
+* removed eslint-plugin-typescript from dev devDependencies ([b8b035b](https://github.com/anolilab/javascript-style-guide/commit/b8b035b167a4bddd42bc839301eebb9c7bdea7c5))
+
 ### @anolilab/eslint-config [2.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.6...@anolilab/eslint-config@2.0.7) (2021-05-07)
 
 

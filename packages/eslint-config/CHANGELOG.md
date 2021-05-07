@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.5...@anolilab/eslint-config@2.0.6) (2021-05-07)
+
+
+### Bug Fixes
+
+* fixed missing plugin imports ([00f8208](https://github.com/anolilab/javascript-style-guide/commit/00f8208aaef62d2a5e59c2145c0bb039dd2f5457))
+
 ### @anolilab/eslint-config [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.4...@anolilab/eslint-config@2.0.5) (2021-05-04)
 
 

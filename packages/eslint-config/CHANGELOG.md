@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.8...@anolilab/eslint-config@2.0.9) (2021-05-07)
+
+
+### Bug Fixes
+
+* changed max-len to 120, same as prettier ([f808a2f](https://github.com/anolilab/javascript-style-guide/commit/f808a2fc7433e837643f0c6dad77430ad33a5b8d))
+
 ### @anolilab/eslint-config [2.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.7...@anolilab/eslint-config@2.0.8) (2021-05-07)
 
 

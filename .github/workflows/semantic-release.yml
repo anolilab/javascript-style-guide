@@ -47,7 +47,9 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: "install"
-              run: "yarn install"
+              run: |
+                  yarn set version latest
+                  yarn install --frozen-lockfile
 
             - name: "test and coverage"
               run: "yarn run test:coverage"

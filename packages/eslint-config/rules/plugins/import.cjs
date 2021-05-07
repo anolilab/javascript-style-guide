@@ -7,7 +7,6 @@ module.exports = {
         sourceType: "module",
     },
     plugins: ["import"],
-
     settings: {
         "import/resolver": {
             node: {
@@ -18,7 +17,6 @@ module.exports = {
         "import/core-modules": [],
         "import/ignore": ["node_modules", "\\.(coffee|scss|css|less|hbs|svg|json)$"],
     },
-
     rules: {
         // Static analysis:
 

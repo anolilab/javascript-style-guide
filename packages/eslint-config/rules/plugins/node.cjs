@@ -1,5 +1,6 @@
 // @see https://github.com/mysticatea/eslint-plugin-node#readme
 module.exports = {
+    extends: ["plugin:node/recommended"],
     env: {
         node: true,
     },

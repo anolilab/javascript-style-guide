@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.9...@anolilab/eslint-config@2.0.10) (2021-05-07)
+
+
+### Bug Fixes
+
+* changed quotes from single to double ([57f592d](https://github.com/anolilab/javascript-style-guide/commit/57f592d4a88640a3a8e7645d12bb00f659c3a97d))
+
 ### @anolilab/eslint-config [2.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.8...@anolilab/eslint-config@2.0.9) (2021-05-07)
 
 

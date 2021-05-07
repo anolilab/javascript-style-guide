@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.6...@anolilab/eslint-config@2.0.7) (2021-05-07)
+
+
+### Bug Fixes
+
+* fixed has dep check on react for typescript ([76506a7](https://github.com/anolilab/javascript-style-guide/commit/76506a776382e257057a498e94a88ecea125db24))
+
 ### @anolilab/eslint-config [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.5...@anolilab/eslint-config@2.0.6) (2021-05-07)
 
 

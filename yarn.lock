@@ -169,6 +169,8 @@ __metadata:
   resolution: "@anolilab/stylelint-config@workspace:packages/stylelint-config"
   dependencies:
     browserslist: ^4.16.4
+    lodash: ^4.17.21
+    postcss: ^8.2.14
     stylelint: 13.13.1
     stylelint-a11y: ^1.2.3
     stylelint-config-rational-order: ^0.1.2
@@ -180,6 +182,7 @@ __metadata:
     stylelint-selector-no-empty: ^1.0.8
   peerDependencies:
     browserslist: ^4.16.4
+    postcss: ^8.2.14
     stylelint: ^13.12.0
   languageName: unknown
   linkType: soft
@@ -11552,6 +11555,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "javascript-style-guide@workspace:."
   dependencies:
+    "@babel/cli": ^7.13.14
     "@babel/core": ^7.14.0
     "@babel/preset-env": ^7.14.1
     "@commitlint/cli": 12.1.1
@@ -11579,9 +11583,12 @@ __metadata:
     jest: 26.6.3
     jest-snapshot-serializer-raw: 1.2.0
     lint-staged: 10.5.4
+    lodash: ^4.17.21
+    postcss: ^8.2.14
     prettier: 2.2.1
     pretty-quick: 3.1.0
     sort-package-json: 1.50.0
+    stylelint: 13.13.1
     textlint: 11.9.0
     textlint-rule-abbr-within-parentheses: 1.0.2
     textlint-rule-alex: 3.0.0
@@ -14158,6 +14165,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.1.22":
+  version: 3.1.22
+  resolution: "nanoid@npm:3.1.22"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 6a38c799816de388cd67233a9fad6216e0ad2abda3ce5b34eb126afbef6905924507223dc65797e2bcbc513f9cd7e078ea7e69448d59f434a6206b491278ae24
+  languageName: node
+  linkType: hard
+
 "nanomatch@npm:^1.2.9":
   version: 1.2.13
   resolution: "nanomatch@npm:1.2.13"
@@ -16110,6 +16126,17 @@ __metadata:
     nanoid: ^3.1.20
     source-map: ^0.6.1
   checksum: dbd8281a32abdbb68be53a7022f405f25207cfadf86cd603bc47e29579432d6fe970fb4189af6ddbd81170c9f226ae36413970bed5bfcd6d04544c86374547be
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.2.14":
+  version: 8.2.14
+  resolution: "postcss@npm:8.2.14"
+  dependencies:
+    colorette: ^1.2.2
+    nanoid: ^3.1.22
+    source-map: ^0.6.1
+  checksum: 46bcc7c05f2b6b0e22e36af03e0244366871bd5cd9e3ca35e0ba2a87fb9080063322ee1dcef307d6e116fdac7c85941aaebd3755a3c88b4533bb8722b7bba4d2
   languageName: node
   linkType: hard
 

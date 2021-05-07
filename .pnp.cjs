@@ -67,6 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@babel/cli", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.13.14"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/preset-env", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.14.1"],
             ["@commitlint/cli", "npm:12.1.1"],
@@ -94,9 +95,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "npm:26.6.3"],
             ["jest-snapshot-serializer-raw", "npm:1.2.0"],
             ["lint-staged", "npm:10.5.4"],
+            ["lodash", "npm:4.17.21"],
+            ["postcss", "npm:8.2.14"],
             ["prettier", "npm:2.2.1"],
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
+            ["stylelint", "npm:13.13.1"],
             ["textlint", "npm:11.9.0"],
             ["textlint-rule-abbr-within-parentheses", "npm:1.0.2"],
             ["textlint-rule-alex", "npm:3.0.0"],
@@ -123,7 +127,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/babel-preset/",
           "packageDependencies": [
             ["@anolilab/babel-preset", "workspace:packages/babel-preset"],
-            ["@babel/cli", "virtual:fdc4a999436b24ae25589ff5a81edba93f49cdf9011e4b9ee024d0d1234eb409dd5f0dc0182bb467fa5845e407f1dea1f4250883753694435d5f98c1acd5c937#npm:7.13.14"],
+            ["@babel/cli", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.13.14"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/helper-plugin-utils", "npm:7.13.0"],
             ["@babel/plugin-proposal-class-properties", "virtual:6fda0347b78b86fd0c2e33ceee47a828691be54291ae95f8258b73825d23a123a36a075f80b6bbd366ecea63cc58d13a19752592c3d7fd7354a508296c0cb8d9#npm:7.13.0"],
@@ -233,6 +237,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@anolilab/stylelint-config", "workspace:packages/stylelint-config"],
             ["browserslist", "npm:4.16.4"],
+            ["lodash", "npm:4.17.21"],
+            ["postcss", "npm:8.2.14"],
             ["stylelint", "npm:13.13.1"],
             ["stylelint-a11y", "virtual:736be00aee71ad2885796bc1fd6795774dbedebc9fd8a14559bb660f798d6d299839da5a526b47b2d8decb25b9f4848f5ed82545c5a61d28b109c9612e0a09b3#npm:1.2.3"],
             ["stylelint-config-rational-order", "npm:0.1.2"],
@@ -300,10 +306,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:fdc4a999436b24ae25589ff5a81edba93f49cdf9011e4b9ee024d0d1234eb409dd5f0dc0182bb467fa5845e407f1dea1f4250883753694435d5f98c1acd5c937#npm:7.13.14", {
-          "packageLocation": "./.yarn/$$virtual/@babel-cli-virtual-713959bd44/0/cache/@babel-cli-npm-7.13.14-223310e93c-6259a75246.zip/node_modules/@babel/cli/",
+        ["virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.13.14", {
+          "packageLocation": "./.yarn/$$virtual/@babel-cli-virtual-b173b913ba/0/cache/@babel-cli-npm-7.13.14-223310e93c-6259a75246.zip/node_modules/@babel/cli/",
           "packageDependencies": [
-            ["@babel/cli", "virtual:fdc4a999436b24ae25589ff5a81edba93f49cdf9011e4b9ee024d0d1234eb409dd5f0dc0182bb467fa5845e407f1dea1f4250883753694435d5f98c1acd5c937#npm:7.13.14"],
+            ["@babel/cli", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.13.14"],
             ["@babel/core", "npm:7.14.0"],
             ["@nicolo-ribaudo/chokidar-2", "npm:2.1.8-no-fsevents"],
             ["@types/babel__core", null],
@@ -14768,6 +14774,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["javascript-style-guide", "workspace:."],
+            ["@babel/cli", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.13.14"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/preset-env", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:7.14.1"],
             ["@commitlint/cli", "npm:12.1.1"],
@@ -14795,9 +14802,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "npm:26.6.3"],
             ["jest-snapshot-serializer-raw", "npm:1.2.0"],
             ["lint-staged", "npm:10.5.4"],
+            ["lodash", "npm:4.17.21"],
+            ["postcss", "npm:8.2.14"],
             ["prettier", "npm:2.2.1"],
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
+            ["stylelint", "npm:13.13.1"],
             ["textlint", "npm:11.9.0"],
             ["textlint-rule-abbr-within-parentheses", "npm:1.0.2"],
             ["textlint-rule-alex", "npm:3.0.0"],
@@ -17621,6 +17631,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nanoid", "npm:3.1.20"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:3.1.22", {
+          "packageLocation": "./.yarn/cache/nanoid-npm-3.1.22-e0ab44a9c0-6a38c79981.zip/node_modules/nanoid/",
+          "packageDependencies": [
+            ["nanoid", "npm:3.1.22"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["nanomatch", [
@@ -19482,6 +19499,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chalk", "npm:2.4.2"],
             ["source-map", "npm:0.6.1"],
             ["supports-color", "npm:6.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:8.2.14", {
+          "packageLocation": "./.yarn/cache/postcss-npm-8.2.14-61c4216d41-46bcc7c05f.zip/node_modules/postcss/",
+          "packageDependencies": [
+            ["postcss", "npm:8.2.14"],
+            ["colorette", "npm:1.2.2"],
+            ["nanoid", "npm:3.1.22"],
+            ["source-map", "npm:0.6.1"]
           ],
           "linkType": "HARD",
         }],

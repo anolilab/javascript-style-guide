@@ -97,7 +97,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:10.5.4"],
             ["lodash", "npm:4.17.21"],
             ["postcss", "npm:8.2.14"],
-            ["prettier", "npm:2.2.1"],
+            ["prettier", "npm:2.3.0"],
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
             ["stylelint", "npm:13.13.1"],
@@ -14817,7 +14817,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:10.5.4"],
             ["lodash", "npm:4.17.21"],
             ["postcss", "npm:8.2.14"],
-            ["prettier", "npm:2.2.1"],
+            ["prettier", "npm:2.3.0"],
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
             ["stylelint", "npm:13.13.1"],
@@ -19914,10 +19914,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["prettier", [
-        ["npm:2.2.1", {
-          "packageLocation": "./.yarn/cache/prettier-npm-2.2.1-e0670992f8-92c6c9f4b8.zip/node_modules/prettier/",
+        ["npm:2.3.0", {
+          "packageLocation": "./.yarn/cache/prettier-npm-2.3.0-29ef37e8b6-652640cc8b.zip/node_modules/prettier/",
           "packageDependencies": [
-            ["prettier", "npm:2.2.1"]
+            ["prettier", "npm:2.3.0"]
           ],
           "linkType": "HARD",
         }]
@@ -19954,7 +19954,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ignore", "npm:5.1.8"],
             ["mri", "npm:1.1.6"],
             ["multimatch", "npm:4.0.0"],
-            ["prettier", "npm:2.2.1"]
+            ["prettier", "npm:2.3.0"]
           ],
           "packagePeers": [
             "@types/prettier",

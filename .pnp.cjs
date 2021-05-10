@@ -172,7 +172,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@anolilab/eslint-config", "workspace:packages/eslint-config"],
             ["@rushstack/eslint-plugin-security", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:0.1.4"],
-            ["@testing-library/dom", "npm:7.30.4"],
+            ["@testing-library/dom", "npm:7.31.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:4.22.1"],
             ["@typescript-eslint/parser", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:4.22.1"],
             ["arrify", "npm:2.0.1"],
@@ -5406,10 +5406,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:7.30.4", {
-          "packageLocation": "./.yarn/cache/@testing-library-dom-npm-7.30.4-82ce32bd34-113225e873.zip/node_modules/@testing-library/dom/",
+        ["npm:7.31.0", {
+          "packageLocation": "./.yarn/cache/@testing-library-dom-npm-7.31.0-6aeaee08fa-84c4bf5d33.zip/node_modules/@testing-library/dom/",
           "packageDependencies": [
-            ["@testing-library/dom", "npm:7.30.4"],
+            ["@testing-library/dom", "npm:7.31.0"],
             ["@babel/code-frame", "npm:7.12.13"],
             ["@babel/runtime", "npm:7.12.13"],
             ["@types/aria-query", "npm:4.2.1"],

@@ -202,7 +202,7 @@ __metadata:
     textlint-rule-diacritics: 1.0.0
     textlint-rule-en-capitalization: 2.0.3
     textlint-rule-footnote-order: 1.0.3
-    textlint-rule-helper: 2.1.1
+    textlint-rule-helper: 2.2.0
     textlint-rule-no-dead-link: 4.7.0
     textlint-rule-no-empty-section: 1.1.0
     textlint-rule-no-todo: 2.0.1
@@ -11751,7 +11751,7 @@ __metadata:
     textlint-rule-diacritics: 1.0.0
     textlint-rule-en-capitalization: 2.0.3
     textlint-rule-footnote-order: 1.0.3
-    textlint-rule-helper: 2.1.1
+    textlint-rule-helper: 2.2.0
     textlint-rule-no-dead-link: 4.7.0
     textlint-rule-no-empty-section: 1.1.0
     textlint-rule-no-todo: 2.0.1
@@ -19595,15 +19595,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"textlint-rule-helper@npm:2.1.1, textlint-rule-helper@npm:^2.0.0, textlint-rule-helper@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "textlint-rule-helper@npm:2.1.1"
+"textlint-rule-helper@npm:2.2.0":
+  version: 2.2.0
+  resolution: "textlint-rule-helper@npm:2.2.0"
   dependencies:
-    "@textlint/ast-node-types": ^4.2.1
-    "@textlint/types": ^1.1.2
+    "@textlint/ast-node-types": ^4.4.3
+    "@textlint/types": ^1.5.5
     structured-source: ^3.0.2
     unist-util-visit: ^1.1.0
-  checksum: ea69db813cbfb1ec73f5804f43a2c6bc66d0a42eb048dbba829264d7f99c42c643cf46e5f59be00a3bdf692ab89b0e3d275560e3415fa2828a5380ce8b2b2f2d
+  checksum: 2959a825feb2cedc071535f41926e4da5fefa0be4ee2901ead96686691b33b7cec03bfffa49e5808b2a9829eaaa74de500c5e30ac4d34aacca003ba04ceec540
   languageName: node
   linkType: hard
 
@@ -19613,6 +19613,18 @@ resolve@^2.0.0-next.3:
   dependencies:
     unist-util-visit: ^1.1.0
   checksum: c8aa17c91f87b1c8b521e9845079a460e23479a0861babb37fc1259c99949f167b920c48522e63dc8fe20a9af940c88d416ae775c454ea49c0f80bee30b646ff
+  languageName: node
+  linkType: hard
+
+"textlint-rule-helper@npm:^2.0.0, textlint-rule-helper@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "textlint-rule-helper@npm:2.1.1"
+  dependencies:
+    "@textlint/ast-node-types": ^4.2.1
+    "@textlint/types": ^1.1.2
+    structured-source: ^3.0.2
+    unist-util-visit: ^1.1.0
+  checksum: ea69db813cbfb1ec73f5804f43a2c6bc66d0a42eb048dbba829264d7f99c42c643cf46e5f59be00a3bdf692ab89b0e3d275560e3415fa2828a5380ce8b2b2f2d
   languageName: node
   linkType: hard
 

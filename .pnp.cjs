@@ -190,7 +190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-jest-async", "npm:1.0.3"],
             ["eslint-plugin-jest-dom", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:3.9.0"],
             ["eslint-plugin-jest-formatting", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:3.0.0"],
-            ["eslint-plugin-jsdoc", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:34.8.2"],
+            ["eslint-plugin-jsdoc", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:35.0.0"],
             ["eslint-plugin-json", "npm:3.0.0"],
             ["eslint-plugin-jsx-a11y", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:6.4.1"],
             ["eslint-plugin-markdown", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:2.0.1"],
@@ -5252,10 +5252,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@es-joy/jsdoccomment", [
-        ["npm:0.6.0", {
-          "packageLocation": "./.yarn/cache/@es-joy-jsdoccomment-npm-0.6.0-b18e938caa-839db6d969.zip/node_modules/@es-joy/jsdoccomment/",
+        ["npm:0.7.2", {
+          "packageLocation": "./.yarn/cache/@es-joy-jsdoccomment-npm-0.7.2-814dd12117-81b0e48825.zip/node_modules/@es-joy/jsdoccomment/",
           "packageDependencies": [
-            ["@es-joy/jsdoccomment", "npm:0.6.0"],
+            ["@es-joy/jsdoccomment", "npm:0.7.2"],
             ["comment-parser", "npm:1.1.5"],
             ["esquery", "npm:1.4.0"],
             ["jsdoctypeparser", "npm:9.0.0"]
@@ -12279,18 +12279,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["eslint-plugin-jsdoc", [
-        ["npm:34.8.2", {
-          "packageLocation": "./.yarn/cache/eslint-plugin-jsdoc-npm-34.8.2-6cda26714b-226c4f11cf.zip/node_modules/eslint-plugin-jsdoc/",
+        ["npm:35.0.0", {
+          "packageLocation": "./.yarn/cache/eslint-plugin-jsdoc-npm-35.0.0-4ef852705f-63fb494c50.zip/node_modules/eslint-plugin-jsdoc/",
           "packageDependencies": [
-            ["eslint-plugin-jsdoc", "npm:34.8.2"]
+            ["eslint-plugin-jsdoc", "npm:35.0.0"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:34.8.2", {
-          "packageLocation": "./.yarn/$$virtual/eslint-plugin-jsdoc-virtual-9608e22310/0/cache/eslint-plugin-jsdoc-npm-34.8.2-6cda26714b-226c4f11cf.zip/node_modules/eslint-plugin-jsdoc/",
+        ["virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:35.0.0", {
+          "packageLocation": "./.yarn/$$virtual/eslint-plugin-jsdoc-virtual-98031e8a85/0/cache/eslint-plugin-jsdoc-npm-35.0.0-4ef852705f-63fb494c50.zip/node_modules/eslint-plugin-jsdoc/",
           "packageDependencies": [
-            ["eslint-plugin-jsdoc", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:34.8.2"],
-            ["@es-joy/jsdoccomment", "npm:0.6.0"],
+            ["eslint-plugin-jsdoc", "virtual:4a318d394651bd2bde863c2fb83a76616f77f1f1be1c4ff8425b1a73481b13d11ccba25ab9d8fe2cc73bc342e7486166fce2a85f80ca100a73b79dc11628178e#npm:35.0.0"],
+            ["@es-joy/jsdoccomment", "npm:0.7.2"],
             ["@types/eslint", null],
             ["comment-parser", "npm:1.1.5"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],

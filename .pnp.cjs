@@ -85,7 +85,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@textlint-rule/textlint-rule-no-unmatched-pair", "npm:1.0.8"],
             ["@textlint-rule/textlint-rule-preset-google", "npm:0.1.2"],
             ["@types/jest", "npm:26.0.23"],
-            ["@types/node", "npm:14.17.0"],
+            ["@types/node", "npm:14.17.1"],
             ["babel-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.6.3"],
             ["babel-plugin-transform-es2015-modules-commonjs", "npm:6.26.2"],
             ["commitizen", "npm:4.2.4"],
@@ -7215,10 +7215,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:14.17.0", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.0-2942ba859f-f437147b39.zip/node_modules/@types/node/",
+        ["npm:14.17.1", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.1-6efbb98787-3ab1180ff2.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:14.17.0"]
+            ["@types/node", "npm:14.17.1"]
           ],
           "linkType": "HARD",
         }]
@@ -15871,7 +15871,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@textlint-rule/textlint-rule-no-unmatched-pair", "npm:1.0.8"],
             ["@textlint-rule/textlint-rule-preset-google", "npm:0.1.2"],
             ["@types/jest", "npm:26.0.23"],
-            ["@types/node", "npm:14.17.0"],
+            ["@types/node", "npm:14.17.1"],
             ["babel-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.6.3"],
             ["babel-plugin-transform-es2015-modules-commonjs", "npm:6.26.2"],
             ["commitizen", "npm:4.2.4"],

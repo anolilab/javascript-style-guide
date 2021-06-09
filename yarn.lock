@@ -207,7 +207,7 @@ __metadata:
     textlint-rule-no-empty-section: 1.1.0
     textlint-rule-no-todo: 2.0.1
     textlint-rule-terminology: 2.1.5
-    textlint-rule-write-good: 1.6.2
+    textlint-rule-write-good: 2.0.0
     write-good: 1.0.8
   languageName: unknown
   linkType: soft
@@ -5070,13 +5070,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adverb-where@npm:0.0.9":
-  version: 0.0.9
-  resolution: "adverb-where@npm:0.0.9"
-  checksum: c9161b8490c08b7301b7e8ed505b65eeece65406d5f7f56b43a94bf1410d50ece0a9d5bf6fe5d65c778e8fd5f06f10779e3dc49aab7273021e67e2e3be6e921c
-  languageName: node
-  linkType: hard
-
 "adverb-where@npm:^0.2.2":
   version: 0.2.2
   resolution: "adverb-where@npm:0.2.2"
@@ -8185,7 +8178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"e-prime@npm:^0.10.2, e-prime@npm:^0.10.4":
+"e-prime@npm:^0.10.4":
   version: 0.10.4
   resolution: "e-prime@npm:0.10.4"
   checksum: e2f21e3fddbd320bc1edaa89a07591657274ab803dc2b7d7e01138f55ec5802fa19b241c432cad159e7f4e8d0c7962c40608d37e993f21850e5a6b5fd09c29a2
@@ -12064,7 +12057,7 @@ __metadata:
     textlint-rule-no-empty-section: 1.1.0
     textlint-rule-no-todo: 2.0.1
     textlint-rule-terminology: 2.1.5
-    textlint-rule-write-good: 1.6.2
+    textlint-rule-write-good: 2.0.0
     ts-jest: 26.5.6
     typescript: 4.2.4
     write-good: 1.0.8
@@ -15431,13 +15424,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"no-cliches@npm:^0.1.0":
-  version: 0.1.1
-  resolution: "no-cliches@npm:0.1.1"
-  checksum: 03cbce29867b760d8154b76b6803707279746c847b5b519c87b5c42dfa1c9a1e5dece32647a29e6bbc308bd73414317656eaa754bc414909383e86432b72f4fe
-  languageName: node
-  linkType: hard
-
 "no-cliches@npm:^0.3.0":
   version: 0.3.0
   resolution: "no-cliches@npm:0.3.0"
@@ -16212,7 +16198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.0.4, object.assign@npm:^4.1.0, object.assign@npm:^4.1.2":
+"object.assign@npm:^4.1.0, object.assign@npm:^4.1.2":
   version: 4.1.2
   resolution: "object.assign@npm:4.1.2"
   dependencies:
@@ -20640,7 +20626,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"textlint-rule-helper@npm:2.2.0":
+"textlint-rule-helper@npm:2.2.0, textlint-rule-helper@npm:^2.2.0":
   version: 2.2.0
   resolution: "textlint-rule-helper@npm:2.2.0"
   dependencies:
@@ -20728,13 +20714,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"textlint-rule-write-good@npm:1.6.2":
-  version: 1.6.2
-  resolution: "textlint-rule-write-good@npm:1.6.2"
+"textlint-rule-write-good@npm:2.0.0":
+  version: 2.0.0
+  resolution: "textlint-rule-write-good@npm:2.0.0"
   dependencies:
-    textlint-rule-helper: ^2.0.0
-    write-good: ^0.11.0
-  checksum: 5fba874e3430850b2b023eb9175399d4cb8cb35ab2da177726427c4dfb8a1b06447474d743b3fcd42aa4a5ba973607d109b9885c96a500e1007c0205132e4818
+    textlint-rule-helper: ^2.2.0
+    write-good: ^1.0.8
+  checksum: 088d92d5785f9e327fa7a313a30123b13aea04769ebcd058ad9c092ab9b24e6360ea92244cff6e2a379bbc35847896341c10970a0214472c1be0cb8f27284a06
   languageName: node
   linkType: hard
 
@@ -20955,13 +20941,6 @@ resolve@^2.0.0-next.3:
     is-buffer: ^2.0.0
     vfile: ^4.0.0
   checksum: e86845c07f22327d7b4e0fa95653373db00d7e5796b3df301b4ee7c66edd73a5d9cb9019ba43a66ee51fd322d04d664acea60f507aacbfebe69acce1122b7339
-  languageName: node
-  linkType: hard
-
-"too-wordy@npm:^0.1.4":
-  version: 0.1.6
-  resolution: "too-wordy@npm:0.1.6"
-  checksum: 77f9876a8d6f173eeb5c4da2060b2ad6dad8f83559c800d75ec229e9b28367e4e343d040a16facec1aea96e9703025ab0ab4e564e3dc1c17a477776a753b2eea
   languageName: node
   linkType: hard
 
@@ -22330,7 +22309,7 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"write-good@npm:1.0.8":
+"write-good@npm:1.0.8, write-good@npm:^1.0.8":
   version: 1.0.8
   resolution: "write-good@npm:1.0.8"
   dependencies:
@@ -22345,24 +22324,6 @@ typescript@4.2.4:
     write-good: bin/write-good.js
     writegood: bin/write-good.js
   checksum: 066453b2079d2a58ede4aa25a53fa41be6e73d1375685e0fb4ecdffe1f5425e9c32e3a0de073ea50bf3b97c79678651f1b9e831f5c33a45128ffdd3004f26dd1
-  languageName: node
-  linkType: hard
-
-"write-good@npm:^0.11.0":
-  version: 0.11.3
-  resolution: "write-good@npm:0.11.3"
-  dependencies:
-    adverb-where: 0.0.9
-    e-prime: ^0.10.2
-    no-cliches: ^0.1.0
-    object.assign: ^4.0.4
-    passive-voice: ^0.1.0
-    too-wordy: ^0.1.4
-    weasel-words: ^0.1.1
-  bin:
-    write-good: bin/write-good.js
-    writegood: bin/write-good.js
-  checksum: c4301cf370b2b01a68b6c29a0bd4a092b8d30e0244d5ee75a22b6948cb73c97d89acea6ad399e09a188045f68283dd893b66995407a7cda70f051801dd21b44e
   languageName: node
   linkType: hard
 

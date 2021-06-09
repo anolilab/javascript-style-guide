@@ -114,7 +114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["textlint-rule-no-empty-section", "npm:1.1.0"],
             ["textlint-rule-no-todo", "npm:2.0.1"],
             ["textlint-rule-terminology", "npm:2.1.5"],
-            ["textlint-rule-write-good", "npm:1.6.2"],
+            ["textlint-rule-write-good", "npm:2.0.0"],
             ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["write-good", "npm:1.0.8"]
@@ -273,7 +273,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["textlint-rule-no-empty-section", "npm:1.1.0"],
             ["textlint-rule-no-todo", "npm:2.0.1"],
             ["textlint-rule-terminology", "npm:2.1.5"],
-            ["textlint-rule-write-good", "npm:1.6.2"],
+            ["textlint-rule-write-good", "npm:2.0.0"],
             ["write-good", "npm:1.0.8"]
           ],
           "linkType": "SOFT",
@@ -8332,13 +8332,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["adverb-where", [
-        ["npm:0.0.9", {
-          "packageLocation": "./.yarn/cache/adverb-where-npm-0.0.9-daf6d2e275-c9161b8490.zip/node_modules/adverb-where/",
-          "packageDependencies": [
-            ["adverb-where", "npm:0.0.9"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.2.2", {
           "packageLocation": "./.yarn/cache/adverb-where-npm-0.2.2-97697a1153-9cbefcfec7.zip/node_modules/adverb-where/",
           "packageDependencies": [
@@ -16534,7 +16527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["textlint-rule-no-empty-section", "npm:1.1.0"],
             ["textlint-rule-no-todo", "npm:2.0.1"],
             ["textlint-rule-terminology", "npm:2.1.5"],
-            ["textlint-rule-write-good", "npm:1.6.2"],
+            ["textlint-rule-write-good", "npm:2.0.0"],
             ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["write-good", "npm:1.0.8"]
@@ -20199,13 +20192,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["no-cliches", [
-        ["npm:0.1.1", {
-          "packageLocation": "./.yarn/cache/no-cliches-npm-0.1.1-a9b79a1a93-03cbce2986.zip/node_modules/no-cliches/",
-          "packageDependencies": [
-            ["no-cliches", "npm:0.1.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.3.0", {
           "packageLocation": "./.yarn/cache/no-cliches-npm-0.3.0-679c6ebc1e-8d39e986d9.zip/node_modules/no-cliches/",
           "packageDependencies": [
@@ -26069,12 +26055,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["textlint-rule-write-good", [
-        ["npm:1.6.2", {
-          "packageLocation": "./.yarn/cache/textlint-rule-write-good-npm-1.6.2-0c6141cd48-5fba874e34.zip/node_modules/textlint-rule-write-good/",
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/textlint-rule-write-good-npm-2.0.0-d610bc1fed-088d92d578.zip/node_modules/textlint-rule-write-good/",
           "packageDependencies": [
-            ["textlint-rule-write-good", "npm:1.6.2"],
-            ["textlint-rule-helper", "npm:2.1.1"],
-            ["write-good", "npm:0.11.3"]
+            ["textlint-rule-write-good", "npm:2.0.0"],
+            ["textlint-rule-helper", "npm:2.2.0"],
+            ["write-good", "npm:1.0.8"]
           ],
           "linkType": "HARD",
         }]
@@ -26277,13 +26263,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["too-wordy", [
-        ["npm:0.1.6", {
-          "packageLocation": "./.yarn/cache/too-wordy-npm-0.1.6-04ffd65075-77f9876a8d.zip/node_modules/too-wordy/",
-          "packageDependencies": [
-            ["too-wordy", "npm:0.1.6"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:0.3.1", {
           "packageLocation": "./.yarn/cache/too-wordy-npm-0.3.1-9d6ec1eb90-02a3659ab3.zip/node_modules/too-wordy/",
           "packageDependencies": [
@@ -27816,20 +27795,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["write-good", [
-        ["npm:0.11.3", {
-          "packageLocation": "./.yarn/cache/write-good-npm-0.11.3-6fa8ee042b-c4301cf370.zip/node_modules/write-good/",
-          "packageDependencies": [
-            ["write-good", "npm:0.11.3"],
-            ["adverb-where", "npm:0.0.9"],
-            ["e-prime", "npm:0.10.4"],
-            ["no-cliches", "npm:0.1.1"],
-            ["object.assign", "npm:4.1.2"],
-            ["passive-voice", "npm:0.1.0"],
-            ["too-wordy", "npm:0.1.6"],
-            ["weasel-words", "npm:0.1.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:1.0.8", {
           "packageLocation": "./.yarn/cache/write-good-npm-1.0.8-a8d6459437-066453b207.zip/node_modules/write-good/",
           "packageDependencies": [

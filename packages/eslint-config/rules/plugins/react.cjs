@@ -422,9 +422,8 @@ module.exports = {
         "react/no-unused-prop-types": [
             "error",
             {
-                callbacksLast: true,
-                requiredFirst: true,
-                sortShapeProp: true,
+                customValidators: [],
+                skipShapeProps: true,
             },
         ],
 

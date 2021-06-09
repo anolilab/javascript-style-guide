@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.0...@anolilab/eslint-config@2.1.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* fixed wrong value for react/no-unused-prop-types ([d65f8bf](https://github.com/anolilab/javascript-style-guide/commit/d65f8bfc19789253f51c75fb79f3071d537cbe76))
+
 ## @anolilab/eslint-config [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.0.10...@anolilab/eslint-config@2.1.0) (2021-06-09)
 
 

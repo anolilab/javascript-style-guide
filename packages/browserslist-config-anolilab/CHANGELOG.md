@@ -1,3 +1,10 @@
+## browserslist-config-anolilab [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.0.1...browserslist-config-anolilab@2.1.0) (2021-06-09)
+
+
+### Features
+
+* upgraded yarn to v2.4.2 ([b3336fc](https://github.com/anolilab/javascript-style-guide/commit/b3336fc9b6ee37744bd177a96eb0f147a6b7d4d7))
+
 ### browserslist-config-anolilab [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.0.0...browserslist-config-anolilab@2.0.1) (2021-04-28)
 
 

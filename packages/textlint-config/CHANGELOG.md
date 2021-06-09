@@ -1,3 +1,11 @@
+### @anolilab/textlint-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.3...@anolilab/textlint-config@2.0.4) (2021-06-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency textlint to v12 ([3e988b6](https://github.com/anolilab/javascript-style-guide/commit/3e988b65e03bd40f4b46e58b0bf247f250d02157))
+* **deps:** update dependency textlint-rule-write-good to v2 ([5b0521b](https://github.com/anolilab/javascript-style-guide/commit/5b0521bf2ce14a7cb7b8a76022ae637577a036a5))
+
 ### @anolilab/textlint-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.2...@anolilab/textlint-config@2.0.3) (2021-05-04)
 
 

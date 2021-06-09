@@ -18,6 +18,7 @@
         "packages/*"
     ],
     "scripts": {
+        "preinstall": "node verify-node-version.cjs",
         "postinstall": "husky install",
         "lint:staged": "lint-staged",
         "lint:styles": "stylelint",

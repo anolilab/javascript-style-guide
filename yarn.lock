@@ -103,7 +103,7 @@ __metadata:
     eslint-plugin-sort-keys-fix: ^1.1.1
     eslint-plugin-testing-library: 4.6.0
     eslint-plugin-typescript-sort-keys: 1.6.0
-    eslint-plugin-unicorn: ^31.0.0
+    eslint-plugin-unicorn: ^33.0.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.11.0
     eslint-plugin-you-dont-need-momentjs: ^1.6.0
     jest: 27.0.1
@@ -8897,15 +8897,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:^31.0.0":
-  version: 31.0.0
-  resolution: "eslint-plugin-unicorn@npm:31.0.0"
+"eslint-plugin-unicorn@npm:^33.0.0":
+  version: 33.0.1
+  resolution: "eslint-plugin-unicorn@npm:33.0.1"
   dependencies:
     ci-info: ^3.1.1
     clean-regexp: ^1.0.0
     eslint-template-visitor: ^2.3.2
-    eslint-utils: ^2.1.0
-    eslint-visitor-keys: ^2.0.0
+    eslint-utils: ^3.0.0
     import-modules: ^2.1.0
     is-builtin-module: ^3.1.0
     lodash: ^4.17.21
@@ -8917,7 +8916,7 @@ __metadata:
     semver: ^7.3.5
   peerDependencies:
     eslint: ">=7.23.0"
-  checksum: ff2b2cbf2e5b621be0487f2e4c9f8f2ac3a0b12ac8979aa4d0e536d68928d1616d320be31a4a4b139b91f62f980bfbf2204fd1e3b9c84dc7c74c270efc77645d
+  checksum: 48c2b5c67c450a8b6743c93b4e74e821a330220949703a0ac2114c277212545a40f3af3a3185e5b641f1e5947207cb9473ce1543c73ee2afde79e37bb2b58477
   languageName: node
   linkType: hard
 
@@ -8986,6 +8985,17 @@ __metadata:
   dependencies:
     eslint-visitor-keys: ^1.1.0
   checksum: a43892372a4205374982ac9d4c8edc5fe180cba76535ab9184c48f18a3d931b7ffdd6862cb2f8ca4305c47eface0e614e39884a75fbf169fcc55a6131af2ec48
+  languageName: node
+  linkType: hard
+
+"eslint-utils@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "eslint-utils@npm:3.0.0"
+  dependencies:
+    eslint-visitor-keys: ^2.0.0
+  peerDependencies:
+    eslint: ">=5"
+  checksum: 035451529f016e28edd26e8951f15e28a6a4e58adff67bd0cb494879f360080750b9c779e46561369aec0657ac2b89dd8b0aa38476e8cdf50e635aa872fa27b6
   languageName: node
   linkType: hard
 

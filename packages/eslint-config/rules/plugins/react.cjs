@@ -422,8 +422,9 @@ module.exports = {
         "react/no-unused-prop-types": [
             "error",
             {
-                customValidators: [],
-                skipShapeProps: true,
+                callbacksLast: true,
+                requiredFirst: true,
+                sortShapeProp: true,
             },
         ],
 
@@ -568,12 +569,12 @@ module.exports = {
 
         // Enforce state initialization style
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
-        // TODO: set to "never" once babel-preset-airbnb supports public class fields
+        // TODO: set to "never" once @anolilab/babel-preset supports public class fields
         "react/state-in-constructor": ["error", "always"],
 
         // Enforces where React component static properties should be positioned
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md
-        // TODO: set to "static public field" once babel-preset-airbnb supports public class fields
+        // TODO: set to "static public field" once @anolilab/babel-preset supports public class fields
         "react/static-property-placement": ["error", "property assignment"],
 
         // Disallow JSX props spreading
@@ -617,8 +618,8 @@ module.exports = {
         "react/function-component-definition": [
             "error",
             {
-                namedComponents: "function-expression",
-                unnamedComponents: "function-expression",
+                namedComponents: "arrow-function",
+                unnamedComponents: "arrow-function",
             },
         ],
 

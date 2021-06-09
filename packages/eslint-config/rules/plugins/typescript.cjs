@@ -251,6 +251,7 @@ module.exports = {
                 "valid-typeof": "off",
                 "import/named": "off",
                 "import/no-unresolved": "off",
+                "react/require-default-props": "off",
             },
         },
     ],

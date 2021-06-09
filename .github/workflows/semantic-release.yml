@@ -50,19 +50,19 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: "install"
-              run: "yarn install"
+              run: "yarn install --immutable"
 
             - name: "test and coverage"
               run: "yarn run test:coverage"
 
             - name: "test stylelint config"
-              run: "yarn test:stylelint"
+              run: "yarn run test:stylelint"
 
             - name: "test babel config"
-              run: "yarn test:babel"
+              run: "yarn run test:babel"
 
             - name: "Semantic Release"
               env:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
-              run: "yarn multi-semantic-release"
+              run: "yarn run multi-semantic-release"

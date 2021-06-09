@@ -101,7 +101,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
             ["stylelint", "npm:13.13.1"],
-            ["textlint", "npm:11.9.1"],
+            ["textlint", "npm:12.0.0"],
             ["textlint-rule-abbr-within-parentheses", "npm:1.0.2"],
             ["textlint-rule-alex", "npm:3.0.0"],
             ["textlint-rule-apostrophe", "npm:2.0.0"],
@@ -260,7 +260,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@textlint-rule/textlint-rule-no-invalid-control-character", "npm:2.0.0"],
             ["@textlint-rule/textlint-rule-no-unmatched-pair", "npm:1.0.8"],
             ["@textlint-rule/textlint-rule-preset-google", "npm:0.1.2"],
-            ["textlint", "npm:11.9.1"],
+            ["textlint", "npm:12.0.0"],
             ["textlint-rule-abbr-within-parentheses", "npm:1.0.2"],
             ["textlint-rule-alex", "npm:3.0.0"],
             ["textlint-rule-apostrophe", "npm:2.0.0"],
@@ -7196,6 +7196,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/ast-node-types", [
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-ast-node-types-npm-12.0.0-a5a4450a54-06e1611976.zip/node_modules/@textlint/ast-node-types/",
+          "packageDependencies": [
+            ["@textlint/ast-node-types", "npm:12.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:4.4.1", {
           "packageLocation": "./.yarn/cache/@textlint-ast-node-types-npm-4.4.1-85d5e1c0bb-2cecc01ef5.zip/node_modules/@textlint/ast-node-types/",
           "packageDependencies": [
@@ -7212,42 +7219,43 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/ast-tester", [
-        ["npm:2.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-ast-tester-npm-2.3.5-b922e614e3-5e8ab44e9d.zip/node_modules/@textlint/ast-tester/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-ast-tester-npm-12.0.0-64ec54843c-dc10d8a905.zip/node_modules/@textlint/ast-tester/",
           "packageDependencies": [
-            ["@textlint/ast-tester", "npm:2.3.5"],
-            ["@textlint/ast-node-types", "npm:4.4.3"]
+            ["@textlint/ast-tester", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"],
+            ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/ast-traverse", [
-        ["npm:2.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-ast-traverse-npm-2.3.5-4b95dfdeea-89c91d8643.zip/node_modules/@textlint/ast-traverse/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-ast-traverse-npm-12.0.0-980b9d55c4-08b5a6b209.zip/node_modules/@textlint/ast-traverse/",
           "packageDependencies": [
-            ["@textlint/ast-traverse", "npm:2.3.5"],
-            ["@textlint/ast-node-types", "npm:4.4.3"]
+            ["@textlint/ast-traverse", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/feature-flag", [
-        ["npm:3.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-feature-flag-npm-3.3.5-41ec2d233f-b65bf35811.zip/node_modules/@textlint/feature-flag/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-feature-flag-npm-12.0.0-b3c9827c3a-33b7e645e1.zip/node_modules/@textlint/feature-flag/",
           "packageDependencies": [
-            ["@textlint/feature-flag", "npm:3.3.5"],
+            ["@textlint/feature-flag", "npm:12.0.0"],
             ["map-like", "npm:2.0.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/fixer-formatter", [
-        ["npm:3.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-fixer-formatter-npm-3.3.5-b785d6900a-1e0e489b4d.zip/node_modules/@textlint/fixer-formatter/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-fixer-formatter-npm-12.0.0-558b156322-ff6526f426.zip/node_modules/@textlint/fixer-formatter/",
           "packageDependencies": [
-            ["@textlint/fixer-formatter", "npm:3.3.5"],
-            ["@textlint/module-interop", "npm:1.2.5"],
-            ["@textlint/types", "npm:1.5.5"],
+            ["@textlint/fixer-formatter", "npm:12.0.0"],
+            ["@textlint/module-interop", "npm:12.0.0"],
+            ["@textlint/types", "npm:12.0.0"],
             ["chalk", "npm:1.1.3"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
             ["diff", "npm:4.0.2"],
@@ -7261,17 +7269,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/kernel", [
-        ["npm:3.4.5", {
-          "packageLocation": "./.yarn/cache/@textlint-kernel-npm-3.4.5-98b898b7fe-3d106f0c2a.zip/node_modules/@textlint/kernel/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-kernel-npm-12.0.0-3cc8658fce-7127923d33.zip/node_modules/@textlint/kernel/",
           "packageDependencies": [
-            ["@textlint/kernel", "npm:3.4.5"],
-            ["@textlint/ast-node-types", "npm:4.4.3"],
-            ["@textlint/ast-tester", "npm:2.3.5"],
-            ["@textlint/ast-traverse", "npm:2.3.5"],
-            ["@textlint/feature-flag", "npm:3.3.5"],
-            ["@textlint/source-code-fixer", "npm:3.4.5"],
-            ["@textlint/types", "npm:1.5.5"],
-            ["@textlint/utils", "npm:1.2.5"],
+            ["@textlint/kernel", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"],
+            ["@textlint/ast-tester", "npm:12.0.0"],
+            ["@textlint/ast-traverse", "npm:12.0.0"],
+            ["@textlint/feature-flag", "npm:12.0.0"],
+            ["@textlint/source-code-fixer", "npm:12.0.0"],
+            ["@textlint/types", "npm:12.0.0"],
+            ["@textlint/utils", "npm:12.0.0"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
             ["deep-equal", "npm:1.1.1"],
             ["map-like", "npm:2.0.0"],
@@ -7281,16 +7289,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/linter-formatter", [
-        ["npm:3.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-linter-formatter-npm-3.3.5-687165693e-861d1b67ca.zip/node_modules/@textlint/linter-formatter/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-linter-formatter-npm-12.0.0-b415b8e68d-a3b12d9086.zip/node_modules/@textlint/linter-formatter/",
           "packageDependencies": [
-            ["@textlint/linter-formatter", "npm:3.3.5"],
+            ["@textlint/linter-formatter", "npm:12.0.0"],
             ["@azu/format-text", "npm:1.0.1"],
             ["@azu/style-format", "npm:1.0.0"],
-            ["@textlint/module-interop", "npm:1.2.5"],
-            ["@textlint/types", "npm:1.5.5"],
+            ["@textlint/module-interop", "npm:12.0.0"],
+            ["@textlint/types", "npm:12.0.0"],
             ["chalk", "npm:1.1.3"],
-            ["concat-stream", "npm:1.6.2"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
             ["is-file", "npm:1.0.0"],
             ["js-yaml", "npm:3.14.1"],
@@ -7307,26 +7314,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/markdown-to-ast", [
-        ["npm:6.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-markdown-to-ast-npm-6.3.5-487a051acb-9032e15385.zip/node_modules/@textlint/markdown-to-ast/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-markdown-to-ast-npm-12.0.0-99f256b986-5065978e6c.zip/node_modules/@textlint/markdown-to-ast/",
           "packageDependencies": [
-            ["@textlint/markdown-to-ast", "npm:6.3.5"],
-            ["@textlint/ast-node-types", "npm:4.4.3"],
+            ["@textlint/markdown-to-ast", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
-            ["remark-frontmatter", "npm:1.3.3"],
-            ["remark-parse", "npm:5.0.0"],
-            ["structured-source", "npm:3.0.2"],
+            ["remark-footnotes", "npm:3.0.0"],
+            ["remark-frontmatter", "npm:3.0.0"],
+            ["remark-gfm", "npm:1.0.0"],
+            ["remark-parse", "npm:9.0.0"],
             ["traverse", "npm:0.6.6"],
-            ["unified", "npm:6.2.0"]
+            ["unified", "npm:9.2.1"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/module-interop", [
-        ["npm:1.2.5", {
-          "packageLocation": "./.yarn/cache/@textlint-module-interop-npm-1.2.5-34ea587306-b329fcdad4.zip/node_modules/@textlint/module-interop/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-module-interop-npm-12.0.0-98206c5315-921a95d869.zip/node_modules/@textlint/module-interop/",
           "packageDependencies": [
-            ["@textlint/module-interop", "npm:1.2.5"]
+            ["@textlint/module-interop", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7347,42 +7355,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@textlint/source-code-fixer", [
-        ["npm:3.4.5", {
-          "packageLocation": "./.yarn/cache/@textlint-source-code-fixer-npm-3.4.5-f803e83c70-b3ba45b1bf.zip/node_modules/@textlint/source-code-fixer/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-source-code-fixer-npm-12.0.0-9bf60f3b27-7a5d47bca8.zip/node_modules/@textlint/source-code-fixer/",
           "packageDependencies": [
-            ["@textlint/source-code-fixer", "npm:3.4.5"],
-            ["@textlint/types", "npm:1.5.5"],
+            ["@textlint/source-code-fixer", "npm:12.0.0"],
+            ["@textlint/types", "npm:12.0.0"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/text-to-ast", [
-        ["npm:3.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-text-to-ast-npm-3.3.5-99a6608ca9-7afabcd6f1.zip/node_modules/@textlint/text-to-ast/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-text-to-ast-npm-12.0.0-a68c951bc3-3e4803d664.zip/node_modules/@textlint/text-to-ast/",
           "packageDependencies": [
-            ["@textlint/text-to-ast", "npm:3.3.5"],
-            ["@textlint/ast-node-types", "npm:4.4.3"]
+            ["@textlint/text-to-ast", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/textlint-plugin-markdown", [
-        ["npm:5.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-textlint-plugin-markdown-npm-5.3.5-6d82596a71-0073dba8de.zip/node_modules/@textlint/textlint-plugin-markdown/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-textlint-plugin-markdown-npm-12.0.0-0eb81c0fdf-5f5294ced2.zip/node_modules/@textlint/textlint-plugin-markdown/",
           "packageDependencies": [
-            ["@textlint/textlint-plugin-markdown", "npm:5.3.5"],
-            ["@textlint/markdown-to-ast", "npm:6.3.5"]
+            ["@textlint/textlint-plugin-markdown", "npm:12.0.0"],
+            ["@textlint/markdown-to-ast", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@textlint/textlint-plugin-text", [
-        ["npm:4.3.5", {
-          "packageLocation": "./.yarn/cache/@textlint-textlint-plugin-text-npm-4.3.5-69303f20c0-b7ce57e4a2.zip/node_modules/@textlint/textlint-plugin-text/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-textlint-plugin-text-npm-12.0.0-bff1277e02-ca7843f70f.zip/node_modules/@textlint/textlint-plugin-text/",
           "packageDependencies": [
-            ["@textlint/textlint-plugin-text", "npm:4.3.5"],
-            ["@textlint/text-to-ast", "npm:3.3.5"]
+            ["@textlint/textlint-plugin-text", "npm:12.0.0"],
+            ["@textlint/text-to-ast", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7403,13 +7411,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@textlint/ast-node-types", "npm:4.4.3"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-types-npm-12.0.0-921dd598e8-09a2fa3916.zip/node_modules/@textlint/types/",
+          "packageDependencies": [
+            ["@textlint/types", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@textlint/utils", [
-        ["npm:1.2.5", {
-          "packageLocation": "./.yarn/cache/@textlint-utils-npm-1.2.5-7c7f0f7b77-b1551a1115.zip/node_modules/@textlint/utils/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/@textlint-utils-npm-12.0.0-21ca0ae7ff-ecd148e1bf.zip/node_modules/@textlint/utils/",
           "packageDependencies": [
-            ["@textlint/utils", "npm:1.2.5"]
+            ["@textlint/utils", "npm:12.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -16505,7 +16521,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pretty-quick", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:3.1.0"],
             ["sort-package-json", "npm:1.50.0"],
             ["stylelint", "npm:13.13.1"],
-            ["textlint", "npm:11.9.1"],
+            ["textlint", "npm:12.0.0"],
             ["textlint-rule-abbr-within-parentheses", "npm:1.0.2"],
             ["textlint-rule-alex", "npm:3.0.0"],
             ["textlint-rule-apostrophe", "npm:2.0.0"],
@@ -19244,6 +19260,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["mdast-util-find-and-replace", [
+        ["npm:1.1.1", {
+          "packageLocation": "./.yarn/cache/mdast-util-find-and-replace-npm-1.1.1-3fa14ec655-d9f055339f.zip/node_modules/mdast-util-find-and-replace/",
+          "packageDependencies": [
+            ["mdast-util-find-and-replace", "npm:1.1.1"],
+            ["escape-string-regexp", "npm:4.0.0"],
+            ["unist-util-is", "npm:4.0.4"],
+            ["unist-util-visit-parents", "npm:3.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-footnote", [
+        ["npm:0.1.7", {
+          "packageLocation": "./.yarn/cache/mdast-util-footnote-npm-0.1.7-c5e39e294e-d9ecf61ea9.zip/node_modules/mdast-util-footnote/",
+          "packageDependencies": [
+            ["mdast-util-footnote", "npm:0.1.7"],
+            ["mdast-util-to-markdown", "npm:0.6.5"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["mdast-util-from-markdown", [
         ["npm:0.8.5", {
           "packageLocation": "./.yarn/cache/mdast-util-from-markdown-npm-0.8.5-0b8b6dc7ba-7853d3eeb4.zip/node_modules/mdast-util-from-markdown/",
@@ -19254,6 +19293,73 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["micromark", "npm:2.11.4"],
             ["parse-entities", "npm:2.0.0"],
             ["unist-util-stringify-position", "npm:2.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-frontmatter", [
+        ["npm:0.2.0", {
+          "packageLocation": "./.yarn/cache/mdast-util-frontmatter-npm-0.2.0-c07c93d080-7ad4406e45.zip/node_modules/mdast-util-frontmatter/",
+          "packageDependencies": [
+            ["mdast-util-frontmatter", "npm:0.2.0"],
+            ["micromark-extension-frontmatter", "npm:0.2.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-gfm", [
+        ["npm:0.1.2", {
+          "packageLocation": "./.yarn/cache/mdast-util-gfm-npm-0.1.2-5d42a31a00-2ecfc22c7e.zip/node_modules/mdast-util-gfm/",
+          "packageDependencies": [
+            ["mdast-util-gfm", "npm:0.1.2"],
+            ["mdast-util-gfm-autolink-literal", "npm:0.1.3"],
+            ["mdast-util-gfm-strikethrough", "npm:0.2.3"],
+            ["mdast-util-gfm-table", "npm:0.1.6"],
+            ["mdast-util-gfm-task-list-item", "npm:0.1.6"],
+            ["mdast-util-to-markdown", "npm:0.6.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-gfm-autolink-literal", [
+        ["npm:0.1.3", {
+          "packageLocation": "./.yarn/cache/mdast-util-gfm-autolink-literal-npm-0.1.3-0519a9747b-9c2f60014a.zip/node_modules/mdast-util-gfm-autolink-literal/",
+          "packageDependencies": [
+            ["mdast-util-gfm-autolink-literal", "npm:0.1.3"],
+            ["ccount", "npm:1.1.0"],
+            ["mdast-util-find-and-replace", "npm:1.1.1"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-gfm-strikethrough", [
+        ["npm:0.2.3", {
+          "packageLocation": "./.yarn/cache/mdast-util-gfm-strikethrough-npm-0.2.3-41f0424f58-665bf20f5e.zip/node_modules/mdast-util-gfm-strikethrough/",
+          "packageDependencies": [
+            ["mdast-util-gfm-strikethrough", "npm:0.2.3"],
+            ["mdast-util-to-markdown", "npm:0.6.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-gfm-table", [
+        ["npm:0.1.6", {
+          "packageLocation": "./.yarn/cache/mdast-util-gfm-table-npm-0.1.6-399704a3e4-e59f305a40.zip/node_modules/mdast-util-gfm-table/",
+          "packageDependencies": [
+            ["mdast-util-gfm-table", "npm:0.1.6"],
+            ["markdown-table", "npm:2.0.0"],
+            ["mdast-util-to-markdown", "npm:0.6.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["mdast-util-gfm-task-list-item", [
+        ["npm:0.1.6", {
+          "packageLocation": "./.yarn/cache/mdast-util-gfm-task-list-item-npm-0.1.6-5f9654a3db-cf7ed5ec38.zip/node_modules/mdast-util-gfm-task-list-item/",
+          "packageDependencies": [
+            ["mdast-util-gfm-task-list-item", "npm:0.1.6"],
+            ["mdast-util-to-markdown", "npm:0.6.5"]
           ],
           "linkType": "HARD",
         }]
@@ -19438,6 +19544,90 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["micromark", "npm:2.11.4"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
             ["parse-entities", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-footnote", [
+        ["npm:0.3.2", {
+          "packageLocation": "./.yarn/cache/micromark-extension-footnote-npm-0.3.2-7333bd280e-e969513c22.zip/node_modules/micromark-extension-footnote/",
+          "packageDependencies": [
+            ["micromark-extension-footnote", "npm:0.3.2"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-frontmatter", [
+        ["npm:0.2.2", {
+          "packageLocation": "./.yarn/cache/micromark-extension-frontmatter-npm-0.2.2-9bd552040c-52715e9240.zip/node_modules/micromark-extension-frontmatter/",
+          "packageDependencies": [
+            ["micromark-extension-frontmatter", "npm:0.2.2"],
+            ["fault", "npm:1.0.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm", [
+        ["npm:0.3.3", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-npm-0.3.3-dd65921af7-63f48b0ddd.zip/node_modules/micromark-extension-gfm/",
+          "packageDependencies": [
+            ["micromark-extension-gfm", "npm:0.3.3"],
+            ["micromark", "npm:2.11.4"],
+            ["micromark-extension-gfm-autolink-literal", "npm:0.5.7"],
+            ["micromark-extension-gfm-strikethrough", "npm:0.6.5"],
+            ["micromark-extension-gfm-table", "npm:0.4.3"],
+            ["micromark-extension-gfm-tagfilter", "npm:0.3.0"],
+            ["micromark-extension-gfm-task-list-item", "npm:0.3.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm-autolink-literal", [
+        ["npm:0.5.7", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-autolink-literal-npm-0.5.7-a11254fccb-3f279daf61.zip/node_modules/micromark-extension-gfm-autolink-literal/",
+          "packageDependencies": [
+            ["micromark-extension-gfm-autolink-literal", "npm:0.5.7"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm-strikethrough", [
+        ["npm:0.6.5", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-strikethrough-npm-0.6.5-5c5773e29d-3fe1cfa4cc.zip/node_modules/micromark-extension-gfm-strikethrough/",
+          "packageDependencies": [
+            ["micromark-extension-gfm-strikethrough", "npm:0.6.5"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm-table", [
+        ["npm:0.4.3", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-table-npm-0.4.3-def4c94965-6b9345a5b2.zip/node_modules/micromark-extension-gfm-table/",
+          "packageDependencies": [
+            ["micromark-extension-gfm-table", "npm:0.4.3"],
+            ["micromark", "npm:2.11.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm-tagfilter", [
+        ["npm:0.3.0", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-tagfilter-npm-0.3.0-86cdab9b4e-283a4d0a38.zip/node_modules/micromark-extension-gfm-tagfilter/",
+          "packageDependencies": [
+            ["micromark-extension-gfm-tagfilter", "npm:0.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["micromark-extension-gfm-task-list-item", [
+        ["npm:0.3.3", {
+          "packageLocation": "./.yarn/cache/micromark-extension-gfm-task-list-item-npm-0.3.3-72b31dda9a-d2b9ced248.zip/node_modules/micromark-extension-gfm-task-list-item/",
+          "packageDependencies": [
+            ["micromark-extension-gfm-task-list-item", "npm:0.3.3"],
+            ["micromark", "npm:2.11.4"]
           ],
           "linkType": "HARD",
         }]
@@ -23093,21 +23283,43 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["remark-frontmatter", [
-        ["npm:1.3.3", {
-          "packageLocation": "./.yarn/cache/remark-frontmatter-npm-1.3.3-bb1ac149bd-01156ae5d8.zip/node_modules/remark-frontmatter/",
+      ["remark-footnotes", [
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/remark-footnotes-npm-3.0.0-b9e76a5f48-17bd9d6755.zip/node_modules/remark-footnotes/",
           "packageDependencies": [
-            ["remark-frontmatter", "npm:1.3.3"],
-            ["fault", "npm:1.0.4"],
-            ["xtend", "npm:4.0.2"]
+            ["remark-footnotes", "npm:3.0.0"],
+            ["mdast-util-footnote", "npm:0.1.7"],
+            ["micromark-extension-footnote", "npm:0.3.2"]
           ],
           "linkType": "HARD",
-        }],
+        }]
+      ]],
+      ["remark-frontmatter", [
         ["npm:2.0.0", {
           "packageLocation": "./.yarn/cache/remark-frontmatter-npm-2.0.0-6dcaaf514f-2f14e38d61.zip/node_modules/remark-frontmatter/",
           "packageDependencies": [
             ["remark-frontmatter", "npm:2.0.0"],
             ["fault", "npm:1.0.4"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/remark-frontmatter-npm-3.0.0-2f35238031-9c70abea78.zip/node_modules/remark-frontmatter/",
+          "packageDependencies": [
+            ["remark-frontmatter", "npm:3.0.0"],
+            ["mdast-util-frontmatter", "npm:0.2.0"],
+            ["micromark-extension-frontmatter", "npm:0.2.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["remark-gfm", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/remark-gfm-npm-1.0.0-d4e589186b-c3f5d2e7d9.zip/node_modules/remark-gfm/",
+          "packageDependencies": [
+            ["remark-gfm", "npm:1.0.0"],
+            ["mdast-util-gfm", "npm:0.1.2"],
+            ["micromark-extension-gfm", "npm:0.3.3"]
           ],
           "linkType": "HARD",
         }]
@@ -25646,21 +25858,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["textlint", [
-        ["npm:11.9.1", {
-          "packageLocation": "./.yarn/cache/textlint-npm-11.9.1-e1a3237eda-b794e435ee.zip/node_modules/textlint/",
+        ["npm:12.0.0", {
+          "packageLocation": "./.yarn/cache/textlint-npm-12.0.0-d0d7242f90-8f382c3f9c.zip/node_modules/textlint/",
           "packageDependencies": [
-            ["textlint", "npm:11.9.1"],
-            ["@textlint/ast-node-types", "npm:4.4.3"],
-            ["@textlint/ast-traverse", "npm:2.3.5"],
-            ["@textlint/feature-flag", "npm:3.3.5"],
-            ["@textlint/fixer-formatter", "npm:3.3.5"],
-            ["@textlint/kernel", "npm:3.4.5"],
-            ["@textlint/linter-formatter", "npm:3.3.5"],
-            ["@textlint/module-interop", "npm:1.2.5"],
-            ["@textlint/textlint-plugin-markdown", "npm:5.3.5"],
-            ["@textlint/textlint-plugin-text", "npm:4.3.5"],
-            ["@textlint/types", "npm:1.5.5"],
-            ["@textlint/utils", "npm:1.2.5"],
+            ["textlint", "npm:12.0.0"],
+            ["@textlint/ast-node-types", "npm:12.0.0"],
+            ["@textlint/ast-traverse", "npm:12.0.0"],
+            ["@textlint/feature-flag", "npm:12.0.0"],
+            ["@textlint/fixer-formatter", "npm:12.0.0"],
+            ["@textlint/kernel", "npm:12.0.0"],
+            ["@textlint/linter-formatter", "npm:12.0.0"],
+            ["@textlint/module-interop", "npm:12.0.0"],
+            ["@textlint/textlint-plugin-markdown", "npm:12.0.0"],
+            ["@textlint/textlint-plugin-text", "npm:12.0.0"],
+            ["@textlint/types", "npm:12.0.0"],
+            ["@textlint/utils", "npm:12.0.0"],
             ["debug", "virtual:bb5021588f7e5595fb57318130fbd71573bb1e56e36c52894c6ab92335cefc204411143fb343142c8264fb8b584b87ad650c627bf465ca1d60190627a49cbc6b#npm:4.3.1"],
             ["deep-equal", "npm:1.1.1"],
             ["file-entry-cache", "npm:5.0.1"],

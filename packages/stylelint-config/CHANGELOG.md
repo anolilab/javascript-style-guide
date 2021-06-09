@@ -1,3 +1,15 @@
+## @anolilab/stylelint-config [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.0.4...@anolilab/stylelint-config@2.1.0) (2021-06-09)
+
+
+### Features
+
+* upgraded yarn to v2.4.2 ([b3336fc](https://github.com/anolilab/javascript-style-guide/commit/b3336fc9b6ee37744bd177a96eb0f147a6b7d4d7))
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint-no-unsupported-browser-features to v5 ([e7d7b8a](https://github.com/anolilab/javascript-style-guide/commit/e7d7b8a33b2330516d719cb2c80bf68bf3737a50))
+
 ### @anolilab/stylelint-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.0.3...@anolilab/stylelint-config@2.0.4) (2021-05-04)
 
 

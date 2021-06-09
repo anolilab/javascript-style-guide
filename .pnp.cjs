@@ -115,7 +115,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["textlint-rule-no-todo", "npm:2.0.1"],
             ["textlint-rule-terminology", "npm:2.1.5"],
             ["textlint-rule-write-good", "npm:2.0.0"],
-            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6"],
+            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:27.0.3"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["write-good", "npm:1.0.8"]
           ],
@@ -16186,7 +16186,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["textlint-rule-no-todo", "npm:2.0.1"],
             ["textlint-rule-terminology", "npm:2.1.5"],
             ["textlint-rule-write-good", "npm:2.0.0"],
-            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6"],
+            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:27.0.3"],
             ["typescript", "patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"],
             ["write-good", "npm:1.0.8"]
           ],
@@ -17114,19 +17114,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-util", [
-        ["npm:26.6.2", {
-          "packageLocation": "./.yarn/cache/jest-util-npm-26.6.2-28a10c2acf-1aef748c82.zip/node_modules/jest-util/",
-          "packageDependencies": [
-            ["jest-util", "npm:26.6.2"],
-            ["@jest/types", "npm:26.6.2"],
-            ["@types/node", "npm:14.14.25"],
-            ["chalk", "npm:4.1.0"],
-            ["graceful-fs", "npm:4.2.6"],
-            ["is-ci", "npm:2.0.0"],
-            ["micromatch", "npm:4.0.2"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:27.0.1", {
           "packageLocation": "./.yarn/cache/jest-util-npm-27.0.1-fd5f1f3d95-a395978f7f.zip/node_modules/jest-util/",
           "packageDependencies": [
@@ -25937,24 +25924,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ts-jest", [
-        ["npm:26.5.6", {
-          "packageLocation": "./.yarn/cache/ts-jest-npm-26.5.6-fa1909416a-fd32a8b256.zip/node_modules/ts-jest/",
+        ["npm:27.0.3", {
+          "packageLocation": "./.yarn/cache/ts-jest-npm-27.0.3-10e7dc0605-a63f3a8620.zip/node_modules/ts-jest/",
           "packageDependencies": [
-            ["ts-jest", "npm:26.5.6"]
+            ["ts-jest", "npm:27.0.3"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6", {
-          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-33a54e1246/0/cache/ts-jest-npm-26.5.6-fa1909416a-fd32a8b256.zip/node_modules/ts-jest/",
+        ["virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:27.0.3", {
+          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-b2dbc5fe94/0/cache/ts-jest-npm-27.0.3-10e7dc0605-a63f3a8620.zip/node_modules/ts-jest/",
           "packageDependencies": [
-            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:26.5.6"],
+            ["ts-jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:27.0.3"],
             ["@types/jest", "npm:26.0.23"],
             ["@types/typescript", null],
             ["bs-logger", "npm:0.2.6"],
             ["buffer-from", "npm:1.1.1"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["jest", "virtual:bc1753762676462a584695140ce31952a3b11cf2488bcc68637206609124861d0d550c4275fc29ec4af1e3ad5acc113030fc078b5a17ed75edc5791005bc7295#npm:27.0.4"],
-            ["jest-util", "npm:26.6.2"],
+            ["jest-util", "npm:27.0.2"],
             ["json5", "npm:2.2.0"],
             ["lodash", "npm:4.17.20"],
             ["make-error", "npm:1.3.6"],

@@ -55,6 +55,6 @@ jobs:
 
             - name: "install"
               run: "yarn install"
-
-            - name: "lint"
-              run: "yarn run lint:text"
+# disabled till bug with gloab patern is fixed
+#            - name: "lint"
+#              run: "yarn run lint:text"

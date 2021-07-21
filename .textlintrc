@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "en-capitalization": true,
     "footnote-order": true,
@@ -27,6 +29,7 @@
             "executed",
             "remain",
             "execute"
+            "front-end"
         ]
     },
     "@textlint-rule/preset-google": true,
@@ -137,6 +140,7 @@
         ["they'll", ""],
         ["it is", "it's"],
         ["It is", "It's"],
+        ["frontend", "front-end"]
       ]
     }
   }

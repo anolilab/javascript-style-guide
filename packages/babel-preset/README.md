@@ -135,7 +135,7 @@ To use this preset please install
 $ npm install --save-dev @babel/preset-react
 ```
 
-This preset can be configured to support `react`, using `"react": true` in our preset.
+This preset can be configured to support `react`, using `"react": true` or `"react": {...}` in our preset.
 
 ```json
 {
@@ -144,6 +144,27 @@ This preset can be configured to support `react`, using `"react": true` in our p
             "@anolilab/babel-preset",
             {
                 "react": true
+            }
+        ]
+    ]
+}
+```
+
+or
+
+```json
+{
+    "presets": [
+        [
+            "@anolilab/babel-preset",
+            {
+                "react": {
+                    "pragma": "dom", // default pragma is React.createElement (only in classic runtime)
+                    "pragmaFrag": "DomFrag", // default is React.Fragment (only in classic runtime)
+                    "throwIfNamespace": false, // defaults to true
+                    "runtime": "classic" // defaults to classic
+                    // "importSource": "custom-jsx-library" // defaults to react (only in automatic runtime)
+                }
             }
         ]
     ]

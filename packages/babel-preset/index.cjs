@@ -87,7 +87,7 @@ module.exports = declare((api, options) => {
                       },
                   ]
                 : null,
-            react ? ['@babel/preset-react', { development }] : null,
+            react ? ['@babel/preset-react', Object.assign({ development }, typeof react === "object" ? react : {})] : null,
         ].filter(Boolean),
         plugins: [
             // class { handleClick = () => { } }

@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [2.1.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.0...browserslist-config-anolilab@2.1.1) (2021-07-21)
+
+
+### Bug Fixes
+
+* **deps:** upgraded dependencies ([fa697d0](https://github.com/anolilab/javascript-style-guide/commit/fa697d09930c04b9c2ef2612b8940dba36a452c5))
+
 ## browserslist-config-anolilab [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.0.1...browserslist-config-anolilab@2.1.0) (2021-06-09)
 
 

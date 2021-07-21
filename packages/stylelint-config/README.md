@@ -10,7 +10,7 @@ npm install --dev-save browserslist stylelint @anolilab/stylelint-config
 
 ## Usage
 
-If you don't have a `.stylelintrc.cjs`, we will create the file for you after installing `@anolilab/stylelint-config`.
+If you don’t have a `.stylelintrc.cjs`, we will create the file for you after installing `@anolilab/stylelint-config`.
 
 If you already have a `.stylelintrc.cjs`, then you can extend the `.stylelintrc.cjs`, with `@anolilab/stylelint-config`.
 

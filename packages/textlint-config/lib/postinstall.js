@@ -18,10 +18,12 @@ console.log('Configuring @anolilab/textlint-config', projectPath, '\n');
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.
  */
-const writeBabelRc = () => {
-    const eslintPath = join(projectPath, '.textlintrc');
+const writeTextlintRc = () => {
+    const eslintPath = join(projectPath, ".textlintrc");
     const content = `{
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "en-capitalization": true,
     "footnote-order": true,
@@ -176,9 +178,26 @@ to work as it should: ${content}.`);
     return writeFileAsync(eslintPath, content, "utf-8");
 };
 
+/**
+ * Writes .textlintignore if it doesn't exist. Warns if it exists.
+ */
+const writeTextlintIgnore = () => {
+    const eslintPath = join(projectPath, ".textlintignore");
+    const content = "";
+
+    if (existsSync(eslintPath)) {
+        console.warn(`⚠️  .textlintignore already exists;`);
+
+        return Promise.resolve();
+    }
+
+    return writeFileAsync(eslintPath, content, "utf-8");
+};
+
 (async () => {
     try {
-        await writeBabelRc();
+        await writeTextlintRc();
+        await writeTextlintIgnore();
 
         console.log("😎  Everything went well, have fun!");
 

@@ -26,7 +26,7 @@
             "automerge": true,
             "updateTypes": ["lockFileMaintenance", "minor", "patch", "pin", "digest"],
             "labels": ["dependency", "Changed"],
-            "semanticCommitType": "chore",
+            "semanticCommitType": "fix",
             "semanticCommitScope": "deps",
             "semanticCommits": "enabled",
             "datasources": ["npm"]
@@ -44,7 +44,7 @@
             "automerge": true,
             "depTypeList": ["dependencies", "require"],
             "updateTypes": ["patch", "minor", "pin", "digest"],
-            "semanticCommitType": "chore",
+            "semanticCommitType": "fix",
             "semanticCommitScope": "deps",
             "semanticCommits": "enabled"
         },

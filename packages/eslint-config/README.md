@@ -1,6 +1,6 @@
 # ESLint config
 
-> This package provides Anolilab's .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project's dependencies.
+> This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project’s dependencies.
 
 ## Install
 
@@ -12,7 +12,7 @@ To install this config, run the following command.
 
 ## Usage
 
-If you don't have a `.eslintrc.cjs`, we will create the file for you after installing `@anolilab/eslint-config`.
+If you don’t have a `.eslintrc.cjs`, we will create the file for you after installing `@anolilab/eslint-config`.
 
 If you already have a `.eslintrc.cjs`, then you can extend the `.eslintrc.cjs`, with `@anolilab/eslint-config`.
 
@@ -67,7 +67,7 @@ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-e
   npm install --save-dev eslint babel-eslint eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
 ```
 
-or for the use of `TypeScript` in react
+Or for the use of `TypeScript` in react
 
 ```bash
 npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
@@ -93,11 +93,11 @@ npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.
 
-Now that Prettier has become a necessary tool in front-end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it's good at.
+Now that Prettier has become a necessary tool in front-end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
 
-As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project's .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
+As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project’s .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
 
-`@anolilab/eslint-config` does not include all style-related rules, so there is no need to install `eslint-config-prettier`. Just install `prettier` and if you use `VSCode` the related plugins.
+`@anolilab/eslint-config` does not include all style-related rules, so there is no need to install `eslint-config-prettier`. Install `prettier` and if you use `VSCode` the related plugins.
 
 Here is a `.prettierrc.cjs` configuration used by Anolilab Team for reference only:
 
@@ -162,7 +162,7 @@ This plugin provide a range of code quality rules:
 - [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
 
 ### Languages
-The following plugins expand esLint to work with json files, and lint JavaScript contained in HTML and MarkDown:
+The following plugins expand esLint to work with json files, and lint JavaScript contained in HTML, and MarkDown:
 
 - [eslint-plugin-html](https://github.com/BenoitZugmeyer/eslint-plugin-html)
 - [eslint-plugin-json](https://github.com/azeemba/eslint-plugin-json)
@@ -172,7 +172,7 @@ When linting code snippets in Markdown files, a few [rules](rules/plugins/markdo
 
 ### Library Plugins
 
-These plugins will be loaded in based on your project `dependencies` in `package.json`. If a supported library is part of your project then it's related esLint plugins will be loaded. The following packages are supported:
+These plugins will be loaded in based on your project `dependencies` in `package.json`. If a supported library is part of your project then it’s related esLint plugins will be loaded. The following packages are supported:
 
 - [eslint-plugin-fsa](https://github.com/joseph-galindo/eslint-plugin-fsa)
 - [eslint-plugin-lodash](https://github.com/wix/eslint-plugin-lodash)
@@ -276,7 +276,7 @@ A best practice for VSCode is to auto format code with Prettier and autofix erro
 ## Q & A
 
 ### Why not standard
-The standard specification believes that everyone should not waste time in personalized specifications, but the entire community should unify a specification. This statement makes some sense, but it runs against the ESLint's design philosophy.
-Don't you remember how ESLint defeated JSHint and became the most popular JS code inspection tool? It is because of the plugin and configuration that ESLint advocates, which meets the individual needs of different technology stacks of different teams.
+The standard specification believes that everyone should not waste time in personalized specifications, but the entire community should unify a specification. This statement makes  sense, but it runs against the ESLint’s design philosophy.
+Don’t you remember how ESLint defeated JSHint and became the most popular JS code inspection tool? It’s because of the plugin and configuration that ESLint advocates, which meets the individual needs of different technology stacks of different teams.
 
 Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It will not force you to use our config.

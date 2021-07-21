@@ -2,12 +2,13 @@
 
 > A babel preset for transforming your JavaScript for Anolilab.
 
-Currently, contains transforms for all stage 4 (ES2018) and stage 3 syntax.
+It contains transforms for all stage 4 (ES2018) and stage 3 syntax.
+<!-- textlint-disable -->
 Additionally, stage 4 syntax that is excluded is as follows:
 
--   generators: regenerator-runtime is too heavyweight for our use.
--   lifted template literal restrictions: we do not use tagged template literals, nor implement custom DSLs, otherwise we would enable this.
-
+-   Generators: regenerator-runtime is too heavyweight for our use.
+-   Lifted template literal restrictions: we do not use tagged template literals, nor implement custom DSLs, otherwise we would enable this.
+<!-- textlint-enable -->
 [fast-async](https://github.com/MatAtBread/fast-async) is used to compile async function without generators.
 
 ## Install
@@ -44,11 +45,11 @@ require("@babel/core").transform("code", {
 
 ### Targeting Environments
 
-This module uses @babel/preset-env to target specific environments.
+This module uses `@babel/preset-env` to target specific environments.
 
 Please refer to [@babel/preset-env#targets](https://babeljs.io/docs/en/babel-preset-env#targets) for a list of available options.
 
-For a list of browsers please see [browserlist](https://github.com/ai/browserslist).
+For a list of browsers please see [browserlist](https://github.com/browserslist/browserslist).
 
 You may override our default list of targets by providing your own `targets` key.
 
@@ -150,7 +151,7 @@ This preset can be configured to support `react`, using `"react": true` or `"rea
 }
 ```
 
-or
+Or
 
 ```json
 {
@@ -237,11 +238,11 @@ Default options can be overridden using the `removePropTypes` option. These opti
 }
 ```
 
-For example, if you are using this plugin in a deployable app, you might want to use the remove mode for your production build (and disable this transform entirely in development for optimal build speeds).
+For example, if you are using this plugin in a deployable app, you want to use the remove mode for your production build (and disable this transform entirely in development for optimal build speeds).
 
 ## Selective loose modes
 
-By default, this preset will compile everything in normal mode. This is safer, but comes with bundle size and runtime overhead. We have some options to selectively opt in to loose mode for some features. These options are:
+By default, this preset will compile everything in normal mode. This is safer, but comes with bundle size and runtime overhead. We have options to selectively opt in to loose mode for  features. These options are:
 
 -   [classes](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose): `looseClasses`
 -   [computed properties](https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose): `looseComputedProperties`
@@ -270,11 +271,11 @@ The [risks of enabling loose classes are outlined in the Babel docs](https://bab
 
 ## Specifying a babel runtime version
 
-By default @babel/plugin-transform-runtime will [assume the oldest version of the runtime](https://github.com/babel/babel/blob/e6264a09921c60b8f18870d0a75678e4fa04f0f8/packages/babel-plugin-transform-runtime/src/index.js#L42) to avoid importing helpers that don't exist which would fail at runtime. This can result in newer helpers being inlined into modules (ex. objectSpread2) which increases bundle size.
+By default @babel/plugin-transform-runtime will [assume the oldest version of the runtime](https://github.com/babel/babel/blob/e6264a09921c60b8f18870d0a75678e4fa04f0f8/packages/babel-plugin-transform-runtime/src/index.js#L42) to avoid importing helpers that don’t exist which would fail at runtime. This can result in newer helpers being inlined into modules (ex. objectSpread2) which increases bundle size.
 
-To avoid this you can configure the preset to use the same version of the runtime that's installed in your package.json.
+To avoid this you can configure the preset to use the same version of the runtime that’s installed in your package.json.
 
-ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
+Ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
 
 ```json
 {
@@ -289,7 +290,7 @@ ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
 }
 ```
 
-Note that this will result in a runtime breakage if the version passed into the anolilab preset is newer than the version of the babel runtime actually being used at build time.
+> Note: This will result in a runtime breakage if the version passed into the anolilab preset is newer than the version of the babel runtime  being used at build time.
 
 ## Disabling `plugin-transform-runtime`
 

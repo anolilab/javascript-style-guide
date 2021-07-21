@@ -8,13 +8,15 @@ npm install --dev-save @anolilab/textlint-config
 
 ## Usage
 
-If you don't have a `.textlintrc`, we will create the file for you after installing `@anolilab/textlint-config`.
+If you don’t have a `.textlintrc`, we will create the file for you after installing `@anolilab/textlint-config`.
 
 If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with `@anolilab/textlint-config`.
 
 ```text
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "en-capitalization": true,
     "footnote-order": true,

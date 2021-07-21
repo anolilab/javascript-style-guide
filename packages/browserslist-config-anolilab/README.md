@@ -1,10 +1,10 @@
 # Browserslist Config
 
-This configuration reflects Growcss's supported browser policy for their UI library and build tools.
+This configuration reflects Growcss’s supported browser policy for their UI library and build tools.
 
 ## What is Browserslist?
 
-[Browserslist](https://github.com/ai/browserslist) is a library to share a browsers list between different front-end tools, like Autoprefixer, Eslint, and Stylelint.
+[Browserslist](https://github.com/browserslist/browserslist) is a library to share a browsers list between different front end tools, like Autoprefixer, Eslint, and Stylelint.
 
 -   Valid Browserslist query syntax validation [browserl.ist](http://browserl.ist)
 -   ["Browserslist is a Good Idea"](https://css-tricks.com/browserlist-good-idea/) (blog post by [@chriscoyier](https://github.com/chriscoyier))
@@ -51,7 +51,7 @@ $ npm install browserslist-config-anolilab --save-dev
 
 ## Usage
 
-### package.json
+### Package.json
 
 ```json
 {
@@ -65,7 +65,7 @@ Alternatively, add this to `.browserslistrc` file:
 extends browserslist-config-anolilab
 ```
 
-or when using [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env)
+Or when using [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env)
 
 ```js
 {

@@ -3,7 +3,6 @@ const { existsSync, realpathSync } = require('fs');
 const { dirname, join } = require('path');
 const has = require('lodash.has');
 const arrify = require('arrify');
-const { cosmiconfigSync } = require('cosmiconfig');
 const readPkgUp = require('read-pkg-up');
 
 const { packageJson: package_, path: packagePath } = readPkgUp.sync({
@@ -47,12 +46,6 @@ const hasTypescript = hasAnyDep('typescript') && hasFile('tsconfig.json');
 module.exports = {
     uniq: function uniq(array) {
         return [...new Set(array)];
-    },
-    hasLocalConfig: function hasLocalConfig(moduleName, searchOptions = {}) {
-        const explorerSync = cosmiconfigSync(moduleName, searchOptions);
-        const result = explorerSync.search(packagePath);
-
-        return result !== null;
     },
     hasPkgProp: hasPackageProperty,
     parseEnv: parseEnvironment,

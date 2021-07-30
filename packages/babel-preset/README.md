@@ -4,11 +4,14 @@
 
 It contains transforms for all stage 4 (ES2018) and stage 3 syntax.
 <!-- textlint-disable -->
+
 Additionally, stage 4 syntax that is excluded is as follows:
 
 -   Generators: regenerator-runtime is too heavyweight for our use.
 -   Lifted template literal restrictions: we do not use tagged template literals, nor implement custom DSLs, otherwise we would enable this.
+
 <!-- textlint-enable -->
+
 [fast-async](https://github.com/MatAtBread/fast-async) is used to compile async function without generators.
 
 ## Install

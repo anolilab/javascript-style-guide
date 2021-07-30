@@ -1,3 +1,15 @@
+## @anolilab/babel-preset [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.1.0...@anolilab/babel-preset@2.2.0) (2021-07-21)
+
+
+### Features
+
+* extended the react preset to be configurable ([559772d](https://github.com/anolilab/javascript-style-guide/commit/559772dbccb9a69a8aa23a6a0096571fc6dfd31a))
+
+
+### Bug Fixes
+
+* **deps:** upgraded dependencies ([fa697d0](https://github.com/anolilab/javascript-style-guide/commit/fa697d09930c04b9c2ef2612b8940dba36a452c5))
+
 ## @anolilab/babel-preset [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.0.4...@anolilab/babel-preset@2.1.0) (2021-06-09)
 
 

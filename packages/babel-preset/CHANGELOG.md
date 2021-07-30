@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [2.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.0...@anolilab/babel-preset@2.2.1) (2021-07-30)
+
+
+### Bug Fixes
+
+* added check based node version for unicorn/prefer-node-protocol ([72bafb2](https://github.com/anolilab/javascript-style-guide/commit/72bafb2a6f1fea9a0e5e7db9fd6a0b1426f7575a))
+
 ## @anolilab/babel-preset [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.1.0...@anolilab/babel-preset@2.2.0) (2021-07-21)
 
 

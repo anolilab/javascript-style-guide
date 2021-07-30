@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.2...@anolilab/eslint-config@2.1.3) (2021-07-30)
+
+
+### Bug Fixes
+
+* added check based node version for unicorn/prefer-node-protocol ([72bafb2](https://github.com/anolilab/javascript-style-guide/commit/72bafb2a6f1fea9a0e5e7db9fd6a0b1426f7575a))
+
 ### @anolilab/eslint-config [2.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.1...@anolilab/eslint-config@2.1.2) (2021-07-21)
 
 

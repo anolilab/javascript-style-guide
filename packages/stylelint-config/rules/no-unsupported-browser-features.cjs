@@ -1,4 +1,4 @@
-const browserslist = require("browserslist")
+const browserslist = require("browserslist-config-anolilab")
 
 module.exports = {
     plugins: ["stylelint-no-unsupported-browser-features"],
@@ -6,7 +6,7 @@ module.exports = {
         "plugin/no-unsupported-browser-features": [
             true,
             {
-                browsers: browserslist(),
+                browsers: browserslist["production"],
             },
         ],
     },

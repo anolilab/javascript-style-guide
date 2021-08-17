@@ -33,6 +33,7 @@
         "postinstall": "node lib/postinstall.js"
     },
     "dependencies": {
+        "browserslist-config-anolilab": "^2.1.1",
         "stylelint-a11y": "^1.2.3",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-standard": "^22.0.0",
@@ -43,13 +44,11 @@
         "stylelint-selector-no-empty": "^1.0.8"
     },
     "devDependencies": {
-        "browserslist": "^4.16.7",
         "lodash": "^4.17.21",
         "postcss": "^8.3.6",
         "stylelint": "13.13.1"
     },
     "peerDependencies": {
-        "browserslist": "^4.16.7",
         "postcss": "^8.3.6",
         "stylelint": "^13.13.1"
     },

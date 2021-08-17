@@ -168,7 +168,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@anolilab/stylelint-config@workspace:packages/stylelint-config"
   dependencies:
-    browserslist: ^4.16.7
+    browserslist-config-anolilab: ^2.1.1
     lodash: ^4.17.21
     postcss: ^8.3.6
     stylelint: 13.13.1
@@ -181,7 +181,6 @@ __metadata:
     stylelint-require-units: ^1.0.1
     stylelint-selector-no-empty: ^1.0.8
   peerDependencies:
-    browserslist: ^4.16.7
     postcss: ^8.3.6
     stylelint: ^13.13.1
   languageName: unknown
@@ -5078,7 +5077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist-config-anolilab@workspace:packages/browserslist-config-anolilab":
+"browserslist-config-anolilab@^2.1.1, browserslist-config-anolilab@workspace:packages/browserslist-config-anolilab":
   version: 0.0.0-use.local
   resolution: "browserslist-config-anolilab@workspace:packages/browserslist-config-anolilab"
   dependencies:

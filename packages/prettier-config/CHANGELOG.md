@@ -1,3 +1,10 @@
+### @anolilab/prettier-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.1...@anolilab/prettier-config@2.0.2) (2021-08-17)
+
+
+### Bug Fixes
+
+* fixed wrong file creation of prettierrc.cjs ([4ab35b3](https://github.com/anolilab/javascript-style-guide/commit/4ab35b3b78c05b5e36285c84d829de0af8aaa1d5))
+
 ### @anolilab/prettier-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.0...@anolilab/prettier-config@2.0.1) (2021-04-20)
 
 

@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [2.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.1...@anolilab/babel-preset@2.2.2) (2021-08-17)
+
+
+### Bug Fixes
+
+* upgraded deps ([ec4822f](https://github.com/anolilab/javascript-style-guide/commit/ec4822f72faca2c92cf4770cee200bd7cbebd5a3))
+
 ### @anolilab/babel-preset [2.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.0...@anolilab/babel-preset@2.2.1) (2021-07-30)
 
 

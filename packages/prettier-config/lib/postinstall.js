@@ -32,7 +32,7 @@ ${JSON.stringify(content, null, 4)}\n`);
 
     return writeFileAsync(
         prettierPath,
-        `module.exports = ${JSON.stringify(content, null, 2)}\n`,
+        `module.exports = ${JSON.stringify(content, null, 2).replace("rangeEnd: null,", "rangeEnd: Infinity,")}\n`,
         'utf-8',
     );
 };

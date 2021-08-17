@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [2.1.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.1...browserslist-config-anolilab@2.1.2) (2021-08-17)
+
+
+### Bug Fixes
+
+* upgraded deps and upgraded yarn to v3.0.1 ([98293bc](https://github.com/anolilab/javascript-style-guide/commit/98293bc493d22149bf84c58382dfc7ef50b73ab1))
+
 ### browserslist-config-anolilab [2.1.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.0...browserslist-config-anolilab@2.1.1) (2021-07-21)
 
 

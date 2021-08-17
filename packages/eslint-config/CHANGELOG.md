@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.3...@anolilab/eslint-config@2.1.4) (2021-08-17)
+
+
+### Bug Fixes
+
+* upgraded deps ([cfe8307](https://github.com/anolilab/javascript-style-guide/commit/cfe830784d046a3c95809805df98a0d52fed148a))
+
 ### @anolilab/eslint-config [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.2...@anolilab/eslint-config@2.1.3) (2021-07-30)
 
 

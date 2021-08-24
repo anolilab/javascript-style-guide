@@ -166,13 +166,6 @@ module.exports = declare((api, options) => {
                 : null,
             '@babel/plugin-proposal-export-namespace-from',
             typescript ? '@babel/plugin-transform-typescript' : null,
-            // Transform dynamic import to require
-            (modules === false || modules === "false") ? [
-                'babel-plugin-dynamic-import-node',
-                {
-                    noInterop: true,
-                },
-            ] : null,
             typescript ? '@babel/plugin-syntax-jsx' : null,
             // Adds syntax support for import()
             '@babel/plugin-syntax-dynamic-import',

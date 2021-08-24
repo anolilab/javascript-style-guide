@@ -1,3 +1,11 @@
+### @anolilab/babel-preset [2.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.2...@anolilab/babel-preset@2.2.3) (2021-08-24)
+
+
+### Bug Fixes
+
+* removed "babel-plugin-dynamic-import-node" ([78399d4](https://github.com/anolilab/javascript-style-guide/commit/78399d4093eccbfa694456f00e18be6c967e6a3d))
+* use "babel-plugin-dynamic-import-node" only if modules is set to false ([97ed13d](https://github.com/anolilab/javascript-style-guide/commit/97ed13d7ff3aa958b3cf84237b52570602b49a50))
+
 ### @anolilab/babel-preset [2.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.1...@anolilab/babel-preset@2.2.2) (2021-08-17)
 
 

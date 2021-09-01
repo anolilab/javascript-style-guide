@@ -78,15 +78,14 @@ The following transpiles only for Node v6.
 If you wish, you can also inherit our default list of browsers and extend them.
 
 ```javascript
+const browserlist = require("browserslist-config-anolilab");
+
 module.exports = {
     presets: [
         [
             "@anolilab/babel-preset",
             {
-                targets: Object.assign({}, require("browserslist-config-anolilab"), {
-                    chrome: 42,
-                    explorer: 8,
-                }),
+                targets: browserlist['production'],
             },
         ],
     ],

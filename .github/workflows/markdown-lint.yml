@@ -53,8 +53,11 @@ jobs:
                   key: "${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}"
                   restore-keys: "${{ runner.os }}-yarn-"
 
+            - name: "update yarn to v3"
+              run: "yarn set version 3.0.1"
+
             - name: "install"
               run: "yarn install"
-# disabled till bug with gloab patern is fixed
-#            - name: "lint"
-#              run: "yarn run lint:text"
+
+            - name: "lint"
+              run: "yarn run lint:text"

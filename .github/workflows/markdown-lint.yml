@@ -57,7 +57,7 @@ jobs:
               run: "yarn set version 3.0.1"
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache"
+              run: "yarn install --immutable"
 
             - name: "lint"
               run: "yarn run lint:text"

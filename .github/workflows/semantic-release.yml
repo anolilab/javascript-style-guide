@@ -61,7 +61,7 @@ jobs:
               run: "yarn set version 3.0.1"
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache"
+              run: "yarn install --immutable"
 
             - name: "test and coverage"
               run: "yarn run test:coverage"
@@ -122,7 +122,7 @@ jobs:
               run: "yarn set version 3.0.1"
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache"
+              run: "yarn install --immutable"
 
             - name: "Semantic Release"
               if: "success()"

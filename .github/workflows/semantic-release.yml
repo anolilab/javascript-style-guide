@@ -29,6 +29,17 @@ jobs:
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
+            - name: "Configure Container"
+              env:
+                  GIT_USER_EMAIL: "${{ secrets.GIT_USER_EMAIL }}"
+                  GIT_USER_USERNAME: "${{ secrets.GIT_USER_USERNAME }}"
+              run: |
+                  EMAIL=${GIT_USER_EMAIL:-"github-actions[bot]@users.noreply.github.com"}
+                  NAME=${GIT_USER_USERNAME:-"github-actions-shell"}
+
+                  git config --global user.email "${EMAIL}"
+                  git config --global user.name "${NAME}"
+
             - name: "Use Node.js 12.x"
               uses: "actions/setup-node@v2"
               with:
@@ -50,7 +61,7 @@ jobs:
               run: "yarn set version 3.0.1"
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache --check-cache"
+              run: "yarn install --immutable --immutable-cache"
 
             - name: "test and coverage"
               run: "yarn run test:coverage"
@@ -79,6 +90,17 @@ jobs:
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
+            - name: "Configure Container"
+              env:
+                  GIT_USER_EMAIL: "${{ secrets.GIT_USER_EMAIL }}"
+                  GIT_USER_USERNAME: "${{ secrets.GIT_USER_USERNAME }}"
+              run: |
+                  EMAIL=${GIT_USER_EMAIL:-"github-actions[bot]@users.noreply.github.com"}
+                  NAME=${GIT_USER_USERNAME:-"github-actions-shell"}
+
+                  git config --global user.email "${EMAIL}"
+                  git config --global user.name "${NAME}"
+
             - name: "Use Node.js 12.x"
               uses: "actions/setup-node@v2"
               with:
@@ -100,7 +122,7 @@ jobs:
               run: "yarn set version 3.0.1"
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache --check-cache"
+              run: "yarn install --immutable --immutable-cache"
 
             - name: "Semantic Release"
               if: "success()"
@@ -131,6 +153,17 @@ jobs:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
+
+            - name: "Configure Container"
+              env:
+                  GIT_USER_EMAIL: "${{ secrets.GIT_USER_EMAIL }}"
+                  GIT_USER_USERNAME: "${{ secrets.GIT_USER_USERNAME }}"
+              run: |
+                  EMAIL=${GIT_USER_EMAIL:-"github-actions[bot]@users.noreply.github.com"}
+                  NAME=${GIT_USER_USERNAME:-"github-actions-shell"}
+
+                  git config --global user.email "${EMAIL}"
+                  git config --global user.name "${NAME}"
 
             - name: "Use Node.js 12.x"
               uses: "actions/setup-node@v2"

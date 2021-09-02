@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [2.2.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.4...@anolilab/babel-preset@2.2.5) (2021-09-02)
+
+
+### Bug Fixes
+
+* added funding to the package ([f90d18f](https://github.com/anolilab/javascript-style-guide/commit/f90d18f8347a4bdc395b1740c85ac74a4072297c))
+
 ### @anolilab/babel-preset [2.2.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.3...@anolilab/babel-preset@2.2.4) (2021-08-24)
 
 

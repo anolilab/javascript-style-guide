@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.5...@anolilab/eslint-config@2.1.6) (2021-09-02)
+
+
+### Bug Fixes
+
+* added funding to the package ([f90d18f](https://github.com/anolilab/javascript-style-guide/commit/f90d18f8347a4bdc395b1740c85ac74a4072297c))
+
 ### @anolilab/eslint-config [2.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.4...@anolilab/eslint-config@2.1.5) (2021-09-02)
 
 

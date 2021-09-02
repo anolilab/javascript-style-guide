@@ -88,8 +88,8 @@ File content:
         [
             "@semantic-release/github",
             {
-                "successComment": true,
-                "failComment": true
+                "successComment": false,
+                "failComment": false
             }
         ],
         [
@@ -169,7 +169,7 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache --check-cache"
+              run: "yarn install --immutable"
 
             - name: "Build packages"
               run: "yarn build"
@@ -212,7 +212,7 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: "install"
-              run: "yarn install --immutable --immutable-cache --check-cache"
+              run: "yarn install --immutable"
 
             - name: "Build packages"
               run: "yarn build"

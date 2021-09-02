@@ -28,16 +28,16 @@
         ],
         "@semantic-release/changelog",
         [
-            "@semantic-release/git",
+            "@semantic-release/github",
             {
-                "message": "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}"
+                "successComment": false,
+                "failComment": false
             }
         ],
         [
-            "@semantic-release/github",
+            "@semantic-release/git",
             {
-                "successComment": true,
-                "failComment": true
+                "message": "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}"
             }
         ]
     ]

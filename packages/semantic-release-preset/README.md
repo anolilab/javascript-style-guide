@@ -103,6 +103,15 @@ File content:
 
 ```
 
+### Add [Commitizen](https://github.com/commitizen/cz-cli)
+Add `cz` to your `package.json scripts`
+
+```json
+  "scripts": {
+    "commit": "cz"
+  }
+```
+
 ### Environment Variables Configuration
 
 Ensure that your CI configuration has the following environment variables set:

@@ -69,10 +69,32 @@ const writeCommitlintConfig = () => {
     return writeFileAsync(filePath, content, "utf-8");
 };
 
+/**
+ * Writes .czrc if it doesn't exist. Warns if it exists.
+ */
+const writeCzrc = () => {
+    const filePath = join(projectPath, ".czrc");
+
+    if (existsSync(filePath)) {
+        console.warn(`⚠️  .czrc already exists;`);
+
+        return Promise.resolve();
+    }
+
+    const content = `{
+  "path": "cz-conventional-changelog"
+}
+
+`;
+
+    return writeFileAsync(filePath, content, "utf-8");
+};
+
 (async () => {
     try {
         await writeReleaserc();
         await writeCommitlintConfig();
+        await writeCzrc();
 
         console.log("😎  Everything went well, have fun!");
 

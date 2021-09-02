@@ -1,3 +1,10 @@
+### @anolilab/prettier-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.3...@anolilab/prettier-config@2.0.4) (2021-09-02)
+
+
+### Bug Fixes
+
+* added funding to the package ([f90d18f](https://github.com/anolilab/javascript-style-guide/commit/f90d18f8347a4bdc395b1740c85ac74a4072297c))
+
 ### @anolilab/prettier-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.2...@anolilab/prettier-config@2.0.3) (2021-09-02)
 
 

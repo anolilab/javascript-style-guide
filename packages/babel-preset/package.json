@@ -11,7 +11,11 @@
         "javascript"
     ],
     "homepage": "http://anolilab.com/nodejs/packages/browserslist-config",
-    "repository": "https://github.com/anolilab/javascript-style-guide.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/anolilab/javascript-style-guide.git",
+        "directory": "packages/babel-preset"
+    },
     "license": "MIT",
     "author": {
         "name": "Daniel Bannert",

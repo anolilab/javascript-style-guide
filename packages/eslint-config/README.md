@@ -93,7 +93,7 @@ npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.
 
-Now that Prettier has become a necessary tool in front-end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
+Now that Prettier has become a necessary tool in front end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
 
 As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project’s .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
 

@@ -1,3 +1,10 @@
+### @anolilab/textlint-config [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.5...@anolilab/textlint-config@2.0.6) (2021-09-02)
+
+
+### Bug Fixes
+
+* fixed release flow in all packages ([8c5ec13](https://github.com/anolilab/javascript-style-guide/commit/8c5ec1341e11ccf48d8d3e8f8808fb162d062d97))
+
 ### @anolilab/textlint-config [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.4...@anolilab/textlint-config@2.0.5) (2021-07-21)
 
 

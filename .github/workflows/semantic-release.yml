@@ -63,7 +63,7 @@ jobs:
 
         runs-on: "ubuntu-latest"
 
-        needs: [ "test" ]
+        needs: ["test"]
 
         steps:
             - name: "Git checkout"
@@ -97,7 +97,7 @@ jobs:
               run: "yarn install --immutable --immutable-cache --check-cache"
 
             - name: "Semantic Release"
-              if: success()
+              if: "success()"
               env:
                   GITHUB_TOKEN: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
                   NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
@@ -112,7 +112,7 @@ jobs:
 
         runs-on: "ubuntu-latest"
 
-        needs: [ "semantic-release" ]
+        needs: ["semantic-release"]
 
         steps:
             - name: "Git checkout"
@@ -144,4 +144,3 @@ jobs:
                   commit_user_email: "d.bannert@anolilab.de"
                   commit_user_name: "prisis"
                   branch: "${{ github.head_ref }}"
-

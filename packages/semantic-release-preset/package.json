@@ -1,0 +1,68 @@
+{
+    "name": "@anolilab/semantic-release-preset",
+    "version": "0.0.0",
+    "description": "Anolilab Coding Standard for semantic-release.",
+    "keywords": [
+        "anolilab",
+        "semantic-release",
+        "semantic-release-config",
+        "changelog",
+        "publish",
+        "release",
+        "npm",
+        "github",
+        "git"
+    ],
+    "homepage": "http://anolilab.com/nodejs/packages/semantic-release-preset",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/anolilab/javascript-style-guide.git",
+        "directory": "packages/semantic-release-preset"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Daniel Bannert",
+        "email": "d.bannert@anolilab.de"
+    },
+    "type": "module",
+    "main": ".releaserc-with-npm.json",
+    "files": [
+        "lib",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md",
+        ".releaserc-with-npm.json",
+        ".releaserc-without-npm.json"
+    ],
+    "scripts": {
+        "postinstall": "node lib/postinstall.js"
+    },
+    "dependencies": {
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
+        "@commitlint/core": "^13.1.0",
+        "@semantic-release/changelog": "^5.0.1",
+        "@semantic-release/commit-analyzer": "^8.0.1",
+        "@semantic-release/exec": "^5.0.0",
+        "@semantic-release/git": "^9.0.0",
+        "@semantic-release/github": "^7.2.3",
+        "@semantic-release/npm": "^7.1.3",
+        "@semantic-release/release-notes-generator": "^9.0.3",
+        "commitizen": "^4.2.4",
+        "conventional-changelog-conventionalcommits": "^4.6.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "semantic-release-conventional-commits": "^2.0.1"
+    },
+    "devDependencies": {
+        "semantic-release": "^17.4.6"
+    },
+    "peerDependencies": {
+        "semantic-release": "^17.4.6"
+    },
+    "engines": {
+        "node": ">=12"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

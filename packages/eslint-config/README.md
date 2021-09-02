@@ -64,7 +64,7 @@ npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-e
 ### React
 
 ```bash
-  npm install --save-dev eslint babel-eslint eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
+  npm install --save-dev eslint @babel/eslint-parser eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
 ```
 
 Or for the use of `TypeScript` in react
@@ -148,10 +148,10 @@ export default {
 
 ## Using experimental features with JavaScript
 
-If you are using experimental features such as class fields with JavaScript files you should install `babel-eslint`.
+If you are using experimental features such as class fields with JavaScript files you should install `@babel/eslint-parser`.
 
 ```bash
-npm install --save-dev babel-eslint
+npm install --save-dev @babel/eslint-parser
 ```
 
 ## Plugins

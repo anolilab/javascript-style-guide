@@ -2,6 +2,18 @@
 
 Semantic-release shareable configuration to publish GitHub projects.
 
+---
+
+<div align="center">
+    <p>
+        <sup>
+            Daniel Bannert's open source work is supported by the community on <a href="https://github.com/sponsors/prisis">GitHub Sponsors</a>
+        </sup>
+    </p>
+</div>
+
+---
+
 ## Install
 
 ```bash
@@ -247,6 +259,30 @@ If your repo is under an organisation, you can create a bot account and give it 
 Either way, you have to create a GitHub personal access token for the committer account and give it the "repo" access rights. Then set it to the GH_TOKEN secret in your GitHub repository.
 
 > Note: GitHub secrets not shared with forks and pull requests, so no one that doesn’t have write access to your repo can use of them.
+
+## Supported Node.js Versions
+
+Libraries in this ecosystem make the best effort to track
+[Node.js' release schedule](https://nodejs.org/en/about/releases/). Here's [a
+post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+
+Contributing
+------------
+
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+
+> **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
+
+Credits
+-------------
+
+- [Daniel Bannert](https://github.com/prisis)
+- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+
+License
+-------------
+
+The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
 
 [1]: https://github.com/semantic-release/commit-analyzer
 [2]: https://github.com/semantic-release/release-notes-generator

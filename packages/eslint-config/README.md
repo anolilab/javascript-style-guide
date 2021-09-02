@@ -1,6 +1,18 @@
 # ESLint config
 
-> This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project’s dependencies.
+This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project’s dependencies.
+
+---
+
+<div align="center">
+    <p>
+        <sup>
+            Daniel Bannert's open source work is supported by the community on <a href="https://github.com/sponsors/prisis">GitHub Sponsors</a>
+        </sup>
+    </p>
+</div>
+
+---
 
 ## Install
 
@@ -276,7 +288,32 @@ A best practice for VSCode is to auto format code with Prettier and autofix erro
 ## Q & A
 
 ### Why not standard
+
 The standard specification believes that everyone should not waste time in personalized specifications, but the entire community should unify a specification. This statement makes  sense, but it runs against the ESLint’s design philosophy.
 Don’t you remember how ESLint defeated JSHint and became the most popular JS code inspection tool? It’s because of the plugin and configuration that ESLint advocates, which meets the individual needs of different technology stacks of different teams.
 
 Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It will not force you to use our config.
+
+## Supported Node.js Versions
+
+Libraries in this ecosystem make the best effort to track
+[Node.js' release schedule](https://nodejs.org/en/about/releases/). Here's [a
+post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+
+Contributing
+------------
+
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+
+> **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
+
+Credits
+-------------
+
+- [Daniel Bannert](https://github.com/prisis)
+- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+
+License
+-------------
+
+The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)

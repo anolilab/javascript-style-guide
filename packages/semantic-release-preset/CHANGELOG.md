@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [1.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.2...@anolilab/semantic-release-preset@1.0.3) (2021-09-02)
+
+
+### Bug Fixes
+
+* added funding to the package ([f90d18f](https://github.com/anolilab/javascript-style-guide/commit/f90d18f8347a4bdc395b1740c85ac74a4072297c))
+
 ### @anolilab/semantic-release-preset [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.1...@anolilab/semantic-release-preset@1.0.2) (2021-09-02)
 
 

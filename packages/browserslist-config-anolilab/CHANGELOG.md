@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.2...browserslist-config-anolilab@2.1.3) (2021-09-02)
+
+
+### Bug Fixes
+
+* fixed release flow in all packages ([8c5ec13](https://github.com/anolilab/javascript-style-guide/commit/8c5ec1341e11ccf48d8d3e8f8808fb162d062d97))
+
 ### browserslist-config-anolilab [2.1.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.1...browserslist-config-anolilab@2.1.2) (2021-08-17)
 
 

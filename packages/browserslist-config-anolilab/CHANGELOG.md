@@ -1,3 +1,10 @@
+### browserslist-config-anolilab [2.1.4](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.3...browserslist-config-anolilab@2.1.4) (2021-09-02)
+
+
+### Bug Fixes
+
+* added funding to the package ([f90d18f](https://github.com/anolilab/javascript-style-guide/commit/f90d18f8347a4bdc395b1740c85ac74a4072297c))
+
 ### browserslist-config-anolilab [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.2...browserslist-config-anolilab@2.1.3) (2021-09-02)
 
 

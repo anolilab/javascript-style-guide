@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.1...@anolilab/semantic-release-preset@1.0.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* added commitizen ([f1c6032](https://github.com/anolilab/javascript-style-guide/commit/f1c6032c9110abbb09c06d4a19439208950ee451))
+
 ### @anolilab/semantic-release-preset [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.0...@anolilab/semantic-release-preset@1.0.1) (2021-09-02)
 
 

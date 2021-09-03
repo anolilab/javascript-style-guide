@@ -28,7 +28,7 @@ const depRules = [
     'array-func',
     'html',
     'mdx',
-    'redux',
+    'react-redux',
     'no-unsanitized',
     'lodash',
     ['lodash', 'lodash-fp'],

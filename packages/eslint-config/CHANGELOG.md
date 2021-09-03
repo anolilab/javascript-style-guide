@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [2.1.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.6...@anolilab/eslint-config@2.1.7) (2021-09-03)
+
+
+### Bug Fixes
+
+* fixed wrong name in eslint-config redux is now react-redux ([609fd83](https://github.com/anolilab/javascript-style-guide/commit/609fd83fa2155ee1ad5e01cf71f76d750d414fa8))
+
 ### @anolilab/eslint-config [2.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.5...@anolilab/eslint-config@2.1.6) (2021-09-02)
 
 

@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [2.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.5...@anolilab/babel-preset@2.3.0) (2021-09-13)
+
+
+### Features
+
+* added new optimizations to bable preset ([e78a7d9](https://github.com/anolilab/javascript-style-guide/commit/e78a7d92a7cbebac092da23851cf47a80b5836b0))
+
 ### @anolilab/babel-preset [2.2.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.4...@anolilab/babel-preset@2.2.5) (2021-09-02)
 
 

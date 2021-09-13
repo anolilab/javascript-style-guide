@@ -16,9 +16,10 @@ module.exports = declare((api, options) => {
         looseTemplateLiterals = false,
         typescript = false,
         react = false,
-        transformRuntime = true,
+        transformRuntime = false,
         runtimeVersion,
         runtimeHelpersUseESModules = !modules,
+        polyfillRegenerator = false,
     } = options;
 
     if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
@@ -90,6 +91,8 @@ module.exports = declare((api, options) => {
             react ? ['@babel/preset-react', Object.assign({ development }, typeof react === "object" ? react : {})] : null,
         ].filter(Boolean),
         plugins: [
+            'babel-plugin-annotate-pure-calls',
+            'babel-plugin-dev-expression',
             // class { handleClick = () => { } }
             // Enable loose mode to use assignment instead of defineProperty
             // See discussion in https://github.com/facebook/create-react-app/issues/4263
@@ -188,6 +191,12 @@ module.exports = declare((api, options) => {
             // Experimental macros support. Will be documented after it's had some time
             // in the wild.
             'babel-plugin-macros',
+            polyfillRegenerator ? [
+                'babel-plugin-polyfill-regenerator',
+                {
+                    method: 'usage-pure'
+                }
+            ]: null,
             transformRuntime
                 ? [
                       '@babel/plugin-transform-runtime',

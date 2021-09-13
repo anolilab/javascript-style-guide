@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [2.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.3.0...@anolilab/babel-preset@2.3.1) (2021-09-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency babel-plugin-polyfill-regenerator to ^0.2.0 ([a46471d](https://github.com/anolilab/javascript-style-guide/commit/a46471d858980043d34a500bea4f9cafed3fd25e))
+
 ## @anolilab/babel-preset [2.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.2.5...@anolilab/babel-preset@2.3.0) (2021-09-13)
 
 

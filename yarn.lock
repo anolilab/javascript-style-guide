@@ -89,7 +89,7 @@ __metadata:
     eslint-plugin-json: 3.1.0
     eslint-plugin-jsx-a11y: 6.4.1
     eslint-plugin-markdown: ^2.2.0
-    eslint-plugin-mdx: 1.15.0
+    eslint-plugin-mdx: 1.15.1
     eslint-plugin-no-loops: ^0.3.0
     eslint-plugin-no-secrets: ^0.8.9
     eslint-plugin-node: 11.1.0
@@ -5935,7 +5935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^7.0.0":
+"cosmiconfig@npm:^7.0.0, cosmiconfig@npm:^7.0.1":
   version: 7.0.1
   resolution: "cosmiconfig@npm:7.0.1"
   dependencies:
@@ -6856,19 +6856,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-mdx@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "eslint-mdx@npm:1.15.0"
+"eslint-mdx@npm:^1.15.1":
+  version: 1.15.1
+  resolution: "eslint-mdx@npm:1.15.1"
   dependencies:
-    cosmiconfig: ^7.0.0
+    cosmiconfig: ^7.0.1
     remark-mdx: ^1.6.22
     remark-parse: ^8.0.3
     remark-stringify: ^8.1.1
     tslib: ^2.3.1
-    unified: ^9.2.1
+    unified: ^9.2.2
   peerDependencies:
     eslint: ">=5.0.0"
-  checksum: 83ffc369321ad4ba9bfd20094f344c11e67ac4c2cda5548947dcded80c2942edf5b11dcd8aba53ead59b34ac00a204aed1c50f34714c88226441f03cc16de18e
+  checksum: 328f8d932f0e2a3f03964c1b95d9f0900d30085dc01ab5ef5cf5272d30ae8f164bca4d04133549df9e1d496dfc607e35cb02f991717b0f383d525e2c6c212c1f
   languageName: node
   linkType: hard
 
@@ -7078,18 +7078,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-mdx@npm:1.15.0":
-  version: 1.15.0
-  resolution: "eslint-plugin-mdx@npm:1.15.0"
+"eslint-plugin-mdx@npm:1.15.1":
+  version: 1.15.1
+  resolution: "eslint-plugin-mdx@npm:1.15.1"
   dependencies:
-    eslint-mdx: ^1.15.0
+    eslint-mdx: ^1.15.1
     eslint-plugin-markdown: ^2.2.0
     synckit: ^0.3.4
     tslib: ^2.3.1
     vfile: ^4.2.1
   peerDependencies:
     eslint: ">=5.0.0"
-  checksum: f6022ef6298963be6b07bf9275495582aa1489520c8581277c65fb5f4f199e011a8f817ce92127c5e73c7607a98b76db11f38eb9ebbd1e9e520137782db63a7f
+  checksum: 29a7e1ade880d77f80501c61d51a0eba765fbf59c6c9790343acb8877ba84b3f213717ecc6b4d2a803d34bc19f39056c587d64a4be189165e1a24a7db6122f6c
   languageName: node
   linkType: hard
 
@@ -17504,7 +17504,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"unified@npm:^9.0.0, unified@npm:^9.1.0, unified@npm:^9.2.1":
+"unified@npm:^9.0.0, unified@npm:^9.1.0, unified@npm:^9.2.1, unified@npm:^9.2.2":
   version: 9.2.2
   resolution: "unified@npm:9.2.2"
   dependencies:

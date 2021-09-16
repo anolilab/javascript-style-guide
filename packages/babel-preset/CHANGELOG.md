@@ -1,3 +1,10 @@
+### @anolilab/babel-preset [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@3.0.0...@anolilab/babel-preset@3.0.1) (2021-09-16)
+
+
+### Bug Fixes
+
+* removed ignore from preset ([0eb1af7](https://github.com/anolilab/javascript-style-guide/commit/0eb1af701e9bbcd5f06f7a049027bfcb2bb0812f))
+
 ## @anolilab/babel-preset [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.3.1...@anolilab/babel-preset@3.0.0) (2021-09-16)
 
 

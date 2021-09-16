@@ -1,3 +1,14 @@
+## @anolilab/babel-preset [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.3.1...@anolilab/babel-preset@3.0.0) (2021-09-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Babel runtime transform need to be added manually if needed
+
+### Performance Improvements
+
+* removed babel/plugin-transform-runtime ([0cd296b](https://github.com/anolilab/javascript-style-guide/commit/0cd296b72283f22ff0a984dfd46ab0a830f944ac))
+
 ### @anolilab/babel-preset [2.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@2.3.0...@anolilab/babel-preset@2.3.1) (2021-09-13)
 
 

@@ -71,7 +71,6 @@ module.exports = declare((api, options) => {
         assumptions: {
             noDocumentAll: true,
         },
-        ignore: [/@babel[\\|/]runtime/], // Fix a Windows issue.
         presets: [
             [
                 '@babel/preset-env',

@@ -256,12 +256,13 @@ For example, if you are using this plugin in a deployable app, you want to use t
 
 ## Selective loose modes
 
-By default, this preset will compile everything in normal mode. This is safer, but comes with bundle size and runtime overhead. We have options to selectively opt in to loose mode for  features. These options are:
+By default, this preset will compile everything in lose mode. We have options to selectively opt out to loose mode for features. These options are:
 
 -   [classes](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose): `looseClasses`
 -   [computed properties](https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose): `looseComputedProperties`
 -   [parameters](https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose): `looseParameters`
 -   [template literals](https://babeljs.io/docs/en/babel-plugin-transform-template-literals#loose): `looseTemplateLiterals`
+-   [object rest spread](https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread#loose): `looseObjectRestSpread`
 
 Example:
 
@@ -271,10 +272,11 @@ Example:
         [
             "@anolilab/babel-preset",
             {
-                "looseClasses": true,
-                "looseComputedProperties": true,
-                "looseParameters": true,
-                "looseTemplateLiterals": true
+                "looseClasses": false,
+                "looseComputedProperties": false,
+                "looseParameters": false,
+                "looseTemplateLiterals": false,
+                "looseObjectRestSpread": false
             }
         ]
     ]
@@ -282,33 +284,6 @@ Example:
 ```
 
 The [risks of enabling loose classes are outlined in the Babel docs](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose).
-
-## Specifying a babel runtime version
-
-By default @babel/plugin-transform-runtime will [assume the oldest version of the runtime](https://github.com/babel/babel/blob/e6264a09921c60b8f18870d0a75678e4fa04f0f8/packages/babel-plugin-transform-runtime/src/index.js#L42) to avoid importing helpers that don’t exist which would fail at runtime. This can result in newer helpers being inlined into modules (ex. objectSpread2) which increases bundle size.
-
-To avoid this you can configure the preset to use the same version of the runtime that’s installed in your package.json.
-
-Ex. If package.json has `"@babel/runtime": "^7.5.5"` then you can use:
-
-```json
-{
-    "presets": [
-        [
-            "@anolilab/babel-preset",
-            {
-                "runtimeVersion": "7.5.5"
-            }
-        ]
-    ]
-}
-```
-
-> Note: This will result in a runtime breakage if the version passed into the anolilab preset is newer than the version of the babel runtime  being used at build time.
-
-## Disabling `plugin-transform-runtime`
-
-You can use the `transformRuntime` option to disable [`@babel/plugin-transform-runtime`](https://babeljs.io/docs/en/babel-plugin-transform-runtime). Specifying `false` will disable the plugin. This option defaults to `true`.
 
 ## Specifying module transforms
 
@@ -329,26 +304,9 @@ You can use the `modules` option to enable transformation of modules given to th
 
 Both `true` and the option default `auto` will not transform modules if ES6 module syntax is already supported by the environment, or `"commonjs"` otherwise. `false` will not transform modules.
 
-You can use the `runtimeHelpersUseESModules` option to prevent transformation of runtime helpers to CommonJS modules.
-
-```json
-{
-    "presets": [
-        [
-            "@anolilab/babel-preset",
-            {
-                "runtimeHelpersUseESModules": true
-            }
-        ]
-    ]
-}
-```
-
-`true` will not transform runtime helpers to CommonJS modules. `false` will transform runtime helpers to CommonJS modules. The option defaults to `true` if `modules` is set to `false`, and `false` otherwise.
-
 ## Optimizations
 
-- [`babel-plugin-annotate-pure-calls`](https://github.com/Andarist/babel-plugin-annotate-pure-calls): Injects for `#__PURE` annotations to enable treeshaking
+- [`babel-plugin-annotate-pure-calls`](https://github.com/Andarist/babel-plugin-annotate-pure-calls): Injects for `#__PURE` annotations to enable tree-shaking
 - [`babel-plugin-dev-expressions`](https://github.com/4Catalyzer/babel-plugin-dev-expression): A mirror of Facebook's dev-expression Babel plugin. It reduces or eliminates development checks from production code
 
 ### Development-only Expressions + Treeshaking

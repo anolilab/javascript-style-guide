@@ -10,16 +10,15 @@ module.exports = declare((api, options) => {
         modules = 'auto',
         targets = null,
         removePropTypes = false,
-        looseClasses = false,
-        looseComputedProperties = false,
-        looseParameters = false,
-        looseTemplateLiterals = false,
+        looseClasses = true,
+        looseObjectRestSpread = true,
+        looseComputedProperties = true,
+        looseParameters = true,
+        looseTemplateLiterals = true,
         typescript = false,
         react = false,
-        transformRuntime = false,
-        runtimeVersion,
-        runtimeHelpersUseESModules = !modules,
         polyfillRegenerator = false,
+        useBuiltIns = false
     } = options;
 
     if (typeof modules !== 'undefined' && typeof modules !== 'boolean' && modules !== 'auto') {
@@ -69,14 +68,21 @@ module.exports = declare((api, options) => {
             : api.cache.using(() => process.env.NODE_ENV === "development");
 
     return {
+        assumptions: {
+            noDocumentAll: true,
+        },
+        ignore: [/@babel[\\|/]runtime/], // Fix a Windows issue.
         presets: [
             [
                 '@babel/preset-env',
                 {
                     debug,
+                    bugfixes: true,
+                    useBuiltIns,
                     exclude: ['transform-async-to-generator', 'transform-regenerator'],
                     modules: modules === false ? false : 'auto',
                     targets: targets,
+                    shippedProposals: api.env('modern'),
                 },
             ],
             typescript
@@ -93,6 +99,7 @@ module.exports = declare((api, options) => {
         plugins: [
             'babel-plugin-annotate-pure-calls',
             'babel-plugin-dev-expression',
+            '@babel/plugin-proposal-class-static-block',
             // class { handleClick = () => { } }
             // Enable loose mode to use assignment instead of defineProperty
             // See discussion in https://github.com/facebook/create-react-app/issues/4263
@@ -155,12 +162,20 @@ module.exports = declare((api, options) => {
                       },
                   ]
                 : null,
+            looseObjectRestSpread
+                ? [
+                    '@babel/plugin-proposal-object-rest-spread',
+                    {
+                        loose: true,
+                        useBuiltIns: true,
+                    },
+                ] : null,
             react && removePropTypes
                 ? [
                       'babel-plugin-transform-react-remove-prop-types',
                       Object.assign(
                           {
-                              mode: 'wrap',
+                              mode: 'unsafe-wrap',
                               ignoreFilenames: ['node_modules'],
                           },
                           removePropTypes,
@@ -170,8 +185,6 @@ module.exports = declare((api, options) => {
             '@babel/plugin-proposal-export-namespace-from',
             typescript ? '@babel/plugin-transform-typescript' : null,
             typescript ? '@babel/plugin-syntax-jsx' : null,
-            // Adds syntax support for import()
-            '@babel/plugin-syntax-dynamic-import',
             '@babel/plugin-transform-property-mutators',
             '@babel/plugin-transform-member-expression-literals',
             '@babel/plugin-transform-property-literals',
@@ -180,12 +193,6 @@ module.exports = declare((api, options) => {
             '@babel/plugin-proposal-optional-catch-binding',
             '@babel/plugin-proposal-optional-chaining',
             '@babel/plugin-syntax-bigint',
-            [
-                '@babel/plugin-proposal-object-rest-spread',
-                {
-                    useBuiltIns: true,
-                },
-            ],
             // https://babeljs.io/docs/en/babel-plugin-syntax-async-generators
             '@babel/plugin-syntax-async-generators',
             // Experimental macros support. Will be documented after it's had some time
@@ -196,20 +203,7 @@ module.exports = declare((api, options) => {
                 {
                     method: 'usage-pure'
                 }
-            ]: null,
-            transformRuntime
-                ? [
-                      '@babel/plugin-transform-runtime',
-                      {
-                          absoluteRuntime: false,
-                          corejs: false,
-                          helpers: true,
-                          regenerator: false,
-                          useESModules: runtimeHelpersUseESModules,
-                          version: runtimeVersion,
-                      },
-                  ]
-                : null,
+            ]: null
         ].filter(Boolean),
     };
 });

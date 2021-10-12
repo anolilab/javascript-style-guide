@@ -78,7 +78,7 @@ __metadata:
     eslint-plugin-cypress: 2.12.1
     eslint-plugin-eslint-comments: ^3.2.0
     eslint-plugin-import: ^2.24.0
-    eslint-plugin-jest: 25.0.3
+    eslint-plugin-jest: 25.0.5
     eslint-plugin-jest-async: 1.0.3
     eslint-plugin-jest-dom: 3.9.2
     eslint-plugin-jest-formatting: 3.0.0
@@ -4098,7 +4098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:5.0.0":
+"@typescript-eslint/experimental-utils@npm:5.0.0, @typescript-eslint/experimental-utils@npm:^5.0.0":
   version: 5.0.0
   resolution: "@typescript-eslint/experimental-utils@npm:5.0.0"
   dependencies:
@@ -4114,7 +4114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:^4.0.1, @typescript-eslint/experimental-utils@npm:^4.29.2, @typescript-eslint/experimental-utils@npm:^4.30.0":
+"@typescript-eslint/experimental-utils@npm:^4.29.2, @typescript-eslint/experimental-utils@npm:^4.30.0":
   version: 4.31.0
   resolution: "@typescript-eslint/experimental-utils@npm:4.31.0"
   dependencies:
@@ -7483,18 +7483,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:25.0.3":
-  version: 25.0.3
-  resolution: "eslint-plugin-jest@npm:25.0.3"
+"eslint-plugin-jest@npm:25.0.5":
+  version: 25.0.5
+  resolution: "eslint-plugin-jest@npm:25.0.5"
   dependencies:
-    "@typescript-eslint/experimental-utils": ^4.0.1
+    "@typescript-eslint/experimental-utils": ^5.0.0
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^4.0.0
+    "@typescript-eslint/eslint-plugin": ^4.0.0 || ^5.0.0
     eslint: ^6.0.0 || ^7.0.0
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: 6ca4607e9526303c8ce5b86ff2df75a3ee799fdd76ad4a1ad96860d3d3bc0e5eb081dda31aa025dc9d569cb488639035246135f67eec3dc4f68047dcb0b59c6d
+  checksum: 68826a0dfdda7aec1eed6eb5234c0a2e4adeed30e85b2ad464c3f7eff07aa3c59a5d7b6714085573d86f2cc48f16570f010b688c1dd08947bed6c2fd669f530b
   languageName: node
   linkType: hard
 

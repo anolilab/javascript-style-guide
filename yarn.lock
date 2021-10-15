@@ -100,7 +100,7 @@ __metadata:
     eslint-plugin-simple-import-sort: ^7.0.0
     eslint-plugin-sort-keys-fix: ^1.1.2
     eslint-plugin-testing-library: 4.12.4
-    eslint-plugin-typescript-sort-keys: 1.8.0
+    eslint-plugin-typescript-sort-keys: 2.0.0
     eslint-plugin-unicorn: ^36.0.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
     eslint-plugin-you-dont-need-momentjs: ^1.6.0
@@ -4114,7 +4114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:^4.29.2, @typescript-eslint/experimental-utils@npm:^4.30.0":
+"@typescript-eslint/experimental-utils@npm:^4.30.0":
   version: 4.31.0
   resolution: "@typescript-eslint/experimental-utils@npm:4.31.0"
   dependencies:
@@ -7744,18 +7744,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-typescript-sort-keys@npm:1.8.0":
-  version: 1.8.0
-  resolution: "eslint-plugin-typescript-sort-keys@npm:1.8.0"
+"eslint-plugin-typescript-sort-keys@npm:2.0.0":
+  version: 2.0.0
+  resolution: "eslint-plugin-typescript-sort-keys@npm:2.0.0"
   dependencies:
-    "@typescript-eslint/experimental-utils": ^4.29.2
+    "@typescript-eslint/experimental-utils": ^5.0.0
     json-schema: ^0.3.0
     natural-compare-lite: ^1.4.0
   peerDependencies:
-    "@typescript-eslint/parser": ^1 || ^2 || ^3 || ^4
-    eslint: ^5 || ^6 || ^7
+    "@typescript-eslint/parser": ^1 || ^2 || ^3 || ^4 || ^5
+    eslint: ^5 || ^6 || ^7 || ^8
     typescript: ^3 || ^4
-  checksum: 17f289ece90461a36d2d9b0c0a71f023db3c598d67af5cb9e2affbdc2fb3fb67c79b37ae2cecb4a5dd236e99ff3f930872342ea8b2ace876d51931bf062f6d82
+  checksum: a1d782c39a3e9f9825b2419965dc717471bdc0fa8fc8635076c215d0876ff362997e9e6222985f7ec5a6669d03aca5d194cb5933d3afb96f3cdc92ca627825fc
   languageName: node
   linkType: hard
 

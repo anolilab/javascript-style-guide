@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.3...@anolilab/semantic-release-preset@1.1.0) (2021-10-26)
+
+
+### Features
+
+* updated all deps ([0320055](https://github.com/anolilab/javascript-style-guide/commit/0320055caf8301a6c3bf06cff6ee58578b9ceae5))
+
 ### @anolilab/semantic-release-preset [1.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.0.2...@anolilab/semantic-release-preset@1.0.3) (2021-09-02)
 
 

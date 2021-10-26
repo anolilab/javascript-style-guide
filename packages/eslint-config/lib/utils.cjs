@@ -2,8 +2,27 @@
 const { existsSync, realpathSync } = require('fs');
 const { dirname, join } = require('path');
 const has = require('lodash.has');
-const arrify = require('arrify');
 const readPkgUp = require('read-pkg-up');
+
+function arrify(value) {
+	if (value === null || value === undefined) {
+		return [];
+	}
+
+	if (Array.isArray(value)) {
+		return value;
+	}
+
+	if (typeof value === 'string') {
+		return [value];
+	}
+
+	if (typeof value[Symbol.iterator] === 'function') {
+		return [...value];
+	}
+
+	return [value];
+}
 
 const { packageJson: package_, path: packagePath } = readPkgUp.sync({
     cwd: realpathSync(process.cwd()),

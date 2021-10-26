@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.8...@anolilab/eslint-config@2.2.0) (2021-10-26)
+
+
+### Features
+
+* updated ([642c2d5](https://github.com/anolilab/javascript-style-guide/commit/642c2d57a0f667bb9dbfd792210b97b8122a6595))
+
 ### @anolilab/eslint-config [2.1.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.7...@anolilab/eslint-config@2.1.8) (2021-09-13)
 
 

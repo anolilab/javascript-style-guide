@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@3.0.1...@anolilab/babel-preset@3.1.0) (2021-10-26)
+
+
+### Features
+
+* updated all deps ([0320055](https://github.com/anolilab/javascript-style-guide/commit/0320055caf8301a6c3bf06cff6ee58578b9ceae5))
+
 ### @anolilab/babel-preset [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@3.0.0...@anolilab/babel-preset@3.0.1) (2021-09-16)
 
 

@@ -3115,7 +3115,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/changelog@npm:6.0.0, @semantic-release/changelog@npm:^6.0.0":
+"@semantic-release/changelog@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@semantic-release/changelog@npm:6.0.1"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    fs-extra: ^9.0.0
+    lodash: ^4.17.4
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: a7c999f20297f229ebb32dc65f56c3aee237d941b478a1c75f5e904382c66fc4054bf3da93b1f5382e0b689147a825665500332f70807bfed952d312d2f501ac
+  languageName: node
+  linkType: hard
+
+"@semantic-release/changelog@npm:^6.0.0":
   version: 6.0.0
   resolution: "@semantic-release/changelog@npm:6.0.0"
   dependencies:
@@ -3194,7 +3208,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/exec@npm:6.0.1, @semantic-release/exec@npm:^6.0.1":
+"@semantic-release/exec@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@semantic-release/exec@npm:6.0.2"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    debug: ^4.0.0
+    execa: ^5.0.0
+    lodash: ^4.17.4
+    parse-json: ^5.0.0
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: 27b3bfe376af56a111ed26db9aeba52117959c55ef9c741788ccdc79d68b92305a0c9d9a1631a6107b467fb6f5fc8bd7b4091c9da68739b5ff1237b1cef7ad4f
+  languageName: node
+  linkType: hard
+
+"@semantic-release/exec@npm:^6.0.1":
   version: 6.0.1
   resolution: "@semantic-release/exec@npm:6.0.1"
   dependencies:
@@ -3210,7 +3240,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/git@npm:10.0.0, @semantic-release/git@npm:^10.0.0":
+"@semantic-release/git@npm:10.0.1":
+  version: 10.0.1
+  resolution: "@semantic-release/git@npm:10.0.1"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    debug: ^4.0.0
+    dir-glob: ^3.0.0
+    execa: ^5.0.0
+    lodash: ^4.17.4
+    micromatch: ^4.0.0
+    p-reduce: ^2.0.0
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: b0a346acaf13d1bbd8d8d895bb0dee025dd6d4742769b5dd875018fff8fcfe0f5414299dbe1ed026e53b8f8b04eeceef49a3d56c5f6506016c656df95d2ced04
+  languageName: node
+  linkType: hard
+
+"@semantic-release/git@npm:^10.0.0":
   version: 10.0.0
   resolution: "@semantic-release/git@npm:10.0.0"
   dependencies:
@@ -10740,10 +10788,10 @@ __metadata:
     "@commitlint/config-conventional": 13.2.0
     "@commitlint/core": 13.2.1
     "@qiwi/multi-semantic-release": 3.16.0
-    "@semantic-release/changelog": 6.0.0
+    "@semantic-release/changelog": 6.0.1
     "@semantic-release/commit-analyzer": 9.0.1
-    "@semantic-release/exec": 6.0.1
-    "@semantic-release/git": 10.0.0
+    "@semantic-release/exec": 6.0.2
+    "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.1
     "@semantic-release/npm": 8.0.2
     "@semantic-release/release-notes-generator": 10.0.2

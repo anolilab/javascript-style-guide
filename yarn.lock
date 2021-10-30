@@ -35,7 +35,7 @@ __metadata:
     "@babel/plugin-transform-property-literals": ^7.14.5
     "@babel/plugin-transform-property-mutators": ^7.14.5
     "@babel/plugin-transform-template-literals": ^7.14.5
-    "@babel/plugin-transform-typescript": 7.16.0
+    "@babel/plugin-transform-typescript": 7.16.1
     "@babel/preset-env": ^7.15.8
     "@babel/preset-react": 7.16.0
     "@babel/preset-typescript": 7.16.0
@@ -1836,7 +1836,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:7.16.0, @babel/plugin-transform-typescript@npm:^7.16.0":
+"@babel/plugin-transform-typescript@npm:7.16.1":
+  version: 7.16.1
+  resolution: "@babel/plugin-transform-typescript@npm:7.16.1"
+  dependencies:
+    "@babel/helper-create-class-features-plugin": ^7.16.0
+    "@babel/helper-plugin-utils": ^7.14.5
+    "@babel/plugin-syntax-typescript": ^7.16.0
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 1b1efe62e8de828d52b996429718663705cbefb9a7382d2849725b6318051fcbe9671e9e8f761a94fddf46ea159810c97d1b6282c644f69c98ebf5d4d2687ef6
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-transform-typescript@npm:^7.16.0":
   version: 7.16.0
   resolution: "@babel/plugin-transform-typescript@npm:7.16.0"
   dependencies:

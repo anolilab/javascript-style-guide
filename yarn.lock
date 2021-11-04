@@ -3393,9 +3393,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:8.0.2, @semantic-release/npm@npm:^8.0.2":
-  version: 8.0.2
-  resolution: "@semantic-release/npm@npm:8.0.2"
+"@semantic-release/npm@npm:8.0.3":
+  version: 8.0.3
+  resolution: "@semantic-release/npm@npm:8.0.3"
   dependencies:
     "@semantic-release/error": ^3.0.0
     aggregate-error: ^3.0.0
@@ -3412,7 +3412,7 @@ __metadata:
     tempy: ^1.0.0
   peerDependencies:
     semantic-release: ">=18.0.0"
-  checksum: ade2226a85830df101248805b9254ced284fe3d024de100b1669ecda3499f9f9170ac701f88f22742dee9440f57a768215031a0e19e5d8899b27061d43e415b3
+  checksum: 6c1e178f0fdc1b6ab24d14f02fb012302c7220e64e192293be7d11346d309b00338bd5a42e076c7849af68a91745359e750c5a1d7c85c8f11e9941e4516bb413
   languageName: node
   linkType: hard
 
@@ -3459,6 +3459,29 @@ __metadata:
   peerDependencies:
     semantic-release: ">=18.0.0-beta.1"
   checksum: 8a5130150af48871da739e000520643e44adbd7c61cf474559075a5a782b2701e2a307bf503caac21c4ff5202ef275015e12f9ad15ad6464c052e355430bd074
+  languageName: node
+  linkType: hard
+
+"@semantic-release/npm@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "@semantic-release/npm@npm:8.0.2"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    execa: ^5.0.0
+    fs-extra: ^10.0.0
+    lodash: ^4.17.15
+    nerf-dart: ^1.0.0
+    normalize-url: ^6.0.0
+    npm: ^7.0.0
+    rc: ^1.2.8
+    read-pkg: ^5.0.0
+    registry-auth-token: ^4.0.0
+    semver: ^7.1.2
+    tempy: ^1.0.0
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: ade2226a85830df101248805b9254ced284fe3d024de100b1669ecda3499f9f9170ac701f88f22742dee9440f57a768215031a0e19e5d8899b27061d43e415b3
   languageName: node
   linkType: hard
 
@@ -10861,7 +10884,7 @@ __metadata:
     "@semantic-release/exec": 6.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.2
-    "@semantic-release/npm": 8.0.2
+    "@semantic-release/npm": 8.0.3
     "@semantic-release/release-notes-generator": 10.0.2
     "@textlint-rule/textlint-rule-no-invalid-control-character": 2.0.0
     "@textlint-rule/textlint-rule-no-unmatched-pair": 1.0.8

@@ -1,3 +1,10 @@
+### @anolilab/textlint-config [2.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.7...@anolilab/textlint-config@2.0.8) (2021-11-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency textlint-rule-no-dead-link to v4.8.0 ([1de655e](https://github.com/anolilab/javascript-style-guide/commit/1de655e00a3f952163c346ae8d032be2e1cf5a20))
+
 ### @anolilab/textlint-config [2.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.6...@anolilab/textlint-config@2.0.7) (2021-09-02)
 
 

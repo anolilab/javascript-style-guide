@@ -10909,7 +10909,7 @@ __metadata:
     textlint-rule-terminology: 2.1.5
     textlint-rule-write-good: 2.0.0
     ts-jest: 27.0.7
-    typescript: 4.4.4
+    typescript: 4.5.2
     write-good: 1.0.8
   languageName: unknown
   linkType: soft
@@ -18437,13 +18437,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@4.4.4, typescript@^4.4.4":
-  version: 4.4.4
-  resolution: "typescript@npm:4.4.4"
+typescript@4.5.2:
+  version: 4.5.2
+  resolution: "typescript@npm:4.5.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
+  checksum: 74f9ce65d532bdf5d0214b3f60cf37992180023388c87a11ee6f838a803067ef0b63c600fa501b0deb07f989257dce1e244c9635ed79feca40bbccf6e0aa1ebc
   languageName: node
   linkType: hard
 
@@ -18457,13 +18457,23 @@ typescript@^4.4.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.4.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
+typescript@^4.4.4:
   version: 4.4.4
-  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=d8b4e7"
+  resolution: "typescript@npm:4.4.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 4a639b6886be13616582ab82abdb4ffbbf5b0458069d13c10cd5d44fc1cafa33eab005e8ac8691ad8fae249fee85844bb7d523263c4568fe9a2ca31cd3c91c3d
+  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@4.5.2#~builtin<compat/typescript>":
+  version: 4.5.2
+  resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=d8b4e7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 02cf0f190f0cb6d216558d8db9c3a968feeab4965c340a351e5e6e84a42a3946e5e200a9538b6e427af9d17e4f713254dd0707d5fd6f238ce93f0aee1986ab57
   languageName: node
   linkType: hard
 
@@ -18474,6 +18484,16 @@ typescript@^4.4.3:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 215a59742afb7e0c3668e2c50ca19813deb24b3cc0d16ac3591990e033728050aaa99e159a72b54cb43653f16c778a5cf9dfeed1f51c3b105710ae082c064af7
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
+  version: 4.4.4
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=d8b4e7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 4a639b6886be13616582ab82abdb4ffbbf5b0458069d13c10cd5d44fc1cafa33eab005e8ac8691ad8fae249fee85844bb7d523263c4568fe9a2ca31cd3c91c3d
   languageName: node
   linkType: hard
 

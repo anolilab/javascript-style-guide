@@ -3511,14 +3511,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/release-notes-generator@npm:10.0.2, @semantic-release/release-notes-generator@npm:^10.0.2":
-  version: 10.0.2
-  resolution: "@semantic-release/release-notes-generator@npm:10.0.2"
+"@semantic-release/release-notes-generator@npm:10.0.3":
+  version: 10.0.3
+  resolution: "@semantic-release/release-notes-generator@npm:10.0.3"
   dependencies:
     conventional-changelog-angular: ^5.0.0
     conventional-changelog-writer: ^5.0.0
     conventional-commits-filter: ^2.0.0
-    conventional-commits-parser: ^3.0.0
+    conventional-commits-parser: ^3.2.3
     debug: ^4.0.0
     get-stream: ^6.0.0
     import-from: ^4.0.0
@@ -3527,7 +3527,7 @@ __metadata:
     read-pkg-up: ^7.0.0
   peerDependencies:
     semantic-release: ">=18.0.0-beta.1"
-  checksum: 6e71e8be33383fa71f68f5ca99f3143078678d7ba482fc277fcb4dc64f84f9ebaffbc798d8738a9e650f73d32ba1d0a3cf0413c25d428719a0a39238224223ce
+  checksum: 0237e7e6ebf41b7c6a72eea704b007442cfd05910ded7059235a5684a0e4a233b2ca3c3e39923901131e7f0a4dcb5e95737af469081529acc393223c04715505
   languageName: node
   linkType: hard
 
@@ -3548,6 +3548,26 @@ __metadata:
   peerDependencies:
     semantic-release: ">=18.0.0-beta.1"
   checksum: 8d7d5b0d089ffca436146d9e16eddb5826b5d95247dc70a85cea6328680612b2b2b57ef39d976d278dd49d3b984e89bb14c5c61251868e4c8747cbbe866c5651
+  languageName: node
+  linkType: hard
+
+"@semantic-release/release-notes-generator@npm:^10.0.2":
+  version: 10.0.2
+  resolution: "@semantic-release/release-notes-generator@npm:10.0.2"
+  dependencies:
+    conventional-changelog-angular: ^5.0.0
+    conventional-changelog-writer: ^5.0.0
+    conventional-commits-filter: ^2.0.0
+    conventional-commits-parser: ^3.0.0
+    debug: ^4.0.0
+    get-stream: ^6.0.0
+    import-from: ^4.0.0
+    into-stream: ^6.0.0
+    lodash: ^4.17.4
+    read-pkg-up: ^7.0.0
+  peerDependencies:
+    semantic-release: ">=18.0.0-beta.1"
+  checksum: 6e71e8be33383fa71f68f5ca99f3143078678d7ba482fc277fcb4dc64f84f9ebaffbc798d8738a9e650f73d32ba1d0a3cf0413c25d428719a0a39238224223ce
   languageName: node
   linkType: hard
 
@@ -10931,7 +10951,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.2
     "@semantic-release/npm": 8.0.3
-    "@semantic-release/release-notes-generator": 10.0.2
+    "@semantic-release/release-notes-generator": 10.0.3
     "@textlint-rule/textlint-rule-no-invalid-control-character": 2.0.0
     "@textlint-rule/textlint-rule-no-unmatched-pair": 1.0.8
     "@textlint-rule/textlint-rule-preset-google": 0.1.2

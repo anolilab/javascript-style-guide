@@ -1,3 +1,14 @@
+## @anolilab/textlint-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.9...@anolilab/textlint-config@3.0.0) (2021-12-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* moved textlint out of dependencies, to fix a bug with missing bin, no it is a peerDependencies
+
+### Features
+
+* moved textlint out of dependencies ([b5ded20](https://github.com/anolilab/javascript-style-guide/commit/b5ded20d72e4be78ae8bfe40001695d86e0935db))
+
 ### @anolilab/textlint-config [2.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.8...@anolilab/textlint-config@2.0.9) (2021-12-02)
 
 

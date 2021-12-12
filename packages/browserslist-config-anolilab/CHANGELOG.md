@@ -1,3 +1,10 @@
+## browserslist-config-anolilab [2.3.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.2.0...browserslist-config-anolilab@2.3.0) (2021-12-12)
+
+
+### Features
+
+* updated caniuse-lite dep ([c5d050e](https://github.com/anolilab/javascript-style-guide/commit/c5d050e0a1b57e7960a6adf9d40c64e5ee70166e))
+
 ## browserslist-config-anolilab [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@2.1.4...browserslist-config-anolilab@2.2.0) (2021-10-26)
 
 

@@ -17,7 +17,7 @@ Anolilab Coding Standard for text linting.
 ## Install
 
 ```bash
-npm install --dev-save @anolilab/textlint-config
+npm install --dev-save @anolilab/textlint-config textlint
 ```
 
 ## Usage

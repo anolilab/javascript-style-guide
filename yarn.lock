@@ -103,7 +103,7 @@ __metadata:
     eslint-plugin-unicorn: ^37.0.1
     eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
     eslint-plugin-you-dont-need-momentjs: ^1.6.0
-    jest: 27.4.3
+    jest: 27.4.4
     lodash.has: ^4.5.2
     object.assign: ^4.1.2
     react: 17.0.2
@@ -2451,7 +2451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/core@npm:^27.4.3, @jest/core@npm:^27.4.4":
+"@jest/core@npm:^27.4.4":
   version: 27.4.4
   resolution: "@jest/core@npm:27.4.4"
   dependencies:
@@ -10949,7 +10949,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-cli@npm:^27.4.3, jest-cli@npm:^27.4.4":
+"jest-cli@npm:^27.4.4":
   version: 27.4.4
   resolution: "jest-cli@npm:27.4.4"
   dependencies:
@@ -11425,24 +11425,6 @@ __metadata:
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
   checksum: e4a383d587f9e0fbe247a6c2e3a0dbe7b5cc0f9fe8583d6ffdc9257591563e62ecd6ef4c987dc44ca43a97d430395e36221427325bc839312a7ea62a4b1baedd
-  languageName: node
-  linkType: hard
-
-"jest@npm:27.4.3":
-  version: 27.4.3
-  resolution: "jest@npm:27.4.3"
-  dependencies:
-    "@jest/core": ^27.4.3
-    import-local: ^3.0.2
-    jest-cli: ^27.4.3
-  peerDependencies:
-    node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
-  peerDependenciesMeta:
-    node-notifier:
-      optional: true
-  bin:
-    jest: bin/jest.js
-  checksum: 0c76bbc996e496f11d7daa2e01b5c90ebf9e2587a1d1fa7e0cb8afc7c50abda24874766e107f9080103795af9ac80a06c83d61d9fc50762bd6d915db40a1f1df
   languageName: node
   linkType: hard
 

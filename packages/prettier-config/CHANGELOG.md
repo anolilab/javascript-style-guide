@@ -1,3 +1,10 @@
+### @anolilab/prettier-config [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.4...@anolilab/prettier-config@2.0.5) (2021-12-30)
+
+
+### Bug Fixes
+
+* changed file to cjs ([a75b530](https://github.com/anolilab/javascript-style-guide/commit/a75b530461d6007464e290f8c6d1149630d8a03b))
+
 ### @anolilab/prettier-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.3...@anolilab/prettier-config@2.0.4) (2021-09-02)
 
 

@@ -7,7 +7,7 @@ if (process.env.CI) {
 import { writeFile, existsSync } from 'fs';
 import { resolve, join } from 'path';
 import { promisify } from 'util';
-import content from '../index.js';
+import content from '../index.cjs';
 
 const writeFileAsync = promisify(writeFile);
 

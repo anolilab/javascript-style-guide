@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     // max 120 characters per line
     printWidth: 120,
     // use 2 spaces for indentation
@@ -17,8 +17,6 @@ export default {
     trailingComma: "all",
     // spaces are required at the beginning and end of the braces
     bracketSpacing: true,
-    // end tag of jsx need to wrap
-    jsxBracketSameLine: false,
     // brackets are required for arrow function parameter, even when there is only one parameter
     arrowParens: "always",
     // format the entire contents of the file

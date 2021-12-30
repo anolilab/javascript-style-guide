@@ -1,7 +1,7 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-const assign = require('object.assign');
-const { hasAnyDep } = require('../../lib/utils.cjs');
-const { rules: baseStyleRules } = require('../style.cjs');
+const assign = require("object.assign");
+const { hasAnyDep } = require("../../lib/utils.cjs");
+const { rules: baseStyleRules } = require("../style.cjs");
 
 const dangleRules = baseStyleRules["no-underscore-dangle"];
 
@@ -387,7 +387,10 @@ module.exports = {
 
         // only .jsx files may have JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-        "react/jsx-filename-extension": ["error", { extensions: [".jsx"].concat(hasAnyDep("typescript") ? [".tsx"] : []) }],
+        "react/jsx-filename-extension": [
+            "error",
+            { extensions: [".jsx"].concat(hasAnyDep("typescript") ? [".tsx"] : []) },
+        ],
 
         // prevent accidental JS comments from being injected into JSX as text
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md

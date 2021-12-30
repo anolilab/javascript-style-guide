@@ -11,6 +11,6 @@ const rules = [
 module.exports = {
     extends: rules.map(require.resolve),
     rules: {
-        "indentation": 4,
-    }
+        indentation: 4,
+    },
 };

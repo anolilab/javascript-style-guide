@@ -1,4 +1,4 @@
-const confusingBrowserGlobals = require('confusing-browser-globals');
+const confusingBrowserGlobals = require("confusing-browser-globals");
 
 module.exports = {
     rules: {

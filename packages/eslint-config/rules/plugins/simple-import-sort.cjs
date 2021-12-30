@@ -5,6 +5,6 @@ module.exports = {
         "simple-import-sort/exports": "off",
         "import/first": "error",
         "import/newline-after-import": "error",
-        "import/no-duplicates": "error"
+        "import/no-duplicates": "error",
     },
 };

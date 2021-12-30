@@ -1,5 +1,5 @@
-const isModuleAvailable = require('../../lib/is-module-available.cjs');
-const { consoleLog } = require('../../lib/loggers.cjs');
+const isModuleAvailable = require("../../lib/is-module-available.cjs");
+const { consoleLog } = require("../../lib/loggers.cjs");
 
 let ruleset;
 

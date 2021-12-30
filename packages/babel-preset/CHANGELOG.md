@@ -1,3 +1,14 @@
+## @anolilab/babel-preset [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@3.2.0...@anolilab/babel-preset@4.0.0) (2021-12-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* changed loading of babel proposals
+
+### Features
+
+* added core-js polyfills, as option, changed loading of some proposals and added new one ([db379cc](https://github.com/anolilab/javascript-style-guide/commit/db379ccad74178b443856b46bb5261e04804c0e2))
+
 ## @anolilab/babel-preset [3.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@3.1.1...@anolilab/babel-preset@3.2.0) (2021-12-12)
 
 

@@ -258,11 +258,12 @@ For example, if you are using this plugin in a deployable app, you want to use t
 
 By default, this preset will compile everything in lose mode. We have options to selectively opt out to loose mode for features. These options are:
 
--   [classes](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose): `looseClasses`
--   [computed properties](https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose): `looseComputedProperties`
--   [parameters](https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose): `looseParameters`
--   [template literals](https://babeljs.io/docs/en/babel-plugin-transform-template-literals#loose): `looseTemplateLiterals`
--   [object rest spread](https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread#loose): `looseObjectRestSpread`
+- [env](https://babeljs.io/docs/en/babel-preset-env#loose) `loose`
+- [classes](https://babeljs.io/docs/en/babel-plugin-transform-classes#loose): `looseClasses`
+- [computed properties](https://babeljs.io/docs/en/babel-plugin-transform-computed-properties#loose): `looseComputedProperties`
+- [parameters](https://babeljs.io/docs/en/babel-plugin-transform-parameters#loose): `looseParameters`
+- [template literals](https://babeljs.io/docs/en/babel-plugin-transform-template-literals#loose): `looseTemplateLiterals`
+- [object rest spread](https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread#loose): `looseObjectRestSpread`
 
 Example:
 
@@ -272,6 +273,7 @@ Example:
         [
             "@anolilab/babel-preset",
             {
+                "loose": false,
                 "looseClasses": false,
                 "looseComputedProperties": false,
                 "looseParameters": false,
@@ -303,6 +305,25 @@ You can use the `modules` option to enable transformation of modules given to th
 ```
 
 Both `true` and the option default `auto` will not transform modules if ES6 module syntax is already supported by the environment, or `"commonjs"` otherwise. `false` will not transform modules.
+
+## Specifying use of core-js v3
+
+You can use the `corejs` option to enable the use of the core-js v3 polyfills:
+
+```json
+{
+    "presets": [
+        [
+            "@anolilab/babel-preset",
+            {
+                "corejs": {
+                    "version": 3
+                }
+            }
+        ]
+    ]
+}
+```
 
 ## Optimizations
 

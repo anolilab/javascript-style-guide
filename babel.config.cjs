@@ -1,16 +1,14 @@
 module.exports = {
-    "presets": [
+    presets: [
         [
             "@babel/preset-env",
             {
-                "targets": {
-                    "node": "current",
+                targets: {
+                    node: "current",
                 },
-                "modules": "auto"
-            }
-        ]
+                modules: "auto",
+            },
+        ],
     ],
-    "plugins": [
-        "transform-es2015-modules-commonjs",
-    ]
+    plugins: ["transform-es2015-modules-commonjs"],
 };

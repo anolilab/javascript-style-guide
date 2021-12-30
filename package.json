@@ -13,7 +13,6 @@
     },
     "license": "MIT",
     "author": "Daniel Bannert <d.bannert@anolilab.de>",
-    "type": "module",
     "workspaces": [
         "packages/*"
     ],
@@ -24,7 +23,7 @@
         "lint:styles": "stylelint",
         "lint:text": "textlint --config=./.textlintrc \"./packages/**/README.md\" ./README.md ./UPGRADE.md --parallel --experimental",
         "lint:text:fix": "yarn run lint:text --fix",
-        "prettier": "prettier --config=.prettierrc.cjs --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+        "prettier": "prettier --config=.prettierrc.cjs --write '**/*.{js,jsx,cjs,tsx,ts,less,md,json}'",
         "sort-package-json": "sort-package-json packages/**/package.json",
         "test": "jest --config=./jest.config.cjs",
         "test:coverage": "jest --config=./jest.config.cjs --coverageDirectory=./coverage --coverage",

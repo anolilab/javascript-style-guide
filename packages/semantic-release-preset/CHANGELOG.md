@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [1.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.2.0...@anolilab/semantic-release-preset@1.2.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo ([e0eae7c](https://github.com/anolilab/javascript-style-guide/commit/e0eae7cb4874223087f522949f3a86af1a494181))
+
 ## @anolilab/semantic-release-preset [1.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.1.0...@anolilab/semantic-release-preset@1.2.0) (2021-12-12)
 
 

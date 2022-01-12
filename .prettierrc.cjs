@@ -3,4 +3,4 @@
 /**
  * @type {import('prettier').Options}
  */
-module.exports = require("@anolilab/prettier-config");
+module.exports = require("./packages/prettier-config");

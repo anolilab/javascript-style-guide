@@ -11,8 +11,6 @@ echo Starting Git hook: pre-commit
 
 yarn run lint:staged
 
-yarn pretty-quick --staged
-
 yarn run sort-package-json
 
 echo Finished Git hook: pre-commit

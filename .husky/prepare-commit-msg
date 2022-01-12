@@ -6,7 +6,5 @@
 echo --------------------------------------------
 echo Starting Git hook: prepare-commit-msg
 
-exec < /dev/tty && yarn commitizen --hook || true
-
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------

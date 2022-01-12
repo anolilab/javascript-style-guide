@@ -1,6 +1,6 @@
 # ESLint config
 
-This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an easy way to install just the plugins you need, based on your project’s dependencies.
+This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an   install  the plugins you need, based on your project’s dependencies.
 
 ---
 
@@ -297,7 +297,7 @@ Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It 
 ## Supported Node.js Versions
 
 Libraries in this ecosystem make the best effort to track
-[Node.js' release schedule](https://nodejs.org/en/about/releases/). Here's [a
+[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
 post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 Contributing

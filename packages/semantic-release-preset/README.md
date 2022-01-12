@@ -128,8 +128,8 @@ Add `cz` to your `package.json scripts`
 
 Ensure that your CI configuration has the following environment variables set:
 
-- GITHUB_TOKEN: [A GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-- NPM_TOKEN: [A npm personal access token](https://www.npmjs.com/settings)
+- GITHUB_TOKEN: [A GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- NPM_TOKEN: [A npm personal access token](https://www.npmjs.com/package/settings)
 
 You can test your config with a dry run:
 
@@ -252,7 +252,7 @@ jobs:
 
 ## Note on GitHub protected branches
 
-If you’re releasing a [GitHub protected branch](https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) you need to change the git committer to an owner/admin and allow repo admins to bypass the branch protection (make sure "include administrators" is disabled in the branch protection rules.)
+If you’re releasing a [GitHub protected branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) you need to change the git committer to an owner/admin and allow repo admins to bypass the branch protection (make sure "include administrators" is disabled in the branch protection rules.)
 
 If your repo is under an organisation, you can create a bot account and give it admin rights on the repo. If your repo is under a personal account, you have no choice to make the repo owner the commiter for the release.
 
@@ -263,7 +263,7 @@ Either way, you have to create a GitHub personal access token for the committer 
 ## Supported Node.js Versions
 
 Libraries in this ecosystem make the best effort to track
-[Node.js' release schedule](https://nodejs.org/en/about/releases/). Here's [a
+[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
 post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 Contributing

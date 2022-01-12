@@ -1,3 +1,10 @@
+### @anolilab/prettier-config [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.5...@anolilab/prettier-config@2.0.6) (2022-01-12)
+
+
+### Bug Fixes
+
+* added ts-check to the prettier config ([6d03d06](https://github.com/anolilab/javascript-style-guide/commit/6d03d067f6b26176c449ab3ac1175dbd2b99a0f4))
+
 ### @anolilab/prettier-config [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.4...@anolilab/prettier-config@2.0.5) (2021-12-30)
 
 

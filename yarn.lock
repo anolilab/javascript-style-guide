@@ -3234,7 +3234,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:16.0.2, @commitlint/cli@npm:^16.0.0":
+"@commitlint/cli@npm:16.1.0":
+  version: 16.1.0
+  resolution: "@commitlint/cli@npm:16.1.0"
+  dependencies:
+    "@commitlint/format": ^16.0.0
+    "@commitlint/lint": ^16.0.0
+    "@commitlint/load": ^16.1.0
+    "@commitlint/read": ^16.0.0
+    "@commitlint/types": ^16.0.0
+    lodash: ^4.17.19
+    resolve-from: 5.0.0
+    resolve-global: 1.0.0
+    yargs: ^17.0.0
+  bin:
+    commitlint: cli.js
+  checksum: 58dced3f3eb6960d1f91949cefb631bc00f588d2510230ab5050c51b98083aa5626e11a22f6aef85f09c001f86a4d8baed0bf54182ab05231ebd203b03229d03
+  languageName: node
+  linkType: hard
+
+"@commitlint/cli@npm:^16.0.0":
   version: 16.0.2
   resolution: "@commitlint/cli@npm:16.0.2"
   dependencies:
@@ -3272,7 +3291,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/core@npm:16.0.0, @commitlint/core@npm:^16.0.0":
+"@commitlint/config-validator@npm:^16.1.0":
+  version: 16.1.0
+  resolution: "@commitlint/config-validator@npm:16.1.0"
+  dependencies:
+    "@commitlint/types": ^16.0.0
+    ajv: ^6.12.6
+  checksum: 410f80e4cf6257a811b5352069a1bfc22cd0d9827da93d6cc67889f28d6827c6c03495b524f57ac455365dabc57baa0555e2795778cb8bda37955c4bb5e254c6
+  languageName: node
+  linkType: hard
+
+"@commitlint/core@npm:16.1.0":
+  version: 16.1.0
+  resolution: "@commitlint/core@npm:16.1.0"
+  dependencies:
+    "@commitlint/format": ^16.0.0
+    "@commitlint/lint": ^16.0.0
+    "@commitlint/load": ^16.1.0
+    "@commitlint/read": ^16.0.0
+  checksum: 55f9da8d45a8b8c25253cae8af83fc5fff132e6690124ba0f5f05621b6e18753f51d28301c60a32e557a1f5d3a85a956ecb9dbcfec6e3b090c0b15e794754b97
+  languageName: node
+  linkType: hard
+
+"@commitlint/core@npm:^16.0.0":
   version: 16.0.0
   resolution: "@commitlint/core@npm:16.0.0"
   dependencies:
@@ -3373,6 +3414,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/load@npm:^16.1.0":
+  version: 16.1.0
+  resolution: "@commitlint/load@npm:16.1.0"
+  dependencies:
+    "@commitlint/config-validator": ^16.1.0
+    "@commitlint/execute-rule": ^16.0.0
+    "@commitlint/resolve-extends": ^16.1.0
+    "@commitlint/types": ^16.0.0
+    chalk: ^4.0.0
+    cosmiconfig: ^7.0.0
+    cosmiconfig-typescript-loader: ^1.0.0
+    lodash: ^4.17.19
+    resolve-from: ^5.0.0
+    typescript: ^4.4.3
+  checksum: 154d7cc7281ef528732b0be81857c27cada0f3d026a588d3ebd00281721db1ba89ce595d01ded986429fe71c01007e33c5c365bbe12178476092786da6409619
+  languageName: node
+  linkType: hard
+
 "@commitlint/message@npm:^16.0.0":
   version: 16.0.0
   resolution: "@commitlint/message@npm:16.0.0"
@@ -3426,6 +3485,20 @@ __metadata:
     resolve-from: ^5.0.0
     resolve-global: ^1.0.0
   checksum: e7e32fb4ae8fd7491bd9ec8808bca8f69289b631cb4b419dd5e2b22a1666fa1153d25a959563877d84f5e7af11f52d295eb8b550d6ec24f800112085879704fa
+  languageName: node
+  linkType: hard
+
+"@commitlint/resolve-extends@npm:^16.1.0":
+  version: 16.1.0
+  resolution: "@commitlint/resolve-extends@npm:16.1.0"
+  dependencies:
+    "@commitlint/config-validator": ^16.1.0
+    "@commitlint/types": ^16.0.0
+    import-fresh: ^3.0.0
+    lodash: ^4.17.19
+    resolve-from: ^5.0.0
+    resolve-global: ^1.0.0
+  checksum: bffeefb73095fe22f09115c25ab4617d28e6aa49877adcfc0f5a5d44553ff07a135e7cc811715afee2ba40e5e34a294ac6ba5aec3e68246b5264e60887ea15c8
   languageName: node
   linkType: hard
 
@@ -9871,7 +9944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.7":
+"fast-glob@npm:^3.0.3, fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.5":
   version: 3.2.7
   resolution: "fast-glob@npm:3.2.7"
   dependencies:
@@ -12171,9 +12244,9 @@ __metadata:
     "@babel/cli": ^7.16.8
     "@babel/core": ^7.16.7
     "@babel/preset-env": ^7.16.8
-    "@commitlint/cli": 16.0.2
+    "@commitlint/cli": 16.1.0
     "@commitlint/config-conventional": 16.0.0
-    "@commitlint/core": 16.0.0
+    "@commitlint/core": 16.1.0
     "@qiwi/multi-semantic-release": 3.17.1
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/commit-analyzer": 9.0.2
@@ -12202,7 +12275,7 @@ __metadata:
     prettier: 2.5.1
     semantic-release: ^18.0.1
     sort-package-json: 1.53.1
-    stylelint: 14.2.0
+    stylelint: 14.3.0
     textlint: 12.1.0
     textlint-filter-rule-comments: ^1.2.2
     textlint-rule-abbr-within-parentheses: 1.0.2
@@ -12219,7 +12292,7 @@ __metadata:
     textlint-rule-terminology: 2.1.5
     textlint-rule-write-good: 2.0.0
     ts-jest: 27.1.3
-    typescript: 4.5.4
+    typescript: 4.5.5
     write-good: 1.0.8
   languageName: unknown
   linkType: soft
@@ -16189,16 +16262,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.7":
-  version: 6.0.7
-  resolution: "postcss-selector-parser@npm:6.0.7"
-  dependencies:
-    cssesc: ^3.0.0
-    util-deprecate: ^1.0.2
-  checksum: 661808ad629e3f289e0d237fbe9bb13766dadd2d548ec09ae86f68118f5d98be0f25bbaf5cd88486c5416e2eefaa9f73c59c2fc98dc370872fa51b250c7d1d9c
-  languageName: node
-  linkType: hard
-
 "postcss-selector-parser@npm:^6.0.9":
   version: 6.0.9
   resolution: "postcss-selector-parser@npm:6.0.9"
@@ -18708,55 +18771,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"stylelint@npm:14.2.0":
-  version: 14.2.0
-  resolution: "stylelint@npm:14.2.0"
-  dependencies:
-    balanced-match: ^2.0.0
-    colord: ^2.9.2
-    cosmiconfig: ^7.0.1
-    debug: ^4.3.3
-    execall: ^2.0.0
-    fast-glob: ^3.2.7
-    fastest-levenshtein: ^1.0.12
-    file-entry-cache: ^6.0.1
-    get-stdin: ^8.0.0
-    global-modules: ^2.0.0
-    globby: ^11.0.4
-    globjoin: ^0.1.4
-    html-tags: ^3.1.0
-    ignore: ^5.2.0
-    import-lazy: ^4.0.0
-    imurmurhash: ^0.1.4
-    is-plain-object: ^5.0.0
-    known-css-properties: ^0.24.0
-    mathml-tag-names: ^2.1.3
-    meow: ^9.0.0
-    micromatch: ^4.0.4
-    normalize-path: ^3.0.0
-    normalize-selector: ^0.2.0
-    picocolors: ^1.0.0
-    postcss: ^8.3.11
-    postcss-media-query-parser: ^0.2.3
-    postcss-resolve-nested-selector: ^0.1.1
-    postcss-safe-parser: ^6.0.0
-    postcss-selector-parser: ^6.0.7
-    postcss-value-parser: ^4.1.0
-    resolve-from: ^5.0.0
-    specificity: ^0.4.1
-    string-width: ^4.2.3
-    strip-ansi: ^6.0.1
-    style-search: ^0.1.0
-    svg-tags: ^1.0.0
-    table: ^6.7.5
-    v8-compile-cache: ^2.3.0
-    write-file-atomic: ^3.0.3
-  bin:
-    stylelint: bin/stylelint.js
-  checksum: cf0195b143efdea5a22d4e04817ac11ec9103a976a703265813c27baa9b52b9033f57e241b1f6ab7eb3b2eed63f66509b983c1fa03b29cb75372cc32cacfaec0
-  languageName: node
-  linkType: hard
-
 "stylelint@npm:14.3.0":
   version: 14.3.0
   resolution: "stylelint@npm:14.3.0"
@@ -19051,19 +19065,6 @@ resolve@^2.0.0-next.3:
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
   checksum: 61d732f51108222d158eca2a91bfaae41c14e0cba6eb04c702ec5a1b136219d4925940d5c4d9aff5720bc4e2385dcbe2ed52dcf37bbbd8b2be48c01c1cf2ed1d
-  languageName: node
-  linkType: hard
-
-"table@npm:^6.7.5":
-  version: 6.7.5
-  resolution: "table@npm:6.7.5"
-  dependencies:
-    ajv: ^8.0.1
-    lodash.truncate: ^4.4.2
-    slice-ansi: ^4.0.0
-    string-width: ^4.2.3
-    strip-ansi: ^6.0.1
-  checksum: 76d01e33d6ef881f21bfe2e343101cb05ef4cedf506523d187af4f3a33f0f69cf25bca3e05c0c5c0eb348b405aaac29d9bb308ba9bf2c5ca7a82d032382a1649
   languageName: node
   linkType: hard
 
@@ -19862,13 +19863,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@4.5.4:
-  version: 4.5.4
-  resolution: "typescript@npm:4.5.4"
+typescript@4.5.5:
+  version: 4.5.5
+  resolution: "typescript@npm:4.5.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 59f3243f9cd6fe3161e6150ff6bf795fc843b4234a655dbd938a310515e0d61afd1ac942799e7415e4334255e41c2c49b7dd5d9fd38a17acd25a6779ca7e0961
+  checksum: 506f4c919dc8aeaafa92068c997f1d213b9df4d9756d0fae1a1e7ab66b585ab3498050e236113a1c9e57ee08c21ec6814ca7a7f61378c058d79af50a4b1f5a5e
   languageName: node
   linkType: hard
 
@@ -19892,13 +19893,13 @@ typescript@^4.4.4:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.5.4#~builtin<compat/typescript>":
-  version: 4.5.4
-  resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=d8b4e7"
+"typescript@patch:typescript@4.5.5#~builtin<compat/typescript>":
+  version: 4.5.5
+  resolution: "typescript@patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: db7fe40618f600c22a17db25bd727acbef509d8a4bd9a514f1b8c146f3cf9dd79478c5a8cd13c48a60d1ee4463319d9f72b6445f9e445f81bce6192d205d1811
+  checksum: ed34e0986bc395da29a9a749fc980741fcbf698c205d6dc282310a652ee4ae61b571c26fd62c8a264ec26ff23ef12d888d5db7b41031cfaad1798db0d090f5c3
   languageName: node
   linkType: hard
 

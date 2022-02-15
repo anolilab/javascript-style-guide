@@ -29,7 +29,7 @@
         "test:all": "pnpm test && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/index.cjs ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:coverage": "jest --config=./jest.config.cjs --coverageDirectory=./coverage --coverage",
-        "test:stylelint": "./scripts/isNotWindows || stylelint --formatter verbose --config ./packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"
+        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config ./packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"
     },
     "dependencies": {
         "@babel/cli": "^7.17.0",

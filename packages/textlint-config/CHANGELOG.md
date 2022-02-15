@@ -1,3 +1,26 @@
+## @anolilab/textlint-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@3.0.1...@anolilab/textlint-config@4.0.0) (2022-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove old node version from our supported versions
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* added textlint-rule-date-weekday-mismatch rule ([6809cc5](https://github.com/anolilab/javascript-style-guide/commit/6809cc58812884ec70ab5d98594a5d0b95989cbf))
+
+
+### Bug Fixes
+
+* markdown lint ([24059d4](https://github.com/anolilab/javascript-style-guide/commit/24059d41ca682ca21b39ad7f6dff594be734329d))
+
+
+### Performance Improvements
+
+* support for v12, v14 was removed from our supported versions of node ([83d6a80](https://github.com/anolilab/javascript-style-guide/commit/83d6a8058ed7791135aff03d4cd734327bb1b694))
+
 ### @anolilab/textlint-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@3.0.0...@anolilab/textlint-config@3.0.1) (2022-01-15)
 
 ### Bug Fixes

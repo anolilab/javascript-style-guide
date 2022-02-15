@@ -9,9 +9,9 @@
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-yarn run lint:staged
+npx --no -- lint-staged
 
-yarn run sort-package-json
+npx --no -- sort-package-json
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------

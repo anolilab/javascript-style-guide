@@ -7,6 +7,10 @@ ignore: |
     node_modules/
     .yarnrc.yml
     .yarn/
+    .pnpm-lock.yaml
+    .pnpm-workspaces.yaml
+    *lock.yaml
+    *workspace.yaml
 
 rules:
     braces:

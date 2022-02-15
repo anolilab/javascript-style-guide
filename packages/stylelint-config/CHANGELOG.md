@@ -1,3 +1,16 @@
+### @anolilab/stylelint-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@3.0.0...@anolilab/stylelint-config@3.0.1) (2022-02-15)
+
+
+### Bug Fixes
+
+* **deps:** updated all dependencies (non-major) ([6a4e889](https://github.com/anolilab/javascript-style-guide/commit/6a4e889bcdab9d11755b61850e7d24f9f4a0733f))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 3.0.1
+
 ## @anolilab/stylelint-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@2.2.1...@anolilab/stylelint-config@3.0.0) (2022-02-15)
 
 

@@ -56,6 +56,7 @@ jobs:
               run: "pnpm run test:coverage"
 
             - name: "test stylelint config"
+              if: "{{ matrix.os }} != 'windows-latest'"
               run: "pnpm run test:stylelint"
 
             - name: "test babel config"

@@ -49,8 +49,6 @@ jobs:
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
-              env:
-                  NPM_TOKEN: "${{ secrets.SEMANTIC_RELEASE_GITHUB_NPM_PACKAGE_TOKEN }}"
 
             - name: "test and coverage"
               run: "yarn run test:coverage"
@@ -91,8 +89,6 @@ jobs:
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
-              env:
-                  NPM_TOKEN: "${{ secrets.SEMANTIC_RELEASE_GITHUB_NPM_PACKAGE_TOKEN }}"
 
             - name: "Semantic Release"
               if: "success()"

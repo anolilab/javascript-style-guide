@@ -49,6 +49,8 @@ jobs:
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
+              env:
+                  SKIP_CHECK: "true"
 
             - name: "test and coverage"
               run: "pnpm run test:coverage"

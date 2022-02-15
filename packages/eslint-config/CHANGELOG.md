@@ -1,3 +1,22 @@
+## @anolilab/eslint-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.2.0...@anolilab/eslint-config@3.0.0) (2022-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove old node version from our supported versions
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Bug Fixes
+
+* fixed wrong version on peer dependencies ([fc28d8b](https://github.com/anolilab/javascript-style-guide/commit/fc28d8b990bea3004283dfb37a249d0ffe3e476f))
+* markdown lint ([24059d4](https://github.com/anolilab/javascript-style-guide/commit/24059d41ca682ca21b39ad7f6dff594be734329d))
+
+
+### Performance Improvements
+
+* support for v12, v14 was removed from our supported versions of node ([83d6a80](https://github.com/anolilab/javascript-style-guide/commit/83d6a8058ed7791135aff03d4cd734327bb1b694))
+
 ## @anolilab/eslint-config [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@2.1.8...@anolilab/eslint-config@2.2.0) (2021-10-26)
 
 

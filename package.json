@@ -29,7 +29,7 @@
         "test:all": "pnpm test && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/index.cjs ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:coverage": "jest --config=./jest.config.cjs --coverageDirectory=./coverage --coverage",
-        "test:stylelint": "stylelint --formatter verbose --config ./packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"
+        "test:stylelint": "./scripts/isNotWindows || stylelint --formatter verbose --config ./packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"
     },
     "dependencies": {
         "@babel/cli": "^7.17.0",
@@ -53,6 +53,7 @@
         "cz-conventional-changelog": "3.3.0",
         "husky": "7.0.4",
         "is-ci": "^3.0.1",
+        "is-windows": "^1.0.2",
         "jest": "27.5.1",
         "jest-snapshot-serializer-raw": "1.2.0",
         "lint-staged": "^12.3.4",

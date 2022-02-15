@@ -1,3 +1,21 @@
+## @anolilab/semantic-release-preset [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.2.1...@anolilab/semantic-release-preset@2.0.0) (2022-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove old node version from our supported versions
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Bug Fixes
+
+* markdown lint ([24059d4](https://github.com/anolilab/javascript-style-guide/commit/24059d41ca682ca21b39ad7f6dff594be734329d))
+
+
+### Performance Improvements
+
+* support for v12, v14 was removed from our supported versions of node ([83d6a80](https://github.com/anolilab/javascript-style-guide/commit/83d6a8058ed7791135aff03d4cd734327bb1b694))
+
 ### @anolilab/semantic-release-preset [1.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@1.2.0...@anolilab/semantic-release-preset@1.2.1) (2022-01-11)
 
 

@@ -29,17 +29,7 @@
         "test:coverage": "jest --config=./jest.config.cjs --coverageDirectory=./coverage --coverage",
         "test:stylelint": "stylelint --formatter verbose --config packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css",
         "test:babel": "babel --config-file=./packages/babel-preset/index.cjs ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
-        "test:all": "yarn test && yarn test:stylelint && yarn test:babel"
-    },
-    "lint-staged": {
-        "*.{js,jsx,less,md,json}": [
-            "prettier --config=./.prettierrc.cjs --write"
-        ]
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+        "test:all": "pnpm test && pnpm test:stylelint && pnpm test:babel"
     },
     "dependencies": {
         "@babel/cli": "^7.16.8",
@@ -78,7 +68,6 @@
     },
     "devDependencies": {
         "@types/jest": "27.4.0",
-        "@types/node": "16.11.21"
-    },
-    "packageManager": "yarn@3.0.1"
+        "@types/node": "16.11.17"
+    }
 }

@@ -14,60 +14,47 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
     test:
-        name: "tests"
+        strategy:
+            matrix:
+                os: ["ubuntu-latest"]
+                node_version: ["14", "16", "17"]
+                include:
+                    - os: "macos-latest"
+                      node_version: "16"
+                    - os: "windows-latest"
+                      node_version: "16"
+            fail-fast: false
 
-        runs-on: "ubuntu-latest"
+        name: "Build & Unit Test: node-${{ matrix.node_version }}, ${{ matrix.os }}"
+
+        runs-on: "${{ matrix.os }}"
 
         steps:
             - name: "Git checkout"
               uses: "actions/checkout@v2"
-              with:
-                  fetch-depth: 0
-                  persist-credentials: false
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
-            - name: "Configure Container"
-              env:
-                  GIT_USER_EMAIL: "${{ secrets.GIT_USER_EMAIL }}"
-                  GIT_USER_USERNAME: "${{ secrets.GIT_USER_USERNAME }}"
-              run: |
-                  EMAIL=${GIT_USER_EMAIL:-"github-actions[bot]@users.noreply.github.com"}
-                  NAME=${GIT_USER_USERNAME:-"github-actions-shell"}
+            - uses: "pnpm/action-setup@v2.0.1"
+              with:
+                  version: 6
 
-                  git config --global user.email "${EMAIL}"
-                  git config --global user.name "${NAME}"
-
-            - name: "Use Node.js 12.x"
+            - name: "Set node version to ${{ matrix.node_version }}"
               uses: "actions/setup-node@v2"
               with:
-                  node-version: "12.x"
+                  node-version: "${{ matrix.node_version }}"
+                  cache: "pnpm"
 
-            - name: "Get yarn cache directory path"
-              id: "yarn-cache-dir-path"
-              run: "echo \"::set-output name=dir::$(yarn config get cacheFolder)\""
-
-            - uses: "actions/cache@v2"
-              id: "yarn-cache" # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-              with:
-                  path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
-                  key: "${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}"
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
-
-            - name: "update yarn to v3"
-              run: "yarn set version 3.0.1"
-
-            - name: "install"
-              run: "yarn install --immutable"
+            - name: "Install packages"
+              run: "pnpm install --frozen-lockfile"
 
             - name: "test and coverage"
-              run: "yarn run test:coverage"
+              run: "pnpm run test:coverage"
 
             - name: "test stylelint config"
-              run: "yarn run test:stylelint"
+              run: "pnpm run test:stylelint"
 
             - name: "test babel config"
-              run: "yarn run test:babel"
+              run: "pnpm run test:babel"

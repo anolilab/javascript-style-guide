@@ -51,13 +51,13 @@ jobs:
               run: "pnpm install --frozen-lockfile"
 
             - name: "test and coverage"
-              run: "yarn run test:coverage"
+              run: "pnpm run test:coverage"
 
             - name: "test stylelint config"
-              run: "yarn run test:stylelint"
+              run: "pnpm run test:stylelint"
 
             - name: "test babel config"
-              run: "yarn run test:babel"
+              run: "pnpm run test:babel"
 
     semantic-release:
         name: "Semantic Release"

@@ -4,16 +4,16 @@ if (process.env.CI) {
     process.exit(0);
 }
 
-import { writeFile, existsSync } from 'fs';
-import { resolve, join } from 'path';
-import { promisify } from 'util';
+import { writeFile, existsSync } from "fs";
+import { resolve, join } from "path";
+import { promisify } from "util";
 
 const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = resolve(process.cwd(), '..', '..', '..');
+const projectPath = resolve(process.cwd(), "..", "..", "..");
 
-console.log('Configuring @anolilab/textlint-config', projectPath, '\n');
+console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
 
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.
@@ -25,40 +25,37 @@ const writeTextlintRc = () => {
     "comments": true
   },
   "rules": {
+    "@textlint-rule/no-invalid-control-character": true,
+    "@textlint-rule/no-unmatched-pair": true,
+    "@textlint-rule/preset-google": true,
+    "abbr-within-parentheses": true,
+    "apostrophe": true,
+    "alex": {
+        "allow": [
+            "attack",
+            "european",
+            "execute"
+            "executed",
+            "execution",
+            "failure",
+            "fore",
+            "period",
+            "remain",
+        ]
+    },
+    "common-misspellings": true,
+    "date-weekday-mismatch": true
+    "diacritics": true,
     "en-capitalization": true,
     "footnote-order": true,
-    "no-todo": true,
     "no-dead-link": {
         "ignore": [
             "bc_data_*",
         ]
     },
     "no-empty-section": true,
+    "no-todo": true,
     "terminology": true,
-    "apostrophe": true,
-    "diacritics": true,
-    "@textlint-rule/no-invalid-control-character": true,
-    "@textlint-rule/no-unmatched-pair": true,
-    "abbr-within-parentheses": true,
-    "alex": {
-        "allow": [
-            "period",
-            "european",
-            "failure",
-            "fore",
-            "attack",
-            "execution",
-            "executed",
-            "remain",
-            "execute"
-        ]
-    },
-    "@textlint-rule/preset-google": true,
-    "write-good": {
-      "passive": false,
-      "eprime": false,
-    },
-    "common-misspellings": true,
     "terminology": {
       "defaultTerms": false,
       "terms": [
@@ -162,6 +159,10 @@ const writeTextlintRc = () => {
         ["it is", "it's"],
         ["It is", "It's"],
       ]
+    },
+    "write-good": {
+      "passive": false,
+      "eprime": false,
     }
   }
 }

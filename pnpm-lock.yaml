@@ -192,7 +192,7 @@ importers:
       eslint-find-rules: 4.1.0
       eslint-import-resolver-node: ^0.3.6
       eslint-plugin-babel: ^5.3.1
-      eslint-plugin-compat: ^3.13.0
+      eslint-plugin-compat: ^4.0.0
       eslint-plugin-cypress: ^2.12.1
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-import: ^2.25.4
@@ -233,7 +233,7 @@ importers:
       '@rushstack/eslint-plugin-security': 0.2.4_eslint@7.32.0+typescript@4.5.5
       confusing-browser-globals: 1.0.11
       eslint-import-resolver-node: 0.3.6
-      eslint-plugin-compat: 3.13.0_eslint@7.32.0
+      eslint-plugin-compat: 4.0.2_eslint@7.32.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@7.32.0
       eslint-plugin-import: 2.25.4_eslint@7.32.0
       eslint-plugin-markdown: 2.2.1_eslint@7.32.0
@@ -2344,6 +2344,10 @@ packages:
     resolution: {integrity: sha512-n2RC9d6XatVbWFdHLimzzUJxJ1KY8LdjqrW6YvGPiRmsHkhOUx74/Ct10x5Yo7bC/Jvqx7cDEW8IMPv/+vwEzA==}
     dev: false
 
+  /@mdn/browser-compat-data/4.1.15:
+    resolution: {integrity: sha512-OZx2PxHtJDc9NOHGR3T0ZtX1WYl5qH/xmiH3sKSmcd3o+vPMG1kVUYbZrMxH3fVKpkkkrQpwETCIDRXcMXAWTw==}
+    dev: false
+
   /@mdx-js/util/1.6.22:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: false
@@ -4424,7 +4428,6 @@ packages:
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
-    dev: true
 
   /bs-logger/0.2.6:
     resolution: {integrity: sha512-pd8DCoxmbgc7hyPKOvxtqNcjYoOsABPQdcCUjGp3d42VR2CX1ORhk2A87oqqu5R1kk+76nsxZupkmyd+MVtCog==}
@@ -4560,7 +4563,6 @@ packages:
 
   /caniuse-lite/1.0.30001325:
     resolution: {integrity: sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==}
-    dev: true
 
   /cardinal/2.1.1:
     resolution: {integrity: sha1-fMEFXYItISlU0HsIXeolHMe8VQU=}
@@ -5493,7 +5495,6 @@ packages:
 
   /electron-to-chromium/1.4.103:
     resolution: {integrity: sha512-c/uKWR1Z/W30Wy/sx3dkZoj4BijbXX85QKWu9jJfjho3LBAXNEGAEW3oWiGb+dotA6C6BzCTxL2/aLes7jlUeg==}
-    dev: true
 
   /electron-to-chromium/1.4.71:
     resolution: {integrity: sha512-Hk61vXXKRb2cd3znPE9F+2pLWdIOmP7GjiTj45y6L3W/lO+hSnUSUhq+6lEaERWBdZOHbk2s3YV5c9xVl3boVw==}
@@ -5705,16 +5706,16 @@ packages:
     dev: false
     optional: true
 
-  /eslint-plugin-compat/3.13.0_eslint@7.32.0:
-    resolution: {integrity: sha512-cv8IYMuTXm7PIjMVDN2y4k/KVnKZmoNGHNq27/9dLstOLydKblieIv+oe2BN2WthuXnFNhaNvv3N1Bvl4dbIGA==}
+  /eslint-plugin-compat/4.0.2_eslint@7.32.0:
+    resolution: {integrity: sha512-xqvoO54CLTVaEYGMzhu35Wzwk/As7rCvz/2dqwnFiWi0OJccEtGIn+5qq3zqIu9nboXlpdBN579fZcItC73Ycg==}
     engines: {node: '>=9.x'}
     peerDependencies:
-      eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
+      eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      '@mdn/browser-compat-data': 3.3.14
+      '@mdn/browser-compat-data': 4.1.15
       ast-metadata-inferer: 0.7.0
-      browserslist: 4.19.1
-      caniuse-lite: 1.0.30001312
+      browserslist: 4.20.2
+      caniuse-lite: 1.0.30001325
       core-js: 3.21.0
       eslint: 7.32.0
       find-up: 5.0.0

@@ -34,9 +34,8 @@ const depRules = [
     ["lodash", "lodash-fp"],
     "jsdoc",
     "react",
-    ["mdx", "eslint-plugin-react"],
-    ["react-a11y", "react"],
-    ["react-hooks", "react"],
+    ["react", "react-a11y"],
+    ["react", "react-hooks"],
 ];
 
 const testRules = [

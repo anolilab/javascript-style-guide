@@ -31,7 +31,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: "actions/checkout@v2"
+              uses: actions/checkout@v3
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
@@ -70,7 +70,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: "actions/checkout@v2"
+              uses: actions/checkout@v3
               with:
                   fetch-depth: 0
                   persist-credentials: false
@@ -112,7 +112,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: "actions/checkout@v2"
+              uses: actions/checkout@v3
               with:
                   fetch-depth: 2
                   token: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"

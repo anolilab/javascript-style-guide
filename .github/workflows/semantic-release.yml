@@ -31,7 +31,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: actions/checkout@v3
+              uses: "actions/checkout@v3"
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
@@ -70,7 +70,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: actions/checkout@v3
+              uses: "actions/checkout@v3"
               with:
                   fetch-depth: 0
                   persist-credentials: false
@@ -112,7 +112,7 @@ jobs:
 
         steps:
             - name: "Git checkout"
-              uses: actions/checkout@v3
+              uses: "actions/checkout@v3"
               with:
                   fetch-depth: 2
                   token: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
@@ -136,7 +136,7 @@ jobs:
               run: "pnpm install --no-frozen-lockfile"
 
             - name: "Commit modified files"
-              uses: stefanzweifel/git-auto-commit-action@v4.14.1
+              uses: "stefanzweifel/git-auto-commit-action@v4.14.1"
               with:
                   commit_message: "chore: updated pnpm-lock.yaml"
                   commit_author: "prisis <d.bannert@anolilab.de>"

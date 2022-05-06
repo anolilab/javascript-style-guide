@@ -1,3 +1,11 @@
+### @anolilab/babel-preset [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.0.1...@anolilab/babel-preset@5.0.2) (2022-05-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency babel-plugin-polyfill-corejs3 to ^0.5.0 ([afe0bc4](https://github.com/anolilab/javascript-style-guide/commit/afe0bc49a662cca79b10b37b03fd65f99dde3e0e))
+* **deps:** upgraded deps in all packages ([091353c](https://github.com/anolilab/javascript-style-guide/commit/091353cdd01a0bb3d0e48da9266a6a2978283e2b))
+
 ### @anolilab/babel-preset [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.0.0...@anolilab/babel-preset@5.0.1) (2022-02-15)
 
 

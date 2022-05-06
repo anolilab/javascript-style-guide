@@ -319,7 +319,7 @@ importers:
 
   packages/stylelint-config:
     specifiers:
-      browserslist-config-anolilab: 3.0.1
+      browserslist-config-anolilab: 3.0.2
       lodash: ^4.17.21
       postcss: ^8.4.12
       stylelint: 14.8.2
@@ -332,7 +332,7 @@ importers:
       stylelint-require-units: ^1.0.2
       stylelint-selector-no-empty: ^1.0.8
     dependencies:
-      browserslist-config-anolilab: link:../browserslist-config-anolilab
+      browserslist-config-anolilab: 3.0.2
       stylelint-a11y: 1.2.3_stylelint@14.8.2
       stylelint-config-rational-order: 0.1.2
       stylelint-config-standard: 25.0.0_stylelint@14.8.2
@@ -4842,6 +4842,11 @@ packages:
 
   /browser-process-hrtime/1.0.0:
     resolution: {integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==}
+    dev: false
+
+  /browserslist-config-anolilab/3.0.2:
+    resolution: {integrity: sha512-Aw4qcRMXMMtIEwcjoo+IZ2IOxRkvEI2tzNeaycnI4q30HlF/BL5zpihr4JJlr8nH9CRUwnkF4M5XPGPR/H9JOg==}
+    engines: {node: '>=16'}
     dev: false
 
   /browserslist/4.19.1:

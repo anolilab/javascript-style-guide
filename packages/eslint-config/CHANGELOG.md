@@ -1,3 +1,14 @@
+### @anolilab/eslint-config [3.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@3.0.1...@anolilab/eslint-config@3.0.2) (2022-05-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @rushstack/eslint-plugin-security to ^0.3.0 ([64f535a](https://github.com/anolilab/javascript-style-guide/commit/64f535abf3aff65debe308ce0d7e88cef163b3d5))
+* **deps:** update dependency eslint-plugin-compat to v4 ([1ae1931](https://github.com/anolilab/javascript-style-guide/commit/1ae193194cb7d9f7bf9f8fdbf626d40056eb1ad2))
+* **deps:** update dependency eslint-plugin-promise to v6 ([913a0bb](https://github.com/anolilab/javascript-style-guide/commit/913a0bb6328a601c5e3243b0ef88f77c050d53c7))
+* **deps:** upgraded deps in all packages ([091353c](https://github.com/anolilab/javascript-style-guide/commit/091353cdd01a0bb3d0e48da9266a6a2978283e2b))
+* fixed eslint config loading of react plugins ([56bc9ce](https://github.com/anolilab/javascript-style-guide/commit/56bc9ce9de8e7fd16d81e7710cdeddc7218b03da))
+
 ### @anolilab/eslint-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@3.0.0...@anolilab/eslint-config@3.0.1) (2022-02-15)
 
 

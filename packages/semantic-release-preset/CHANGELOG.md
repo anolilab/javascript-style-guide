@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.1...@anolilab/semantic-release-preset@2.0.2) (2022-05-06)
+
+
+### Bug Fixes
+
+* **deps:** upgraded deps in all packages ([091353c](https://github.com/anolilab/javascript-style-guide/commit/091353cdd01a0bb3d0e48da9266a6a2978283e2b))
+
 ### @anolilab/semantic-release-preset [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.0...@anolilab/semantic-release-preset@2.0.1) (2022-02-15)
 
 

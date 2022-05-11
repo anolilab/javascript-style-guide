@@ -1,3 +1,10 @@
+### @anolilab/textlint-config [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.2...@anolilab/textlint-config@4.0.3) (2022-05-11)
+
+
+### Bug Fixes
+
+* update all deps of the package and fixes found code style issues ([2776ecd](https://github.com/anolilab/javascript-style-guide/commit/2776ecd44d35f1d317abf367e69fef24dbd00335))
+
 ### @anolilab/textlint-config [4.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.1...@anolilab/textlint-config@4.0.2) (2022-05-07)
 
 

@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@3.0.2...@anolilab/eslint-config@4.0.0) (2022-05-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgraded package to use eslint v8
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Performance Improvements
+
+* upgraded deps and eslint to v8.15 ([94b5859](https://github.com/anolilab/javascript-style-guide/commit/94b585943f729715ddef0b1c2dffe9116c11d626))
+
 ### @anolilab/eslint-config [3.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@3.0.1...@anolilab/eslint-config@3.0.2) (2022-05-06)
 
 

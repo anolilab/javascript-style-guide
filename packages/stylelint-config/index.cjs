@@ -9,7 +9,7 @@ const rules = [
 ];
 
 module.exports = {
-    extends: rules.map(require.resolve),
+    extends: rules.map((element) => require.resolve(element)),
     rules: {
         indentation: 4,
     },

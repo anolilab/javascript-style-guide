@@ -14,7 +14,7 @@ module.exports = {
         // Disabled to avoid cases where semantic or
         // pragmatic grouping is more practical
         // https://stylelint.io/user-guide/rules/no-descending-specificity
-        "no-descending-specificity": null,
+        "no-descending-specificity": undefined,
 
         // Enabled to improve consistency and readability.
         // https://stylelint.io/user-guide/rules/at-rule-empty-line-before

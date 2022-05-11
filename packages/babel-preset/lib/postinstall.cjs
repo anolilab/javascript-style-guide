@@ -1,25 +1,29 @@
 #!/usr/bin/env node
 
+// eslint-disable-next-line no-undef
 if (process.env.CI) {
+    // eslint-disable-next-line no-undef
     process.exit(0);
 }
 
 const { writeFile, existsSync } = require("fs");
+// eslint-disable-next-line unicorn/import-style
 const { resolve, join } = require("path");
 const { promisify } = require("util");
 
 const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-const projectPath = resolve(process.cwd(), '..', '..', '..');
+// eslint-disable-next-line no-undef
+const projectPath = resolve(process.cwd(), "..", "..", "..");
 
-console.log('Configuring @anolilab/babel-preset', projectPath, '\n');
+console.log("Configuring @anolilab/babel-preset", projectPath, "\n");
 
 /**
  * Writes babel.config.cjs if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
-    const eslintPath = join(projectPath, 'babel.config.cjs');
+    const eslintPath = join(projectPath, "babel.config.cjs");
     const content = `module.exports = {
     presets: ["@anolilab/babel-preset"]
 };
@@ -42,11 +46,13 @@ to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
 
         console.log("😎  Everything went well, have fun!");
 
+        // eslint-disable-next-line no-undef
         process.exit(0);
-    } catch (err) {
+    } catch (error) {
         console.log("😬  something went wrong:");
-        console.error(err.message);
+        console.error(error.message);
 
+        // eslint-disable-next-line no-undef
         process.exit(1);
     }
 })();

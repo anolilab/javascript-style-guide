@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [4.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.0...@anolilab/eslint-config@4.0.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* fixed wrong peerDependencies on eslint ([a9e7813](https://github.com/anolilab/javascript-style-guide/commit/a9e7813756af431e2144ef945011ed5d70d63681))
+
 ## @anolilab/eslint-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@3.0.2...@anolilab/eslint-config@4.0.0) (2022-05-11)
 
 

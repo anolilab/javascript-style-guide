@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/prevent-abbreviations
 module.exports = {
     plugins: ["array-func"],
     extends: ["plugin:array-func/recommended"],

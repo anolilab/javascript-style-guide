@@ -242,6 +242,7 @@ module.exports = {
             {
                 object: "global",
                 property: "isFinite",
+                // eslint-disable-next-line radar/no-duplicate-string
                 message: "Please use Number.isFinite instead",
             },
             {
@@ -257,6 +258,7 @@ module.exports = {
             {
                 object: "global",
                 property: "isNaN",
+                // eslint-disable-next-line radar/no-duplicate-string
                 message: "Please use Number.isNaN instead",
             },
             {

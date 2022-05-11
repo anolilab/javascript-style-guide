@@ -46,6 +46,7 @@ module.exports = {
         "comma-dangle": [
             "error",
             {
+                // eslint-disable-next-line radar/no-duplicate-string
                 arrays: "always-multiline",
                 objects: "always-multiline",
                 imports: "always-multiline",
@@ -252,7 +253,7 @@ module.exports = {
         // https://eslint.org/docs/rules/max-len
         "max-len": [
             "error",
-            120,
+            160,
             2,
             {
                 ignoreUrls: true,
@@ -369,6 +370,7 @@ module.exports = {
                     ["&", "|", "<<", ">>", ">>>"],
                     ["==", "!=", "===", "!=="],
                     ["&&", "||"],
+                    ["in", "instanceof"],
                 ],
                 allowSamePrecedence: false,
             },

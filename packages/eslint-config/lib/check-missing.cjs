@@ -1,14 +1,14 @@
-const isModuleAvailable = require('./is-module-available.cjs');
-const { consoleLog } = require('./loggers.cjs');
+const isModuleAvailable = require("./is-module-available.cjs");
+const { consoleLog } = require("./loggers.cjs");
 
-const moduleNotAvailable = (package_) => !isModuleAvailable(package_.split('@')[0]);
+const moduleNotAvailable = (package_) => !isModuleAvailable(package_.split("@")[0]);
 
-const atLatest = (pkg) => {
-    if (pkg.split('@').indexOf('@') === -1) {
-        return `${pkg}@latest`;
+const atLatest = (package_) => {
+    if (!package_.split("@").includes("@")) {
+        return `${package_}@latest`;
     }
 
-    return pkg;
+    return package_;
 };
 
 module.exports = function checkMissing(rules, extraInstallPackage) {
@@ -26,21 +26,21 @@ module.exports = function checkMissing(rules, extraInstallPackage) {
         return;
     }
 
-    const s = notInstalled.length === 1 ? '' : 's';
+    const s = notInstalled.length === 1 ? "" : "s";
 
     consoleLog(`\nOops! Something went wrong! :(
 
-@anolilab\/eslint-config could not find the following package${s}
+@anolilab/eslint-config could not find the following package${s}
 
-  ${notInstalled.join('\n  ')}
+  ${notInstalled.join("\n  ")}
 
 To install the missing package${s}, please run the following command:
 
-  npm install ${notInstalled.map(atLatest).join(' ')} --save-dev
+  npm install ${notInstalled.map((element) => atLatest(element)).join(" ")} --save-dev
 
 or
 
-  yarn add ${notInstalled.map(atLatest).join(' ')} --dev
+  yarn add ${notInstalled.map((element) => atLatest(element)).join(" ")} --dev
 
   `);
 

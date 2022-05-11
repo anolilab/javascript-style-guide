@@ -1,15 +1,10 @@
 const isModuleAvailable = require("../../lib/is-module-available.cjs");
 const { consoleLog } = require("../../lib/loggers.cjs");
 
-let ruleset;
+let ruleset = "dom";
 
-switch (true) {
-    case isModuleAvailable("react"):
-        ruleset = "react";
-        break;
-
-    default:
-        ruleset = "dom";
+if (isModuleAvailable("react")) {
+    ruleset = "react";
 }
 
 consoleLog(`  eslint-plugin-testing-library/${ruleset}`);

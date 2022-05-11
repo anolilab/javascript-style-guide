@@ -1,4 +1,4 @@
-const { consoleLog, consolePlugin } = require('./loggers.cjs');
+const { consoleLog, consolePlugin } = require("./loggers.cjs");
 
 module.exports = function showLoaded(rules, extraInstallPackage) {
     extraInstallPackage.forEach(([rule, package_]) => {
@@ -7,7 +7,7 @@ module.exports = function showLoaded(rules, extraInstallPackage) {
         }
     });
 
-    consoleLog('\n@anolilab\/eslint-config loaded the following packages:\n');
+    consoleLog("\n@anolilab/eslint-config loaded the following packages:\n");
 
-    rules.forEach(consolePlugin);
+    rules.forEach((element) => { consolePlugin(element); });
 };

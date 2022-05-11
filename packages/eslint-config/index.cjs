@@ -12,14 +12,19 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 }
 
 module.exports = {
-    extends: rules
-        .map((plugin) => path.join(__dirname, `./rules/${plugin.split("@")[0]}.cjs`))
-        .concat(pluginRules.map((plugin) => path.join(__dirname, `./rules/plugins/${plugin.split("@")[0]}.cjs`))),
+    extends: [
+        ...rules
+            // eslint-disable-next-line no-undef
+            .map((plugin) => path.join(__dirname, `./rules/${plugin.split("@")[0]}.cjs`)),
+        // eslint-disable-next-line no-undef
+        ...pluginRules.map((plugin) => path.join(__dirname, `./rules/plugins/${plugin.split("@")[0]}.cjs`)),
+    ],
     // @see https://www.npmjs.com/package/@rushstack/eslint-plugin-security
     plugins: ["@rushstack/eslint-plugin-security"],
     rules: {
         // This is disabled for tools because, for example, it is a common and safe practice for a tool
         // to read a RegExp from a config file and use it to filter files paths.
+        // eslint-disable-next-line no-undef
         "@rushstack/security/no-unsafe-regexp": process.env.TRUSTED_TOOL ? "off" : "warn",
     },
     parserOptions: {

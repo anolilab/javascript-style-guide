@@ -26,7 +26,8 @@ module.exports = {
                 name: "isNaN",
                 message: "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
             },
-        ].concat(confusingBrowserGlobals),
+            ...confusingBrowserGlobals,
+        ],
 
         // disallow declaration of variables already declared in the outer scope
         "no-shadow": "error",
@@ -40,9 +41,9 @@ module.exports = {
         // disallow use of undefined when initializing variables
         "no-undef-init": "error",
 
-        // disallow use of undefined variable
+        // allow use of undefined variable
         // https://eslint.org/docs/rules/no-undefined
-        "no-undefined": "error",
+        "no-undefined": "off",
 
         // disallow declaration of variables that are not used in the code
         "no-unused-vars": ["error", { vars: "all", args: "after-used", ignoreRestSiblings: true }],

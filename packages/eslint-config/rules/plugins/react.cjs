@@ -29,6 +29,7 @@ const hasJsxRuntime = (() => {
     try {
         require.resolve("react/jsx-runtime.js");
 
+        // eslint-disable-next-line no-undef
         if (process.env.NO_LOGS === undefined) {
             console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
@@ -36,7 +37,7 @@ const hasJsxRuntime = (() => {
         }
 
         return true;
-    } catch (e) {
+    } catch {
         return false;
     }
 })();
@@ -56,7 +57,7 @@ module.exports = {
         "no-underscore-dangle": [
             dangleRules[0],
             assign({}, dangleRules[1], {
-                allow: dangleRules[1].allow.concat(["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]),
+                allow: [...dangleRules[1].allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
             }),
         ],
 
@@ -359,6 +360,7 @@ module.exports = {
         "react/jsx-wrap-multilines": [
             "error",
             {
+                // eslint-disable-next-line radar/no-duplicate-string
                 declaration: "parens-new-line",
                 assignment: "parens-new-line",
                 return: "parens-new-line",
@@ -389,7 +391,7 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
         "react/jsx-filename-extension": [
             "error",
-            { extensions: [".jsx"].concat(hasAnyDep("typescript") ? [".tsx"] : []) },
+            { extensions: [".jsx", ...(hasAnyDep("typescript") ? [".tsx"] : [])] },
         ],
 
         // prevent accidental JS comments from being injected into JSX as text
@@ -639,7 +641,7 @@ module.exports = {
     settings: {
         "import/resolver": {
             node: {
-                extensions: [".js", ".jsx", ".json"].concat(hasAnyDep("rect") ? [".ts", ".tsx", ".d.ts"] : []),
+                extensions: [".js", ".jsx", ".json", ...(hasAnyDep("rect") ? [".ts", ".tsx", ".d.ts"] : [])],
             },
         },
         react: {

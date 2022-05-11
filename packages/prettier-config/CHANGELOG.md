@@ -1,3 +1,10 @@
+### @anolilab/prettier-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@3.0.0...@anolilab/prettier-config@3.0.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* update all deps of the package and fixes found code style issues ([2776ecd](https://github.com/anolilab/javascript-style-guide/commit/2776ecd44d35f1d317abf367e69fef24dbd00335))
+
 ## @anolilab/prettier-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@2.0.6...@anolilab/prettier-config@3.0.0) (2022-02-15)
 
 

@@ -2,15 +2,14 @@ const { declare } = require("@babel/helper-plugin-utils");
 const isModuleAvailable = require("./lib/is-module-available.cjs");
 const missing = require("./lib/missing.cjs");
 
-// eslint-disable-next-line radar/cognitive-complexity
 module.exports = declare((api, options) => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
     api.assertVersion("^7.13");
 
     const {
         modules = "auto",
-        targets,
-        removePropTypes: removePropertyTypes = false,
+        targets = null,
+        removePropTypes = false,
         loose = true,
         looseClasses = true,
         looseObjectRestSpread = true,
@@ -30,51 +29,45 @@ module.exports = declare((api, options) => {
         );
     }
 
-    if (removePropertyTypes && !react) {
+    if (removePropTypes && !react) {
         throw new Error("removePropTypes can't be enabled if react is disabled.");
     }
 
-    const install = [];
+    let install = [];
 
     if (typescript) {
-        // eslint-disable-next-line radar/no-duplicate-string
         if (!isModuleAvailable("@babel/preset-typescript")) {
             install.push("@babel/preset-typescript");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
         if (!isModuleAvailable("@babel/plugin-transform-typescript")) {
             install.push("@babel/plugin-transform-typescript");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
         if (!isModuleAvailable("@babel/plugin-syntax-jsx")) {
             install.push("@babel/plugin-syntax-jsx");
         }
     }
 
     if (react) {
-        // eslint-disable-next-line radar/no-duplicate-string
         if (!isModuleAvailable("@babel/preset-react")) {
             install.push("@babel/preset-react");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
-        if (removePropertyTypes && !isModuleAvailable("babel-plugin-transform-react-remove-prop-types")) {
+        if (removePropTypes && !isModuleAvailable("babel-plugin-transform-react-remove-prop-types")) {
             install.push("babel-plugin-transform-react-remove-prop-types");
         }
     }
 
-    if (install.length > 0) {
+    if (install.length !== 0) {
         missing(install);
     }
 
     const debug = typeof options.debug === "boolean" ? options.debug : false;
-    const development = typeof options.development === "boolean"
-        ? options.development
-        // eslint-disable-next-line operator-linebreak
-        : // eslint-disable-next-line no-undef
-        api.cache.using(() => process.env.NODE_ENV === "development");
+    const development =
+        typeof options.development === "boolean"
+            ? options.development
+            : api.cache.using(() => process.env.NODE_ENV === "development");
 
     return {
         assumptions: {
@@ -89,21 +82,23 @@ module.exports = declare((api, options) => {
                     useBuiltIns,
                     exclude: ["transform-async-to-generator", "transform-regenerator"],
                     modules: modules === false ? false : "auto",
-                    targets,
+                    targets: targets,
                     shippedProposals: api.env("modern"),
                     loose,
                 },
             ],
             typescript
                 ? [
-                    "@babel/preset-typescript",
-                    {
-                        allExtensions: true,
-                        isTSX: true,
-                    },
-                ]
-                : undefined,
-            react ? ["@babel/preset-react", { development, ...(typeof react === "object" ? react : {}) }] : undefined,
+                      "@babel/preset-typescript",
+                      {
+                          allExtensions: true,
+                          isTSX: true,
+                      },
+                  ]
+                : null,
+            react
+                ? ["@babel/preset-react", Object.assign({ development }, typeof react === "object" ? react : {})]
+                : null,
         ].filter(Boolean),
         plugins: [
             "@babel/plugin-transform-shorthand-properties",
@@ -170,22 +165,24 @@ module.exports = declare((api, options) => {
                 "@babel/plugin-proposal-object-rest-spread",
                 {
                     loose: looseObjectRestSpread,
-                    useBuiltIns,
+                    useBuiltIns: useBuiltIns,
                 },
             ],
-            react && removePropertyTypes
+            react && removePropTypes
                 ? [
-                    "babel-plugin-transform-react-remove-prop-types",
-                    {
-                        mode: "unsafe-wrap",
-                        ignoreFilenames: ["node_modules"],
-                        ...removePropertyTypes,
-                    },
-                ]
-                : undefined,
+                      "babel-plugin-transform-react-remove-prop-types",
+                      Object.assign(
+                          {
+                              mode: "unsafe-wrap",
+                              ignoreFilenames: ["node_modules"],
+                          },
+                          removePropTypes,
+                      ),
+                  ]
+                : null,
             "@babel/plugin-proposal-export-namespace-from",
-            typescript ? "@babel/plugin-transform-typescript" : undefined,
-            typescript ? "@babel/plugin-syntax-jsx" : undefined,
+            typescript ? "@babel/plugin-transform-typescript" : null,
+            typescript ? "@babel/plugin-syntax-jsx" : null,
             "@babel/plugin-transform-property-mutators",
             "@babel/plugin-transform-member-expression-literals",
             "@babel/plugin-transform-property-literals",
@@ -206,23 +203,23 @@ module.exports = declare((api, options) => {
             "babel-plugin-macros",
             polyfillRegenerator
                 ? [
-                    "babel-plugin-polyfill-regenerator",
-                    {
-                        method: "usage-pure",
-                    },
-                ]
-                : undefined,
+                      "babel-plugin-polyfill-regenerator",
+                      {
+                          method: "usage-pure",
+                      },
+                  ]
+                : null,
             typeof corejs === "object"
                 ? [
-                    "babel-plugin-polyfill-corejs3",
-                    {
-                        method: corejs.method || "usage-global",
-                        absoluteImports: "core-js",
-                        version: corejs.version,
-                        ...corejs,
-                    },
-                ]
-                : undefined,
+                      "babel-plugin-polyfill-corejs3",
+                      {
+                          method: corejs.method || "usage-global",
+                          absoluteImports: "core-js",
+                          version: corejs.version,
+                          ...corejs,
+                      },
+                  ]
+                : null,
         ].filter(Boolean),
     };
 });

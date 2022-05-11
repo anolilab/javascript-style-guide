@@ -1,19 +1,16 @@
 #!/usr/bin/env node
 
-import { existsSync, writeFile } from "node:fs";
-import { join, resolve } from "node:path";
-import { promisify } from "node:util";
-
-// eslint-disable-next-line no-undef
 if (process.env.CI) {
-    // eslint-disable-next-line no-undef
     process.exit(0);
 }
+
+import { writeFile, existsSync } from "fs";
+import { resolve, join } from "path";
+import { promisify } from "util";
 
 const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-// eslint-disable-next-line no-undef
 const projectPath = resolve(process.cwd(), "..", "..", "..");
 
 console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
@@ -190,7 +187,7 @@ const writeTextlintIgnore = () => {
     const content = "";
 
     if (existsSync(eslintPath)) {
-        console.warn("⚠️  .textlintignore already exists;");
+        console.warn(`⚠️  .textlintignore already exists;`);
 
         return Promise.resolve();
     }
@@ -205,13 +202,11 @@ const writeTextlintIgnore = () => {
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line no-undef
         process.exit(0);
-    } catch (error) {
+    } catch (err) {
         console.log("😬  something went wrong:");
-        console.error(error.message);
+        console.error(err.message);
 
-        // eslint-disable-next-line no-undef
         process.exit(1);
     }
 })();

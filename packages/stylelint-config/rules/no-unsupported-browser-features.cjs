@@ -6,7 +6,7 @@ module.exports = {
         "plugin/no-unsupported-browser-features": [
             true,
             {
-                browsers: browserslist.production,
+                browsers: browserslist["production"],
             },
         ],
     },

@@ -1,28 +1,25 @@
 #!/usr/bin/env node
 
-import { existsSync, writeFile } from "node:fs";
-import { join, resolve } from "node:path";
-import { promisify } from "node:util";
-
-// eslint-disable-next-line no-undef
 if (process.env.CI) {
-    // eslint-disable-next-line no-undef
     process.exit(0);
 }
+
+import { writeFile, existsSync } from 'fs';
+import { resolve, join } from 'path';
+import { promisify } from 'util';
 
 const writeFileAsync = promisify(writeFile);
 
 // get the path to the host project.
-// eslint-disable-next-line no-undef
-const projectPath = resolve(process.cwd(), "..", "..", "..");
+const projectPath = resolve(process.cwd(), '..', '..', '..');
 
-console.log("Configuring @anolilab/stylelint-config", projectPath, "\n");
+console.log('Configuring @anolilab/stylelint-config', projectPath, '\n');
 
 /**
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = () => {
-    const eslintPath = join(projectPath, ".stylelintrc.cjs");
+    const eslintPath = join(projectPath, '.stylelintrc.cjs');
     const content = `module.exports = {
     "extends": [
         "@anolilab/stylelint-config",
@@ -31,19 +28,19 @@ const writeStylelintRc = () => {
 `;
 
     if (existsSync(eslintPath)) {
-        console.warn("⚠️  .stylelintrc.cjs already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.");
+        console.warn(`⚠️  .stylelintrc.cjs already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.`);
 
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(eslintPath, content, 'utf-8');
 };
 
 /**
  * Writes .stylelintignore if it doesn't exist. Warns if it exists.
  */
 const writeStylelintIgnore = () => {
-    const eslintPath = join(projectPath, ".stylelintignore");
+    const eslintPath = join(projectPath, '.stylelintignore');
     const content = `package.json
 package-lock.json
 yarn.lock
@@ -66,13 +63,11 @@ node_modules/**
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line no-undef
         process.exit(0);
-    } catch (error) {
+    } catch (err) {
         console.log("😬  something went wrong:");
-        console.error(error.message);
+        console.error(err.message);
 
-        // eslint-disable-next-line no-undef
         process.exit(1);
     }
 })();

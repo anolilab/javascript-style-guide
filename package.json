@@ -26,6 +26,7 @@
         "lint:styles": "stylelint",
         "lint:text": "textlint \"./packages/**/README.md\" ./README.md ./UPGRADE.md --dry-run --parallel --experimental",
         "lint:text:fix": "textlint \"./packages/**/README.md\" ./README.md ./UPGRADE.md --parallel --experimental --fix",
+        "prettier": "prettier --config=.prettierrc.cjs --write '**/*.{js,jsx,cjs,tsx,ts,less,md,json}'",
         "sort-package-json": "sort-package-json ./packages/**/package.json",
         "test": "jest --config=./jest.config.cjs",
         "test:all": "pnpm test && pnpm test:stylelint && pnpm test:babel",

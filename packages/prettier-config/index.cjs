@@ -26,7 +26,7 @@ module.exports = {
     arrowParens: "always",
     // format the entire contents of the file
     rangeStart: 0,
-    rangeEnd: Number.POSITIVE_INFINITY,
+    rangeEnd: Infinity,
     // no need to write the beginning @prettier of the file
     requirePragma: false,
     // No need to automatically insert @prettier at the beginning of the file

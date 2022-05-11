@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.2...@anolilab/semantic-release-preset@2.0.3) (2022-05-11)
+
+
+### Bug Fixes
+
+* changed release flow for the npm release config ([d58fd2e](https://github.com/anolilab/javascript-style-guide/commit/d58fd2ec8519c61e6a420b2094b27319015318a3))
+
 ### @anolilab/semantic-release-preset [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.1...@anolilab/semantic-release-preset@2.0.2) (2022-05-06)
 
 

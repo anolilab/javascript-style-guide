@@ -34,7 +34,7 @@ const depRules = [
     ["lodash", "lodash-fp"],
     "jsdoc",
     "react",
-    ["react", "react-a11y"],
+    ["react", "jsx-a11y"],
     ["react", "react-hooks"],
 ];
 

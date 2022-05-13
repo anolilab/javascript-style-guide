@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [4.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.1...@anolilab/eslint-config@4.0.2) (2022-05-13)
+
+
+### Bug Fixes
+
+* fixed wrong dep name of a11y ([4031a25](https://github.com/anolilab/javascript-style-guide/commit/4031a25528293f072a8c6bce7177dc784b34d911))
+
 ### @anolilab/eslint-config [4.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.0...@anolilab/eslint-config@4.0.1) (2022-05-11)
 
 

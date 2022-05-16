@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.2...@anolilab/eslint-config@4.0.3) (2022-05-16)
+
+
+### Bug Fixes
+
+* fixed wrong name of plugin file ([aa97e40](https://github.com/anolilab/javascript-style-guide/commit/aa97e40d310434f22f112e314ca8e50aba24409c))
+
 ### @anolilab/eslint-config [4.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.1...@anolilab/eslint-config@4.0.2) (2022-05-13)
 
 

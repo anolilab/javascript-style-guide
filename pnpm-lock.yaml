@@ -19,7 +19,7 @@ importers:
       '@semantic-release/npm': 9.0.1
       '@semantic-release/release-notes-generator': 10.0.3
       '@types/jest': ^27.5.0
-      '@types/node': 16.11.35
+      '@types/node': 16.11.36
       babel-jest: ^28.1.0
       babel-plugin-transform-es2015-modules-commonjs: ^6.26.2
       commitizen: 4.2.4
@@ -67,7 +67,7 @@ importers:
       husky: 8.0.1
       is-ci: 3.0.1
       is-windows: 1.0.2
-      jest: 28.1.0_@types+node@16.11.35
+      jest: 28.1.0_@types+node@16.11.36
       jest-snapshot-serializer-raw: 1.2.0
       lint-staged: 12.4.1
       lodash: 4.17.21
@@ -81,7 +81,7 @@ importers:
       typescript: 4.6.4
     devDependencies:
       '@types/jest': 27.5.0
-      '@types/node': 16.11.35
+      '@types/node': 16.11.36
       cross-env: 7.0.3
       eslint: 8.15.0
       eslint-plugin-lodash: 7.4.0_eslint@8.15.0
@@ -283,7 +283,7 @@ importers:
       '@testing-library/dom': 8.13.0
       eslint: 8.15.0
       eslint-find-rules: 4.1.0_eslint@8.15.0
-      jest: 28.1.0_@types+node@16.11.35
+      jest: 28.1.0_@types+node@16.11.36
       react: 18.1.0
       typescript: 4.6.4
 
@@ -3533,8 +3533,8 @@ packages:
     resolution: {integrity: sha512-C1vTZME8cFo8uxY2ui41xcynEotVkczIVI5AjLmy5pkpBv/FtG+jhtOlfcPysI8VRVwoOMv6NJm44LGnoMSWkw==}
     dev: false
 
-  /@types/node/16.11.35:
-    resolution: {integrity: sha512-QXu45LyepgnhUfnIAj/FyT4uM87ug5KpIrgXfQtUPNAlx8w5hmd8z8emqCLNvG11QkpRSCG9Qg2buMxvqfjfsQ==}
+  /@types/node/16.11.36:
+    resolution: {integrity: sha512-FR5QJe+TaoZ2GsMHkjuwoNabr+UrJNRr2HNOo+r/7vhcuntM6Ee/pRPOnRhhL2XE9OOvX9VLEq+BcXl3VjNoWA==}
     dev: true
 
   /@types/node/17.0.23:
@@ -6050,7 +6050,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.23.0_17b6d2ce7129f0b36f2c30ae592c16e7
       '@typescript-eslint/utils': 5.20.0_eslint@8.15.0+typescript@4.6.4
       eslint: 8.15.0
-      jest: 28.1.0_@types+node@16.11.35
+      jest: 28.1.0_@types+node@16.11.36
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -8082,7 +8082,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /jest-cli/28.1.0_@types+node@16.11.35:
+  /jest-cli/28.1.0_@types+node@16.11.36:
     resolution: {integrity: sha512-fDJRt6WPRriHrBsvvgb93OxgajHHsJbk4jZxiPqmZbMDRcHskfJBBfTyjFko0jjfprP544hOktdSi9HVgl4VUQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8099,7 +8099,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.9
       import-local: 3.1.0
-      jest-config: 28.1.0_@types+node@16.11.35
+      jest-config: 28.1.0_@types+node@16.11.36
       jest-util: 28.1.0
       jest-validate: 28.1.0
       prompts: 2.4.2
@@ -8109,7 +8109,7 @@ packages:
       - supports-color
       - ts-node
 
-  /jest-config/28.1.0_@types+node@16.11.35:
+  /jest-config/28.1.0_@types+node@16.11.36:
     resolution: {integrity: sha512-aOV80E9LeWrmflp7hfZNn/zGA4QKv/xsn2w8QCBP0t0+YqObuCWTSgNbHJ0j9YsTuCO08ZR/wsvlxqqHX20iUA==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     peerDependencies:
@@ -8124,7 +8124,7 @@ packages:
       '@babel/core': 7.17.10
       '@jest/test-sequencer': 28.1.0
       '@jest/types': 28.1.0
-      '@types/node': 16.11.35
+      '@types/node': 16.11.36
       babel-jest: 28.1.0_@babel+core@7.17.10
       chalk: 4.1.2
       ci-info: 3.3.0
@@ -8478,7 +8478,7 @@ packages:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  /jest/28.1.0_@types+node@16.11.35:
+  /jest/28.1.0_@types+node@16.11.36:
     resolution: {integrity: sha512-TZR+tHxopPhzw3c3560IJXZWLNHgpcz1Zh0w5A65vynLGNcg/5pZ+VildAd7+XGOu6jd58XMY/HNn0IkZIXVXg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8490,7 +8490,7 @@ packages:
     dependencies:
       '@jest/core': 28.1.0
       import-local: 3.1.0
-      jest-cli: 28.1.0_@types+node@16.11.35
+      jest-cli: 28.1.0_@types+node@16.11.36
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -12658,7 +12658,7 @@ packages:
       babel-jest: 28.1.0_@babel+core@7.17.10
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.0_@types+node@16.11.35
+      jest: 28.1.0_@types+node@16.11.36
       jest-util: 28.1.0
       json5: 2.2.1
       lodash.memoize: 4.1.2

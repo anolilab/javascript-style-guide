@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.4...@anolilab/eslint-config@4.0.5) (2022-05-17)
+
+
+### Bug Fixes
+
+* don't call the testing-library.cjs logger twice ([89d8f1a](https://github.com/anolilab/javascript-style-guide/commit/89d8f1a992e3ad140b242bff6b28c04ea55007d6))
+
 ### @anolilab/eslint-config [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.3...@anolilab/eslint-config@4.0.4) (2022-05-17)
 
 

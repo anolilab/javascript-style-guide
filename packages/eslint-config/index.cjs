@@ -6,7 +6,7 @@ const { rules, pluginRules, extraInstallPackage } = require("./config.cjs");
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintConfigLoaded) {
     checkMissing(pluginRules, extraInstallPackage);
-    showLoaded(pluginRules, []);
+    showLoaded(pluginRules, extraInstallPackage);
 
     global.hasAnolilabEsLintConfigLoaded = true;
 }

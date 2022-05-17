@@ -69,7 +69,7 @@ testRules.forEach((depRule) => {
 
 if (hasTypescript) {
     pRules.push("typescript");
-    extraInstalled.push(["@typescript-eslint/parser", "@typescript-eslint/eslint-plugin"]);
+    extraInstalled.push(["typescript", "@typescript-eslint/parser"], ["typescript", "@typescript-eslint/eslint-plugin"]);
 
     if (hasAnyDep("eslint-plugin-typescript-sort-keys")) {
         pRules.push("typescript-sort-keys");

@@ -4,6 +4,16 @@ const { rules: baseES6Rules } = require("../es6.cjs");
 const { rules: baseImportsRules } = require("./import.cjs");
 const { rules: baseStyleRules } = require("../style.cjs");
 const { rules: baseVariablesRules } = require("../variables.cjs");
+const { hasDep } = require("../../lib/utils.cjs");
+const { consoleLog } = require("../../lib/loggers.cjs");
+
+let { indent } = baseStyleRules;
+
+if (hasDep("prettier")) {
+    consoleLog("Found prettier as dependency, disabling the '@typescript-eslint/indent' rule to fix wrong behavior of the rule; @see https://github.com/typescript-eslint/typescript-eslint/issues/1824");
+
+    indent = "off";
+}
 
 module.exports = {
     overrides: [
@@ -92,7 +102,7 @@ module.exports = {
                 // Replace 'indent' rule with '@typescript-eslint' version
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
                 indent: "off",
-                "@typescript-eslint/indent": baseStyleRules.indent,
+                "@typescript-eslint/indent": indent,
 
                 // Replace 'keyword-spacing' rule with '@typescript-eslint' version
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md

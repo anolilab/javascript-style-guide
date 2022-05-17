@@ -1,13 +1,21 @@
 const { consoleLog, consolePlugin } = require("./loggers.cjs");
 
 module.exports = function showLoaded(rules, extraInstallPackage) {
+    const all = [...rules];
+
     extraInstallPackage.forEach(([rule, package_]) => {
-        if (rules.includes(rule)) {
-            rules.push(package_);
+        if (all.includes(rule)) {
+            all.push(package_);
         }
     });
 
     consoleLog("\n@anolilab/eslint-config loaded the following packages:\n");
 
-    rules.forEach((element) => { consolePlugin(element); });
+    all.forEach((element) => {
+        if (element[0] === "@") {
+            consoleLog(`  ${element}`);
+        } else {
+            consolePlugin(element);
+        }
+    });
 };

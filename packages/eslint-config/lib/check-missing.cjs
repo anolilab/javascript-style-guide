@@ -1,7 +1,7 @@
 const isModuleAvailable = require("./is-module-available.cjs");
 const { consoleLog } = require("./loggers.cjs");
 
-const moduleNotAvailable = (package_) => !isModuleAvailable(package_.split("@")[0]);
+const moduleNotAvailable = (package_) => !isModuleAvailable(package_);
 
 const atLatest = (package_) => {
     if (!package_.split("@").includes("@")) {
@@ -42,7 +42,10 @@ or
 
   yarn add ${notInstalled.map((element) => atLatest(element)).join(" ")} --dev
 
-  `);
+or
+
+  pnpm add ${notInstalled.map((element) => atLatest(element)).join(" ")} -D
+`);
 
     // process.exit(1); // eslint-disable-line unicorn/no-process-exit
 };

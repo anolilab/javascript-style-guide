@@ -7,7 +7,11 @@ if (isModuleAvailable("react")) {
     ruleset = "react";
 }
 
-consoleLog(`  eslint-plugin-testing-library/${ruleset}`);
+if (!global.hasAnolilabEsLintTestConfigLoaded) {
+    consoleLog(`  eslint-plugin-testing-library/${ruleset}`);
+
+    global.hasAnolilabEsLintTestConfigLoaded = true;
+}
 
 module.exports = {
     extends: [`plugin:testing-library/${ruleset}`],

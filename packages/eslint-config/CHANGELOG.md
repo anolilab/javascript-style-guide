@@ -1,3 +1,10 @@
+### @anolilab/eslint-config [4.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.5...@anolilab/eslint-config@4.0.6) (2022-05-18)
+
+
+### Bug Fixes
+
+* updated eslintrc content in postinstall script ([2512937](https://github.com/anolilab/javascript-style-guide/commit/251293744e7404635f57057e4fec101b279072f9))
+
 ### @anolilab/eslint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.4...@anolilab/eslint-config@4.0.5) (2022-05-17)
 
 

@@ -10,7 +10,7 @@ importers:
       '@commitlint/cli': 16.3.0
       '@commitlint/config-conventional': 16.2.4
       '@commitlint/core': 16.3.0
-      '@qiwi/multi-semantic-release': 6.3.0
+      '@qiwi/multi-semantic-release': 6.4.0
       '@semantic-release/changelog': 6.0.1
       '@semantic-release/commit-analyzer': 9.0.2
       '@semantic-release/exec': 6.0.3
@@ -40,10 +40,10 @@ importers:
       prettier: 2.6.2
       semantic-release: ^19.0.2
       sort-package-json: 1.57.0
-      stylelint: 14.8.3
+      stylelint: 14.8.4
       textlint: 12.1.1
       ts-jest: 28.0.3
-      typescript: 4.6.4
+      typescript: 4.7.2
     dependencies:
       '@babel/cli': 7.17.10_@babel+core@7.17.10
       '@babel/core': 7.17.10
@@ -51,7 +51,7 @@ importers:
       '@commitlint/cli': 16.3.0
       '@commitlint/config-conventional': 16.2.4
       '@commitlint/core': 16.3.0
-      '@qiwi/multi-semantic-release': 6.3.0
+      '@qiwi/multi-semantic-release': 6.4.0
       '@semantic-release/changelog': 6.0.1_semantic-release@19.0.2
       '@semantic-release/commit-analyzer': 9.0.2_semantic-release@19.0.2
       '@semantic-release/exec': 6.0.3_semantic-release@19.0.2
@@ -75,10 +75,10 @@ importers:
       prettier: 2.6.2
       semantic-release: 19.0.2
       sort-package-json: 1.57.0
-      stylelint: 14.8.3
+      stylelint: 14.8.4
       textlint: 12.1.1
-      ts-jest: 28.0.3_913c44ab8440320d2c36274e3abff73e
-      typescript: 4.6.4
+      ts-jest: 28.0.3_172a3c81933215a47af362c6de2acc5d
+      typescript: 4.7.2
     devDependencies:
       '@types/jest': 27.5.0
       '@types/node': 16.11.36
@@ -2720,8 +2720,8 @@ packages:
     dependencies:
       '@octokit/openapi-types': 11.2.0
 
-  /@qiwi/multi-semantic-release/6.3.0:
-    resolution: {integrity: sha512-jVlFk9GBiYQmWODmFKI7YD7PwOlIF/38ZyIIWEBEX9E4kcYN16zp2JusE8D7Iac84N/8GNmJDLgIwZim6HSzQw==}
+  /@qiwi/multi-semantic-release/6.4.0:
+    resolution: {integrity: sha512-RfjE9/c3Ohw5Fks/tI99vEIZHsz2Egk/Ai05gmhUSfCNg4iLLwLZh4EUAiJ/CASPTYO4JOJGNJ8pC5XN03s10g==}
     engines: {node: '>=12.20', yarn: '>=1.0.0'}
     hasBin: true
     dependencies:
@@ -10357,15 +10357,6 @@ packages:
       postcss: 7.0.39
     dev: false
 
-  /postcss-safe-parser/6.0.0_postcss@8.4.13:
-    resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.3.3
-    dependencies:
-      postcss: 8.4.13
-    dev: false
-
   /postcss-safe-parser/6.0.0_postcss@8.4.14:
     resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
     engines: {node: '>=12.0'}
@@ -12102,55 +12093,6 @@ packages:
       - supports-color
     dev: false
 
-  /stylelint/14.8.3:
-    resolution: {integrity: sha512-aLpskXwSgFEBYbFRKA/BfuyYMGuXNtn2t5GqoffNPSezvw97x/vVNWcZNF0+cwt+LBjfvyq9/MRE3OjInGRgNA==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    hasBin: true
-    dependencies:
-      balanced-match: 2.0.0
-      colord: 2.9.2
-      cosmiconfig: 7.0.1
-      css-functions-list: 3.0.1
-      debug: 4.3.4
-      execall: 2.0.0
-      fast-glob: 3.2.11
-      fastest-levenshtein: 1.0.12
-      file-entry-cache: 6.0.1
-      get-stdin: 8.0.0
-      global-modules: 2.0.0
-      globby: 11.1.0
-      globjoin: 0.1.4
-      html-tags: 3.2.0
-      ignore: 5.2.0
-      import-lazy: 4.0.0
-      imurmurhash: 0.1.4
-      is-plain-object: 5.0.0
-      known-css-properties: 0.25.0
-      mathml-tag-names: 2.1.3
-      meow: 9.0.0
-      micromatch: 4.0.5
-      normalize-path: 3.0.0
-      picocolors: 1.0.0
-      postcss: 8.4.13
-      postcss-media-query-parser: 0.2.3
-      postcss-resolve-nested-selector: 0.1.1
-      postcss-safe-parser: 6.0.0_postcss@8.4.13
-      postcss-selector-parser: 6.0.10
-      postcss-value-parser: 4.2.0
-      resolve-from: 5.0.0
-      specificity: 0.4.1
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      style-search: 0.1.0
-      supports-hyperlinks: 2.2.0
-      svg-tags: 1.0.0
-      table: 6.8.0
-      v8-compile-cache: 2.3.0
-      write-file-atomic: 4.0.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /stylelint/14.8.4:
     resolution: {integrity: sha512-VoyFmif50YNL2R1NC0NxbprTbvnihiqE9tdwb/IAUvlncoS3dEllSSEfvTaQQ6BTCp6iv6daIg5v7ryRSlBdgw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -12751,7 +12693,7 @@ packages:
   /try-resolve/1.0.1:
     resolution: {integrity: sha1-z95vq9ctY+V5fPqrhzq76OcA6RI=}
 
-  /ts-jest/28.0.3_913c44ab8440320d2c36274e3abff73e:
+  /ts-jest/28.0.3_172a3c81933215a47af362c6de2acc5d:
     resolution: {integrity: sha512-HzgbEDQ2KgVtDmpXToqAcKTyGHdHsG23i/iUjfxji92G5eT09S1m9UHZd7csF0Bfgh9txM4JzwHnv7r1waFPlw==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -12783,7 +12725,7 @@ packages:
       lodash.memoize: 4.1.2
       make-error: 1.3.6
       semver: 7.3.7
-      typescript: 4.6.4
+      typescript: 4.7.2
       yargs-parser: 20.2.9
     dev: false
 
@@ -12944,6 +12886,12 @@ packages:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+
+  /typescript/4.7.2:
+    resolution: {integrity: sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: false
 
   /uglify-js/3.15.1:
     resolution: {integrity: sha512-FAGKF12fWdkpvNJZENacOH0e/83eG6JyVQyanIJaBXCN1J11TUQv1T1/z8S+Z0CG0ZPk1nPcreF/c7lrTd0TEQ==}

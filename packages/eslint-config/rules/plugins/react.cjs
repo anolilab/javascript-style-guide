@@ -1,6 +1,6 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
 const assign = require("object.assign");
-const findUp = require('find-up');
+const findUp = require("find-up");
 const { hasAnyDep } = require("../../lib/utils.cjs");
 const { rules: baseStyleRules } = require("../style.cjs");
 
@@ -38,7 +38,7 @@ const hasJsxRuntime = (() => {
   If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
         }
 
-        return global.AnolilabEsLintConfigReactRuntimePath = typeof reactPath === "string";
+        global.AnolilabEsLintConfigReactRuntimePath = typeof reactPath === "string";
     }
 
     return global.AnolilabEsLintConfigReactRuntimePath;

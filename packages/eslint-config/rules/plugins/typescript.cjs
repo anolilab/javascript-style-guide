@@ -7,6 +7,7 @@ const { rules: baseVariablesRules } = require("../variables.cjs");
 const { hasDep } = require("../../lib/utils.cjs");
 const { consoleLog } = require("../../lib/loggers.cjs");
 
+const { quotes, semi } = baseStyleRules;
 let { indent } = baseStyleRules;
 
 if (hasDep("prettier")) {
@@ -207,12 +208,12 @@ module.exports = {
                 // Replace 'quotes' rule with '@typescript-eslint' version
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
                 quotes: "off",
-                "@typescript-eslint/quotes": baseStyleRules.quotes,
+                "@typescript-eslint/quotes": quotes,
 
                 // Replace 'semi' rule with '@typescript-eslint' version
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
                 semi: "off",
-                "@typescript-eslint/semi": baseStyleRules.semi,
+                "@typescript-eslint/semi": semi,
 
                 // Replace 'space-before-function-paren' rule with '@typescript-eslint' version
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md

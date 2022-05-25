@@ -10,7 +10,14 @@ const { consoleLog } = require("../../lib/loggers.cjs");
 let { indent } = baseStyleRules;
 
 if (hasDep("prettier")) {
-    consoleLog("Found prettier as dependency, disabling the '@typescript-eslint/indent' rule to fix wrong behavior of the rule; @see https://github.com/typescript-eslint/typescript-eslint/issues/1824");
+    // Workaround VS Code trying to run this file twice!
+    if (!global.hasAnolilabEsLintConfigPrettier) {
+        global.hasAnolilabEsLintConfigPrettier = true;
+
+        consoleLog(
+            "Found prettier as dependency, disabling the '@typescript-eslint/indent' rule to fix wrong behavior of the rule; @see https://github.com/typescript-eslint/typescript-eslint/issues/1824",
+        );
+    }
 
     indent = "off";
 }
@@ -18,10 +25,17 @@ if (hasDep("prettier")) {
 module.exports = {
     overrides: [
         {
-            files: ["*.ts", "*.tsx"],
+            files: ["**/*.ts?(x)"],
             extends: ["plugin:import/typescript"],
             plugins: ["@typescript-eslint"],
             parser: "@typescript-eslint/parser",
+            parserOptions: {
+                sourceType: "module",
+                ecmaFeatures: {
+                    jsx: true,
+                },
+                warnOnUnsupportedTypeScriptVersion: true,
+            },
             settings: {
                 // Apply special parsing for TypeScript files
                 "import/parsers": {

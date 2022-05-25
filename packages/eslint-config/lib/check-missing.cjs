@@ -13,7 +13,13 @@ const atLatest = (package_) => {
 
 module.exports = function checkMissing(rules, extraInstallPackage) {
     const notInstalled = rules
-        .map((plugin) => `eslint-plugin-${plugin}`)
+        .map((plugin) => {
+            if (plugin === "typescript") {
+                return plugin;
+            }
+
+            return `eslint-plugin-${plugin}`;
+        })
         .filter((package_) => moduleNotAvailable(package_));
 
     extraInstallPackage.forEach(([rule, package_]) => {

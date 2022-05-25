@@ -12,7 +12,7 @@ module.exports = function showLoaded(rules, extraInstallPackage) {
     consoleLog("\n@anolilab/eslint-config loaded the following packages:\n");
 
     all.forEach((element) => {
-        if (element[0] === "@") {
+        if (plugin[0] === "@" || plugin === "typescript") {
             consoleLog(`  ${element}`);
         } else {
             consolePlugin(element);

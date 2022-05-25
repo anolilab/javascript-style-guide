@@ -1,5 +1,6 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
 const assign = require("object.assign");
+const findUp = require('find-up');
 const { hasAnyDep } = require("../../lib/utils.cjs");
 const { rules: baseStyleRules } = require("../style.cjs");
 
@@ -26,20 +27,21 @@ if (hasAnyDep("react")) {
 }
 
 const hasJsxRuntime = (() => {
-    try {
-        require.resolve("react/jsx-runtime.js");
+    // Workaround VS Code trying to run this file twice!
+    if (!global.AnolilabEsLintConfigReactRuntimePath) {
+        const reactPath = findUp.sync("node_modules/react/jsx-runtime.js");
 
         // eslint-disable-next-line no-undef
-        if (process.env.NO_LOGS === undefined) {
+        if (process.env.NO_LOGS && process.env.NO_LOGS !== "true" && typeof reactPath === "string") {
             console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
   If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
         }
 
-        return true;
-    } catch {
-        return false;
+        return global.AnolilabEsLintConfigReactRuntimePath = typeof reactPath === "string";
     }
+
+    return global.AnolilabEsLintConfigReactRuntimePath;
 })();
 
 module.exports = {

@@ -1,3 +1,11 @@
+### @anolilab/eslint-config [4.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.6...@anolilab/eslint-config@4.0.7) (2022-05-25)
+
+
+### Bug Fixes
+
+* fixed wrong list of loading plugins, the React resolving and loading console log twice ([775e811](https://github.com/anolilab/javascript-style-guide/commit/775e81157ae141fe46f8b6ae11b1bdb298d24231))
+* fixed wrong list of loading plugins, the React resolving and loading console log twice ([8e40a98](https://github.com/anolilab/javascript-style-guide/commit/8e40a98e686182620f73e1bd3d6f0e52d40298fd))
+
 ### @anolilab/eslint-config [4.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.5...@anolilab/eslint-config@4.0.6) (2022-05-18)
 
 

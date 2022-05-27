@@ -98,30 +98,31 @@ File content:
         "@semantic-release/changelog",
         "@semantic-release/npm",
         [
+            "@semantic-release/git",
+            {
+                "message": "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}"
+            }
+        ],
+        [
             "@semantic-release/github",
             {
                 "successComment": false,
                 "failComment": false
             }
-        ],
-        [
-            "@semantic-release/git",
-            {
-                "message": "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}"
-            }
         ]
     ]
 }
-
 ```
 
 ### Add [Commitizen](https://github.com/commitizen/cz-cli)
 Add `cz` to your `package.json scripts`
 
 ```json
+{
   "scripts": {
     "commit": "cz"
   }
+}
 ```
 
 ### Environment Variables Configuration
@@ -247,7 +248,7 @@ jobs:
                 GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
                 GIT_COMMITTER_NAME: "github-actions-shell"
                 GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
-              run: "yarn run semantic-release"
+              run: "yarn semantic-release"
 ```
 
 ## Note on GitHub protected branches

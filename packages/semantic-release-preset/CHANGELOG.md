@@ -1,3 +1,10 @@
+### @anolilab/semantic-release-preset [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.4...@anolilab/semantic-release-preset@2.0.5) (2022-05-27)
+
+
+### Bug Fixes
+
+* changed workflow of release to push the updated package.json to github ([9f5718c](https://github.com/anolilab/javascript-style-guide/commit/9f5718c403200921cfb3b7134491fc1b26617a1f))
+
 ### @anolilab/semantic-release-preset [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.3...@anolilab/semantic-release-preset@2.0.4) (2022-05-11)
 
 

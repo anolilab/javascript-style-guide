@@ -23,7 +23,7 @@ importers:
       babel-jest: ^28.1.0
       babel-plugin-transform-es2015-modules-commonjs: ^6.26.2
       commitizen: 4.2.4
-      conventional-changelog-conventionalcommits: 4.6.3
+      conventional-changelog-conventionalcommits: 5.0.0
       cross-env: ^7.0.3
       cz-conventional-changelog: 3.3.0
       eslint: ^8.15.0
@@ -62,7 +62,7 @@ importers:
       babel-jest: 28.1.0_@babel+core@7.17.10
       babel-plugin-transform-es2015-modules-commonjs: 6.26.2
       commitizen: 4.2.4
-      conventional-changelog-conventionalcommits: 4.6.3
+      conventional-changelog-conventionalcommits: 5.0.0
       cz-conventional-changelog: 3.3.0
       husky: 8.0.1
       is-ci: 3.0.1
@@ -305,7 +305,7 @@ importers:
       '@semantic-release/npm': ^9.0.1
       '@semantic-release/release-notes-generator': ^10.0.3
       commitizen: ^4.2.4
-      conventional-changelog-conventionalcommits: ^4.6.3
+      conventional-changelog-conventionalcommits: ^5.0.0
       cz-conventional-changelog: ^3.3.0
       semantic-release: ^19.0.2
       semantic-release-conventional-commits: ^3.0.0
@@ -321,7 +321,7 @@ importers:
       '@semantic-release/npm': 9.0.1_semantic-release@19.0.2
       '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.2
       commitizen: 4.2.4
-      conventional-changelog-conventionalcommits: 4.6.3
+      conventional-changelog-conventionalcommits: 5.0.0
       cz-conventional-changelog: 3.3.0
       semantic-release-conventional-commits: 3.0.0
     devDependencies:
@@ -4132,7 +4132,7 @@ packages:
     dev: false
 
   /array-ify/1.0.0:
-    resolution: {integrity: sha1-nlKHYrSpBmrRY6aWKjZEGOlibs4=}
+    resolution: {integrity: sha512-c5AMf34bKdvPhQ7tBGhqkgKNUzMr4WUs+WDtC2ZUGOUncbxKMTvqxYctiseW3+L4bA8ec+GcZ6/A/FW4m8ukng==}
 
   /array-includes/3.1.4:
     resolution: {integrity: sha512-ZTNSQkmWumEbiHO2GF4GmWxYVTiQyJy2XOTa15sdQSrvKn7l+180egQMqlrMOUMCyLMD7pmyQe4mMDUT6Behrw==}
@@ -5124,6 +5124,15 @@ packages:
 
   /conventional-changelog-conventionalcommits/4.6.3:
     resolution: {integrity: sha512-LTTQV4fwOM4oLPad317V/QNQ1FY4Hju5qeBIM1uTHbrnCE+Eg4CdRZ3gO2pUeR+tzWdp80M2j3qFFEDWVqOV4g==}
+    engines: {node: '>=10'}
+    dependencies:
+      compare-func: 2.0.0
+      lodash: 4.17.21
+      q: 1.5.1
+    dev: false
+
+  /conventional-changelog-conventionalcommits/5.0.0:
+    resolution: {integrity: sha512-lCDbA+ZqVFQGUj7h9QBKoIpLhl8iihkO0nCTyRNzuXtcd7ubODpYB04IFy31JloiJgG0Uovu8ot8oxRzn7Nwtw==}
     engines: {node: '>=10'}
     dependencies:
       compare-func: 2.0.0

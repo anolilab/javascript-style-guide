@@ -1,3 +1,11 @@
+## @anolilab/semantic-release-preset [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.5...@anolilab/semantic-release-preset@2.0.6) (2022-05-31)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v17 ([fabf85a](https://github.com/anolilab/javascript-style-guide/commit/fabf85a11e57e20a50b59e5013386af0f4362fe7))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v5 ([4460910](https://github.com/anolilab/javascript-style-guide/commit/44609107b00628a372e598365b5963e34ea4e31e))
+
 ### @anolilab/semantic-release-preset [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.4...@anolilab/semantic-release-preset@2.0.5) (2022-05-27)
 
 

@@ -81,7 +81,12 @@ module.exports = {
                     "**/protractor.conf.js", // protractor config
                     "**/protractor.conf.*.js", // protractor config
                     "**/karma.conf.js", // karma config
-                    "**/.eslintrc.js.js", // eslint config
+                    "**/.eslintrc.js", // eslint config
+                    "**/.eslintrc.cjs", // eslint config
+                    "**/vite.config.js", // vite config
+                    "**/vite.config.ts", // vite config
+                    "**/vitest.cofig.js", // vitest config
+                    "**/vitest.cofig.ts", // vitest config
                 ],
                 optionalDependencies: false,
             },

@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [4.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.7...@anolilab/eslint-config@4.0.8) (2022-06-04)
+
+
+### Bug Fixes
+
+* added more files to import/no-extraneous-dependencies ([77ca58e](https://github.com/anolilab/javascript-style-guide/commit/77ca58eec80e58e384ae7780278b96dcf164fb4c))
+
 ### @anolilab/eslint-config [4.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.6...@anolilab/eslint-config@4.0.7) (2022-05-25)
 
 

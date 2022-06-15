@@ -19,7 +19,7 @@ importers:
       '@semantic-release/npm': 9.0.1
       '@semantic-release/release-notes-generator': 10.0.3
       '@types/jest': ^28.0.0
-      '@types/node': 16.11.40
+      '@types/node': 16.11.41
       babel-jest: ^28.1.0
       babel-plugin-transform-es2015-modules-commonjs: ^6.26.2
       commitizen: 4.2.4
@@ -67,7 +67,7 @@ importers:
       husky: 8.0.1
       is-ci: 3.0.1
       is-windows: 1.0.2
-      jest: 28.1.1_@types+node@16.11.40
+      jest: 28.1.1_@types+node@16.11.41
       jest-snapshot-serializer-raw: 1.2.0
       lint-staged: 12.4.1
       lodash: 4.17.21
@@ -81,7 +81,7 @@ importers:
       typescript: 4.7.3
     devDependencies:
       '@types/jest': 28.1.0
-      '@types/node': 16.11.40
+      '@types/node': 16.11.41
       cross-env: 7.0.3
       eslint: 8.15.0
       eslint-plugin-lodash: 7.4.0_eslint@8.15.0
@@ -285,7 +285,7 @@ importers:
       '@testing-library/dom': 8.13.0
       eslint: 8.17.0
       eslint-find-rules: 4.1.0_eslint@8.17.0
-      jest: 28.1.1_@types+node@16.11.40
+      jest: 28.1.1_@types+node@16.11.41
       react: 18.2.0
       typescript: 4.6.4
 
@@ -3543,8 +3543,8 @@ packages:
     resolution: {integrity: sha512-C1vTZME8cFo8uxY2ui41xcynEotVkczIVI5AjLmy5pkpBv/FtG+jhtOlfcPysI8VRVwoOMv6NJm44LGnoMSWkw==}
     dev: false
 
-  /@types/node/16.11.40:
-    resolution: {integrity: sha512-7bOWglXUO6f21NG3YDI7hIpeMX3M59GG+DzZuzX2EkFKYUnRoxq3EOg4R0KNv2hxryY9M3UUqG5akwwsifrukw==}
+  /@types/node/16.11.41:
+    resolution: {integrity: sha512-mqoYK2TnVjdkGk8qXAVGc/x9nSaTpSrFaGFm43BUH3IdoBV0nta6hYaGmdOvIMlbHJbUEVen3gvwpwovAZKNdQ==}
 
   /@types/node/17.0.23:
     resolution: {integrity: sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==}
@@ -6103,7 +6103,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.23.0_adaf4ec977cb88511e4df087b8dd4132
       '@typescript-eslint/utils': 5.20.0_eslint@8.17.0+typescript@4.6.4
       eslint: 8.17.0
-      jest: 28.1.1_@types+node@16.11.40
+      jest: 28.1.1_@types+node@16.11.41
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -8191,7 +8191,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /jest-cli/28.1.1_@types+node@16.11.40:
+  /jest-cli/28.1.1_@types+node@16.11.41:
     resolution: {integrity: sha512-+sUfVbJqb1OjBZ0OdBbI6OWfYM1i7bSfzYy6gze1F1w3OKWq8ZTEKkZ8a7ZQPq6G/G1qMh/uKqpdWhgl11NFQQ==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8208,7 +8208,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.9
       import-local: 3.1.0
-      jest-config: 28.1.1_@types+node@16.11.40
+      jest-config: 28.1.1_@types+node@16.11.41
       jest-util: 28.1.1
       jest-validate: 28.1.1
       prompts: 2.4.2
@@ -8218,7 +8218,7 @@ packages:
       - supports-color
       - ts-node
 
-  /jest-config/28.1.1_@types+node@16.11.40:
+  /jest-config/28.1.1_@types+node@16.11.41:
     resolution: {integrity: sha512-tASynMhS+jVV85zKvjfbJ8nUyJS/jUSYZ5KQxLUN2ZCvcQc/OmhQl2j6VEL3ezQkNofxn5pQ3SPYWPHb0unTZA==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     peerDependencies:
@@ -8233,7 +8233,7 @@ packages:
       '@babel/core': 7.17.10
       '@jest/test-sequencer': 28.1.1
       '@jest/types': 28.1.1
-      '@types/node': 16.11.40
+      '@types/node': 16.11.41
       babel-jest: 28.1.1_@babel+core@7.17.10
       chalk: 4.1.2
       ci-info: 3.3.0
@@ -8615,7 +8615,7 @@ packages:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  /jest/28.1.1_@types+node@16.11.40:
+  /jest/28.1.1_@types+node@16.11.41:
     resolution: {integrity: sha512-qw9YHBnjt6TCbIDMPMpJZqf9E12rh6869iZaN08/vpOGgHJSAaLLUn6H8W3IAEuy34Ls3rct064mZLETkxJ2XA==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -8628,7 +8628,7 @@ packages:
       '@jest/core': 28.1.1
       '@jest/types': 28.1.1
       import-local: 3.1.0
-      jest-cli: 28.1.1_@types+node@16.11.40
+      jest-cli: 28.1.1_@types+node@16.11.41
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -12803,7 +12803,7 @@ packages:
       babel-jest: 28.1.0_@babel+core@7.17.10
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.1_@types+node@16.11.40
+      jest: 28.1.1_@types+node@16.11.41
       jest-util: 28.1.1
       json5: 2.2.1
       lodash.memoize: 4.1.2

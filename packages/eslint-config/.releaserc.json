@@ -27,6 +27,7 @@
             }
         ],
         "@semantic-release/changelog",
+        "@semrel-extra/npm",
         [
             "@semantic-release/git",
             {
@@ -39,7 +40,6 @@
                 "successComment": false,
                 "failComment": false
             }
-        ],
-        "@semantic-release/npm"
+        ]
     ]
 }

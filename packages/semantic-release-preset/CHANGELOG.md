@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [2.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.6...@anolilab/semantic-release-preset@2.0.7) (2022-07-16)
+
+
+### Bug Fixes
+
+* changed semantic-release/npm to semrel-extra/npm ([3d3637d](https://github.com/anolilab/javascript-style-guide/commit/3d3637dd2a76f75d67c7f7b7f2597a1962396ee7))
+
 ## @anolilab/semantic-release-preset [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.0.5...@anolilab/semantic-release-preset@2.0.6) (2022-05-31)
 
 

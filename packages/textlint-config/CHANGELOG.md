@@ -4,6 +4,14 @@
 ### Bug Fixes
 
 * **deps:** update dependency textlint-rule-terminology to v3.0.2 ([a6c6fea](https://github.com/anolilab/javascript-style-guide/commit/a6c6feab9e1467e87d2a131479710881c606ef10))
+* upgraded deps ([6e4b5bc](https://github.com/anolilab/javascript-style-guide/commit/6e4b5bce0599c987a93b9a65c0bf6cc7c90a3ed3))
+
+## @anolilab/textlint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.4...@anolilab/textlint-config@4.0.5) (2022-07-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency textlint-rule-terminology to v3.0.2 ([a6c6fea](https://github.com/anolilab/javascript-style-guide/commit/a6c6feab9e1467e87d2a131479710881c606ef10))
 
 ## @anolilab/textlint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.4...@anolilab/textlint-config@4.0.5) (2022-07-15)
 

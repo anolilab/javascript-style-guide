@@ -39,13 +39,27 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.2"
               with:
-                  version: 6
+                  version: 7
+                  run_install: false
 
             - name: "Set node version to ${{ matrix.node_version }}"
               uses: "actions/setup-node@v3"
               with:
                   node-version: "${{ matrix.node_version }}"
                   cache: "pnpm"
+
+            - name: "Get pnpm store directory"
+              id: "pnpm-cache"
+              run: |
+                  echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+            - uses: "actions/cache@v3"
+              name: "Setup pnpm cache"
+              with:
+                  path: "${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}"
+                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
@@ -81,13 +95,38 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.2"
               with:
-                  version: 6
+                  version: 7
+                  run_install: false
 
             - name: "Use Node.js 18.x"
               uses: "actions/setup-node@v3"
               with:
                   node-version: "18.x"
                   cache: "pnpm"
+
+            - name: "Get pnpm store directory"
+              id: "pnpm-cache"
+              run: |
+                  echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+            - uses: "actions/cache@v3"
+              name: "Setup pnpm cache"
+              with:
+                  path: "${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}"
+                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            # @see: https://github.com/pnpm/pnpm/issues/4348
+            - name: "Upgrade npm to 8.4 version"
+              run: "npm install --global npm@8.4"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Check npm version"
+              run: "npm -v"
+              env:
+                  SKIP_CHECK: "true"
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
@@ -124,7 +163,7 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.2"
               with:
-                  version: 6
+                  version: 7
 
             - name: "Use Node.js 18.x"
               uses: "actions/setup-node@v3"

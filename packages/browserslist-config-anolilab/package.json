@@ -39,7 +39,7 @@
     ],
     "devDependencies": {
         "browserslist": "4.21.2",
-        "caniuse-lite": "^1.0.30001339"
+        "caniuse-lite": "^1.0.30001367"
     },
     "engines": {
         "node": ">=16"
@@ -47,5 +47,22 @@
     "publishConfig": {
         "access": "public"
     },
-    "moduleName": "browserslist-config"
+    "moduleName": "browserslist-config",
+    "pnpm": {
+        "overrides": {
+            "glob-parent@<5.1.2": ">=5.1.2",
+            "minimist@<1.2.6": ">=1.2.6",
+            "chrono-node@<2.2.4": ">=2.2.4",
+            "yargs-parser@>=6.0.0 <13.1.2": ">=13.1.2",
+            "trim@<0.0.3": ">=0.0.3",
+            "trim-newlines@<3.0.1": ">=3.0.1",
+            "moment@<2.29.2": ">=2.29.2",
+            "semver-regex@<3.1.4": ">=3.1.4",
+            "npm@>=7.9.0 <8.11.0": ">=8.11.0",
+            "got@<11.8.5": ">=11.8.5",
+            "moment@>=2.18.0 <2.29.4": ">=2.29.4",
+            "ansi-regex@>=3.0.0 <3.0.1": ">=3.0.1",
+            "ansi-regex@>=4.0.0 <4.1.1": ">=4.1.1"
+        }
+    }
 }

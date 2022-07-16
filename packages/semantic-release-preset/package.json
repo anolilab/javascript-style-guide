@@ -48,31 +48,48 @@
         "postinstall": "node lib/postinstall.js"
     },
     "dependencies": {
-        "@commitlint/cli": "^17.0.0",
-        "@commitlint/config-conventional": "^17.0.0",
-        "@commitlint/core": "^17.0.0",
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@commitlint/core": "^17.0.3",
         "@semantic-release/changelog": "^6.0.1",
         "@semantic-release/commit-analyzer": "^9.0.2",
         "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
-        "@semantic-release/github": "^8.0.4",
-        "@semantic-release/npm": "^9.0.1",
+        "@semantic-release/github": "^8.0.5",
         "@semantic-release/release-notes-generator": "^10.0.3",
+        "@semrel-extra/npm": "^1.2.2",
         "commitizen": "^4.2.4",
         "conventional-changelog-conventionalcommits": "^5.0.0",
         "cz-conventional-changelog": "^3.3.0",
         "semantic-release-conventional-commits": "^3.0.0"
     },
     "devDependencies": {
-        "semantic-release": "^19.0.2"
+        "semantic-release": "^19.0.3"
     },
     "peerDependencies": {
-        "semantic-release": "^19.0.2"
+        "semantic-release": "^19.0.3"
     },
     "engines": {
         "node": ">=16"
     },
     "publishConfig": {
         "access": "public"
+    },
+    "pnpm": {
+        "overrides": {
+            "glob-parent@<5.1.2": ">=5.1.2",
+            "minimist@<1.2.6": ">=1.2.6",
+            "chrono-node@<2.2.4": ">=2.2.4",
+            "yargs-parser@>=6.0.0 <13.1.2": ">=13.1.2",
+            "trim@<0.0.3": ">=0.0.3",
+            "trim-newlines@<3.0.1": ">=3.0.1",
+            "moment@<2.29.2": ">=2.29.2",
+            "semver-regex@<3.1.4": ">=3.1.4",
+            "npm@>=7.9.0 <8.11.0": ">=8.11.0",
+            "got@<11.8.5": ">=11.8.5",
+            "moment@>=2.18.0 <2.29.4": ">=2.29.4",
+            "ansi-regex@>=3.0.0 <3.0.1": ">=3.0.1",
+            "ansi-regex@>=4.0.0 <4.1.1": ">=4.1.1"
+        }
     }
 }

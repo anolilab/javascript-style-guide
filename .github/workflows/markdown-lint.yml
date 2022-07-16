@@ -31,10 +31,10 @@ jobs:
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
-            - name: "Use Node.js 16.x"
+            - name: "Use Node.js 18.x"
               uses: "actions/setup-node@v3"
               with:
-                  node-version: "16.x"
+                  node-version: "18.x"
                   registry-url: "${{ env.registry_url }}"
                   # Defaults to the user or organization that owns the workflow file
                   scope: "@${{ env.scope }}"

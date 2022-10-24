@@ -1,3 +1,10 @@
+## @anolilab/textlint-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.5...@anolilab/textlint-config@4.1.0) (2022-10-24)
+
+
+### Features
+
+* updated deps and start using node postfix for node libs ([05a1355](https://github.com/anolilab/javascript-style-guide/commit/05a1355931ff1d8b15cf26fe206914f1a5106132))
+
 ## @anolilab/textlint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.4...@anolilab/textlint-config@4.0.5) (2022-07-16)
 
 

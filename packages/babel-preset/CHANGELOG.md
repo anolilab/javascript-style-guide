@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [5.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.0.4...@anolilab/babel-preset@5.1.0) (2022-10-24)
+
+
+### Features
+
+* updated deps and start using node postfix for node libs ([05a1355](https://github.com/anolilab/javascript-style-guide/commit/05a1355931ff1d8b15cf26fe206914f1a5106132))
+
 ## @anolilab/babel-preset [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.0.3...@anolilab/babel-preset@5.0.4) (2022-07-16)
 
 

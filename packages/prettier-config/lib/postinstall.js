@@ -56,6 +56,7 @@ const writePrettierIgnore = () => {
     return writeFileAsync(prettierPath, "", "utf-8");
 };
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
     try {
         // eslint-disable-next-line compat/compat

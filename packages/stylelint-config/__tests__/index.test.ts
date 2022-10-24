@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 import Index from "../index.cjs";
 
 describe("eslint", () => {

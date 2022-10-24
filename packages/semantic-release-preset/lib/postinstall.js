@@ -92,6 +92,7 @@ const writeCzrc = () => {
     return writeFileAsync(filePath, content, "utf-8");
 };
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
     try {
         await writeReleaserc();

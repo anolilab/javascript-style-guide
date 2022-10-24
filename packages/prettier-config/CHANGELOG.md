@@ -1,3 +1,10 @@
+## @anolilab/prettier-config [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@3.0.2...@anolilab/prettier-config@3.1.0) (2022-10-24)
+
+
+### Features
+
+* updated deps and start using node postfix for node libs ([02a71cb](https://github.com/anolilab/javascript-style-guide/commit/02a71cb010619761e94381a335935cddd3039ac2))
+
 ## @anolilab/prettier-config [3.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@3.0.1...@anolilab/prettier-config@3.0.2) (2022-07-16)
 
 

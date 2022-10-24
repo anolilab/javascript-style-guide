@@ -1,3 +1,16 @@
+## @anolilab/stylelint-config [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@3.0.4...@anolilab/stylelint-config@3.1.0) (2022-10-24)
+
+
+### Features
+
+* updated deps and start using node postfix for node libs ([02a71cb](https://github.com/anolilab/javascript-style-guide/commit/02a71cb010619761e94381a335935cddd3039ac2))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 3.1.0
+
 ## @anolilab/stylelint-config [3.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@3.0.3...@anolilab/stylelint-config@3.0.4) (2022-07-16)
 
 

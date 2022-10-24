@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 const checkMissing = require("./lib/check-missing.cjs");
 const showLoaded = require("./lib/show-loaded.cjs");
 const { rules, pluginRules, extraInstallPackage } = require("./config.cjs");

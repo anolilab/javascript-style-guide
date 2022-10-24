@@ -281,5 +281,11 @@ module.exports = {
                 "react/require-default-props": "off",
             },
         },
+        {
+            files: ["*.d.ts"],
+            rules: {
+                "import/no-duplicates": "off",
+            },
+        },
     ],
 };

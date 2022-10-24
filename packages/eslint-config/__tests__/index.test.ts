@@ -1,3 +1,5 @@
+import { describe, expect, it } from "vitest";
+
 // eslint-disable-next-line unicorn/prefer-module
 const config = require("../index.cjs");
 

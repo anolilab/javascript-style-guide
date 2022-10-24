@@ -10,11 +10,15 @@ const pRules = [
     "eslint-comments",
     "import",
     "json",
+    "jsonc",
+    "jsonc",
     "markdown",
     "optimize-regex",
     "promise",
     "simple-import-sort",
+    "toml",
     "unicorn",
+    "yml",
     "you-dont-need-lodash-underscore",
     "you-dont-need-momentjs",
 
@@ -27,13 +31,13 @@ const pRules = [
 const depRules = [
     "array-func",
     "html",
-    "mdx",
-    "react-redux",
-    "no-unsanitized",
-    "lodash",
-    ["lodash", "lodash-fp"],
     "jsdoc",
+    "lodash",
+    "mdx",
+    "no-unsanitized",
     "react",
+    "react-redux",
+    ["lodash", "lodash-fp"],
     ["react", "jsx-a11y"],
     ["react", "react-hooks"],
 ];
@@ -41,11 +45,11 @@ const depRules = [
 const testRules = [
     "cypress",
     "jest",
-    ["jest", "jest-async", "jest-dom"],
     "jest-dom",
-    ["jest-formatting", "jest"],
-    ["@testing-library/jest-dom", "jest-dom"],
     ["@testing-library/dom", "testing-library"],
+    ["@testing-library/jest-dom", "jest-dom"],
+    ["jest", "jest-async", "jest-dom"],
+    ["jest-formatting", "jest"],
 ];
 
 // Extra required optional packages

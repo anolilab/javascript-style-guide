@@ -1,7 +1,7 @@
 // From kcd-scripts
-const { existsSync, realpathSync } = require("fs");
+const { existsSync, realpathSync } = require("node:fs");
 // eslint-disable-next-line unicorn/import-style
-const { dirname, join } = require("path");
+const { dirname, join } = require("node:path");
 // eslint-disable-next-line lodash/import-scope
 const has = require("lodash.has");
 const readPkgUp = require("read-pkg-up");

@@ -6,10 +6,10 @@ if (process.env.CI) {
     process.exit(0);
 }
 
-const { writeFile, existsSync } = require("fs");
+const { writeFile, existsSync } = require("node:fs");
 // eslint-disable-next-line unicorn/import-style
-const { resolve, join } = require("path");
-const { promisify } = require("util");
+const { resolve, join } = require("node:path");
+const { promisify } = require("node:util");
 
 const writeFileAsync = promisify(writeFile);
 
@@ -95,6 +95,7 @@ const writeEslintIgnore = () => {
     return writeFileAsync(eslintIgnorePath, "", "utf-8");
 };
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
     try {
         // eslint-disable-next-line compat/compat

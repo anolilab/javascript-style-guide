@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.9...@anolilab/eslint-config@4.1.0) (2022-10-24)
+
+
+### Features
+
+* updated deps and start using node postfix for node libs added new rules for toml, jsonc, yml ([2ff3a71](https://github.com/anolilab/javascript-style-guide/commit/2ff3a7144aedcf8bbd11280fd444deb53c723698))
+
 ## @anolilab/eslint-config [4.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.8...@anolilab/eslint-config@4.0.9) (2022-07-16)
 
 

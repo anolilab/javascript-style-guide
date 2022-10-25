@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.1.0...@anolilab/eslint-config@4.1.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* removed "sort-keys-fix/sort-keys-fix" from yaml config ([1375112](https://github.com/anolilab/javascript-style-guide/commit/137511233a916a3855408f4abeab545b49e846bf))
+
 ## @anolilab/eslint-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.0.9...@anolilab/eslint-config@4.1.0) (2022-10-24)
 
 

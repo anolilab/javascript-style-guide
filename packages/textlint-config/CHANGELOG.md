@@ -1,3 +1,10 @@
+## @anolilab/textlint-config [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.1.0...@anolilab/textlint-config@4.1.1) (2022-10-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency textlint-rule-helper to v2.2.2 ([f173c39](https://github.com/anolilab/javascript-style-guide/commit/f173c39782de65450418817e2822571d8af5161f))
+
 ## @anolilab/textlint-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.0.5...@anolilab/textlint-config@4.1.0) (2022-10-24)
 
 

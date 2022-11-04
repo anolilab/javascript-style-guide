@@ -399,7 +399,7 @@ importers:
       textlint-rule-diacritics: 1.0.0
       textlint-rule-en-capitalization: 2.0.3
       textlint-rule-footnote-order: 1.0.3
-      textlint-rule-helper: 2.2.2
+      textlint-rule-helper: 2.2.3
       textlint-rule-no-dead-link: 4.8.0
       textlint-rule-no-empty-section: 1.1.0
       textlint-rule-no-todo: 2.0.1
@@ -409,24 +409,24 @@ importers:
     dependencies:
       '@textlint-rule/textlint-rule-no-invalid-control-character': 2.0.0
       '@textlint-rule/textlint-rule-no-unmatched-pair': 1.0.8
-      '@textlint-rule/textlint-rule-preset-google': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
+      '@textlint-rule/textlint-rule-preset-google': 0.1.2_@textlint+types@12.2.2
       '@textlint/ast-node-types': 12.2.2
       '@textlint/types': 12.2.2
       textlint-filter-rule-comments: 1.2.2_textlint@12.2.2
       textlint-rule-abbr-within-parentheses: 1.0.2
-      textlint-rule-alex: 3.0.0_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-alex: 3.0.0_@textlint+types@12.2.2
       textlint-rule-apostrophe: 2.0.0
       textlint-rule-common-misspellings: 1.0.1
       textlint-rule-date-weekday-mismatch: 1.0.6
       textlint-rule-diacritics: 1.0.0
-      textlint-rule-en-capitalization: 2.0.3_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-en-capitalization: 2.0.3_@textlint+types@12.2.2
       textlint-rule-footnote-order: 1.0.3
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
-      textlint-rule-no-dead-link: 4.8.0_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
+      textlint-rule-no-dead-link: 4.8.0_@textlint+types@12.2.2
       textlint-rule-no-empty-section: 1.1.0
-      textlint-rule-no-todo: 2.0.1_e6f5qegxjw2uhpjztc7wbhaveq
-      textlint-rule-terminology: 3.0.4_e6f5qegxjw2uhpjztc7wbhaveq
-      textlint-rule-write-good: 2.0.0_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-no-todo: 2.0.1_@textlint+types@12.2.2
+      textlint-rule-terminology: 3.0.4_@textlint+types@12.2.2
+      textlint-rule-write-good: 2.0.0_@textlint+types@12.2.2
       write-good: 1.0.8
     devDependencies:
       textlint: 12.2.2
@@ -2813,7 +2813,7 @@ packages:
       match-test-replace: 1.1.18
       nlcst-parse-english: 1.1.4
       nlcst-to-string: 2.0.4
-      textlint-rule-helper: 2.2.2_campvecnbogrzyfxsbctmlbgjq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
       textlint-util-to-string: 2.1.1
       unist-util-find: 1.0.2
     transitivePeerDependencies:
@@ -2837,12 +2837,11 @@ packages:
       - '@textlint/types'
     dev: false
 
-  /@textlint-rule/textlint-rule-google-capitalization/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-google-capitalization/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-y6Gj+7Vh5eKJ/a0u9BbH7Q43DJYqne75AA0J6vfHt41k449Y3yasAkib4Lfqji786WRvbVmNt7wjZ+v6k+MQEQ==}
     dependencies:
-      textlint-rule-en-capitalization: 2.0.3_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-en-capitalization: 2.0.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -2878,13 +2877,12 @@ packages:
       - '@textlint/types'
     dev: false
 
-  /@textlint-rule/textlint-rule-google-dashes/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-google-dashes/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-2G0F/2few1vlYPSiCzkTxaBMCs6TdWei6F0uH6dTFTaB6DLFMHOinTF8ZJfyU7NE+KTqdFMbd8FfcgSk9Awi9g==}
     dependencies:
       '@textlint-rule/textlint-report-helper-for-google-preset': 0.1.2_@textlint+types@12.2.2
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -2896,12 +2894,11 @@ packages:
       - '@textlint/types'
     dev: false
 
-  /@textlint-rule/textlint-rule-google-exclamation-points/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-google-exclamation-points/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-CgGaSeyL9oyigNxfr3/t+/X4LwF4hWoRZJII7LtQd/ujDzoQ29XqeL2m9SKSpM8LXySSkUnqNcNPWuUjJ01nDA==}
     dependencies:
-      textlint-rule-no-exclamation-question-mark: 1.1.0_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-no-exclamation-question-mark: 1.1.0_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -2937,24 +2934,22 @@ packages:
       - '@textlint/types'
     dev: false
 
-  /@textlint-rule/textlint-rule-google-sentence-spacing/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-google-sentence-spacing/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-rbZjMf7AGlzrOfVPuY30zEIvX9wkrUqegqx/IZobSyPXDAZsgWSeVbKATtoXionv/3sfR3PEEWFRbk+KvP5fkQ==}
     dependencies:
       sentence-splitter: 2.3.2
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
       textlint-util-to-string: 2.1.1
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
-  /@textlint-rule/textlint-rule-google-slashes/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-google-slashes/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-Bn1fuFPuTwYeSv/MtO2aFgLc+AF6D2wg191dIlMZSWWrf1E4ue3ncmRoDFq5YfsaeXzdB4BU2+LmnxdoRUjAbA==}
     dependencies:
       '@textlint-rule/textlint-report-helper-for-google-preset': 0.1.2_@textlint+types@12.2.2
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -2987,29 +2982,28 @@ packages:
       textlint-rule-helper: 2.0.1
     dev: false
 
-  /@textlint-rule/textlint-rule-preset-google/0.1.2_e6f5qegxjw2uhpjztc7wbhaveq:
+  /@textlint-rule/textlint-rule-preset-google/0.1.2_@textlint+types@12.2.2:
     resolution: {integrity: sha512-Q4G4HsLmue1XPK2F7AmIMVf1L5URv8vLs8Yx7Qm3sBBQoy+hhMSVCjJMzSwJpD9oWRWuLSReBlBtdRFArFXlVA==}
     dependencies:
       '@textlint-rule/textlint-rule-google-abbreviations': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-articles': 0.1.2_@textlint+types@12.2.2
-      '@textlint-rule/textlint-rule-google-capitalization': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
+      '@textlint-rule/textlint-rule-google-capitalization': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-clause-order': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-colons': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-commas': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-contractions': 0.1.2_@textlint+types@12.2.2
-      '@textlint-rule/textlint-rule-google-dashes': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
+      '@textlint-rule/textlint-rule-google-dashes': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-ellipses': 0.1.2_@textlint+types@12.2.2
-      '@textlint-rule/textlint-rule-google-exclamation-points': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
+      '@textlint-rule/textlint-rule-google-exclamation-points': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-hyphens': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-plurals-parentheses': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-possessives': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-quotation-marks': 0.1.2_@textlint+types@12.2.2
-      '@textlint-rule/textlint-rule-google-sentence-spacing': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
-      '@textlint-rule/textlint-rule-google-slashes': 0.1.2_e6f5qegxjw2uhpjztc7wbhaveq
+      '@textlint-rule/textlint-rule-google-sentence-spacing': 0.1.2_@textlint+types@12.2.2
+      '@textlint-rule/textlint-rule-google-slashes': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-tone': 0.1.2_@textlint+types@12.2.2
       '@textlint-rule/textlint-rule-google-word-list': 0.1.2_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -12845,13 +12839,12 @@ packages:
       match-index: 1.0.3
     dev: false
 
-  /textlint-rule-alex/3.0.0_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-alex/3.0.0_@textlint+types@12.2.2:
     resolution: {integrity: sha512-z/Xo1WHxAn7eueUbRLXoMNew+R3dzGENPG/yiCt/KT2WgAfRuQ7GeF855kLcnCCqdTnl6W7sYq8TKy+/DLpiqQ==}
     dependencies:
       alex: 9.1.1
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
       - supports-color
     dev: false
@@ -12886,14 +12879,13 @@ packages:
       strip-json-comments: 3.1.1
     dev: false
 
-  /textlint-rule-en-capitalization/2.0.3_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-en-capitalization/2.0.3_@textlint+types@12.2.2:
     resolution: {integrity: sha512-tIx2gzm3okWfK5+0NNV1ap21LHk9PTc2/IXNqFhd7RDVSqv7YFaZnhwL+UrBZXTEfOh6VgnTQd81Os2Akzas5g==}
     dependencies:
       en-pos: 1.0.16
       sentence-splitter: 3.2.2
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
@@ -12913,31 +12905,11 @@ packages:
       unist-util-visit: 1.4.1
     dev: false
 
-  /textlint-rule-helper/2.2.2_campvecnbogrzyfxsbctmlbgjq:
-    resolution: {integrity: sha512-iwyRBbTQCH6aHUIXxdlK+R6hNQO82QpQ0sduygdW2jqLCJJhvdQESBwZLq7AEbeWS9IdA7k0BQxQxJR06gZXJQ==}
+  /textlint-rule-helper/2.2.3_@textlint+types@12.2.2:
+    resolution: {integrity: sha512-H499NRHVurHTFXTL+w/FI+aX6YgZD1TAFuR6kHqYDQ2ArGwkCbnRu+so+deweTFEUI4etP7EVMsrLwXP1e2Q+w==}
     peerDependencies:
-      '@textlint/ast-node-types': ^12.1.0
       '@textlint/types': ^12.1.0
     peerDependenciesMeta:
-      '@textlint/ast-node-types':
-        optional: true
-      '@textlint/types':
-        optional: true
-    dependencies:
-      '@textlint/ast-node-types': 4.4.3
-      '@textlint/types': 12.2.2
-      structured-source: 3.0.2
-      unist-util-visit: 2.0.3
-    dev: false
-
-  /textlint-rule-helper/2.2.2_e6f5qegxjw2uhpjztc7wbhaveq:
-    resolution: {integrity: sha512-iwyRBbTQCH6aHUIXxdlK+R6hNQO82QpQ0sduygdW2jqLCJJhvdQESBwZLq7AEbeWS9IdA7k0BQxQxJR06gZXJQ==}
-    peerDependencies:
-      '@textlint/ast-node-types': ^12.1.0
-      '@textlint/types': ^12.1.0
-    peerDependenciesMeta:
-      '@textlint/ast-node-types':
-        optional: true
       '@textlint/types':
         optional: true
     dependencies:
@@ -12947,7 +12919,7 @@ packages:
       unist-util-visit: 2.0.3
     dev: false
 
-  /textlint-rule-no-dead-link/4.8.0_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-no-dead-link/4.8.0_@textlint+types@12.2.2:
     resolution: {integrity: sha512-jB45mvIhKdgLFs4kDzfn8Q3C1WBv+BGI6At07ZJd9YmM/+dm+P8W9urisBSXFeQcYoGcaXqDiKZwK9BpdnpciQ==}
     engines: {node: '>=4'}
     dependencies:
@@ -12957,9 +12929,8 @@ packages:
       node-fetch: 2.6.7
       p-memoize: 3.1.0
       p-queue: 6.6.2
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
       - encoding
     dev: false
@@ -12970,46 +12941,42 @@ packages:
       select-section: 0.4.6
     dev: false
 
-  /textlint-rule-no-exclamation-question-mark/1.1.0_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-no-exclamation-question-mark/1.1.0_@textlint+types@12.2.2:
     resolution: {integrity: sha512-FcBH3uH2qp5VG7I9LKwolUCcPigONcsdam1JhAFPcu10YZNYX0r1l2y9Hzg+E4+1fXLgtGyiObWwfsfelTx8Bw==}
     dependencies:
       '@textlint/regexp-string-matcher': 1.1.0
       match-index: 1.0.3
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
-  /textlint-rule-no-todo/2.0.1_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-no-todo/2.0.1_@textlint+types@12.2.2:
     resolution: {integrity: sha512-+adoWaBgoTN2g0WNcrERhVq7gdPKQIf1z7Ol+6XwMGv8XmuoFp5vJljHKtCmJBmGhBihjty2b8oaza2MY6UNlw==}
     dependencies:
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
-  /textlint-rule-terminology/3.0.4_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-terminology/3.0.4_@textlint+types@12.2.2:
     resolution: {integrity: sha512-obQ3y0hqX6OWCrM8K5K6WSJGE4BOyNfGF6hUGPet56taTm/xzkRu8XA6vpn2GFr4zom/oMa0sBJ3OtDWCgrS/g==}
     engines: {node: '>=14'}
     dependencies:
       lodash: 4.17.21
       strip-json-comments: 3.1.1
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
     dev: false
 
-  /textlint-rule-write-good/2.0.0_e6f5qegxjw2uhpjztc7wbhaveq:
+  /textlint-rule-write-good/2.0.0_@textlint+types@12.2.2:
     resolution: {integrity: sha512-yvOJavJD+PgyUzvsoLDDzDtgCVBva/HNhEvsFnYVugrWz0qy2hr+/4B4wkzjro4wfPbwz20GQe5h13N4DeUEeA==}
     engines: {node: '>=6'}
     dependencies:
-      textlint-rule-helper: 2.2.2_e6f5qegxjw2uhpjztc7wbhaveq
+      textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
       write-good: 1.0.8
     transitivePeerDependencies:
-      - '@textlint/ast-node-types'
       - '@textlint/types'
       - eslint-plugin-import
       - eslint-plugin-jsx-a11y

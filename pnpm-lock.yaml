@@ -400,7 +400,7 @@ importers:
       textlint-rule-en-capitalization: 2.0.3
       textlint-rule-footnote-order: 1.0.3
       textlint-rule-helper: 2.2.3
-      textlint-rule-no-dead-link: 4.8.0
+      textlint-rule-no-dead-link: 5.1.2
       textlint-rule-no-empty-section: 1.1.0
       textlint-rule-no-todo: 2.0.1
       textlint-rule-terminology: 3.0.4
@@ -422,7 +422,7 @@ importers:
       textlint-rule-en-capitalization: 2.0.3_@textlint+types@12.2.2
       textlint-rule-footnote-order: 1.0.3
       textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
-      textlint-rule-no-dead-link: 4.8.0_@textlint+types@12.2.2
+      textlint-rule-no-dead-link: 5.1.2_epupeipuyrkjuuue3unoyxubsu
       textlint-rule-no-empty-section: 1.1.0
       textlint-rule-no-todo: 2.0.1_@textlint+types@12.2.2
       textlint-rule-terminology: 3.0.4_@textlint+types@12.2.2
@@ -10072,6 +10072,7 @@ packages:
     dependencies:
       brace-expansion: 1.1.11
     dev: false
+    optional: true
 
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -10558,7 +10559,7 @@ packages:
     dev: false
 
   /p-defer/1.0.0:
-    resolution: {integrity: sha1-n26xgvbJqozXQwBKfU+WsZaw+ww=}
+    resolution: {integrity: sha512-wB3wfAxZpk2AzOfUMJNL+d36xothRSyj8EXOa4f6GMqYDN9BJaaSISbsk+wS9abmnebVw95C2Kb5t85UmpCxuw==}
     engines: {node: '>=4'}
     dev: false
 
@@ -10573,7 +10574,7 @@ packages:
       p-map: 2.1.0
 
   /p-finally/1.0.0:
-    resolution: {integrity: sha1-P7z7FbiZpEEjs0ttzBi3JDNqLK4=}
+    resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
     engines: {node: '>=4'}
     dev: false
 
@@ -12977,16 +12978,22 @@ packages:
       unist-util-visit: 2.0.3
     dev: false
 
-  /textlint-rule-no-dead-link/4.8.0_@textlint+types@12.2.2:
-    resolution: {integrity: sha512-jB45mvIhKdgLFs4kDzfn8Q3C1WBv+BGI6At07ZJd9YmM/+dm+P8W9urisBSXFeQcYoGcaXqDiKZwK9BpdnpciQ==}
+  /textlint-rule-no-dead-link/5.1.2_epupeipuyrkjuuue3unoyxubsu:
+    resolution: {integrity: sha512-TXJKXL5WU6dtSbRuNli91D0emY8hQTBP1VUSbq2Ka+zDMoE/vqkzsAyVl7V7YuiwW8URXfc98BzYHu4NDAdQLw==}
     engines: {node: '>=4'}
+    peerDependencies:
+      textlint: '>= 12.2.0'
+    peerDependenciesMeta:
+      textlint:
+        optional: true
     dependencies:
       fs-extra: 8.1.0
       get-url-origin: 1.0.1
-      minimatch: 3.1.1
+      minimatch: 3.1.2
       node-fetch: 2.6.7
       p-memoize: 3.1.0
       p-queue: 6.6.2
+      textlint: 12.2.2
       textlint-rule-helper: 2.2.3_@textlint+types@12.2.2
     transitivePeerDependencies:
       - '@textlint/types'

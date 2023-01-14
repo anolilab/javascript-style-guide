@@ -1,3 +1,10 @@
+## browserslist-config-anolilab [3.2.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@3.1.0...browserslist-config-anolilab@3.2.0) (2023-01-14)
+
+
+### Features
+
+* updated deps ([e9927e9](https://github.com/anolilab/javascript-style-guide/commit/e9927e94a9d256ef4b34aafe4b15c265190de8ba))
+
 ## browserslist-config-anolilab [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@3.0.4...browserslist-config-anolilab@3.1.0) (2022-10-24)
 
 

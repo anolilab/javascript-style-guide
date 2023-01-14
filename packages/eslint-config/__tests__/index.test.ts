@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-// eslint-disable-next-line unicorn/prefer-module
-const config = require("../index.cjs");
+// eslint-disable-next-line unicorn/prefer-module,@typescript-eslint/no-require-imports
+const config = require("../index.cjs") as {
+    extends: string[];
+    plugins: string[];
+    ignorePatterns: string[];
+};
 
 describe("eslint", () => {
     it("should output no error", async () => {

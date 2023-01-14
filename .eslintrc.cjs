@@ -6,8 +6,7 @@ module.exports = {
     root: true,
     overrides: [
         {
-            files: ["*.ts", "*.tsx"],
-
+            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
             parserOptions: {
                 project: "./tsconfig.json",
                 // eslint-disable-next-line no-undef
@@ -22,7 +21,6 @@ module.exports = {
         commonjs: true,
         es6: true,
         // mocha: true,
-        jest: true,
         // jquery: true
     },
     globals: {

@@ -40,6 +40,7 @@ const depRules = [
     ["lodash", "lodash-fp"],
     ["react", "jsx-a11y"],
     ["react", "react-hooks"],
+    "tailwindcss",
 ];
 
 const testRules = [

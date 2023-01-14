@@ -1,3 +1,10 @@
+## @anolilab/textlint-config [4.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.1.2...@anolilab/textlint-config@4.2.0) (2023-01-14)
+
+
+### Features
+
+* updated deps ([e9927e9](https://github.com/anolilab/javascript-style-guide/commit/e9927e94a9d256ef4b34aafe4b15c265190de8ba))
+
 ## @anolilab/textlint-config [4.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.1.1...@anolilab/textlint-config@4.1.2) (2022-11-04)
 
 

@@ -355,7 +355,7 @@ importers:
 
   packages/stylelint-config:
     specifiers:
-      browserslist-config-anolilab: 3.1.0
+      browserslist-config-anolilab: 3.2.0
       lodash: ^4.17.21
       postcss: ^8.4.21
       stylelint: 14.16.1
@@ -6744,6 +6744,7 @@ packages:
   /eslint-plugin-tailwindcss/3.8.0:
     resolution: {integrity: sha512-Lsyncgp/eXZriAEUK9zfGHOH+9iQplygHiOuGY8SFFHKIeT0BYjyST/ownHF8UPa1TEh+jJPkdE2vlV3778C3w==}
     engines: {node: '>=12.13.0'}
+    requiresBuild: true
     dependencies:
       fast-glob: 3.2.12
       postcss: 8.4.21

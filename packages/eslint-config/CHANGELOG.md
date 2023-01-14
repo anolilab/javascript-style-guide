@@ -1,3 +1,14 @@
+## @anolilab/eslint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.1.1...@anolilab/eslint-config@5.0.0) (2023-01-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **eslint-config:** Added new strict rules for typescript, for better code
+
+### Features
+
+* **eslint-config:** added strict rules ([d9bb441](https://github.com/anolilab/javascript-style-guide/commit/d9bb44105e150900d6d8d5099a20d0fa8f217e0d))
+
 ## @anolilab/eslint-config [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.1.0...@anolilab/eslint-config@4.1.1) (2022-10-25)
 
 

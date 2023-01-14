@@ -28,7 +28,7 @@
         "lint:text:fix": "textlint \"./packages/**/README.md\" ./README.md ./UPGRADE.md --parallel --experimental --fix",
         "sort-package-json": "sort-package-json ./packages/**/package.json",
         "test": "vitest --config ./vitest.config.ts",
-        "test:all": "pnpm test && pnpm test:stylelint && pnpm test:babel",
+        "test:all": "pnpm test:coverage && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/index.cjs ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:coverage": "vitest --config ./vitest.config.ts run --coverage",
         "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config ./packages/stylelint-config/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"

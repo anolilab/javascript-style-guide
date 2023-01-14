@@ -24,7 +24,7 @@ module.exports = declare((api, options) => {
         corejs = false,
     } = options;
 
-    if (typeof modules !== "undefined" && typeof modules !== "boolean" && modules !== "auto") {
+    if (modules !== undefined && typeof modules !== "boolean" && modules !== "auto") {
         throw new TypeError(
             '@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
         );

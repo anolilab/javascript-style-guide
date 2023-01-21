@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.0...@anolilab/eslint-config@5.0.1) (2023-01-21)
+
+
+### Bug Fixes
+
+* **eslint-config:** disabled the @typescript-eslint/no-non-null-assertion ([c0337f3](https://github.com/anolilab/javascript-style-guide/commit/c0337f3d90db9649c1bc92d20296cf4e078a88bd))
+
 ## @anolilab/eslint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@4.1.1...@anolilab/eslint-config@5.0.0) (2023-01-14)
 
 

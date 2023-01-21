@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.1...@anolilab/eslint-config@5.0.2) (2023-01-21)
+
+
+### Bug Fixes
+
+* **eslint-config:** disabled non-nullable-type-assertion-style and enabled the no-non-null-assertion ([380d16a](https://github.com/anolilab/javascript-style-guide/commit/380d16a02a37b5e9c38f8820e038e6e16e6e7028))
+
 ## @anolilab/eslint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.0...@anolilab/eslint-config@5.0.1) (2023-01-21)
 
 

@@ -12,7 +12,7 @@ let { indent } = baseStyleRules;
 
 if (hasDep("prettier")) {
     // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigPrettier) {
+    if (!global?.hasAnolilabEsLintConfigPrettier) {
         global.hasAnolilabEsLintConfigPrettier = true;
 
         consoleLog(
@@ -77,7 +77,7 @@ module.exports = {
                         format: ["camelCase", "PascalCase"],
                     },
                     // eslint-disable-next-line max-len
-                    // recommends PascalCase for classes (23.3), and although does not make TypeScript recommendations, we are assuming this rule would similarly apply to anything "type like", including interfaces, type aliases, and enums
+                    // recommends PascalCase for classes (23.3), and although it does not make TypeScript recommendations, we are assuming this rule would similarly apply to anything "type like", including interfaces, type aliases, and enums
                     {
                         selector: "typeLike",
                         format: ["PascalCase"],
@@ -262,7 +262,7 @@ module.exports = {
                 ],
 
                 // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
-                // Some of the rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
+                // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
                 "constructor-super": "off",
                 "getter-return": "off",
                 "no-const-assign": "off",
@@ -313,7 +313,7 @@ module.exports = {
                 // Disallow duplicate enum member values.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.md
                 "@typescript-eslint/no-duplicate-enum-values": "error",
-                // Disallow using the delete operator on computed key expressions.
+                // Disallow using to delete operator on computed key expressions.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-dynamic-delete.md
                 "@typescript-eslint/no-dynamic-delete": "warn",
                 // Disallow extra non-null assertions.
@@ -340,9 +340,9 @@ module.exports = {
                 // Disallow non-null assertions after an optional chain expression.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.md
                 "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
-                // Disallow non-null assertions using the ! postfix operator. This rule is disabled by @typescript-eslint/non-nullable-type-assertion-style.
+                // Disallow non-null assertions using the ! postfix operator.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
-                "@typescript-eslint/no-non-null-assertion": "off",
+                "@typescript-eslint/no-non-null-assertion": "error",
                 // Disallow invocation of require().
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.md
                 "@typescript-eslint/no-require-imports": "error",
@@ -358,7 +358,7 @@ module.exports = {
                 // Disallow type arguments that are equal to the default.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-arguments.md
                 "@typescript-eslint/no-unnecessary-type-arguments": "error",
-                // Disallow type assertions that do not change the type of an expression.
+                // Disallow type assertions that do not change the type of expression.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
                 "@typescript-eslint/no-unnecessary-type-assertion": "error",
                 // Disallow unnecessary constraints on generic types.
@@ -385,9 +385,9 @@ module.exports = {
                 // Disallow empty exports that don't change anything in a module file.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.md
                 "@typescript-eslint/no-useless-empty-export": "error",
-                // Enforce non-null assertions over explicit type casts.
+                // Enforce non-null assertions over explicit type casts. This rule is disabled by @typescript-eslint/no-non-null-assertion.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
-                "@typescript-eslint/non-nullable-type-assertion-style": "error",
+                "@typescript-eslint/non-nullable-type-assertion-style": "off",
                 // Require each enum member value to be explicitly initialized.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-enum-initializers.md
                 "@typescript-eslint/prefer-enum-initializers": "error",

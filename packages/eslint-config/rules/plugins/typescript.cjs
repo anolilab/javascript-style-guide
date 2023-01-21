@@ -340,9 +340,9 @@ module.exports = {
                 // Disallow non-null assertions after an optional chain expression.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.md
                 "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
-                // Disallow non-null assertions using the ! postfix operator.
+                // Disallow non-null assertions using the ! postfix operator. This rule is disabled by @typescript-eslint/non-nullable-type-assertion-style.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
-                "@typescript-eslint/no-non-null-assertion": "error",
+                "@typescript-eslint/no-non-null-assertion": "off",
                 // Disallow invocation of require().
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.md
                 "@typescript-eslint/no-require-imports": "error",

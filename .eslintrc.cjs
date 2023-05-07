@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-const config = require("@anolilab/eslint-config");
+const config = require("./packages/eslint-config");
 
 module.exports = {
     ...config,

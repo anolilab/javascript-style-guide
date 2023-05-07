@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.2...@anolilab/eslint-config@5.0.3) (2023-05-07)
+
+
+### Bug Fixes
+
+* updated package deps ([34e24a0](https://github.com/anolilab/javascript-style-guide/commit/34e24a097c282f0b032a283225a1d91439b3f08e))
+
 ## @anolilab/eslint-config [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.1...@anolilab/eslint-config@5.0.2) (2023-01-21)
 
 

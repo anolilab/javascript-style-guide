@@ -14,7 +14,7 @@
     "license": "MIT",
     "author": "Daniel Bannert <d.bannert@anolilab.de>",
     "workspaces": [
-        "packages/eslint-config"
+        "packages/*"
     ],
     "scripts": {
         "preinstall": "node verify-node-version.cjs",

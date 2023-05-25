@@ -1,3 +1,12 @@
+## @anolilab/semantic-release-preset [2.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.2.0...@anolilab/semantic-release-preset@2.2.1) (2023-05-25)
+
+
+### Bug Fixes
+
+* changed @semrel-extra/npm to @semantic-release/npm because of esm support ([f76c2d4](https://github.com/anolilab/javascript-style-guide/commit/f76c2d4349acc74498ea75f123d2718025515708))
+* switched @semrel-extra/npm to @semantic-release/npm and added new example to the readme ([040da7b](https://github.com/anolilab/javascript-style-guide/commit/040da7bd69e5d9fd8a830b03cc59abdecd7dd3fc))
+* updated package deps ([34e24a0](https://github.com/anolilab/javascript-style-guide/commit/34e24a097c282f0b032a283225a1d91439b3f08e))
+
 ## @anolilab/semantic-release-preset [2.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.1.0...@anolilab/semantic-release-preset@2.2.0) (2023-01-14)
 
 

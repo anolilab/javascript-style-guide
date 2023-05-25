@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [5.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.4...@anolilab/eslint-config@5.0.5) (2023-05-25)
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 2.2.1
+
 ## @anolilab/eslint-config [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.3...@anolilab/eslint-config@5.0.4) (2023-05-25)
 
 

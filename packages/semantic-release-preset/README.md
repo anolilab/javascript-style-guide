@@ -142,6 +142,9 @@ What you’ll  want to do next is configure a [GitHub workflow](https://docs.git
 
 Here’s an example workflow configuration that runs your tests and publishes a new version for new commits on `main` branch:
 
+<details>
+<summary>Single semantic-release example with yarn</summary>
+
 ```yaml
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
@@ -250,6 +253,210 @@ jobs:
                 GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
               run: "yarn semantic-release"
 ```
+</details>
+
+To release multi package repositories, you need to install `@qiwi/multi-semantic-release` and `semantic-release`.
+
+<details>
+<summary>Multi package semantic-release example with pnpm</summary>
+
+```yaml
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Semantic Release"
+
+on: # yamllint disable-line rule:truthy
+    push:
+        branches:
+            - "([0-9])?(.{+([0-9]),x}).x"
+            - "main"
+            - "next"
+            - "next-major"
+            - "alpha"
+            - "beta"
+
+# Enable this to use the github packages
+# yamllint disable-line rule:comments
+#env:
+#    package: "@${{ github.repository }}"
+#    registry_url: "https://npm.pkg.github.com"
+#    scope: "${{ github.repository_owner }}"
+
+jobs:
+    test:
+        strategy:
+            matrix:
+                os: ["ubuntu-latest"]
+                node_version: ["16", "18", "19", "20"]
+            fail-fast: false
+
+        name: "Build & Unit Test: node-${{ matrix.node_version }}, ${{ matrix.os }}"
+
+        runs-on: "${{ matrix.os }}"
+
+        steps:
+            - name: "Git checkout"
+              uses: "actions/checkout@v3"
+              env:
+                  GIT_COMMITTER_NAME: "GitHub Actions Shell"
+                  GIT_AUTHOR_NAME: "GitHub Actions Shell"
+                  EMAIL: "github-actions[bot]@users.noreply.github.com"
+
+            - uses: "pnpm/action-setup@v2.2.4"
+              with:
+                  version: 7
+                  run_install: false
+
+            - name: "Set node version to ${{ matrix.node_version }}"
+              uses: "actions/setup-node@v3"
+              with:
+                  node-version: "${{ matrix.node_version }}"
+                  cache: "pnpm"
+
+            - name: "Get pnpm store directory"
+              id: "pnpm-cache"
+              run: |
+                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - uses: "actions/cache@v3"
+              name: "Setup pnpm cache"
+              with:
+                  path: "${{ steps.pnpm-cache.outputs.STORE_PATH }}"
+                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            # @see: https://github.com/pnpm/pnpm/issues/4348
+            - name: "Upgrade npm to 8.4 version"
+              run: "npm install --global npm@8.4"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Check npm version"
+              run: "npm -v"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Install packages"
+              run: "pnpm install --frozen-lockfile"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Build"
+              run: "pnpm run build:packages"
+
+            - name: "test and coverage"
+              run: "pnpm run test:coverage"
+
+    semantic-release:
+        name: "Semantic Release"
+
+        runs-on: "ubuntu-latest"
+
+        needs: ["test", "eslint"]
+
+        steps:
+            - name: "Git checkout"
+              uses: "actions/checkout@v3"
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
+              env:
+                  GIT_COMMITTER_NAME: "GitHub Actions Shell"
+                  GIT_AUTHOR_NAME: "GitHub Actions Shell"
+                  EMAIL: "github-actions[bot]@users.noreply.github.com"
+
+            - uses: "pnpm/action-setup@v2.2.4"
+              with:
+                  version: 7
+                  run_install: false
+
+            - name: "Use Node.js 16.x"
+              uses: "actions/setup-node@v3"
+              with:
+                  node-version: "16.x"
+                  cache: "pnpm"
+
+            - name: "Get pnpm store directory"
+              id: "pnpm-cache"
+              run: |
+                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - uses: "actions/cache@v3"
+              name: "Setup pnpm cache"
+              with:
+                  path: "${{ steps.pnpm-cache.outputs.STORE_PATH }}"
+                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            # @see: https://github.com/pnpm/pnpm/issues/4348
+            - name: "Upgrade npm to 8.4 version"
+              run: "npm install --global npm@8.4"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Check npm version"
+              run: "npm -v"
+              env:
+                  SKIP_CHECK: "true"
+
+            - name: "Install packages"
+              run: "pnpm install --frozen-lockfile"
+
+            - name: "Build Production"
+              run: "pnpm run build:prod:packages"
+
+            - name: "Semantic Release"
+              if: "success()"
+              env:
+                  GITHUB_TOKEN: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
+                  NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
+                  GIT_AUTHOR_NAME: "github-actions-shell"
+                  GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
+                  GIT_COMMITTER_NAME: "github-actions-shell"
+                  GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+              run: "pnpm multi-semantic-release"
+
+    pnpm-lock-update:
+        name: "pnpm-lock.yaml update"
+
+        runs-on: "ubuntu-latest"
+
+        needs: ["semantic-release"]
+
+        steps:
+            - name: "Git checkout"
+              uses: "actions/checkout@v3"
+              with:
+                  fetch-depth: 2
+              env:
+                  GIT_COMMITTER_NAME: "GitHub Actions Shell"
+                  GIT_AUTHOR_NAME: "GitHub Actions Shell"
+                  EMAIL: "github-actions[bot]@users.noreply.github.com"
+
+            - uses: "pnpm/action-setup@v2.2.4"
+              with:
+                  version: 7
+
+            - name: "Use Node.js 16.x"
+              uses: "actions/setup-node@v3"
+              with:
+                  node-version: "16.x"
+
+            - name: "Update pnpm lock"
+              run: "pnpm install --no-frozen-lockfile"
+
+            - name: "Commit modified files"
+              uses: "stefanzweifel/git-auto-commit-action@v4.16.0"
+              with:
+                  commit_message: "chore: updated pnpm-lock.yaml"
+                  commit_author: "prisis <d.bannert@anolilab.de>"
+                  commit_user_email: "d.bannert@anolilab.de"
+                  commit_user_name: "prisis"
+                  branch: "${{ github.head_ref }}"
+```
+</details>
 
 ## Note on GitHub protected branches
 

@@ -46,7 +46,7 @@ module.exports = {
         "comma-dangle": [
             "error",
             {
-                // eslint-disable-next-line radar/no-duplicate-string
+                // eslint-disable-next-line sonarjs/no-duplicate-string
                 arrays: "always-multiline",
                 objects: "always-multiline",
                 imports: "always-multiline",

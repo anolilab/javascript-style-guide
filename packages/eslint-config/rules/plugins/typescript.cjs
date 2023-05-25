@@ -89,7 +89,7 @@ module.exports = {
                 // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
                 "comma-dangle": "off",
                 "@typescript-eslint/comma-dangle": [
-                    // eslint-disable-next-line radar/no-duplicate-string
+                    // eslint-disable-next-line sonarjs/no-duplicate-string
                     baseStyleRules["comma-dangle"][0],
                     {
                         ...baseStyleRules["comma-dangle"][1],
@@ -238,7 +238,7 @@ module.exports = {
                 // Append 'ts' and 'tsx' to 'import/extensions' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
                 "import/extensions": [
-                    // eslint-disable-next-line radar/no-duplicate-string
+                    // eslint-disable-next-line sonarjs/no-duplicate-string
                     baseImportsRules["import/extensions"][0],
                     baseImportsRules["import/extensions"][1],
                     {
@@ -251,7 +251,7 @@ module.exports = {
                 // Append 'ts' and 'tsx' extensions to 'import/no-extraneous-dependencies' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
                 "import/no-extraneous-dependencies": [
-                    // eslint-disable-next-line radar/no-duplicate-string
+                    // eslint-disable-next-line sonarjs/no-duplicate-string
                     baseImportsRules["import/no-extraneous-dependencies"][0],
                     {
                         ...baseImportsRules["import/no-extraneous-dependencies"][1],

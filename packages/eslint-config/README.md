@@ -166,7 +166,7 @@ These plugins add code security rules to esLint:
 
 - [eslint-plugin-no-secrets](https://github.com/nickdeis/eslint-plugin-no-secrets)
 - [eslint-plugin-no-unsanitized](https://github.com/mozilla/eslint-plugin-no-unsanitized)
-- [eslint-plugin-radar](https://github.com/es-joy/eslint-plugin-radar)
+- [eslint-plugin-sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs)
 
 ### Test Libraries
 
@@ -187,7 +187,7 @@ Test plugins are loaded based on which testing tools you have listed in `devDepe
     - eslint-plugin-no-secrets
     - eslint-plugin-optimize-regex
     - eslint-plugin-promise
-    - eslint-plugin-radar
+    - eslint-plugin-sonarjs
     - eslint-plugin-simple-import-sort
     - eslint-plugin-sort-keys-fix
     - eslint-plugin-unicorn

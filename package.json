@@ -71,11 +71,15 @@
         "vitest": "^0.31.1"
     },
     "devDependencies": {
-        "@types/node": "20.2.3",
+        "@types/node": "18.16.14",
         "cross-env": "^7.0.3",
         "eslint": "^8.41.0",
         "eslint-plugin-lodash": "^7.4.0",
         "eslint-plugin-lodash-fp": "^2.2.0-a1"
+    },
+    "packageManager": "pnpm@8.5.1",
+    "engines": {
+        "node": ">=16.18.0 <=20.*"
     },
     "pnpm": {
         "overrides": {

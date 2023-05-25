@@ -24,7 +24,7 @@ const pRules = [
 
     // Security Rules
     "no-secrets",
-    "radar",
+    "sonarjs",
 ];
 
 // Optionals rules based on project dependencies

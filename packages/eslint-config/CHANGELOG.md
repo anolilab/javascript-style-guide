@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.3...@anolilab/eslint-config@5.0.4) (2023-05-25)
+
+
+### Bug Fixes
+
+* changed deprecated eslint-plugin-radar to eslint-plugin-sonarjs ([6452014](https://github.com/anolilab/javascript-style-guide/commit/6452014bd4cdc62a4bfabc91940e5dc29a66d907))
+
 ## @anolilab/eslint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.2...@anolilab/eslint-config@5.0.3) (2023-05-07)
 
 

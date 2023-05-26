@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [5.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.2.1...@anolilab/babel-preset@5.2.2) (2023-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update renovate-meta ([887c740](https://github.com/anolilab/javascript-style-guide/commit/887c7407701e0eeb6c7d9c161b79a02793f9307b))
+
 ## @anolilab/babel-preset [5.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.2.0...@anolilab/babel-preset@5.2.1) (2023-05-25)
 
 

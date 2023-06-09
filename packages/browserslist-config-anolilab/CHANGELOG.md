@@ -1,3 +1,14 @@
+## browserslist-config-anolilab [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@3.2.1...browserslist-config-anolilab@4.0.0) (2023-06-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs, so the type module was removed
+
+### Features
+
+* changed package to support cjs and mjs ([c7bd117](https://github.com/anolilab/javascript-style-guide/commit/c7bd117dfe63ee2bce4c0851b383bdb56880bab9))
+
 ## browserslist-config-anolilab [3.2.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@3.2.0...browserslist-config-anolilab@3.2.1) (2023-05-25)
 
 

@@ -304,7 +304,7 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.4"
               with:
-                  version: 7
+                  version: 8
                   run_install: false
 
             - name: "Set node version to ${{ matrix.node_version }}"
@@ -312,25 +312,6 @@ jobs:
               with:
                   node-version: "${{ matrix.node_version }}"
                   cache: "pnpm"
-
-            - name: "Get pnpm store directory"
-              id: "pnpm-cache"
-              run: |
-                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-            - uses: "actions/cache@v3"
-              name: "Setup pnpm cache"
-              with:
-                  path: "${{ steps.pnpm-cache.outputs.STORE_PATH }}"
-                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
-
-            # @see: https://github.com/pnpm/pnpm/issues/4348
-            - name: "Upgrade npm to 8.4 version"
-              run: "npm install --global npm@8.4"
-              env:
-                  SKIP_CHECK: "true"
 
             - name: "Check npm version"
               run: "npm -v"
@@ -368,7 +349,7 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.4"
               with:
-                  version: 7
+                  version: 8
                   run_install: false
 
             - name: "Use Node.js 16.x"
@@ -376,25 +357,6 @@ jobs:
               with:
                   node-version: "16.x"
                   cache: "pnpm"
-
-            - name: "Get pnpm store directory"
-              id: "pnpm-cache"
-              run: |
-                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-            - uses: "actions/cache@v3"
-              name: "Setup pnpm cache"
-              with:
-                  path: "${{ steps.pnpm-cache.outputs.STORE_PATH }}"
-                  key: "${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
-
-            # @see: https://github.com/pnpm/pnpm/issues/4348
-            - name: "Upgrade npm to 8.4 version"
-              run: "npm install --global npm@8.4"
-              env:
-                  SKIP_CHECK: "true"
 
             - name: "Check npm version"
               run: "npm -v"
@@ -406,6 +368,9 @@ jobs:
 
             - name: "Build Production"
               run: "pnpm run build:prod:packages"
+
+            - name: "npm v8.5+ requires workspaces-update to be set to false"
+              run: "echo 'workspaces-update=false' >> .npmrc"
 
             - name: "Semantic Release"
               if: "success()"
@@ -437,7 +402,7 @@ jobs:
 
             - uses: "pnpm/action-setup@v2.2.4"
               with:
-                  version: 7
+                  version: 8
 
             - name: "Use Node.js 16.x"
               uses: "actions/setup-node@v3"

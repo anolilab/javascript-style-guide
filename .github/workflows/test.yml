@@ -13,14 +13,14 @@ on: # yamllint disable-line rule:truthy
             - "beta"
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
     test:
         strategy:
             matrix:
                 os: ["ubuntu-latest"]
-                node_version: ["16", "17", "18", "19"]
+                node_version: ["16", "17", "18", "19", "20"]
                 include:
                     - os: "macos-latest"
                       node_version: "16"
@@ -36,7 +36,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: "Git checkout"
               uses: "actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2"

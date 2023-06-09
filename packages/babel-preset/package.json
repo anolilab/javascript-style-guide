@@ -53,7 +53,7 @@
         "build": "cross-env NODE_ENV=development tsup",
         "build:prod": "cross-env NODE_ENV=production tsup",
         "clean": "rimraf node_modules dist",
-        "postinstall": "node ./scripts/skip.js || node ./dist/postinstall.js"
+        "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
         "@anolilab/package-json-utils": "workspace:*",

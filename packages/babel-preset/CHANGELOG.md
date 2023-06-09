@@ -1,3 +1,19 @@
+## @anolilab/babel-preset [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.2.2...@anolilab/babel-preset@6.0.0) (2023-06-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs, so the type module was removed
+
+### Features
+
+* changed package to support cjs and mjs ([8e6384c](https://github.com/anolilab/javascript-style-guide/commit/8e6384cc554f18727b827f71055a47ad91bf9ab3))
+
+
+### Bug Fixes
+
+* found issues ([f810c74](https://github.com/anolilab/javascript-style-guide/commit/f810c740441d4d806bbc175a15f19bb38043c274))
+
 ## @anolilab/babel-preset [5.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.2.1...@anolilab/babel-preset@5.2.2) (2023-05-26)
 
 

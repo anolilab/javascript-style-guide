@@ -256,7 +256,7 @@ module.exports = {
                     {
                         ...baseImportsRules["import/no-extraneous-dependencies"][1],
                         devDependencies: baseImportsRules["import/no-extraneous-dependencies"][1].devDependencies.map(
-                            (glob) => glob.replace(/\bjs(x?)\b/g, "ts$1"),
+                            (glob) => glob.replaceAll(/\bjs(x?)\b/g, "ts$1"),
                         ),
                     },
                 ],

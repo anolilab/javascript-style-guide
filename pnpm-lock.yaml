@@ -71,7 +71,10 @@ importers:
       '@tsconfig/strictest':
         specifier: ^2.0.1
         version: 2.0.1
-      '@vitest/coverage-v8':
+      '@types/node':
+        specifier: 16.18.34
+        version: 16.18.34
+      '@vitest/coverage-c8':
         specifier: ^0.32.0
         version: 0.32.0(vitest@0.32.0)
       babel-plugin-transform-es2015-modules-commonjs:
@@ -86,9 +89,21 @@ importers:
       conventional-changelog-conventionalcommits:
         specifier: ^6.0.0
         version: 6.0.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0
+      eslint:
+        specifier: ^8.42.0
+        version: 8.42.0
+      eslint-plugin-lodash:
+        specifier: ^7.4.0
+        version: 7.4.0(eslint@8.42.0)
+      eslint-plugin-lodash-fp:
+        specifier: ^2.2.0-a1
+        version: 2.2.0-a1(eslint@8.42.0)
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -128,22 +143,6 @@ importers:
       vitest:
         specifier: ^0.32.0
         version: 0.32.0
-    devDependencies:
-      '@types/node':
-        specifier: 16.18.34
-        version: 16.18.34
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      eslint-plugin-lodash:
-        specifier: ^7.4.0
-        version: 7.4.0(eslint@8.42.0)
-      eslint-plugin-lodash-fp:
-        specifier: ^2.2.0-a1
-        version: 2.2.0-a1(eslint@8.42.0)
 
   packages/babel-preset:
     dependencies:
@@ -372,8 +371,8 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
       read-pkg-up:
-        specifier: 9.1.0
-        version: 9.1.0
+        specifier: 7.0.1
+        version: 7.0.1
       semver:
         specifier: ^7.5.1
         version: 7.5.1
@@ -1034,6 +1033,7 @@ packages:
   /@babel/helper-validator-identifier@7.19.1:
     resolution: {integrity: sha512-awrNfaMtnHUr653GgGEs++LlAvW6w+DcPrOliSMXWCKo597CwL5Acf/wWdNkf/tfEQE3mjkeD1YOVZOUV/od1w==}
     engines: {node: '>=6.9.0'}
+    dev: false
 
   /@babel/helper-validator-identifier@7.22.5:
     resolution: {integrity: sha512-aJXu+6lErq8ltp+JhkJUfk1MTGyuA4v7f3pA+BJ5HLfNC6nAQ0Cpi9uOquUj8Hehg0aUiHzWQbOVJGao6ztBAQ==}
@@ -1069,7 +1069,7 @@ packages:
     resolution: {integrity: sha512-u7stbOuYjaPezCuLj29hNW1v64M2Md2qupEKP1fHc7WdOA3DgLh37suiSrZYY7haUB7iBeQZ9P1uiRF359do3g==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/helper-validator-identifier': 7.19.1
+      '@babel/helper-validator-identifier': 7.22.5
       chalk: 2.4.2
       js-tokens: 4.0.0
 
@@ -4485,25 +4485,17 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: false
 
-  /@vitest/coverage-v8@0.32.0(vitest@0.32.0):
-    resolution: {integrity: sha512-VXXlWq9X/NbsoP/l/CHLBjutsFFww1UY1qEhzGjn/DY7Tqe+z0Nu8XKc8im/XUAmjiWsh2XV7sy/F0IKAl4eaw==}
+  /@vitest/coverage-c8@0.32.0(vitest@0.32.0):
+    resolution: {integrity: sha512-FeTzRN5VCL7B6YTRK5ZPQO2iwJzl2x7/mTQ/2uEeKZatAYBtvczeAYnzSUhCPev7p99+5skxMQZwqVcFTrVCdg==}
     peerDependencies:
-      vitest: '>=0.32.0 <1'
+      vitest: '>=0.30.0 <1'
     dependencies:
       '@ampproject/remapping': 2.2.1
-      '@bcoe/v8-coverage': 0.2.3
-      istanbul-lib-coverage: 3.2.0
-      istanbul-lib-report: 3.0.0
-      istanbul-lib-source-maps: 4.0.1
-      istanbul-reports: 3.1.5
+      c8: 7.14.0
       magic-string: 0.30.0
       picocolors: 1.0.0
       std-env: 3.3.3
-      test-exclude: 6.0.0
-      v8-to-istanbul: 9.1.0
       vitest: 0.32.0
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /@vitest/expect@0.32.0:
@@ -4579,6 +4571,7 @@ packages:
   /acorn@8.8.2:
     resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
     engines: {node: '>=0.4.0'}
+    hasBin: true
 
   /adverb-where@0.2.5:
     resolution: {integrity: sha512-JiQe2U1UR8l10jPrXv/PmlDhOLZpsxqjvTp+k6Dm5wYDUULdMZytDRmovkXU8X6V9o0sg0FBdetv3VXHAZZK5Q==}
@@ -6069,7 +6062,7 @@ packages:
     engines: {node: '>=4.0.0'}
     dependencies:
       lodash.get: 4.4.2
-    dev: true
+    dev: false
 
   /create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
@@ -6079,7 +6072,7 @@ packages:
     engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
     dependencies:
       cross-spawn: 7.0.3
-    dev: true
+    dev: false
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -6589,7 +6582,7 @@ packages:
     engines: {node: '>=4.0.0'}
     dependencies:
       lodash: 4.17.21
-    dev: true
+    dev: false
 
   /entities@1.1.2:
     resolution: {integrity: sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==}
@@ -6748,7 +6741,7 @@ packages:
     dependencies:
       lodash.get: 4.4.2
       lodash.zip: 4.2.0
-    dev: true
+    dev: false
 
   /eslint-find-rules@4.1.0(eslint@8.42.0):
     resolution: {integrity: sha512-2nLJ0UrQRUGbOX8ksSxTgDNWGBW0RidIEIMlwNe1YR4RkjYksFDPYWf3WO9QFWM2NqkuHlTTeyOM94vaNwaFVw==}
@@ -7067,7 +7060,7 @@ packages:
       eslint-ast-utils: 1.1.0
       lodash: 4.17.21
       req-all: 1.0.0
-    dev: true
+    dev: false
 
   /eslint-plugin-lodash@7.4.0(eslint@8.42.0):
     resolution: {integrity: sha512-Tl83UwVXqe1OVeBRKUeWcfg6/pCW1GTRObbdnbEJgYwjxp5Q92MEWQaH9+dmzbRt6kvYU1Mp893E79nJiCSM8A==}
@@ -7077,7 +7070,7 @@ packages:
     dependencies:
       eslint: 8.42.0
       lodash: 4.17.21
-    dev: true
+    dev: false
 
   /eslint-plugin-markdown@3.0.0(eslint@8.42.0):
     resolution: {integrity: sha512-hRs5RUJGbeHDLfS7ELanT0e29Ocyssf/7kBM+p7KluY5AwngGkDf8Oyu4658/NZSGTTq05FZeWbkxXtbVyHPwg==}
@@ -10033,7 +10026,7 @@ packages:
 
   /lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-    dev: true
+    dev: false
 
   /lodash.has@4.5.2:
     resolution: {integrity: sha512-rnYUdIo6xRCJnQmbVFEwcxF144erlD+M3YcJUVesflU9paQaE8p+fJDcIQrlMYbxoANFL+AB9hZrzSBBk5PL+g==}
@@ -10111,7 +10104,7 @@ packages:
 
   /lodash.zip@4.2.0:
     resolution: {integrity: sha512-C7IOaBBK/0gMORRBd8OETNx3kmOkgIWIPvyDpZSCTwUrpYmgZwJkjZeOD8ww4xbOUOs4/attY+pciKvadNfFbg==}
-    dev: true
+    dev: false
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -12907,7 +12900,7 @@ packages:
   /req-all@1.0.0:
     resolution: {integrity: sha512-k8RAnaq+vrezRAZWQlI6sbwGIlII699fnPYamb8K0UVgQel3Wb6YgPfpGyair00vmArXNag1vr5PjwDQBE7DUA==}
     engines: {node: '>=4'}
-    dev: true
+    dev: false
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}

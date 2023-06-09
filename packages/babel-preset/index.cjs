@@ -2,7 +2,7 @@ const { declare } = require("@babel/helper-plugin-utils");
 const isModuleAvailable = require("./lib/is-module-available.cjs");
 const missing = require("./lib/missing.cjs");
 
-// eslint-disable-next-line radar/cognitive-complexity
+// eslint-disable-next-line sonarjs/cognitive-complexity
 module.exports = declare((api, options) => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
     api.assertVersion("^7.13");
@@ -37,29 +37,29 @@ module.exports = declare((api, options) => {
     const install = [];
 
     if (typescript) {
-        // eslint-disable-next-line radar/no-duplicate-string
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         if (!isModuleAvailable("@babel/preset-typescript")) {
             install.push("@babel/preset-typescript");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         if (!isModuleAvailable("@babel/plugin-transform-typescript")) {
             install.push("@babel/plugin-transform-typescript");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         if (!isModuleAvailable("@babel/plugin-syntax-jsx")) {
             install.push("@babel/plugin-syntax-jsx");
         }
     }
 
     if (react) {
-        // eslint-disable-next-line radar/no-duplicate-string
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         if (!isModuleAvailable("@babel/preset-react")) {
             install.push("@babel/preset-react");
         }
 
-        // eslint-disable-next-line radar/no-duplicate-string
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         if (removePropertyTypes && !isModuleAvailable("babel-plugin-transform-react-remove-prop-types")) {
             install.push("babel-plugin-transform-react-remove-prop-types");
         }

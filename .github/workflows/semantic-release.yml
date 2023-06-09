@@ -76,7 +76,7 @@ jobs:
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
               env:
-                  SKIP_BUILD: 1
+                  SKIP_BUILD: "true"
 
             - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"
               run: "npm audit signatures"
@@ -131,7 +131,7 @@ jobs:
             - name: "Update pnpm lock"
               run: "pnpm install --no-frozen-lockfile"
               env:
-                  SKIP_BUILD: 1
+                  SKIP_BUILD: "true"
 
             - name: "Commit modified files"
               uses: "stefanzweifel/git-auto-commit-action@3ea6ae190baf489ba007f7c92608f33ce20ef04a" # v4.16.0

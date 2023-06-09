@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
     production: ["> 1%", "last 2 versions", "Firefox ESR", "not dead"],
     legacyBrowsers: ["> 1%", "last 2 versions", "Firefox ESR"],
     modernBrowsers: [
@@ -13,5 +13,7 @@ module.exports = {
         "last 2 Edge versions",
         "not Edge < 15",
     ],
-    ssr: ["node 12"],
+    ssr: ["node 16"],
 };
+
+export default config;

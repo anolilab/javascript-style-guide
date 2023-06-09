@@ -19,7 +19,8 @@ jobs:
     test:
         strategy:
             matrix:
-                os: "ubuntu-latest"
+                os:
+                    - "ubuntu-latest"
                 node_version: ["16", "17", "18", "19", "20"]
                 include:
                     - os: "macos-latest"

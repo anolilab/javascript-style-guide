@@ -64,8 +64,8 @@
         "write-good": "1.0.8"
     },
     "devDependencies": {
-        "textlint": "^13.3.2",
-        "@anolilab/semantic-release-preset": "2.2.1"
+        "@anolilab/semantic-release-preset": "2.2.1",
+        "textlint": "^13.3.2"
     },
     "peerDependencies": {
         "textlint": "^13.3.2"
@@ -74,7 +74,8 @@
         "node": ">=16"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "provenance": true
     },
     "pnpm": {
         "overrides": {

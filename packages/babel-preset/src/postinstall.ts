@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
-// eslint-disable-next-line no-undef
-if (process.env.CI) {
+if (process.env?.["CI"]) {
     // eslint-disable-next-line no-undef
     process.exit(0);
 }
 
-const { writeFile, existsSync } = require("node:fs");
+import { writeFile, existsSync } from "node:fs";
 // eslint-disable-next-line unicorn/import-style
-const { resolve, join } = require("node:path");
-const { promisify } = require("node:util");
+import { resolve, join } from "node:path";
+import { promisify } from "node:util";
+// @ts-ignore TS7016: Could not find a declaration file for module '@anolilab/package-json-utils'.
+import { pkgIsTypeModule } from "@anolilab/package-json-utils";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -20,28 +21,28 @@ const projectPath = resolve(process.cwd(), "..", "..", "..");
 console.log("Configuring @anolilab/babel-preset", projectPath, "\n");
 
 /**
- * Writes babel.config.cjs if it doesn't exist. Warns if it exists.
+ * Writes babel.config.{c|m}js if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
-    const eslintPath = join(projectPath, "babel.config.cjs");
-    const content = `module.exports = {
+    const babelPath = join(projectPath, `babel.config.${pkgIsTypeModule ? "m" : "c"}js`);
+    const content = `${pkgIsTypeModule ? "export default" : "module.exports ="} {
     presets: ["@anolilab/babel-preset"]
 };
 `;
 
-    if (existsSync(eslintPath)) {
-        console.warn(`⚠️  babel.config.cjs already exists;
+    if (existsSync(babelPath)) {
+        console.warn(`⚠️  babel.config.${pkgIsTypeModule ? "m" : "c"}js already exists;
 Make sure that it includes the following for @anolilab/babel-preset'
 to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
 
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(babelPath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
-(async () => {
+(async (): Promise<void> => {
     try {
         await writeBabelRc();
 
@@ -49,7 +50,7 @@ to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
 
         // eslint-disable-next-line no-undef
         process.exit(0);
-    } catch (error) {
+    } catch (error: any) {
         console.log("😬  something went wrong:");
         console.error(error.message);
 

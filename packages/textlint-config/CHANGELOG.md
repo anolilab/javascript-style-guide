@@ -323,7 +323,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
--   removed index.cjs from text-lint ([e5ab6d6](https://github.com/anolilab/javascript-style-guide/commit/e5ab6d6a9214b288646d471e19afff163ac5cf57))
+-   removed index.ts from text-lint ([e5ab6d6](https://github.com/anolilab/javascript-style-guide/commit/e5ab6d6a9214b288646d471e19afff163ac5cf57))
 
 ### @anolilab/textlint-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@2.0.1...@anolilab/textlint-config@2.0.2) (2021-05-04)
 

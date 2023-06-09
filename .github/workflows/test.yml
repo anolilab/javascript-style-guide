@@ -1,16 +1,16 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-name: "Test Packages"
+name: "Tests"
 
 on: # yamllint disable-line rule:truthy
-    pull_request:
+    push:
         branches:
-            - "([0-9])?(.{+([0-9]),x}).x"
             - "main"
-            - "next"
-            - "next-major"
-            - "alpha"
-            - "beta"
+    pull_request: # yamllint disable-line rule:empty-values
+
+concurrency:
+    group: "ci-tests-${{ github.ref }}-1"
+    cancel-in-progress: true
 
 permissions:
     contents: "read"

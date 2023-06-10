@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/stylelint-config",
-    "version": "3.2.2",
+    "version": "3.2.3",
     "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
         "css",
@@ -47,7 +47,7 @@
         "postinstall": "node lib/postinstall.js"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "4.0.0",
+        "browserslist-config-anolilab": "4.0.1",
         "stylelint-a11y": "^1.2.3",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-standard": "^33.0.0",
@@ -58,7 +58,7 @@
         "stylelint-selector-no-empty": "^1.0.9"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "2.2.1",
+        "@anolilab/semantic-release-preset": "3.0.0",
         "lodash": "^4.17.21",
         "postcss": "^8.4.24",
         "stylelint": "15.7.0",

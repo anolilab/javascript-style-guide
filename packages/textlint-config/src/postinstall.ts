@@ -1,41 +1,28 @@
-# Text-lint Config
+#!/usr/bin/env node
 
-Anolilab Coding Standard for text linting.
+import { existsSync, writeFile } from "node:fs";
+import { join, resolve } from "node:path";
+import { promisify } from "node:util";
 
----
+if (process.env["CI"]) {
+    // eslint-disable-next-line no-undef
+    process.exit(0);
+}
 
-<div align="center">
-    <p>
-        <sup>
-            Daniel Bannert's open source work is supported by the community on <a href="https://github.com/sponsors/prisis">GitHub Sponsors</a>
-        </sup>
-    </p>
-</div>
+const writeFileAsync = promisify(writeFile);
 
----
+// get the path to the host project.
+// eslint-disable-next-line no-undef
+const projectPath = resolve(process.cwd(), "..", "..", "..");
 
-## Install
+console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
 
-```bash
-npm install --dev-save @anolilab/textlint-config textlint
-```
-
-```sh
-$ yarn add -D @anolilab/textlint-config textlint
-```
-
-```sh
-$ pnpm add -D @anolilab/textlint-config textlint
-```
-
-## Usage
-
-If you don’t have a `.textlintrc`, we will create the file for you after installing `@anolilab/textlint-config`.
-
-If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with `@anolilab/textlint-config`.
-
-```json5
-{
+/**
+ * Writes .textlintrc if it doesn't exist. Warns if it exists.
+ */
+const writeTextLintRc = () => {
+    const filePath = join(projectPath, ".textlintrc");
+    const content = `{
     "@textlint/markdown": {
         "extensions": [".md", ".mdx"]
     },
@@ -171,25 +158,50 @@ If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with
         }
     }
 }
-```
+`;
 
-## Supported Node.js Versions
+    if (existsSync(filePath)) {
+        console.warn(`⚠️  .textlintrc already exists;
+Make sure that it includes the following for @anolilab/textlint-config'
+to work as it should: ${content}.`);
 
-Libraries in this ecosystem make the best effort to track
-[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
-post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+        return Promise.resolve();
+    }
 
-## Contributing
+    return writeFileAsync(filePath, content, "utf-8");
+};
 
-If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+/**
+ * Writes .textlintignore if it doesn't exist. Warns if it exists.
+ */
+const writeTextLintIgnore = () => {
+    const filePath = join(projectPath, ".textlintignore");
+    const content = "";
 
-> **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
+    if (existsSync(filePath)) {
+        console.warn("⚠️  .textlintignore already exists;");
 
-## Credits
+        return Promise.resolve();
+    }
 
--   [Daniel Bannert](https://github.com/prisis)
--   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+    return writeFileAsync(filePath, content, "utf-8");
+};
 
-## License
+// eslint-disable-next-line unicorn/prefer-top-level-await
+(async () => {
+    try {
+        await writeTextLintRc();
+        await writeTextLintIgnore();
 
-The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+        console.log("😎  Everything went well, have fun!");
+
+        // eslint-disable-next-line no-undef
+        process.exit(0);
+    } catch (error) {
+        console.log("😬  something went wrong:");
+        console.error(error);
+
+        // eslint-disable-next-line no-undef
+        process.exit(1);
+    }
+})();

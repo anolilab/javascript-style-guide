@@ -54,8 +54,8 @@
         "packages/*"
     ],
     "scripts": {
-        "build:packages": "pnpm --filter \"package-json-utils\" run build && nx run-many --target=build --projects=browserslist-config-anolilab,babel-preset,prettier-config",
-        "build:prod:packages": "pnpm --filter \"package-json-utils\" run build:prod && nx run-many --target=build:prod --projects=browserslist-config-anolilab,babel-preset,prettier-config",
+        "build:packages": "pnpm --filter \"package-json-utils\" run build && nx run-many --target=build --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config",
+        "build:prod:packages": "pnpm --filter \"package-json-utils\" run build:prod && nx run-many --target=build:prod --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky install",
         "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.cjs --ext .js,.cjs,.mjs,.ts,.tsx ./packages --cache --cache-strategy content .",

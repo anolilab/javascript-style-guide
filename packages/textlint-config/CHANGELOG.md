@@ -1,3 +1,20 @@
+## @anolilab/textlint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.2.2...@anolilab/textlint-config@5.0.0) (2023-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs, so the type module was removed
+
+### Features
+
+* switched js to ts, created a new package-utils package ([5477591](https://github.com/anolilab/javascript-style-guide/commit/5477591aa46d878b8535ff8503384e27ca537a7f))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 3.0.0
+
 ## @anolilab/textlint-config [4.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.2.1...@anolilab/textlint-config@4.2.2) (2023-05-26)
 
 

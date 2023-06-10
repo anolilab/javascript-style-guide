@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.0.0...@anolilab/package-json-utils@1.0.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* updated the README.md ([447ffb7](https://github.com/anolilab/javascript-style-guide/commit/447ffb73e5852588102e5868ef4e5f76c94aa8f3))
+
 ## @anolilab/package-json-utils 1.0.0 (2023-06-10)
 
 

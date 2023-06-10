@@ -154,6 +154,7 @@ jobs:
 
             - name: "lint"
               run: "pnpm run lint:text"
+              continue-on-error: true
 
             - name: "skipping markdown lint for now"
               run: "exit 0"

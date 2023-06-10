@@ -9,7 +9,6 @@ import { writeFile, existsSync } from "node:fs";
 // eslint-disable-next-line unicorn/import-style
 import { resolve, join } from "node:path";
 import { promisify } from "node:util";
-// @ts-ignore TS7016: Could not find a declaration file for module '@anolilab/package-json-utils'.
 import { pkgIsTypeModule } from "@anolilab/package-json-utils";
 
 const writeFileAsync = promisify(writeFile);

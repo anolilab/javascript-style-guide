@@ -21,11 +21,11 @@ npm install --dev-save @anolilab/textlint-config textlint
 ```
 
 ```sh
-$ yarn add -D @anolilab/textlint-config textlint
+yarn add -D @anolilab/textlint-config textlint
 ```
 
 ```sh
-$ pnpm add -D @anolilab/textlint-config textlint
+pnpm add -D @anolilab/textlint-config textlint
 ```
 
 ## Usage

@@ -58,7 +58,14 @@ This configuration reflects Growcss’s supported browser policy for their UI li
 Install the module
 
 ```shell
-$ npm install browserslist-config-anolilab --save-dev
+npm install browserslist-config-anolilab --save-dev
+```
+```sh
+yarn add -D browserslist-config-anolilab
+```
+
+```sh
+pnpm add -D browserslist-config-anolilab
 ```
 
 ## Usage

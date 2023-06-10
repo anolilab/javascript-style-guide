@@ -17,15 +17,15 @@ Shared utilities for parsing information from a package.json file.
 ## Install
 
 ```sh
-$ npm install @anolilab/package-json-utils
+npm install @anolilab/package-json-utils
 ```
 
 ```sh
-$ yarn add @anolilab/package-json-utils
+yarn add @anolilab/package-json-utils
 ```
 
 ```sh
-$ pnpm add @anolilab/package-json-utils
+pnpm add @anolilab/package-json-utils
 ```
 
 ## Usage

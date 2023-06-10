@@ -29,15 +29,15 @@ Additionally, stage 4 syntax that is excluded is as follows:
 ## Install
 
 ```sh
-$ npm install --save-dev @babel/core @babel/runtime @anolilab/babel-preset
+npm install --save-dev @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
 ```sh
-$ yarn add -D @babel/core @babel/runtime @anolilab/babel-preset
+yarn add -D @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
 ```sh
-$ pnpm add -D @babel/core @babel/runtime @anolilab/babel-preset
+pnpm add -D @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
 ## Usage
@@ -132,7 +132,7 @@ You may override our default debug option by providing your own `debug` key.
 To use this preset please install
 
 ```sh
-$ npm install --save-dev @babel/preset-typescript @babel/plugin-syntax-jsx
+npm install --save-dev @babel/preset-typescript @babel/plugin-syntax-jsx
 ```
 
 This preset can be configured to support `typescript`, using `"typescript": true` in our preset.
@@ -155,7 +155,7 @@ This preset can be configured to support `typescript`, using `"typescript": true
 To use this preset please install
 
 ```sh
-$ npm install --save-dev @babel/preset-react
+npm install --save-dev @babel/preset-react
 ```
 
 This preset can be configured to support `react`, using `"react": true` or `"react": {...}` in our preset.

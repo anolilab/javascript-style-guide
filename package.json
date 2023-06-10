@@ -54,8 +54,8 @@
         "packages/*"
     ],
     "scripts": {
-        "build:packages": "nx run-many --target=build --parallel --projects=browserslist-config-anolilab,package-json-utils,@anolilab/babel-preset",
-        "build:prod:packages": "nx run-many --target=build:prod --parallel --projects=browserslist-config-anolilab,package-json-utils,@anolilab/babel-preset",
+        "build:packages": "nx run-many --target=build --projects=package-json-utils,browserslist-config-anolilab,babel-preset",
+        "build:prod:packages": "nx run-many --target=build:prod --projects=package-json-utils,browserslist-config-anolilab,babel-preset",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky install",
         "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.cjs --ext .js,.cjs,.mjs,.ts,.tsx ./packages --cache --cache-strategy content .",

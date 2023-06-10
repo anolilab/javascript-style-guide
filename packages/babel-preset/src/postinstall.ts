@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
-if (process.env?.["CI"]) {
+import { packageIsTypeModule } from "@anolilab/package-json-utils";
+import { existsSync, writeFile } from "node:fs";
+import { join, resolve } from "node:path";
+import { promisify } from "node:util";
+
+if (process.env["CI"]) {
     // eslint-disable-next-line no-undef
     process.exit(0);
 }
-
-import { writeFile, existsSync } from "node:fs";
-// eslint-disable-next-line unicorn/import-style
-import { resolve, join } from "node:path";
-import { promisify } from "node:util";
-import { pkgIsTypeModule } from "@anolilab/package-json-utils";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -23,14 +22,14 @@ console.log("Configuring @anolilab/babel-preset", projectPath, "\n");
  * Writes babel.config.{c|m}js if it doesn't exist. Warns if it exists.
  */
 const writeBabelRc = () => {
-    const babelPath = join(projectPath, `babel.config.${pkgIsTypeModule ? "m" : "c"}js`);
-    const content = `${pkgIsTypeModule ? "export default" : "module.exports ="} {
+    const babelPath = join(projectPath, `babel.config.${packageIsTypeModule ? "m" : "c"}js`);
+    const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
     presets: ["@anolilab/babel-preset"]
 };
 `;
 
     if (existsSync(babelPath)) {
-        console.warn(`⚠️  babel.config.${pkgIsTypeModule ? "m" : "c"}js already exists;
+        console.warn(`⚠️  babel.config.${packageIsTypeModule ? "m" : "c"}js already exists;
 Make sure that it includes the following for @anolilab/babel-preset'
 to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
 
@@ -51,7 +50,7 @@ to work as it should: { presets: ["@anolilab/babel-preset"] }.`);
         process.exit(0);
     } catch (error: any) {
         console.log("😬  something went wrong:");
-        console.error(error.message);
+        console.error(error);
 
         // eslint-disable-next-line no-undef
         process.exit(1);

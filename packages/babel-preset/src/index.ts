@@ -1,17 +1,17 @@
 import { isPackageAvailable, showMissingPackages } from "@anolilab/package-json-utils";
-// @ts-expect-error TS2305: Module '"@babel/helper-plugin-utils"' has no exported member 'declare'.
+// @ts-expect-error TS2305: Module '"@babel/helper-plugin-utils"' has no exported member 'declarePreset'.
 import { declare } from "@babel/helper-plugin-utils";
 
 type BabelAPI = {
     assertVersion: (version: string) => void;
-    env: (env: string) => boolean;
+    env: (environment: string) => boolean;
     cache: {
-        using: (fn: () => boolean) => boolean;
+        using: (function_: () => boolean) => boolean;
     };
 };
 
 type Options = {
-    modules?: "auto" | true | false;
+    modules?: "auto" | false | true;
     targets?: any;
     removePropTypes?: boolean | object;
     loose?: boolean;
@@ -33,14 +33,16 @@ const babelPresetTypescript = "@babel/preset-typescript";
 const babelPluginTransformTypescript = "@babel/plugin-transform-typescript";
 const babelPluginSyntaxJSX = "@babel/plugin-syntax-jsx";
 const babelPresetReact = "@babel/preset-react";
-const babelPluginTransformReactRemovePropTypes = "babel-plugin-transform-react-remove-prop-types";
+const babelPluginTransformReactRemovePropertyTypes = "babel-plugin-transform-react-remove-prop-types";
 
-const preset = declare((api: BabelAPI, options: Options) => {
+// eslint-disable-next-line sonarjs/cognitive-complexity,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+const preset = declare((api: BabelAPI, options: Options): Record<string, any> => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
     api.assertVersion("^7.13");
 
     const {
         modules = "auto",
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         targets,
         removePropTypes: removePropertyTypes = false,
         loose = true,
@@ -56,7 +58,7 @@ const preset = declare((api: BabelAPI, options: Options) => {
         corejs = false,
     } = options;
 
-    if (modules !== undefined && modules !== "auto") {
+    if (typeof modules === "boolean" && typeof modules === "string") {
         throw new TypeError(
             '@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
         );
@@ -87,8 +89,8 @@ const preset = declare((api: BabelAPI, options: Options) => {
             install.push(babelPresetReact);
         }
 
-        if (removePropertyTypes && !isPackageAvailable(babelPluginTransformReactRemovePropTypes)) {
-            install.push(babelPluginTransformReactRemovePropTypes);
+        if (removePropertyTypes && !isPackageAvailable(babelPluginTransformReactRemovePropertyTypes)) {
+            install.push(babelPluginTransformReactRemovePropertyTypes);
         }
     }
 
@@ -100,7 +102,7 @@ const preset = declare((api: BabelAPI, options: Options) => {
     const development =
         typeof options.development === "boolean"
             ? options.development
-            : api.cache.using(() => process.env?.["NODE_ENV"] === "development");
+            : api.cache.using(() => process.env["NODE_ENV"] === "development");
 
     const presets = [
         [
@@ -110,8 +112,8 @@ const preset = declare((api: BabelAPI, options: Options) => {
                 bugfixes: true,
                 useBuiltIns,
                 exclude: ["transform-async-to-generator", "transform-regenerator"],
-                // @ts-expect-error TS2367: This comparison appears to be unintentional because the types 'string' and 'boolean' have no overlap.
                 modules: modules === false ? false : "auto",
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 targets,
                 shippedProposals: api.env("modern"),
                 loose,
@@ -196,7 +198,7 @@ const preset = declare((api: BabelAPI, options: Options) => {
                   {
                       mode: "unsafe-wrap",
                       ignoreFilenames: ["node_modules"],
-                      ...((removePropertyTypes as object) || {}),
+                      ...(removePropertyTypes as object),
                   },
               ]
             : undefined,
@@ -230,7 +232,7 @@ const preset = declare((api: BabelAPI, options: Options) => {
             ? [
                   "babel-plugin-polyfill-corejs3",
                   {
-                      method: corejs.method || "usage-global",
+                      method: corejs.method ?? "usage-global",
                       absoluteImports: "core-js",
                       version: corejs.version,
                       ...corejs,

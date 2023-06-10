@@ -8,6 +8,14 @@
             }
         }
     },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "library"
+            }
+        ]
+    },
     "targetDefaults": {
         "postinstall": {
             "dependsOn": ["^postinstall"]

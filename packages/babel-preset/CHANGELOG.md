@@ -1,3 +1,16 @@
+## @anolilab/babel-preset [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.0...@anolilab/babel-preset@7.0.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* updated the README.md ([447ffb7](https://github.com/anolilab/javascript-style-guide/commit/447ffb73e5852588102e5868ef4e5f76c94aa8f3))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.0.1
+
 ## @anolilab/babel-preset [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@6.0.0...@anolilab/babel-preset@7.0.0) (2023-06-10)
 
 

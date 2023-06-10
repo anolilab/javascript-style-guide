@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/babel-preset",
-    "version": "7.0.1",
+    "version": "7.0.2",
     "description": "A babel preset for transforming your JavaScript for Anolilab.",
     "keywords": [
         "babel",
@@ -56,7 +56,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "1.0.1",
+        "@anolilab/package-json-utils": "1.1.0",
         "@babel/helper-plugin-utils": "^7.22.5",
         "@babel/plugin-proposal-class-properties": "^7.18.6",
         "@babel/plugin-proposal-class-static-block": "^7.21.0",

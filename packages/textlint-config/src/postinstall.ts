@@ -1,4 +1,28 @@
-{
+#!/usr/bin/env node
+
+import { existsSync, writeFile } from "node:fs";
+import { join, resolve } from "node:path";
+import { promisify } from "node:util";
+
+if (process.env["CI"]) {
+    // eslint-disable-next-line no-undef
+    process.exit(0);
+}
+
+const writeFileAsync = promisify(writeFile);
+
+// get the path to the host project.
+// eslint-disable-next-line no-undef
+const projectPath = resolve(process.cwd(), "..", "..", "..");
+
+console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
+
+/**
+ * Writes .textlintrc if it doesn't exist. Warns if it exists.
+ */
+const writeTextLintRc = () => {
+    const filePath = join(projectPath, ".textlintrc");
+    const content = `{
     "@textlint/markdown": {
         "extensions": [".md", ".mdx"]
     },
@@ -134,3 +158,50 @@
         }
     }
 }
+`;
+
+    if (existsSync(filePath)) {
+        console.warn(`⚠️  .textlintrc already exists;
+Make sure that it includes the following for @anolilab/textlint-config'
+to work as it should: ${content}.`);
+
+        return Promise.resolve();
+    }
+
+    return writeFileAsync(filePath, content, "utf-8");
+};
+
+/**
+ * Writes .textlintignore if it doesn't exist. Warns if it exists.
+ */
+const writeTextLintIgnore = () => {
+    const filePath = join(projectPath, ".textlintignore");
+    const content = "";
+
+    if (existsSync(filePath)) {
+        console.warn("⚠️  .textlintignore already exists;");
+
+        return Promise.resolve();
+    }
+
+    return writeFileAsync(filePath, content, "utf-8");
+};
+
+// eslint-disable-next-line unicorn/prefer-top-level-await
+(async () => {
+    try {
+        await writeTextLintRc();
+        await writeTextLintIgnore();
+
+        console.log("😎  Everything went well, have fun!");
+
+        // eslint-disable-next-line no-undef
+        process.exit(0);
+    } catch (error) {
+        console.log("😬  something went wrong:");
+        console.error(error);
+
+        // eslint-disable-next-line no-undef
+        process.exit(1);
+    }
+})();

@@ -30,38 +30,41 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
-    "type": "module",
+    "source": "src/postinstall.ts",
     "files": [
-        "lib",
+        "dist",
         "README.md",
         "CHANGELOG.md",
         "LICENSE.md"
     ],
     "scripts": {
-        "postinstall": "node lib/postinstall.js"
+        "build": "cross-env NODE_ENV=development tsup",
+        "build:prod": "cross-env NODE_ENV=production tsup",
+        "clean": "rimraf node_modules dist",
+        "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@textlint-rule/textlint-rule-no-invalid-control-character": "2.0.0",
-        "@textlint-rule/textlint-rule-no-unmatched-pair": "1.0.9",
-        "@textlint-rule/textlint-rule-preset-google": "0.1.2",
+        "@textlint-rule/textlint-rule-no-invalid-control-character": "^2.0.0",
+        "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.9",
+        "@textlint-rule/textlint-rule-preset-google": "^0.1.2",
         "@textlint/ast-node-types": "^13.3.2",
         "@textlint/types": "^13.3.2",
         "textlint-filter-rule-comments": "^1.2.2",
-        "textlint-rule-abbr-within-parentheses": "1.0.2",
-        "textlint-rule-alex": "3.0.0",
-        "textlint-rule-apostrophe": "2.0.0",
-        "textlint-rule-common-misspellings": "1.0.1",
+        "textlint-rule-abbr-within-parentheses": "^1.0.2",
+        "textlint-rule-alex": "^3.0.0",
+        "textlint-rule-apostrophe": "^2.0.0",
+        "textlint-rule-common-misspellings": "^1.0.1",
         "textlint-rule-date-weekday-mismatch": "^1.0.6",
-        "textlint-rule-diacritics": "1.0.0",
-        "textlint-rule-en-capitalization": "2.0.3",
-        "textlint-rule-footnote-order": "1.0.3",
-        "textlint-rule-helper": "2.3.0",
-        "textlint-rule-no-dead-link": "5.1.2",
-        "textlint-rule-no-empty-section": "1.1.0",
-        "textlint-rule-no-todo": "2.0.1",
-        "textlint-rule-terminology": "3.0.4",
-        "textlint-rule-write-good": "2.0.0",
-        "write-good": "1.0.8"
+        "textlint-rule-diacritics": "^1.0.0",
+        "textlint-rule-en-capitalization": "^2.0.3",
+        "textlint-rule-footnote-order": "^1.0.3",
+        "textlint-rule-helper": "^2.3.0",
+        "textlint-rule-no-dead-link": "^5.1.2",
+        "textlint-rule-no-empty-section": "^1.1.0",
+        "textlint-rule-no-todo": "^2.0.1",
+        "textlint-rule-terminology": "^3.0.4",
+        "textlint-rule-write-good": "^2.0.0",
+        "write-good": "^1.0.8"
     },
     "devDependencies": {
         "@anolilab/semantic-release-preset": "3.0.0",
@@ -76,22 +79,5 @@
     "publishConfig": {
         "access": "public",
         "provenance": true
-    },
-    "pnpm": {
-        "overrides": {
-            "glob-parent@<5.1.2": ">=5.1.2",
-            "minimist@<1.2.6": ">=1.2.6",
-            "chrono-node@<2.2.4": ">=2.2.4",
-            "yargs-parser@>=6.0.0 <13.1.2": ">=13.1.2",
-            "trim@<0.0.3": ">=0.0.3",
-            "trim-newlines@<3.0.1": ">=3.0.1",
-            "moment@<2.29.2": ">=2.29.2",
-            "semver-regex@<3.1.4": ">=3.1.4",
-            "npm@>=7.9.0 <8.11.0": ">=8.11.0",
-            "got@<11.8.5": ">=11.8.5",
-            "moment@>=2.18.0 <2.29.4": ">=2.29.4",
-            "ansi-regex@>=3.0.0 <3.0.1": ">=3.0.1",
-            "ansi-regex@>=4.0.0 <4.1.1": ">=4.1.1"
-        }
     }
 }

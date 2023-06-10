@@ -1,3 +1,29 @@
+## @anolilab/babel-preset [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@6.0.0...@anolilab/babel-preset@7.0.0) (2023-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs, so the type module was removed
+* Changed the package to support cjs and mjs, so the type module was removed
+
+### Features
+
+* switched js to ts, created a new package-utils package ([5477591](https://github.com/anolilab/javascript-style-guide/commit/5477591aa46d878b8535ff8503384e27ca537a7f))
+* switched js to ts, created a new package-utils package [#674](https://github.com/anolilab/javascript-style-guide/issues/674) ([cdd462a](https://github.com/anolilab/javascript-style-guide/commit/cdd462a19c2e2ce0818378ccb03cbd28a6e1e8bd))
+
+
+### Bug Fixes
+
+* fixed build ([dd87f4b](https://github.com/anolilab/javascript-style-guide/commit/dd87f4b523b42bb15fe32a493808be45aaa5c984))
+* fixed build and added tests ([f255ba7](https://github.com/anolilab/javascript-style-guide/commit/f255ba7fc3860e34432fc2dd6f1f8ab0d24bb399))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.0.0
+* **@anolilab/semantic-release-preset:** upgraded to 3.0.0
+
 ## @anolilab/babel-preset [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@5.2.2...@anolilab/babel-preset@6.0.0) (2023-06-09)
 
 

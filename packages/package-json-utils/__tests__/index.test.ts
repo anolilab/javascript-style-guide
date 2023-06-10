@@ -127,19 +127,37 @@ test("isPackageAvailable: returns false when the package is not available", () =
     assert.isFalse(isPackageAvailable("vitest2"));
 });
 
-test("showMissingPackages: logs a warning message with the missing packages", () => {
-    const consoleWarnMock = vi.spyOn(console, "warn");
+test.each(["warn", "log", "error", "info"])("showMissingPackages: logs a %type message with the missing packages", (type: "error" | "info" | "log" | "warn") => {
+    const consoleMock = vi.spyOn(console, type);
 
-    showMissingPackages("example", ["package1", "package2"]);
+    showMissingPackages("example", ["package1", "package2"], {
+        consoleType: type,
+    });
 
-    expect(consoleWarnMock).toHaveBeenCalledTimes(1);
-    expect(consoleWarnMock).toHaveBeenCalledWith(
-        expect.stringContaining("example could not find the following packages"),
-    );
-    expect(consoleWarnMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
-    expect(consoleWarnMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
+    expect(consoleMock).toHaveBeenCalledTimes(1);
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
 
-    consoleWarnMock.mockRestore();
+    consoleMock.mockRestore();
+});
+
+test("showMissingPackages: logs a warning message with the missing packages, pre and post message", () => {
+    const consoleMock = vi.spyOn(console, "warn");
+
+    showMissingPackages("example", ["package1", "package2"], {
+        preMessage: "pre message",
+        postMessage: "post message",
+    });
+
+    expect(consoleMock).toHaveBeenCalledTimes(1);
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("pre message"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
+    expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("post message"));
+
+    consoleMock.mockRestore();
 });
 
 test("unique: returns an array with unique values", () => {

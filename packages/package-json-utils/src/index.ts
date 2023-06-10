@@ -83,11 +83,19 @@ export const isPackageAvailable = (moduleName: string): boolean => {
     }
 };
 
-export const showMissingPackages = (packageName: string, packages: string[]): void => {
+export const showMissingPackages = (
+    packageName: string,
+    packages: string[],
+    options: {
+        exit?: boolean;
+        consoleType?: "error" | "info" | "log" | "warn";
+        preMessage?: string;
+        postMessage?: string;
+    } = {},
+): void => {
     const s = packages.length === 1 ? "" : "s";
 
-    console.warn(`\nOops! Something went wrong! :(
-
+    console[options.consoleType ?? "warn"](`\n${options.preMessage ?? ""}
 ${packageName} could not find the following package${s}
 
   ${packages.join("\n  ")}
@@ -103,9 +111,10 @@ or
 or
 
   pnpm add ${packages.map((element) => atLatest(element)).join(" ")} -D
+${options.postMessage ?? ""}\n
 `);
 
-    if (process.env["NODE_ENV"] !== "test") {
+    if (process.env["NODE_ENV"] !== "test" || options.exit === true) {
         // eslint-disable-next-line no-undef
         process.exit(1); // eslint-disable-line unicorn/no-process-exit
     }

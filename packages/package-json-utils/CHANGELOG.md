@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.0.1...@anolilab/package-json-utils@1.1.0) (2023-06-10)
+
+
+### Features
+
+* extended the showMissingPackages with some options to better control the log message ([14d3661](https://github.com/anolilab/javascript-style-guide/commit/14d3661e587246c96f352baf7a5ce1190444ebb8))
+
 ## @anolilab/package-json-utils [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.0.0...@anolilab/package-json-utils@1.0.1) (2023-06-10)
 
 

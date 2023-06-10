@@ -154,7 +154,7 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 1.0.0
+        specifier: 1.0.1
         version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
@@ -533,6 +533,9 @@ importers:
 
   packages/prettier-config:
     dependencies:
+      '@anolilab/package-json-utils':
+        specifier: 1.0.1
+        version: link:../package-json-utils
       prettier:
         specifier: 2.x
         version: 2.8.8

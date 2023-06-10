@@ -1,12 +1,9 @@
-// @ts-check
+import type { Options } from "prettier";
 
-/**
- * @type {import('prettier').Options}
- */
-module.exports = {
-    // max 120 characters per line
-    printWidth: 120,
-    // use 2 spaces for indentation
+const config: Options = {
+    // max 164 characters per line
+    printWidth: 164,
+    // use 4 spaces for indentation
     tabWidth: 4,
     // use spaces instead of indentations
     useTabs: false,
@@ -18,7 +15,7 @@ module.exports = {
     quoteProps: "as-needed",
     // use double quotes instead of single quotes in jsx
     jsxSingleQuote: false,
-    // no comma at the end
+    // all comma at the end
     trailingComma: "all",
     // spaces are required at the beginning and end of the braces
     bracketSpacing: true,
@@ -42,3 +39,5 @@ module.exports = {
     // formats quoted code embedded
     embeddedLanguageFormatting: "auto",
 };
+
+export default config;

@@ -1,3 +1,16 @@
+## @anolilab/prettier-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@3.1.2...@anolilab/prettier-config@4.0.0) (2023-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs, so the type module was removed
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* switched prettier-config to typescript ([c014026](https://github.com/anolilab/javascript-style-guide/commit/c014026e3c7c987933d5668afe5246d2eb46b5db))
+
 ## @anolilab/prettier-config [3.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@3.1.1...@anolilab/prettier-config@3.1.2) (2023-06-10)
 
 

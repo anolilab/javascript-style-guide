@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
+import { packageIsTypeModule } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join, resolve } from "node:path";
 import { promisify } from "node:util";
 
-import content from "../index.cjs";
+import content from "./index";
 
-// eslint-disable-next-line no-undef
-if (process.env.CI) {
+if (process.env["CI"]) {
     // eslint-disable-next-line no-undef
     process.exit(0);
 }
@@ -21,13 +21,13 @@ const projectPath = resolve(process.cwd(), "..", "..", "..");
 console.log("Configuring @anolilab/prettier-config", projectPath, "\n");
 
 /**
- * Writes .prettierrc.cjs if it doesn't exist. Warns if it exists.
+ * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = () => {
-    const prettierPath = join(projectPath, ".prettierrc.cjs");
+    const prettierPath = join(projectPath, `.prettierrc.${packageIsTypeModule ? "m" : "c"}js`);
 
-    if (existsSync(prettierPath) || existsSync(prettierPath.replace(".cjs", ""))) {
-        console.warn(`⚠️  .prettierrc.cjs already exists;
+    if (existsSync(prettierPath) || existsSync(prettierPath.replace(`.${packageIsTypeModule ? "m" : "c"}js`, ""))) {
+        console.warn(`⚠️  .prettierrc.${packageIsTypeModule ? "m" : "c"}js already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, undefined, 4)}\n`);
 
@@ -36,7 +36,10 @@ ${JSON.stringify(content, undefined, 4)}\n`);
 
     return writeFileAsync(
         prettierPath,
-        `module.exports = ${JSON.stringify(content, undefined, 2).replace("rangeEnd: null,", "rangeEnd: Infinity,")}\n`,
+        `${packageIsTypeModule ? "export default" : "module.exports ="} ${JSON.stringify(content, undefined, 2).replace(
+            "rangeEnd: null,",
+            "rangeEnd: Infinity,",
+        )}\n`,
         "utf-8",
     );
 };
@@ -68,7 +71,7 @@ const writePrettierIgnore = () => {
         process.exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
-        console.error(error.message);
+        console.error(error);
 
         // eslint-disable-next-line no-undef
         process.exit(1);

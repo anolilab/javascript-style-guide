@@ -73,6 +73,8 @@ jobs:
 
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
+              env:
+                  SKIP_BUILD: "true"
 
             - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"
               run: "npm audit signatures"
@@ -144,6 +146,7 @@ jobs:
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
               env:
+                  SKIP_BUILD: "true"
                   SKIP_CHECK: "true"
 
             - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"

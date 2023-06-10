@@ -85,6 +85,7 @@ jobs:
               run: "pnpm install --frozen-lockfile"
               env:
                   SKIP_CHECK: "true"
+                  SKIP_BUILD: "true"
 
             - name: "Build"
               run: "pnpm run build:packages"

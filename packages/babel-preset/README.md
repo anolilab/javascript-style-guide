@@ -32,6 +32,14 @@ Additionally, stage 4 syntax that is excluded is as follows:
 $ npm install --save-dev @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
+```sh
+$ yarn add -D @babel/core @babel/runtime @anolilab/babel-preset
+```
+
+```sh
+$ pnpm add -D @babel/core @babel/runtime @anolilab/babel-preset
+```
+
 ## Usage
 
 ### Via `.babelrc` (Recommended)

@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/prettier-config",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Prettier shareable config for Anolilab.",
     "keywords": [
         "css",
@@ -56,7 +56,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "1.0.1"
+        "@anolilab/package-json-utils": "1.1.0"
     },
     "devDependencies": {
         "@anolilab/semantic-release-preset": "3.0.0"

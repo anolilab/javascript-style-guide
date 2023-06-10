@@ -99,8 +99,7 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
     }
 
     const debug = typeof options.debug === "boolean" ? options.debug : false;
-    const development =
-        typeof options.development === "boolean"
+    const development = typeof options.development === "boolean"
             ? options.development
             : api.cache.using(() => process.env["NODE_ENV"] === "development");
 

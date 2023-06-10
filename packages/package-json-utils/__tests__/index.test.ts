@@ -1,5 +1,7 @@
 import { dirname, join } from "node:path";
-import { assert, expect, test, vi } from "vitest";
+import {
+ assert, expect, test, vi,
+} from "vitest";
 
 import {
     environmentIsSet,

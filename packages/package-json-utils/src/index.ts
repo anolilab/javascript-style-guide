@@ -17,16 +17,11 @@ const atLatest = (name: string): string => {
 };
 
 // eslint-disable-next-line max-len
-export const hasPackageProperties = (properties: string[]): boolean =>
-    properties.some((property: string) => Boolean(packageJson !== undefined && getByPath(packageJson, property)));
+export const hasPackageProperties = (properties: string[]): boolean => properties.some((property: string) => Boolean(packageJson !== undefined && getByPath(packageJson, property)));
 
-export const hasPackageSubProperties =
-    (packageProperty: string) =>
-    (properties: string[]): boolean =>
-        hasPackageProperties(properties.map((p) => `${packageProperty}.${p}`));
+export const hasPackageSubProperties = (packageProperty: string) => (properties: string[]): boolean => hasPackageProperties(properties.map((p) => `${packageProperty}.${p}`));
 
-export const environmentIsSet = (name: string): boolean =>
-    Boolean(process.env[name] && process.env[name] !== "undefined");
+export const environmentIsSet = (name: string): boolean => Boolean(process.env[name] && process.env[name] !== "undefined");
 
 export const parseEnvironment = (name: string, defaultValue: unknown): any => {
     if (environmentIsSet(name)) {
@@ -49,10 +44,7 @@ export const hasPeerDep = hasPackageSubProperties("peerDependencies");
 export const hasDep = hasPackageSubProperties("dependencies");
 export const hasDevelopmentDep = hasPackageSubProperties("devDependencies");
 // eslint-disable-next-line max-len
-export const hasAnyDep = (arguments_: string[]): boolean =>
-    [hasDep, hasDevelopmentDep, hasPeerDep].some((function_: (arguments_: string[]) => boolean) =>
-        function_(arguments_),
-    );
+export const hasAnyDep = (arguments_: string[]): boolean => [hasDep, hasDevelopmentDep, hasPeerDep].some((function_: (arguments_: string[]) => boolean) => function_(arguments_));
 
 export const hasTypescript: boolean = hasAnyDep(["typescript"]) && hasFile("tsconfig.json");
 

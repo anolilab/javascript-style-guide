@@ -1,3 +1,10 @@
+## @anolilab/textlint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@5.0.0...@anolilab/textlint-config@5.0.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* changed lib from js to ts ([9ffbaae](https://github.com/anolilab/javascript-style-guide/commit/9ffbaaee395c9f5345adcd97cb8c3c2e77af86eb))
+
 ## @anolilab/textlint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@4.2.2...@anolilab/textlint-config@5.0.0) (2023-06-10)
 
 

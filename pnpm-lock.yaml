@@ -546,6 +546,9 @@ importers:
 
   packages/semantic-release-preset:
     dependencies:
+      '@anolilab/package-json-utils':
+        specifier: 1.2.0
+        version: link:../package-json-utils
       '@commitlint/cli':
         specifier: ^17.6.5
         version: 17.6.5

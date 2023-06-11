@@ -44,13 +44,13 @@ const writeReleaseRc = () => {
 };
 
 /**
- * Writes commitlint.config.cjs if it doesn't exist. Warns if it exists.
+ * Writes commitlint.config.js if it doesn't exist. Warns if it exists.
  */
 const writeCommitLintConfig = () => {
-    const commitlintPath = join(projectPath, `commitlint.config.${packageIsTypeModule ? "m" : "c"}js`);
+    const commitlintPath = join(projectPath, "commitlint.config.js");
 
     if (existsSync(commitlintPath)) {
-        console.warn(`⚠️  commitlint.config.${packageIsTypeModule ? "m" : "c"}js already exists;`);
+        console.warn("⚠️  commitlint.config.js already exists;");
 
         return Promise.resolve();
     }

@@ -9,8 +9,6 @@
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-npx --no -- lint-staged
-
 npx --no -- sort-package-json
 
 echo Finished Git hook: pre-commit

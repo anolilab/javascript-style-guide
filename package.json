@@ -70,7 +70,7 @@
         "test:all": "pnpm test:coverage && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:coverage": "vitest --config ./vitest.config.ts run --coverage",
-        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/src/index.cjs ./packages/stylelint-config/__tests__/css/**/*.css"
+        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css"
     },
     "dependencies": {
         "@babel/cli": "^7.22.5",

@@ -8,12 +8,10 @@ const rules = [
     "./dist/rules/standard.js",
 ];
 
-const config = {
+module.exports = {
     // eslint-disable-next-line unicorn/prefer-module
     extends: rules.map((element) => require.resolve(element)),
     rules: {
         indentation: 4,
     },
 };
-
-export default config;

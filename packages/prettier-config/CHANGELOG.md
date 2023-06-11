@@ -1,3 +1,10 @@
+## @anolilab/prettier-config [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.2...@anolilab/prettier-config@4.0.3) (2023-06-11)
+
+
+### Bug Fixes
+
+* use the projectPath from @anolilab/package-json-utils ([1574f21](https://github.com/anolilab/javascript-style-guide/commit/1574f2189e9d9e5db3aad4ad2d53ed2987a3afc4))
+
 ## @anolilab/prettier-config [4.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.1...@anolilab/prettier-config@4.0.2) (2023-06-11)
 
 

@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [7.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.3...@anolilab/babel-preset@7.0.4) (2023-06-11)
+
+
+### Bug Fixes
+
+* use the projectPath from @anolilab/package-json-utils ([1574f21](https://github.com/anolilab/javascript-style-guide/commit/1574f2189e9d9e5db3aad4ad2d53ed2987a3afc4))
+
 ## @anolilab/babel-preset [7.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.2...@anolilab/babel-preset@7.0.3) (2023-06-11)
 
 

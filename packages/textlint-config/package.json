@@ -44,6 +44,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
+        "@anolilab/package-json-utils": "1.2.0",
         "@textlint-rule/textlint-rule-no-invalid-control-character": "^2.0.0",
         "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.9",
         "@textlint-rule/textlint-rule-preset-google": "^0.1.2",

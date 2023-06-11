@@ -154,7 +154,7 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 1.1.0
+        specifier: 1.2.0
         version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
@@ -534,7 +534,7 @@ importers:
   packages/prettier-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 1.1.0
+        specifier: 1.2.0
         version: link:../package-json-utils
       prettier:
         specifier: 2.x
@@ -641,6 +641,9 @@ importers:
 
   packages/textlint-config:
     dependencies:
+      '@anolilab/package-json-utils':
+        specifier: 1.2.0
+        version: link:../package-json-utils
       '@textlint-rule/textlint-rule-no-invalid-control-character':
         specifier: ^2.0.0
         version: 2.0.0

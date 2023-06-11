@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { packageIsTypeModule } from "@anolilab/package-json-utils";
+import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 import { promisify } from "node:util";
 
 if (process.env["CI"]) {
@@ -11,10 +11,6 @@ if (process.env["CI"]) {
 }
 
 const writeFileAsync = promisify(writeFile);
-
-// get the path to the host project.
-// eslint-disable-next-line no-undef
-const projectPath = resolve(process.cwd(), "..", "..", "..");
 
 console.log("Configuring @anolilab/babel-preset", projectPath, "\n");
 

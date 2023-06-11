@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
     plugins: ["stylelint-a11y"],
     rules: {
         // Require certain styles if the animation or transition in media features
@@ -37,3 +37,5 @@ module.exports = {
         "a11y/selector-pseudo-class-focus": true,
     },
 };
+
+export default config;

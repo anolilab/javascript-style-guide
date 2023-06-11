@@ -33,20 +33,32 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
-    "type": "module",
-    "main": "index.cjs",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "require": "./index.js",
+            "import": "./index.mjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "index.js",
+    "module": "index.mjs",
     "files": [
-        "lib",
-        "index.cjs",
-        "rules",
+        "dist/**",
         "README.md",
         "CHANGELOG.md",
-        "LICENSE.md"
+        "LICENSE.md",
+        "index.js",
+        "index.mjs"
     ],
     "scripts": {
-        "postinstall": "node lib/postinstall.js"
+        "build": "cross-env NODE_ENV=development tsup",
+        "build:prod": "cross-env NODE_ENV=production tsup",
+        "clean": "rimraf node_modules dist",
+        "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
+        "@anolilab/package-json-utils": "^1.2.0",
         "browserslist-config-anolilab": "4.0.2",
         "stylelint-a11y": "^1.2.3",
         "stylelint-config-rational-order": "^0.1.2",
@@ -76,20 +88,14 @@
         "access": "public",
         "provenance": true
     },
-    "pnpm": {
-        "overrides": {
-            "glob-parent@<5.1.2": ">=5.1.2",
-            "minimist@<1.2.6": ">=1.2.6",
-            "chrono-node@<2.2.4": ">=2.2.4",
-            "yargs-parser@>=6.0.0 <13.1.2": ">=13.1.2",
-            "trim@<0.0.3": ">=0.0.3",
-            "trim-newlines@<3.0.1": ">=3.0.1",
-            "moment@<2.29.2": ">=2.29.2",
-            "semver-regex@<3.1.4": ">=3.1.4",
-            "got@<11.8.5": ">=11.8.5",
-            "moment@>=2.18.0 <2.29.4": ">=2.29.4",
-            "ansi-regex@>=3.0.0 <3.0.1": ">=3.0.1",
-            "ansi-regex@>=4.0.0 <4.1.1": ">=4.1.1"
-        }
-    }
+    "sources": [
+        "src/rules/a11y.ts",
+        "src/rules/declaration-block-no-ignored-properties.ts",
+        "src/rules/no-unsupported-browser-features.ts",
+        "src/rules/rational-order.ts",
+        "src/rules/require-units.ts",
+        "src/rules/selector-no-empty.ts",
+        "src/rules/standard.ts",
+        "src/postinstall.ts"
+    ]
 }

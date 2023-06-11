@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import Index from "../index.cjs";
+import Index from "../index";
 
 describe("stylelint", () => {
     it("should output no error", async () => {

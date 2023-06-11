@@ -109,8 +109,6 @@ common/temp/
 common/autoinstallers/*/.npmrc
 **/.rush/temp/
 
-/packages/babel-preset/fixture/test.js
-
 .yarn/*
 !.yarn/patches
 !.yarn/releases
@@ -122,3 +120,12 @@ common/autoinstallers/*/.npmrc
 /.idea
 
 .textlintcache
+
+/packages/semantic-release-preset/commitlint.config.js
+/packages/semantic-release-preset/.czrc
+/packages/prettier-config/.prettierignore
+/packages/prettier-config/.prettierrc.cjs
+/packages/textlint-config/.textlintignore
+/packages/textlint-config/.textlintrc
+/packages/babel-preset/babel.config.cjs
+/packages/babel-preset/fixture/test.js

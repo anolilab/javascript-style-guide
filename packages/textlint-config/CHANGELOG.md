@@ -1,3 +1,16 @@
+## @anolilab/textlint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@5.0.3...@anolilab/textlint-config@6.0.0) (2023-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed the package to support cjs and mjs
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* transformed lib from js to ts and added support for cjs and mjs ([823e96e](https://github.com/anolilab/javascript-style-guide/commit/823e96e03872f386793e884247196d4297fc0b99))
+
 ## @anolilab/textlint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@5.0.2...@anolilab/textlint-config@5.0.3) (2023-06-11)
 
 

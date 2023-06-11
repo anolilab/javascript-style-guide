@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import config from "../index.cjs";
+import config from "../src";
 
 describe("eslint", () => {
     it("should output no error", async () => {

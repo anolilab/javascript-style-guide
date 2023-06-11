@@ -46,18 +46,18 @@
         "./rules/errors": "./rules/errors.cjs",
         "./rules/variables": "./rules/variables.cjs"
     },
-    "main": "index.cjs",
+    "main": "src/index.cjs",
     "files": [
-        "index.cjs",
-        "config.cjs",
-        "rules",
+        "src/index.cjs",
+        "src/config.cjs",
+        "src/rules",
         "lib",
         "README.md",
         "CHANGELOG.md",
         "LICENSE.md"
     ],
     "scripts": {
-        "postinstall": "node lib/postinstall.cjs"
+        "postinstall": "node src/postinstall.cjs"
     },
     "dependencies": {
         "@rushstack/eslint-plugin-security": "^0.6.0",
@@ -65,7 +65,7 @@
         "eslint-import-resolver-node": "^0.3.7",
         "eslint-plugin-compat": "^4.1.4",
         "eslint-plugin-eslint-comments": "^3.2.0",
-        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-i": "^2.27.5",
         "eslint-plugin-jsonc": "^2.8.0",
         "eslint-plugin-markdown": "^3.0.0",
         "eslint-plugin-no-loops": "^0.3.0",

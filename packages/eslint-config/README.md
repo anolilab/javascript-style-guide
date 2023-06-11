@@ -1,6 +1,10 @@
 # ESLint config
 
-This package provides Anolilab’s .eslintrc.cjs as an extensible shared config, with a range of useful plugins that are often too time-consuming to setup and provides an   install  the plugins you need, based on your project’s dependencies.
+This package provides Anolilab’s most comprehensive code style guide as an extensible shared config.
+
+With a range of useful plugins that are often too time-consuming to setup, based on your project’s dependencies we will notify you about missing eslint plugins.
+
+The goal is to reduce noise in code version control and promote use of the latest ES features.
 
 ---
 
@@ -19,7 +23,15 @@ This package provides Anolilab’s .eslintrc.cjs as an extensible shared config,
 To install this config, run the following command.
 
 ```bash
-  npm install eslint @anolilab/eslint-config --save-dev
+npm install eslint @anolilab/eslint-config --save-dev
+```
+
+```sh
+yarn add -D @babel/core @babel/runtime @anolilab/babel-preset
+```
+
+```sh
+pnpm add -D @babel/core @babel/runtime @anolilab/babel-preset
 ```
 
 ## Usage
@@ -135,7 +147,7 @@ The following plugins expand esLint to work with json files, and lint JavaScript
 - [eslint-plugin-json](https://github.com/azeemba/eslint-plugin-json)
 - [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown)
 
-When linting code snippets in Markdown files, a few [rules](rules/plugins/markdown.cjs#L3) relating to globals and unused vars are disabled.
+When linting code snippets in Markdown files, a few [rules](src/rules/plugins/markdown.cjs#L3) relating to globals and unused vars are disabled.
 
 ### Library Plugins
 

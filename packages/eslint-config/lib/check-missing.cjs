@@ -1,5 +1,5 @@
 const isModuleAvailable = require("./is-module-available.cjs");
-const { consoleLog } = require("./loggers.cjs");
+const { consoleLog } = require("../src/utils/loggers.ts");
 
 const moduleNotAvailable = (package_) => !isModuleAvailable(package_);
 

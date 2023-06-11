@@ -1,6 +1,6 @@
-const browserslist = require("browserslist-config-anolilab");
+import browserslist from "browserslist-config-anolilab";
 
-module.exports = {
+const config = {
     plugins: ["stylelint-no-unsupported-browser-features"],
     rules: {
         "plugin/no-unsupported-browser-features": [
@@ -11,3 +11,5 @@ module.exports = {
         ],
     },
 };
+
+export default config;

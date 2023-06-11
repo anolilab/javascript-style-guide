@@ -1,20 +1,16 @@
 #!/usr/bin/env node
 
+import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 import { promisify } from "node:util";
 
-// eslint-disable-next-line no-undef
-if (process.env.CI) {
+if (process.env["CI"]) {
     // eslint-disable-next-line no-undef
     process.exit(0);
 }
 
 const writeFileAsync = promisify(writeFile);
-
-// get the path to the host project.
-// eslint-disable-next-line no-undef
-const projectPath = resolve(process.cwd(), "..", "..", "..");
 
 console.log("Configuring @anolilab/stylelint-config", projectPath, "\n");
 
@@ -22,41 +18,44 @@ console.log("Configuring @anolilab/stylelint-config", projectPath, "\n");
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = () => {
-    const eslintPath = join(projectPath, ".stylelintrc.cjs");
-    const content = `module.exports = {
+    const stylelintPath = join(projectPath, ".stylelintrc.js");
+    const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
     "extends": [
         "@anolilab/stylelint-config",
     ]
 };
+
 `;
 
-    if (existsSync(eslintPath)) {
-        console.warn("⚠️  .stylelintrc.cjs already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.");
+    if (existsSync(stylelintPath)) {
+        console.warn("⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.");
 
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(stylelintPath, content, "utf-8");
 };
 
 /**
  * Writes .stylelintignore if it doesn't exist. Warns if it exists.
  */
 const writeStylelintIgnore = () => {
-    const eslintPath = join(projectPath, ".stylelintignore");
+    const stylelintIgnorePath = join(projectPath, ".stylelintignore");
     const content = `package.json
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 build/**
 node_modules/**
 .next/**
+
 `;
 
-    if (existsSync(eslintPath)) {
+    if (existsSync(stylelintIgnorePath)) {
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(stylelintIgnorePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
@@ -71,7 +70,7 @@ node_modules/**
         process.exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
-        console.error(error.message);
+        console.error(error);
 
         // eslint-disable-next-line no-undef
         process.exit(1);

@@ -652,6 +652,9 @@ importers:
 
   packages/stylelint-config:
     dependencies:
+      '@anolilab/package-json-utils':
+        specifier: ^1.2.0
+        version: link:../package-json-utils
       browserslist-config-anolilab:
         specifier: 4.0.1
         version: link:../browserslist-config-anolilab

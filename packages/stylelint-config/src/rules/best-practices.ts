@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
     rules: {
         // Enabled to play well with both CSS and SCSS at-rules for readability.
         // https://stylelint.io/user-guide/rules/at-rule-empty-line-before
@@ -35,3 +35,5 @@ module.exports = {
         ],
     },
 };
+
+export default config;

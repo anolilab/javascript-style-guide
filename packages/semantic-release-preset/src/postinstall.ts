@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-import { hasDep, hasDevelopmentDep, packageIsTypeModule, pkg, projectPath } from "@anolilab/package-json-utils";
+import {
+ hasDep, hasDevelopmentDep, packageIsTypeModule, pkg, projectPath,
+} from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
@@ -19,8 +21,8 @@ console.log("Configuring @anolilab/semantic-release-preset", projectPath, "\n");
  */
 const writeReleaseRc = () => {
     if (
-        pkg &&
-        (hasDevelopmentDep(["multi-semantic-release", "@qiwi/multi-semantic-release"]) || hasDep(["multi-semantic-release", "@qiwi/multi-semantic-release"]))
+        pkg
+        && (hasDevelopmentDep(["multi-semantic-release", "@qiwi/multi-semantic-release"]) || hasDep(["multi-semantic-release", "@qiwi/multi-semantic-release"]))
     ) {
         console.warn("⚠️  found use of multi-semantic-release;");
 

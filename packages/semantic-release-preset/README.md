@@ -52,7 +52,7 @@ With npm:
 
 ```json
 {
-  "extends": "@anolilab/semantic-release-preset"
+  "extends": "@anolilab/semantic-release-preset/npm"
 }
 ```
 
@@ -60,7 +60,7 @@ Without npm:
 
 ```json
 {
-  "extends": "@anolilab/semantic-release-preset/.releaserc-without-npm.json"
+  "extends": "@anolilab/semantic-release-preset"
 }
 ```
 

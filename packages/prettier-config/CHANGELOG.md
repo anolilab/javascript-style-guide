@@ -1,3 +1,10 @@
+## @anolilab/prettier-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.4...@anolilab/prettier-config@4.0.5) (2023-06-11)
+
+
+### Bug Fixes
+
+* removed the prefix (m|c) for the postinstall file creation based on package.json type ([6c786b4](https://github.com/anolilab/javascript-style-guide/commit/6c786b46e1c4ba2955f519e2f4ec36ec7d190fe4))
+
 ## @anolilab/prettier-config [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.3...@anolilab/prettier-config@4.0.4) (2023-06-11)
 
 

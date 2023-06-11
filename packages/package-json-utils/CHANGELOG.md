@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.1.0...@anolilab/package-json-utils@1.2.0) (2023-06-11)
+
+
+### Features
+
+* added projectPath and deprecated appDirectory ([c5d551f](https://github.com/anolilab/javascript-style-guide/commit/c5d551f8635434cc5a429fa71b3a8102489d5bd2))
+
 ## @anolilab/package-json-utils [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.0.1...@anolilab/package-json-utils@1.1.0) (2023-06-10)
 
 

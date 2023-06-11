@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/stylelint-config",
-    "version": "3.2.4",
+    "version": "4.0.0",
     "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
         "css",
@@ -58,7 +58,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "^1.2.0",
+        "@anolilab/package-json-utils": "1.2.0",
         "browserslist-config-anolilab": "4.0.2",
         "stylelint-a11y": "^1.2.3",
         "stylelint-config-rational-order": "^0.1.2",

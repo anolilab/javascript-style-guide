@@ -1,3 +1,16 @@
+## @anolilab/semantic-release-preset [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@3.0.0...@anolilab/semantic-release-preset@3.1.0) (2023-06-11)
+
+
+### Features
+
+* changed export for npm and no npm semantic-release config ([5af5fd6](https://github.com/anolilab/javascript-style-guide/commit/5af5fd6a35d1e1e88bd55a6cd4795bb1830392ff))
+* transformed package to use cjs and mjs ([500503e](https://github.com/anolilab/javascript-style-guide/commit/500503e7d7e8ad2a8d7a448a94d82b4a0afc52ff))
+
+
+### Bug Fixes
+
+* postinstall.ts should use the @anolilab/semantic-release-preset/npm for the extends key ([8975abc](https://github.com/anolilab/javascript-style-guide/commit/8975abc6de5fb2838671c8cae89ebfb5b6fcf21d))
+
 ## @anolilab/semantic-release-preset [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@2.2.1...@anolilab/semantic-release-preset@3.0.0) (2023-06-10)
 
 

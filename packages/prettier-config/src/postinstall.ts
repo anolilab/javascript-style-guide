@@ -20,10 +20,14 @@ console.log("Configuring @anolilab/prettier-config", projectPath, "\n");
  * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = () => {
-    const prettierPath = join(projectPath, `.prettierrc.${packageIsTypeModule ? "m" : "c"}js`);
+    const prettierPath = join(projectPath, ".prettierrc.js");
 
-    if (existsSync(prettierPath) || existsSync(prettierPath.replace(`.${packageIsTypeModule ? "m" : "c"}js`, ""))) {
-        console.warn(`⚠️  .prettierrc.${packageIsTypeModule ? "m" : "c"}js already exists;
+    if (
+        existsSync(prettierPath)
+        || existsSync(prettierPath.replace(".js", ""))
+        || existsSync(prettierPath.replace(".js", `.${packageIsTypeModule ? "m" : "c"}js`))
+    ) {
+        console.warn(`⚠️  .prettierrc.{m|c}js already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, undefined, 4)}\n`);
 

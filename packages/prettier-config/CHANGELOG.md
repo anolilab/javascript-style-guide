@@ -1,3 +1,11 @@
+## @anolilab/prettier-config [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.3...@anolilab/prettier-config@4.0.4) (2023-06-11)
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 3.1.0
+
 ## @anolilab/prettier-config [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.2...@anolilab/prettier-config@4.0.3) (2023-06-11)
 
 

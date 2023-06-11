@@ -1,3 +1,10 @@
+## @anolilab/babel-preset [7.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.5...@anolilab/babel-preset@7.0.6) (2023-06-11)
+
+
+### Bug Fixes
+
+* removed the prefix (m|c) for the postinstall file creation based on package.json type ([6c786b4](https://github.com/anolilab/javascript-style-guide/commit/6c786b46e1c4ba2955f519e2f4ec36ec7d190fe4))
+
 ## @anolilab/babel-preset [7.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.4...@anolilab/babel-preset@7.0.5) (2023-06-11)
 
 

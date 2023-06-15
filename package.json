@@ -67,10 +67,15 @@
         "lint:text:fix": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --fix",
         "sort-package-json": "sort-package-json ./packages/**/package.json ./package.json",
         "test": "vitest --config ./vitest.config.ts",
-        "test:all": "pnpm test:coverage && pnpm test:stylelint && pnpm test:babel",
+        "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,package-json-utils,stylelint-config && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
-        "test:coverage": "vitest --config ./vitest.config.ts run --coverage",
-        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css"
+        "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
+        "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
+        "test:coverage:package-json-utils": "pnpm --filter \"package-json-utils\" run test:coverage",
+        "test:coverage:stylelint-config": "pnpm --filter \"stylelint-config\" run test:coverage",
+        "test:package-json-utils": "pnpm --filter \"package-json-utils\" run test",
+        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css",
+        "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test"
     },
     "dependencies": {
         "@babel/cli": "^7.22.5",

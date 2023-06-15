@@ -85,8 +85,8 @@ module.exports = {
                     "**/.eslintrc.cjs", // eslint config
                     "**/vite.config.js", // vite config
                     "**/vite.config.ts", // vite config
-                    "**/vitest.cofig.js", // vitest config
-                    "**/vitest.cofig.ts", // vitest config
+                    "**/vitest.config.js", // vitest config
+                    "**/vitest.config.ts", // vitest config
                 ],
                 optionalDependencies: false,
             },

@@ -17,12 +17,10 @@ const atLatest = (name: string): string => {
     return name;
 };
 
-// eslint-disable-next-line max-len
 export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 
 export const hasPackageSubProperty = (packageProperty: string) => (property: string): boolean => hasPackageProperty(`${packageProperty}.${property}`);
 
-// eslint-disable-next-line max-len
 export const hasPackageProperties = (properties: string[], strict?: boolean): boolean => {
     if (strict) {
         return properties.every((property: string) => hasPackageProperty(property));
@@ -71,7 +69,7 @@ export const hasDevDependency = hasPackageSubProperty("devDependencies");
 export const hasDevDependencies = hasPackageSubProperties("devDependencies");
 // @deprecated Use `hasDevDependencies` instead.
 export const hasDevelopmentDep = hasDevDependencies;
-// eslint-disable-next-line max-len
+
 export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [
 hasDependencies,
 hasDevDependencies,
@@ -110,7 +108,6 @@ export const resolvePackage = (packageName: string): string | undefined => {
     }
 
     try {
-        // eslint-disable-next-line unicorn/prefer-module
         return require.resolve(packageName);
     } catch {
         return undefined;
@@ -155,7 +152,6 @@ ${options.postMessage ?? ""}\n
 `);
 
     if (process.env["NODE_ENV"] !== "test" || options.exit === true) {
-        // eslint-disable-next-line no-undef
         process.exit(1); // eslint-disable-line unicorn/no-process-exit
     }
 };

@@ -32,7 +32,6 @@ test("hasPackageProperties: returns false when packageJson does not have the spe
 });
 
 test("hasPackageSubProperties: returns true when packageJson has the specified subproperty", () => {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     assert.isTrue(hasPackageSubProperties("dependencies")(["dot-path-value"]));
 });
 
@@ -55,7 +54,6 @@ test("environmentIsSet: returns false when the environment variable is not set",
 test("parseEnvironment: returns the parsed value of the environment variable", () => {
     process.env["TEST_VAR"] = JSON.stringify({ value: "test" });
 
-    // eslint-disable-next-line unicorn/no-useless-undefined
     assert.deepEqual(parseEnvironment("TEST_VAR", undefined), { value: "test" });
 });
 
@@ -67,7 +65,6 @@ test("parseEnvironment: returns the default value when the environment variable 
 });
 
 test("fromRoot: joins the provided path segments with the app directory", () => {
-    // eslint-disable-next-line unicorn/prefer-module
     assert.equal(fromRoot(), dirname(__dirname));
 });
 
@@ -184,6 +181,5 @@ test("unique: returns an array with unique values", () => {
 });
 
 test("pkg: returns packageJson as NormalizedReadResult or undefined", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     assert.isTrue(typeof package_ === "object" || package_ === undefined);
 });

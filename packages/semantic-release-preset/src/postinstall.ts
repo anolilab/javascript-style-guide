@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import {
  hasDep, hasDevelopmentDep, packageIsTypeModule, pkg, projectPath,
 } from "@anolilab/package-json-utils";
@@ -8,7 +6,7 @@ import { join } from "node:path";
 import { promisify } from "node:util";
 
 if (process.env["CI"]) {
-    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(0);
 }
 
@@ -96,12 +94,14 @@ const writeCzrc = () => {
         await writeCzrc();
 
         console.log("😎  Everything went well, have fun!");
-        // eslint-disable-next-line no-undef
+
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
         console.error(error);
-        // eslint-disable-next-line no-undef
+
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(1);
     }
 })();

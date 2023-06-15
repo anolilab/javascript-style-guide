@@ -8,9 +8,7 @@ const rules = [
     "./dist/rules/standard.js",
 ];
 
-// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
-    // eslint-disable-next-line unicorn/prefer-module
     extends: rules.map((element) => require.resolve(element)),
     rules: {
         indentation: 4,

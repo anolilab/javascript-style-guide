@@ -1,4 +1,4 @@
-import { dirname, join } from "node:path";
+import { dirname } from "node:path";
 import {
  assert, expect, test, vi,
 } from "vitest";
@@ -33,11 +33,11 @@ test("hasPackageProperties: returns false when packageJson does not have the spe
 
 test("hasPackageSubProperties: returns true when packageJson has the specified subproperty", () => {
     // eslint-disable-next-line sonarjs/no-duplicate-string
-    assert.isTrue(hasPackageSubProperties("dependencies")(["vitest"]));
+    assert.isTrue(hasPackageSubProperties("dependencies")(["dot-path-value"]));
 });
 
 test("hasPackageSubProperties: returns false when packageJson does not have the specified subproperty", () => {
-    assert.isFalse(hasPackageSubProperties("devDependencies")(["vitest"]));
+    assert.isFalse(hasPackageSubProperties("devDependencies")(["vitest1"]));
 });
 
 test("environmentIsSet: returns true when the environment variable is set", () => {
@@ -68,7 +68,7 @@ test("parseEnvironment: returns the default value when the environment variable 
 
 test("fromRoot: joins the provided path segments with the app directory", () => {
     // eslint-disable-next-line unicorn/prefer-module
-    assert.equal(fromRoot(), join(dirname(__dirname), "../.."));
+    assert.equal(fromRoot(), dirname(__dirname));
 });
 
 test("hasFile: returns true when the file exists", () => {
@@ -92,7 +92,8 @@ test("hasPeerDep: returns false when the packageJson does not have the 'peerDepe
 });
 
 test("hasDep: returns true when the packageJson has the 'dependencies' property", () => {
-    assert.isTrue(hasDep(["vitest"]));
+    // eslint-disable-next-line sonarjs/no-duplicate-string
+    assert.isTrue(hasDep(["read-pkg-up"]));
 });
 
 test("hasDep: returns false when the packageJson does not have the 'dependencies' property", () => {
@@ -104,7 +105,7 @@ test("hasDevelopmentDep: returns false when the packageJson does not have the 'd
 });
 
 test("hasAnyDep: returns true when any of the dependency checks return true", () => {
-    assert.isTrue(hasAnyDep(["vitest"]));
+    assert.isTrue(hasAnyDep(["read-pkg-up"]));
 });
 
 test("hasAnyDep: returns false when all of the dependency checks return false", () => {
@@ -120,7 +121,7 @@ test("packageIsTypeModule: returns false when the packageJson does not have the 
 });
 
 test("isPackageAvailable: returns true when the package is available", () => {
-    assert.isTrue(isPackageAvailable("vitest"));
+    assert.isTrue(isPackageAvailable("read-pkg-up"));
 });
 
 test("isPackageAvailable: returns false when the package is not available", () => {

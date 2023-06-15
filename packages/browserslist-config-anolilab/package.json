@@ -54,7 +54,9 @@
     "scripts": {
         "build": "cross-env NODE_ENV=development tsup",
         "build:prod": "cross-env NODE_ENV=production tsup",
-        "clean": "rimraf node_modules dist"
+        "clean": "rimraf node_modules dist",
+        "test": "vitest --config ./vitest.config.ts",
+        "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "devDependencies": {
         "@anolilab/semantic-release-preset": "3.1.1",

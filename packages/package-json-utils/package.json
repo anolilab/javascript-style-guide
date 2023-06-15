@@ -51,7 +51,9 @@
     "scripts": {
         "build": "cross-env NODE_ENV=development tsup",
         "build:prod": "cross-env NODE_ENV=production tsup",
-        "clean": "rimraf node_modules dist"
+        "clean": "rimraf node_modules dist",
+        "test": "vitest --config ./vitest.config.ts",
+        "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
         "dot-path-value": "^0.0.10",

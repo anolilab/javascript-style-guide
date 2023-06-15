@@ -54,6 +54,9 @@ const config: Linter.Config = {
                 "jest/require-to-throw-message": 0,
                 "jest/require-top-level-describe": 0,
                 "jest/valid-title": 0,
+
+                // you should turn the original rule off *only* for test files
+                "@typescript-eslint/unbound-method": "off",
             },
         },
     ],

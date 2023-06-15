@@ -46,11 +46,7 @@ const config: Linter.Config = {
 
         // require the use of === and !==
         // https://eslint.org/docs/rules/eqeqeq
-        eqeqeq: [
-"error",
-"always",
-{ null: "ignore" },
-],
+        eqeqeq: ["error", "always", { null: "ignore" }],
 
         // Require grouped accessor pairs in object literals and classes
         // https://eslint.org/docs/rules/grouped-accessor-pairs
@@ -90,11 +86,7 @@ const config: Linter.Config = {
         "no-empty-function": [
             "error",
             {
-                allow: [
-"arrowFunctions",
-"functions",
-"methods",
-],
+                allow: ["arrowFunctions", "functions", "methods"],
             },
         ],
 
@@ -294,6 +286,48 @@ const config: Linter.Config = {
                 property: "pow",
                 message: "Use the exponentiation operator (**) instead.",
             },
+            {
+                object: "globalThis",
+                property: "isNaN",
+                message: "Use `Number.isNaN` instead."
+            },
+            {
+                object: "globalThis",
+                property: "isFinite",
+                message: "Use `Number.isFinite` instead."
+            },
+            {
+                object: "globalThis",
+                property: "parseFloat",
+                message: "Use `Number.parseFloat` instead."
+            },
+            {
+                object: "globalThis",
+                property: "parseInt",
+                message: "Use `Number.parseInt` instead."
+            },
+            {
+                object: "window",
+                property: "parseFloat",
+                message: "Use `Number.parseFloat` instead."
+            },
+            {
+                object: "window",
+                property: "parseInt",
+                message: "Use `Number.parseInt` instead."
+            },
+            {
+                property: "__proto__",
+                message: "Use `Object.getPrototypeOf` instead."
+            },
+            {
+                property: "__lookupGetter__",
+                message: "Use `Object.getOwnPropertyDescriptor` instead."
+            },
+            {
+                property: "__lookupSetter__",
+                message: "Use `Object.getOwnPropertyDescriptor` instead."
+            },
         ],
 
         // disallow use of assignment in return statement
@@ -366,17 +400,12 @@ const config: Linter.Config = {
 
         // disallow usage of configurable warning terms in comments: e.g. todo
         "no-warning-comments": [
-"off",
-{
- terms: [
-"todo",
-"fixme",
-"xxx",
-"@todo",
-],
-location: "start",
-},
-],
+            "off",
+            {
+                terms: ["todo", "fixme", "xxx", "@todo"],
+                location: "start",
+            },
+        ],
 
         // disallow use of the with statement
         "no-with": "error",
@@ -408,16 +437,12 @@ location: "start",
 
         // require immediate function invocation to be wrapped in parentheses
         // https://eslint.org/docs/rules/wrap-iife.html
-        "wrap-iife": [
-"error",
-"outside",
-{ functionPrototypeMethods: false },
-],
+        "wrap-iife": ["error", "outside", { functionPrototypeMethods: false }],
 
         // require or disallow Yoda conditions
         yoda: "error",
-                // encourages use of dot notation whenever possible
-                "dot-notation": ["error", { allowKeywords: true }],
+        // encourages use of dot notation whenever possible
+        "dot-notation": ["error", { allowKeywords: true }],
     },
 };
 

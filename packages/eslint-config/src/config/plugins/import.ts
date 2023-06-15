@@ -22,6 +22,7 @@ const config: Linter.Config = {
             ...(hasTypescript
                 ? {
                       typescript: {
+                          // eslint-disable-next-line max-len
                           alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
                           project: fromRoot("tsconfig.json"),
                       },

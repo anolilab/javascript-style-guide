@@ -349,7 +349,7 @@ Credits
 
 - [Daniel Bannert](https://github.com/prisis)
 - [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
-- [eslint-config-airbnb]()
+- [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
 - [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
 

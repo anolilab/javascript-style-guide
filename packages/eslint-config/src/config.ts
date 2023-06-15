@@ -30,6 +30,9 @@ const internalPluginConfig = [
     "toml",
     "yml",
     "es",
+
+    // custom rules
+    "antfu",
 ];
 
 const pluginConfig: PackageRules = [

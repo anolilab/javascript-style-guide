@@ -5,6 +5,7 @@ import { env } from "node:process";
 import { consoleLog } from "../../utils/loggers";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import eS6Config from "../es6";
 import styleConfig from "../style";
 import variablesConfig from "../variables";
@@ -13,6 +14,7 @@ import importsConfig from "./import";
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 const errorsRules = errorsConfig.rules as Linter.RulesRecord;
 const styleRules = styleConfig.rules as Linter.RulesRecord;
+// eslint-disable-next-line unicorn/prevent-abbreviations
 const eS6Rules = eS6Config.rules as Linter.RulesRecord;
 const importsRules = importsConfig.rules as Linter.RulesRecord;
 const variablesRules = variablesConfig.rules as Linter.RulesRecord;

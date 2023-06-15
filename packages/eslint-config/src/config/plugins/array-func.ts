@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import type { Linter } from "eslint";
 
 import createConfig from "../../utils/create-config";

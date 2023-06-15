@@ -46,12 +46,11 @@ const writeEslintRc = () => {
         parserOptions = `
     parserOptions: {
         project: "./tsconfig.json",
-        ecmaVersion: ${ecmaVersion},
+        ecmaVersion: ${ecmaVersion === "latest" ? `"${ecmaVersion}"` : ecmaVersion},
     },`;
     }
 
-    const content = `
-/** @ts-check */
+    const content = `/** @ts-check */
 /** @type {import('eslint').Linter.Config} */
 ${packageIsTypeModule ? "export default" : "module.exports ="} {
     root: true,

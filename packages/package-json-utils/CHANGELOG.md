@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.2.0...@anolilab/package-json-utils@1.3.0) (2023-06-15)
+
+
+### Features
+
+* renamed some functions and added deprecated message for the old ones, added a resolvePackage function ([75c9790](https://github.com/anolilab/javascript-style-guide/commit/75c9790acd510ad921492727a5a27b3f5f3256e2))
+
 ## @anolilab/package-json-utils [1.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.1.0...@anolilab/package-json-utils@1.2.0) (2023-06-11)
 
 

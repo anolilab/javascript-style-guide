@@ -38,7 +38,6 @@ const hasJsxRuntime = (() => {
     if (!global.hasAnolilabEsLintConfigReactRuntimePath) {
         const reactPath = findUp.sync("node_modules/react/jsx-runtime.js");
 
-        // eslint-disable-next-line no-undef
         if (typeof reactPath === "string") {
             consoleLog(`\n@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
@@ -74,13 +73,7 @@ const config: Linter.Config = {
             settings: {
                 "import/resolver": {
                     node: {
-                        extensions: [
-".js",
-".jsx",
-".json",
-".cjs",
-".mjs",
-],
+                        extensions: [".js", ".jsx", ".json", ".cjs", ".mjs"],
                     },
                 },
                 react: {
@@ -145,11 +138,7 @@ const config: Linter.Config = {
                 "react/forbid-prop-types": [
                     "error",
                     {
-                        forbid: [
-"any",
-"array",
-"object",
-],
+                        forbid: ["any", "array", "object"],
                         checkContextTypes: true,
                         checkChildContextTypes: true,
                     },
@@ -161,11 +150,7 @@ const config: Linter.Config = {
 
                 // Enforce boolean attributes notation in JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
-                "react/jsx-boolean-value": [
-"error",
-"never",
-{ always: [] },
-],
+                "react/jsx-boolean-value": ["error", "never", { always: [] }],
 
                 // Validate closing bracket location in JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
@@ -173,11 +158,7 @@ const config: Linter.Config = {
 
                 // Enforce or disallow spaces inside of curly braces in JSX attributes
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-                "react/jsx-curly-spacing": [
-"error",
-"never",
-{ allowMultiline: true },
-],
+                "react/jsx-curly-spacing": ["error", "never", { allowMultiline: true }],
 
                 // Enforce event handler naming conventions in JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
@@ -191,7 +172,7 @@ const config: Linter.Config = {
 
                 // Validate props indentation in JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-                "react/jsx-indent-props": ["error", 2],
+                "react/jsx-indent-props": ["error", (styleRules["indent"] as any[])[1] as number],
 
                 // Validate JSX has key prop when in array or iterator
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
@@ -417,11 +398,7 @@ const config: Linter.Config = {
 
                 // Enforce JSX indentation
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-                "react/jsx-indent": [
-"error",
-4,
-{ checkAttributes: true, indentLogicalExpressions: true },
-],
+                "react/jsx-indent": ["error", (styleRules["indent"] as any[])[1] as number, { checkAttributes: true, indentLogicalExpressions: true }],
 
                 // Disallow target="_blank" on links
                 // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md

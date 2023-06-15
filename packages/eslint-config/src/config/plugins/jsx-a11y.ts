@@ -36,12 +36,7 @@ const config: Linter.Config = {
         "jsx-a11y/alt-text": [
             "error",
             {
-                elements: [
-"img",
-"object",
-"area",
-'input[type="image"]',
-],
+                elements: ["img", "object", "area", 'input[type="image"]'],
                 img: [],
                 object: [],
                 area: [],
@@ -87,27 +82,8 @@ const config: Linter.Config = {
             {
                 labelAttributes: ["label"],
                 controlComponents: [],
-                ignoreElements: [
-"audio",
-"canvas",
-"embed",
-"input",
-"textarea",
-"tr",
-"video",
-],
-                ignoreRoles: [
-"grid",
-"listbox",
-"menu",
-"menubar",
-"radiogroup",
-"row",
-"tablist",
-"toolbar",
-"tree",
-"treegrid",
-],
+                ignoreElements: ["audio", "canvas", "embed", "input", "textarea", "tr", "video"],
+                ignoreRoles: ["grid", "listbox", "menu", "menubar", "radiogroup", "row", "tablist", "toolbar", "tree", "treegrid"],
                 depth: 5,
             },
         ],
@@ -176,14 +152,7 @@ const config: Linter.Config = {
         "jsx-a11y/no-static-element-interactions": [
             "error",
             {
-                handlers: [
-"onClick",
-"onMouseDown",
-"onMouseUp",
-"onKeyPress",
-"onKeyDown",
-"onKeyUp",
-],
+                handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
             },
         ],
 
@@ -192,14 +161,7 @@ const config: Linter.Config = {
         "jsx-a11y/no-noninteractive-element-interactions": [
             "error",
             {
-                handlers: [
-"onClick",
-"onMouseDown",
-"onMouseUp",
-"onKeyPress",
-"onKeyDown",
-"onKeyUp",
-],
+                handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
             },
         ],
 
@@ -249,31 +211,9 @@ const config: Linter.Config = {
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",
             {
-                ul: [
-"listbox",
-"menu",
-"menubar",
-"radiogroup",
-"tablist",
-"tree",
-"treegrid",
-],
-                ol: [
-"listbox",
-"menu",
-"menubar",
-"radiogroup",
-"tablist",
-"tree",
-"treegrid",
-],
-                li: [
-"menuitem",
-"option",
-"row",
-"tab",
-"treeitem",
-],
+                ul: ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+                ol: ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+                li: ["menuitem", "option", "row", "tab", "treeitem"],
                 table: ["grid"],
                 td: ["gridcell"],
             },
@@ -296,11 +236,7 @@ const config: Linter.Config = {
             {
                 components: ["Link"],
                 specialLink: ["to"],
-                aspects: [
-"noHref",
-"invalidHref",
-"preferButton",
-],
+                aspects: ["noHref", "invalidHref", "preferButton"],
             },
         ],
 

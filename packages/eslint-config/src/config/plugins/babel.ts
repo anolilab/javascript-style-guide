@@ -15,7 +15,8 @@ const config: Linter.Config = createConfig("all", {
         camelcase: "off",
         "babel/camelcase": [
             // Deep clone to avoid object mutation wierdness
-            (styleRules["camelcase"] as any[])[0], { ...(styleRules["camelcase"] as any[])[1] },
+            (styleRules["camelcase"] as any[])[0],
+            { ...(styleRules["camelcase"] as any[])[1] },
         ],
 
         "new-cap": "off",

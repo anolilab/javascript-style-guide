@@ -3,7 +3,7 @@ import type { Linter } from "eslint";
 const config: Linter.Config = {
     overrides: [
         {
-            files: ["*.ts", "*.tsx"],
+            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
             plugins: ["typescript-sort-keys"],
             rules: {
                 "typescript-sort-keys/interface": "error",
@@ -11,11 +11,7 @@ const config: Linter.Config = {
             },
         },
         {
-            files: [
-"*.js",
-"*.cjs",
-"*.mjs",
-],
+            files: ["*.js", "*.cjs", "*.mjs"],
             rules: {
                 "typescript-sort-keys/interface": "off",
                 "typescript-sort-keys/string-enum": "off",

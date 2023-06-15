@@ -20,11 +20,7 @@ const config: Linter.Config = {
         "lodash/identity-shorthand": [2, "always"],
         "lodash/import-scope": [2],
         "lodash/matches-prop-shorthand": [2, "always"],
-        "lodash/matches-shorthand": [
-2,
-"always",
-3,
-],
+        "lodash/matches-shorthand": [2, "always", 3],
         "lodash/no-commit": 2,
         "lodash/path-style": [2, "string"],
         "lodash/prefer-compact": 2,

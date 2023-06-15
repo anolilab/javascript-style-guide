@@ -13,11 +13,7 @@ const config: Linter.Config = {
     settings: {
         "import/resolver": {
             node: {
-                extensions: [
-".mjs",
-".js",
-".json",
-],
+                extensions: [".mjs", ".js", ".json"],
             },
             ...(hasTypescript
                 ? {
@@ -30,11 +26,7 @@ const config: Linter.Config = {
                 : {}),
         },
         ...(hasTypescript ? { "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] } } : {}),
-        "import/extensions": [
-".js",
-".mjs",
-".jsx",
-],
+        "import/extensions": [".js", ".mjs", ".jsx"],
         "import/core-modules": [],
         "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
     },
@@ -166,17 +158,11 @@ const config: Linter.Config = {
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
         // TODO: enforce a stricter convention in module import order?
         "import/order": [
-"error",
-{
- groups: [
-[
-"builtin",
-"external",
-"internal",
-],
-],
-},
-],
+            "error",
+            {
+                groups: [["builtin", "external", "internal"]],
+            },
+        ],
 
         // Require a newline after the last import/require in a group
         // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
@@ -303,6 +289,23 @@ const config: Linter.Config = {
         // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
         "import/no-empty-named-blocks": "error",
     },
+
+    overrides: [
+        {
+            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+            rules: {
+                // Disabled because of https://github.com/benmosher/eslint-plugin-import/issues/1590
+                "import/export": "off",
+
+                // Does not work when the TS definition exports a default const.
+                "import/default": "off",
+
+                // Disabled as it doesn't work with TypeScript.
+                // This issue and some others: https://github.com/benmosher/eslint-plugin-import/issues/1341
+                "import/named": "off",
+            },
+        },
+    ],
 };
 
 export default config;

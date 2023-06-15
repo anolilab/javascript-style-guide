@@ -1,15 +1,12 @@
 import type { Linter } from "eslint";
 
-const config: Linter.Config = {
-    overrides: [
-        {
-            files: ["*.ts", "*.tsx"],
-            plugins: ["eslint-plugin-tsdoc"],
-            rules: {
-                "tsdoc/syntax": "error",
-            },
-        },
-    ],
-};
+import createConfig from "../../utils/create-config";
+
+const config: Linter.Config = createConfig("typescript", {
+    plugins: ["eslint-plugin-tsdoc"],
+    rules: {
+        "tsdoc/syntax": "error",
+    },
+});
 
 export default config;

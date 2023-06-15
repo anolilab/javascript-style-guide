@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 const config = require("./packages/eslint-config");
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
             ],
             parserOptions: {
                 project: "./tsconfig.json",
-                // eslint-disable-next-line no-undef
+
                 tsconfigRootDir: __dirname,
             },
         },

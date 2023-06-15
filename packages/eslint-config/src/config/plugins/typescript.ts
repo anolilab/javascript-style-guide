@@ -1,4 +1,4 @@
-import { hasAnyDep } from "@anolilab/package-json-utils";
+import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { env } from "node:process";
 
@@ -39,15 +39,17 @@ const importExtensions = importsRules["import/extensions"] as any[];
 const importNoExtraneousDependencies = importsRules["import/no-extraneous-dependencies"] as any[];
 const commaDangle = styleRules["comma-dangle"] as any[];
 
+let anolilabEslintConfig: { [key: string]: false | undefined } = {};
+
+if (pkg) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
+}
+
 const config: Linter.Config = {
     overrides: [
         {
-            files: [
-"*.ts",
-"*.mts",
-"*.cts",
-"*.tsx",
-],
+            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
             extends: ["plugin:import/typescript"],
             plugins: ["@typescript-eslint"],
             parser: "@typescript-eslint/parser",
@@ -56,41 +58,23 @@ const config: Linter.Config = {
                 ecmaFeatures: {
                     jsx: true,
                 },
-                warnOnUnsupportedTypeScriptVersion: env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true",
+                warnOnUnsupportedTypeScriptVersion: anolilabEslintConfig?.["warn_on_unsupported_typescript_version"] ?? env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true",
             },
             settings: {
                 // Apply special parsing for TypeScript files
                 "import/parsers": {
-                    "@typescript-eslint/parser": [
-".ts",
-".tsx",
-".d.ts",
-],
+                    "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"],
                 },
 
                 // Append 'ts' extensions to 'import/resolver' setting
                 "import/resolver": {
                     node: {
-                        extensions: [
-".mjs",
-".cjs",
-".js",
-".json",
-".ts",
-".d.ts",
-],
+                        extensions: [".mjs", ".cjs", ".js", ".json", ".ts", ".d.ts"],
                     },
                 },
 
                 // Append 'ts' extensions to 'import/extensions' setting
-                "import/extensions": [
-".js",
-".mjs",
-".jsx",
-".ts",
-".tsx",
-".d.ts",
-],
+                "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx", ".d.ts"],
 
                 // Resolve type definition packages
                 "import/external-module-folders": ["node_modules", "node_modules/@types"],
@@ -115,11 +99,7 @@ const config: Linter.Config = {
                     // Allow camelCase variables (23.2), PascalCase variables (23.8), and UPPER_CASE variables (23.10)
                     {
                         selector: "variable",
-                        format: [
-"camelCase",
-"PascalCase",
-"UPPER_CASE",
-],
+                        format: ["camelCase", "PascalCase", "UPPER_CASE"],
                     },
                     // Allow camelCase functions (23.2), and PascalCase functions (23.8)
                     {
@@ -139,7 +119,7 @@ const config: Linter.Config = {
                 // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
                 "comma-dangle": "off",
                 "@typescript-eslint/comma-dangle": [
-                    // eslint-disable-next-line sonarjs/no-duplicate-string
+
                     commaDangle[0],
                     {
                         ...commaDangle[1],
@@ -280,7 +260,7 @@ const config: Linter.Config = {
                 // Append 'ts' and 'tsx' to 'import/extensions' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
                 "import/extensions": [
-                    // eslint-disable-next-line sonarjs/no-duplicate-string
+
                     importExtensions[0],
                     importExtensions[1],
                     {
@@ -293,7 +273,7 @@ const config: Linter.Config = {
                 // Append 'ts' and 'tsx' extensions to 'import/no-extraneous-dependencies' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
                 "import/no-extraneous-dependencies": [
-                    // eslint-disable-next-line sonarjs/no-duplicate-string
+
                     importNoExtraneousDependencies[0],
                     {
                         ...importNoExtraneousDependencies[1],

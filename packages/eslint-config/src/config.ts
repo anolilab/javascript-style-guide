@@ -1,4 +1,6 @@
-import { hasAnyDep, hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
+import {
+ hasAnyDep, hasDependency, hasDevDependency, pkg,
+} from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 
@@ -11,6 +13,8 @@ const internalPluginConfig = [
     "optimize-regex",
     "promise",
     "simple-import-sort",
+    "no-extend-native",
+    "node",
     // Security Rules
     "no-secrets",
     "sonarjs",
@@ -132,13 +136,13 @@ const pluginConfig: PackageRules = [
     {
         configName: "ava",
         dependencies: ["ava", "eslint-plugin-ava"],
-    }
+    },
 ];
 
 const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
-let anolilabEslintConfig: { [key: string]: false | undefined } = {};
+let anolilabEslintConfig: { [key: string]: { [key: string]: false | undefined} } = {};
 
 if (pkg) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
@@ -148,7 +152,7 @@ if (pkg) {
 pluginConfig.forEach((plugin) => {
     const { dependencies, configName } = plugin;
 
-    if (anolilabEslintConfig?.[configName] !== false) {
+    if (anolilabEslintConfig?.["plugin"]?.[configName] !== false) {
         if (
             hasAnyDep(dependencies, {
                 peerDeps: false,

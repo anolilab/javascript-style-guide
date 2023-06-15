@@ -9,14 +9,7 @@ const config: Linter.Config = {
                 "no-secrets/no-secrets": "error",
             },
             files: ["*", "*/**"],
-            excludedFiles: [
-"package.json",
-"**/package.json",
-"package-lock.json",
-"**/package-lock.json",
-"tsconfig.json",
-"**/tsconfig.json",
-],
+            excludedFiles: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
         },
     ],
 };

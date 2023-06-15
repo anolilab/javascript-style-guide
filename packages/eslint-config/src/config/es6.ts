@@ -207,12 +207,7 @@ const config: Linter.Config = {
                 ignoreCase: false,
                 ignoreDeclarationSort: false,
                 ignoreMemberSort: false,
-                memberSyntaxSortOrder: [
-"none",
-"all",
-"multiple",
-"single",
-],
+                memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
             },
         ],
 

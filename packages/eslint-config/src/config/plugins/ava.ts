@@ -1,6 +1,5 @@
 import type { Linter } from "eslint";
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
 const config: Linter.Config = {
     overrides: [
         {

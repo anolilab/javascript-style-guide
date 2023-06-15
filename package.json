@@ -58,7 +58,7 @@
         "build:prod:packages": "pnpm --filter \"package-json-utils\" run build:prod && nx run-many --target=build:prod --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config,semantic-release-preset,stylelint-config,eslint-config",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky install",
-        "lint:eslint": "eslint -c ./.eslintrc.cjs --ext .js,.cjs,.mjs,.ts,.tsx ./packages --cache --cache-strategy content .",
+        "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.cjs --ext .js,.cjs,.mjs,.ts,.tsx ./packages --cache --cache-strategy content .",
         "lint:eslint:fix": "pnpm run lint:eslint --fix",
         "lint:prettier": "prettier --config=.prettierrc.cjs --write '**/*.{js,jsx,cjs,tsx,ts,less,md,json}'",
         "lint:staged": "lint-staged --verbose",
@@ -117,7 +117,7 @@
         "typescript": "5.1.3",
         "vitest": "^0.32.0"
     },
-    "packageManager": "pnpm@8.6.1",
+    "packageManager": "pnpm@8.6.2",
     "engines": {
         "node": ">=16.18.0 <=20.*"
     },

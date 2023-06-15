@@ -6,43 +6,47 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
-import { packageIsTypeModule } from "@anolilab/package-json-utils";
+import { packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { join } from "node:path";
+import semver from "semver";
 
 import { pluginRules, possiblePluginRules, rules } from "./config";
+import engineRules from "./engine-node-overwrite";
 import { consoleLog, consolePlugin } from "./utils/loggers";
 
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintConfigLoaded) {
-    consoleLog("\n@anolilab/eslint-config loaded the following plugins:\n");
+    if (process.env["DEBUG"]) {
+        consoleLog("\n@anolilab/eslint-config loaded the following plugins:\n");
 
-    consoleLog("  @rushstack/eslint-plugin-security");
-    [
-        "compat",
-        "eslint-comments",
-        "i",
-        "optimize-regex",
-        "promise",
-        "simple-import-sort",
-        "unicorn",
-        "no-secrets",
-        "sonarjs",
-        "json",
-        "jsonc",
-        "markdown",
-        "toml",
-        "yml",
-        "es",
-        ...pluginRules,
-    ].forEach((plugin) => consolePlugin(plugin));
+        consoleLog("  @rushstack/eslint-plugin-security");
+        [
+            "compat",
+            "eslint-comments",
+            "i",
+            "optimize-regex",
+            "promise",
+            "simple-import-sort",
+            "unicorn",
+            "no-secrets",
+            "sonarjs",
+            "json",
+            "jsonc",
+            "markdown",
+            "toml",
+            "yml",
+            "es",
+            ...pluginRules,
+        ].forEach((plugin) => consolePlugin(plugin));
+    }
 
     Object.entries(possiblePluginRules).forEach(([plugin, dependencies]) => {
         const hasOneDependency = Object.values(dependencies).some(Boolean);
 
         if (hasOneDependency) {
             consoleLog(
-                `\nYour package.json container dependencies for "${plugin}" eslint-plugin, please add the following dependencies with your chosen package manager to enable this plugin:`,
+                `\nYour package.json container dependencies for the "${plugin}" eslint-plugin, please add the following dependencies with your chosen package manager to enable this plugin:`,
             );
 
             Object.entries(dependencies).forEach(([dependency, installed]) => {
@@ -55,11 +59,31 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 
     if (Object.keys(possiblePluginRules).length > 0) {
         consoleLog("\nTo disable this message, add the following to your package.json:");
-        consoleLog('    "anolilab": { "eslint-config": { "plugin-name": false } }\n');
+        consoleLog('    "anolilab": { "eslint-config": { plugin: { "plugin-name": false } } }\n');
     }
+
+    consoleLog('To disable all logging, add the following to your eslint command call "NO_LOGS=true eslint ..."');
 
     global.hasAnolilabEsLintConfigLoaded = true;
 }
+
+const configRules: Linter.RulesRecord = {};
+
+let nodeVersion: string | undefined;
+
+if (pkg?.engines?.["node"]) {
+    nodeVersion = pkg.engines["node"];
+}
+
+Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
+    Object.keys(ruleConfig)
+        .sort(semver.rcompare)
+        .forEach((minVersion) => {
+            if (nodeVersion && semver.intersects(nodeVersion, `<${minVersion}`)) {
+                configRules[rule] = ruleConfig[minVersion as keyof typeof ruleConfig] as Linter.RuleEntry;
+            }
+        });
+});
 
 const config: Linter.Config = {
     // After an .eslintrc.js file is loaded, ESLint will normally continue visiting all parent folders
@@ -75,11 +99,14 @@ const config: Linter.Config = {
 
     extends: [
         ...rules
-            // eslint-disable-next-line no-undef
+
             .map((plugin) => join(__dirname, `./config/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
-        // eslint-disable-next-line no-undef
+
         ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
     ],
+    rules: {
+        ...configRules,
+    },
     overrides: [
         {
             files: ["**/migrations/*.{js,ts}"],

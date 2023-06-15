@@ -46,11 +46,7 @@ const config: Linter.Config = {
 
         // require the use of === and !==
         // https://eslint.org/docs/rules/eqeqeq
-        eqeqeq: [
-"error",
-"always",
-{ null: "ignore" },
-],
+        eqeqeq: ["error", "always", { null: "ignore" }],
 
         // Require grouped accessor pairs in object literals and classes
         // https://eslint.org/docs/rules/grouped-accessor-pairs
@@ -90,11 +86,7 @@ const config: Linter.Config = {
         "no-empty-function": [
             "error",
             {
-                allow: [
-"arrowFunctions",
-"functions",
-"methods",
-],
+                allow: ["arrowFunctions", "functions", "methods"],
             },
         ],
 
@@ -410,12 +402,7 @@ const config: Linter.Config = {
         "no-warning-comments": [
             "off",
             {
-                terms: [
-"todo",
-"fixme",
-"xxx",
-"@todo",
-],
+                terms: ["todo", "fixme", "xxx", "@todo"],
                 location: "start",
             },
         ],
@@ -450,11 +437,7 @@ const config: Linter.Config = {
 
         // require immediate function invocation to be wrapped in parentheses
         // https://eslint.org/docs/rules/wrap-iife.html
-        "wrap-iife": [
-"error",
-"outside",
-{ functionPrototypeMethods: false },
-],
+        "wrap-iife": ["error", "outside", { functionPrototypeMethods: false }],
 
         // require or disallow Yoda conditions
         yoda: "error",

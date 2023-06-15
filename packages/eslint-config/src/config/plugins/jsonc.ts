@@ -19,11 +19,7 @@ if (hasAnyDep(["prettier"])) {
 const config: Linter.Config = {
     overrides: [
         {
-            files: [
-"*.json",
-"*.json5",
-"*.jsonc",
-],
+            files: ["*.json", "*.json5", "*.jsonc"],
             extends: extendedPlugins,
             parser: "jsonc-eslint-parser",
         },
@@ -95,11 +91,7 @@ const config: Linter.Config = {
                     },
                     {
                         pathPattern: "^exports.*$",
-                        order: [
-"types",
-"require",
-"import",
-],
+                        order: ["types", "require", "import"],
                     },
                 ],
             },

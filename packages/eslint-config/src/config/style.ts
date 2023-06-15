@@ -1,14 +1,32 @@
+import { pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+
+let anolilabEslintConfig: { [key: string]: false | undefined } = {};
+
+if (pkg) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
+}
+
+let indent: number = 4;
+
+if (anolilabEslintConfig?.["indent"]) {
+    if (Number.isNaN(anolilabEslintConfig["indent"])) {
+        throw new TypeError("Indent must be a number");
+    }
+
+    indent = Number(anolilabEslintConfig["indent"]);
+}
 
 const config: Linter.Config = {
     rules: {
         // enforce line breaks after opening and before closing array brackets
         // https://eslint.org/docs/rules/array-bracket-newline
-        "array-bracket-newline": ["error", { multiline: true, minItems: 3 }],
+        "array-bracket-newline": "off",
 
         // enforce line breaks between array elements
         // https://eslint.org/docs/rules/array-element-newline
-        "array-element-newline": ["error", { multiline: true, minItems: 3 }],
+        "array-element-newline": "off",
 
         // enforce spacing inside array brackets
         "array-bracket-spacing": ["error", "never"],
@@ -18,11 +36,7 @@ const config: Linter.Config = {
         "block-spacing": ["error", "always"],
 
         // enforce one true brace style
-        "brace-style": [
-"error",
-"1tbs",
-{ allowSingleLine: true },
-],
+        "brace-style": ["error", "1tbs", { allowSingleLine: true }],
 
         // require camel case names
         camelcase: ["error", { properties: "never", ignoreDestructuring: false }],
@@ -96,8 +110,7 @@ const config: Linter.Config = {
         "eol-last": ["error", "always"],
 
         // https://eslint.org/docs/rules/function-call-argument-newline
-        // TODO: enable, semver-minor, once eslint v6.2 is required (which is a major)
-        "function-call-argument-newline": ["off", "consistent"],
+        "function-call-argument-newline": ["error", "consistent"],
 
         // enforce spacing between functions and their invocations
         // https://eslint.org/docs/rules/func-call-spacing
@@ -121,8 +134,7 @@ const config: Linter.Config = {
 
         // enforces use of function declarations or expressions
         // https://eslint.org/docs/rules/func-style
-        // TODO: enable
-        "func-style": ["off", "expression"],
+        "func-style": ["error", "expression"],
 
         // enforce consistent line breaks inside function parentheses
         // https://eslint.org/docs/rules/function-paren-newline
@@ -130,8 +142,7 @@ const config: Linter.Config = {
 
         // Blacklist certain identifiers to prevent them being used
         // https://eslint.org/docs/rules/id-blacklist
-        // TODO: semver-major, remove once eslint v7.4+ is required
-        "id-blacklist": "off",
+        "id-blacklist": "error",
 
         // disallow specified identifiers
         // https://eslint.org/docs/rules/id-denylist
@@ -152,7 +163,7 @@ const config: Linter.Config = {
         // https://eslint.org/docs/rules/indent
         indent: [
             "error",
-            4,
+            indent,
             {
                 SwitchCase: 1,
                 VariableDeclarator: 1,
@@ -235,11 +246,7 @@ const config: Linter.Config = {
 
         // require or disallow an empty line between class members
         // https://eslint.org/docs/rules/lines-between-class-members
-        "lines-between-class-members": [
-"error",
-"always",
-{ exceptAfterSingleLine: false },
-],
+        "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
 
         // enforces empty lines around comments
         "lines-around-comment": "off",
@@ -324,11 +331,7 @@ const config: Linter.Config = {
                 newIsCap: true,
                 newIsCapExceptions: [],
                 capIsNew: false,
-                capIsNewExceptions: [
-"Immutable.Map",
-"Immutable.Set",
-"Immutable.List",
-],
+                capIsNewExceptions: ["Immutable.Map", "Immutable.Set", "Immutable.List"],
             },
         ],
 
@@ -379,19 +382,8 @@ const config: Linter.Config = {
                     ["%", "*"],
                     ["%", "/"],
                     ["/", "*"],
-                    [
-"&",
-"|",
-"<<",
-">>",
-">>>",
-],
-                    [
-"==",
-"!=",
-"===",
-"!==",
-],
+                    ["&", "|", "<<", ">>", ">>>"],
+                    ["==", "!=", "===", "!=="],
                     ["&&", "||"],
                     ["in", "instanceof"],
                 ],
@@ -490,11 +482,7 @@ const config: Linter.Config = {
 
         // enforce the location of single-line statements
         // https://eslint.org/docs/rules/nonblock-statement-body-position
-        "nonblock-statement-body-position": [
-"error",
-"beside",
-{ overrides: {} },
-],
+        "nonblock-statement-body-position": ["error", "beside", { overrides: {} }],
 
         // require padding inside curly braces
         "object-curly-spacing": ["error", "always"],
@@ -533,11 +521,7 @@ const config: Linter.Config = {
 
         // Requires operator at the beginning of the line in multiline statements
         // https://eslint.org/docs/rules/operator-linebreak
-        "operator-linebreak": [
-"error",
-"before",
-{ overrides: { "=": "none" } },
-],
+        "operator-linebreak": ["error", "before", { overrides: { "=": "none" } }],
 
         // disallow padding within blocks
         "padded-blocks": [
@@ -558,8 +542,7 @@ const config: Linter.Config = {
 
         // Disallow the use of Math.pow in favor of the ** operator
         // https://eslint.org/docs/rules/prefer-exponentiation-operator
-        // TODO: enable, semver-major when eslint 5 is dropped
-        "prefer-exponentiation-operator": "off",
+        "prefer-exponentiation-operator": "error",
 
         // Prefer use of an object spread over Object.assign
         // https://eslint.org/docs/rules/prefer-object-spread
@@ -567,18 +550,10 @@ const config: Linter.Config = {
 
         // require quotes around object literal property names
         // https://eslint.org/docs/rules/quote-props.html
-        "quote-props": [
-"error",
-"as-needed",
-{ keywords: false, unnecessary: true, numbers: false },
-],
+        "quote-props": ["error", "as-needed", { keywords: false, unnecessary: true, numbers: false }],
 
         // specify whether double or single quotes should be used
-        quotes: [
-"error",
-"double",
-{ avoidEscape: true },
-],
+        quotes: ["error", "double", { avoidEscape: true }],
 
         // do not require jsdoc
         // https://eslint.org/docs/rules/require-jsdoc
@@ -595,11 +570,7 @@ const config: Linter.Config = {
         "semi-style": ["error", "last"],
 
         // requires object keys to be sorted
-        "sort-keys": [
-"off",
-"asc",
-{ caseSensitive: false, natural: true },
-],
+        "sort-keys": ["off", "asc", { caseSensitive: false, natural: true }],
 
         // sort variables within the same declaration block
         "sort-vars": "off",
@@ -642,25 +613,12 @@ const config: Linter.Config = {
             "always",
             {
                 line: {
-                    exceptions: [
-"-",
-"+",
-"*",
-],
-                    markers: [
-"=",
-"!",
-"/",
-], // space here to support sprockets directives, slash for TS /// comments
+                    exceptions: ["-", "+", "*"],
+                    markers: ["=", "!", "/"], // space here to support sprockets directives, slash for TS /// comments
                 },
                 block: {
                     exceptions: ["-", "+"],
-                    markers: [
-"=",
-"!",
-":",
-"::",
-], // space here to support sprockets directives and flow comment types
+                    markers: ["=", "!", ":", "::"], // space here to support sprockets directives and flow comment types
                     balanced: true,
                 },
             },

@@ -3,7 +3,6 @@ import type { Linter } from "eslint";
 
 import createConfig from "../../utils/create-config";
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
 const config: Linter.Config = createConfig("all", {
     plugins: ["antfu"],
     rules: {

@@ -1,12 +1,10 @@
-#!/usr/bin/env node
-
 import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, readFileSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
 
 if (process.env["CI"]) {
-    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(0);
 }
 
@@ -17,6 +15,7 @@ console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
 /**
  * Writes .eslintrc.js if it doesn't exist. Warns if it exists.
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const writeEslintRc = () => {
     const eslintPath = join(projectPath, ".eslintrc.js");
 
@@ -24,12 +23,13 @@ const writeEslintRc = () => {
     let parserOptions = `
     parserOptions: {
         ecmaVersion: "latest",
+        sourceType: ${packageIsTypeModule ? '"module"' : '"commonjs"'},
     },`;
 
     const tsconfigPath = join(projectPath, "tsconfig.json");
 
     if (existsSync(tsconfigPath)) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8"));
 
         let ecmaVersion = "latest";
@@ -50,6 +50,7 @@ const writeEslintRc = () => {
     parserOptions: {
         project: "./tsconfig.json",
         ecmaVersion: ${ecmaVersion === "latest" ? `"${ecmaVersion}"` : ecmaVersion},
+        sourceType: ${packageIsTypeModule ? '"module"' : '"commonjs"'},
     },`;
     }
 
@@ -75,19 +76,19 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
             files: [
                 "*.ts",
                 "*.tsx",
+                "*.mts",
+                "*.cts",
                 "*.js",
                 "*.jsx",
             ],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
-            parserOptions: {
-            },
+            parserOptions: {},
             rules: {},
         },
         {
-            files: ["*.ts", "*.tsx"],
+            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
-            parserOptions: {
-            },
+            parserOptions: {},
             rules: {},
         },
         {
@@ -132,13 +133,13 @@ const writeEslintIgnore = () => {
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line no-undef
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
         console.error(error);
 
-        // eslint-disable-next-line no-undef
+        // eslint-disable-next-line unicorn/no-process-exit
         process.exit(1);
     }
 })();

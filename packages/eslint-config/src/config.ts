@@ -1,88 +1,195 @@
-const { hasAnyDep, hasTypescript } = require("./lib/utils.cjs");
-const isModuleAvailable = require("./lib/is-module-available.cjs");
+import {
+ hasAnyDep, hasDependency, hasDevDependency, pkg,
+} from "@anolilab/package-json-utils";
 
-// Base rules
-const rules = ["best-practices", "errors", "style", "es6", "variables"];
+import type { PackageRules } from "./types";
 
-// Base plugin rules
-const pRules = [
+const baseConfig = [
+"best-practices",
+"errors",
+"style",
+"es6",
+"variables",
+];
+
+const internalPluginConfig = [
     "compat",
     "eslint-comments",
     "import",
-    "json",
-    "jsonc",
-    "jsonc",
-    "markdown",
     "optimize-regex",
     "promise",
     "simple-import-sort",
-    "toml",
     "unicorn",
-    "yml",
-    "you-dont-need-lodash-underscore",
-    "you-dont-need-momentjs",
-
     // Security Rules
     "no-secrets",
     "sonarjs",
+    "security",
+    // file rules
+    "jsonc",
+    "markdown",
+    "toml",
+    "yml",
+    "es",
 ];
 
-// Optionals rules based on project dependencies
-const depRules = [
-    "array-func",
-    "html",
-    "jsdoc",
-    "lodash",
-    "mdx",
-    "no-unsanitized",
-    "react",
-    "react-redux",
-    ["lodash", "lodash-fp"],
-    ["react", "jsx-a11y"],
-    ["react", "react-hooks"],
-    "tailwindcss",
+const pluginConfig: PackageRules = [
+    {
+        configName: "array-func",
+        dependencies: ["eslint-plugin-array-func"],
+    },
+    {
+        configName: "html",
+        dependencies: ["eslint-plugin-html"],
+    },
+    {
+        configName: "jsdoc",
+        dependencies: ["eslint-plugin-jsdoc"],
+    },
+    {
+        configName: "tsdoc",
+        dependencies: ["eslint-plugin-tsdoc", "typescript"],
+    },
+    {
+        configName: "lodash",
+        dependencies: ["lodash", "eslint-plugin-lodash"],
+    },
+    {
+        configName: "lodash-fp",
+        dependencies: ["lodash", "eslint-plugin-lodash-fp"],
+    },
+    {
+        configName: "you-dont-need-lodash-underscore",
+        dependencies: ["lodash", "eslint-plugin-you-dont-need-lodash-underscore"],
+    },
+    {
+        configName: "mdx",
+        dependencies: ["eslint-plugin-mdx"],
+    },
+    {
+        configName: "no-unsanitized",
+        dependencies: ["eslint-plugin-no-unsanitized"],
+    },
+    {
+        configName: "react",
+        dependencies: [
+"react",
+"react-dom",
+"eslint-plugin-react",
+],
+    },
+    {
+        configName: "react-redux",
+        dependencies: ["eslint-plugin-react-redux"],
+    },
+    {
+        configName: "jsx-a11y",
+        dependencies: [
+"react",
+"react-dom",
+"eslint-plugin-jsx-a11y",
+],
+    },
+    {
+        configName: "react-hooks",
+        dependencies: [
+"react",
+"react-dom",
+"eslint-plugin-react-hooks",
+],
+    },
+    {
+        configName: "you-dont-need-momentjs",
+        dependencies: [
+"moment",
+"moment-timezone",
+"eslint-plugin-you-dont-need-momentjs",
+],
+    },
+    {
+        configName: "tailwindcss",
+        dependencies: ["eslint-plugin-tailwindcss"],
+    },
+    {
+        configName: "cypress",
+        dependencies: ["eslint-plugin-cypress"],
+    },
+    {
+        configName: "jest",
+        dependencies: ["jest", "eslint-plugin-jest"],
+    },
+    {
+        configName: "jest-dom",
+        dependencies: [
+"jest",
+"@testing-library/jest-dom",
+"eslint-plugin-jest-dom",
+],
+    },
+    {
+        configName: "jest-async",
+        dependencies: ["jest", "eslint-plugin-jest-async"],
+    },
+    {
+        configName: "jest-formatting",
+        dependencies: ["jest", "eslint-plugin-jest-formatting"],
+    },
+    {
+        configName: "tailwindcss",
+        dependencies: ["tailwindcss"],
+    },
+    {
+        configName: "testing-library",
+        dependencies: ["@testing-library/dom", "eslint-plugin-testing-library"],
+    },
+    {
+        configName: "typescript",
+        dependencies: ["typescript"],
+    },
+    {
+        configName: "typescript-sort-keys",
+        dependencies: ["typescript", "eslint-plugin-typescript-sort-keys"],
+    },
+    {
+        configName: "vitest",
+        dependencies: ["vitest", "eslint-plugin-vitest"],
+    },
+    {
+        configName: "zod",
+        dependencies: ["zod", "eslint-plugin-zod"],
+    },
 ];
 
-const testRules = [
-    "cypress",
-    "jest",
-    "jest-dom",
-    ["@testing-library/dom", "testing-library"],
-    ["@testing-library/jest-dom", "jest-dom"],
-    ["jest", "jest-async", "jest-dom"],
-    ["jest-formatting", "jest"],
-];
+const loadedPlugins: string[] = [...internalPluginConfig];
+const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
-// Extra required optional packages
-const extraInstalled = [];
+let anolilabEslintConfig: { [key: string]: false | undefined } = {};
 
-depRules.forEach((depRule) => {
-    const rule = typeof depRule === "string" ? [depRule, depRule] : depRule;
-
-    if (hasAnyDep(rule[0])) {
-        pRules.push(rule[1]);
-    }
-});
-
-testRules.forEach((depRule) => {
-    const rule = typeof depRule === "string" ? [depRule, depRule] : depRule;
-
-    if (isModuleAvailable(rule[0])) {
-        pRules.push(rule[1]);
-    }
-});
-
-if (hasTypescript) {
-    pRules.push("typescript");
-    extraInstalled.push(["typescript", "@typescript-eslint/parser"], ["typescript", "@typescript-eslint/eslint-plugin"]);
-
-    if (hasAnyDep("eslint-plugin-typescript-sort-keys")) {
-        pRules.push("typescript-sort-keys");
-    }
+if (pkg) {
+    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
 }
 
-module.exports = {
-    rules,
-    pluginRules: pRules,
-    extraInstallPackage: extraInstalled,
-};
+pluginConfig.forEach((plugin) => {
+    const { dependencies, configName } = plugin;
+
+    if (anolilabEslintConfig?.[configName] !== false) {
+        if (
+            hasAnyDep(dependencies, {
+                peerDeps: false,
+                strict: true,
+            })
+        ) {
+            loadedPlugins.push(configName);
+        } else {
+            possiblePlugins[configName] = {};
+
+            dependencies.forEach((dependency) => {
+                (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) ?? hasDevDependency(dependency);
+            });
+        }
+    }
+});
+
+export const rules = baseConfig;
+export const pluginRules = loadedPlugins;
+
+export const possiblePluginRules = possiblePlugins;

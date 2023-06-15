@@ -1,44 +1,66 @@
 #!/usr/bin/env node
 
-// eslint-disable-next-line no-undef
-if (process.env.CI) {
+import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
+import { existsSync, readFileSync, writeFile } from "node:fs";
+import { join } from "node:path";
+import { promisify } from "node:util";
+
+if (process.env["CI"]) {
     // eslint-disable-next-line no-undef
     process.exit(0);
 }
 
-const { writeFile, existsSync } = require("node:fs");
-// eslint-disable-next-line unicorn/import-style
-const { resolve, join } = require("node:path");
-const { promisify } = require("node:util");
-
 const writeFileAsync = promisify(writeFile);
-
-// get the path to the host project.
-// eslint-disable-next-line no-undef
-const projectPath = resolve(process.cwd(), "..", "..", "..");
 
 console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
 
 /**
- * Writes .eslintrc.cjs if it doesn't exist. Warns if it exists.
+ * Writes .eslintrc.js if it doesn't exist. Warns if it exists.
  */
 const writeEslintRc = () => {
-    const eslintPath = join(projectPath, ".eslintrc.cjs");
+    const eslintPath = join(projectPath, ".eslintrc.js");
+
+    let pluginExtends = "";
+    let parserOptions = `
+    parserOptions: {
+        ecmaVersion: "latest",
+    },`;
+
+    const tsconfigPath = join(projectPath, "tsconfig.json");
+
+    if (existsSync(tsconfigPath)) {
+        const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8"));
+
+        let ecmaVersion = "latest";
+
+        if (tsConfig.compilerOptions?.target) {
+            ecmaVersion = tsConfig.compilerOptions.target;
+
+            ecmaVersion = ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");
+
+            if (ecmaVersion !== "latest" && ecmaVersion !== "2022" && ecmaVersion !== "2021" && ecmaVersion !== "2021" && ecmaVersion !== "6") {
+                pluginExtends = `, "plugin:es/restrict-to-es${ecmaVersion}"`;
+            }
+        }
+
+        parserOptions = `
+    parserOptions: {
+        project: "./tsconfig.json",
+        ecmaVersion: ${ecmaVersion},
+    },`;
+    }
+
     const content = `
 /** @ts-check */
 /** @type {import('eslint').Linter.Config} */
-module.exports = {
+${packageIsTypeModule ? "export default" : "module.exports ="} {
     root: true,
-    extends: ["@anolilab/eslint-config"],
+    extends: ["@anolilab/eslint-config"${pluginExtends}],
     ignorePatterns: ["!**/*"],
     env: {
         // Your environments (which contains several predefined global variables)
-        // browser: true,
-        // node: true,
-        // mocha: true,
-        // jest: true,
-        // jquery: true
-    },
+        // Most environments are loaded automatically if our rules are added
+    },${parserOptions}
     globals: {
         // Your global variables (setting to false means it's not allowed to be reassigned)
         // myGlobal: false
@@ -48,16 +70,21 @@ module.exports = {
     },
     overrides: [
         {
-            files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            files: [
+                "*.ts",
+                "*.tsx",
+                "*.js",
+                "*.jsx",
+            ],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
-            "parserOptions": {
+            parserOptions: {
             },
             rules: {},
         },
         {
             files: ["*.ts", "*.tsx"],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
-            "parserOptions": {
+            parserOptions: {
             },
             rules: {},
         },

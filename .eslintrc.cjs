@@ -6,7 +6,12 @@ module.exports = {
     root: true,
     overrides: [
         {
-            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+            files: [
+                "*.ts",
+                "*.mts",
+                "*.cts",
+                "*.tsx",
+            ],
             parserOptions: {
                 project: "./tsconfig.json",
                 // eslint-disable-next-line no-undef

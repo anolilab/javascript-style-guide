@@ -1,10 +1,17 @@
-# ESLint config
+# Anolilab ESLint config
 
 This package provides Anolilab’s most comprehensive code style guide as an extensible shared config.
 
 With a range of useful plugins that are often too time-consuming to setup, based on your project’s dependencies we will notify you about missing eslint plugins.
 
 The goal is to reduce noise in code version control and promote use of the latest ES features.
+
+
+<div align="center">
+
+[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
 
 ---
 
@@ -27,11 +34,11 @@ npm install eslint @anolilab/eslint-config --save-dev
 ```
 
 ```sh
-yarn add -D @babel/core @babel/runtime @anolilab/babel-preset
+yarn add -D eslint @anolilab/eslint-config
 ```
 
 ```sh
-pnpm add -D @babel/core @babel/runtime @anolilab/babel-preset
+pnpm add -D eslint @anolilab/eslint-config
 ```
 
 ## Usage
@@ -73,31 +80,23 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 > Note: `@anolilab/eslint-config` will handle the configuration for almost all eslint-plugins / eslint-configs automatically.
 > With this you only need to install the needed plugins/configs for TypeScript or React and you done.
 
-### Node
-
-```bash
-npm install --save-dev eslint eslint-plugin-node @anolilab/eslint-config
-```
-
 ### TypeScript
 
 ```bash
-npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin @anolilab/eslint-config
+npm install --save-dev eslint typescript @anolilab/eslint-config
 ```
 
 ### React
 
-```bash
-  npm install --save-dev eslint @babel/eslint-parser eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
-```
-
-Or for the use of `TypeScript` in react
+You need to have "react" and "react-dom" installed.
 
 ```bash
-npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
+  npm install --save-dev eslint eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
 ```
 
-Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path.
+Or for the use of `TypeScript` in react install "typescript" as a dev dependency.
+
+Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path if you have a custom path.
 
 ```js
 export default {
@@ -117,7 +116,7 @@ npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.
 
-Now that Prettier has become a necessary tool in front end projects, eslint-config-alloy does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
+Now that Prettier has become a necessary tool in front end projects, `@anolilab/eslint-config` does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
 
 As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project’s .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
 
@@ -215,11 +214,15 @@ ESLint will not lint `.vue`, `.ts` or `.tsx` files in VSCode by default, you nee
 ```json
 {
   "eslint.validate": [
+    "css",
+    "html",
     "javascript",
     "javascriptreact",
-    "vue",
+    "json",
+    "markdown",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "yaml"
   ]
 }
 ```
@@ -230,27 +233,56 @@ If you want to enable auto-fix-on-save, you need to set your `.vscode/settings.j
 
 ```json
 {
-  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true
 }
 ```
 
-A best practice for VSCode is to auto format code with Prettier and autofix errors with ESLint by setting `.vscode/settings.json` to this:
+Additionally, we found it that being explicit about which formatter you are using for each file improves DX:
 
 ```json
 {
-  "files.eol": "\n",
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+  "[css]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   }
 }
 ```
+
+While not required if you've configured explicit formatter for each file type, I advise that you explicitly disable prettier extension in your project:
+
+```json
+{
+  "prettier.enable": false
+}
+```
+Sharing these settings in your project should be sufficient to prevent local settings accidentally overriding the desired formatter behavior.
 
 ## Q & A
 
@@ -279,8 +311,19 @@ Credits
 
 - [Daniel Bannert](https://github.com/prisis)
 - [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+- [eslint-config-airbnb]()
+- [eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
+- [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
 
 License
 -------------
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+
+
+[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: "typescript"
+[license-image]: https://img.shields.io/npm/l/@anolilab/eslint-config?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/eslint-config/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/eslint-config/v/latest "npm"

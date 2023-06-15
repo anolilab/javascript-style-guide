@@ -1,6 +1,7 @@
-import type { Linter } from "eslint";
-import createConfig from "../../utils/create-config";
 import { hasTypescript, packageIsTypeModule } from "@anolilab/package-json-utils";
+import type { Linter } from "eslint";
+
+import createConfig from "../../utils/create-config";
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 const config: Linter.Config = createConfig("all", {

@@ -82,8 +82,8 @@ const config: Linter.Config = {
                     namedFrom: false, // permits `export { foo as default } from 'foo';` declarations
                     namespaceFrom: true, // restricts `export * as default from 'foo';` declarations
                 },
-                restrictedNamedExports: ["then", // this will cause tons of confusion when your module is dynamically `import()`ed
-                ],
+                // this will cause tons of confusion when your module is dynamically `import()`ed
+                restrictedNamedExports: ["then"],
             },
         ],
 

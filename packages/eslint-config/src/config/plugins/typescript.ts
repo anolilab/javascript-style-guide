@@ -143,8 +143,11 @@ const config: Linter.Config = {
                     commaDangle[0],
                     {
                         ...commaDangle[1],
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
                         enums: commaDangle[1].arrays,
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
                         generics: commaDangle[1].arrays,
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
                         tuples: commaDangle[1].arrays,
                     },
                 ],
@@ -294,6 +297,8 @@ const config: Linter.Config = {
                     importNoExtraneousDependencies[0],
                     {
                         ...importNoExtraneousDependencies[1],
+                        // eslint-disable-next-line max-len
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-call
                         devDependencies: importNoExtraneousDependencies[1].devDependencies.map((glob: string) => glob.replaceAll(/\bjs(x?)\b/g, "ts$1")),
                     },
                 ],

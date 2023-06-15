@@ -7,29 +7,30 @@ const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx" | "typesc
 "*.cjs",
 ];
 
+    // eslint-disable-next-line default-case
     switch (type) {
-    case "typescript": {
-        files = ["*.ts", "*.tsx"];
+        case "typescript": {
+            files = ["*.ts", "*.tsx"];
 
-    break;
-    }
-    case "jsx": {
-        files = ["*.jsx", "*.tsx"];
+            break;
+        }
+        case "jsx": {
+            files = ["*.jsx", "*.tsx"];
 
-    break;
-    }
-    case "js_and_ts": {
-        files = [
+            break;
+        }
+        case "js_and_ts": {
+            files = [
 "*.js",
 "*.mjs",
 "*.cjs",
 "*.ts",
 ];
 
-    break;
-    }
-    case "all": {
-        files = [
+            break;
+        }
+        case "all": {
+            files = [
 "*.js",
 "*.jsx",
 "*.mjs",
@@ -38,9 +39,9 @@ const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx" | "typesc
 "*.tsx",
 ];
 
-    break;
-    }
-    // No default
+            break;
+        }
+        // No default
     }
 
     return {

@@ -29,11 +29,14 @@ const writeEslintRc = () => {
     const tsconfigPath = join(projectPath, "tsconfig.json");
 
     if (existsSync(tsconfigPath)) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
         const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8"));
 
         let ecmaVersion = "latest";
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         if (tsConfig.compilerOptions?.target) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
             ecmaVersion = tsConfig.compilerOptions.target;
 
             ecmaVersion = ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");

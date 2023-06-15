@@ -103,6 +103,7 @@ const config: Linter.Config = {
                     dangleRules[0],
                     {
                         ...dangleRules[1],
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
                         allow: [...dangleRules[1].allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
                     },
                 ],

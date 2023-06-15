@@ -1,6 +1,6 @@
 import type { Linter } from "eslint";
 
-const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx" | "typescript", config: Omit<Linter.Config, "files|overrides">): Linter.Config => {
+const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx_and_tsx" | "typescript", config: Omit<Linter.Config, "files|overrides">): Linter.Config => {
     let files = [
 "*.js",
 "*.mjs",
@@ -14,7 +14,7 @@ const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx" | "typesc
 
             break;
         }
-        case "jsx": {
+        case "jsx_and_tsx": {
             files = ["*.jsx", "*.tsx"];
 
             break;

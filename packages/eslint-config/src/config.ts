@@ -1,16 +1,8 @@
-import {
- hasAnyDep, hasDependency, hasDevDependency, pkg,
-} from "@anolilab/package-json-utils";
+import { hasAnyDep, hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 
-const baseConfig = [
-"best-practices",
-"errors",
-"style",
-"es6",
-"variables",
-];
+const baseConfig = ["best-practices", "errors", "style", "es6", "variables"];
 
 const internalPluginConfig = [
     "compat",
@@ -19,7 +11,6 @@ const internalPluginConfig = [
     "optimize-regex",
     "promise",
     "simple-import-sort",
-    "unicorn",
     // Security Rules
     "no-secrets",
     "sonarjs",
@@ -29,20 +20,18 @@ const internalPluginConfig = [
     "markdown",
     "toml",
     "yml",
-    "es",
+    "html",
 
     // custom rules
     "antfu",
+    "unicorn",
+    "es",
 ];
 
 const pluginConfig: PackageRules = [
     {
         configName: "array-func",
         dependencies: ["eslint-plugin-array-func"],
-    },
-    {
-        configName: "html",
-        dependencies: ["eslint-plugin-html"],
     },
     {
         configName: "jsdoc",
@@ -74,11 +63,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "react",
-        dependencies: [
-"react",
-"react-dom",
-"eslint-plugin-react",
-],
+        dependencies: ["react", "react-dom", "eslint-plugin-react"],
     },
     {
         configName: "react-redux",
@@ -86,27 +71,15 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "jsx-a11y",
-        dependencies: [
-"react",
-"react-dom",
-"eslint-plugin-jsx-a11y",
-],
+        dependencies: ["react", "react-dom", "eslint-plugin-jsx-a11y"],
     },
     {
         configName: "react-hooks",
-        dependencies: [
-"react",
-"react-dom",
-"eslint-plugin-react-hooks",
-],
+        dependencies: ["react", "react-dom", "eslint-plugin-react-hooks"],
     },
     {
         configName: "you-dont-need-momentjs",
-        dependencies: [
-"moment",
-"moment-timezone",
-"eslint-plugin-you-dont-need-momentjs",
-],
+        dependencies: ["moment", "moment-timezone", "eslint-plugin-you-dont-need-momentjs"],
     },
     {
         configName: "tailwindcss",
@@ -122,11 +95,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "jest-dom",
-        dependencies: [
-"jest",
-"@testing-library/jest-dom",
-"eslint-plugin-jest-dom",
-],
+        dependencies: ["jest", "@testing-library/jest-dom", "eslint-plugin-jest-dom"],
     },
     {
         configName: "jest-async",
@@ -160,6 +129,10 @@ const pluginConfig: PackageRules = [
         configName: "zod",
         dependencies: ["zod", "eslint-plugin-zod"],
     },
+    {
+        configName: "ava",
+        dependencies: ["ava", "eslint-plugin-ava"],
+    }
 ];
 
 const loadedPlugins: string[] = [...internalPluginConfig];

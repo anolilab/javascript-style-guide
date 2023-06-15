@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import Index from "../index";
+import Index from "..";
 
 describe("stylelint", () => {
     it("should output no error", async () => {

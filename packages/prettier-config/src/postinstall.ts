@@ -5,7 +5,7 @@ import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
 
-import content from "./index";
+import content from ".";
 
 if (process.env["CI"]) {
     // eslint-disable-next-line no-undef

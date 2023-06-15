@@ -43,6 +43,10 @@
             "require": "./dist/index.js",
             "import": "./dist/index.mjs"
         },
+        "./typescript-type-checking": {
+            "require": "./dist/typescript-type-checking.js",
+            "import": "./dist/typescript-type-checking.mjs"
+        },
         "./package.json": "./package.json"
     },
     "main": "dist/index.js",
@@ -212,6 +216,7 @@
         "src/config/style.ts",
         "src/config/variables.ts",
         "src/index.ts",
-        "src/postinstall.ts"
+        "src/postinstall.ts",
+        "src/typescript-type-checking.ts"
     ]
 }

@@ -86,6 +86,44 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 npm install --save-dev eslint typescript @anolilab/eslint-config
 ```
 
+Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path if you have a custom path.
+
+```js
+module.exports = {
+    parserOptions: {
+        project: "./tsconfig.eslint.json",
+    },
+}
+```
+
+For projects that use TypeScript and want additional rules that require type information (rules using type information take longer to run).
+
+Extend the `.eslintrc.cjs` file:
+
+```js
+module.children = {
+    root: true,
+    extends: ["@anolilab/eslint-config", "@anolilab/eslint-config/typescript-type-checking"],
+    env: {
+        // Your environments (which contains several predefined global variables)
+        //
+        // browser: true,
+        // node: true,
+        // mocha: true,
+        // jest: true,
+        // jquery: true
+    },
+    globals: {
+        // Your global variables (setting to false means it's not allowed to be reassigned)
+        //
+        // myGlobal: false
+    },
+    rules: {
+        // Customize your rules
+    }
+};
+```
+
 ### React
 
 You need to have "react" and "react-dom" installed.
@@ -99,7 +137,7 @@ Or for the use of `TypeScript` in react install "typescript" as a dev dependency
 Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path if you have a custom path.
 
 ```js
-export default {
+module.exports = {
     parserOptions: {
         project: "./tsconfig.eslint.json",
     },

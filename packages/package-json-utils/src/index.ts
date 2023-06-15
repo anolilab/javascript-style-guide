@@ -2,6 +2,7 @@ import { getByPath } from "dot-path-value";
 import { existsSync, realpathSync } from "node:fs";
 import module from "node:module";
 import { dirname, join } from "node:path";
+import type { NormalizedPackageJson } from "read-pkg";
 import readPkgUp from "read-pkg-up";
 
 const { packageJson, path: packagePath } = readPkgUp.sync({
@@ -17,9 +18,23 @@ const atLatest = (name: string): string => {
 };
 
 // eslint-disable-next-line max-len
-export const hasPackageProperties = (properties: string[]): boolean => properties.some((property: string) => Boolean(packageJson !== undefined && getByPath(packageJson, property)));
+export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 
-export const hasPackageSubProperties = (packageProperty: string) => (properties: string[]): boolean => hasPackageProperties(properties.map((p) => `${packageProperty}.${p}`));
+export const hasPackageSubProperty = (packageProperty: string) => (property: string): boolean => hasPackageProperty(`${packageProperty}.${property}`);
+
+// eslint-disable-next-line max-len
+export const hasPackageProperties = (properties: string[], strict?: boolean): boolean => {
+    if (strict) {
+        return properties.every((property: string) => hasPackageProperty(property));
+    }
+
+    return properties.some((property: string) => hasPackageProperty(property));
+};
+
+export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(
+            properties.map((p) => `${packageProperty}.${p}`),
+            strict,
+        );
 
 export const environmentIsSet = (name: string): boolean => Boolean(process.env[name] && process.env[name] !== "undefined");
 
@@ -38,51 +53,74 @@ export const parseEnvironment = (name: string, defaultValue: unknown): any => {
 export const projectPath: string = packagePath ? dirname(packagePath) : "";
 // @deprecated Use `projectPath` instead.
 export const appDirectory: string = projectPath;
-export const fromRoot = (...p: string[]): string => join(appDirectory, ...p);
+export const fromRoot = (...p: string[]): string => join(projectPath, ...p);
 export const hasFile = (...p: string[]): boolean => existsSync(fromRoot(...p));
 
 export const hasScripts = hasPackageSubProperties("scripts");
-export const hasPeerDep = hasPackageSubProperties("peerDependencies");
-export const hasDep = hasPackageSubProperties("dependencies");
-export const hasDevelopmentDep = hasPackageSubProperties("devDependencies");
+export const hasPeerDependency = hasPackageSubProperty("peerDependencies");
+export const hasPeerDependencies = hasPackageSubProperties("peerDependencies");
+// @deprecated Use `hasPeerDependencies` instead.
+export const hasPeerDep = hasPeerDependencies;
+export const hasDependency = hasPackageSubProperty("dependencies");
+export const hasDependencies = hasPackageSubProperties("dependencies");
+// @deprecated Use `hasDependencies` instead.
+export const hasDep = hasDependencies;
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export const hasDevDependency = hasPackageSubProperty("devDependencies");
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export const hasDevDependencies = hasPackageSubProperties("devDependencies");
+// @deprecated Use `hasDevDependencies` instead.
+export const hasDevelopmentDep = hasDevDependencies;
 // eslint-disable-next-line max-len
-export const hasAnyDep = (arguments_: string[]): boolean => [hasDep, hasDevelopmentDep, hasPeerDep].some((function_: (arguments_: string[]) => boolean) => function_(arguments_));
+export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [
+hasDependencies,
+hasDevDependencies,
+options?.peerDeps === false ? () => false : hasPeerDependencies,
+].some(
+        (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
+    );
 
-export const hasTypescript: boolean = hasAnyDep(["typescript"]) && hasFile("tsconfig.json");
+export const hasTypescript: boolean = (hasDependency("typescript") || hasDevDependency("typescript")) && hasFile("tsconfig.json");
 
 export const packageIsTypeModule = hasPackageProperties(["type"]) && packageJson?.["type"] === "module";
 
-export const isPackageAvailable = (moduleName: string): boolean => {
-    const targetModule = import.meta.url;
+export const resolvePackage = (packageName: string): string | undefined => {
     // See https://yarnpkg.com/advanced/pnpapi
     if (process.versions["pnp"]) {
+        const targetModule = import.meta.url;
         // @ts-expect-error TS2339: Property 'findPnpApi' does not exist on type 'typeof Module'.
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
         const targetPnp = module.findPnpApi(targetModule);
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
-        if (targetPnp.resolveRequest(moduleName, targetModule)) {
-            return true;
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment
+        const resolved = targetPnp.resolveRequest(packageName, targetModule);
+
+        if (resolved) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+            return resolved;
         }
     } else if (packageIsTypeModule) {
+        const targetModule = import.meta.url;
         // See https://nodejs.org/api/esm.html#esm_resolver_algorithm
         try {
-            module.createRequire(targetModule).resolve(moduleName);
-
-            return true;
+            return module.createRequire(targetModule).resolve(packageName);
         } catch {
-            return false;
+            return undefined;
         }
     }
 
     try {
         // eslint-disable-next-line unicorn/prefer-module
-        require.resolve(moduleName);
-
-        return true;
+        return require.resolve(packageName);
     } catch {
-        return false;
+        return undefined;
     }
+};
+
+export const isPackageAvailable = (packageName: string): boolean => {
+    const resolved = resolvePackage(packageName);
+
+    return resolved !== undefined;
 };
 
 export const showMissingPackages = (
@@ -125,4 +163,4 @@ ${options.postMessage ?? ""}\n
 export const unique = (array: unknown[]): unknown[] => [...new Set(array)];
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export const pkg = packageJson as readPkgUp.NormalizedReadResult | undefined;
+export const pkg = packageJson as NormalizedPackageJson | undefined;

@@ -127,7 +127,12 @@ test("isPackageAvailable: returns false when the package is not available", () =
     assert.isFalse(isPackageAvailable("vitest2"));
 });
 
-test.each(["warn", "log", "error", "info"])("showMissingPackages: logs a %type message with the missing packages", (type: "error" | "info" | "log" | "warn") => {
+test.each([
+"warn",
+"log",
+"error",
+"info",
+])("showMissingPackages: logs a %type message with the missing packages", (type: "error" | "info" | "log" | "warn") => {
     const consoleMock = vi.spyOn(console, type);
 
     showMissingPackages("example", ["package1", "package2"], {
@@ -161,9 +166,20 @@ test("showMissingPackages: logs a warning message with the missing packages, pre
 });
 
 test("unique: returns an array with unique values", () => {
-    const array = [1, 2, 2, 3, 3, 3];
+    const array = [
+1,
+2,
+2,
+3,
+3,
+3,
+];
 
-    assert.deepEqual(unique(array), [1, 2, 3]);
+    assert.deepEqual(unique(array), [
+1,
+2,
+3,
+]);
 });
 
 test("pkg: returns packageJson as NormalizedReadResult or undefined", () => {

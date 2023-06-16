@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 const config = require("./packages/eslint-config");
 
 module.exports = {
@@ -6,10 +5,15 @@ module.exports = {
     root: true,
     overrides: [
         {
-            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+            files: [
+                "*.ts",
+                "*.mts",
+                "*.cts",
+                "*.tsx",
+            ],
             parserOptions: {
                 project: "./tsconfig.json",
-                // eslint-disable-next-line no-undef
+
                 tsconfigRootDir: __dirname,
             },
         },
@@ -34,11 +38,5 @@ module.exports = {
         "no-console": "off",
         "no-secrets/no-secrets": "off",
         "unicorn/text-encoding-identifier-case": "off",
-
-        // TODO: remove me
-        "no-undef": "off",
-        "unicorn/prefer-module": "off",
-        "unicorn/no-useless-undefined": "off",
-        "@typescript-eslint/no-unnecessary-condition": "off",
     },
 };

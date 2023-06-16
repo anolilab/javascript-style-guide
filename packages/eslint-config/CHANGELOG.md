@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [5.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.10...@anolilab/eslint-config@5.1.0) (2023-06-16)
+
+
+### Features
+
+* added ava updated readme ([151b373](https://github.com/anolilab/javascript-style-guide/commit/151b37348076fc14f5e33d7654fc7fe95085987d))
+* added some antfu rules ([53e7483](https://github.com/anolilab/javascript-style-guide/commit/53e748338de7fd3f28ffab788dbce5a3f180455e))
+* changed files to ts ([ec9b148](https://github.com/anolilab/javascript-style-guide/commit/ec9b148fec7d149208826f38cb9136f347d4497a))
+* optimized some rules ([31356f8](https://github.com/anolilab/javascript-style-guide/commit/31356f8e461039e234627a55fe609508e20b7f70))
+* transformed all files to ts, added new config loader, added better logger info ([00a7a91](https://github.com/anolilab/javascript-style-guide/commit/00a7a912c3dbe3f03690163e4ef6ee3ca42d6028))
+* update README.md ([1981a0f](https://github.com/anolilab/javascript-style-guide/commit/1981a0f42ca5ea00cbe8c75c3875c7b46db931f0))
+
 ## @anolilab/eslint-config [5.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.9...@anolilab/eslint-config@5.0.10) (2023-06-16)
 
 

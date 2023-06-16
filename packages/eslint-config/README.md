@@ -208,7 +208,7 @@ Example using package.json:
 
 Type: `boolean`
 
-Default: `false`
+Default: `undefined`
 
 ### Let [Prettier](https://prettier.io/) handle style-related rules
 

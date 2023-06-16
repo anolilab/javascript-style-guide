@@ -58,7 +58,10 @@ const config: Linter.Config = {
                 ecmaFeatures: {
                     jsx: true,
                 },
-                warnOnUnsupportedTypeScriptVersion: anolilabEslintConfig?.["warn_on_unsupported_typescript_version"] ?? env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true",
+                warnOnUnsupportedTypeScriptVersion:
+                    typeof anolilabEslintConfig?.["warn_on_unsupported_typescript_version"] !== "undefined"
+                        ? anolilabEslintConfig?.["warn_on_unsupported_typescript_version"]
+                        : env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true",
             },
             settings: {
                 // Apply special parsing for TypeScript files
@@ -119,7 +122,6 @@ const config: Linter.Config = {
                 // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
                 "comma-dangle": "off",
                 "@typescript-eslint/comma-dangle": [
-
                     commaDangle[0],
                     {
                         ...commaDangle[1],
@@ -260,7 +262,6 @@ const config: Linter.Config = {
                 // Append 'ts' and 'tsx' to 'import/extensions' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
                 "import/extensions": [
-
                     importExtensions[0],
                     importExtensions[1],
                     {
@@ -273,7 +274,6 @@ const config: Linter.Config = {
                 // Append 'ts' and 'tsx' extensions to 'import/no-extraneous-dependencies' rule
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
                 "import/no-extraneous-dependencies": [
-
                     importNoExtraneousDependencies[0],
                     {
                         ...importNoExtraneousDependencies[1],

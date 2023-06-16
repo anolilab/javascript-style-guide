@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.0...@anolilab/eslint-config@6.0.1) (2023-06-16)
+
+
+### Bug Fixes
+
+* added missing eslint-import-resolver-typescript ([0dc836b](https://github.com/anolilab/javascript-style-guide/commit/0dc836b6895af6608e95e59978df4ce5a11d40f5))
+* **esling-config:** fixed rules for vitest ([34536ed](https://github.com/anolilab/javascript-style-guide/commit/34536ed3bb7906f97cc40d2fdf8a44a6334b5c1e))
+
 ## @anolilab/eslint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.10...@anolilab/eslint-config@6.0.0) (2023-06-16)
 
 

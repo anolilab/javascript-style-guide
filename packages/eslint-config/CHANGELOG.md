@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [5.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.9...@anolilab/eslint-config@5.0.10) (2023-06-16)
+
+
+### Bug Fixes
+
+* added missing n in vitest.cofig.* ([16fe216](https://github.com/anolilab/javascript-style-guide/commit/16fe21611b08c6ed61c39ed93277a49ff8967b73))
+
 ## @anolilab/eslint-config [5.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.8...@anolilab/eslint-config@5.0.9) (2023-06-15)
 
 

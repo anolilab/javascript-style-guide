@@ -23,7 +23,7 @@ This project is a code style guide of all basic back- and front end project used
     - Shareable browserlist config  for Anolilab.
 
 [`@anolilab/eslint-config`](./packages/eslint-config)
-    - ESLint shareable config for the Anolilab JavaScript style guide.
+    - The most comprehensive ESLint code style guide.
 
 [`@anolilab/prettier-config`](./packages/prettier-config)
     - Prettier shareable config for Anolilab.

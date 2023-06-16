@@ -38,11 +38,5 @@ module.exports = {
         "no-console": "off",
         "no-secrets/no-secrets": "off",
         "unicorn/text-encoding-identifier-case": "off",
-
-        // TODO: remove me
-        "no-undef": "off",
-        "unicorn/prefer-module": "off",
-        "unicorn/no-useless-undefined": "off",
-        "@typescript-eslint/no-unnecessary-condition": "off",
     },
 };

@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.1...@anolilab/eslint-config@6.0.2) (2023-06-16)
+
+
+### Bug Fixes
+
+* **eslint-config:** changed func-names to ["error", "as-needed"] to work better with "func-style": ["error", "expression"] ([1d0f5b5](https://github.com/anolilab/javascript-style-guide/commit/1d0f5b560c8d5830f155657a204299f4206dde11))
+* **eslint-config:** fixed the behavior of warn_on_unsupported_typescript_version ([635ebec](https://github.com/anolilab/javascript-style-guide/commit/635ebecc6fbfa3a4cbcf45b5e1af168bbc4295be))
+
 ## @anolilab/eslint-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.0...@anolilab/eslint-config@6.0.1) (2023-06-16)
 
 

@@ -90,13 +90,19 @@ jobs:
             - name: "Build"
               run: "pnpm run build:packages"
 
-            - name: "test and coverage"
-              run: "pnpm run test:coverage"
+            - name: "Run test for browserslist-config-anolilab"
+              run: "test:coverage:browserslist-config-anolilab"
 
-            - name: "test stylelint config"
+            - name: "Run test for package-json-utils"
+              run: "test:coverage:package-json-utils"
+
+            - name: "Run test for stylelint-config"
+              run: "test:coverage:stylelint-config"
+
+            - name: "Run stylelint config test"
               run: "pnpm run test:stylelint"
 
-            - name: "test babel config"
+            - name: "Run babel config test"
               run: "pnpm run test:babel"
 
     # This check runs once all dependant jobs have passed

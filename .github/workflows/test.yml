@@ -91,13 +91,13 @@ jobs:
               run: "pnpm run build:packages"
 
             - name: "Run test for browserslist-config-anolilab"
-              run: "test:coverage:browserslist-config-anolilab"
+              run: "pnpm run test:coverage:browserslist-config-anolilab"
 
             - name: "Run test for package-json-utils"
-              run: "test:coverage:package-json-utils"
+              run: "pnpm run test:coverage:package-json-utils"
 
             - name: "Run test for stylelint-config"
-              run: "test:coverage:stylelint-config"
+              run: "pnpm run test:coverage:stylelint-config"
 
             - name: "Run stylelint config test"
               run: "pnpm run test:stylelint"

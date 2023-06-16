@@ -130,7 +130,7 @@ const config: Linter.Config = {
 
         // require function expressions to have a name
         // https://eslint.org/docs/rules/func-names
-        "func-names": "warn",
+        "func-names": ["error", "as-needed"],
 
         // enforces use of function declarations or expressions
         // https://eslint.org/docs/rules/func-style

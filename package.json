@@ -66,7 +66,6 @@
         "lint:text": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --cache --dry-run",
         "lint:text:fix": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --fix",
         "sort-package-json": "sort-package-json ./packages/**/package.json ./package.json",
-        "test": "vitest --config ./vitest.config.ts",
         "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,package-json-utils,stylelint-config && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
@@ -114,6 +113,7 @@
         "stylelint": "^15.7.0",
         "textlint": "^13.3.2",
         "tsup": "^6.7.0",
+        "eslint-plugin-vitest": "^0.1.5",
         "typescript": "5.1.3",
         "vitest": "^0.32.0"
     },

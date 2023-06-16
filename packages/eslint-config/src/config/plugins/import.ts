@@ -100,6 +100,8 @@ const config: Linter.Config = {
                     "**/vite.config.ts", // vite config
                     "**/vitest.config.js", // vitest config
                     "**/vitest.config.ts", // vitest config
+                    "**/__tests__/**/*.?(c|m)[jt]s?(x)", // vitest config test include
+                    "**/?(*.){test,spec}.?(c|m)[jt]s?(x)", // vitest config test include
                 ],
                 optionalDependencies: false,
             },

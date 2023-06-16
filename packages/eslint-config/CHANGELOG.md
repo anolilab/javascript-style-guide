@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.10...@anolilab/eslint-config@6.0.0) (2023-06-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed package to support cjs and mjs, updated depracated and disabled rules
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Performance Improvements
+
+* changed eslint-config to a comprehensive eslint code style, added new rules for ava, antfu ,zod, vitest , updated depracated and disabled rules, Added a better readme and adjusted logger output to container more infos, Added engine rules, rules will be added based on the engine version or tscofnig target, Moved eslint typescript linting to a new file `typescript-type-checking` to improve eslint speed., Updated postinstall script to be more adaptive to the environment, Added @rushstack/eslint-patch ([4f195d4](https://github.com/anolilab/javascript-style-guide/commit/4f195d43b723dbf0d0ca33d9eda1cccf426555c5))
+
 ## @anolilab/eslint-config [5.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@5.0.10...@anolilab/eslint-config@5.1.0) (2023-06-16)
 
 

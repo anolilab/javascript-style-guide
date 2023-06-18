@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.3...@anolilab/eslint-config@6.1.0) (2023-06-18)
+
+
+### Features
+
+* **eslint-config:** added @html-eslint/eslint-plugin to the html plugin, improved the prettier console log output ([836ab76](https://github.com/anolilab/javascript-style-guide/commit/836ab76c88038713d267e8c3fa8b6182274428fd))
+
 ## @anolilab/eslint-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.2...@anolilab/eslint-config@6.0.3) (2023-06-18)
 
 

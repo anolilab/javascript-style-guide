@@ -1,8 +1,8 @@
 import type { Options } from "prettier";
 
 const config: Options = {
-    // max 164 characters per line
-    printWidth: 164,
+    // max 160 characters per line
+    printWidth: 160,
     // use 4 spaces for indentation
     tabWidth: 4,
     // use spaces instead of indentations

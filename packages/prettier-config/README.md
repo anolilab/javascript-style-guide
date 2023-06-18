@@ -2,6 +2,13 @@
 
 Anolilab Coding Standard for semantic-release.
 
+
+<div align="center">
+
+[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
+
 ---
 
 <div align="center">
@@ -14,42 +21,65 @@ Anolilab Coding Standard for semantic-release.
 
 ---
 
+
 ## Install
 
 ```bash
 npm install --dev-save @anolilab/prettier-config
 ```
 
+```sh
+yarn add -D eslint @anolilab/prettier-config
+```
+
+```sh
+pnpm add -D eslint @anolilab/prettier-config
+```
+
 ## Usage
 
-If you don’t have a `.prettierrc.cjs` and `.prettierignore`, we will create the file for you after installing `@anolilab/prettier-config`.
-
-If you already have a `.prettierrc.cjs` and `.prettierignore`, then you can extend the `.prettierrc.cjs`, with `@anolilab/prettier-config`.
+If you don’t have a `.prettierrc.{c|m}js` and `.prettierignore`, we will create the file for you after installing `@anolilab/prettier-config`.
 
 ```js
-module.exports = {
-    "printWidth": 120,
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": false,
-    "quoteProps": "as-needed",
-    "jsxSingleQuote": false,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "arrowParens": "always",
-    "rangeStart": 0,
-    "rangeEnd": Infinity,
-    "requirePragma": false,
-    "insertPragma": false,
-    "proseWrap": "preserve",
-    "htmlWhitespaceSensitivity": "css",
-    "vueIndentScriptAndStyle": false,
-    "endOfLine": "lf",
-    "embeddedLanguageFormatting": "auto"
-};
-
+{
+    // max 160 characters per line
+    printWidth: 160,
+    // use 4 spaces for indentation
+    tabWidth: 4,
+    // use spaces instead of indentations
+    useTabs: false,
+    // semicolon at the end of the line
+    semi: true,
+    // use single quotes
+    singleQuote: false,
+    // object's key is quoted only when necessary
+    quoteProps: "as-needed",
+    // use double quotes instead of single quotes in jsx
+    jsxSingleQuote: false,
+    // all comma at the end
+    trailingComma: "all",
+    // spaces are required at the beginning and end of the braces
+    bracketSpacing: true,
+    // brackets are required for arrow function parameter, even when there is only one parameter
+    arrowParens: "always",
+    // format the entire contents of the file
+    rangeStart: 0,
+    rangeEnd: Number.POSITIVE_INFINITY,
+    // no need to write the beginning @prettier of the file
+    requirePragma: false,
+    // No need to automatically insert @prettier at the beginning of the file
+    insertPragma: false,
+    // use default break criteria
+    proseWrap: "preserve",
+    // decide whether to break the html according to the display style
+    htmlWhitespaceSensitivity: "css",
+    // vue files script and style tags indentation
+    vueIndentScriptAndStyle: false,
+    // lf for newline
+    endOfLine: "lf",
+    // formats quoted code embedded
+    embeddedLanguageFormatting: "auto",
+}
 ```
 
 ## Supported Node.js Versions
@@ -75,3 +105,10 @@ License
 -------------
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+
+[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: "typescript"
+[license-image]: https://img.shields.io/npm/l/@anolilab/prettier-config?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/prettier-config/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/prettier-config/v/latest "npm"

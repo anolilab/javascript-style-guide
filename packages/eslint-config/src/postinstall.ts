@@ -2,6 +2,7 @@ import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, readFileSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
+import type { TsConfigJson } from "type-fest";
 
 if (process.env["CI"]) {
     // eslint-disable-next-line unicorn/no-process-exit
@@ -29,14 +30,11 @@ const writeEslintRc = () => {
     const tsconfigPath = join(projectPath, "tsconfig.json");
 
     if (existsSync(tsconfigPath)) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8"));
+        const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8")) as TsConfigJson;
 
         let ecmaVersion = "latest";
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         if (tsConfig.compilerOptions?.target) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
             ecmaVersion = tsConfig.compilerOptions.target;
 
             ecmaVersion = ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");

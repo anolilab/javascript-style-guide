@@ -34,6 +34,7 @@ The goal is to reduce noise in code version control and promote use of the lates
 -   Includes many useful ESLint plugins, like [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn), [import](https://github.com/benmosher/eslint-plugin-import) and [more](#plugins).
 -   Automatically enables rules based on the [engines](https://docs.npmjs.com/files/package.json#engines) field in your package.json.
 -   Specify indent and semicolon preferences easily without messing with the rule config.
+-   Disables rules that conflict with Prettier.
 
 ## Install
 

@@ -12,7 +12,11 @@ const overrides: Linter.Config["overrides"] = [
 ];
 
 if (hasTypescript) {
-    if (hasAnyDep(["eslint-plugin-tsdoc"])) {
+    if (
+        hasAnyDep(["eslint-plugin-tsdoc"], {
+            peerDeps: false,
+        })
+    ) {
         consoleLog("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     } else {
         overrides.push({

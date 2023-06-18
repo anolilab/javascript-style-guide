@@ -34,7 +34,7 @@ The goal is to reduce noise in code version control and promote use of the lates
 -   Includes many useful ESLint plugins, like [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn), [import](https://github.com/benmosher/eslint-plugin-import) and [more](#plugins).
 -   Automatically enables rules based on the [engines](https://docs.npmjs.com/files/package.json#engines) field in your package.json.
 -   Specify indent and semicolon preferences easily without messing with the rule config.
--   Disables rules that conflict with Prettier.
+-   Disables rules that conflict with [Prettier](#let-prettier-handle-style-related-rules).
 
 ## Install
 
@@ -215,13 +215,13 @@ Default: `undefined`
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.
 
-Now that Prettier has become a necessary tool in front end projects, `@anolilab/eslint-config` does not need to maintain the style-related rules in ESLint anymore, so we completely removed all Prettier related rules in the v3 version, and use ESLint to check logical errors which it’s good at.
+Now that Prettier has become a necessary tool in front end projects, `@anolilab/eslint-config` does not need to maintain the style-related rules in ESLint anymore,
+so we completely removed all Prettier related rules, if `prettier` is found in your `package.json` and use ESLint to check logical errors which it’s good at.
 
-As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project’s .prettierrc.cjs. Of course, we also provide a recommended Prettier configuration for your reference.
+As for whether two spaces or four spaces are used for indentation and whether there is a semicolon at the end, you can configure it in the project’s `.prettierrc.js`.
+Of course, we also provide a recommended Prettier [configuration](../prettier-config/README.md) for your reference.
 
-`@anolilab/eslint-config` does not include all style-related rules, so there is no need to install `eslint-config-prettier`. Install `prettier` and if you use `VSCode` the related plugins.
-
-This the used [.prettierrc.cjs](../prettier-config/index.cjs) configuration by Anolilab Team only for reference.
+`@anolilab/eslint-config` does disable all included style-related rules, so there is no need to install [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier).
 
 ## Using experimental features with JavaScript
 

@@ -142,7 +142,7 @@ const pluginConfig: PackageRules = [
 const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
-let anolilabEslintConfig: { [key: string]: { [key: string]: false | undefined} } = {};
+let anolilabEslintConfig: { [key: string]: { [key: string]: false | undefined } } = {};
 
 if (pkg) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access

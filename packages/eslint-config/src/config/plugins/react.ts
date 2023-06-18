@@ -12,24 +12,33 @@ const dangleRules = styleRules["no-underscore-dangle"] as any[];
 let prettierReactRules = {};
 
 if (
-    hasAnyDep(["react", "react-dom"], {
+    hasAnyDep(["prettier"], {
         peerDeps: false,
     })
 ) {
+    // Workaround VS Code trying to run this file twice!
+    if (!global.hasAnolilabEsLintConfigReactPrettier) {
+        global.hasAnolilabEsLintConfigReactPrettier = true;
+
+        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+    }
+
     prettierReactRules = {
-        "react/jsx-indent": "off",
-        "react/jsx-closing-tag-location": "off",
+        "react/jsx-child-element-spacing": "off",
         "react/jsx-closing-bracket-location": "off",
+        "react/jsx-closing-tag-location": "off",
+        "react/jsx-curly-newline": "off",
         "react/jsx-curly-spacing": "off",
         "react/jsx-equals-spacing": "off",
         "react/jsx-first-prop-new-line": "off",
+        "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
         "react/jsx-max-props-per-line": "off",
-        "react/jsx-tag-spacing": "off",
-        "react/jsx-wrap-multilines": "off",
-        "react/prefer-stateless-function": "off",
+        "react/jsx-newline": "off",
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-props-no-multi-spaces": "off",
+        "react/jsx-tag-spacing": "off",
+        "react/jsx-wrap-multilines": "off",
     };
 }
 

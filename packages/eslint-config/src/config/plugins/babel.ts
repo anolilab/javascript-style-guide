@@ -1,6 +1,8 @@
+import { hasAnyDep } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import createConfig from "../../utils/create-config";
+import { consoleLog } from "../../utils/loggers";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 import styleConfig from "../style";
@@ -8,6 +10,28 @@ import styleConfig from "../style";
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 const errorsRules = errorsConfig.rules as Linter.RulesRecord;
 const styleRules = styleConfig.rules as Linter.RulesRecord;
+
+let prettierRules: Linter.RulesRecord = {};
+
+if (
+    hasAnyDep(["prettier"], {
+        peerDeps: false,
+    })
+) {
+    // Workaround VS Code trying to run this file twice!
+    if (!global.hasAnolilabEsLintConfigBabelPrettier) {
+        global.hasAnolilabEsLintConfigBabelPrettier = true;
+
+        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+    }
+
+    prettierRules = {
+        "babel/quotes": 0,
+
+        "@babel/object-curly-spacing": "off",
+        "@babel/semi": "off",
+    };
+}
 
 const config: Linter.Config = createConfig("all", {
     plugins: ["babel"],
@@ -39,6 +63,8 @@ const config: Linter.Config = createConfig("all", {
 
         "valid-typeof": "off",
         "babel/valid-typeof": errorsRules["valid-typeof"],
+
+        ...prettierRules,
     },
 });
 

@@ -90,10 +90,7 @@ const config: Linter.Config = {
             files: ["*.js", "*.mjs", "*.cjs"],
             rules: {
                 // We have this enabled in addition to `import/extensions` as this one has an auto-fix.
-                "n/file-extension-in-import": [
-                    "error",
-                    "always",
-                ],
+                "n/file-extension-in-import": ["error", "always"],
             },
         },
     ],

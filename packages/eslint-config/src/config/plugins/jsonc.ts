@@ -5,7 +5,11 @@ import { consoleLog } from "../../utils/loggers";
 
 const extendedPlugins: string[] = [];
 
-if (hasAnyDep(["prettier"])) {
+if (
+    hasAnyDep(["prettier"], {
+        peerDeps: false,
+    })
+) {
     // Workaround VS Code trying to run this file twice!
     if (!global.hasAnolilabEsLintConfigJsonCPrettier) {
         global.hasAnolilabEsLintConfigJsonCPrettier = true;

@@ -2,14 +2,31 @@ import { hasAnyDep, packageIsTypeModule } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import semver from "semver";
 
+import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
 
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 
-let identLevel: Linter.RuleLevel = "error";
+let prettierRules: Linter.RulesRecord = {};
 
-if (hasAnyDep(["prettier"])) {
-    identLevel = "off";
+if (
+    hasAnyDep(["prettier"], {
+        peerDeps: false,
+    })
+) {
+    // Workaround VS Code trying to run this file twice!
+    if (!global.hasAnolilabEsLintConfigUnicornPrettier) {
+        global.hasAnolilabEsLintConfigUnicornPrettier = true;
+
+        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+    }
+
+    prettierRules = {
+        "unicorn/empty-brace-spaces": "off",
+        "unicorn/no-nested-ternary": "off",
+        "unicorn/number-literal-case": "off",
+        "unicorn/template-indent": "off",
+    };
 }
 
 // @see https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -18,7 +35,7 @@ const config: Linter.Config = {
     extends: ["plugin:unicorn/recommended"],
     rules: {
         "unicorn/prefer-node-protocol": semver.gte(process.version, "v16.0.0") ? "error" : "off",
-        "unicorn/template-indent": [identLevel, { indent: (styleRules["indent"] as any[])[1] as number }],
+        "unicorn/template-indent": ["error", { indent: (styleRules["indent"] as any[])[1] as number }],
         "unicorn/no-array-for-each": "off",
         "unicorn/prefer-module": packageIsTypeModule ? "error" : "off",
 
@@ -50,6 +67,8 @@ const config: Linter.Config = {
 
         // TODO: Temporarily disabled as the rule is buggy.
         "function-call-argument-newline": "off",
+
+        ...prettierRules,
     },
     overrides: [
         {

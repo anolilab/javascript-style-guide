@@ -20,19 +20,43 @@ const importsRules = importsConfig.rules as Linter.RulesRecord;
 const variablesRules = variablesConfig.rules as Linter.RulesRecord;
 
 const { quotes, semi } = styleRules;
-let { indent } = styleRules;
+const { indent } = styleRules;
 
-if (hasAnyDep(["prettier"])) {
+let prettierRules: Linter.RulesRecord = {};
+
+if (
+    hasAnyDep(["prettier"], {
+        peerDeps: false,
+    })
+) {
     // Workaround VS Code trying to run this file twice!
     if (!global.hasAnolilabEsLintConfigTypescriptPrettier) {
         global.hasAnolilabEsLintConfigTypescriptPrettier = true;
 
-        consoleLog(
-            "\nFound prettier as dependency, disabling the '@typescript-eslint/indent' rule to fix wrong behavior of the rule; @see https://github.com/typescript-eslint/typescript-eslint/issues/1824",
-        );
+        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
     }
 
-    indent = "off";
+    prettierRules = {
+        "@typescript-eslint/lines-around-comment": 0,
+        "@typescript-eslint/quotes": 0,
+        "@typescript-eslint/block-spacing": "off",
+        "@typescript-eslint/brace-style": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/comma-spacing": "off",
+        "@typescript-eslint/func-call-spacing": "off",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/key-spacing": "off",
+        "@typescript-eslint/keyword-spacing": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/no-extra-parens": "off",
+        "@typescript-eslint/no-extra-semi": "off",
+        "@typescript-eslint/object-curly-spacing": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/space-before-blocks": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/space-infix-ops": "off",
+        "@typescript-eslint/type-annotation-spacing": "off",
+    };
 }
 
 const importExtensions = importsRules["import/extensions"] as any[];
@@ -490,6 +514,9 @@ const config: Linter.Config = {
 
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-import-type-side-effects.md
                 "@typescript-eslint/no-import-type-side-effects": "error",
+
+                // Disable rules that are handled by prettier
+                ...prettierRules,
             },
         },
         {

@@ -6,7 +6,7 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
-import { packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
+import { hasAnyDep, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { join } from "node:path";
 import semver from "semver";
@@ -67,8 +67,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
     global.hasAnolilabEsLintConfigLoaded = true;
 }
 
-const configRules: Linter.RulesRecord = {};
-
+let configRules: Linter.RulesRecord = {};
 let nodeVersion: string | undefined;
 
 if (pkg?.engines?.["node"]) {
@@ -85,6 +84,95 @@ Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
         });
 });
 
+if (
+    hasAnyDep(["prettier"], {
+        peerDeps: false,
+    })
+) {
+    // Workaround VS Code trying to run this file twice!
+    if (!global.hasAnolilabEsLintConfigPrettier) {
+        global.hasAnolilabEsLintConfigPrettier = true;
+
+        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+    }
+
+    configRules = {
+        ...configRules,
+
+        // The following rules can be used in some cases. See the README for more
+        // information. (These are marked with `0` instead of `"off"` so that a
+        // script can distinguish them.)
+        curly: 0,
+        "lines-around-comment": 0,
+        "max-len": 0,
+        "no-confusing-arrow": 0,
+        "no-mixed-operators": 0,
+        "no-tabs": 0,
+        "no-unexpected-multiline": 0,
+        quotes: 0,
+
+        // The rest are rules that you never need to enable when using Prettier.
+        "array-bracket-newline": "off",
+        "array-bracket-spacing": "off",
+        "array-element-newline": "off",
+        "arrow-parens": "off",
+        "arrow-spacing": "off",
+        "block-spacing": "off",
+        "brace-style": "off",
+        "comma-dangle": "off",
+        "comma-spacing": "off",
+        "comma-style": "off",
+        "computed-property-spacing": "off",
+        "dot-location": "off",
+        "eol-last": "off",
+        "func-call-spacing": "off",
+        "function-call-argument-newline": "off",
+        "function-paren-newline": "off",
+        "generator-star-spacing": "off",
+        "implicit-arrow-linebreak": "off",
+        indent: "off",
+        "jsx-quotes": "off",
+        "key-spacing": "off",
+        "keyword-spacing": "off",
+        "linebreak-style": "off",
+        "multiline-ternary": "off",
+        "newline-per-chained-call": "off",
+        "new-parens": "off",
+        "no-extra-parens": "off",
+        "no-extra-semi": "off",
+        "no-floating-decimal": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "no-multi-spaces": "off",
+        "no-multiple-empty-lines": "off",
+        "no-trailing-spaces": "off",
+        "no-whitespace-before-property": "off",
+        "nonblock-statement-body-position": "off",
+        "object-curly-newline": "off",
+        "object-curly-spacing": "off",
+        "object-property-newline": "off",
+        "one-var-declaration-per-line": "off",
+        "operator-linebreak": "off",
+        "padded-blocks": "off",
+        "quote-props": "off",
+        "rest-spread-spacing": "off",
+        semi: "off",
+        "semi-spacing": "off",
+        "semi-style": "off",
+        "space-before-blocks": "off",
+        "space-before-function-paren": "off",
+        "space-in-parens": "off",
+        "space-infix-ops": "off",
+        "space-unary-ops": "off",
+        "switch-colon-spacing": "off",
+        "template-curly-spacing": "off",
+        "template-tag-spacing": "off",
+        "unicode-bom": "off",
+        "wrap-iife": "off",
+        "wrap-regex": "off",
+        "yield-star-spacing": "off",
+    };
+}
+
 const config: Linter.Config = {
     // After an .eslintrc.js file is loaded, ESLint will normally continue visiting all parent folders
     // to look for other .eslintrc.js files, and also consult a personal file ~/.eslintrc.js.  If any files
@@ -98,9 +186,7 @@ const config: Linter.Config = {
     parser: "",
 
     extends: [
-        ...rules
-
-            .map((plugin) => join(__dirname, `./config/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
+        ...rules.map((plugin) => join(__dirname, `./config/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
 
         ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
     ],

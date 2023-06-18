@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.2...@anolilab/eslint-config@6.0.3) (2023-06-18)
+
+
+### Bug Fixes
+
+* **eslint-config:** disabling all rules that are crashing with the prettier config, updated the readme with the info ([ab2a954](https://github.com/anolilab/javascript-style-guide/commit/ab2a954f1482dbe36fd941e305e83619bc831569))
+
 ## @anolilab/eslint-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.1...@anolilab/eslint-config@6.0.2) (2023-06-16)
 
 

@@ -2,7 +2,6 @@ import { hasAnyDep } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import createConfig from "../../utils/create-config";
-import { consoleLog } from "../../utils/loggers";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 import styleConfig from "../style";
@@ -18,13 +17,6 @@ if (
         peerDeps: false,
     })
 ) {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigBabelPrettier) {
-        global.hasAnolilabEsLintConfigBabelPrettier = true;
-
-        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
-    }
-
     prettierRules = {
         "babel/quotes": 0,
 

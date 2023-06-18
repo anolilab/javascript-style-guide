@@ -1,8 +1,6 @@
 import { hasAnyDep } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import { consoleLog } from "../../utils/loggers";
-
 const extendedPlugins: string[] = [];
 
 if (
@@ -10,13 +8,6 @@ if (
         peerDeps: false,
     })
 ) {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigJsonCPrettier) {
-        global.hasAnolilabEsLintConfigJsonCPrettier = true;
-
-        consoleLog("\nFound prettier as dependency, disabling the jsonc prettier rules.");
-    }
-
     extendedPlugins.push("plugin:jsonc/prettier");
 }
 

@@ -16,13 +16,6 @@ if (
         peerDeps: false,
     })
 ) {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigReactPrettier) {
-        global.hasAnolilabEsLintConfigReactPrettier = true;
-
-        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
-    }
-
     prettierReactRules = {
         "react/jsx-child-element-spacing": "off",
         "react/jsx-closing-bracket-location": "off",

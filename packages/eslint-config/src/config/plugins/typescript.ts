@@ -2,7 +2,6 @@ import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { env } from "node:process";
 
-import { consoleLog } from "../../utils/loggers";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -19,8 +18,7 @@ const eS6Rules = eS6Config.rules as Linter.RulesRecord;
 const importsRules = importsConfig.rules as Linter.RulesRecord;
 const variablesRules = variablesConfig.rules as Linter.RulesRecord;
 
-const { quotes, semi } = styleRules;
-const { indent } = styleRules;
+const { quotes, semi, indent } = styleRules;
 
 let prettierRules: Linter.RulesRecord = {};
 
@@ -29,13 +27,6 @@ if (
         peerDeps: false,
     })
 ) {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigTypescriptPrettier) {
-        global.hasAnolilabEsLintConfigTypescriptPrettier = true;
-
-        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
-    }
-
     prettierRules = {
         "@typescript-eslint/lines-around-comment": 0,
         "@typescript-eslint/quotes": 0,

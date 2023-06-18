@@ -2,7 +2,6 @@ import { hasAnyDep, packageIsTypeModule } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import semver from "semver";
 
-import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
 
 const styleRules = styleConfig.rules as Linter.RulesRecord;
@@ -14,13 +13,6 @@ if (
         peerDeps: false,
     })
 ) {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigUnicornPrettier) {
-        global.hasAnolilabEsLintConfigUnicornPrettier = true;
-
-        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
-    }
-
     prettierRules = {
         "unicorn/empty-brace-spaces": "off",
         "unicorn/no-nested-ternary": "off",

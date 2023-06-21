@@ -77,6 +77,13 @@ if (pkg?.engines?.["node"]) {
     nodeVersion = pkg.engines["node"];
 }
 
+let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
+
+if (pkg) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
+}
+
 Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
     Object.keys(ruleConfig)
         .sort(semver.rcompare)
@@ -96,7 +103,9 @@ if (
     if (!global.hasAnolilabEsLintConfigPrettier) {
         global.hasAnolilabEsLintConfigPrettier = true;
 
-        consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+        if (anolilabEslintConfig?.["info_on_disabling_prettier_conflict_rule"] !== false) {
+            consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
+        }
     }
 
     configRules = {

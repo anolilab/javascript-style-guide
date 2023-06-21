@@ -241,6 +241,24 @@ To disable the info, set the value to `false`.
 }
 ```
 
+#### info_on_disabling_prettier_conflict_rule
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_disabling_prettier_conflict_rule": false
+        }
+    }
+}
+```
+
 ### Let [Prettier](https://prettier.io/) handle style-related rules
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.

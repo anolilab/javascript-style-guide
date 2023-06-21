@@ -2,6 +2,12 @@
 
 Semantic-release shareable configuration to publish GitHub projects.
 
+<div align="center">
+
+[![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
+
 ---
 
 <div align="center">
@@ -464,3 +470,8 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 [5]: https://github.com/semantic-release/exec
 [6]: https://github.com/semantic-release/git
 [7]: https://github.com/semantic-release/npm
+
+[license-image]: https://img.shields.io/npm/l/@anolilab/semantic-release-preset?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/semantic-release-preset/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/semantic-release-preset/v/latest "npm"

@@ -2,6 +2,12 @@
 
 Anolilab Coding Standard for text linting.
 
+<div align="center">
+
+[![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
+
 ---
 
 <div align="center">
@@ -193,3 +199,8 @@ If you would like to help take a look at the [list of issues](https://github.com
 ## License
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+
+[license-image]: https://img.shields.io/npm/l/@anolilab/textlint-config?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/textlint-config/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/textlint-config/v/latest "npm"

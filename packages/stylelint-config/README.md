@@ -2,6 +2,12 @@
 
 Stylelint config enforcing an understandable and consistent code style.
 
+<div align="center">
+
+[![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
+
 ---
 
 <div align="center">
@@ -91,3 +97,8 @@ License
 -------------
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+
+[license-image]: https://img.shields.io/npm/l/@anolilab/stylelint-config?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/stylelint-config/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/stylelint-config/v/latest "npm"

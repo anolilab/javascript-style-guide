@@ -2,6 +2,12 @@
 
 A babel preset for transforming your JavaScript for Anolilab.
 
+<div align="center">
+
+[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
+
+</div>
+
 ---
 
 <div align="center">
@@ -366,3 +372,11 @@ License
 -------------
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+
+
+[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: "typescript"
+[license-image]: https://img.shields.io/npm/l/@anolilab/babel-preset?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md "license"
+[npm-image]: https://img.shields.io/npm/v/@anolilab/babel-preset/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://www.npmjs.com/package/@anolilab/babel-preset/v/latest "npm"

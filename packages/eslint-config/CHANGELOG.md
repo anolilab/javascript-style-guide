@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [6.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.1...@anolilab/eslint-config@6.1.2) (2023-06-21)
+
+
+### Bug Fixes
+
+* added info_on_disabling_prettier_conflict_rule to disable the info about found prettier ([88f3748](https://github.com/anolilab/javascript-style-guide/commit/88f37486c3ac66d2571f822685d068be34486692))
+* fixed logging of "to disable this message..." ([7b6a225](https://github.com/anolilab/javascript-style-guide/commit/7b6a225a173540bba3a7cd1fca35c764c6626aab))
+
 ## @anolilab/eslint-config [6.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.0...@anolilab/eslint-config@6.1.1) (2023-06-21)
 
 

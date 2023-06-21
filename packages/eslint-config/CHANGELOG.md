@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.0...@anolilab/eslint-config@6.1.1) (2023-06-21)
+
+
+### Bug Fixes
+
+* added option to disable the found react jsx-runtime info ([a398383](https://github.com/anolilab/javascript-style-guide/commit/a398383d9b1360bd9021649d706a74023d10eae1))
+
 ## @anolilab/eslint-config [6.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.0.3...@anolilab/eslint-config@6.1.0) (2023-06-18)
 
 

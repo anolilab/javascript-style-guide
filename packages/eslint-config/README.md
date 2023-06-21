@@ -169,11 +169,11 @@ Add this property to your package.json:
 
 ```json5
 {
-    anolilab: {
+    "anolilab": {
         "eslint-config": {
             // options
-        },
-    },
+        }
+    }
 }
 ```
 
@@ -210,6 +210,36 @@ Example using package.json:
 Type: `boolean`
 
 Default: `undefined`
+
+To disable the warning, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "warn_on_unsupported_typescript_version": false
+        }
+    }
+}
+```
+
+#### info_on_disabling_jsx_react_rule
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_disabling_jsx_react_rule": false
+        }
+    }
+}
+```
 
 ### Let [Prettier](https://prettier.io/) handle style-related rules
 

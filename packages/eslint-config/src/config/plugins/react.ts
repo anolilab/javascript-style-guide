@@ -2,6 +2,7 @@
 import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import findUp from "find-up";
+import { env } from "node:process";
 
 import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
@@ -35,18 +36,32 @@ if (
     };
 }
 
+let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
+
+if (pkg) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
+}
+
 const hasJsxRuntime = (() => {
     // Workaround VS Code trying to run this file twice!
     if (!global.hasAnolilabEsLintConfigReactRuntimePath) {
         const reactPath = findUp.sync("node_modules/react/jsx-runtime.js");
+        const isFile = typeof reactPath === "string";
 
-        if (typeof reactPath === "string") {
+        let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSX_REACT_RULE"] !== "true";
+
+        if (showLog && anolilabEslintConfig?.["info_on_disabling_jsx_react_rule"] !== undefined) {
+            showLog = anolilabEslintConfig["info_on_disabling_jsx_react_rule"];
+        }
+
+        if (showLog && isFile) {
             consoleLog(`\n@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
   If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
         }
 
-        global.hasAnolilabEsLintConfigReactRuntimePath = typeof reactPath === "string";
+        global.hasAnolilabEsLintConfigReactRuntimePath = isFile;
     }
 
     return global.hasAnolilabEsLintConfigReactRuntimePath;

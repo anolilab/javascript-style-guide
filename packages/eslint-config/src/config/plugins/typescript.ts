@@ -54,7 +54,7 @@ const importExtensions = importsRules["import/extensions"] as any[];
 const importNoExtraneousDependencies = importsRules["import/no-extraneous-dependencies"] as any[];
 const commaDangle = styleRules["comma-dangle"] as any[];
 
-let anolilabEslintConfig: { [key: string]: false | undefined } = {};
+let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
 
 if (pkg) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
@@ -64,7 +64,7 @@ if (pkg) {
 let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
 
 if (anolilabEslintConfig?.["warn_on_unsupported_typescript_version"] !== undefined) {
-    showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig?.["warn_on_unsupported_typescript_version"];
+    showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig["warn_on_unsupported_typescript_version"];
 }
 
 const config: Linter.Config = {

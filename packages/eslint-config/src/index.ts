@@ -41,10 +41,13 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
         ].forEach((plugin) => consolePlugin(plugin));
     }
 
+    let hasLogged = false;
+
     Object.entries(possiblePluginRules).forEach(([plugin, dependencies]) => {
         const hasOneDependency = Object.values(dependencies).some(Boolean);
 
         if (hasOneDependency) {
+            hasLogged = true;
             consoleLog(
                 `\nYour package.json container dependencies for the "${plugin}" eslint-plugin, please add the following dependencies with your chosen package manager to enable this plugin:`,
             );
@@ -57,7 +60,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
         }
     });
 
-    if (Object.keys(possiblePluginRules).length > 0) {
+    if (hasLogged) {
         consoleLog("\nTo disable this message, add the following to your package.json:");
         consoleLog('    "anolilab": { "eslint-config": { plugin: { "plugin-name": false } } }\n');
     }

@@ -5,19 +5,18 @@ import { defineConfig as baseDefineConfig } from "tsup";
 
 import tsconfig from "./tsconfig.json";
 
-function getPackageSources(packageContent: NormalizedPackageJson) {
+const getPackageSources = (packageContent: NormalizedPackageJson): string[] => {
     if (typeof packageContent["source"] === "string") {
         return [packageContent["source"]];
     }
 
     if (Array.isArray(packageContent["sources"])) {
-        return packageContent["sources"];
+        return packageContent["sources"] as string[];
     }
 
     throw new TypeError("Please define a source or sources key in the package.json.");
 }
 
-// @ts-expect-error
 export const createConfig = (config?: Object & Options) =>
     baseDefineConfig((options: Options) => {
         const packageJsonContent = readPackageSync(options as NormalizeOptions);
@@ -39,7 +38,7 @@ export const createConfig = (config?: Object & Options) =>
             ],
             format: ["esm", "cjs"],
             silent: !options.watch,
-            minify: process.env.NODE_ENV === "production",
+            minify: process.env["NODE_ENV"] === "production",
             incremental: !options.watch,
             dts: true,
             sourcemap: true,
@@ -47,12 +46,12 @@ export const createConfig = (config?: Object & Options) =>
             splitting: true,
             target: tsconfig.compilerOptions.target as "es2021",
             env: {
-                NODE_ENV: process.env.NODE_ENV,
+                NODE_ENV: process.env["NODE_ENV"] as string,
                 ...config?.env,
             },
             declaration: true,
             esbuildOptions(options) {
-                if (process.env.NODE_ENV !== "production" && peerDependenciesKeys.includes("react")) {
+                if (process.env["NODE_ENV"] !== "production" && peerDependenciesKeys.includes("react")) {
                     options.tsconfig = options.tsconfig?.replace("tsconfig.json", "tsconfig.dev.json");
                 }
             },

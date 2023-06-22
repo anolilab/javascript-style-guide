@@ -1,11 +1,10 @@
-# Browserslist Config
-
-This configuration reflects Growcss’s supported browser policy for their UI library and build tools.
-
 <div align="center">
+<h1>Shareable Browserslist Config</h1>
 
 [![npm-image]][npm-url] [![license-image]][license-url]
 
+
+It helps you maintain consistency across different projects and ensures that your projects support the same set of browsers.
 </div>
 
 ---
@@ -20,59 +19,45 @@ This configuration reflects Growcss’s supported browser policy for their UI li
 
 ---
 
-## What is Browserslist?
+## Purpose
 
-[Browserslist](https://github.com/browserslist/browserslist) is a library to share a browsers list between different front end tools, like Autoprefixer, Eslint, and Stylelint.
+Our package aims to simplify and streamline the configuration process for your projects, ensuring efficiency and minimizing errors. By implementing the following strategies, we achieve this goal:
 
--   Valid Browserslist query syntax validation [browserl.ist](http://browserl.ist)
--   ["Browserslist is a Good Idea"](https://css-tricks.com/browserlist-good-idea/) (blog post by [@chriscoyier](https://github.com/chriscoyier))
+- Centralized Browser Targeting: Say goodbye to the hassle of defining target browsers for each individual project. Our package eliminates this need, providing a single, consistent configuration.
 
-## Supported Browsers
+- Widely Used Target Browsers: We offer a carefully curated selection of popular target browsers. You can rely on our pre-defined set to cover a wide range of user preferences.
 
-```js
-{
-    "production": [
-        "> 1%",
-        "last 2 versions",
-        "Firefox ESR"
-    ],
-    "legacyBrowsers": [
-        "> 1%",
-        "last 2 versions",
-        "Firefox ESR"
-    ],
-    "modernBrowsers": [
-        "last 2 Chrome versions",
-        "not Chrome < 60",
-        "last 2 Safari versions",
-        "not Safari < 10.1",
-        "last 2 iOS versions",
-        "not iOS < 10.3",
-        "last 2 Firefox versions",
-        "not Firefox < 54",
-        "last 2 Edge versions",
-        "not Edge < 15"
-    ],
-    "ssr": [
-        "node 12"
-    ]
-}
-```
+- Effortless Updates: Keeping up with evolving browser requirements is effortless with our package. You can easily update the target browsers across all your projects whenever necessary, saving valuable time and effort.
+
+In summary, our Browserslist Config ensures a superior user experience across various browsers, making it a vital tool for maintaining high-quality standards. Your users will enjoy a seamless browsing experience, regardless of their chosen platform.
 
 ## Installation
 
-Install the module
+Install the package using your preferred package manager:
 
 ```shell
 npm install browserslist-config-anolilab --save-dev
-```
-```sh
-yarn add -D browserslist-config-anolilab
 ```
 
 ```sh
 pnpm add -D browserslist-config-anolilab
 ```
+
+```sh
+yarn add -D browserslist-config-anolilab
+```
+
+Optionally, you can install `browserslist` to use the `browserslist` CLI.
+
+Adding the following script to your root package.json file makes it easier to run the browserslist command in your mono-repository:
+
+```bash
+pnpm pkg set scripts.lint:browsers="browserslist"
+```
+
+For `npm` users, replace `pnpm` with npm in the above command.
+
+This script allows you to run the `browserslist` command by simply typing `pnpm run lint:browsers` (or `npm run lint:browsers` for npm users) in the terminal.
 
 ## Usage
 
@@ -104,6 +89,45 @@ Or when using [babel-preset-env](https://github.com/babel/babel/tree/master/expe
             },
         ],
     ];
+}
+```
+
+## What is Browserslist?
+
+[Browserslist](https://github.com/browserslist/browserslist) is a library to share a browsers list between different front end tools, like Autoprefixer, Eslint, and Stylelint.
+
+-   Valid Browserslist query syntax validation [browserl.ist](http://browserl.ist)
+-   ["Browserslist is a Good Idea"](https://css-tricks.com/browserlist-good-idea/) (blog post by [@chriscoyier](https://github.com/chriscoyier))
+
+## Supported Browsers
+
+```json
+{
+    "production": [
+        "> 1%",
+        "last 2 versions",
+        "Firefox ESR"
+    ],
+    "legacyBrowsers": [
+        "> 1%",
+        "last 2 versions",
+        "Firefox ESR"
+    ],
+    "modernBrowsers": [
+        "last 2 Chrome versions",
+        "not Chrome < 60",
+        "last 2 Safari versions",
+        "not Safari < 10.1",
+        "last 2 iOS versions",
+        "not iOS < 10.3",
+        "last 2 Firefox versions",
+        "not Firefox < 54",
+        "last 2 Edge versions",
+        "not Edge < 15"
+    ],
+    "ssr": [
+        "node 12"
+    ]
 }
 ```
 

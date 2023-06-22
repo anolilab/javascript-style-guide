@@ -1,12 +1,6 @@
-# Anolilab ESLint config
-
-This package provides Anolilab’s most comprehensive code style guide as an extensible shared config.
-
-With a range of useful plugins that are often too time-consuming to setup, based on your project’s dependencies we will notify you about missing eslint plugins.
-
-The goal is to reduce noise in code version control and promote use of the latest ES features.
-
 <div align="center">
+
+<h1>Shareable ESLint config</h1>
 
 [![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
 
@@ -23,6 +17,22 @@ The goal is to reduce noise in code version control and promote use of the lates
 </div>
 
 ---
+
+## Purpose
+
+Our package serves as a valuable resource for JavaScript/Typescript-based projects, offering composable [ESLint](https://eslint.org/) configurations. It encompasses a range of features, including performance optimization and the flexibility to extend pre-defined base configurations.
+
+- Tailored Configuration for Workspaces: With this package, each workspace within your monorepo gains the ability to have its own customized ESLint configuration. This ensures that individual projects can maintain their specific requirements while still adhering to the overall guidelines.
+
+- Configurability at Your Fingertips: Crafting your workspace's ESLint configuration is a breeze, thanks to the seamless composition of pre-defined base configurations. This empowers you to tailor the settings to suit your project's unique needs, without starting from scratch.
+
+- Streamlined Convenience: Say goodbye to the hassle of installing plugins for each workspace. Our package integrates [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch), eliminating the need for repetitive plugin installations. Enjoy peace of mind as you focus on your work, knowing that the necessary plugins are automatically included.
+
+- Enhanced Efficiency: We've optimized the package's performance by intelligently enabling plugins based on file naming conventions. This streamlined approach ensures that your ESLint checks run efficiently, targeting the relevant files and maximizing productivity.
+
+In summary, our package provides comprehensive and adaptable ESLint configurations for JavaScript and Typescript projects. It empowers you to achieve code quality while minimizing overhead and maximizing productivity throughout your workspaces.
+
+
 
 ## Highlights
 
@@ -41,22 +51,22 @@ The goal is to reduce noise in code version control and promote use of the lates
 To install this config, run the following command.
 
 ```bash
-npm install eslint @anolilab/eslint-config --save-dev
-```
-
-```sh
-yarn add -D eslint @anolilab/eslint-config
+npm install --save-dev eslint @anolilab/eslint-config
 ```
 
 ```sh
 pnpm add -D eslint @anolilab/eslint-config
 ```
 
+```sh
+yarn add -D eslint @anolilab/eslint-config
+```
+
 ## Usage
 
-If you don’t have a `.eslintrc.cjs`, we will create the file for you after installing `@anolilab/eslint-config`.
+If you don’t have a `.eslintrc.js`, we will create the file for you after installing `@anolilab/eslint-config`.
 
-If you already have a `.eslintrc.cjs`, then you can extend the `.eslintrc.cjs`, with `@anolilab/eslint-config`.
+If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, with `@anolilab/eslint-config`.
 
 > Note: Our default export contains all of our ESLint rules, including ECMAScript 6+. `@anolilab/eslint-config` use the `ecmaVersion`:`2021` as default.
 >
@@ -97,7 +107,7 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 npm install --save-dev eslint typescript @anolilab/eslint-config
 ```
 
-Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path if you have a custom path.
+Please extend the `.eslintrc.js` file with the correct `tsconfig.js` path if you have a custom path.
 
 ```js
 module.exports = {
@@ -109,7 +119,7 @@ module.exports = {
 
 For projects that use TypeScript and want additional rules that require type information (rules using type information take longer to run).
 
-Extend the `.eslintrc.cjs` file:
+Extend the `.eslintrc.js` file:
 
 ```js
 module.children = {
@@ -135,6 +145,12 @@ module.children = {
 };
 ```
 
+> Tip: Run eslint with the TIMING=1 to identify slow rules.
+>
+> `TIMING=1 eslint . --ext .ts,.tsx`
+>
+> This is useful to identify rules that are slow because they require type information.
+
 ### React
 
 You need to have "react" and "react-dom" installed.
@@ -145,7 +161,7 @@ You need to have "react" and "react-dom" installed.
 
 Or for the use of `TypeScript` in react install "typescript" as a dev dependency.
 
-Please extend the `.eslintrc.cjs` file with the correct `tsconfig.js` path if you have a custom path.
+Please extend the `.eslintrc.js` file with the correct `tsconfig.js` path if you have a custom path.
 
 ```js
 module.exports = {
@@ -160,6 +176,8 @@ module.exports = {
 ```bash
 npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
 ```
+
+For more information about `missing` or `optional` to install rules see the `eslint` console output.
 
 ### Config
 
@@ -334,7 +352,7 @@ The following plugins expand esLint to work with json files, and lint JavaScript
 -   [eslint-plugin-toml](https://github.com/ota-meshi/eslint-plugin-toml)
 -   [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)
 
-When linting code snippets in Markdown files, a few [rules](src/rules/plugins/markdown.cjs#L3) relating to globals and unused vars are disabled.
+When linting code snippets in Markdown files, a few [rules](src/config/plugins/markdown.ts#L3) relating to globals and unused vars are disabled.
 
 ### Library Plugins
 

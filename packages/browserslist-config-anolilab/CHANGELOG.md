@@ -1,3 +1,11 @@
+## browserslist-config-anolilab [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.0.3...browserslist-config-anolilab@4.0.4) (2023-06-22)
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 3.1.2
+
 ## browserslist-config-anolilab [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.0.2...browserslist-config-anolilab@4.0.3) (2023-06-15)
 
 

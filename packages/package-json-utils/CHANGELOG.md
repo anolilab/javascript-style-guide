@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.3.0...@anolilab/package-json-utils@1.4.0) (2023-06-22)
+
+
+### Features
+
+* added getPackageProperty and getPackageSubProperty ([7a6bbd6](https://github.com/anolilab/javascript-style-guide/commit/7a6bbd631a8de7d395a37bd30d06c9b1a29cb895))
+
 ## @anolilab/package-json-utils [1.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.2.0...@anolilab/package-json-utils@1.3.0) (2023-06-15)
 
 

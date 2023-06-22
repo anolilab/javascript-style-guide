@@ -1,3 +1,12 @@
+## @anolilab/babel-preset [7.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.7...@anolilab/babel-preset@7.0.8) (2023-06-22)
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.4.0
+* **@anolilab/semantic-release-preset:** upgraded to 3.1.2
+
 ## @anolilab/babel-preset [7.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@7.0.6...@anolilab/babel-preset@7.0.7) (2023-06-15)
 
 

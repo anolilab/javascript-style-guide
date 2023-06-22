@@ -1,6 +1,5 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
-import { getPackageSubProperty } from "@anolilab/package-json-utils/src";
+import { hasAnyDep, pkg, getPackageSubProperty } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import findUp from "find-up";
 import { env } from "node:process";

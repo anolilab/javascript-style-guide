@@ -3,17 +3,17 @@ import type { Linter } from "eslint";
 
 import { consolePlugin } from "../../utils/loggers";
 
-let ruleset = "dom";
-
-if (hasAnyDep(["react"])) {
-    ruleset = "react";
-}
-
 let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
 
 if (pkg) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
     anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
+}
+
+let ruleset = "dom";
+
+if (hasAnyDep(["react", "@testing-library/react"])) {
+    ruleset = "react";
 }
 
 // Workaround VS Code trying to run this file twice!

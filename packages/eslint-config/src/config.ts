@@ -120,6 +120,10 @@ const pluginConfig: PackageRules = [
         dependencies: ["@testing-library/dom", "eslint-plugin-testing-library"],
     },
     {
+        configName: "testing-library",
+        dependencies: ["react", "@testing-library/react", "eslint-plugin-testing-library"],
+    },
+    {
         configName: "typescript",
         dependencies: ["typescript"],
     },

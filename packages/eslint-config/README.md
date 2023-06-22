@@ -259,6 +259,42 @@ To disable the info, set the value to `false`.
 }
 ```
 
+#### info_on_testing_library_framework
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_testing_library_framework": false
+        }
+    }
+}
+```
+
+#### info_on_found_react_version
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_found_react_version": false
+        }
+    }
+}
+```
+
 ### Let [Prettier](https://prettier.io/) handle style-related rules
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.

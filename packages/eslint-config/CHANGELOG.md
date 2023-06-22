@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.2...@anolilab/eslint-config@6.1.3) (2023-06-22)
+
+
+### Bug Fixes
+
+* removed extra "}" from react version, fixed plugin loading check, now the dev-dep and dep checking is correct ([3c5daa0](https://github.com/anolilab/javascript-style-guide/commit/3c5daa07c8f4fc793e366ead31c148b9ea760c6c))
+
 ## @anolilab/eslint-config [6.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.1...@anolilab/eslint-config@6.1.2) (2023-06-21)
 
 

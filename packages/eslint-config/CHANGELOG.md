@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.3...@anolilab/eslint-config@6.1.4) (2023-06-22)
+
+
+### Bug Fixes
+
+* fixed loading of you-dont-need-momentjs, split the check to check for moment and moment-timezone separately ([05ebbb7](https://github.com/anolilab/javascript-style-guide/commit/05ebbb70b9e4b498f005b36da7690dc3b68233ec))
+
 ## @anolilab/eslint-config [6.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.2...@anolilab/eslint-config@6.1.3) (2023-06-22)
 
 

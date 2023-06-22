@@ -20,7 +20,7 @@ if (
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/element-newline": "off",
         "@html-eslint/quotes": "off",
-    }
+    };
 }
 
 const config: Linter.Config = {
@@ -44,7 +44,7 @@ const config: Linter.Config = {
                 "@html-eslint/indent": hasPrettier ? "off" : ["error", (styleRules["indent"] as any[])[1]],
 
                 ...prettierRules,
-            }
+            },
         },
     ],
 };

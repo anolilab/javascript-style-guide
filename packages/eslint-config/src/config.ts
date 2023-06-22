@@ -1,6 +1,4 @@
-import {
- hasAnyDep, hasDependency, hasDevDependency, pkg,
-} from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 
@@ -153,18 +151,21 @@ pluginConfig.forEach((plugin) => {
     const { dependencies, configName } = plugin;
 
     if (anolilabEslintConfig?.["plugin"]?.[configName] !== false) {
-        if (
-            hasAnyDep(dependencies, {
-                peerDeps: false,
-                strict: true,
-            })
-        ) {
+        const foundDependencies = [];
+
+        dependencies.forEach((dependency) => {
+            if (hasDependency(dependency) || hasDevDependency(dependency)) {
+                foundDependencies.push(dependency);
+            }
+        });
+
+        if (foundDependencies.length === dependencies.length) {
             loadedPlugins.push(configName);
         } else {
             possiblePlugins[configName] = {};
 
             dependencies.forEach((dependency) => {
-                (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) ?? hasDevDependency(dependency);
+                (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
             });
         }
     }

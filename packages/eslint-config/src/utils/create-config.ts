@@ -1,6 +1,9 @@
 import type { Linter } from "eslint";
 
-const createConfig = (type: "all" | "javascript" | "js_and_ts" | "jsx_and_tsx" | "typescript", config: Omit<Linter.Config, "files|overrides">): Linter.Config => {
+const createConfig = (
+    type: "all" | "javascript" | "js_and_ts" | "jsx_and_tsx" | "typescript",
+    config: Omit<Linter.Config, "files|overrides">,
+): Linter.Config => {
     let files = ["*.js", "*.mjs", "*.cjs"];
 
     // eslint-disable-next-line default-case

@@ -15,7 +15,7 @@ const getPackageSources = (packageContent: NormalizedPackageJson): string[] => {
     }
 
     throw new TypeError("Please define a source or sources key in the package.json.");
-}
+};
 
 export const createConfig = (config?: Object & Options) =>
     baseDefineConfig((options: Options) => {
@@ -29,13 +29,7 @@ export const createConfig = (config?: Object & Options) =>
             entry: sources,
             treeshake: true,
             // react external https://github.com/vercel/turborepo/issues/360#issuecomment-1013885148
-            external: [
-                ...new Set([
-                    ...peerDependenciesKeys,
-                    ...Object.keys(packageJsonContent.optionalDependencies || {}),
-                    ...(config?.external || []),
-                ]),
-            ],
+            external: [...new Set([...peerDependenciesKeys, ...Object.keys(packageJsonContent.optionalDependencies || {}), ...(config?.external || [])])],
             format: ["esm", "cjs"],
             silent: !options.watch,
             minify: process.env["NODE_ENV"] === "production",
@@ -53,6 +47,10 @@ export const createConfig = (config?: Object & Options) =>
             esbuildOptions(options) {
                 if (process.env["NODE_ENV"] !== "production" && peerDependenciesKeys.includes("react")) {
                     options.tsconfig = options.tsconfig?.replace("tsconfig.json", "tsconfig.dev.json");
+                }
+
+                options.logOverride = {
+                    "tsconfig.json": "silent",
                 }
             },
             ...config,

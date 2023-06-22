@@ -97,7 +97,7 @@ const config: Linter.Config = {
                     // The default value is "detect". Automatic detection works by loading the entire React library
                     // into the linter's process, which is inefficient. It is recommended to specify the version
                     // explicity.
-                    version: reactDependency[0] ? `${reactDependency[0]}.${reactDependency[1] ?? "0"}}` : "detect",
+                    version: reactDependency[0] ? `${reactDependency[0]}.${reactDependency[1] ?? "0"}` : "detect",
                 },
                 propWrapperFunctions: [
                     "forbidExtraProps", // https://www.npmjs.com/package/airbnb-prop-types

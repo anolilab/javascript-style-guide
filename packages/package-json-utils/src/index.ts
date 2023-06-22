@@ -17,9 +17,15 @@ const atLatest = (name: string): string => {
     return name;
 };
 
-export const getPackageProperty = (property: string): unknown => packageJson !== undefined && getByPath(packageJson, property);
+export const getPackageProperty = <T = unknown>(property: string): T | undefined => {
+    if (packageJson === undefined) {
+        return undefined;
+    }
 
-export const getPackageSubProperty = (packageProperty: string) => (property: string): unknown => getPackageProperty(`${packageProperty}.${property}`);
+    return getByPath(packageJson, property) as T | undefined;
+}
+
+export const getPackageSubProperty = <T = unknown>(packageProperty: string) => (property: string): T | undefined => getPackageProperty<T>(`${packageProperty}.${property}`);
 
 export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 

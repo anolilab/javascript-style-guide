@@ -81,7 +81,11 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "you-dont-need-momentjs",
-        dependencies: ["moment", "moment-timezone", "eslint-plugin-you-dont-need-momentjs"],
+        dependencies: ["moment", "eslint-plugin-you-dont-need-momentjs"],
+    },
+    {
+        configName: "you-dont-need-momentjs",
+        dependencies: ["moment-timezone", "eslint-plugin-you-dont-need-momentjs"],
     },
     {
         configName: "tailwindcss",

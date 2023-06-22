@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.4.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.4.0...@anolilab/package-json-utils@1.4.1) (2023-06-22)
+
+
+### Bug Fixes
+
+* fixed typing of the new getPackageProperty and getByPath ([64b2b07](https://github.com/anolilab/javascript-style-guide/commit/64b2b07a59c7458c5e674e670e68963e468f2dde))
+
 ## @anolilab/package-json-utils [1.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.3.0...@anolilab/package-json-utils@1.4.0) (2023-06-22)
 
 

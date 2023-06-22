@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.6...@anolilab/eslint-config@6.1.7) (2023-06-22)
+
+
+### Bug Fixes
+
+* added better log message to the testing-library ([fbcca4d](https://github.com/anolilab/javascript-style-guide/commit/fbcca4de62d5cbffc098de380efd9d7637e9beb0))
+
 ## @anolilab/eslint-config [6.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.5...@anolilab/eslint-config@6.1.6) (2023-06-22)
 
 

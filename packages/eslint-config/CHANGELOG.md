@@ -1,3 +1,17 @@
+## @anolilab/eslint-config [6.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.5...@anolilab/eslint-config@6.1.6) (2023-06-22)
+
+
+### Bug Fixes
+
+* fixed react version finding, added 2 new logger settings ([175c64b](https://github.com/anolilab/javascript-style-guide/commit/175c64bd56e4c1d40d3d3df5d90a45ff14649ec5))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.4.1
+* **@anolilab/semantic-release-preset:** upgraded to 3.1.3
+
 ## @anolilab/eslint-config [6.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.4...@anolilab/eslint-config@6.1.5) (2023-06-22)
 
 

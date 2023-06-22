@@ -19,7 +19,7 @@ if (pkg) {
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintTestConfigLoaded) {
     if (anolilabEslintConfig?.["info_on_testing_library_framework"] !== false) {
-        consolePlugin(`testing-library/${ruleset}`);
+        consolePlugin(`testing-library: loading "${ruleset}" ruleset`);
     }
 
     global.hasAnolilabEsLintTestConfigLoaded = true;

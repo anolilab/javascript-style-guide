@@ -29,10 +29,8 @@ export const hasPackageProperties = (properties: string[], strict?: boolean): bo
     return properties.some((property: string) => hasPackageProperty(property));
 };
 
-export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(
-            properties.map((p) => `${packageProperty}.${p}`),
-            strict,
-        );
+export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(properties.map((p) => `${packageProperty}.${p}`),
+            strict,);
 
 export const environmentIsSet = (name: string): boolean => Boolean(process.env[name] && process.env[name] !== "undefined");
 
@@ -70,13 +68,10 @@ export const hasDevDependencies = hasPackageSubProperties("devDependencies");
 // @deprecated Use `hasDevDependencies` instead.
 export const hasDevelopmentDep = hasDevDependencies;
 
-export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [
-hasDependencies,
-hasDevDependencies,
-options?.peerDeps === false ? () => false : hasPeerDependencies,
-].some(
-        (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
-    );
+// eslint-disable-next-line max-len
+export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(
+    (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
+);
 
 export const hasTypescript: boolean = (hasDependency("typescript") || hasDevDependency("typescript")) && hasFile("tsconfig.json");
 

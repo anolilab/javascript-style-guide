@@ -59,9 +59,7 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
     } = options;
 
     if (typeof modules === "boolean" && typeof modules === "string") {
-        throw new TypeError(
-            '@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option',
-        );
+        throw new TypeError('@anolilab/babel-preset only accepts `true`, `false`, or `"auto"` as the value of the "modules" option');
     }
 
     if (removePropertyTypes && !react) {
@@ -99,9 +97,7 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
     }
 
     const debug = typeof options.debug === "boolean" ? options.debug : false;
-    const development = typeof options.development === "boolean"
-            ? options.development
-            : api.cache.using(() => process.env["NODE_ENV"] === "development");
+    const development = typeof options.development === "boolean" ? options.development : api.cache.using(() => process.env["NODE_ENV"] === "development");
 
     const presets = [
         [

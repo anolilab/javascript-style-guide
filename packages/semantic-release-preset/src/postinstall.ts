@@ -1,5 +1,5 @@
 import {
- hasDep, hasDevelopmentDep, packageIsTypeModule, pkg, projectPath,
+ hasDep, hasDevelopmentDep, packageIsTypeModule, pkg, projectPath
 } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";

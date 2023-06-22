@@ -26,7 +26,9 @@ const writeStylelintRc = () => {
 `;
 
     if (existsSync(stylelintPath)) {
-        console.warn("⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.");
+        console.warn(
+            '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
+        );
 
         return Promise.resolve();
     }

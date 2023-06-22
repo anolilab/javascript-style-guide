@@ -98,6 +98,12 @@ List of available helpers:
 - pkg
   > This variable returns the "process.cwd()" package.json object or undefined.
 
+- getPackageProperty
+  > This function takes a package property name as input and returns the value of the property from the "process.cwd()" package.json object or undefined.
+
+- getPackageSubProperty
+  > This function takes a package property name and a sub-property name as input and returns the value of the sub-property from the "process.cwd()" package.json object or undefined.
+
 > **Note:** The process.cwd() method is an inbuilt application programming interface of the process module
 which is used to get the current working directory of the node.js process.
 

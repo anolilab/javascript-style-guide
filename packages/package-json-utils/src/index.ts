@@ -17,6 +17,10 @@ const atLatest = (name: string): string => {
     return name;
 };
 
+export const getPackageProperty = (property: string): unknown => packageJson !== undefined && getByPath(packageJson, property);
+
+export const getPackageSubProperty = (packageProperty: string) => (property: string): unknown => getPackageProperty(`${packageProperty}.${property}`);
+
 export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 
 export const hasPackageSubProperty = (packageProperty: string) => (property: string): boolean => hasPackageProperty(`${packageProperty}.${property}`);

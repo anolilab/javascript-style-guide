@@ -5,7 +5,7 @@ import {
 
 import {
     environmentIsSet,
-    fromRoot,
+    fromRoot, getPackageProperty, getPackageSubProperty,
     hasAnyDep,
     hasDep,
     hasDevelopmentDep,
@@ -162,5 +162,21 @@ describe("package-json-utils", () => {
         const array = [1, 2, 2, 3, 3, 3];
 
         expect(unique(array)).toStrictEqual([1, 2, 3]);
+    });
+
+    it("getPackageProperty: returns the value of the specified property", () => {
+        expect(getPackageProperty("name")).toBe("@anolilab/package-json-utils");
+    });
+
+    it("getPackageProperty: returns undefined when the property does not exist", () => {
+        expect(getPackageProperty("name1")).toBeUndefined();
+    });
+
+    it("getPackageSubProperty: returns the value of the specified subproperty", () => {
+        expect(getPackageSubProperty("scripts")("test")).toBe("vitest --config ./vitest.config.ts");
+    });
+
+    it("getPackageSubProperty: returns undefined when the subproperty does not exist", () => {
+        expect(getPackageSubProperty("scripts")("test1")).toBeUndefined();
     });
 });

@@ -1,5 +1,5 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-import { hasAnyDep, pkg, getPackageSubProperty } from "@anolilab/package-json-utils";
+import { getPackageSubProperty,hasAnyDep, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import findUp from "find-up";
 import { env } from "node:process";
@@ -67,11 +67,9 @@ const hasJsxRuntime = (() => {
     return global.hasAnolilabEsLintConfigReactRuntimePath;
 })();
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
 let reactVersion: string | undefined = getPackageSubProperty<string>("dependencies")("react")
 
 if (reactVersion === undefined) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
     reactVersion = getPackageSubProperty<string | undefined>("devDependencies")("react");
 }
 

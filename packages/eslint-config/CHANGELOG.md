@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [6.1.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.7...@anolilab/eslint-config@6.1.8) (2023-06-22)
+
+
+### Bug Fixes
+
+* fixed wrong import, added better plugin login for testing-library ([857d734](https://github.com/anolilab/javascript-style-guide/commit/857d734cead4f1551bc466888d854a9ab6ab0a4a))
+
 ## @anolilab/eslint-config [6.1.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.6...@anolilab/eslint-config@6.1.7) (2023-06-22)
 
 

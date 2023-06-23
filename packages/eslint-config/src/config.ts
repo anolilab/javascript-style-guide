@@ -17,6 +17,7 @@ const internalPluginConfig = [
     "no-secrets",
     "sonarjs",
     "security",
+    "regexp",
     // file rules
     "jsonc",
     "markdown",

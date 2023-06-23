@@ -1,7 +1,7 @@
 import type { Linter } from "eslint";
 
 import bestPracticesConfig from "./config/best-practices";
-import createConfig from "./utils/create-config";
+import { createConfig } from "./utils/create-config";
 
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 

@@ -1,7 +1,7 @@
 // eslint-disable-next-line unicorn/prevent-abbreviations
 import type { Linter } from "eslint";
 
-import createConfig from "../../utils/create-config";
+import { createConfig } from "../../utils/create-config";
 
 const config: Linter.Config = createConfig("all", {
     plugins: ["array-func"],

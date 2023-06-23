@@ -257,6 +257,7 @@ const config: Linter.Config = {
 
         // Forbid cyclical dependencies between modules
         // https://github.com/benmosher/eslint-plugin-import/blob/d81f48a2506182738409805f5272eff4d77c9348/docs/rules/no-cycle.md
+        // https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
         "import/no-cycle": ["error", { maxDepth: "∞" }],
 
         // Ensures that there are no useless path segments

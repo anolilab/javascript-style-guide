@@ -22,6 +22,8 @@ const config: Linter.Config = {
             ],
             extends: ["plugin:jest/recommended", "plugin:jest/style"],
             env: {
+                es6: true,
+                node: true,
                 jest: true,
             },
             rules: {
@@ -30,30 +32,26 @@ const config: Linter.Config = {
 
                 "jest/no-disabled-tests": "off",
 
-                // Not included in jest/recommended
-                "jest/consistent-test-it": 0,
-                "jest/lowercase-name": 0,
-                "jest/no-conditional-expect": 0,
-                "jest/no-deprecated-functions": 0,
-                "jest/no-duplicate-hooks": 0,
-                "jest/no-expect-resolves": 0,
-                "jest/no-hooks": 0,
-                "jest/no-if": 0,
-                "jest/no-interpolation-in-snapshots": 0,
-                "jest/no-large-snapshots": 0,
-                "jest/no-restricted-matchers": 0,
-                "jest/no-test-return-statement": 0,
-                "jest/no-truthy-falsy": 0,
-                "jest/prefer-called-with": 0,
-                "jest/prefer-expect-assertions": 0,
-                "jest/prefer-hooks-on-top": 0,
-                "jest/prefer-inline-snapshots": 0,
-                "jest/prefer-spy-on": 0,
-                "jest/prefer-strict-equal": 0,
-                "jest/prefer-todo": 0,
-                "jest/require-to-throw-message": 0,
-                "jest/require-top-level-describe": 0,
-                "jest/valid-title": 0,
+                "jest/prefer-hooks-in-order": "error",
+                "jest/prefer-hooks-on-top": "error",
+                "jest/no-duplicate-hooks": "error",
+                "jest/no-test-return-statement": "error",
+                "jest/prefer-strict-equal": "error",
+                "jest/prefer-to-have-length": "error",
+                "jest/consistent-test-it": ["error", { fn: "it" }],
+
+                // Relax rules that are known to be slow and less useful in a test context
+                "import/namespace": "off",
+                "import/default": "off",
+                "import/no-duplicates": "off",
+                // Relax rules that makes writing tests easier
+                "import/no-named-as-default-member": "off",
+
+                "@typescript-eslint/no-non-null-assertion": "off",
+                "@typescript-eslint/no-object-literal-type-assertion": "off",
+                "@typescript-eslint/no-empty-function": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/ban-ts-comment": "off",
 
                 // you should turn the original rule off *only* for test files
                 "@typescript-eslint/unbound-method": "off",

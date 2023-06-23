@@ -1,7 +1,7 @@
 import { hasAnyDep } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import createConfig from "../../utils/create-config";
+import { createConfig } from "../../utils/create-config";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 import styleConfig from "../style";

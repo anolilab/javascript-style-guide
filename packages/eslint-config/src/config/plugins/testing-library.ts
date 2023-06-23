@@ -1,6 +1,7 @@
 import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
+import { createConfig } from "../../utils/create-config";
 import { consolePlugin } from "../../utils/loggers";
 
 let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
@@ -25,24 +26,17 @@ if (!global.hasAnolilabEsLintTestConfigLoaded) {
     global.hasAnolilabEsLintTestConfigLoaded = true;
 }
 
-const config: Linter.Config = {
-    extends: [`plugin:testing-library/${ruleset}`],
-    rules: {
-        // Not included in jest/recommended
-        "testing-library/await-fire-event": "off",
-        "testing-library/consistent-data-testid": "off",
-        "testing-library/no-debug": "off",
-        "testing-library/no-dom-import": "off",
-        "testing-library/no-manual-cleanup": "off",
-        "testing-library/no-render-in-setup": "off",
-        "testing-library/no-await-sync-events": "off",
-        "testing-library/no-wait-for-empty-callback": "off",
-        "testing-library/no-wait-for-snapshot": "off",
-        "testing-library/prefer-explicit-assert": "off",
-        "testing-library/prefer-presence-queries": "off",
-        "testing-library/prefer-screen-queries": "off",
-        "testing-library/prefer-wait-for": "off",
+// For performance enable react-testing-library only on test files
+const config: Linter.Config = createConfig(
+    "tests",
+    {
+        extends: [`plugin:testing-library/${ruleset}`],
     },
-};
+    {
+        browser: true,
+        es6: true,
+        node: true,
+    },
+);
 
 export default config;

@@ -129,7 +129,7 @@ pnpm add -D husky is-ci
 To add a `commit-msg` hook to your project, run the following command:
 
 ```bash
-   npx husky add .husky/commit-msg 'pnpm commitlint --edit "${1}"'
+npx husky add .husky/commit-msg 'pnpm commitlint --edit "${1}"'
 ```
 
 And for `package.json`:
@@ -184,6 +184,33 @@ husky > commit-msg (node v10.1.0)
 [master 9d41607] feat: add new feature
  1 file changed, 1 insertion(+)
 ```
+
+## Commitizen
+
+When installing this package for the first time, the following shareable configuration `.czrc` is automatically added to your project folder:
+
+> Note: If the script detects an existing `.czrc` file, it will not overwrite it.
+
+> Note: It can happen that the postinstall script dont run, then you have to add the `.czrc` manually.
+
+```json
+{
+    "path": "cz-conventional-changelog"
+}
+```
+
+### Husky
+
+To add a `prepare-commit-msg` hook to your project, run the following command:
+
+```bash
+npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || true'
+```
+
+> Why `exec < /dev/tty?` By default, git hooks are not interactive.
+> This command allows the user to use their terminal to interact with Commitizen during the hook.
+
+Congratulations! Your repo is Commitizen friendly. Time to flaunt it!
 
 ## Supported Node.js Versions
 

@@ -25,7 +25,11 @@ const writeCommitLintConfig = () => {
     }
 
     const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
-    extends: ["@commitlint/config-conventional"],
+    extends: ["@anolilab/commitlint-config"],
+    rules: {
+        // overwrite rules here
+        // or extend rules
+    },
 };
 
 `;

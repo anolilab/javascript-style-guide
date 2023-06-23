@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/commitlint-config",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Anolilab´s shareable coding standard config for commitlint.",
     "keywords": [
         "anolilab",
@@ -52,7 +52,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "1.4.1",
+        "@anolilab/package-json-utils": "1.5.0",
         "@commitlint/config-conventional": "^17.6.5",
         "@commitlint/core": "^17.6.5",
         "commitizen": "^4.3.0",

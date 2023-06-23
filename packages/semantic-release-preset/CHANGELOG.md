@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [4.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.0.0...@anolilab/semantic-release-preset@4.0.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* added missing presetConfig to @semantic-release/release-notes-generator ([f39883d](https://github.com/anolilab/javascript-style-guide/commit/f39883df22a9980698ed5822d8be81c9bf5fb778))
+
 ## @anolilab/semantic-release-preset [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@3.1.3...@anolilab/semantic-release-preset@4.0.0) (2023-06-23)
 
 

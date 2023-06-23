@@ -1,8 +1,7 @@
-# Semantic-release shareable configuration
-
-Semantic-release shareable configuration to publish GitHub projects.
-
 <div align="center">
+<h1>Shareable semantic-release configuration</h1>
+
+A shareable [semantic-release](https://github.com/semantic-release/semantic-release) configuration, for enforcing consistent  GitHub/NPM releases in your projects.
 
 [![npm-image]][npm-url] [![license-image]][license-url]
 
@@ -20,15 +19,27 @@ Semantic-release shareable configuration to publish GitHub projects.
 
 ---
 
+## Purpose
+
+- This configuration also includes a semantic-release configuration, which enables automated GitHub/NPM releases based on your commit messages.
+
 ## Install
 
 ```bash
-npm install --dev-save @anolilab/semantic-release-preset
+npm install --dev-save semantic-release @anolilab/semantic-release-preset
+```
+
+```sh
+yarn add -D semantic-release @anolilab/semantic-release-preset
+```
+
+```sh
+pnpm add -D semantic-release @anolilab/semantic-release-preset
 ```
 
 ## Plugins
 
-This shareable configuration uses the following plugins:
+We use the following plugins within the Semantic Release ecosystem:
 
 - [@semantic-release/changelog][3]
 - [@semantic-release/commit-analyzer][1]
@@ -52,7 +63,11 @@ This shareable configuration performs the following actions:
 
 ## Usage
 
-When installing this package for the first time, the following shareable configuration (.releaserc.json) is automatically added to your project root folder:
+When installing this package for the first time, the following shareable configuration `.releaserc.json` is automatically added to your project folder:
+
+> Note: If the script detects an existing `.releaserc.json` file, it will not overwrite it.
+
+> Note: It can happen that the postinstall script dont run, then you have to add the `.releaserc.json` manually.
 
 With npm:
 
@@ -69,10 +84,10 @@ Without npm:
   "extends": "@anolilab/semantic-release-preset"
 }
 ```
+<details>
+<summary>File content of the extended preset</summary>
 
-File content:
-
-```json
+```json5
 {
     "branches": [
         "+([0-9])?(.{+([0-9]),x}).x",
@@ -102,7 +117,7 @@ File content:
             }
         ],
         "@semantic-release/changelog",
-        "@semantic-release/npm",
+        "@semantic-release/npm", // optional
         [
             "@semantic-release/git",
             {
@@ -119,24 +134,17 @@ File content:
     ]
 }
 ```
+</details>
 
-### Add [Commitizen](https://github.com/commitizen/cz-cli)
-Add `cz` to your `package.json scripts`
 
-```json
-{
-  "scripts": {
-    "commit": "cz"
-  }
-}
-```
-
-### Environment Variables Configuration
+## Environment Variables Configuration
 
 Ensure that your CI configuration has the following environment variables set:
 
 - GITHUB_TOKEN: [A GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+  - When a new release is published, this plugin will try to commit and push into the released branch. Ensure that the user that is running the release has push rights and can bypass branch protection rules.
 - NPM_TOKEN: [A npm personal access token](https://www.npmjs.com/package/settings)
+  - A NPM token so the package can be published to NPM (a .npmrc file with extra configuration can also be used)
 
 You can test your config with a dry run:
 
@@ -144,7 +152,10 @@ You can test your config with a dry run:
 npx semantic-release --dry-run
 ```
 
-What you’ll  want to do next is configure a [GitHub workflow](https://docs.github.com/en/actions/quickstart) to run your tests and publish new versions automatically.
+## GitHub workflows
+
+If you're [configuring a GitHub workflow](https://help.github.com/en/articles/configuring-a-workflow) you might want to do a test build matrix first and then publish only if those tests succeed across all environments.
+The following will do just that, immediately after something is merged into `main`.
 
 Here’s an example workflow configuration that runs your tests and publishes a new version for new commits on `main` branch:
 
@@ -246,6 +257,7 @@ jobs:
               run: "yarn install --immutable"
 
             - name: "Build packages"
+              if: "success()"
               run: "yarn build"
 
             - name: "Semantic Release"
@@ -257,7 +269,7 @@ jobs:
                 GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
                 GIT_COMMITTER_NAME: "github-actions-shell"
                 GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
-              run: "yarn semantic-release"
+              run: "npx semantic-release"
 ```
 </details>
 

@@ -89,7 +89,7 @@ module.exports = {
 };
 ```
 
-Add a Package.json Script
+## Add a Package.json Script
 
 To add an NPM script for running `stylelint` use command, which will add the `lint:css` and `lint:css:fix` script to the scripts section of your `package.json`.
 
@@ -98,7 +98,7 @@ pnpm pkg set scripts.lint:css="stylelint --config=./.stylelintrc.js '**/*.{js,js
 pnpm pkg set scripts.lint:css:fix="pnpm run lint:css --fix"
 ```
 
-> For `npm` users, replace `pnpm` with npm in the above command.
+> For `npm` users, replace `pnpm` with `npm` in the above command.
 
 or copy the following to your `package.json`:
 

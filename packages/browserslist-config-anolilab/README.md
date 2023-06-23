@@ -55,7 +55,7 @@ Adding the following script to your root package.json file makes it easier to ru
 pnpm pkg set scripts.lint:browsers="browserslist"
 ```
 
-For `npm` users, replace `pnpm` with npm in the above command.
+For `npm` users, replace `pnpm` with `npm` in the above command.
 
 This script allows you to run the `browserslist` command by simply typing `pnpm run lint:browsers` (or `npm run lint:browsers` for npm users) in the terminal.
 

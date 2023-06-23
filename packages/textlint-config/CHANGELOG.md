@@ -1,3 +1,11 @@
+## @anolilab/textlint-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.4...@anolilab/textlint-config@6.0.5) (2023-06-23)
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.1
+
 ## @anolilab/textlint-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.3...@anolilab/textlint-config@6.0.4) (2023-06-23)
 
 

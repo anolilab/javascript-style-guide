@@ -1,16 +1,15 @@
-const rules = [
-    "./dist/rules/a11y.js",
-    "./dist/rules/declaration-block-no-ignored-properties.js",
-    "./dist/rules/no-unsupported-browser-features.js",
-    "./dist/rules/rational-order.js",
-    "./dist/rules/require-units.js",
-    "./dist/rules/selector-no-empty.js",
-    "./dist/rules/standard.js",
+var config = [
+    "./dist/config/a11y.js",
+    "./dist/config/best-practices.js",
+    "./dist/config/declaration-block-no-ignored-properties.js",
+    "./dist/config/high-performance-animation.js",
+    "./dist/config/no-unsupported-browser-features.js",
+    "./dist/config/require-units.js",
+    "./dist/config/selector-no-empty.js",
+    "./dist/config/standard.js",
+    "./dist/config/tailwindcss.js",
 ];
 
 module.exports = {
-    extends: rules.map((element) => require.resolve(element)),
-    rules: {
-        indentation: 4,
-    },
+    extends: config.map((element) => require.resolve(element)).concat(["stylelint-config-clean-order"]),
 };

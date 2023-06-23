@@ -39,6 +39,41 @@
             "require": "./index.js",
             "import": "./index.mjs"
         },
+        "./a11y": {
+            "types": "./dist/config/a11y.d.ts",
+            "require": "./dist/config/a11y.js",
+            "import": "./dist/config/a11y.mjs"
+        },
+        "./declaration-block-no-ignored-properties": {
+            "types": "./dist/config/declaration-block-no-ignored-properties.d.ts",
+            "require": "./dist/config/declaration-block-no-ignored-properties.js",
+            "import": "./dist/config/declaration-block-no-ignored-properties.mjs"
+        },
+        "./no-unsupported-browser-features": {
+            "types": "./dist/config/no-unsupported-browser-features.d.ts",
+            "require": "./dist/config/no-unsupported-browser-features.js",
+            "import": "./dist/config/no-unsupported-browser-features.mjs"
+        },
+        "./require-units": {
+            "types": "./dist/config/require-units.d.ts",
+            "require": "./dist/config/require-units.js",
+            "import": "./dist/config/require-units.mjs"
+        },
+        "./selector-no-empty": {
+            "types": "./dist/config/selector-no-empty.d.ts",
+            "require": "./dist/config/selector-no-empty.js",
+            "import": "./dist/config/selector-no-empty.mjs"
+        },
+        "./standard": {
+            "types": "./dist/config/standard.d.ts",
+            "require": "./dist/config/standard.js",
+            "import": "./dist/config/standard.mjs"
+        },
+        "./tailwindcss": {
+            "types": "./dist/config/tailwindcss.d.ts",
+            "require": "./dist/config/tailwindcss.js",
+            "import": "./dist/config/tailwindcss.mjs"
+        },
         "./package.json": "./package.json"
     },
     "main": "index.js",
@@ -61,13 +96,13 @@
     },
     "dependencies": {
         "@anolilab/package-json-utils": "1.5.0",
+        "@ronilaukkarinen/stylelint-a11y": "^1.2.7",
         "browserslist-config-anolilab": "4.0.7",
-        "stylelint-a11y": "^1.2.3",
-        "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-standard": "^33.0.0",
+        "stylelint-config-clean-order": "^5.0.1",
         "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
+        "stylelint-high-performance-animation": "^1.8.0",
         "stylelint-no-unsupported-browser-features": "^6.1.0",
-        "stylelint-order": "^6.0.3",
         "stylelint-require-units": "^1.0.2",
         "stylelint-selector-no-empty": "^1.0.9"
     },
@@ -80,7 +115,7 @@
     },
     "peerDependencies": {
         "postcss": "^8.4.18",
-        "stylelint": "^14.0.0 || ^15.0.0"
+        "stylelint": "^15.0.0"
     },
     "engines": {
         "node": ">=16"
@@ -90,13 +125,15 @@
         "provenance": true
     },
     "sources": [
-        "src/rules/a11y.ts",
-        "src/rules/declaration-block-no-ignored-properties.ts",
-        "src/rules/no-unsupported-browser-features.ts",
-        "src/rules/rational-order.ts",
-        "src/rules/require-units.ts",
-        "src/rules/selector-no-empty.ts",
-        "src/rules/standard.ts",
+        "src/config/a11y.ts",
+        "src/config/best-practices.ts",
+        "src/config/declaration-block-no-ignored-properties.ts",
+        "src/config/high-performance-animation.ts",
+        "src/config/no-unsupported-browser-features.ts",
+        "src/config/require-units.ts",
+        "src/config/selector-no-empty.ts",
+        "src/config/standard.ts",
+        "src/config/tailwindcss.ts",
         "src/postinstall.ts"
     ]
 }

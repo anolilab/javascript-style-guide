@@ -68,26 +68,7 @@ For more information on how to configure stylelint, see the [stylelint configura
 
 ## Tailwind Support
 
-For tailwind you need to extend the stylelint rules
-
-```js
-module.exports = {
-    extends: [
-        "@anolilab/stylelint-config",
-    ],
-    rules: {
-        // Only for Tailwind support
-        "at-rule-no-unknown": [
-            true,
-            {
-                ignoreAtRules: ["tailwind", "apply", "variants", "responsive", "screen", "@tailwind"],
-            },
-        ],
-        "declaration-block-trailing-semicolon": null,
-        "no-descending-specificity": null,
-    },
-};
-```
+Is build in, so nothing to do.
 
 ## Add a Package.json Script
 
@@ -115,6 +96,21 @@ This will run `stylelint` on all defined files in your app's directory and its s
 You can customize the files and directories to be linted as needed.
 
 > Note: this package use `browserslist` to detect the correct browserslist config.
+
+## Configurations
+
+The package exports the following configurations, to create your own configuration that extends one or all of the provided configurations.
+
+- `@anolilab/stylelint-config` -> all rules
+
+
+- `@anolilab/stylelint-config/a11y`
+- `@anolilab/stylelint-config/declaration-block-no-ignored-properties`
+- `@anolilab/stylelint-config/no-unsupported-browser-features`
+- `@anolilab/stylelint-config/require-units`
+- `@anolilab/stylelint-config/selector-no-empty`
+- `@anolilab/stylelint-config/standard`
+- `@anolilab/stylelint-config/tailwindcss`
 
 ## Supported Node.js Versions
 

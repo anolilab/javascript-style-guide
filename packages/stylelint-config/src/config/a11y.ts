@@ -1,5 +1,5 @@
 const config = {
-    plugins: ["stylelint-a11y"],
+    plugins: ["@ronilaukkarinen/stylelint-a11y"],
     rules: {
         // Require certain styles if the animation or transition in media features
         // "a11y/media-prefers-reduced-motion": true, @see https://github.com/YozhikM/stylelint-a11y/issues/49

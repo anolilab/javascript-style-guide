@@ -1,4 +1,5 @@
 import browserslist from "browserslist-config-anolilab";
+import { env } from "node:process";
 
 const config = {
     plugins: ["stylelint-no-unsupported-browser-features"],
@@ -6,7 +7,8 @@ const config = {
         "plugin/no-unsupported-browser-features": [
             true,
             {
-                browsers: browserslist.production,
+                browsers: env["NODE_ENV"] !== "production" ? browserslist.modernBrowsers : browserslist.production,
+                severity: "warning",
             },
         ],
     },

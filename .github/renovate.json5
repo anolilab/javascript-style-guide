@@ -26,16 +26,28 @@
             rangeStrategy: "replace"
         },
         {
-            groupName: "typescript-eslint",
-            matchPackagePrefixes: ["@typescript-eslint/"]
+            groupName: "semantic-release",
+            matchPackagePrefixes: ["semantic-release", "@semantic-.*"]
+        },
+        {
+            groupName: "eslint",
+            matchPackagePrefixes: ["@typescript-eslint/", "eslint", "eslint-.*"]
         },
         {
             groupName: "vitest",
-            matchPackageNames: ["@vitest/coverage-v8", "@vitest/ui", "vitest"]
+            matchPackageNames: ["@vitest/coverage-c8", "@vitest/ui", "vitest", "c8"]
         },
         {
             groupName: "prettier",
             matchPackageNames: ["@types/prettier", "prettier"]
+        },
+        {
+            groupName: "stylelint",
+            matchPackageNames: ["stylelint", "stylelint-.*", "postcss"]
+        },
+        {
+            groupName: "textlint",
+            matchPackageNames: ["textlint", "textlint-.*", "@textlint*"]
         },
         {
             groupName: "typescript",

@@ -2,8 +2,8 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node16/tsconfig"],
     "display": "Node 16",
-    "baseUrl": ".",
     "compilerOptions": {
+        "baseUrl": ".",
         "target": "es2021",
         "module": "ESNext",
         "moduleResolution": "Node",

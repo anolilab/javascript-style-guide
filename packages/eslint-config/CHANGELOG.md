@@ -1,3 +1,25 @@
+## @anolilab/eslint-config [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.8...@anolilab/eslint-config@7.0.0) (2023-06-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed commitlint from semantic-releases and added all rules to the new commitlint-config package
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* added regexp, optimized linting with added files regex to some rules, fixed the testing-library rules, to work correct ([485ae0c](https://github.com/anolilab/javascript-style-guide/commit/485ae0cdb445b9297c3287ae08910f693b6ac09b))
+* removed commitlint from semantic-releases ([ee2cda1](https://github.com/anolilab/javascript-style-guide/commit/ee2cda12d7d8c9f12c3dc2a3a1070babb4b81f5c))
+* removed eslint-plugin-optimize-regex, using the unicorn rule for it ([3fea9de](https://github.com/anolilab/javascript-style-guide/commit/3fea9de9fc88713d40dffa66daa8b835210ae3ba))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.0
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.0
+
 ## @anolilab/eslint-config [6.1.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@6.1.7...@anolilab/eslint-config@6.1.8) (2023-06-22)
 
 

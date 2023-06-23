@@ -1,4 +1,5 @@
-const automaticCommitPattern = /^chore\(release\):.*\[skip ci]/;
+// eslint-disable-next-line unicorn/better-regex
+const automaticCommitPattern = /^chore\(release\):.*\[skip ci\]/;
 
 const config = {
     extends: ["@commitlint/config-conventional"],

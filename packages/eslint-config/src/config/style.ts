@@ -64,7 +64,6 @@ const config: Linter.Config = {
         "comma-dangle": [
             "error",
             {
-                // eslint-disable-next-line sonarjs/no-duplicate-string
                 arrays: "always-multiline",
                 objects: "always-multiline",
                 imports: "always-multiline",

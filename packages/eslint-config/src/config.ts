@@ -8,7 +8,6 @@ const internalPluginConfig = [
     "compat",
     "eslint-comments",
     "import",
-    "optimize-regex",
     "promise",
     "simple-import-sort",
     "no-extend-native",

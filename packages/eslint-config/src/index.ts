@@ -31,7 +31,6 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
             "compat",
             "eslint-comments",
             "i",
-            "optimize-regex",
             "promise",
             "simple-import-sort",
             "unicorn",

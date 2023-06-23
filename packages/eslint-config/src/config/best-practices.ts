@@ -244,7 +244,6 @@ const config: Linter.Config = {
             {
                 object: "global",
                 property: "isFinite",
-                // eslint-disable-next-line sonarjs/no-duplicate-string
                 message: "Please use Number.isFinite instead",
             },
             {
@@ -260,7 +259,7 @@ const config: Linter.Config = {
             {
                 object: "global",
                 property: "isNaN",
-                // eslint-disable-next-line sonarjs/no-duplicate-string
+
                 message: "Please use Number.isNaN instead",
             },
             {

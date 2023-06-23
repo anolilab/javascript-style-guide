@@ -688,7 +688,6 @@ const config: Linter.Config = {
                 "react/jsx-wrap-multilines": [
                     "error",
                     {
-                        // eslint-disable-next-line sonarjs/no-duplicate-string
                         declaration: "parens-new-line",
                         assignment: "parens-new-line",
                         return: "parens-new-line",

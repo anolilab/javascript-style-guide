@@ -374,7 +374,6 @@ The following esLint plugins enforce good coding practices:
 
 -   [eslint-plugin-array-func](https://github.com/freaktechnik/eslint-plugin-array-func)
 -   [eslint-plugin-eslint-comments](https://github.com/mysticatea/eslint-plugin-eslint-comments)
--   [eslint-plugin-optimize-regex](https://github.com/BrainMaestro/eslint-plugin-optimize-regex)
 -   [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise)
 -   [eslint-plugin-no-loops](https://github.com/buildo/eslint-plugin-no-loops)
 -   [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)

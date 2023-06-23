@@ -14,6 +14,9 @@ const getType = (type: FileType) => {
         case "js_and_ts": {
             return ["*.js", "*.mjs", "*.cjs", "*.ts", "*.mts", "*.cts"];
         }
+        case "javascript": {
+            return ["*.js", "*.mjs", "*.cjs"];
+        }
         case "all": {
             return ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts"];
         }

@@ -89,7 +89,6 @@ describe("package-json-utils", () => {
     });
 
     it("hasDep: returns true when the packageJson has the 'dependencies' property", () => {
-        // eslint-disable-next-line sonarjs/no-duplicate-string
         expect(hasDep(["read-pkg-up"])).toBeTruthy();
     });
 

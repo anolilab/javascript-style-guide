@@ -1,3 +1,22 @@
+## @anolilab/semantic-release-preset [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@3.1.3...@anolilab/semantic-release-preset@4.0.0) (2023-06-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed commitlint from semantic-releases and added all rules to the new commitlint-config package
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* removed commitlint from semantic-releases ([ee2cda1](https://github.com/anolilab/javascript-style-guide/commit/ee2cda12d7d8c9f12c3dc2a3a1070babb4b81f5c))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.0
+
 ## @anolilab/semantic-release-preset [3.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@3.1.2...@anolilab/semantic-release-preset@3.1.3) (2023-06-22)
 
 

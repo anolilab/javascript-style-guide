@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Shareable semantic-release configuration</h1>
 
-A shareable [semantic-release](https://github.com/semantic-release/semantic-release) configuration, for enforcing consistent  GitHub/NPM releases in your projects.
+A shareable [semantic-release](https://github.com/semantic-release/semantic-release) configuration, for enforcing consistent GitHub/NPM releases in your projects.
 
 [![npm-image]][npm-url] [![license-image]][license-url]
 
@@ -21,7 +21,7 @@ A shareable [semantic-release](https://github.com/semantic-release/semantic-rele
 
 ## Purpose
 
-- This configuration also includes a semantic-release configuration, which enables automated GitHub/NPM releases based on your commit messages.
+-   This configuration also includes a semantic-release configuration, which enables automated GitHub/NPM releases based on your commit messages.
 
 ## Install
 
@@ -41,13 +41,13 @@ pnpm add -D semantic-release @anolilab/semantic-release-preset
 
 We use the following plugins within the Semantic Release ecosystem:
 
-- [@semantic-release/changelog][3]
-- [@semantic-release/commit-analyzer][1]
-- [@semantic-release/exec][5]
-- [@semantic-release/git][6]
-- [@semantic-release/github][4]
-- [@semantic-release/npm][7] (optional)
-- [@semantic-release/release-notes-generator][2]
+-   [@semantic-release/changelog][3]
+-   [@semantic-release/commit-analyzer][1]
+-   [@semantic-release/exec][5]
+-   [@semantic-release/git][6]
+-   [@semantic-release/github][4]
+-   [@semantic-release/npm][7] (optional)
+-   [@semantic-release/release-notes-generator][2]
 
 ## Summary
 
@@ -73,7 +73,7 @@ With npm:
 
 ```json
 {
-  "extends": "@anolilab/semantic-release-preset/npm"
+    "extends": "@anolilab/semantic-release-preset/npm"
 }
 ```
 
@@ -81,70 +81,123 @@ Without npm:
 
 ```json
 {
-  "extends": "@anolilab/semantic-release-preset"
+    "extends": "@anolilab/semantic-release-preset"
 }
 ```
+
 <details>
 <summary>File content of the extended preset</summary>
 
 ```json5
 {
-    "branches": [
+    branches: [
         "+([0-9])?(.{+([0-9]),x}).x",
         "main",
         "next",
         "next-major",
         {
-            "name": "beta",
-            "prerelease": true
+            name: "beta",
+            prerelease: true,
         },
         {
-            "name": "alpha",
-            "prerelease": true
-        }
+            name: "alpha",
+            prerelease: true,
+        },
     ],
-    "plugins": [
+    plugins: [
         [
             "@semantic-release/commit-analyzer",
             {
-                "preset": "conventionalcommits"
-            }
+                preset: "conventionalcommits",
+            },
         ],
         [
             "@semantic-release/release-notes-generator",
             {
-                "preset": "conventionalcommits"
-            }
+                preset: "conventionalcommits",
+            },
         ],
         "@semantic-release/changelog",
         "@semantic-release/npm", // optional
         [
             "@semantic-release/git",
             {
-                "message": "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}"
-            }
+                message: "chore(release): ${nextRelease.gitTag} [skip ci]\\n\\n${nextRelease.notes}",
+            },
         ],
         [
             "@semantic-release/github",
             {
-                "successComment": false,
-                "failComment": false
+                successComment: false,
+                failComment: false,
+            },
+        ],
+    ],
+}
+```
+
+</details>
+
+### deprecation
+
+You want deprecate old versions of your package?
+
+#### Install
+
+```bash
+npm install --dev-save semantic-release-npm-deprecate-old-versions
+```
+
+```sh
+pnpm add -D semantic-release-npm-deprecate-old-versions
+```
+
+```sh
+yarn add -D semantic-release-npm-deprecate-old-versions
+```
+
+No problem, just add the following to your `.releaserc.json`:
+
+```json
+{
+    "extends": "@anolilab/semantic-release-preset/npm",
+    "plugins": [
+        [
+            "semantic-release-npm-deprecate-old-versions",
+            {
+                "rules": [
+                    {
+                        "rule": "supportLatest",
+                        "options": {
+                            "numberOfMajorReleases": 1,
+                            "numberOfMinorReleases": 1,
+                            "numberOfPatchReleases": 1
+                        }
+                    },
+                    {
+                        "rule": "supportPreReleaseIfNotReleased",
+                        "options": {
+                            "numberOfPreReleases": 1
+                        }
+                    },
+                    "deprecateAll"
+                ]
             }
         ]
     ]
 }
 ```
-</details>
 
+Find out how to configure the plugin [here](https://github.com/ghusse/semantic-release-npm-deprecate-old-versions).
 
 ## Environment Variables Configuration
 
 Ensure that your CI configuration has the following environment variables set:
 
-- GITHUB_TOKEN: [A GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-  - When a new release is published, this plugin will try to commit and push into the released branch. Ensure that the user that is running the release has push rights and can bypass branch protection rules.
-- NPM_TOKEN: [A npm personal access token](https://www.npmjs.com/package/settings)
-  - A NPM token so the package can be published to NPM (a .npmrc file with extra configuration can also be used)
+-   GITHUB_TOKEN: [A GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+    -   When a new release is published, this plugin will try to commit and push into the released branch. Ensure that the user that is running the release has push rights and can bypass branch protection rules.
+-   NPM_TOKEN: [A npm personal access token](https://www.npmjs.com/package/settings)
+    -   A NPM token so the package can be published to NPM (a .npmrc file with extra configuration can also be used)
 
 You can test your config with a dry run:
 
@@ -200,7 +253,7 @@ jobs:
 
             - name: "Get yarn cache directory path"
               id: "yarn-cache-dir-path"
-              run: "echo \"::set-output name=dir::$(yarn config get cacheFolder)\""
+              run: 'echo "::set-output name=dir::$(yarn config get cacheFolder)"'
 
             - uses: "actions/cache@v2"
               id: "yarn-cache" # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
@@ -243,7 +296,7 @@ jobs:
 
             - name: "Get yarn cache directory path"
               id: "yarn-cache-dir-path"
-              run: "echo \"::set-output name=dir::$(yarn config get cacheFolder)\""
+              run: 'echo "::set-output name=dir::$(yarn config get cacheFolder)"'
 
             - uses: "actions/cache@v2"
               id: "yarn-cache" # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
@@ -263,14 +316,15 @@ jobs:
             - name: "Semantic Release"
               if: "success()"
               env:
-                GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-                NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
-                GIT_AUTHOR_NAME: "github-actions-shell"
-                GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
-                GIT_COMMITTER_NAME: "github-actions-shell"
-                GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+                  GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                  NPM_TOKEN: "${{ secrets.NPM_AUTH_TOKEN }}"
+                  GIT_AUTHOR_NAME: "github-actions-shell"
+                  GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
+                  GIT_COMMITTER_NAME: "github-actions-shell"
+                  GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
               run: "npx semantic-release"
 ```
+
 </details>
 
 To release multi package repositories, you need to install `@qiwi/multi-semantic-release` and `semantic-release`.
@@ -439,6 +493,7 @@ jobs:
                   commit_user_name: "prisis"
                   branch: "${{ github.head_ref }}"
 ```
+
 </details>
 
 ## Note on GitHub protected branches
@@ -457,21 +512,18 @@ Libraries in this ecosystem make the best effort to track
 [Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
 post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
-Contributing
-------------
+## Contributing
 
 If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
 
 > **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
-Credits
--------------
+## Credits
 
-- [Daniel Bannert](https://github.com/prisis)
-- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+-   [Daniel Bannert](https://github.com/prisis)
+-   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
 
-License
--------------
+## License
 
 The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
 
@@ -482,7 +534,6 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 [5]: https://github.com/semantic-release/exec
 [6]: https://github.com/semantic-release/git
 [7]: https://github.com/semantic-release/npm
-
 [license-image]: https://img.shields.io/npm/l/@anolilab/semantic-release-preset?color=blueviolet&style=for-the-badge
 [license-url]: LICENSE.md "license"
 [npm-image]: https://img.shields.io/npm/v/@anolilab/semantic-release-preset/latest.svg?style=for-the-badge&logo=npm

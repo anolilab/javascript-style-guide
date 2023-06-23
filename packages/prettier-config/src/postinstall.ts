@@ -36,7 +36,7 @@ ${JSON.stringify(content, undefined, 4)}\n`);
         prettierPath,
         `${packageIsTypeModule ? "export default" : "module.exports ="} ${JSON.stringify(content, undefined, 2).replace(
             "rangeEnd: null,",
-            "rangeEnd: Infinity,",
+            "rangeEnd: Number.POSITIVE_INFINITY,",
         )}\n`,
         "utf-8",
     );

@@ -1,3 +1,10 @@
+## @anolilab/commitlint-config [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.0...@anolilab/commitlint-config@1.0.1) (2023-06-23)
+
+
+### Bug Fixes
+
+* fixed wrong package inside postinstall, added info how to use cz ([b74d369](https://github.com/anolilab/javascript-style-guide/commit/b74d36993dd26f59caec74c6e17e6ce96e5f45b7))
+
 ## @anolilab/commitlint-config 1.0.0 (2023-06-23)
 
 

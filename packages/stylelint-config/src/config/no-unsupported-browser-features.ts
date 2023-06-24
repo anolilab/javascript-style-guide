@@ -7,7 +7,7 @@ const config = {
         "plugin/no-unsupported-browser-features": [
             true,
             {
-                browsers: env["NODE_ENV"] !== "production" ? browserslist.modernBrowsers : browserslist.production,
+                browsers: env["NODE_ENV"] === "production" ? browserslist.production : browserslist.modernBrowsers,
                 severity: "warning",
             },
         ],

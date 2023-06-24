@@ -27,3 +27,5 @@ const config = {
         "no-descending-specificity": null,
     },
 };
+
+export default config;

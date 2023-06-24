@@ -15,7 +15,7 @@ const cconfig = [
 const require = createRequire(import.meta.url);
 
 const config = {
-    extends: cconfig.map((element) => require.resolve(element)).concat(["stylelint-config-clean-order"]),
+    extends: [...cconfig.map((element) => require.resolve(element)), "stylelint-config-clean-order"],
 };
 
 export default config;

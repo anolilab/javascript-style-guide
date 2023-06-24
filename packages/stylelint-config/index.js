@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-var
 var config = [
     "./dist/config/a11y.js",
     "./dist/config/best-practices.js",
@@ -11,5 +12,5 @@ var config = [
 ];
 
 module.exports = {
-    extends: config.map((element) => require.resolve(element)).concat(["stylelint-config-clean-order"]),
+    extends: [...config.map((element) => require.resolve(element)), "stylelint-config-clean-order"],
 };

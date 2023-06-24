@@ -1,3 +1,22 @@
+## @anolilab/stylelint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@4.0.5...@anolilab/stylelint-config@5.0.0) (2023-06-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* replaced and added new rules
+
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* removed old deps, added new rules and new ones ([a14e089](https://github.com/anolilab/javascript-style-guide/commit/a14e0899dc3dab2284c1673e175d7fb8dac97982))
+
+
+### Bug Fixes
+
+* fixed missing tailwind export and all eslint errors ([afd6f53](https://github.com/anolilab/javascript-style-guide/commit/afd6f537e74a49149bebc701cc11d4d99d888574))
+* use replaceAll in the test ([0f89227](https://github.com/anolilab/javascript-style-guide/commit/0f892276f5db73fa6e88bee5063f66d5dc72c98e))
+
 ## @anolilab/stylelint-config [4.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@4.0.4...@anolilab/stylelint-config@4.0.5) (2023-06-23)
 
 

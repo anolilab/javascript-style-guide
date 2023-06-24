@@ -15,15 +15,15 @@ describe("stylelint", () => {
 
         expect(Index.extends.length > 0).toBeTruthy();
         expect(Index.extends).toStrictEqual([
-            `${distributionFolderPath}/config/a11y.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/best-practices.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/high-performance-animation.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/no-unsupported-browser-features.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/require-units.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/selector-no-empty.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/standard.mjs`.replace("/", pathReplaceValue),
-            `${distributionFolderPath}/config/tailwindcss.mjs`.replace("/", pathReplaceValue),
+            `${distributionFolderPath}/config/a11y.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/best-practices.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/high-performance-animation.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/no-unsupported-browser-features.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/require-units.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/selector-no-empty.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/standard.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/tailwindcss.mjs`.replaceAll("/", pathReplaceValue),
             "stylelint-config-clean-order",
         ]);
     });

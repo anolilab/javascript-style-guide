@@ -1,4 +1,11 @@
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+
+let hasStorybook = false;
+
+if (hasDevDependency("storybook") || hasDependency("storybook")) {
+    hasStorybook = true;
+}
 
 const config: Linter.Config = {
     plugins: ["jsx-a11y", "react"],
@@ -234,9 +241,9 @@ const config: Linter.Config = {
         "jsx-a11y/anchor-is-valid": [
             "error",
             {
-                components: ["Link"],
+                components: ["A", "LinkTo", "Link"],
                 specialLink: ["to"],
-                aspects: ["noHref", "invalidHref", "preferButton"],
+                aspects: ["noHref", "invalidHref", "preferButton", ...(hasStorybook ? ["overrideParams", "kind", "story", "to"] : [])],
             },
         ],
 

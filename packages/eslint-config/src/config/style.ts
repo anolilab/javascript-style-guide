@@ -463,7 +463,7 @@ const config: Linter.Config = {
         "no-underscore-dangle": [
             "error",
             {
-                allow: ["__DEV__"],
+                allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
                 allowAfterThis: false,
                 allowAfterSuper: false,
                 enforceInMethodNames: true,

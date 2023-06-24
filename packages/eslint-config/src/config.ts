@@ -143,6 +143,14 @@ const pluginConfig: PackageRules = [
         configName: "ava",
         dependencies: ["ava", "eslint-plugin-ava"],
     },
+    {
+        configName: "storybook",
+        dependencies: ["storybook", "eslint-plugin-storybook"],
+    },
+    {
+        configName: "playwright",
+        dependencies: ["playwright", "eslint-plugin-playwright"],
+    },
 ];
 
 const loadedPlugins: string[] = [...internalPluginConfig];

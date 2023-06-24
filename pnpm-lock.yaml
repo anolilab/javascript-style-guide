@@ -509,6 +509,9 @@ importers:
       eslint-plugin-no-unsanitized:
         specifier: ^4.0.2
         version: 4.0.2(eslint@8.43.0)
+      eslint-plugin-playwright:
+        specifier: ^0.15.1
+        version: 0.15.1(eslint-plugin-jest@27.2.1)(eslint@8.43.0)
       eslint-plugin-prefer-object-spread:
         specifier: ^1.2.1
         version: 1.2.1(eslint@8.43.0)
@@ -521,6 +524,9 @@ importers:
       eslint-plugin-react-redux:
         specifier: ^4.0.0
         version: 4.0.0(eslint-plugin-react@7.32.2)(eslint@8.43.0)
+      eslint-plugin-storybook:
+        specifier: ^0.6.11
+        version: 0.6.11(eslint@8.43.0)(typescript@5.1.3)
       eslint-plugin-tailwindcss:
         specifier: ^3.12.1
         version: 3.12.1(tailwindcss@3.3.2)
@@ -4078,6 +4084,13 @@ packages:
     resolution: {integrity: sha512-SwUDyjWnah1AaNl7kxsa7cfLhlTYoiyhDAIgyh+El30YvXs/o7OLXpYH88Zdhyx9JExKrmHDJ+10bwIcY80Jmw==}
     dependencies:
       '@sinonjs/commons': 2.0.0
+
+  /@storybook/csf@0.0.1:
+    resolution: {integrity: sha512-USTLkZze5gkel8MYCujSRBVIrUQ3YPBrLOx7GNk/0wttvVtlzWXAq9eLbQ4p/NicGxP+3T7KPEMVV//g+yubpw==}
+    dependencies:
+      lodash: 4.17.21
+    dev: false
+    optional: true
 
   /@szmarczak/http-timer@5.0.1:
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
@@ -7699,6 +7712,21 @@ packages:
       is-proto-prop: 2.0.0
     dev: false
 
+  /eslint-plugin-playwright@0.15.1(eslint-plugin-jest@27.2.1)(eslint@8.43.0):
+    resolution: {integrity: sha512-JyzskjLkCZqswRZ+ZZNH+jS8qnI/w0qTHOA2i5IJxXC+MfaKv03YqOFb+aoJukxTpOp0rOnm9FQ/jsF+lj/cBg==}
+    requiresBuild: true
+    peerDependencies:
+      eslint: '>=7'
+      eslint-plugin-jest: '>=25'
+    peerDependenciesMeta:
+      eslint-plugin-jest:
+        optional: true
+    dependencies:
+      eslint: 8.43.0
+      eslint-plugin-jest: 27.2.1(@typescript-eslint/eslint-plugin@5.59.9)(eslint@8.43.0)(jest@29.5.0)(typescript@5.1.3)
+    dev: false
+    optional: true
+
   /eslint-plugin-prefer-object-spread@1.2.1(eslint@8.43.0):
     resolution: {integrity: sha512-upA2W299LZNr49tGHmF0wUtFZw/fkQ+PkudsjZ0bP7dGFtRCFxItFtP39nDiet8u6rN/pOqhEYhBltW6T1OF5g==}
     engines: {node: '>=4.0.0'}
@@ -7809,6 +7837,24 @@ packages:
       natural-compare: 1.4.0
       requireindex: 1.2.0
     dev: false
+
+  /eslint-plugin-storybook@0.6.11(eslint@8.43.0)(typescript@5.1.3):
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
+    engines: {node: 12.x || 14.x || >= 16}
+    requiresBuild: true
+    peerDependencies:
+      eslint: '>=6'
+    dependencies:
+      '@storybook/csf': 0.0.1
+      '@typescript-eslint/utils': 5.59.9(eslint@8.43.0)(typescript@5.1.3)
+      eslint: 8.43.0
+      requireindex: 1.2.0
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: false
+    optional: true
 
   /eslint-plugin-tailwindcss@3.12.1(tailwindcss@3.3.2):
     resolution: {integrity: sha512-LyIRV0rx6prTpJZsSCXSNJ34Yry3Nj9OJwvzh1xTsiG6+UCnAPW1Bx41s7vZzUDKMlwFgpUN9Me+NK12T4DHYg==}
@@ -14740,6 +14786,12 @@ packages:
 
   /try-resolve@1.0.1:
     resolution: {integrity: sha512-yHeaPjCBzVaXwWl5IMUapTaTC2rn/eBYg2fsG2L+CvJd+ttFbk0ylDnpTO3wVhosmE1tQEvcebbBeKLCwScQSQ==}
+
+  /ts-dedent@2.2.0:
+    resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
+    engines: {node: '>=6.10'}
+    dev: false
+    optional: true
 
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}

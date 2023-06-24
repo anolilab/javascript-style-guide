@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [7.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.0.1...@anolilab/eslint-config@7.1.0) (2023-06-24)
+
+
+### Features
+
+* added rules for playwright and storybook ([810f9d9](https://github.com/anolilab/javascript-style-guide/commit/810f9d9c2f2078bad54d6f9fd28acab14d33aac7))
+
+
+### Bug Fixes
+
+* added missing files to compiler list ([97ac625](https://github.com/anolilab/javascript-style-guide/commit/97ac6253cee8f230f084dcbd6a2680819f9715fa))
+
 ## @anolilab/eslint-config [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.0.0...@anolilab/eslint-config@7.0.1) (2023-06-23)
 
 

@@ -1,3 +1,15 @@
+## @anolilab/prettier-config [4.0.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.10...@anolilab/prettier-config@4.0.11) (2023-06-24)
+
+
+### Bug Fixes
+
+* fixed export of rangeEnd in postinstall ([dc40767](https://github.com/anolilab/javascript-style-guide/commit/dc4076726ab39bd8c94e3303c430d1ea5ed0d88a))
+
+
+### Miscellaneous Chores
+
+* grouped more packages together for renovate ([67eb228](https://github.com/anolilab/javascript-style-guide/commit/67eb228b448940f76d10e08b461facd768e21994))
+
 ## @anolilab/prettier-config [4.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.9...@anolilab/prettier-config@4.0.10) (2023-06-23)
 
 

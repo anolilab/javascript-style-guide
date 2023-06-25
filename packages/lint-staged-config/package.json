@@ -55,6 +55,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
+        "cross-env": "^7.0.3",
         "@anolilab/package-json-utils": "1.5.0"
     },
     "devDependencies": {
@@ -74,6 +75,13 @@
     },
     "sources": [
         "src/index.ts",
-        "src/postinstall.ts"
+        "src/postinstall.ts",
+        "src/groups/dockerfile.ts",
+        "src/groups/eslint.ts",
+        "src/groups/package-json.ts",
+        "src/groups/prettier.ts",
+        "src/groups/stylesheets.ts",
+        "src/groups/test.ts",
+        "src/groups/typescript.ts"
     ]
 }

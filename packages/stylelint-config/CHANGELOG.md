@@ -1,3 +1,17 @@
+## @anolilab/stylelint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.0.0...@anolilab/stylelint-config@5.0.1) (2023-06-25)
+
+
+### Miscellaneous Chores
+
+* optimized seo of packages ([7331a1d](https://github.com/anolilab/javascript-style-guide/commit/7331a1da817ef2e31d4ec224aff096585a87dd04))
+* update sort in package.json ([e316e91](https://github.com/anolilab/javascript-style-guide/commit/e316e917843d5aec9646c9d34a5748011a6b9780))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 4.1.0
+
 ## @anolilab/stylelint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@4.0.5...@anolilab/stylelint-config@5.0.0) (2023-06-24)
 
 

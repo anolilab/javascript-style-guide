@@ -1,0 +1,79 @@
+{
+    "name": "@anolilab/lint-staged-config",
+    "version": "1.0.0",
+    "description": "Shareable Lint-Staged Config for any project.",
+    "keywords": [
+        "anolilab",
+        "lint",
+        "lint-staged",
+        "config",
+        "lint-staged-config"
+    ],
+    "homepage": "https://anolilab.com/nodejs/packages/lint-staged-config",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/anolilab/javascript-style-guide.git",
+        "directory": "packages/lint-staged-config"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/prisis"
+        },
+        {
+            "type": "consulting",
+            "url": "https://anolilab.com/support"
+        }
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Daniel Bannert",
+        "email": "d.bannert@anolilab.de"
+    },
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md"
+    ],
+    "scripts": {
+        "build": "cross-env NODE_ENV=development tsup",
+        "build:prod": "cross-env NODE_ENV=production tsup",
+        "clean": "rimraf node_modules dist",
+        "postinstall": "node ./skip.js || node ./dist/postinstall.js"
+    },
+    "dependencies": {
+        "@anolilab/package-json-utils": "1.5.0"
+    },
+    "devDependencies": {
+        "@anolilab/semantic-release-preset": "4.0.1",
+        "semantic-release": "^21.0.5",
+        "lint-staged": "^13.2.2"
+    },
+    "peerDependencies": {
+        "lint-staged": "^13.x"
+    },
+    "engines": {
+        "node": ">=16"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "sources": [
+        "src/index.ts",
+        "src/postinstall.ts"
+    ]
+}

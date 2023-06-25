@@ -1,3 +1,10 @@
+## browserslist-config-anolilab [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.0.7...browserslist-config-anolilab@4.1.0) (2023-06-25)
+
+
+### Features
+
+* added node as key with the last 2 node major versions setting ([6548815](https://github.com/anolilab/javascript-style-guide/commit/65488153902a2b6e9bbed966008489d7d4d1f757))
+
 ## browserslist-config-anolilab [4.0.7](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.0.6...browserslist-config-anolilab@4.0.7) (2023-06-23)
 
 

@@ -473,6 +473,9 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2
     optionalDependencies:
+      '@tanstack/eslint-plugin-query':
+        specifier: ^4.29.9
+        version: 4.29.9
       eslint-plugin-array-func:
         specifier: ^3.1.8
         version: 3.1.8(eslint@8.43.0)
@@ -4100,6 +4103,12 @@ packages:
     dependencies:
       defer-to-connect: 2.0.1
     dev: false
+
+  /@tanstack/eslint-plugin-query@4.29.9:
+    resolution: {integrity: sha512-JlIZcs+zhl/ihta49iIbMCf3E8tSvGDqMIH+oItnYLOzWI7oiujXu7FYgna2E1V79KhR0PaxkPX6jHZLpvacgw==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /@testing-library/dom@9.3.1:
     resolution: {integrity: sha512-0DGPd9AR3+iDTjGoMpxIkAsUihHZ3Ai6CneU6bRRrffXMgzCdlNk43jTrD2/5LT6CBb3MWTP8v510JzYtahD2w==}

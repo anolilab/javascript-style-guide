@@ -20,7 +20,6 @@ This is a mono-repository that contains a collection of separate, shareable npm 
 
 Check the README for each configuration within the `packages` directory for specific usage instructions.
 
-
 ## Featured Packages
 
 | Tool                                                                     | Package                                                                                                                             | Version                                                                                                                         | Description                                                                                                |

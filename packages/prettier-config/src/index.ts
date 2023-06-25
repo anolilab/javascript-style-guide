@@ -1,6 +1,6 @@
-import type { Options } from "prettier";
+import type { Config } from "prettier";
 
-const config: Options = {
+const config: Config = {
     // max 160 characters per line
     printWidth: 160,
     // use 4 spaces for indentation
@@ -38,6 +38,14 @@ const config: Options = {
     endOfLine: "lf",
     // formats quoted code embedded
     embeddedLanguageFormatting: "auto",
+    overrides: [
+        { files: ".eslintrc", options: { parser: "json" } },
+        { files: ".prettierrc", options: { parser: "json" } },
+        { files: ".stylelintrc", options: { parser: "json" } },
+        { files: "package*.json", options: { printWidth: 1000 } },
+        { files: "*.yml", options: { singleQuote: false } },
+        { files: "*.yaml", options: { singleQuote: false } },
+    ],
 };
 
 export default config;

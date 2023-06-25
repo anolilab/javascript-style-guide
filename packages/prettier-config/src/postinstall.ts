@@ -14,23 +14,35 @@ const writeFileAsync = promisify(writeFile);
 
 console.log("Configuring @anolilab/prettier-config", projectPath, "\n");
 
+const configFile = ".prettierrc";
+
 /**
  * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = () => {
-    const prettierPath = join(projectPath, ".prettierrc.js");
-
-    if (
-        existsSync(prettierPath)
-        || existsSync(prettierPath.replace(".js", ""))
-        || existsSync(prettierPath.replace(".js", `.${packageIsTypeModule ? "m" : "c"}js`))
-    ) {
-        console.warn(`⚠️  .prettierrc.{m|c}js already exists;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const filename of [
+        configFile,
+        `${configFile}.js`,
+        `${configFile}.cjs`,
+        `${configFile}.json`,
+        `${configFile}.json5`,
+        `${configFile}.yaml`,
+        `${configFile}.yml`,
+        `${configFile}.toml`,
+        "prettier.config.js",
+        "prettier.config.cjs",
+    ]) {
+        if (existsSync(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, undefined, 4)}\n`);
 
-        return Promise.resolve();
+            return Promise.resolve();
+        }
     }
+
+    const prettierPath = join(projectPath, ".prettierrc.js");
 
     return writeFileAsync(
         prettierPath,
@@ -38,7 +50,7 @@ ${JSON.stringify(content, undefined, 4)}\n`);
             "rangeEnd: null,",
             "rangeEnd: Number.POSITIVE_INFINITY,",
         )}\n`,
-        "utf-8",
+        "utf8",
     );
 };
 
@@ -54,7 +66,11 @@ const writePrettierIgnore = () => {
         return Promise.resolve();
     }
 
-    return writeFileAsync(prettierPath, "", "utf-8");
+    return writeFileAsync(
+        prettierPath,
+        `${["*.md", "*.sh", "*.yml", "*.svg", "*.gif", "*.log", ".DS_Store", "CNAME", "AUTHORS", "LICENSE", "es/", "lib/", "dist/", "coverage/"].join("\n")}\n`,
+        "utf8",
+    );
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

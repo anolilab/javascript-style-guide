@@ -39,8 +39,8 @@ const writeEslintRc = () => {
 
             ecmaVersion = ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");
 
-            if (ecmaVersion !== "latest" && ecmaVersion !== "2022" && ecmaVersion !== "2021" && ecmaVersion !== "2021" && ecmaVersion !== "6") {
-                pluginExtends = `, "plugin:es/restrict-to-es${ecmaVersion}"`;
+            if (ecmaVersion !== "latest" && ecmaVersion !== "2022" && ecmaVersion !== "2021" && ecmaVersion !== "6") {
+                pluginExtends = `, "plugin:es-x/restrict-to-es${ecmaVersion}"`;
             }
         }
 

@@ -1,16 +1,12 @@
 import type { Linter } from "eslint";
 
-const config: Linter.Config = {
-    plugins: ["es"],
+import { createConfig } from "../../utils/create-config";
 
-    overrides: [
-        {
-            files: ["*.js", "*.jsx"],
-            settings: {
-                es: { aggressive: true },
-            },
-        },
-    ],
-};
+const config: Linter.Config = createConfig("all", {
+    plugins: ["es-x"],
+    settings: {
+        es: { aggressive: true },
+    },
+});
 
 export default config;

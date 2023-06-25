@@ -1,6 +1,8 @@
-# Javascript Style Guide
+<div align="center">
+<h1>Javascript Style Guide</h1>
 
 This project is a shareable code style guide of all basic back- and front end project used at Anolilab.
+</div>
 
 ---
 

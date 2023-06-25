@@ -1,3 +1,10 @@
+## @anolilab/prettier-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.11...@anolilab/prettier-config@4.1.0) (2023-06-25)
+
+
+### Features
+
+* extended prettier-config, with overrides for .eslintrc, .prettierrc, .stylelintrc, package*.json, *.yml,*.yaml ([1e24536](https://github.com/anolilab/javascript-style-guide/commit/1e2453670e91bf2207d01afb704ad0deee5a5597))
+
 ## @anolilab/prettier-config [4.0.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.10...@anolilab/prettier-config@4.0.11) (2023-06-24)
 
 

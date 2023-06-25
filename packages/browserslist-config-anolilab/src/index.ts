@@ -14,6 +14,8 @@ const config = {
         "not Edge < 15",
     ],
     ssr: ["node 16"],
+    /** NOTE: Meaning LTS version. Any version above LTS is not considered as "major release", AFAIK. */
+    node: ["last 2 node major versions"],
 };
 
 export default config;

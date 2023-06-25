@@ -128,6 +128,10 @@ const pluginConfig: PackageRules = [
         dependencies: ["typescript"],
     },
     {
+        configName: "etc",
+        dependencies: ["typescript"],
+    },
+    {
         configName: "typescript-sort-keys",
         dependencies: ["typescript", "eslint-plugin-typescript-sort-keys"],
     },
@@ -150,6 +154,10 @@ const pluginConfig: PackageRules = [
     {
         configName: "playwright",
         dependencies: ["playwright", "eslint-plugin-playwright"],
+    },
+    {
+        configName: "tanstack-query",
+        dependencies: ["@tanstack/react-query", "@tanstack/eslint-plugin-query"],
     },
 ];
 

@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [7.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.1...@anolilab/eslint-config@7.2.2) (2023-06-25)
+
+
+### Bug Fixes
+
+* extended postinstall script file checking ([5f867d7](https://github.com/anolilab/javascript-style-guide/commit/5f867d7b4d3acc9f2af4651b23f8e1a0d206e923))
+
 ## @anolilab/eslint-config [7.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.0...@anolilab/eslint-config@7.2.1) (2023-06-25)
 
 

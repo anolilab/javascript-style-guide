@@ -1,3 +1,10 @@
+## @anolilab/stylelint-config [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.0.1...@anolilab/stylelint-config@5.0.2) (2023-06-25)
+
+
+### Bug Fixes
+
+* extended postinstall script file checking ([5f867d7](https://github.com/anolilab/javascript-style-guide/commit/5f867d7b4d3acc9f2af4651b23f8e1a0d206e923))
+
 ## @anolilab/stylelint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.0.0...@anolilab/stylelint-config@5.0.1) (2023-06-25)
 
 

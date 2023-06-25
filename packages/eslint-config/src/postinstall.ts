@@ -13,11 +13,24 @@ const writeFileAsync = promisify(writeFile);
 
 console.log("Configuring @anolilab/eslint-config", projectPath, "\n");
 
+const configFile = ".eslintrc";
+
 /**
  * Writes .eslintrc.js if it doesn't exist. Warns if it exists.
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const writeEslintRc = () => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
+        if (existsSync(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;
+Make sure that it includes the following for @anolilab/eslint-config'
+to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
+
+            return Promise.resolve();
+        }
+    }
+
     const eslintPath = join(projectPath, ".eslintrc.js");
 
     let pluginExtends = "";
@@ -97,15 +110,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 };
 `;
 
-    if (existsSync(eslintPath)) {
-        console.warn(`⚠️  .eslintrc.cjs already exists;
-Make sure that it includes the following for @anolilab/eslint-config'
-to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
-
-        return Promise.resolve();
-    }
-
-    return writeFileAsync(eslintPath, content, "utf-8");
+    return writeFileAsync(eslintPath, content, "utf8");
 };
 
 /**
@@ -120,7 +125,7 @@ const writeEslintIgnore = () => {
         return Promise.resolve();
     }
 
-    return writeFileAsync(eslintIgnorePath, "", "utf-8");
+    return writeFileAsync(eslintIgnorePath, "", "utf8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

@@ -12,10 +12,23 @@ const writeFileAsync = promisify(writeFile);
 
 console.log("Configuring @anolilab/stylelint-config", projectPath, "\n");
 
+const file = ".stylelintrc";
+
 /**
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = () => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
+        if (existsSync(join(projectPath, filename))) {
+            console.warn(
+                '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
+            );
+
+            return Promise.resolve();
+        }
+    }
+
     const stylelintPath = join(projectPath, ".stylelintrc.js");
     const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
     "extends": [
@@ -24,14 +37,6 @@ const writeStylelintRc = () => {
 };
 
 `;
-
-    if (existsSync(stylelintPath)) {
-        console.warn(
-            '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
-        );
-
-        return Promise.resolve();
-    }
 
     return writeFileAsync(stylelintPath, content, "utf-8");
 };

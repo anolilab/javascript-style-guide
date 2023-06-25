@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [7.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.1.0...@anolilab/eslint-config@7.2.0) (2023-06-25)
+
+
+### Features
+
+* added support for etc and @tanstack/eslint-plugin-query ([0b686cc](https://github.com/anolilab/javascript-style-guide/commit/0b686ccb7a2123287fa9b9a0f989f7d35b3b86a3))
+
+
+### Miscellaneous Chores
+
+* optimized seo of packages ([7331a1d](https://github.com/anolilab/javascript-style-guide/commit/7331a1da817ef2e31d4ec224aff096585a87dd04))
+
 ## @anolilab/eslint-config [7.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.0.1...@anolilab/eslint-config@7.1.0) (2023-06-24)
 
 

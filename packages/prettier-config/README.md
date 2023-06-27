@@ -1,9 +1,8 @@
-# Prettier shareable configuration
-
-Anolilab Coding Standard for semantic-release.
-
-
 <div align="center">
+
+<h1>Prettier shareable configuration</h1>
+
+Package that contains shareable configuration for [prettier](https://github.com/prettier/prettier) — a popular opinionated code formatter.
 
 [![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
 
@@ -20,7 +19,6 @@ Anolilab Coding Standard for semantic-release.
 </div>
 
 ---
-
 
 ## Install
 

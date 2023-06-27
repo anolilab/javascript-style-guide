@@ -12,19 +12,35 @@ const writeFileAsync = promisify(writeFile);
 
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
+const configFile = ".lintstagedrc";
+
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
 const writeLintstagedRc = () => {
-    const lintstagedPath = join(projectPath, ".lintstagedrc.js");
+    // eslint-disable-next-line no-restricted-syntax
+    for (const filename of [
+        configFile,
+        `${configFile}.js`,
+        `${configFile}.cjs`,
+        `${configFile}.mjs`,
+        `${configFile}.json`,
+        `${configFile}.yaml`,
+        `${configFile}.yml`,
+        "lint-staged.config.js",
+        "lint-staged.config.mjs",
+        "lint-staged.config.cjs",
+    ]) {
+        if (existsSync(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;`);
 
-    if (existsSync(lintstagedPath)) {
-        console.warn("⚠️  .lintstagedrc.js already exists;");
-
-        return Promise.resolve();
+            return Promise.resolve();
+        }
     }
 
-    const content = `${packageIsTypeModule ? "import config from \"@anolilab/lint-staged-config\"" : "const config = require(\"@anolilab/lint-staged-config\")"};
+    const lintstagedPath = join(projectPath, ".lintstagedrc.js");
+
+    const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
 
 ${packageIsTypeModule ? "export default" : "module.exports ="} {
     ...config,

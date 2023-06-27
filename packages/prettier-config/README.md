@@ -36,7 +36,14 @@ pnpm add -D eslint @anolilab/prettier-config
 
 ## Usage
 
-If you don’t have a `.prettierrc.{c|m}js` and `.prettierignore`, we will create the file for you after installing `@anolilab/prettier-config`.
+If you don’t have a `.prettierrc.js` and `.prettierignore`, we will create the file for you after installing `@anolilab/prettier-config`.
+
+> Note: If the script detects an existing `.prettierrc.js` file, it will not overwrite it.
+
+> Note: It can happen that the postinstall script don't run, then you have to add the `.prettierrc.js` manually.
+
+<details>
+<summary>File content of the `.prettierrc.js`</summary>
 
 ```js
 {
@@ -79,6 +86,8 @@ If you don’t have a `.prettierrc.{c|m}js` and `.prettierignore`, we will creat
     embeddedLanguageFormatting: "auto",
 }
 ```
+</details>
+
 
 ## Supported Node.js Versions
 

@@ -55,6 +55,10 @@ If you don’t have a `.stylelintrc.js`, we will create the file for you after i
 
 If you already have a `.stylelintrc.js`, then you can extend the `.stylelintrc.js`, with `@anolilab/stylelint-config`.
 
+> Note: If the script detects an existing `.stylelintrc.js` file, it will not overwrite it.
+
+> Note: It can happen that the postinstall script don't run, then you have to add the `.stylelintrc.js` manually.
+
 ```js
 module.exports = {
     extends: [

@@ -1,8 +1,8 @@
-# Javascript Style Guide Utils
+<div align="center">
+
+<h1>Javascript Style Guide Utils</h1>
 
 Shared utilities for parsing information from a package.json file.
-
-<div align="center">
 
 [![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
 

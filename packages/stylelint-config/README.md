@@ -2,7 +2,7 @@
 
 <h1>Shareable Stylelint Config</h1>
 
-This npm package provides a set of shareable configurations for Stylelint 15+ — a linter for CSS.
+This npm package provides a set of shareable configurations for [Stylelint 15+](https://stylelint.io/) — a linter for CSS.
 
 [![npm-image]][npm-url] [![license-image]][license-url]
 

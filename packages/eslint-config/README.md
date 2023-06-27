@@ -32,8 +32,6 @@ Our package serves as a valuable resource for JavaScript/Typescript-based projec
 
 In summary, our package provides comprehensive and adaptable ESLint configurations for JavaScript and Typescript projects. It empowers you to achieve code quality while minimizing overhead and maximizing productivity throughout your workspaces.
 
-
-
 ## Highlights
 
 -   Zero-config, but configurable when needed.

@@ -1,8 +1,7 @@
-# Text-lint Config
-
-Anolilab Coding Standard for text linting.
-
 <div align="center">
+<h1>Text-lint Config</h1>
+
+Shareable configuration for [textlint](https://github.com/textlint/textlint) — a tool for linting and fixing text written in natural language.
 
 [![npm-image]][npm-url] [![license-image]][license-url]
 

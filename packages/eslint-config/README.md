@@ -66,6 +66,10 @@ If you don’t have a `.eslintrc.js`, we will create the file for you after inst
 
 If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, with `@anolilab/eslint-config`.
 
+> Note: If the script detects an existing `.eslintrc.js` file, it will not overwrite it.
+
+> Note: It can happen that the postinstall script don't run, then you have to add the `.eslintrc.js` manually.
+
 > Note: Our default export contains all of our ESLint rules, including ECMAScript 6+. `@anolilab/eslint-config` use the `ecmaVersion`:`2021` as default.
 >
 > To change this configuration, change `env: { es2021: false, then active you needed env }` same for, `parserOptions: { "ecmaVersion": 2021 change the version }`

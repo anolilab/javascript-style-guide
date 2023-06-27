@@ -21,7 +21,7 @@ const configFile = ".eslintrc";
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const writeEslintRc = () => {
     // eslint-disable-next-line no-restricted-syntax
-    for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
+    for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.mjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
         if (existsSync(join(projectPath, filename))) {
             console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/eslint-config'

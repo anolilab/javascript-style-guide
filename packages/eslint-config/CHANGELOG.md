@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [7.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.2...@anolilab/eslint-config@7.2.3) (2023-06-27)
+
+
+### Bug Fixes
+
+* added mjs to the postinstall script ([cc098ed](https://github.com/anolilab/javascript-style-guide/commit/cc098ed5c63efa45562f35e6ebf6f13a68531228))
+
+
+### Miscellaneous Chores
+
+* **deps:** update eslint ([1209404](https://github.com/anolilab/javascript-style-guide/commit/120940410a500066aa6f4e646a279cc6b801c0f3))
+* update readme ([8350799](https://github.com/anolilab/javascript-style-guide/commit/8350799ea6e310d6f6d9af53d333b40e85180984))
+
 ## @anolilab/eslint-config [7.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.1...@anolilab/eslint-config@7.2.2) (2023-06-25)
 
 

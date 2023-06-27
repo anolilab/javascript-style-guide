@@ -24,8 +24,11 @@ const writeLintstagedRc = () => {
         return Promise.resolve();
     }
 
-    const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {};
+    const content = `${packageIsTypeModule ? "import config from \"@anolilab/lint-staged-config\"" : "const config = require(\"@anolilab/lint-staged-config\")"};
 
+${packageIsTypeModule ? "export default" : "module.exports ="} {
+    ...config,
+};
 `;
 
     return writeFileAsync(lintstagedPath, content, "utf-8");

@@ -1,4 +1,6 @@
-const group = {
+import type { Config } from "lint-staged";
+
+const group: Config = {
     "**/package.json": () => [
 
     ],

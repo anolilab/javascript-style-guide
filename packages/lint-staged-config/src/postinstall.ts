@@ -1,7 +1,7 @@
 import {
  hasDependency, hasDevDependency, packageIsTypeModule, projectPath
 } from "@anolilab/package-json-utils";
-import { existsSync, writeFile } from "node:fs";
+import { existsSync, mkdir,writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
 
@@ -13,6 +13,7 @@ if (process.env["CI"]) {
 }
 
 const writeFileAsync = promisify(writeFile);
+const mkdirAsync = promisify(mkdir);
 
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
@@ -74,7 +75,13 @@ const writeHuskyFiles = async () => {
         return;
     }
 
-    const commonShPath = join(projectPath, ".husky", "common.sh");
+    const huskyFolderPath = join(projectPath, ".husky");
+
+    if (!existsSync(huskyFolderPath)) {
+        await mkdirAsync(huskyFolderPath);
+    }
+
+    const commonShPath = join(huskyFolderPath, "common.sh");
 
     if (!checkIfFileExists(commonShPath)) {
         await writeFileAsync(
@@ -106,9 +113,15 @@ fi
         );
     }
 
-    const preCommitPath = join(projectPath, ".husky", "pre-commit");
+    const preCommitPath = join(huskyFolderPath, "pre-commit");
 
-    const hasPnpm = getNearestConfigPath("pnpm-lock.yaml") !== undefined;
+    let hasPnpm = false;
+
+    try {
+        hasPnpm = getNearestConfigPath("pnpm-lock.yaml") !== undefined;
+    } catch {
+        // ignore
+    }
 
     if (!checkIfFileExists(preCommitPath)) {
         await writeFileAsync(
@@ -133,7 +146,7 @@ echo --------------------------------------------
         );
     }
 
-    const prePushPath = join(projectPath, ".husky", "pre-push");
+    const prePushPath = join(huskyFolderPath, "pre-push");
 
     if (!checkIfFileExists(prePushPath)) {
         await writeFileAsync(
@@ -156,7 +169,7 @@ echo --------------------------------------------
         );
     }
 
-    const prepareCommitMessagePath = join(projectPath, ".husky", "prepare-commit-msg");
+    const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
 
     if (!checkIfFileExists(prepareCommitMessagePath)) {
         await writeFileAsync(

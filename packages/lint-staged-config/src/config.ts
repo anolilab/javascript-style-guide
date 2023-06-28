@@ -1,13 +1,14 @@
-import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Config } from "lint-staged";
 
 import eslintConfig from "./groups/eslint";
-import packageJsonConfig from "./groups/package-json";
-import prettierConfig from "./groups/prettier";
+import jsonConfig from "./groups/json";
+import markdownConfig from "./groups/markdown";
 import secretlintConfig from "./groups/secretlint";
 import stylesheetsConfig from "./groups/stylesheets";
 import testsConfig from "./groups/tests";
 import typescriptConfig from "./groups/typescript";
+import anolilabLintStagedConfig from "./utils/lint-staged-config";
 
 type Groups = {
     configName: string;
@@ -19,17 +20,17 @@ const groups: Groups = [
     {
         configName: "eslint",
         config: eslintConfig,
-        dependencies: ["eslint"],
+        dependencies: ["prettier", "eslint"],
     },
     {
-        configName: "package-json",
-        config: packageJsonConfig,
-        dependencies: [],
+        configName: "json",
+        config: jsonConfig,
+        dependencies: ["prettier", "sort-package-json"],
     },
     {
-        configName: "prettier",
-        config: prettierConfig,
-        dependencies: ["prettier", "pretty-quick"],
+        configName: "markdown",
+        config: markdownConfig,
+        dependencies: ["prettier", "markdownlint-cli", "markdownlint-cli2"],
     },
     {
         configName: "secretlint",
@@ -39,12 +40,12 @@ const groups: Groups = [
     {
         configName: "stylesheets",
         config: stylesheetsConfig,
-        dependencies: [],
+        dependencies: ["stylelint"],
     },
     {
         configName: "tests",
         config: testsConfig,
-        dependencies: ["vite", "jest"],
+        dependencies: ["vite", "jest", "ava"],
     },
     {
         configName: "typescript",
@@ -52,13 +53,6 @@ const groups: Groups = [
         dependencies: ["typescript"],
     },
 ];
-
-let anolilabEslintConfig: { [key: string]: { [key: string]: false | undefined } } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["lint-staged-config"];
-}
 
 let loadedPlugins: Config = {};
 const loadedPluginsNames: string[] = [];
@@ -68,7 +62,7 @@ const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = 
 groups.forEach((plugin) => {
     const { dependencies, config, configName } = plugin;
 
-    if (anolilabEslintConfig?.["plugin"]?.[configName] !== false) {
+    if ((anolilabLintStagedConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {
@@ -77,7 +71,7 @@ groups.forEach((plugin) => {
             }
         });
 
-        if (foundDependencies.length === dependencies.length) {
+        if (foundDependencies.length > 0) {
             loadedPlugins = { ...loadedPlugins, ...config };
             loadedPluginsNames.push(configName);
         } else {

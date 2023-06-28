@@ -1,9 +1,11 @@
+import { env } from "node:process";
+
 import { loadedPluginsNames, possiblePlugins } from "./config";
-import consoleLog from "./logger";
+import consoleLog from "./utils/logger";
 
 // Workaround VS Code trying to run this file twice!
-if (!global.hasAnolilabStageLintConfigLoaded) {
-    if (process.env["DEBUG"]) {
+if (!global.hasAnolilabStagedLintConfigLoaded) {
+    if (env["DEBUG"]) {
         consoleLog("\n@anolilab/lint-stage-config loaded the following plugins:\n");
 
         loadedPluginsNames.forEach((pluginName) => {
@@ -37,7 +39,7 @@ if (!global.hasAnolilabStageLintConfigLoaded) {
 
     consoleLog('To disable all logging, add the following to your eslint command call "NO_LOGS=true eslint ..."');
 
-    global.hasAnolilabStageLintConfigLoaded = true;
+    global.hasAnolilabStagedLintConfigLoaded = true;
 }
 
 export { loadedPlugins as default } from "./config";

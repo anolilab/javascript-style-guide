@@ -37,15 +37,27 @@ Say goodbye to complex configurations and enjoy a smoother development experienc
 ## Install
 
 ```bash
-npm install --dev-save @anolilab/lint-staged-config lint-staged husky
+npm install --dev-save @anolilab/lint-staged-config lint-staged
+
+Optional:
+
+npm install --dev-save husky is-ci
 ```
 
 ```sh
-yarn add -D eslint @anolilab/lint-staged-config lint-staged husky
+yarn add -D @anolilab/lint-staged-config lint-staged
+
+Optional:
+
+yarn add -D husky is-ci
 ```
 
 ```sh
-pnpm add -D eslint @anolilab/lint-staged-config lint-staged husky
+pnpm add -D @anolilab/lint-staged-config lint-staged
+
+Optional:
+
+pnpm add -D husky is-ci
 ```
 
 ## Usage
@@ -56,7 +68,37 @@ If you already have a `.lintstagedrc.js`, then you can extend the `.lintstagedrc
 
 > Note: If the script detects an existing `.lintstagedrc.js` file, it will not overwrite it.
 
-> Note: It can happen that the postinstall script dont run, then you have to add the `.lintstagedrc.js` manually.
+> Note: It can happen that the postinstall script don't run, then you have to add the `.lintstagedrc.js` manually.
+
+The content of the `.lintstagedrc.js` should look like this:
+
+```js
+const config = require("@anolilab/lint-staged-config");
+
+module.exports = {
+    ...config,
+};
+```
+
+## Configuration
+
+The default configuration, automatically adds the following linting and formatting tools, if the needed dependencies are installed.
+
+- [ESLint](https://eslint.org)
+- [Prettier](https://prettier.io)
+- [StyleLint](https://stylelint.io)
+- [SecretLint]()
+- [CommitLint](https://commitlint.js.org)
+- [Vitest](https://vitest.dev) or [Jest](https://jestjs.io) or [AVA](https://github.com/avajs/ava)
+- [TypeScript](https://www.typescriptlang.org)
+
+All this tools configuration are exported at `@anolilab/lint-staged-config/group/...` and
+can be used to extend your configuration, without including the auto config.
+
+## Husky
+
+If you want to use [husky](https://github.com/typicode/husky) to run the lint-staged script, you can use the following configuration.
+
 
 ## Supported Node.js Versions
 

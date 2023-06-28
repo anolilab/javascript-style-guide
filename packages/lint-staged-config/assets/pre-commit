@@ -9,7 +9,7 @@
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-pnpx lint-staged --verbose --concurrent false --debug
+npx --no -- lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------

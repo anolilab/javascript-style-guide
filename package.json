@@ -147,5 +147,14 @@
             "semantic-release": "^21.0.2",
             "esbuild": "^0.18.6"
         }
+    },
+    "anolilab": {
+        "lint-staged-config": {
+            "settings": {
+                "eslint": {
+                    "config": "./.eslintrc.js"
+                }
+            }
+        }
     }
 }

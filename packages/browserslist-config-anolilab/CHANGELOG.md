@@ -1,3 +1,21 @@
+## browserslist-config-anolilab [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.1.0...browserslist-config-anolilab@4.1.1) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update package dependencies versions ([7aec41d](https://github.com/anolilab/javascript-style-guide/commit/7aec41d753081b2cca2f1bb1f7daf1615c6568cb))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([b6dfc67](https://github.com/anolilab/javascript-style-guide/commit/b6dfc6785b01c97b8cbe20728ea26e91aee18c94))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.2
+
 ## browserslist-config-anolilab [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.0.7...browserslist-config-anolilab@4.1.0) (2023-06-25)
 
 

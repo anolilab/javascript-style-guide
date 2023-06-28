@@ -1,3 +1,17 @@
+## @anolilab/stylelint-config [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.0.3...@anolilab/stylelint-config@5.0.4) (2023-06-28)
+
+
+### Bug Fixes
+
+* updated lock, updated @anolilab/package-json-utils and removed baseUrl in the tsconfig that was in the wrong place ([cb08fb5](https://github.com/anolilab/javascript-style-guide/commit/cb08fb5f9fa15f0134327f89f1908199fddaa327))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 4.1.2
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.3
+
 ## @anolilab/stylelint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.0.2...@anolilab/stylelint-config@5.0.3) (2023-06-28)
 
 

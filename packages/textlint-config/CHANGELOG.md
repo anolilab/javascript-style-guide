@@ -1,3 +1,23 @@
+## @anolilab/textlint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.5...@anolilab/textlint-config@6.0.6) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update package dependencies versions ([7aec41d](https://github.com/anolilab/javascript-style-guide/commit/7aec41d753081b2cca2f1bb1f7daf1615c6568cb))
+
+
+### Miscellaneous Chores
+
+* optimized seo of packages ([7331a1d](https://github.com/anolilab/javascript-style-guide/commit/7331a1da817ef2e31d4ec224aff096585a87dd04))
+* update readme ([8350799](https://github.com/anolilab/javascript-style-guide/commit/8350799ea6e310d6f6d9af53d333b40e85180984))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.1
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.2
+
 ## @anolilab/textlint-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.4...@anolilab/textlint-config@6.0.5) (2023-06-23)
 
 

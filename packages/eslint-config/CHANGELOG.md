@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [7.2.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.3...@anolilab/eslint-config@7.2.4) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update eslint dependencies and rules ([4d3c015](https://github.com/anolilab/javascript-style-guide/commit/4d3c015ef900a1bf284fbc947795fbf86accbc9c))
+
 ## @anolilab/eslint-config [7.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.2...@anolilab/eslint-config@7.2.3) (2023-06-27)
 
 

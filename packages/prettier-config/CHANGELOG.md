@@ -1,3 +1,16 @@
+## @anolilab/prettier-config [4.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.1...@anolilab/prettier-config@4.1.2) (2023-06-28)
+
+
+### Bug Fixes
+
+* updated lock, updated @anolilab/package-json-utils and removed baseUrl in the tsconfig that was in the wrong place ([cb08fb5](https://github.com/anolilab/javascript-style-guide/commit/cb08fb5f9fa15f0134327f89f1908199fddaa327))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.3
+
 ## @anolilab/prettier-config [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.0...@anolilab/prettier-config@4.1.1) (2023-06-28)
 
 

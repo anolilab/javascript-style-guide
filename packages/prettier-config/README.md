@@ -27,11 +27,11 @@ npm install --dev-save @anolilab/prettier-config
 ```
 
 ```sh
-yarn add -D eslint @anolilab/prettier-config
+yarn add -D @anolilab/prettier-config
 ```
 
 ```sh
-pnpm add -D eslint @anolilab/prettier-config
+pnpm add -D @anolilab/prettier-config
 ```
 
 ## Usage

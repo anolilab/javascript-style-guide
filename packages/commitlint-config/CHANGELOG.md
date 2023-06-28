@@ -1,3 +1,16 @@
+## @anolilab/commitlint-config [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.1...@anolilab/commitlint-config@1.0.2) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update package dependencies versions ([7aec41d](https://github.com/anolilab/javascript-style-guide/commit/7aec41d753081b2cca2f1bb1f7daf1615c6568cb))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.1
+
 ## @anolilab/commitlint-config [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.0...@anolilab/commitlint-config@1.0.1) (2023-06-23)
 
 

@@ -75,7 +75,9 @@ const writeHuskyFiles = async () => {
     const commonShPath = join(projectPath, ".husky", "common.sh");
 
     if (!checkIfFileExists(commonShPath)) {
-        await writeFileAsync(commonShPath, `#!/bin/sh
+        await writeFileAsync(
+            commonShPath,
+            `#!/bin/sh
 
 command_exists () {
   command -v "$1" >/dev/null 2>&1
@@ -97,13 +99,17 @@ if [ "$IS_WINDOWS" = "true" ]; then
         exec < /dev/tty
     fi
 fi
-`, "utf-8");
+`,
+            "utf-8",
+        );
     }
 
     const preCommitPath = join(projectPath, ".husky", "pre-commit");
 
     if (!checkIfFileExists(preCommitPath)) {
-        await writeFileAsync(preCommitPath, `#!/bin/sh
+        await writeFileAsync(
+            preCommitPath,
+            `#!/bin/sh
 
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
@@ -118,13 +124,17 @@ npx --no -- lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
-`, "utf-8");
+`,
+            "utf-8",
+        );
     }
 
     const prePushPath = join(projectPath, ".husky", "pre-push");
 
     if (!checkIfFileExists(prePushPath)) {
-        await writeFileAsync(prePushPath, `#!/bin/sh
+        await writeFileAsync(
+            prePushPath,
+            `#!/bin/sh
 
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
@@ -137,13 +147,17 @@ echo Starting Git hook: pre-push
 
 echo Finished Git hook: pre-push
 echo --------------------------------------------
-`, "utf-8");
+`,
+            "utf-8",
+        );
     }
 
     const prepareCommitMessagePath = join(projectPath, ".husky", "prepare-commit-msg");
 
     if (!checkIfFileExists(prepareCommitMessagePath)) {
-        await writeFileAsync(prepareCommitMessagePath, `#!/bin/sh
+        await writeFileAsync(
+            prepareCommitMessagePath,
+            `#!/bin/sh
 
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
@@ -153,7 +167,9 @@ echo Starting Git hook: prepare-commit-msg
 
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
-`, "utf-8");
+`,
+            "utf-8",
+        );
     }
 };
 

@@ -42,4 +42,6 @@ if (!global.hasAnolilabStagedLintConfigLoaded) {
     global.hasAnolilabStagedLintConfigLoaded = true;
 }
 
+console.log("test");
+
 export { loadedPlugins as default } from "./config";

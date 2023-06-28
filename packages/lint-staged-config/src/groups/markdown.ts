@@ -13,7 +13,9 @@ if (!global.hasAnolilabLintStagedMarkdownCli2) {
 const group: Config = {
     "**/*.md": (filenames: string[]) => [
         `prettier --write ${concatFiles(filenames)}`,
-        ...(global.hasAnolilabLintStagedMarkdownCli ? [`markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`] : []),
+        ...(global.hasAnolilabLintStagedMarkdownCli
+            ? [`markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`]
+            : []),
         ...(global.hasAnolilabLintStagedMarkdownCli2 ? [`markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`] : []),
     ],
     "**/*.mdx": (filenames) => [`prettier --write ${concatFiles(filenames)}`],

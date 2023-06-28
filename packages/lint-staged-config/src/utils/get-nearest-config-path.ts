@@ -1,6 +1,6 @@
 import findUp from "find-up";
 import { existsSync } from "node:fs";
-import { dirname,join } from "node:path";
+import { dirname, join } from "node:path";
 import type { Join } from "type-fest";
 
 const packageDirectorySync = (cwd?: string) => {

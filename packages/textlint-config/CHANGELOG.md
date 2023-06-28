@@ -1,3 +1,16 @@
+## @anolilab/textlint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.6...@anolilab/textlint-config@6.0.7) (2023-06-28)
+
+
+### Bug Fixes
+
+* updated lock, updated @anolilab/package-json-utils and removed baseUrl in the tsconfig that was in the wrong place ([cb08fb5](https://github.com/anolilab/javascript-style-guide/commit/cb08fb5f9fa15f0134327f89f1908199fddaa327))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.3
+
 ## @anolilab/textlint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.5...@anolilab/textlint-config@6.0.6) (2023-06-28)
 
 

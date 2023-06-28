@@ -1,3 +1,24 @@
+## @anolilab/prettier-config [4.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.0...@anolilab/prettier-config@4.1.1) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update package dependencies versions ([7aec41d](https://github.com/anolilab/javascript-style-guide/commit/7aec41d753081b2cca2f1bb1f7daf1615c6568cb))
+
+
+### Miscellaneous Chores
+
+* **prettier-config:** update readme ([b6da6a0](https://github.com/anolilab/javascript-style-guide/commit/b6da6a0a54f22b3037a866f6fa130fed47e6cf9a))
+* update readme ([518bb22](https://github.com/anolilab/javascript-style-guide/commit/518bb2281ec76273348a9549c19a93b6d26ea33d))
+* update readme to remove eslint ([3c714b2](https://github.com/anolilab/javascript-style-guide/commit/3c714b23770ff0dec77792d09ce5e8818a34adea))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.1
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.2
+
 ## @anolilab/prettier-config [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.0.11...@anolilab/prettier-config@4.1.0) (2023-06-25)
 
 

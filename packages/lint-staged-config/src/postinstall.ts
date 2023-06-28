@@ -5,6 +5,8 @@ import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
 
+import getNearestConfigPath from "./utils/get-nearest-config-path";
+
 if (process.env["CI"]) {
     // eslint-disable-next-line unicorn/no-process-exit
     process.exit(0);
@@ -106,6 +108,8 @@ fi
 
     const preCommitPath = join(projectPath, ".husky", "pre-commit");
 
+    const hasPnpm = getNearestConfigPath("pnpm-lock.yaml") !== undefined;
+
     if (!checkIfFileExists(preCommitPath)) {
         await writeFileAsync(
             preCommitPath,
@@ -120,7 +124,7 @@ fi
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-npx --no -- lint-staged --verbose --concurrent false
+${hasPnpm ? "pnpx" : "npx"} lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------

@@ -42,15 +42,15 @@
             "require": "./dist/groups/eslint/index.js",
             "import": "./dist/groups/eslint/index.mjs"
         },
-        "./group/package-json": {
-            "types": "./dist/groups/package-json.d.ts",
-            "require": "./dist/groups/package-json.js",
-            "import": "./dist/groups/package-json.mjs"
+        "./group/json": {
+            "types": "./dist/groups/json.d.ts",
+            "require": "./dist/groups/json.js",
+            "import": "./dist/groups/json.mjs"
         },
-        "./group/prettier": {
-            "types": "./dist/groups/prettier.d.ts",
-            "require": "./dist/groups/prettier.js",
-            "import": "./dist/groups/prettier.mjs"
+        "./group/markdown": {
+            "types": "./dist/groups/markdown.d.ts",
+            "require": "./dist/groups/markdown.js",
+            "import": "./dist/groups/markdown.mjs"
         },
         "./group/secretlint": {
             "types": "./dist/groups/secretlint.d.ts",
@@ -133,8 +133,8 @@
         "src/index.ts",
         "src/postinstall.ts",
         "src/groups/eslint/index.ts",
-        "src/groups/package-json.ts",
-        "src/groups/prettier.ts",
+        "src/groups/json.ts",
+        "src/groups/markdown.ts",
         "src/groups/secretlint.ts",
         "src/groups/stylesheets.ts",
         "src/groups/tests.ts",

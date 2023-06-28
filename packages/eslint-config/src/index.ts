@@ -12,13 +12,16 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
-import { hasAnyDep, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
+import {
+    hasDependency, hasDevDependency, packageIsTypeModule, pkg,
+} from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { join } from "node:path";
 import semver from "semver";
 
 import { pluginRules, possiblePluginRules, rules } from "./config";
 import engineRules from "./engine-node-overwrite";
+import anolilabEslintConfig from "./utils/eslint-config";
 import { consoleLog, consolePlugin } from "./utils/loggers";
 
 // Workaround VS Code trying to run this file twice!
@@ -82,13 +85,6 @@ if (pkg?.engines?.["node"]) {
     nodeVersion = pkg.engines["node"];
 }
 
-let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
-
 Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
     Object.keys(ruleConfig)
         .sort(semver.rcompare)
@@ -99,11 +95,7 @@ Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
         });
 });
 
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
+if (hasDependency("prettier") || hasDevDependency("prettier")) {
     // Workaround VS Code trying to run this file twice!
     if (!global.hasAnolilabEsLintConfigPrettier) {
         global.hasAnolilabEsLintConfigPrettier = true;
@@ -260,6 +252,8 @@ const config: Linter.Config = {
         // to follow our coding conventions.  Linting those files tends to produce a lot of spurious suppressions,
         // so we simply ignore them.
         "*.d.ts",
+
+        "pnpm-lock.yaml",
     ],
 };
 

@@ -1,18 +1,14 @@
 import { pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-const configRules: Linter.RulesRecord = {};
+if (global.anolilabEslintConfigNodeRules === undefined && pkg?.engines?.["node"]) {
+    const version: string = pkg?.engines?.["node"];
 
-let nodeVersion: string | undefined;
-
-if (pkg?.engines?.["node"]) {
-    nodeVersion = pkg.engines["node"];
-}
-
-if (nodeVersion) {
-    configRules["n/no-unsupported-features/es-builtins"] = ["error", { version: nodeVersion }];
-    configRules["n/no-unsupported-features/es-syntax"] = ["error", { version: nodeVersion, ignores: ["modules"] }];
-    configRules["n/no-unsupported-features/node-builtins"] = ["error", { version: nodeVersion }];
+    global.anolilabEslintConfigNodeRules = {
+        "n/no-unsupported-features/es-builtins": ["error", { version }],
+        "n/no-unsupported-features/es-syntax": ["error", { version, ignores: ["modules"] }],
+        "n/no-unsupported-features/node-builtins": ["error", { version }],
+    };
 }
 
 // @see https://github.com/eslint-community/eslint-plugin-n
@@ -83,7 +79,7 @@ const config: Linter.Config = {
 
         "n/file-extension-in-import": "off",
 
-        ...configRules,
+        ...global.anolilabEslintConfigNodeRules,
     },
     overrides: [
         {

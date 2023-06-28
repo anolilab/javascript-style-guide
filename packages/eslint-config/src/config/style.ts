@@ -1,12 +1,6 @@
-import { pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-let anolilabEslintConfig: { [key: string]: false | undefined } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
+import anolilabEslintConfig from "../utils/eslint-config";
 
 let indent: number = 4;
 

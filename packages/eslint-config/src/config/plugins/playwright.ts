@@ -1,10 +1,16 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-let hasJest = false;
-
-if (hasDependency("jest") || hasDevDependency("jest") || hasDevDependency("eslint-plugin-jest") || hasDevDependency("@types/jest")) {
-    hasJest = true;
+if (
+    !global.hasAnolilabEsLintConfigPlaywrightJest
+    && (hasDependency("jest")
+        || hasDevDependency("jest")
+        || hasDevDependency("eslint-plugin-jest")
+        || hasDevDependency("eslint-plugin-jest")
+        || hasDevDependency("@types/jest")
+        || hasDevDependency("@types/jest"))
+) {
+    global.hasAnolilabEsLintConfigPlaywrightJest = true;
 }
 
 // @see https://github.com/playwright-community/eslint-plugin-playwright
@@ -18,7 +24,7 @@ const config: Linter.Config = {
         {
             // To ensure best performance enable only on e2e test files
             files: ["**/e2e/**/*.test.{js,ts}"],
-            extends: [hasJest ? "plugin:playwright/jest-playwright" : "plugin:playwright/recommended"],
+            extends: [global.hasAnolilabEsLintConfigPlaywrightJest ? "plugin:playwright/jest-playwright" : "plugin:playwright/recommended"],
             rules: {
                 "@typescript-eslint/no-non-null-assertion": "off",
                 "@typescript-eslint/no-object-literal-type-assertion": "off",

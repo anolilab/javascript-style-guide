@@ -1,4 +1,4 @@
-import { hasAnyDep, packageIsTypeModule } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, packageIsTypeModule } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import semver from "semver";
 
@@ -6,14 +6,8 @@ import styleConfig from "../style";
 
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 
-let prettierRules: Linter.RulesRecord = {};
-
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
-    prettierRules = {
+if (global.anolilabEslintConfigUnicornPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.anolilabEslintConfigUnicornPrettierRules = {
         "unicorn/empty-brace-spaces": "off",
         "unicorn/no-nested-ternary": "off",
         "unicorn/number-literal-case": "off",
@@ -60,9 +54,21 @@ const config: Linter.Config = {
         // TODO: Temporarily disabled as the rule is buggy.
         "function-call-argument-newline": "off",
 
-        ...prettierRules,
+        ...global.anolilabEslintConfigUnicornPrettierRules,
     },
     overrides: [
+        {
+            files: ["tsconfig.dev.json", "tsconfig.prod.json"],
+            rules: {
+                "unicorn/prevent-abbreviations": "off",
+            },
+        },
+        {
+            files: ["FUNDING.yml", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "SECURITY.md"],
+            rules: {
+                "unicorn/filename-case": "off",
+            },
+        },
         {
             files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
             rules: {

@@ -1,4 +1,4 @@
-import { hasAnyDep } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import { createConfig } from "../../utils/create-config";
@@ -10,14 +10,8 @@ const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 const errorsRules = errorsConfig.rules as Linter.RulesRecord;
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 
-let prettierRules: Linter.RulesRecord = {};
-
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
-    prettierRules = {
+if (global.anolilabEslintConfigBabelPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.anolilabEslintConfigBabelPrettierRules = {
         "babel/quotes": 0,
 
         "@babel/object-curly-spacing": "off",
@@ -56,7 +50,7 @@ const config: Linter.Config = createConfig("all", {
         "valid-typeof": "off",
         "babel/valid-typeof": errorsRules["valid-typeof"],
 
-        ...prettierRules,
+        ...global.anolilabEslintConfigBabelPrettierRules,
     },
 });
 

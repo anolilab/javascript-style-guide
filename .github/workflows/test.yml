@@ -6,6 +6,7 @@ on: # yamllint disable-line rule:truthy
     push:
         branches:
             - "main"
+    # eslint-disable-next-line yml/no-empty-mapping-value
     pull_request: # yamllint disable-line rule:empty-values
 
 concurrency:

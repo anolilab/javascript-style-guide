@@ -1,23 +1,18 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
-import { getPackageSubProperty,hasAnyDep, pkg } from "@anolilab/package-json-utils";
+import { getPackageSubProperty, hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import findUp from "find-up";
 import { env } from "node:process";
 
+import anolilabEslintConfig from "../../utils/eslint-config";
 import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
 
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 const dangleRules = styleRules["no-underscore-dangle"] as any[];
 
-let prettierReactRules = {};
-
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
-    prettierReactRules = {
+if (global.anolilabEslintConfigReactPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.anolilabEslintConfigReactPrettierRules = {
         "react/jsx-child-element-spacing": "off",
         "react/jsx-closing-bracket-location": "off",
         "react/jsx-closing-tag-location": "off",
@@ -35,14 +30,6 @@ if (
         "react/jsx-wrap-multilines": "off",
     };
 }
-
-let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
-
 const hasJsxRuntime = (() => {
     // Workaround VS Code trying to run this file twice!
     if (!global.hasAnolilabEsLintConfigReactRuntimePath) {
@@ -67,14 +54,16 @@ const hasJsxRuntime = (() => {
     return global.hasAnolilabEsLintConfigReactRuntimePath;
 })();
 
-let reactVersion: string | undefined = getPackageSubProperty<string>("dependencies")("react")
+let reactVersion: string | undefined = getPackageSubProperty<string>("dependencies")("react");
 
 if (reactVersion === undefined) {
     reactVersion = getPackageSubProperty<string | undefined>("devDependencies")("react");
 }
 
 if (reactVersion !== undefined && anolilabEslintConfig?.["info_on_found_react_version"] !== false) {
-    consoleLog(`\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`);
+    consoleLog(
+        `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
+    );
 }
 
 const config: Linter.Config = {
@@ -665,7 +654,7 @@ const config: Linter.Config = {
                 // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
                 "react/jsx-no-constructed-context-values": "error",
 
-                ...prettierReactRules,
+                ...global.anolilabEslintConfigReactPrettierRules,
             },
         },
         {

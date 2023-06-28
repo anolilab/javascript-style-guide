@@ -1,26 +1,18 @@
-import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import { createConfig } from "../../utils/create-config";
+import anolilabEslintConfig from "../../utils/eslint-config";
 import { consolePlugin } from "../../utils/loggers";
 
-let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
-
-let ruleset = "dom";
-
-if (hasAnyDep(["react", "@testing-library/react"])) {
-    ruleset = "react";
+if (global.anolilabEslintConfigTestingLibraryRuleSet === undefined && (hasDependency("react") || hasDevDependency("react") || hasDependency("@testing-library/react") || hasDevDependency("@testing-library/react"))) {
+    global.anolilabEslintConfigTestingLibraryRuleSet = "react";
 }
 
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintTestConfigLoaded) {
     if (anolilabEslintConfig?.["info_on_testing_library_framework"] !== false) {
-        consolePlugin(`testing-library: loading "${ruleset}" ruleset`);
+        consolePlugin(`testing-library: loading "${global.anolilabEslintConfigTestingLibraryRuleSet ?? "dom"}" ruleset`);
     }
 
     global.hasAnolilabEsLintTestConfigLoaded = true;
@@ -30,7 +22,7 @@ if (!global.hasAnolilabEsLintTestConfigLoaded) {
 const config: Linter.Config = createConfig(
     "tests",
     {
-        extends: [`plugin:testing-library/${ruleset}`],
+        extends: [`plugin:testing-library/${global.anolilabEslintConfigTestingLibraryRuleSet ?? "dom"}`],
     },
     {
         browser: true,

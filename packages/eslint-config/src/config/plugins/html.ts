@@ -1,4 +1,4 @@
-import { hasAnyDep } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import styleConfig from "../style";
@@ -9,11 +9,7 @@ let hasPrettier = false;
 
 let prettierRules: Linter.RulesRecord = {};
 
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
+if (hasDependency("prettier") || hasDevDependency("prettier")) {
     hasPrettier = true;
 
     prettierRules = {

@@ -1,7 +1,8 @@
-import { hasAnyDep, pkg } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { env } from "node:process";
 
+import anolilabEslintConfig from "../../utils/eslint-config";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -15,19 +16,14 @@ const errorsRules = errorsConfig.rules as Linter.RulesRecord;
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 // eslint-disable-next-line unicorn/prevent-abbreviations
 const eS6Rules = eS6Config.rules as Linter.RulesRecord;
-const importsRules = importsConfig.rules as Linter.RulesRecord;
+const importsRules = ((importsConfig.overrides as Linter.ConfigOverride<Linter.RulesRecord>[])[0] as Linter.ConfigOverride<Linter.RulesRecord>)
+    .rules as Linter.RulesRecord;
 const variablesRules = variablesConfig.rules as Linter.RulesRecord;
 
 const { quotes, semi, indent } = styleRules;
 
-let prettierRules: Linter.RulesRecord = {};
-
-if (
-    hasAnyDep(["prettier"], {
-        peerDeps: false,
-    })
-) {
-    prettierRules = {
+if (global.anolilabEslintConfigTypescriptPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.anolilabEslintConfigTypescriptPrettierRules = {
         "@typescript-eslint/lines-around-comment": 0,
         "@typescript-eslint/quotes": 0,
         "@typescript-eslint/block-spacing": "off",
@@ -53,13 +49,6 @@ if (
 const importExtensions = importsRules["import/extensions"] as any[];
 const importNoExtraneousDependencies = importsRules["import/no-extraneous-dependencies"] as any[];
 const commaDangle = styleRules["comma-dangle"] as any[];
-
-let anolilabEslintConfig: { [key: string]: boolean | undefined } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
 
 let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
 
@@ -507,7 +496,7 @@ const config: Linter.Config = {
                 "@typescript-eslint/no-import-type-side-effects": "error",
 
                 // Disable rules that are handled by prettier
-                ...prettierRules,
+                ...global.anolilabEslintConfigTypescriptPrettierRules,
             },
         },
         {

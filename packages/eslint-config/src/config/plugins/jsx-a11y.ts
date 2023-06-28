@@ -1,10 +1,8 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-let hasStorybook = false;
-
-if (hasDevDependency("storybook") || hasDependency("storybook")) {
-    hasStorybook = true;
+if (!global.hasAnolilabEsLintConfigJsyA11yStorybook && (hasDevDependency("storybook") || hasDependency("storybook"))) {
+    global.hasAnolilabEsLintConfigJsyA11yStorybook = true;
 }
 
 const config: Linter.Config = {
@@ -243,7 +241,7 @@ const config: Linter.Config = {
             {
                 components: ["A", "LinkTo", "Link"],
                 specialLink: ["to"],
-                aspects: ["noHref", "invalidHref", "preferButton", ...(hasStorybook ? ["overrideParams", "kind", "story", "to"] : [])],
+                aspects: ["noHref", "invalidHref", "preferButton", ...(global.hasAnolilabEsLintConfigJsyA11yStorybook ? ["overrideParams", "kind", "story", "to"] : [])],
             },
         ],
 

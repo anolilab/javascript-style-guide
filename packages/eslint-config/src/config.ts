@@ -1,6 +1,7 @@
-import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
+import anolilabEslintConfig from "./utils/eslint-config";
 
 const baseConfig = ["best-practices", "errors", "style", "es6", "variables"];
 
@@ -93,7 +94,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "cypress",
-        dependencies: ["eslint-plugin-cypress"],
+        dependencies: ["cypress", "eslint-plugin-cypress"],
     },
     {
         configName: "jest",
@@ -164,17 +165,10 @@ const pluginConfig: PackageRules = [
 const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
-let anolilabEslintConfig: { [key: string]: { [key: string]: false | undefined } } = {};
-
-if (pkg) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-    anolilabEslintConfig = pkg?.["anolilab"]?.["eslint-config"];
-}
-
 pluginConfig.forEach((plugin) => {
     const { dependencies, configName } = plugin;
 
-    if (anolilabEslintConfig?.["plugin"]?.[configName] !== false) {
+    if ((anolilabEslintConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {

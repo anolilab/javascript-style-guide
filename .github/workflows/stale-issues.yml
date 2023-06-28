@@ -26,7 +26,8 @@ jobs:
               with:
                   repo-token: "${{ secrets.GITHUB_TOKEN }}"
                   stale-issue-message: |
-                      This issue has been automatically marked as stale because it has been open for 21 days with no activity. It will be closed in 7 days if no further activity (Remove label or comment) occurs.
+                      This issue has been automatically marked as stale because it has been open for 21 days with no activity.
+                      It will be closed in 7 days if no further activity (Remove label or comment) occurs.
                       If we missed this issue please reply to keep it active.
                       Thanks for being a part of this project. 🙏
                   stale-issue-label: "Stale"

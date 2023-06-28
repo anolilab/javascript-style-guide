@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.5.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.5.0...@anolilab/package-json-utils@1.5.1) (2023-06-28)
+
+
+### Bug Fixes
+
+* Update package dependencies versions ([7aec41d](https://github.com/anolilab/javascript-style-guide/commit/7aec41d753081b2cca2f1bb1f7daf1615c6568cb))
+
 ## @anolilab/package-json-utils [1.5.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.4.1...@anolilab/package-json-utils@1.5.0) (2023-06-23)
 
 

@@ -207,8 +207,48 @@ To add a `prepare-commit-msg` hook to your project, run the following command:
 npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || true'
 ```
 
-> Why `exec < /dev/tty?` By default, git hooks are not interactive.
+> Note: This is only a simple example. To support most cases on Linux, Mac and Windows you can use the other example below.
+
+```bash
+# if we hve a cmd that is running npx cz that means finalize and commit
+FILE=commit.cmd
+if test -f "$FILE"; then
+    echo "$FILE exists."
+    rm commit.cmd
+    exit 0;
+fi
+# if on Windows, spawn a cmd that will run npx cz
+case `uname` in
+    *CYGWIN*|*MINGW*|*MSYS* )
+        # Only run commitizen if no commit message was already provided.
+        if [ -z "${2-}" ]; then
+            export CZ_TYPE="${CZ_TYPE:-fix}"
+            export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
+            export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
+            echo "npx cz && exit" > commit.cmd
+            start commit.cmd
+            exit 1;
+        fi
+
+        exit 0;;
+esac
+# Only run commitizen if no commit message was already provided.
+if [ -z "${2-}" ]; then
+    export CZ_TYPE="${CZ_TYPE:-fix}"
+    export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
+    export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
+    # By default git hooks are not interactive. exec < /dev/tty allows a users terminal to interact with commitizen.
+    exec < /dev/tty && npx cz --hook || true
+fi
+```
+
 > This command allows the user to use their terminal to interact with Commitizen during the hook.
+>
+> Why `exec < /dev/tty?` By default, git hooks are not interactive.
+
+> Note: If you are using `zsh` you may need to use `exec < /dev/tty?` instead of `exec < /dev/tty`.
+
+> Note: For pnpm users, replace `npx` with `pnpx` in the above command.
 
 Congratulations! Your repo is Commitizen friendly. Time to flaunt it!
 

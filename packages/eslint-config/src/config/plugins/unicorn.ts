@@ -59,7 +59,7 @@ const config: Linter.Config = {
             {
                 case: "kebabCase",
                 ignore: [
-                    /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE\.md|LICENSE|LICENSE\.txt|LICENSE-MIT\.txt|LICENSE-MIT)/,
+                    /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/,
                 ],
             },
         ],

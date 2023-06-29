@@ -12,9 +12,7 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
-import {
-    hasDependency, hasDevDependency, packageIsTypeModule, pkg,
-} from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import { join } from "node:path";
 import semver from "semver";
@@ -195,9 +193,9 @@ const config: Linter.Config = {
     parser: "",
 
     extends: [
-        ...rules.map((plugin) => join(__dirname, `./config/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
+        ...rules.map((plugin) => join(__dirname, `./config/${plugin}.js`)),
 
-        ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.${packageIsTypeModule ? "m" : ""}js`)),
+        ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.js`)),
     ],
     rules: {
         ...configRules,

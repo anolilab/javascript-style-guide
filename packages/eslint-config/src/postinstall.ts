@@ -21,7 +21,7 @@ const configFile = ".eslintrc";
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const writeEslintRc = () => {
     // eslint-disable-next-line no-restricted-syntax
-    for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.mjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
+    for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
         if (existsSync(join(projectPath, filename))) {
             console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/eslint-config'
@@ -31,7 +31,7 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
         }
     }
 
-    const eslintPath = join(projectPath, ".eslintrc.js");
+    const eslintPath = join(projectPath, `.eslintrc.${packageIsTypeModule ? "c" : ""}js`);
 
     let pluginExtends = "";
     let parserOptions = `
@@ -67,7 +67,7 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
     const content = `/** @ts-check */
 /** @type {import('eslint').Linter.Config} */
-${packageIsTypeModule ? "export default" : "module.exports ="} {
+module.exports = {
     root: true,
     extends: ["@anolilab/eslint-config"${pluginExtends}],
     ignorePatterns: ["!**/*"],

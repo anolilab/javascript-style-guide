@@ -135,7 +135,7 @@ npx husky add .husky/commit-msg 'pnpm commitlint --edit "${1}"'
 And for `package.json`:
 
 ```bash
-pnpm pkg set scripts.prepare="is-ci || husky install"
+pnpm pkg set scripts.prepare="is-ci || husky install || exit 0"
 ```
 
 > For `npm` users, replace `pnpm` with `npm` in the above command.

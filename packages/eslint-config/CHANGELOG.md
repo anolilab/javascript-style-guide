@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [7.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.0...@anolilab/eslint-config@7.3.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* Add eslint-plugin-etc as dependency in config.ts ([10538cc](https://github.com/anolilab/javascript-style-guide/commit/10538cc8c443aa5b68bc27984223afe6ab51ec4c))
+
 ## @anolilab/eslint-config [7.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.7...@anolilab/eslint-config@7.3.0) (2023-06-29)
 
 

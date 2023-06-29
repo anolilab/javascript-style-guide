@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [7.2.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.6...@anolilab/eslint-config@7.2.7) (2023-06-29)
+
+
+### Bug Fixes
+
+* optimized regex ([e5cd913](https://github.com/anolilab/javascript-style-guide/commit/e5cd913b3de094f19258d1110f6927ddfbfe14d3))
+* remove overrides for unicorn/filename-case to use the ignore option of the rule ([68e791c](https://github.com/anolilab/javascript-style-guide/commit/68e791c5a0ef536ed4dcbe3bc45bea199f3b280b))
+
+
+### Miscellaneous Chores
+
+* updated license date ([7c2549e](https://github.com/anolilab/javascript-style-guide/commit/7c2549e8605948aef563193b28b772240d9c2c8b))
+
 ## @anolilab/eslint-config [7.2.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.5...@anolilab/eslint-config@7.2.6) (2023-06-28)
 
 

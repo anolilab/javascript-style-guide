@@ -1,3 +1,15 @@
+## @anolilab/prettier-config [4.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.2...@anolilab/prettier-config@4.1.3) (2023-06-29)
+
+
+### Bug Fixes
+
+* update postinstall.ts to dynamically import prettier-config ([816c421](https://github.com/anolilab/javascript-style-guide/commit/816c421c7da22893085085c9bff94746c88615a6))
+
+
+### Miscellaneous Chores
+
+* updated license date ([7c2549e](https://github.com/anolilab/javascript-style-guide/commit/7c2549e8605948aef563193b28b772240d9c2c8b))
+
 ## @anolilab/prettier-config [4.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.1...@anolilab/prettier-config@4.1.2) (2023-06-28)
 
 

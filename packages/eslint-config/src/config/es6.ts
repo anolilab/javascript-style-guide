@@ -113,6 +113,109 @@ const config: Linter.Config = {
                         message:
                             "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     },
+                    {
+                        name: "error",
+                    },
+                    {
+                        name: "domain",
+                    },
+                    {
+                        name: "freelist",
+                    },
+                    {
+                        name: "smalloc",
+                    },
+                    {
+                        name: "punycode",
+                    },
+                    {
+                        name: "sys",
+                    },
+                    {
+                        name: "querystring",
+                        message: 'Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try "qs" as a package',
+                    },
+                    {
+                        name: "colors",
+                        message: "Please use one of the following instead: chalk, kleur, ansi-colors, @colors/colors",
+                    },
+                    {
+                        name: "mkdirp",
+                        message: "node v10.12 mkdir supports recursive option",
+                    },
+                    {
+                        name: "faker",
+                        message: 'Please use "@faker-js/faker" as a replacement',
+                    },
+                    {
+                        name: "xtend",
+                        message: "Please use Object.assign or spread { ...obj }",
+                    },
+                    {
+                        name: "object-assign",
+                        message: "Please use Object.assign or spread { ...obj }",
+                    },
+                    {
+                        name: "extend-shallow",
+                        message: "Please use Object.assign or spread { ...obj }",
+                    },
+                    {
+                        name: "rimraf",
+                        message: "node supports recursive option now",
+                    },
+                    {
+                        name: "pad-left",
+                        message: 'just use "".padStart() and "".padEnd()',
+                    },
+                    {
+                        name: "pad-right",
+                        message: 'just use "".padStart() and "".padEnd()',
+                    },
+                    {
+                        name: "left-pad",
+                        message: 'just use "".padStart() and "".padEnd()',
+                    },
+                    {
+                        name: "right-pad",
+                        message: 'just use "".padStart() and "".padEnd()',
+                    },
+                    {
+                        name: "pad",
+                        message: 'just use "".padStart() and "".padEnd()',
+                    },
+                    {
+                        name: "safe-buffer",
+                    },
+                    {
+                        name: "safer-buffer",
+                    },
+                    {
+                        name: "array-flatten",
+                        message: "just use [].flat() or some other polyfill",
+                    },
+                    {
+                        name: "request",
+                        message: "Been deprecated",
+                    },
+                    {
+                        name: "co",
+                        message: "use async/await instead",
+                    },
+                    {
+                        name: "windows-1252",
+                        message: "Please use TextDecoder instead",
+                    },
+                    {
+                        name: "string_decoder",
+                        message: "Please use TextDecoder instead",
+                    },
+                    {
+                        name: "concat-map",
+                        message: "Please use array.prototype.flatMap instead",
+                    },
+                    {
+                        name: "buffer-alloc",
+                    },
                 ],
                 // catch-all for any lodash modularized.
                 // The CVE is listed against the entire family for lodash < 4.17.11

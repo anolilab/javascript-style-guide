@@ -99,6 +99,41 @@ can be used to extend your configuration, without including the auto config.
 
 If you want to use [husky](https://github.com/typicode/husky) to run the lint-staged script, you can use the following configuration.
 
+Adding the following script to your root `package.json` file makes it easier to run the husky command:
+
+```bash
+pnpm pkg set scripts.prepare="is-ci || husky install || exit 0"
+```
+
+For `npm` users, replace `pnpm` with `npm` in the above command.
+
+This script will install husky only if it is not running in a CI environment.
+
+After that you can find a `.husky` folder in your root directory, with a `pre-commit` (if not please create it) file.
+
+The file content can look like this:
+
+```bash
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# The hook should exit with non-zero status after issuing
+# an appropriate message if it wants to stop the commit.
+
+echo --------------------------------------------
+echo Starting Git hook: pre-commit
+
+pnpx lint-staged --verbose --concurrent false
+
+echo Finished Git hook: pre-commit
+echo --------------------------------------------
+
+```
+
+Our package includes a `postinstall` script to automatically add the `pre-commit`, `common.sh`, `prepare-commit-msg` and `pre-push` hooks to your `.husky` folder.
+
+> Note: It can be that the postinstall script don't run, then you have to add the hooks manually.
 
 ## Supported Node.js Versions
 

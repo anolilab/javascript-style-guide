@@ -1,7 +1,7 @@
 import {
  hasDependency, hasDevDependency, packageIsTypeModule, projectPath
 } from "@anolilab/package-json-utils";
-import { existsSync, mkdir,writeFile } from "node:fs";
+import { existsSync, mkdir, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
 
@@ -66,6 +66,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 /**
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const writeHuskyFiles = async () => {
     const hasHusky = hasDependency("husky") || hasDevDependency("husky");
 
@@ -172,6 +173,8 @@ echo --------------------------------------------
     const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
 
     if (!checkIfFileExists(prepareCommitMessagePath)) {
+        const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
+
         await writeFileAsync(
             prepareCommitMessagePath,
             `#!/bin/sh
@@ -181,7 +184,44 @@ echo --------------------------------------------
 
 echo --------------------------------------------
 echo Starting Git hook: prepare-commit-msg
+${
+    hasCz
+        ? `# if we hve a cmd that is running ${hasPnpm ? "pnpx" : "npx"} cz that means finalize and commit
+FILE=commit.cmd
+if test -f "$FILE"; then
+    echo "$FILE exists."
+    rm commit.cmd
+    exit 0;
+fi
+# if on Windows, spawn a cmd that will run ${hasPnpm ? "pnpx" : "npx"} cz
+case \`uname\` in
+    *CYGWIN*|*MINGW*|*MSYS* )
+        # Only run commitizen if no commit message was already provided.
+        if [ -z "\${2-}" ]; then
+            export CZ_TYPE="\${CZ_TYPE:-fix}"
+            export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
+            export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
+            echo "${hasPnpm ? "pnpx" : "npx"} cz && exit" > commit.cmd
+            start commit.cmd
+            exit 1;
+        fi
 
+        exit 0;;
+esac\n`
+        : ""
+}${
+                hasCz
+                    ? `# Only run commitizen if no commit message was already provided.
+if [ -z "\${2-}" ]; then
+    export CZ_TYPE="\${CZ_TYPE:-fix}"
+    export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
+    export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
+    # By default git hooks are not interactive. exec < /dev/tty allows a users terminal to interact with commitizen.
+    exec < /dev/tty && ${hasPnpm ? "pnpx" : "npx"} cz --hook || true
+fi
+`
+                    : ""
+            }
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
 `,

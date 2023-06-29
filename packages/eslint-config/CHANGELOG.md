@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [7.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.7...@anolilab/eslint-config@7.3.0) (2023-06-29)
+
+
+### Features
+
+* add new deprecated package rules to eslint config ([19564d0](https://github.com/anolilab/javascript-style-guide/commit/19564d0c2ab05bea2f4a1b368cd049f0b60ac9f9))
+
 ## @anolilab/eslint-config [7.2.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.2.6...@anolilab/eslint-config@7.2.7) (2023-06-29)
 
 

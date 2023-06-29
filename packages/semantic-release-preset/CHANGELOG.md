@@ -1,3 +1,16 @@
+## @anolilab/semantic-release-preset [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.0.3...@anolilab/semantic-release-preset@4.0.4) (2023-06-29)
+
+
+### Bug Fixes
+
+* this version change is needed to deprecate old version of the package and update dependency versions in multiple packages ([b3f00b2](https://github.com/anolilab/javascript-style-guide/commit/b3f00b2487b8b5f9f61b1f711c0d0a7c7df86f75))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.2
+
 ## @anolilab/semantic-release-preset [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.0.2...@anolilab/semantic-release-preset@4.0.3) (2023-06-28)
 
 

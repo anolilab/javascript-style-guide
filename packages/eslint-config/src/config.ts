@@ -130,7 +130,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "etc",
-        dependencies: ["typescript"],
+        dependencies: ["typescript", "eslint-plugin-etc"],
     },
     {
         configName: "typescript-sort-keys",

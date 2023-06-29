@@ -73,6 +73,8 @@
         "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,package-json-utils,stylelint-config && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
+        "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
+        "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",
         "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
         "test:coverage:package-json-utils": "pnpm --filter \"package-json-utils\" run test:coverage",
         "test:coverage:stylelint-config": "pnpm --filter \"stylelint-config\" run test:coverage",
@@ -146,6 +148,15 @@
             "cosmiconfig-typescript-loader": "^4.3.0",
             "semantic-release": "^21.0.2",
             "esbuild": "^0.18.6"
+        }
+    },
+    "anolilab": {
+        "lint-staged-config": {
+            "settings": {
+                "eslint": {
+                    "config": "./.eslintrc.js"
+                }
+            }
         }
     }
 }

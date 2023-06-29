@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/lint-staged-config",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Shareable Lint-Staged Config for any project.",
     "keywords": [
         "anolilab",
@@ -93,13 +93,13 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "1.5.1",
+        "@anolilab/package-json-utils": "1.5.2",
         "cross-env": "^7.0.3",
         "find-up": "5.0.0",
         "shell-quote": "^1.8.1"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "4.0.3",
+        "@anolilab/semantic-release-preset": "4.0.4",
         "@total-typescript/ts-reset": "^0.4.2",
         "@types/lint-staged": "^13.2.0",
         "@types/shell-quote": "^1.7.1",

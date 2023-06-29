@@ -1,3 +1,22 @@
+## @anolilab/lint-staged-config [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.0.0...@anolilab/lint-staged-config@1.0.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* this version change is needed to deprecate old version of the package and update dependency versions in multiple packages ([b3f00b2](https://github.com/anolilab/javascript-style-guide/commit/b3f00b2487b8b5f9f61b1f711c0d0a7c7df86f75))
+
+
+### Miscellaneous Chores
+
+* added rimraf to dev deps ([4b5922e](https://github.com/anolilab/javascript-style-guide/commit/4b5922e9392796f26abbf4dab40c84d5ee832243))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.5.2
+* **@anolilab/semantic-release-preset:** upgraded to 4.0.4
+
 ## @anolilab/lint-staged-config 1.0.0 (2023-06-29)
 
 

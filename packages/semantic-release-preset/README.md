@@ -140,7 +140,10 @@ Without npm:
 
 ### deprecation
 
-You want deprecate old versions of your package?
+You want to deprecate old versions of your package?
+
+<details>
+<summary>Option one is the semantic-release-npm-deprecate-old-versions</summary>
 
 #### Install
 
@@ -189,6 +192,49 @@ No problem, just add the following to your `.releaserc.json`:
 ```
 
 Find out how to configure the plugin [here](https://github.com/ghusse/semantic-release-npm-deprecate-old-versions).
+</details>
+
+<details>
+<summary>Option one is the semantic-release-npm-deprecate</summary>
+
+#### Install
+
+```bash
+npm install --dev-save semantic-release-npm-deprecate-old-versions
+```
+
+```sh
+pnpm add -D semantic-release-npm-deprecate-old-versions
+```
+
+```sh
+yarn add -D semantic-release-npm-deprecate-old-versions
+```
+
+No problem, just add the following to your `.releaserc.json`:
+
+```json
+{
+    "extends": "@anolilab/semantic-release-preset/npm",
+    "plugins": [
+        [
+            "semantic-release-npm-deprecate",
+            {
+                "deprecations": [
+                    {
+                        "version": "< ${nextRelease.version.split('.')[0]}",
+                        "message": "Please use ^${nextRelease.version.split('.')[0]}.0.0."
+                    }
+                ]
+            }
+        ]
+    ]
+}
+```
+
+Find out how to configure the plugin [here](https://www.npmjs.com/package/semantic-release-npm-deprecate).
+
+</details>
 
 ## Environment Variables Configuration
 

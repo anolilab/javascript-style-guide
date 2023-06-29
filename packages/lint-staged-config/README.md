@@ -131,9 +131,11 @@ echo --------------------------------------------
 
 ```
 
-Our package includes a `postinstall` script to automatically add the `pre-commit`, `common.sh`, `prepare-commit-msg` and `pre-push` hooks to your `.husky` folder.
+Our package includes a `postinstall` script to automatically add the `pre-commit`, `common.sh`, `prepare-commit-msg hooks to your `.husky` folder.
 
 > Note: It can be that the postinstall script don't run, then you have to add the hooks manually.
+
+If `commitzen` is installed, the `prepare-commit-msg` hook with predefined content will be added to your `.husky` folder.
 
 ## Supported Node.js Versions
 

@@ -147,34 +147,10 @@ echo --------------------------------------------
         );
     }
 
-    const prePushPath = join(huskyFolderPath, "pre-push");
-
-    if (!checkIfFileExists(prePushPath)) {
-        await writeFileAsync(
-            prePushPath,
-            `#!/bin/sh
-
-. "$(dirname "$0")/_/husky.sh"
-. "$(dirname "$0")/common.sh"
-
-# The hook should exit with non-zero status after issuing
-# an appropriate message if it wants to stop the push.
-
-echo --------------------------------------------
-echo Starting Git hook: pre-push
-
-echo Finished Git hook: pre-push
-echo --------------------------------------------
-`,
-            "utf-8",
-        );
-    }
-
     const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
+    const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
 
-    if (!checkIfFileExists(prepareCommitMessagePath)) {
-        const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
-
+    if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
         await writeFileAsync(
             prepareCommitMessagePath,
             `#!/bin/sh
@@ -184,9 +160,8 @@ echo --------------------------------------------
 
 echo --------------------------------------------
 echo Starting Git hook: prepare-commit-msg
-${
-    hasCz
-        ? `# if we hve a cmd that is running ${hasPnpm ? "pnpx" : "npx"} cz that means finalize and commit
+
+# if we hve a cmd that is running ${hasPnpm ? "pnpx" : "npx"} cz that means finalize and commit
 FILE=commit.cmd
 if test -f "$FILE"; then
     echo "$FILE exists."
@@ -207,11 +182,9 @@ case \`uname\` in
         fi
 
         exit 0;;
-esac\n`
-        : ""
-}${
-                hasCz
-                    ? `# Only run commitizen if no commit message was already provided.
+esac
+
+# Only run commitizen if no commit message was already provided.
 if [ -z "\${2-}" ]; then
     export CZ_TYPE="\${CZ_TYPE:-fix}"
     export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
@@ -219,9 +192,7 @@ if [ -z "\${2-}" ]; then
     # By default git hooks are not interactive. exec < /dev/tty allows a users terminal to interact with commitizen.
     exec < /dev/tty && ${hasPnpm ? "pnpx" : "npx"} cz --hook || true
 fi
-`
-                    : ""
-            }
+
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
 `,

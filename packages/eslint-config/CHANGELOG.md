@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [7.3.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.1...@anolilab/eslint-config@7.3.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* remove mjs support from eslint-config, because it breaks the package.json type module with eslint ([7171565](https://github.com/anolilab/javascript-style-guide/commit/71715650c0949191be1d72582b1c63c7c879f6af))
+
 ## @anolilab/eslint-config [7.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.0...@anolilab/eslint-config@7.3.1) (2023-06-29)
 
 

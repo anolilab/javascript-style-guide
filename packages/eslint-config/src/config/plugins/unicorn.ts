@@ -54,6 +54,16 @@ const config: Linter.Config = {
         // TODO: Temporarily disabled as the rule is buggy.
         "function-call-argument-newline": "off",
 
+        "unicorn/filename-case": [
+            "error",
+            {
+                case: "kebabCase",
+                ignore: [
+                    /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE\.md|LICENSE|LICENSE\.txt|LICENSE-MIT\.txt|LICENSE-MIT)/,
+                ],
+            },
+        ],
+
         ...global.anolilabEslintConfigUnicornPrettierRules,
     },
     overrides: [
@@ -61,12 +71,6 @@ const config: Linter.Config = {
             files: ["tsconfig.dev.json", "tsconfig.prod.json"],
             rules: {
                 "unicorn/prevent-abbreviations": "off",
-            },
-        },
-        {
-            files: ["FUNDING.yml", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "SECURITY.md"],
-            rules: {
-                "unicorn/filename-case": "off",
             },
         },
         {

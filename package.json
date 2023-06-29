@@ -56,6 +56,7 @@
     "scripts": {
         "build:packages": "pnpm --filter \"package-json-utils\" run build && nx run-many --target=build --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config,semantic-release-preset,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
         "build:prod:packages": "pnpm --filter \"package-json-utils\" run build:prod && nx run-many --target=build:prod --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config,semantic-release-preset,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
+        "clean": "nx run-many --target=clean && rimraf node_modules",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky install",
         "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.js --ext .js,.cjs,.mjs,.ts,.tsx,.json,.yaml,.yml ./packages --cache --cache-strategy content .",
@@ -73,11 +74,11 @@
         "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,package-json-utils,stylelint-config && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
-        "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
-        "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",
         "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
+        "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",
         "test:coverage:package-json-utils": "pnpm --filter \"package-json-utils\" run test:coverage",
         "test:coverage:stylelint-config": "pnpm --filter \"stylelint-config\" run test:coverage",
+        "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
         "test:package-json-utils": "pnpm --filter \"package-json-utils\" run test",
         "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css",
         "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test"
@@ -107,6 +108,7 @@
         "cross-env": "^7.0.3",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.43.0",
+        "rimraf": "^5.0.1",
         "eslint-plugin-vitest": "^0.2.6",
         "husky": "^8.0.3",
         "is-ci": "^3.0.1",
@@ -128,6 +130,15 @@
     "engines": {
         "node": ">=16.18.0 <=20.*"
     },
+    "anolilab": {
+        "lint-staged-config": {
+            "settings": {
+                "eslint": {
+                    "config": "./.eslintrc.js"
+                }
+            }
+        }
+    },
     "pnpm": {
         "overrides": {
             "glob-parent@<5.1.2": ">=5.1.2",
@@ -147,16 +158,7 @@
             "vite": "4.3.4",
             "cosmiconfig-typescript-loader": "^4.3.0",
             "semantic-release": "^21.0.2",
-            "esbuild": "^0.18.6"
-        }
-    },
-    "anolilab": {
-        "lint-staged-config": {
-            "settings": {
-                "eslint": {
-                    "config": "./.eslintrc.js"
-                }
-            }
+            "esbuild": "^0.18.10"
         }
     }
 }

@@ -46,10 +46,12 @@ ${JSON.stringify(content, undefined, 4)}\n`);
 
     return writeFileAsync(
         prettierPath,
-        `${packageIsTypeModule ? "export default" : "module.exports ="} ${JSON.stringify(content, undefined, 2).replace(
-            "rangeEnd: null,",
-            "rangeEnd: Number.POSITIVE_INFINITY,",
-        )}\n`,
+        `${packageIsTypeModule ? 'import config from "@anolilab/prettier-config";' : 'var config = require("@anolilab/prettier-config");'}
+
+${packageIsTypeModule ? "export default" : "module.exports ="} {
+    ...config,
+}
+`,
         "utf8",
     );
 };

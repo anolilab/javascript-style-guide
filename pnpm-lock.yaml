@@ -645,8 +645,8 @@ importers:
         version: 4.3.4(@types/node@16.18.36)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 4.0.2
-        version: 4.0.2(semantic-release@21.0.2)
+        specifier: 4.0.3
+        version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.4.2
         version: 0.4.2
@@ -966,36 +966,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
-
-  /@anolilab/package-json-utils@1.5.1:
-    resolution: {integrity: sha512-+vzYDkdspaylA+m6+V0S1YKW5WWgF7QIffsYuK1qYybfsdPki7zUSLLojY9LSH+cryq+P2m/dMOLeT/j/PSVBw==}
-    engines: {node: '>=16'}
-    dependencies:
-      dot-path-value: 0.0.10
-      read-pkg-up: 7.0.1
-    dev: true
-
-  /@anolilab/semantic-release-preset@4.0.2(semantic-release@21.0.2):
-    resolution: {integrity: sha512-Y1azm+PtGToVloWau8c41yyBbcKNx5xQ+Cn56ruVsWlh2lgX0Ur9yXgVpVJLdzj4f8w4Lsxyv3xUbC8tLyrheA==}
-    engines: {node: '>=16'}
-    requiresBuild: true
-    peerDependencies:
-      semantic-release: ^21.0.0
-    dependencies:
-      '@anolilab/package-json-utils': 1.5.1
-      '@semantic-release/changelog': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/commit-analyzer': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/exec': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/git': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/github': 9.0.3(semantic-release@21.0.2)
-      '@semantic-release/npm': 10.0.4(semantic-release@21.0.2)
-      '@semantic-release/release-notes-generator': 11.0.3(semantic-release@21.0.2)
-      conventional-changelog-conventionalcommits: 6.1.0
-      semantic-release: 21.0.2
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-    dev: true
 
   /@azu/format-text@1.0.2:
     resolution: {integrity: sha512-Swi4N7Edy1Eqq82GxgEECXSSLyn6GOb5htRFPzBDdUkECGXtlf12ynO5oJSpWKPwCaUssOu7NfhDcCWpIC6Ywg==}
@@ -7310,6 +7280,7 @@ packages:
 
   /dot-path-value@0.0.10:
     resolution: {integrity: sha512-MrVpDoFwk1xjeM0sGRuei7N3LQOylJ9iamgfxAQwPY0hPnDHL981hM/KpoQwFHMckgjZvJA0MyH7VN//ernFFA==}
+    dev: false
 
   /dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}

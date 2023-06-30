@@ -3,6 +3,7 @@ import { getPackageSubProperty, hasDependency, hasDevDependency } from "@anolila
 import type { Linter } from "eslint";
 import findUp from "find-up";
 import { env } from "node:process";
+import { parse } from "semver";
 
 import anolilabEslintConfig from "../../utils/eslint-config";
 import { consoleLog } from "../../utils/loggers";
@@ -54,15 +55,25 @@ const hasJsxRuntime = (() => {
     return global.hasAnolilabEsLintConfigReactRuntimePath;
 })();
 
-let reactVersion: string | undefined = getPackageSubProperty<string>("dependencies")("react");
+if (!global.anolilabEslintConfigReactVersion) {
+    let reactVersion = getPackageSubProperty<string | undefined>("dependencies")("react");
 
-if (reactVersion === undefined) {
-    reactVersion = getPackageSubProperty<string | undefined>("devDependencies")("react");
+    if (reactVersion === undefined) {
+        reactVersion = getPackageSubProperty<string | undefined>("devDependencies")("react");
+    }
+
+    if (reactVersion !== undefined) {
+        const parsedVersion = parse(reactVersion);
+
+        if (parsedVersion !== null) {
+            global.anolilabEslintConfigReactVersion = `${parsedVersion.major}.${parsedVersion.minor}`;
+        }
+    }
 }
 
-if (reactVersion !== undefined && anolilabEslintConfig?.["info_on_found_react_version"] !== false) {
+if (global.anolilabEslintConfigReactVersion !== undefined && anolilabEslintConfig?.["info_on_found_react_version"] !== false) {
     consoleLog(
-        `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
+        `\n@anolilab/eslint-config found the version ${global.anolilabEslintConfigReactVersion} of react in your dependencies, this version ${global.anolilabEslintConfigReactVersion} will be used to setup the "eslint-plugin-react"\n`,
     );
 }
 
@@ -93,7 +104,7 @@ const config: Linter.Config = {
                     // The default value is "detect". Automatic detection works by loading the entire React library
                     // into the linter's process, which is inefficient. It is recommended to specify the version
                     // explicity.
-                    version: reactVersion ?? "detect",
+                    version: global.anolilabEslintConfigReactVersion ?? "detect",
                 },
                 propWrapperFunctions: [
                     "forbidExtraProps", // https://www.npmjs.com/package/airbnb-prop-types

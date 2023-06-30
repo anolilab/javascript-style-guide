@@ -6,6 +6,12 @@ import { createConfig } from "./utils/create-config";
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 
 const config = createConfig("typescript", {
+    // TODO: enable the rule when typescript-eslint 6.0.0 is released
+    // extends: [
+    // "plugin:@typescript-eslint/recommended-type-checked",
+    // "plugin:@typescript-eslint/strict-type-checked",
+    // "plugin:@typescript-eslint/stylistic-type-checked"
+    // ],
     rules: {
         // Disallows awaiting a value that is not a Thenable
         "@typescript-eslint/await-thenable": "error",

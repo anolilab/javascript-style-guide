@@ -60,7 +60,13 @@ const config: Linter.Config = {
     overrides: [
         {
             files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
-            extends: ["plugin:import/typescript"],
+            extends: [
+                "plugin:import/typescript",
+                // TODO: enable the rule when typescript-eslint 6.0.0 is released
+                // "plugin:@typescript-eslint/recommended",
+                // "plugin:@typescript-eslint/stylistic",
+                // "plugin:@typescript-eslint/strict",
+            ],
             plugins: ["@typescript-eslint"],
             parser: "@typescript-eslint/parser",
             parserOptions: {

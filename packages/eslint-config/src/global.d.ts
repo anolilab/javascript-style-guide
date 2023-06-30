@@ -29,6 +29,8 @@ declare global {
 
     var anolilabEslintConfigReactPrettierRules: undefined | Linter.RulesRecord;
 
+    var anolilabEslintConfigReactVersion: undefined | string;
+
     var anolilabEslintConfigTestingLibraryRuleSet: undefined | string;
 
     var anolilabEslintConfigUnicornPrettierRules: undefined | Linter.RulesRecord;

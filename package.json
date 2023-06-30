@@ -109,6 +109,8 @@
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.43.0",
         "eslint-plugin-vitest": "^0.2.6",
+        "eslint-plugin-etc": "^2.0.3",
+        "eslint-plugin-typescript-sort-keys": "^2.3.0",
         "husky": "^8.0.3",
         "is-ci": "^3.0.1",
         "lint-staged": "^13.2.3",
@@ -136,6 +138,9 @@
                 "eslint": {
                     "config": "./.eslintrc.js"
                 }
+            },
+            "plugin": {
+                "eslint-plugin-tsdoc": false
             }
         }
     },

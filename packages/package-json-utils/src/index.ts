@@ -23,7 +23,7 @@ export const getPackageProperty = <T = unknown>(property: string): T | undefined
     }
 
     return getByPath(packageJson, property) as T | undefined;
-}
+};
 
 export const getPackageSubProperty = <T = unknown>(packageProperty: string) => (property: string): T | undefined => getPackageProperty<T>(`${packageProperty}.${property}`);
 
@@ -39,8 +39,10 @@ export const hasPackageProperties = (properties: string[], strict?: boolean): bo
     return properties.some((property: string) => hasPackageProperty(property));
 };
 
-export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(properties.map((p) => `${packageProperty}.${p}`),
-            strict,);
+export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(
+            properties.map((p) => `${packageProperty}.${p}`),
+            strict,
+        );
 
 export const environmentIsSet = (name: string): boolean => Boolean(process.env[name] && process.env[name] !== "undefined");
 
@@ -80,8 +82,8 @@ export const hasDevelopmentDep = hasDevDependencies;
 
 // eslint-disable-next-line max-len
 export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(
-    (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
-);
+        (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
+    );
 
 export const hasTypescript: boolean = (hasDependency("typescript") || hasDevDependency("typescript")) && hasFile("tsconfig.json");
 
@@ -129,10 +131,10 @@ export const showMissingPackages = (
     packageName: string,
     packages: string[],
     options: {
-        exit?: boolean;
         consoleType?: "error" | "info" | "log" | "warn";
-        preMessage?: string;
+        exit?: boolean;
         postMessage?: string;
+        preMessage?: string;
     } = {},
 ): void => {
     const s = packages.length === 1 ? "" : "s";

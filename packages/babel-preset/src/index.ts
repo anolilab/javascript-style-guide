@@ -4,29 +4,29 @@ import { declare } from "@babel/helper-plugin-utils";
 
 type BabelAPI = {
     assertVersion: (version: string) => void;
-    env: (environment: string) => boolean;
     cache: {
         using: (function_: () => boolean) => boolean;
     };
+    env: (environment: string) => boolean;
 };
 
 type Options = {
-    modules?: "auto" | false | true;
-    targets?: any;
-    removePropTypes?: boolean | object;
-    loose?: boolean;
-    looseClasses?: boolean;
-    looseObjectRestSpread?: boolean;
-    looseComputedProperties?: boolean;
-    looseParameters?: boolean;
-    looseTemplateLiterals?: boolean;
-    typescript?: boolean;
-    react?: boolean | object;
-    polyfillRegenerator?: boolean;
-    useBuiltIns?: boolean;
     corejs?: boolean | { method?: string; version?: number };
     debug?: boolean;
     development?: boolean;
+    loose?: boolean;
+    looseClasses?: boolean;
+    looseComputedProperties?: boolean;
+    looseObjectRestSpread?: boolean;
+    looseParameters?: boolean;
+    looseTemplateLiterals?: boolean;
+    modules?: "auto" | false | true;
+    polyfillRegenerator?: boolean;
+    react?: boolean | object;
+    removePropTypes?: boolean | object;
+    targets?: any;
+    typescript?: boolean;
+    useBuiltIns?: boolean;
 };
 
 const babelPresetTypescript = "@babel/preset-typescript";

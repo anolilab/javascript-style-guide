@@ -6,11 +6,11 @@ import removeIgnoredFiles from "./remove-ignored-files";
 type ESLintSettings = {
     settings: {
         eslint?: {
-            "max-warnings"?: number | string | false;
-            rules?: string[];
-            "fix-type": string[];
             cache?: boolean;
             config?: string;
+            "fix-type": string[];
+            "max-warnings"?: number | string | false;
+            rules?: string[];
         };
     };
 };

@@ -11,8 +11,8 @@ import typescriptConfig from "./groups/typescript";
 import anolilabLintStagedConfig from "./utils/lint-staged-config";
 
 type Groups = {
-    configName: string;
     config: Config;
+    configName: string;
     dependencies: string[];
 }[];
 

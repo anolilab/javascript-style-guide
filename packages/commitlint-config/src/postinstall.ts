@@ -18,6 +18,7 @@ console.log("Configuring @anolilab/commitlint-config", projectPath, "\n");
 const writeCommitLintConfig = () => {
     const commitlintPath = join(projectPath, "commitlint.config.js");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(commitlintPath)) {
         console.warn("⚠️  commitlint.config.js already exists;");
 
@@ -43,6 +44,7 @@ const writeCommitLintConfig = () => {
 const writeCzrc = () => {
     const filePath = join(projectPath, ".czrc");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filePath)) {
         console.warn("⚠️  .czrc already exists;");
 

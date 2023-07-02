@@ -33,6 +33,7 @@ const getNearestConfigPath = <N extends ConfigFileName, A extends AbsolutePath =
     const packageRootPath = getNearestPackageRootPath(cwd);
     const configPath = joinPaths<[A, N]>([packageRootPath as A, fileName]);
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(configPath)) {
         return configPath;
     }

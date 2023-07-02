@@ -41,21 +41,21 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
     api.assertVersion("^7.13");
 
     const {
-        modules = "auto",
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        targets,
-        removePropTypes: removePropertyTypes = false,
+        corejs = false,
         loose = true,
         looseClasses = true,
-        looseObjectRestSpread = true,
         looseComputedProperties = true,
+        looseObjectRestSpread = true,
         looseParameters = true,
         looseTemplateLiterals = true,
-        typescript = false,
-        react = false,
+        modules = "auto",
         polyfillRegenerator = false,
+        react = false,
+        removePropTypes: removePropertyTypes = false,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        targets,
+        typescript = false,
         useBuiltIns = false,
-        corejs = false,
     } = options;
 
     if (typeof modules === "boolean" && typeof modules === "string") {
@@ -103,15 +103,15 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
         [
             "@babel/preset-env",
             {
-                debug,
                 bugfixes: true,
-                useBuiltIns,
+                debug,
                 exclude: ["transform-async-to-generator", "transform-regenerator"],
+                loose,
                 modules: modules === false ? false : "auto",
+                shippedProposals: api.env("modern"),
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 targets,
-                shippedProposals: api.env("modern"),
-                loose,
+                useBuiltIns,
             },
         ],
         typescript
@@ -191,8 +191,8 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
             ? [
                   "babel-plugin-transform-react-remove-prop-types",
                   {
-                      mode: "unsafe-wrap",
                       ignoreFilenames: ["node_modules"],
+                      mode: "unsafe-wrap",
                       ...(removePropertyTypes as object),
                   },
               ]
@@ -227,8 +227,8 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
             ? [
                   "babel-plugin-polyfill-corejs3",
                   {
-                      method: corejs.method ?? "usage-global",
                       absoluteImports: "core-js",
+                      method: corejs.method ?? "usage-global",
                       version: corejs.version,
                       ...corejs,
                   },
@@ -240,8 +240,8 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
         assumptions: {
             noDocumentAll: true,
         },
-        presets,
         plugins,
+        presets,
     };
 });
 

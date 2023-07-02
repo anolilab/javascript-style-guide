@@ -1,5 +1,4 @@
 const config = {
-    production: ["> 1%", "last 2 versions", "Firefox ESR", "not dead"],
     legacyBrowsers: ["> 1%", "last 2 versions", "Firefox ESR"],
     modernBrowsers: [
         "last 2 Chrome versions",
@@ -13,9 +12,10 @@ const config = {
         "last 2 Edge versions",
         "not Edge < 15",
     ],
-    ssr: ["node 16"],
     /** NOTE: Meaning LTS version. Any version above LTS is not considered as "major release", AFAIK. */
     node: ["last 2 node major versions"],
+    production: ["> 1%", "last 2 versions", "Firefox ESR", "not dead"],
+    ssr: ["node 16"],
 };
 
 export default config;

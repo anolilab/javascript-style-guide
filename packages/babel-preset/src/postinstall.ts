@@ -22,6 +22,7 @@ const writeBabelRc = () => {
 };
 `;
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(babelPath)) {
         console.warn(`⚠️  babel.config.js already exists;
 Make sure that it includes the following for @anolilab/babel-preset'

@@ -17,13 +17,13 @@ const config = {
                 ],
             },
         ],
+        "declaration-block-trailing-semicolon": null,
         "function-no-unknown": [
             true,
             {
                 ignoreFunctions: ["theme"],
             },
         ],
-        "declaration-block-trailing-semicolon": null,
         "no-descending-specificity": null,
     },
 };

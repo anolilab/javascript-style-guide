@@ -6,10 +6,12 @@ const groupFilePathsByDirectoryName = (filePaths: string[]): { [key: string]: st
     filePaths.forEach((filePath) => {
         const directoryName = dirname(filePath);
 
+        // eslint-disable-next-line security/detect-object-injection
         if (!groups[directoryName]) {
+            // eslint-disable-next-line security/detect-object-injection
             groups[directoryName] = [];
         }
-
+        // eslint-disable-next-line security/detect-object-injection
         (groups[directoryName] as string[]).push(filePath);
     });
 

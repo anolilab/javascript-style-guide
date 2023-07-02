@@ -18,38 +18,38 @@ type Groups = {
 
 const groups: Groups = [
     {
-        configName: "eslint",
         config: eslintConfig,
+        configName: "eslint",
         dependencies: ["prettier", "eslint"],
     },
     {
-        configName: "json",
         config: jsonConfig,
+        configName: "json",
         dependencies: ["prettier", "sort-package-json"],
     },
     {
-        configName: "markdown",
         config: markdownConfig,
+        configName: "markdown",
         dependencies: ["prettier", "markdownlint-cli", "markdownlint-cli2"],
     },
     {
-        configName: "secretlint",
         config: secretlintConfig,
+        configName: "secretlint",
         dependencies: ["secretlint"],
     },
     {
-        configName: "stylesheets",
         config: stylesheetsConfig,
+        configName: "stylesheets",
         dependencies: ["stylelint"],
     },
     {
-        configName: "tests",
         config: testsConfig,
+        configName: "tests",
         dependencies: ["vite", "jest", "ava"],
     },
     {
-        configName: "typescript",
         config: typescriptConfig,
+        configName: "typescript",
         dependencies: ["typescript"],
     },
 ];
@@ -60,8 +60,9 @@ const loadedPluginsNames: string[] = [];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
 groups.forEach((plugin) => {
-    const { dependencies, config, configName } = plugin;
+    const { config, configName, dependencies } = plugin;
 
+    // eslint-disable-next-line security/detect-object-injection
     if ((anolilabLintStagedConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
@@ -75,9 +76,11 @@ groups.forEach((plugin) => {
             loadedPlugins = { ...loadedPlugins, ...config };
             loadedPluginsNames.push(configName);
         } else {
+            // eslint-disable-next-line security/detect-object-injection
             possiblePlugins[configName] = {};
 
             dependencies.forEach((dependency) => {
+                // eslint-disable-next-line security/detect-object-injection
                 (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
             });
         }

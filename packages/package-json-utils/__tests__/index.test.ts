@@ -1,11 +1,11 @@
 import { dirname } from "node:path";
-import {
- describe, expect, it, vi,
-} from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
     environmentIsSet,
-    fromRoot, getPackageProperty, getPackageSubProperty,
+    fromRoot,
+    getPackageProperty,
+    getPackageSubProperty,
     hasAnyDep,
     hasDep,
     hasDevelopmentDep,
@@ -124,27 +124,30 @@ describe("package-json-utils", () => {
         expect(isPackageAvailable("vitest2")).toBeFalsy();
     });
 
-    it.each<"error" | "info" | "log" | "warn">(["warn", "log", "error", "info"])("showMissingPackages: logs a %type message with the missing packages", (type) => {
-        const consoleMock = vi.spyOn(console, type);
+    it.each<"error" | "info" | "log" | "warn">(["warn", "log", "error", "info"])(
+        "showMissingPackages: logs a %type message with the missing packages",
+        (type) => {
+            const consoleMock = vi.spyOn(console, type);
 
-        showMissingPackages("example", ["package1", "package2"], {
-            consoleType: type,
-        });
+            showMissingPackages("example", ["package1", "package2"], {
+                consoleType: type,
+            });
 
-        expect(consoleMock).toHaveBeenCalledTimes(1);
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
+            expect(consoleMock).toHaveBeenCalledTimes(1);
+            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
+            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
+            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
 
-        consoleMock.mockRestore();
-    });
+            consoleMock.mockRestore();
+        },
+    );
 
     it("showMissingPackages: logs a warning message with the missing packages, pre and post message", () => {
         const consoleMock = vi.spyOn(console, "warn");
 
         showMissingPackages("example", ["package1", "package2"], {
-            preMessage: "pre message",
             postMessage: "post message",
+            preMessage: "pre message",
         });
 
         expect(consoleMock).toHaveBeenCalledTimes(1);

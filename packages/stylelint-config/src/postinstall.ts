@@ -20,6 +20,7 @@ const file = ".stylelintrc";
 const writeStylelintRc = () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(projectPath, filename))) {
             console.warn(
                 '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
@@ -55,7 +56,7 @@ node_modules/**
 .next/**
 
 `;
-
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(stylelintIgnorePath)) {
         return Promise.resolve();
     }

@@ -33,6 +33,7 @@ const writePrettierRc = () => {
         "prettier.config.js",
         "prettier.config.cjs",
     ]) {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(projectPath, filename))) {
             console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
@@ -62,6 +63,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 const writePrettierIgnore = () => {
     const prettierPath = join(projectPath, ".prettierignore");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(prettierPath)) {
         console.warn("⚠️  .prettierignore already exists");
 

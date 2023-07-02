@@ -2,11 +2,13 @@ import { getByPath } from "dot-path-value";
 import { existsSync, realpathSync } from "node:fs";
 import module from "node:module";
 import { dirname, join } from "node:path";
+import { cwd, env, exit, versions } from "node:process";
 import type { NormalizedPackageJson } from "read-pkg";
 import readPkgUp from "read-pkg-up";
 
 const { packageJson, path: packagePath } = readPkgUp.sync({
-    cwd: realpathSync(process.cwd()),
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    cwd: realpathSync(cwd()),
 }) ?? { packageJson: undefined, path: undefined };
 
 const atLatest = (name: string): string => {
@@ -25,11 +27,17 @@ export const getPackageProperty = <T = unknown>(property: string): T | undefined
     return getByPath(packageJson, property) as T | undefined;
 };
 
-export const getPackageSubProperty = <T = unknown>(packageProperty: string) => (property: string): T | undefined => getPackageProperty<T>(`${packageProperty}.${property}`);
+export const getPackageSubProperty =
+    <T = unknown>(packageProperty: string) =>
+    (property: string): T | undefined =>
+        getPackageProperty<T>(`${packageProperty}.${property}`);
 
 export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 
-export const hasPackageSubProperty = (packageProperty: string) => (property: string): boolean => hasPackageProperty(`${packageProperty}.${property}`);
+export const hasPackageSubProperty =
+    (packageProperty: string) =>
+    (property: string): boolean =>
+        hasPackageProperty(`${packageProperty}.${property}`);
 
 export const hasPackageProperties = (properties: string[], strict?: boolean): boolean => {
     if (strict) {
@@ -39,19 +47,25 @@ export const hasPackageProperties = (properties: string[], strict?: boolean): bo
     return properties.some((property: string) => hasPackageProperty(property));
 };
 
-export const hasPackageSubProperties = (packageProperty: string) => (properties: string[], strict?: boolean): boolean => hasPackageProperties(
+export const hasPackageSubProperties =
+    (packageProperty: string) =>
+    (properties: string[], strict?: boolean): boolean =>
+        hasPackageProperties(
             properties.map((p) => `${packageProperty}.${p}`),
             strict,
         );
 
-export const environmentIsSet = (name: string): boolean => Boolean(process.env[name] && process.env[name] !== "undefined");
+// eslint-disable-next-line security/detect-object-injection
+export const environmentIsSet = (name: string): boolean => Boolean(env[name] && env[name] !== "undefined");
 
 export const parseEnvironment = (name: string, defaultValue: unknown): any => {
     if (environmentIsSet(name)) {
         try {
-            return JSON.parse(process.env[name] ?? "");
+            // eslint-disable-next-line security/detect-object-injection
+            return JSON.parse(env[name] ?? "");
         } catch {
-            return process.env[name];
+            // eslint-disable-next-line security/detect-object-injection
+            return env[name];
         }
     }
 
@@ -62,6 +76,7 @@ export const projectPath: string = packagePath ? dirname(packagePath) : "";
 // @deprecated Use `projectPath` instead.
 export const appDirectory: string = projectPath;
 export const fromRoot = (...p: string[]): string => join(projectPath, ...p);
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 export const hasFile = (...p: string[]): boolean => existsSync(fromRoot(...p));
 
 export const hasScripts = hasPackageSubProperties("scripts");
@@ -80,8 +95,8 @@ export const hasDevDependencies = hasPackageSubProperties("devDependencies");
 // @deprecated Use `hasDevDependencies` instead.
 export const hasDevelopmentDep = hasDevDependencies;
 
-// eslint-disable-next-line max-len
-export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean => [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(
+export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean =>
+    [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(
         (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
     );
 
@@ -91,7 +106,7 @@ export const packageIsTypeModule = hasPackageProperties(["type"]) && packageJson
 
 export const resolvePackage = (packageName: string): string | undefined => {
     // See https://yarnpkg.com/advanced/pnpapi
-    if (process.versions["pnp"]) {
+    if (versions["pnp"]) {
         const targetModule = import.meta.url;
         // @ts-expect-error TS2339: Property 'findPnpApi' does not exist on type 'typeof Module'.
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
@@ -158,8 +173,8 @@ or
 ${options.postMessage ?? ""}\n
 `);
 
-    if (process.env["NODE_ENV"] !== "test" || options.exit === true) {
-        process.exit(1); // eslint-disable-line unicorn/no-process-exit
+    if (env["NODE_ENV"] !== "test" || options.exit === true) {
+        exit(1);
     }
 };
 

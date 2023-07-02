@@ -155,6 +155,7 @@ const writeTextLintRc = () => {
 }
 `;
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filePath)) {
         console.warn(`⚠️  .textlintrc already exists;
 Make sure that it includes the following for @anolilab/textlint-config'
@@ -173,6 +174,7 @@ const writeTextLintIgnore = () => {
     const filePath = join(projectPath, ".textlintignore");
     const content = "";
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filePath)) {
         console.warn("⚠️  .textlintignore already exists;");
 

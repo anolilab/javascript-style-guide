@@ -1,15 +1,13 @@
-import {
- hasDependency, hasDevDependency, packageIsTypeModule, projectPath
-} from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, mkdir, writeFile } from "node:fs";
 import { join } from "node:path";
+import { exit } from "node:process";
 import { promisify } from "node:util";
 
 import getNearestConfigPath from "./utils/get-nearest-config-path";
 
 if (process.env["CI"]) {
-    // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(0);
+    exit(0);
 }
 
 const writeFileAsync = promisify(writeFile);
@@ -20,6 +18,7 @@ console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 const configFile = ".lintstagedrc";
 
 const checkIfFileExists = (filename: string): boolean => {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filename)) {
         console.warn(`⚠️  ${filename} already exists;`);
 
@@ -78,6 +77,7 @@ const writeHuskyFiles = async () => {
 
     const huskyFolderPath = join(projectPath, ".husky");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (!existsSync(huskyFolderPath)) {
         await mkdirAsync(huskyFolderPath);
     }
@@ -209,13 +209,11 @@ echo --------------------------------------------
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(0);
+        exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
         console.error(error);
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(1);
+        exit(1);
     }
 })();

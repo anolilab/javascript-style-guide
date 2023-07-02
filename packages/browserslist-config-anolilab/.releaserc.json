@@ -1,16 +1,3 @@
 {
-    "extends": "@anolilab/semantic-release-preset/npm",
-    "plugins": [
-        [
-            "semantic-release-npm-deprecate",
-            {
-                "deprecations": [
-                    {
-                        "version": "< 4",
-                        "message": "Please use ^4.0.0."
-                    }
-                ]
-            }
-        ]
-    ]
+    "extends": "@anolilab/semantic-release-preset/npm"
 }

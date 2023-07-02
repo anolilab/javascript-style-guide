@@ -1,23 +1,21 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import styleConfig from "../style";
+import indent from "../../utils/indent";
 
-const styleRules = styleConfig.rules as Linter.RulesRecord;
-
-if (!global.hasAnolilabEsLintConfigYamlPrettier) {
-    global.hasAnolilabEsLintConfigYamlPrettier = hasDependency("prettier") || hasDevDependency("prettier");
+if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.hasAnolilabEsLintConfigPrettier = true;
 }
 
 const config: Linter.Config = {
     overrides: [
         {
+            extends: ["plugin:yml/recommended", ...(global.hasAnolilabEsLintConfigPrettier ? ["plugin:yml/prettier"] : [])],
             files: ["*.yaml", "*.yml"],
-            extends: ["plugin:yml/recommended", ...(global.hasAnolilabEsLintConfigYamlPrettier ? ["plugin:yml/prettier"] : [])],
             parser: "yaml-eslint-parser",
             rules: {
+                indent: [global.hasAnolilabEsLintConfigPrettier ? "off" : "error", indent],
                 "spaced-comment": "off",
-                indent: ["error", (styleRules["indent"] as any[])[1] as number],
             },
         },
     ],

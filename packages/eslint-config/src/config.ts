@@ -166,8 +166,9 @@ const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
 pluginConfig.forEach((plugin) => {
-    const { dependencies, configName } = plugin;
+    const { configName, dependencies } = plugin;
 
+    // eslint-disable-next-line security/detect-object-injection
     if ((anolilabEslintConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
@@ -180,9 +181,11 @@ pluginConfig.forEach((plugin) => {
         if (foundDependencies.length === dependencies.length) {
             loadedPlugins.push(configName);
         } else {
+            // eslint-disable-next-line security/detect-object-injection
             possiblePlugins[configName] = {};
 
             dependencies.forEach((dependency) => {
+                // eslint-disable-next-line security/detect-object-injection
                 (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
             });
         }

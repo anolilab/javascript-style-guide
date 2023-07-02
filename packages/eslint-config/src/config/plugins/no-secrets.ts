@@ -4,12 +4,12 @@ import type { Linter } from "eslint";
 const config: Linter.Config = {
     overrides: [
         {
+            excludedFiles: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
+            files: ["*", "*/**"],
             plugins: ["no-secrets"],
             rules: {
                 "no-secrets/no-secrets": "error",
             },
-            files: ["*", "*/**"],
-            excludedFiles: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
         },
     ],
 };

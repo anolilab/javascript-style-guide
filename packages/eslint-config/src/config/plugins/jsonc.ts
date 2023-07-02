@@ -29,34 +29,32 @@ if (hasSortPackageJson) {
 const config: Linter.Config = {
     overrides: [
         {
-            files: ["*.json", "*.json5", "*.jsonc"],
             extends: extendedPlugins,
+            files: ["*.json", "*.json5", "*.jsonc"],
             parser: "jsonc-eslint-parser",
         },
         {
-            files: ["*.json5"],
             extends: ["plugin:jsonc/recommended-with-json5"],
+            files: ["*.json5"],
         },
         {
-            files: ["*.jsonc"],
             extends: ["plugin:jsonc/recommended-with-jsonc"],
+            files: ["*.jsonc"],
         },
         {
+            extends: ["plugin:jsonc/recommended-with-json"],
             files: ["*.json"],
-            extends: ["plugin:jsonc/recommended-with-json"],
         },
         {
-            files: ["package.json"],
             extends: ["plugin:jsonc/recommended-with-json"],
+            files: ["package.json"],
             rules: {
-                // eslint-disable-next-line max-len
                 // When the package "sort-package-json" is installed, we disable the rule "jsonc/sort-keys" because, the package "sort-package-json" is responsible for sorting the keys.
                 "jsonc/sort-keys": hasSortPackageJson
                     ? "off"
                     : [
                           "error",
                           {
-                              pathPattern: "^$",
                               order: [
                                   "publisher",
                                   "name",
@@ -102,14 +100,15 @@ const config: Linter.Config = {
                                   "lint-staged",
                                   "eslintConfig",
                               ],
+                              pathPattern: "^$",
                           },
                           {
-                              pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
                               order: { type: "asc" },
+                              pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
                           },
                           {
-                              pathPattern: "^exports.*$",
                               order: ["types", "require", "import"],
+                              pathPattern: "^exports.*$",
                           },
                       ],
             },

@@ -1,15 +1,86 @@
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import anolilabEslintConfig from "../utils/eslint-config";
+import indent from "../utils/indent";
 
-let indent: number = 4;
+if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
+    global.hasAnolilabEsLintConfigPrettier = true;
+}
 
-if (anolilabEslintConfig?.["indent"]) {
-    if (Number.isNaN(anolilabEslintConfig["indent"])) {
-        throw new TypeError("Indent must be a number");
-    }
+let prettierRules: Linter.Config["rules"] = {};
 
-    indent = Number(anolilabEslintConfig["indent"]);
+if (global.hasAnolilabEsLintConfigPrettier) {
+    prettierRules = {
+        // The rest are rules that you never need to enable when using Prettier.
+        "array-bracket-newline": "off",
+        "array-bracket-spacing": "off",
+        "array-element-newline": "off",
+        "arrow-parens": "off",
+        "arrow-spacing": "off",
+        "block-spacing": "off",
+        "brace-style": "off",
+        "comma-dangle": "off",
+
+        "comma-spacing": "off",
+        "comma-style": "off",
+        "computed-property-spacing": "off",
+        // script can distinguish them.)
+        curly: 0,
+        "dot-location": "off",
+        "eol-last": "off",
+        "func-call-spacing": "off",
+        "function-call-argument-newline": "off",
+        "function-paren-newline": "off",
+        "generator-star-spacing": "off",
+        "implicit-arrow-linebreak": "off",
+        indent: "off",
+        "jsx-quotes": "off",
+        "key-spacing": "off",
+        "keyword-spacing": "off",
+        "linebreak-style": "off",
+        "lines-around-comment": 0,
+        "max-len": 0,
+        "multiline-ternary": "off",
+        "new-parens": "off",
+        "newline-per-chained-call": "off",
+        "no-confusing-arrow": 0,
+        "no-extra-parens": "off",
+        "no-extra-semi": "off",
+        "no-floating-decimal": "off",
+        "no-mixed-operators": 0,
+        "no-mixed-spaces-and-tabs": "off",
+        "no-multi-spaces": "off",
+        "no-multiple-empty-lines": "off",
+        "no-tabs": 0,
+        "no-trailing-spaces": "off",
+        "no-unexpected-multiline": 0,
+        "no-whitespace-before-property": "off",
+        "nonblock-statement-body-position": "off",
+        "object-curly-newline": "off",
+        "object-curly-spacing": "off",
+        "object-property-newline": "off",
+        "one-var-declaration-per-line": "off",
+        "operator-linebreak": "off",
+        "padded-blocks": "off",
+        "quote-props": "off",
+        quotes: 0,
+        "rest-spread-spacing": "off",
+        semi: "off",
+        "semi-spacing": "off",
+        "semi-style": "off",
+        "space-before-blocks": "off",
+        "space-before-function-paren": "off",
+        "space-in-parens": "off",
+        "space-infix-ops": "off",
+        "space-unary-ops": "off",
+        "switch-colon-spacing": "off",
+        "template-curly-spacing": "off",
+        "template-tag-spacing": "off",
+        "unicode-bom": "off",
+        "wrap-iife": "off",
+        "wrap-regex": "off",
+        "yield-star-spacing": "off",
+    };
 }
 
 const config: Linter.Config = {
@@ -19,11 +90,11 @@ const config: Linter.Config = {
         "array-bracket-newline": "off",
 
         // enforce line breaks between array elements
-        // https://eslint.org/docs/rules/array-element-newline
-        "array-element-newline": "off",
-
         // enforce spacing inside array brackets
         "array-bracket-spacing": ["error", "never"],
+
+        // https://eslint.org/docs/rules/array-element-newline
+        "array-element-newline": "off",
 
         // enforce spacing inside single-line blocks
         // https://eslint.org/docs/rules/block-spacing
@@ -33,7 +104,7 @@ const config: Linter.Config = {
         "brace-style": ["error", "1tbs", { allowSingleLine: true }],
 
         // require camel case names
-        camelcase: ["error", { properties: "never", ignoreDestructuring: false }],
+        camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
 
         // enforce or disallow capitalization of the first letter of a comment
         // https://eslint.org/docs/rules/capitalized-comments
@@ -41,15 +112,15 @@ const config: Linter.Config = {
             "off",
             "never",
             {
-                line: {
-                    ignorePattern: ".*",
-                    ignoreInlineComments: true,
-                    ignoreConsecutiveComments: true,
-                },
                 block: {
-                    ignorePattern: ".*",
-                    ignoreInlineComments: true,
                     ignoreConsecutiveComments: true,
+                    ignoreInlineComments: true,
+                    ignorePattern: ".*",
+                },
+                line: {
+                    ignoreConsecutiveComments: true,
+                    ignoreInlineComments: true,
+                    ignorePattern: ".*",
                 },
             },
         ],
@@ -59,15 +130,15 @@ const config: Linter.Config = {
             "error",
             {
                 arrays: "always-multiline",
-                objects: "always-multiline",
-                imports: "always-multiline",
                 exports: "always-multiline",
                 functions: "always-multiline",
+                imports: "always-multiline",
+                objects: "always-multiline",
             },
         ],
 
         // enforce spacing before and after comma
-        "comma-spacing": ["error", { before: false, after: true }],
+        "comma-spacing": ["error", { after: true, before: false }],
 
         // enforce one true comma style
         "comma-style": [
@@ -82,10 +153,10 @@ const config: Linter.Config = {
                     FunctionDeclaration: false,
                     FunctionExpression: false,
                     ImportDeclaration: false,
+                    NewExpression: false,
                     ObjectExpression: false,
                     ObjectPattern: false,
                     VariableDeclaration: false,
-                    NewExpression: false,
                 },
             },
         ],
@@ -102,32 +173,32 @@ const config: Linter.Config = {
         // enforce newline at the end of file, with no multiple empty lines
         "eol-last": ["error", "always"],
 
-        // https://eslint.org/docs/rules/function-call-argument-newline
-        "function-call-argument-newline": ["error", "consistent"],
-
-        // enforce spacing between functions and their invocations
         // https://eslint.org/docs/rules/func-call-spacing
         "func-call-spacing": ["error", "never"],
 
-        // requires function names to match the name of the variable or property to which they are
-        // assigned
+        // enforce spacing between functions and their invocations
         // https://eslint.org/docs/rules/func-name-matching
         "func-name-matching": [
             "off",
             "always",
             {
-                includeCommonJSModuleExports: false,
                 considerPropertyDescriptor: true,
+                includeCommonJSModuleExports: false,
             },
         ],
 
-        // require function expressions to have a name
+        // requires function names to match the name of the variable or property to which they are
+        // assigned
         // https://eslint.org/docs/rules/func-names
         "func-names": ["error", "as-needed"],
 
-        // enforces use of function declarations or expressions
+        // require function expressions to have a name
         // https://eslint.org/docs/rules/func-style
         "func-style": ["error", "expression"],
+
+        // enforces use of function declarations or expressions
+        // https://eslint.org/docs/rules/function-call-argument-newline
+        "function-call-argument-newline": ["error", "consistent"],
 
         // enforce consistent line breaks inside function parentheses
         // https://eslint.org/docs/rules/function-paren-newline
@@ -158,25 +229,25 @@ const config: Linter.Config = {
             "error",
             indent,
             {
-                SwitchCase: 1,
-                VariableDeclarator: 1,
-                outerIIFEBody: 1,
-                // MemberExpression: null,
-                FunctionDeclaration: {
-                    parameters: 1,
-                    body: 1,
-                },
-                FunctionExpression: {
-                    parameters: 1,
-                    body: 1,
-                },
+                ArrayExpression: 1,
                 CallExpression: {
                     arguments: 1,
                 },
-                ArrayExpression: 1,
-                ObjectExpression: 1,
+                // MemberExpression: null,
+                FunctionDeclaration: {
+                    body: 1,
+                    parameters: 1,
+                },
+                FunctionExpression: {
+                    body: 1,
+                    parameters: 1,
+                },
                 ImportDeclaration: 1,
+                ObjectExpression: 1,
+                SwitchCase: 1,
+                VariableDeclarator: 1,
                 flatTernaryExpressions: false,
+                ignoreComments: false,
                 // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
                 ignoredNodes: [
                     "JSXElement",
@@ -196,7 +267,7 @@ const config: Linter.Config = {
                     "JSXEmptyExpression",
                     "JSXSpreadChild",
                 ],
-                ignoreComments: false,
+                outerIIFEBody: 1,
             },
         ],
 
@@ -205,18 +276,18 @@ const config: Linter.Config = {
         "jsx-quotes": ["off", "prefer-double"],
 
         // enforces spacing between keys and values in object literal properties
-        "key-spacing": ["error", { beforeColon: false, afterColon: true }],
+        "key-spacing": ["error", { afterColon: true, beforeColon: false }],
 
         // require a space before & after certain keywords
         "keyword-spacing": [
             "error",
             {
-                before: true,
                 after: true,
+                before: true,
                 overrides: {
+                    case: { after: true },
                     return: { after: true },
                     throw: { after: true },
-                    case: { after: true },
                 },
             },
         ],
@@ -227,9 +298,9 @@ const config: Linter.Config = {
         "line-comment-position": [
             "off",
             {
-                position: "above",
-                ignorePattern: "",
                 applyDefaultPatterns: true,
+                ignorePattern: "",
+                position: "above",
             },
         ],
 
@@ -238,21 +309,21 @@ const config: Linter.Config = {
         "linebreak-style": ["error", "unix"],
 
         // require or disallow an empty line between class members
-        // https://eslint.org/docs/rules/lines-between-class-members
-        "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
-
         // enforces empty lines around comments
         "lines-around-comment": "off",
 
-        // require or disallow newlines around directives
         // https://eslint.org/docs/rules/lines-around-directive
         "lines-around-directive": [
             "error",
             {
-                before: "always",
                 after: "always",
+                before: "always",
             },
         ],
+
+        // require or disallow newlines around directives
+        // https://eslint.org/docs/rules/lines-between-class-members
+        "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
 
         // specify the maximum depth that blocks can be nested
         "max-depth": ["off", 4],
@@ -264,11 +335,11 @@ const config: Linter.Config = {
             160,
             2,
             {
-                ignoreUrls: true,
                 ignoreComments: false,
                 ignoreRegExpLiterals: true,
                 ignoreStrings: true,
                 ignoreTemplateLiterals: true,
+                ignoreUrls: true,
             },
         ],
 
@@ -288,10 +359,10 @@ const config: Linter.Config = {
         "max-lines-per-function": [
             "off",
             {
+                IIFEs: true,
                 max: 50,
                 skipBlankLines: true,
                 skipComments: true,
-                IIFEs: true,
             },
         ],
 
@@ -321,10 +392,10 @@ const config: Linter.Config = {
         "new-cap": [
             "error",
             {
-                newIsCap: true,
-                newIsCapExceptions: [],
                 capIsNew: false,
                 capIsNewExceptions: ["Immutable.Map", "Immutable.Set", "Immutable.List"],
+                newIsCap: true,
+                newIsCapExceptions: [],
             },
         ],
 
@@ -367,6 +438,7 @@ const config: Linter.Config = {
             "error",
             {
                 // the list of arithmetic groups disallows mixing `%` and `**`
+                allowSamePrecedence: false,
                 // with other arithmetic operators.
                 groups: [
                     ["%", "**"],
@@ -380,7 +452,6 @@ const config: Linter.Config = {
                     ["&&", "||"],
                     ["in", "instanceof"],
                 ],
-                allowSamePrecedence: false,
             },
         ],
 
@@ -414,22 +485,22 @@ const config: Linter.Config = {
         "no-restricted-syntax": [
             "error",
             {
-                selector: "ForInStatement",
                 message:
                     "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
+                selector: "ForInStatement",
             },
             {
-                selector: "ForOfStatement",
                 message:
                     "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
+                selector: "ForOfStatement",
             },
             {
-                selector: "LabeledStatement",
                 message: "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
+                selector: "LabeledStatement",
             },
             {
-                selector: "WithStatement",
                 message: "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
+                selector: "WithStatement",
             },
         ],
 
@@ -447,8 +518,8 @@ const config: Linter.Config = {
         "no-trailing-spaces": [
             "error",
             {
-                skipBlankLines: false,
                 ignoreComments: false,
+                skipBlankLines: false,
             },
         ],
 
@@ -458,8 +529,8 @@ const config: Linter.Config = {
             "error",
             {
                 allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
-                allowAfterThis: false,
                 allowAfterSuper: false,
+                allowAfterThis: false,
                 enforceInMethodNames: true,
             },
         ],
@@ -477,20 +548,20 @@ const config: Linter.Config = {
         // https://eslint.org/docs/rules/nonblock-statement-body-position
         "nonblock-statement-body-position": ["error", "beside", { overrides: {} }],
 
-        // require padding inside curly braces
-        "object-curly-spacing": ["error", "always"],
-
-        // enforce line breaks between braces
         // https://eslint.org/docs/rules/object-curly-newline
         "object-curly-newline": [
             "error",
             {
-                ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
-                ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
-                ImportDeclaration: { minProperties: 4, multiline: true, consistent: true },
-                ExportDeclaration: { minProperties: 4, multiline: true, consistent: true },
+                ExportDeclaration: { consistent: true, minProperties: 4, multiline: true },
+                ImportDeclaration: { consistent: true, minProperties: 4, multiline: true },
+                ObjectExpression: { consistent: true, minProperties: 4, multiline: true },
+                ObjectPattern: { consistent: true, minProperties: 4, multiline: true },
             },
         ],
+
+        // enforce line breaks between braces
+        // require padding inside curly braces
+        "object-curly-spacing": ["error", "always"],
 
         // enforce "same line" or "multiple line" on object properties.
         // https://eslint.org/docs/rules/object-property-newline
@@ -543,7 +614,7 @@ const config: Linter.Config = {
 
         // require quotes around object literal property names
         // https://eslint.org/docs/rules/quote-props.html
-        "quote-props": ["error", "as-needed", { keywords: false, unnecessary: true, numbers: false }],
+        "quote-props": ["error", "as-needed", { keywords: false, numbers: false, unnecessary: true }],
 
         // specify whether double or single quotes should be used
         quotes: ["error", "double", { avoidEscape: true }],
@@ -556,7 +627,7 @@ const config: Linter.Config = {
         semi: ["error", "always"],
 
         // enforce spacing before and after semicolons
-        "semi-spacing": ["error", { before: false, after: true }],
+        "semi-spacing": ["error", { after: true, before: false }],
 
         // Enforce location of semicolons
         // https://eslint.org/docs/rules/semi-style
@@ -577,8 +648,8 @@ const config: Linter.Config = {
             "error",
             {
                 anonymous: "always",
-                named: "never",
                 asyncArrow: "always",
+                named: "never",
             },
         ],
 
@@ -593,9 +664,9 @@ const config: Linter.Config = {
         "space-unary-ops": [
             "error",
             {
-                words: true,
                 nonwords: false,
                 overrides: {},
+                words: true,
             },
         ],
 
@@ -605,14 +676,14 @@ const config: Linter.Config = {
             "error",
             "always",
             {
+                block: {
+                    balanced: true,
+                    exceptions: ["-", "+"],
+                    markers: ["=", "!", ":", "::"], // space here to support sprockets directives and flow comment types
+                },
                 line: {
                     exceptions: ["-", "+", "*"],
                     markers: ["=", "!", "/"], // space here to support sprockets directives, slash for TS /// comments
-                },
-                block: {
-                    exceptions: ["-", "+"],
-                    markers: ["=", "!", ":", "::"], // space here to support sprockets directives and flow comment types
-                    balanced: true,
                 },
             },
         ],
@@ -631,6 +702,8 @@ const config: Linter.Config = {
 
         // require regex literals to be wrapped in parentheses
         "wrap-regex": "off",
+
+        ...prettierRules,
     },
 };
 

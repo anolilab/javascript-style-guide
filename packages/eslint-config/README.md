@@ -22,13 +22,13 @@
 
 Our package serves as a valuable resource for JavaScript/Typescript-based projects, offering composable [ESLint](https://eslint.org/) configurations. It encompasses a range of features, including performance optimization and the flexibility to extend pre-defined base configurations.
 
-- Tailored Configuration for Workspaces: With this package, each workspace within your monorepo gains the ability to have its own customized ESLint configuration. This ensures that individual projects can maintain their specific requirements while still adhering to the overall guidelines.
+-   Tailored Configuration for Workspaces: With this package, each workspace within your monorepo gains the ability to have its own customized ESLint configuration. This ensures that individual projects can maintain their specific requirements while still adhering to the overall guidelines.
 
-- Configurability at Your Fingertips: Crafting your workspace's ESLint configuration is a breeze, thanks to the seamless composition of pre-defined base configurations. This empowers you to tailor the settings to suit your project's unique needs, without starting from scratch.
+-   Configurability at Your Fingertips: Crafting your workspace's ESLint configuration is a breeze, thanks to the seamless composition of pre-defined base configurations. This empowers you to tailor the settings to suit your project's unique needs, without starting from scratch.
 
-- Streamlined Convenience: Say goodbye to the hassle of installing plugins for each workspace. Our package integrates [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch), eliminating the need for repetitive plugin installations. Enjoy peace of mind as you focus on your work, knowing that the necessary plugins are automatically included.
+-   Streamlined Convenience: Say goodbye to the hassle of installing plugins for each workspace. Our package integrates [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch), eliminating the need for repetitive plugin installations. Enjoy peace of mind as you focus on your work, knowing that the necessary plugins are automatically included.
 
-- Enhanced Efficiency: We've optimized the package's performance by intelligently enabling plugins based on file naming conventions. This streamlined approach ensures that your ESLint checks run efficiently, targeting the relevant files and maximizing productivity.
+-   Enhanced Efficiency: We've optimized the package's performance by intelligently enabling plugins based on file naming conventions. This streamlined approach ensures that your ESLint checks run efficiently, targeting the relevant files and maximizing productivity.
 
 In summary, our package provides comprehensive and adaptable ESLint configurations for JavaScript and Typescript projects. It empowers you to achieve code quality while minimizing overhead and maximizing productivity throughout your workspaces.
 
@@ -189,11 +189,11 @@ Add this property to your package.json:
 
 ```json5
 {
-    "anolilab": {
+    anolilab: {
         "eslint-config": {
             // options
-        }
-    }
+        },
+    },
 }
 ```
 
@@ -342,6 +342,7 @@ npm install --save-dev @babel/eslint-parser
 This plugin provide a range of code quality rules:
 
 -   [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
+-   [eslint-plugin-antfu](https://github.com/antfu/eslint-config)
 
 ### Languages
 
@@ -379,7 +380,7 @@ The following esLint plugins enforce good coding practices:
 -   [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise)
 -   [eslint-plugin-no-loops](https://github.com/buildo/eslint-plugin-no-loops)
 -   [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
--   [eslint-plugin-es](https://github.com/mysticatea/eslint-plugin-es)
+-   [eslint-plugin-es-x](https://github.com/eslint-community/eslint-plugin-es-x)
 
 ### Security
 
@@ -388,6 +389,8 @@ These plugins add code security rules to esLint:
 -   [eslint-plugin-no-secrets](https://github.com/nickdeis/eslint-plugin-no-secrets)
 -   [eslint-plugin-no-unsanitized](https://github.com/mozilla/eslint-plugin-no-unsanitized)
 -   [eslint-plugin-sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs)
+-   [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security)
+-   [rushstack/eslint-plugin-security](https://www.npmjs.com/package/@rushstack/eslint-plugin-security)
 
 ### Test Libraries
 
@@ -404,21 +407,30 @@ The following test plugins are supported:
 
 ### List of used plugins
 
-    - eslint-import-resolver-node
-    - eslint-plugin-compat
-    - eslint-plugin-eslint-comments
-    - eslint-plugin-import
-    - eslint-plugin-markdown
-    - eslint-plugin-no-loops
-    - eslint-plugin-no-secrets
-    - eslint-plugin-optimize-regex
-    - eslint-plugin-promise
-    - eslint-plugin-sonarjs
-    - eslint-plugin-simple-import-sort
-    - eslint-plugin-sort-keys-fix
-    - eslint-plugin-unicorn
-    - eslint-plugin-you-dont-need-lodash-underscore
-    - eslint-plugin-you-dont-need-momentjs
+-   eslint-plugin-security
+-   @rushstack/eslint-plugin-security
+-   @typescript-eslint/eslint-plugin
+-   eslint-plugin-antfu
+-   eslint-plugin-compat
+-   eslint-plugin-es-x
+-   eslint-plugin-eslint-comments
+-   eslint-plugin-html
+-   eslint-plugin-i
+-   eslint-plugin-jsonc
+-   eslint-plugin-markdown
+-   eslint-plugin-mdx
+-   eslint-plugin-no-loops
+-   eslint-plugin-no-secrets
+-   eslint-plugin-no-use-extend-native
+-   eslint-plugin-promise
+-   eslint-plugin-regexp
+-   eslint-plugin-simple-import-sort
+-   eslint-plugin-sonarjs
+-   eslint-plugin-sort-keys-fix
+-   eslint-plugin-toml
+-   eslint-plugin-typescript-sort-keys
+-   eslint-plugin-unicorn
+-   eslint-plugin-yml
 
 ## Troubleshooting
 

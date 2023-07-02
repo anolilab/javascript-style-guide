@@ -9,9 +9,9 @@ if (global.anolilabEslintConfigJsDocRules === undefined && hasTypescript) {
     } else {
         global.anolilabEslintConfigJsDocRules = [
             {
+                extends: ["plugin:jsdoc/recommended-typescript-error"],
                 files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
                 plugins: ["jsdoc"],
-                extends: ["plugin:jsdoc/recommended-typescript-error"],
             },
         ];
     }
@@ -20,11 +20,11 @@ if (global.anolilabEslintConfigJsDocRules === undefined && hasTypescript) {
 const config: Linter.Config = {
     overrides: [
         {
+            extends: ["plugin:jsdoc/recommended-error"],
             files: ["*.js", "*.jsx", "*.mjs", "*.cjs"],
             plugins: ["jsdoc"],
-            extends: ["plugin:jsdoc/recommended-error"],
         },
-        ...global.anolilabEslintConfigJsDocRules ?? [],
+        ...(global.anolilabEslintConfigJsDocRules ?? []),
     ],
 };
 

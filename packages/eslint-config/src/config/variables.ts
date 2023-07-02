@@ -20,12 +20,12 @@ const config: Linter.Config = {
         "no-restricted-globals": [
             "error",
             {
-                name: "isFinite",
                 message: "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
+                name: "isFinite",
             },
             {
-                name: "isNaN",
                 message: "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
+                name: "isNaN",
             },
             ...confusingBrowserGlobals,
         ],
@@ -47,10 +47,10 @@ const config: Linter.Config = {
         "no-undefined": "off",
 
         // disallow declaration of variables that are not used in the code
-        "no-unused-vars": ["error", { vars: "all", args: "after-used", ignoreRestSiblings: true }],
+        "no-unused-vars": ["error", { args: "after-used", ignoreRestSiblings: true, vars: "all" }],
 
         // disallow use of variables before they are defined
-        "no-use-before-define": ["error", { functions: true, classes: true, variables: true }],
+        "no-use-before-define": ["error", { classes: true, functions: true, variables: true }],
     },
 };
 

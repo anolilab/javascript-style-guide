@@ -3,8 +3,8 @@ import type { Linter } from "eslint";
 const config: Linter.Config = {
     overrides: [
         {
-            files: ["*.toml"],
             extends: ["plugin:toml/standard"],
+            files: ["*.toml"],
             parser: "toml-eslint-parser",
         },
     ],

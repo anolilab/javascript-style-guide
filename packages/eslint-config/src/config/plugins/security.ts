@@ -1,6 +1,8 @@
 import type { Linter } from "eslint";
 
 const config: Linter.Config = {
+    // @see https://github.com/eslint-community/eslint-plugin-security
+    extends: ["plugin:security/recommended"],
     // @see https://www.npmjs.com/package/@rushstack/eslint-plugin-security
     plugins: ["@rushstack/eslint-plugin-security"],
     rules: {

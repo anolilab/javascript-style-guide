@@ -70,10 +70,10 @@ const config: Linter.Config = {
             "all",
             {
                 conditionalAssign: true,
+                enforceForArrowConditionals: false,
+                ignoreJSX: "all", // delegate to eslint-plugin-react
                 nestedBinaryExpressions: false,
                 returnAssign: false,
-                ignoreJSX: "all", // delegate to eslint-plugin-react
-                enforceForArrowConditionals: false,
             },
         ],
 
@@ -103,61 +103,61 @@ const config: Linter.Config = {
         // https://eslint.org/docs/rules/no-misleading-character-class
         "no-misleading-character-class": "error",
 
+        // deprecated in favor of no-unsafe-negation
+        "no-negated-in-lhs": "off",
+
+        // Disallow returning values from Promise executor functions
         // disallow the use of object properties of the global object (Math and JSON) as functions
         "no-obj-calls": "error",
 
-        // Disallow returning values from Promise executor functions
+        // disallow use of Object.prototypes builtins directly
         // https://eslint.org/docs/rules/no-promise-executor-return
         "no-promise-executor-return": "error",
 
-        // disallow use of Object.prototypes builtins directly
         // https://eslint.org/docs/rules/no-prototype-builtins
         "no-prototype-builtins": "error",
 
+        // Disallow returning values from setters
         // disallow multiple spaces in a regular expression literal
         "no-regex-spaces": "error",
 
-        // Disallow returning values from setters
         // https://eslint.org/docs/rules/no-setter-return
         "no-setter-return": "error",
 
+        // Disallow template literal placeholder syntax in regular strings
         // disallow sparse arrays
         "no-sparse-arrays": "error",
 
-        // Disallow template literal placeholder syntax in regular strings
+        // Avoid code that looks like two expressions but is actually one
         // https://eslint.org/docs/rules/no-template-curly-in-string
         "no-template-curly-in-string": "error",
 
-        // Avoid code that looks like two expressions but is actually one
         // https://eslint.org/docs/rules/no-unexpected-multiline
         "no-unexpected-multiline": "error",
 
+        // Disallow loops with a body that allows only one iteration
         // disallow unreachable statements after a return, throw, continue, or break statement
         "no-unreachable": "error",
 
-        // Disallow loops with a body that allows only one iteration
+        // disallow return/throw/break/continue inside finally blocks
         // https://eslint.org/docs/rules/no-unreachable-loop
         "no-unreachable-loop": "off", // error with typescript
 
-        // disallow return/throw/break/continue inside finally blocks
+        // disallow negating the left operand of relational operators
         // https://eslint.org/docs/rules/no-unsafe-finally
         "no-unsafe-finally": "error",
 
-        // disallow negating the left operand of relational operators
+        // disallow use of optional chaining in contexts where the undefined value is not allowed
         // https://eslint.org/docs/rules/no-unsafe-negation
         "no-unsafe-negation": "error",
 
-        // disallow use of optional chaining in contexts where the undefined value is not allowed
+        // Disallow useless backreferences in regular expressions
         // https://eslint.org/docs/rules/no-unsafe-optional-chaining
         "no-unsafe-optional-chaining": ["error", { disallowArithmeticOperators: true }],
 
-        // Disallow useless backreferences in regular expressions
+        // disallow negation of the left operand of an in expression
         // https://eslint.org/docs/rules/no-useless-backreference
         "no-useless-backreference": "error",
-
-        // disallow negation of the left operand of an in expression
-        // deprecated in favor of no-unsafe-negation
-        "no-negated-in-lhs": "off",
 
         // Disallow assignments that can lead to race conditions due to usage of await or yield
         // https://eslint.org/docs/rules/require-atomic-updates

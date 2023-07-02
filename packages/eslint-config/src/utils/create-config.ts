@@ -99,7 +99,7 @@ export const createConfigs = (
     }[],
 ): Linter.Config => {
     return {
-        overrides: rules.map(({ type, config }) => {
+        overrides: rules.map(({ config, type }) => {
             return {
                 files: getType(type),
                 ...config,

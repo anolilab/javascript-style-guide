@@ -22,6 +22,7 @@ const configFile = ".eslintrc";
 const writeEslintRc = () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(projectPath, filename))) {
             console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/eslint-config'
@@ -42,7 +43,9 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
     const tsconfigPath = join(projectPath, "tsconfig.json");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(tsconfigPath)) {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8")) as TsConfigJson;
 
         let ecmaVersion = "latest";
@@ -50,7 +53,8 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
         if (tsConfig.compilerOptions?.target) {
             ecmaVersion = tsConfig.compilerOptions.target;
 
-            ecmaVersion = ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");
+            ecmaVersion =
+                ecmaVersion.toLowerCase() === "es2022" || ecmaVersion.toLowerCase() === "esnext" ? "latest" : ecmaVersion.toLowerCase().replace("es", "");
 
             if (ecmaVersion !== "latest" && ecmaVersion !== "2022" && ecmaVersion !== "2021" && ecmaVersion !== "6") {
                 pluginExtends = `, "plugin:es-x/restrict-to-es${ecmaVersion}"`;
@@ -119,6 +123,7 @@ module.exports = {
 const writeEslintIgnore = () => {
     const eslintIgnorePath = join(projectPath, ".eslintignore");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(eslintIgnorePath)) {
         console.warn("⚠️  .eslintignore already exists");
 

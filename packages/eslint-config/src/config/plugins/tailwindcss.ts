@@ -6,8 +6,8 @@ import { createConfig } from "../../utils/create-config";
 const config: Linter.Config = createConfig(
     "jsx_and_tsx",
     {
-        plugins: ["tailwindcss"],
         extends: ["plugin:tailwindcss/recommended"],
+        plugins: ["tailwindcss"],
     },
     {
         browser: true,

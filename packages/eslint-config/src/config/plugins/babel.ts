@@ -12,43 +12,43 @@ const styleRules = styleConfig.rules as Linter.RulesRecord;
 
 if (global.anolilabEslintConfigBabelPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
     global.anolilabEslintConfigBabelPrettierRules = {
-        "babel/quotes": 0,
-
         "@babel/object-curly-spacing": "off",
+
         "@babel/semi": "off",
+        "babel/quotes": 0,
     };
 }
 
 const config: Linter.Config = createConfig("all", {
     plugins: ["babel"],
     rules: {
-        camelcase: "off",
         "babel/camelcase": [
             // Deep clone to avoid object mutation wierdness
             (styleRules["camelcase"] as any[])[0],
             { ...(styleRules["camelcase"] as any[])[1] },
         ],
-
-        "new-cap": "off",
         "babel/new-cap": styleRules["new-cap"],
 
-        "no-invalid-this": "off",
         "babel/no-invalid-this": bestPracticesRules["no-invalid-this"],
-
-        "object-curly-spacing": "off",
-        "babel/object-curly-spacing": styleRules["object-curly-spacing"],
-
-        quotes: "off",
-        "babel/quotes": styleRules["quotes"],
-
-        semi: "off",
-        "babel/semi": styleRules["semi"],
-
-        "no-unused-expressions": "off",
         "babel/no-unused-expressions": bestPracticesRules["no-unused-expressions"],
 
-        "valid-typeof": "off",
+        "babel/object-curly-spacing": styleRules["object-curly-spacing"],
+        "babel/quotes": styleRules["quotes"],
+
+        "babel/semi": styleRules["semi"],
         "babel/valid-typeof": errorsRules["valid-typeof"],
+
+        camelcase: "off",
+        "new-cap": "off",
+
+        "no-invalid-this": "off",
+        "no-unused-expressions": "off",
+
+        "object-curly-spacing": "off",
+        quotes: "off",
+
+        semi: "off",
+        "valid-typeof": "off",
 
         ...global.anolilabEslintConfigBabelPrettierRules,
     },

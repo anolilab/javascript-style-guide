@@ -9,9 +9,9 @@ const config: Linter.Config = {
     },
     overrides: [
         {
+            extends: ["plugin:storybook/recommended"],
             // For performance run storybook/recommended on test files, not regular code
             files: ["**/*.stories.{ts,tsx,mdx}"],
-            extends: ["plugin:storybook/recommended"],
         },
     ],
 };

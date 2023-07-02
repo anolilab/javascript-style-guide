@@ -15,7 +15,7 @@ declare global {
 
     var hasAnolilabEsLintConfigPlaywrightJest: boolean;
 
-    var hasAnolilabEsLintConfigYamlPrettier: boolean;
+    var anolilabEslintIndent: number;
 
     var anolilabEslintPackageJsonConfig: undefined | { [key: string]: boolean | undefined };
 
@@ -28,6 +28,9 @@ declare global {
     var anolilabEslintConfigNodeRules: undefined | Linter.RulesRecord;
 
     var anolilabEslintConfigReactPrettierRules: undefined | Linter.RulesRecord;
+
+    var anolilabEslintConfigHtmlPrettierRules: undefined | Linter.RulesRecord;
+    var anolilabEslintConfigHtmlPrettierSettings: undefined | Linter.Config["settings"];
 
     var anolilabEslintConfigReactVersion: undefined | string;
 

@@ -23,50 +23,50 @@ With `engines.node` set to `>=6` the rule `plugin/rule` will be used with the co
 With `engines.node` set to `>=8` the rule `plugin/rule` will be used with the config `{prop: 'node-8-conf'}`.
 */
 const engineRules = {
-    "unicorn/prefer-spread": {
-        "5.0.0": "off",
-    },
-    "unicorn/no-new-buffer": {
-        "5.10.0": "off",
-    },
-    "prefer-rest-params": {
-        "6.0.0": "off",
-    },
-    "prefer-destructuring": {
-        "6.0.0": "off",
-    },
-    "promise/prefer-await-to-then": {
-        "7.6.0": "off",
-    },
-    "prefer-object-spread": {
-        "8.3.0": "off",
-    },
-    "n/prefer-global/url-search-params": {
-        "10.0.0": "off",
-    },
-    "n/prefer-global/url": {
-        "10.0.0": "off",
-    },
-    "no-useless-catch": {
-        "10.0.0": "off",
-    },
-    "prefer-named-capture-group": {
-        "10.0.0": "off",
+    "n/prefer-global/text-decoder": {
+        "11.0.0": "off",
     },
     "n/prefer-global/text-encoder": {
         "11.0.0": "off",
     },
-    "n/prefer-global/text-decoder": {
-        "11.0.0": "off",
+    "n/prefer-global/url": {
+        "10.0.0": "off",
     },
-    "unicorn/prefer-flat-map": {
-        "11.0.0": "off",
+    "n/prefer-global/url-search-params": {
+        "10.0.0": "off",
     },
     "n/prefer-promises/dns": {
         "11.14.0": "off",
     },
     "n/prefer-promises/fs": {
         "11.14.0": "off",
+    },
+    "no-useless-catch": {
+        "10.0.0": "off",
+    },
+    "prefer-destructuring": {
+        "6.0.0": "off",
+    },
+    "prefer-named-capture-group": {
+        "10.0.0": "off",
+    },
+    "prefer-object-spread": {
+        "8.3.0": "off",
+    },
+    "prefer-rest-params": {
+        "6.0.0": "off",
+    },
+    "promise/prefer-await-to-then": {
+        "7.6.0": "off",
+    },
+    "unicorn/no-new-buffer": {
+        "5.10.0": "off",
+    },
+    "unicorn/prefer-flat-map": {
+        "11.0.0": "off",
+    },
+    "unicorn/prefer-spread": {
+        "5.0.0": "off",
     },
 };
 

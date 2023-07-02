@@ -5,12 +5,12 @@ const config: Linter.Config = {
         es6: true,
     },
     parserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module",
         ecmaFeatures: {
             generators: false,
             objectLiteralDuplicateProperties: false,
         },
+        ecmaVersion: 6,
+        sourceType: "module",
     },
     rules: {
         // enforces no braces where they can be omitted
@@ -29,14 +29,14 @@ const config: Linter.Config = {
 
         // require space before/after arrow function's arrow
         // https://eslint.org/docs/rules/arrow-spacing
-        "arrow-spacing": ["error", { before: true, after: true }],
+        "arrow-spacing": ["error", { after: true, before: true }],
 
         // verify super() callings in constructors
         "constructor-super": "error",
 
         // enforce the spacing around the * in generator functions
         // https://eslint.org/docs/rules/generator-star-spacing
-        "generator-star-spacing": ["error", { before: false, after: true }],
+        "generator-star-spacing": ["error", { after: true, before: false }],
 
         // disallow modifying variables of class declarations
         // https://eslint.org/docs/rules/no-class-assign
@@ -76,9 +76,9 @@ const config: Linter.Config = {
                 // The 'default' entry in restrictedNamedExports must also be removed.
                 // See https://github.com/airbnb/javascript/issues/2500 and https://github.com/eslint/eslint/pull/16785
                 restrictDefaultExports: {
+                    defaultFrom: false, // permits `export { default } from 'foo';` declarations
                     direct: false, // permits `export default` declarations
                     named: true, // restricts `export { foo as default };` declarations
-                    defaultFrom: false, // permits `export { default } from 'foo';` declarations
                     namedFrom: false, // permits `export { foo as default } from 'foo';` declarations
                     namespaceFrom: true, // restricts `export * as default from 'foo';` declarations
                 },
@@ -94,24 +94,24 @@ const config: Linter.Config = {
             {
                 paths: [
                     {
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.isequal",
-                        message:
-                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     },
                     {
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.uniqueId",
-                        message:
-                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     },
                     {
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.mergewith",
-                        message:
-                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     },
                     {
-                        name: "lodash.pick",
                         message:
                             "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        name: "lodash.pick",
                     },
                     {
                         name: "error",
@@ -132,56 +132,56 @@ const config: Linter.Config = {
                         name: "sys",
                     },
                     {
-                        name: "querystring",
                         message: 'Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try "qs" as a package',
+                        name: "querystring",
                     },
                     {
-                        name: "colors",
                         message: "Please use one of the following instead: chalk, kleur, ansi-colors, @colors/colors",
+                        name: "colors",
                     },
                     {
-                        name: "mkdirp",
                         message: "node v10.12 mkdir supports recursive option",
+                        name: "mkdirp",
                     },
                     {
-                        name: "faker",
                         message: 'Please use "@faker-js/faker" as a replacement',
+                        name: "faker",
                     },
                     {
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "xtend",
-                        message: "Please use Object.assign or spread { ...obj }",
                     },
                     {
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "object-assign",
-                        message: "Please use Object.assign or spread { ...obj }",
                     },
                     {
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "extend-shallow",
-                        message: "Please use Object.assign or spread { ...obj }",
                     },
                     {
-                        name: "rimraf",
                         message: "node supports recursive option now",
+                        name: "rimraf",
                     },
                     {
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "pad-left",
-                        message: 'just use "".padStart() and "".padEnd()',
                     },
                     {
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "pad-right",
-                        message: 'just use "".padStart() and "".padEnd()',
                     },
                     {
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "left-pad",
-                        message: 'just use "".padStart() and "".padEnd()',
                     },
                     {
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "right-pad",
-                        message: 'just use "".padStart() and "".padEnd()',
                     },
                     {
-                        name: "pad",
                         message: 'just use "".padStart() and "".padEnd()',
+                        name: "pad",
                     },
                     {
                         name: "safe-buffer",
@@ -190,28 +190,28 @@ const config: Linter.Config = {
                         name: "safer-buffer",
                     },
                     {
-                        name: "array-flatten",
                         message: "just use [].flat() or some other polyfill",
+                        name: "array-flatten",
                     },
                     {
-                        name: "request",
                         message: "Been deprecated",
+                        name: "request",
                     },
                     {
-                        name: "co",
                         message: "use async/await instead",
+                        name: "co",
                     },
                     {
+                        message: "Please use TextDecoder instead",
                         name: "windows-1252",
-                        message: "Please use TextDecoder instead",
                     },
                     {
+                        message: "Please use TextDecoder instead",
                         name: "string_decoder",
-                        message: "Please use TextDecoder instead",
                     },
                     {
-                        name: "concat-map",
                         message: "Please use array.prototype.flatMap instead",
+                        name: "concat-map",
                     },
                     {
                         name: "buffer-alloc",
@@ -241,8 +241,8 @@ const config: Linter.Config = {
             "error",
             {
                 ignoreDestructuring: false,
-                ignoreImport: false,
                 ignoreExport: false,
+                ignoreImport: false,
             },
         ],
 
@@ -255,8 +255,8 @@ const config: Linter.Config = {
             "error",
             "always",
             {
-                ignoreConstructors: false,
                 avoidQuotes: true,
+                ignoreConstructors: false,
             },
         ],
 
@@ -283,13 +283,13 @@ const config: Linter.Config = {
         "prefer-destructuring": [
             "error",
             {
-                VariableDeclarator: {
-                    array: false,
-                    object: true,
-                },
                 AssignmentExpression: {
                     array: true,
                     object: false,
+                },
+                VariableDeclarator: {
+                    array: false,
+                    object: true,
                 },
             },
             {

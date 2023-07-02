@@ -9,7 +9,12 @@ const config: Linter.Config = {
             },
         },
         {
-            plugins: ["jest"],
+            env: {
+                es6: true,
+                jest: true,
+                node: true,
+            },
+            extends: ["plugin:jest/recommended", "plugin:jest/style"],
             files: [
                 // Test files
                 "**/*.spec.{js,ts,tsx}",
@@ -20,41 +25,36 @@ const config: Linter.Config = {
                 "**/__mocks__/*.{js,ts,tsx}",
                 "**/__tests__/*.{js,ts,tsx}",
             ],
-            extends: ["plugin:jest/recommended", "plugin:jest/style"],
-            env: {
-                es6: true,
-                node: true,
-                jest: true,
-            },
+            plugins: ["jest"],
             rules: {
-                // Disabled this rule because jest doc blocks clash with jsdoc/check-tag-names
-                "jsdoc/check-tag-names": "off",
-
-                "jest/no-disabled-tests": "off",
-
-                "jest/prefer-hooks-in-order": "error",
-                "jest/prefer-hooks-on-top": "error",
-                "jest/no-duplicate-hooks": "error",
-                "jest/no-test-return-statement": "error",
-                "jest/prefer-strict-equal": "error",
-                "jest/prefer-to-have-length": "error",
-                "jest/consistent-test-it": ["error", { fn: "it" }],
-
-                // Relax rules that are known to be slow and less useful in a test context
-                "import/namespace": "off",
-                "import/default": "off",
-                "import/no-duplicates": "off",
-                // Relax rules that makes writing tests easier
-                "import/no-named-as-default-member": "off",
-
-                "@typescript-eslint/no-non-null-assertion": "off",
-                "@typescript-eslint/no-object-literal-type-assertion": "off",
-                "@typescript-eslint/no-empty-function": "off",
-                "@typescript-eslint/no-explicit-any": "off",
                 "@typescript-eslint/ban-ts-comment": "off",
 
+                "@typescript-eslint/no-empty-function": "off",
+
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-non-null-assertion": "off",
+                "@typescript-eslint/no-object-literal-type-assertion": "off",
                 // you should turn the original rule off *only* for test files
                 "@typescript-eslint/unbound-method": "off",
+                "import/default": "off",
+                // Relax rules that are known to be slow and less useful in a test context
+                "import/namespace": "off",
+                "import/no-duplicates": "off",
+
+                // Relax rules that makes writing tests easier
+                "import/no-named-as-default-member": "off",
+                "jest/consistent-test-it": ["error", { fn: "it" }],
+                "jest/no-disabled-tests": "off",
+                "jest/no-duplicate-hooks": "error",
+
+                "jest/no-test-return-statement": "error",
+                "jest/prefer-hooks-in-order": "error",
+                "jest/prefer-hooks-on-top": "error",
+                "jest/prefer-strict-equal": "error",
+                "jest/prefer-to-have-length": "error",
+
+                // Disabled this rule because jest doc blocks clash with jsdoc/check-tag-names
+                "jsdoc/check-tag-names": "off",
             },
         },
     ],

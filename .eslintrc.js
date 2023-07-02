@@ -2,28 +2,12 @@ const config = require("./packages/eslint-config");
 
 module.exports = {
     ...config,
-    root: true,
-    overrides: [
-        {
-            files: [
-                "*.ts",
-                "*.mts",
-                "*.cts",
-                "*.tsx",
-            ],
-            parserOptions: {
-                project: "./tsconfig.json",
-
-                tsconfigRootDir: __dirname,
-            },
-        },
-    ],
     env: {
         // Your environments (which contains several predefined global variables)
         browser: true,
-        node: false,
         commonjs: true,
         es6: true,
+        node: false,
         // mocha: true,
         // jquery: true
     },
@@ -32,7 +16,18 @@ module.exports = {
         //
         // myGlobal: false
     },
+    overrides: [
+        {
+            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+            parserOptions: {
+                project: "./tsconfig.json",
+
+                tsconfigRootDir: __dirname,
+            },
+        },
+    ],
     plugins: [],
+    root: true,
     rules: {
         // Customize your rules
         "no-console": "off",

@@ -1,3 +1,31 @@
+## @anolilab/eslint-config [8.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.5...@anolilab/eslint-config@8.0.0) (2023-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Because of broken release version this needs a version bump
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Add eslint-plugin-security rules and enhance ESLint configuration, fixed bug with prettier overwrite rules ([f26cc20](https://github.com/anolilab/javascript-style-guide/commit/f26cc20789aa1305ff3ed9331bda90252713c622))
+* Bumping the version up, because of a broken release with semantic-releases ([a646624](https://github.com/anolilab/javascript-style-guide/commit/a646624aa3e831809aa6bacb961c6e2c777d15b1))
+* Update dependencies version in pnpm-lock.yaml ([1f75f7b](https://github.com/anolilab/javascript-style-guide/commit/1f75f7bec8190da5ae6f2ba7e6ac249d802fabb4))
+
+
+### Miscellaneous Chores
+
+* **deps:** update eslint ([c83ef20](https://github.com/anolilab/javascript-style-guide/commit/c83ef20aa4dd8ecaa917089b2ef532730efd8038))
+* **release:** @anolilab/eslint-config@7.4.0 [skip ci]\n\n## @anolilab/eslint-config [7.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.5...@anolilab/eslint-config@7.4.0) (2023-07-03) ([3327b82](https://github.com/anolilab/javascript-style-guide/commit/3327b828b81c48899fb0d1dc920ca701de4e6636))
+* removed "semantic-release-npm-deprecate" not working like expected ([a988c89](https://github.com/anolilab/javascript-style-guide/commit/a988c898ebe4941cc6534ee3f8e1ec7e7a85d929))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.0
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.0
+
 ## @anolilab/eslint-config [7.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.5...@anolilab/eslint-config@7.4.0) (2023-07-03)
 
 

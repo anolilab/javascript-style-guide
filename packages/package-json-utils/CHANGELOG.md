@@ -1,3 +1,16 @@
+## @anolilab/package-json-utils [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.6.0...@anolilab/package-json-utils@2.0.0) (2023-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* The deprecated methods `hasPeerDep`, `hasDep`, and `hasDevelopmentDep` have been removed for cleaner code and better readability. All instances of these deprecated methods have also been updated in the tests to use their respective recommended methods `hasPeerDependencies`, `hasDependencies`, and `hasDevDependencies`.
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Remove deprecated methods and update tests ([ec0694b](https://github.com/anolilab/javascript-style-guide/commit/ec0694bbabc04dd06bf79421b3ec22ac1f2a2664))
+* Update dependencies version in pnpm-lock.yaml ([1f75f7b](https://github.com/anolilab/javascript-style-guide/commit/1f75f7bec8190da5ae6f2ba7e6ac249d802fabb4))
+
 ## @anolilab/package-json-utils [1.6.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.5.2...@anolilab/package-json-utils@1.6.0) (2023-07-03)
 
 

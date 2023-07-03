@@ -1,3 +1,22 @@
+## @anolilab/commitlint-config [1.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.4...@anolilab/commitlint-config@1.0.5) (2023-07-03)
+
+
+### Styles
+
+* "Rearrange order of task definitions and disable ESLint on non-literal fs filename" ([d48a8c0](https://github.com/anolilab/javascript-style-guide/commit/d48a8c0a0f87582e8a7389a4f9e025cdcbb113da))
+
+
+### Miscellaneous Chores
+
+* removed "semantic-release-npm-deprecate" not working like expected ([a988c89](https://github.com/anolilab/javascript-style-guide/commit/a988c898ebe4941cc6534ee3f8e1ec7e7a85d929))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.6.0
+* **@anolilab/semantic-release-preset:** upgraded to 4.1.0
+
 ## @anolilab/commitlint-config [1.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.3...@anolilab/commitlint-config@1.0.4) (2023-06-29)
 
 

@@ -56,15 +56,15 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "1.5.1"
+        "@anolilab/package-json-utils": "1.6.0"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "4.0.3",
+        "@anolilab/semantic-release-preset": "4.0.4",
         "prettier": "^2.8.8",
         "rimraf": "^5.0.1",
         "semantic-release": "^21.0.6",
         "tsup": "^7.1.0",
-        "vitest": "^0.32.2"
+        "vitest": "^0.32.4"
     },
     "peerDependencies": {
         "prettier": "2.x"

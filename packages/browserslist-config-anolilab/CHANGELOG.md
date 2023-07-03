@@ -1,3 +1,27 @@
+## browserslist-config-anolilab [4.2.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.1.3...browserslist-config-anolilab@4.2.0) (2023-07-03)
+
+
+### Features
+
+* Update dependencies version in pnpm-lock.yaml ([1f75f7b](https://github.com/anolilab/javascript-style-guide/commit/1f75f7bec8190da5ae6f2ba7e6ac249d802fabb4))
+
+
+### Styles
+
+* "Rearrange order of task definitions and disable ESLint on non-literal fs filename" ([d48a8c0](https://github.com/anolilab/javascript-style-guide/commit/d48a8c0a0f87582e8a7389a4f9e025cdcbb113da))
+
+
+### Miscellaneous Chores
+
+* removed "semantic-release-npm-deprecate" not working like expected ([a988c89](https://github.com/anolilab/javascript-style-guide/commit/a988c898ebe4941cc6534ee3f8e1ec7e7a85d929))
+* Update deprecation versions in releaserc.json files ([b7b7ab7](https://github.com/anolilab/javascript-style-guide/commit/b7b7ab7c776ac5f2a0908259c5e677dc3f55de46))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.0
+
 ## browserslist-config-anolilab [4.1.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.1.1...browserslist-config-anolilab@4.1.2) (2023-06-28)
 
 

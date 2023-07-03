@@ -1,3 +1,29 @@
+## @anolilab/lint-staged-config [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.0.1...@anolilab/lint-staged-config@1.1.0) (2023-07-03)
+
+
+### Features
+
+* Update dependencies version in pnpm-lock.yaml ([1f75f7b](https://github.com/anolilab/javascript-style-guide/commit/1f75f7bec8190da5ae6f2ba7e6ac249d802fabb4))
+
+
+### Styles
+
+* "Rearrange order of task definitions and disable ESLint on non-literal fs filename" ([d48a8c0](https://github.com/anolilab/javascript-style-guide/commit/d48a8c0a0f87582e8a7389a4f9e025cdcbb113da))
+* sorted some keys ([dcd5718](https://github.com/anolilab/javascript-style-guide/commit/dcd5718d38849314fce1816f0a2018e45b1a9076))
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([aad272a](https://github.com/anolilab/javascript-style-guide/commit/aad272ab8efd6f058414e0d2cb5208eb9a5fb3d1))
+* **deps:** update eslint ([c83ef20](https://github.com/anolilab/javascript-style-guide/commit/c83ef20aa4dd8ecaa917089b2ef532730efd8038))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.0
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.0
+
 ## @anolilab/lint-staged-config [1.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.0.0...@anolilab/lint-staged-config@1.0.1) (2023-06-29)
 
 

@@ -82,18 +82,12 @@ export const hasFile = (...p: string[]): boolean => existsSync(fromRoot(...p));
 export const hasScripts = hasPackageSubProperties("scripts");
 export const hasPeerDependency = hasPackageSubProperty("peerDependencies");
 export const hasPeerDependencies = hasPackageSubProperties("peerDependencies");
-// @deprecated Use `hasPeerDependencies` instead.
-export const hasPeerDep = hasPeerDependencies;
 export const hasDependency = hasPackageSubProperty("dependencies");
 export const hasDependencies = hasPackageSubProperties("dependencies");
-// @deprecated Use `hasDependencies` instead.
-export const hasDep = hasDependencies;
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const hasDevDependency = hasPackageSubProperty("devDependencies");
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const hasDevDependencies = hasPackageSubProperties("devDependencies");
-// @deprecated Use `hasDevDependencies` instead.
-export const hasDevelopmentDep = hasDevDependencies;
 
 export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean =>
     [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(

@@ -7,12 +7,12 @@ import {
     getPackageProperty,
     getPackageSubProperty,
     hasAnyDep,
-    hasDep,
-    hasDevelopmentDep,
+    hasDependencies,
+    hasDevDependencies as hasDevelopmentDependencies,
     hasFile,
     hasPackageProperties,
     hasPackageSubProperties,
-    hasPeerDep,
+    hasPeerDependencies,
     hasScripts,
     hasTypescript,
     isPackageAvailable,
@@ -84,20 +84,20 @@ describe("package-json-utils", () => {
         expect(hasScripts(["tes"])).toBeFalsy();
     });
 
-    it("hasPeerDep: returns false when the packageJson does not have the 'peerDependencies' property", () => {
-        expect(hasPeerDep(["react"])).toBeFalsy();
+    it("hasPeerDependencies: returns false when the packageJson does not have the 'peerDependencies' property", () => {
+        expect(hasPeerDependencies(["react"])).toBeFalsy();
     });
 
-    it("hasDep: returns true when the packageJson has the 'dependencies' property", () => {
-        expect(hasDep(["read-pkg-up"])).toBeTruthy();
+    it("hasDependencies: returns true when the packageJson has the 'dependencies' property", () => {
+        expect(hasDependencies(["read-pkg-up"])).toBeTruthy();
     });
 
-    it("hasDep: returns false when the packageJson does not have the 'dependencies' property", () => {
-        expect(hasDep(["dsa"])).toBeFalsy();
+    it("hasDependencies: returns false when the packageJson does not have the 'dependencies' property", () => {
+        expect(hasDependencies(["dsa"])).toBeFalsy();
     });
 
-    it("hasDevelopmentDep: returns false when the packageJson does not have the 'devDependencies' property", () => {
-        expect(hasDevelopmentDep(["cross-env2"])).toBeFalsy();
+    it("hasDevDependencies: returns false when the packageJson does not have the 'devDependencies' property", () => {
+        expect(hasDevelopmentDependencies(["cross-env2"])).toBeFalsy();
     });
 
     it("hasAnyDep: returns true when any of the dependency checks return true", () => {

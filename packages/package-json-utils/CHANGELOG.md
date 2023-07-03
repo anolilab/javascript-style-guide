@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [1.6.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.5.2...@anolilab/package-json-utils@1.6.0) (2023-07-03)
+
+
+### Features
+
+* Add eslint-plugin-security rules and enhance ESLint configuration, fixed bug with prettier overwrite rules ([f26cc20](https://github.com/anolilab/javascript-style-guide/commit/f26cc20789aa1305ff3ed9331bda90252713c622))
+
 ## @anolilab/package-json-utils [1.5.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.5.1...@anolilab/package-json-utils@1.5.2) (2023-06-29)
 
 

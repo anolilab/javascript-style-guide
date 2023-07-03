@@ -1,3 +1,22 @@
+## @anolilab/eslint-config [7.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.5...@anolilab/eslint-config@7.4.0) (2023-07-03)
+
+
+### Features
+
+* Add eslint-plugin-security rules and enhance ESLint configuration, fixed bug with prettier overwrite rules ([f26cc20](https://github.com/anolilab/javascript-style-guide/commit/f26cc20789aa1305ff3ed9331bda90252713c622))
+
+
+### Miscellaneous Chores
+
+* removed "semantic-release-npm-deprecate" not working like expected ([a988c89](https://github.com/anolilab/javascript-style-guide/commit/a988c898ebe4941cc6534ee3f8e1ec7e7a85d929))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.6.0
+* **@anolilab/semantic-release-preset:** upgraded to 4.1.0
+
 ## @anolilab/eslint-config [7.3.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.1...@anolilab/eslint-config@7.3.2) (2023-06-29)
 
 

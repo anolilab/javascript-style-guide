@@ -286,7 +286,7 @@ importers:
         version: 0.4.24
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 4.1.0
+        specifier: 4.0.4
         version: link:../semantic-release-preset
       '@babel/cli':
         specifier: ^7.22.5
@@ -323,7 +323,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 4.0.4
-        version: 4.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: link:../semantic-release-preset
       browserslist:
         specifier: 4.21.9
         version: 4.21.9
@@ -368,7 +368,7 @@ importers:
         version: 3.3.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 4.1.0
+        specifier: 4.0.4
         version: link:../semantic-release-preset
       '@commitlint/cli':
         specifier: ^17.6.6
@@ -577,7 +577,7 @@ importers:
         version: 1.6.0(eslint@8.44.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 4.1.0
+        specifier: 4.0.4
         version: link:../semantic-release-preset
       '@testing-library/dom':
         specifier: ^9.3.1
@@ -667,7 +667,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 4.0.4
-        version: 4.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.4.2
         version: 0.4.2
@@ -785,7 +785,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 4.0.4
-        version: 4.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: link:../semantic-release-preset
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -886,7 +886,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 4.0.4
-        version: 4.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: link:../semantic-release-preset
       postcss:
         specifier: ^8.4.24
         version: 8.4.24
@@ -970,7 +970,7 @@ importers:
         version: 1.0.8(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.32.2)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 4.1.0
+        specifier: 4.0.4
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.1
@@ -1006,37 +1006,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
-
-  /@anolilab/package-json-utils@1.5.2:
-    resolution: {integrity: sha512-5XCymGAVMN0ufy1c/17YhCA+xcNYk4Se7Zk+WWTqtVpZBNiXV4UiHOusiADaxDgEgoiPJKLPchcCh5cfd04uaA==}
-    engines: {node: '>=16'}
-    dependencies:
-      dot-path-value: 0.0.10
-      read-pkg-up: 7.0.1
-    dev: true
-
-  /@anolilab/semantic-release-preset@4.0.4(semantic-release@21.0.2)(typescript@5.1.6):
-    resolution: {integrity: sha512-Fucuq9SBK151+06W1YXnQMPhvJgjkacRWo+PEMH0la1C/NqceM5N+Daxkr1nKmqQ94wvIYAcQMEsf5q8AMqWYw==}
-    engines: {node: '>=16'}
-    requiresBuild: true
-    peerDependencies:
-      semantic-release: ^21.0.0
-    dependencies:
-      '@anolilab/package-json-utils': 1.5.2
-      '@semantic-release/changelog': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/commit-analyzer': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/exec': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/git': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/github': 9.0.3(semantic-release@21.0.2)
-      '@semantic-release/npm': 10.0.4(semantic-release@21.0.2)(typescript@5.1.6)
-      '@semantic-release/release-notes-generator': 11.0.3(semantic-release@21.0.2)
-      conventional-changelog-conventionalcommits: 6.1.0
-      semantic-release: 21.0.2(typescript@5.1.6)
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-      - typescript
-    dev: true
 
   /@azu/format-text@1.0.2:
     resolution: {integrity: sha512-Swi4N7Edy1Eqq82GxgEECXSSLyn6GOb5htRFPzBDdUkECGXtlf12ynO5oJSpWKPwCaUssOu7NfhDcCWpIC6Ywg==}
@@ -5407,14 +5376,6 @@ packages:
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
     dev: false
 
-  /@yarnpkg/parsers@3.0.0-rc.45:
-    resolution: {integrity: sha512-Aj0aHBV/crFQTpKQvL6k1xNiOhnlfVLu06LunelQAvl1MTeWrSi8LD9UJJDCFJiG4kx8NysUE6Tx0KZyPQUzIw==}
-    engines: {node: '>=14.15.0'}
-    dependencies:
-      js-yaml: 3.14.1
-      tslib: 2.5.2
-    dev: false
-
   /@yarnpkg/parsers@3.0.0-rc.46:
     resolution: {integrity: sha512-aiATs7pSutzda/rq8fnuPwTglyVwjM22bNnK2ZgjrpAjQHSSl3lztd2f9evst1W/qnC58DRz7T7QndUDumAR4Q==}
     engines: {node: '>=14.15.0'}
@@ -7264,6 +7225,7 @@ packages:
 
   /dot-path-value@0.0.10:
     resolution: {integrity: sha512-MrVpDoFwk1xjeM0sGRuei7N3LQOylJ9iamgfxAQwPY0hPnDHL981hM/KpoQwFHMckgjZvJA0MyH7VN//ernFFA==}
+    dev: false
 
   /dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
@@ -12162,7 +12124,7 @@ packages:
       '@nrwl/tao': 15.9.3
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
-      '@yarnpkg/parsers': 3.0.0-rc.45
+      '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.6
       axios: 1.4.0
       chalk: 4.1.2

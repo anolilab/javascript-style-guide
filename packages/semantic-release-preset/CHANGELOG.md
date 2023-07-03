@@ -1,16 +1,3 @@
-## @anolilab/semantic-release-preset [4.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.0.4...@anolilab/semantic-release-preset@4.1.0) (2023-07-03)
-
-
-### Features
-
-* Add eslint-plugin-security rules and enhance ESLint configuration, fixed bug with prettier overwrite rules ([f26cc20](https://github.com/anolilab/javascript-style-guide/commit/f26cc20789aa1305ff3ed9331bda90252713c622))
-
-
-
-### Dependencies
-
-* **@anolilab/package-json-utils:** upgraded to 1.6.0
-
 ## @anolilab/semantic-release-preset [4.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.0.3...@anolilab/semantic-release-preset@4.0.4) (2023-06-29)
 
 

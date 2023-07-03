@@ -1,3 +1,23 @@
+## @anolilab/commitlint-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.5...@anolilab/commitlint-config@2.0.0) (2023-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Because of broken release version this needs a version bump
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Bumping the version up, because of a broken release with semantic-releases ([a646624](https://github.com/anolilab/javascript-style-guide/commit/a646624aa3e831809aa6bacb961c6e2c777d15b1))
+* Update dependencies version in pnpm-lock.yaml ([1f75f7b](https://github.com/anolilab/javascript-style-guide/commit/1f75f7bec8190da5ae6f2ba7e6ac249d802fabb4))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.0
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.0
+
 ## @anolilab/commitlint-config [1.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.3...@anolilab/commitlint-config@1.0.4) (2023-06-29)
 
 

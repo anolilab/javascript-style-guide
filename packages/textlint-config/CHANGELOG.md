@@ -1,3 +1,23 @@
+## @anolilab/textlint-config [6.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.8...@anolilab/textlint-config@6.0.9) (2023-07-03)
+
+
+### Styles
+
+* "Rearrange order of task definitions and disable ESLint on non-literal fs filename" ([d48a8c0](https://github.com/anolilab/javascript-style-guide/commit/d48a8c0a0f87582e8a7389a4f9e025cdcbb113da))
+
+
+### Miscellaneous Chores
+
+* removed "semantic-release-npm-deprecate" not working like expected ([a988c89](https://github.com/anolilab/javascript-style-guide/commit/a988c898ebe4941cc6534ee3f8e1ec7e7a85d929))
+* Update deprecation versions in releaserc.json files ([b7b7ab7](https://github.com/anolilab/javascript-style-guide/commit/b7b7ab7c776ac5f2a0908259c5e677dc3f55de46))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 1.6.0
+* **@anolilab/semantic-release-preset:** upgraded to 4.1.0
+
 ## @anolilab/textlint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@6.0.6...@anolilab/textlint-config@6.0.7) (2023-06-28)
 
 

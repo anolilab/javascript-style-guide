@@ -6,19 +6,19 @@ const getType = (type: FileType) => {
     switch (type) {
         case "typescript": {
             // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
-            return ["*.ts", "*.tsx", "*.mts", "*.cts"];
+            return ["*.ts", "*.tsx", "*.mts", "*.cts", "*.mdx"];
         }
         case "jsx_and_tsx": {
-            return ["*.jsx", "*.tsx"];
+            return ["*.jsx", "*.tsx", "*.md{,x}"];
         }
         case "js_and_ts": {
-            return ["*.js", "*.mjs", "*.cjs", "*.ts", "*.mts", "*.cts"];
+            return ["*.js", "*.mjs", "*.cjs", "*.ts", "*.mts", "*.cts", "*.mdx"];
         }
         case "javascript": {
             return ["*.js", "*.mjs", "*.cjs"];
         }
         case "all": {
-            return ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts"];
+            return ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts", "*.mdx"];
         }
         case "jest": {
             return [

@@ -3,7 +3,7 @@ import type { Linter } from "eslint";
 const config: Linter.Config = {
     overrides: [
         {
-            files: ["*.md", "**/*.md"],
+            files: ["*.md"],
             parserOptions: {
                 ecmacFeatures: {
                     impliedStrict: true,

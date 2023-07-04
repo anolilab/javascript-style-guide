@@ -7,7 +7,7 @@ const config: Linter.Config = {
     extends: ["plugin:cypress/recommended"],
     plugins: ["cypress"],
     rules: {
-        // Rules not in recommmend config
+        // Rules not in recommend config
         "cypress/assertion-before-screenshot": 0,
         "cypress/no-force": 0,
         "cypress/require-data-selectors": 0,

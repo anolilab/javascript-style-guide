@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@8.0.0...@anolilab/eslint-config@9.0.0) (2023-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove 'sort-keys-fix' and 'typescript-sort-keys' plugins, add 'perfectionist' plugin and update dependencies
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Add support for MDX files in ESLint configs ([cd2f551](https://github.com/anolilab/javascript-style-guide/commit/cd2f551236daade344dbdf4289a6783ec2c76e87))
+* Remove 'sort-keys-fix' and 'typescript-sort-keys' plugins, add 'perfectionist' plugin and update dependencies, added new globals export with es2015-2021 ([ee27ee4](https://github.com/anolilab/javascript-style-guide/commit/ee27ee45e9ebd18e55869c76e695dd40bf6ec2d3))
+
 ## @anolilab/eslint-config [8.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@7.3.5...@anolilab/eslint-config@8.0.0) (2023-07-03)
 
 

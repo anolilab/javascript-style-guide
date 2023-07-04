@@ -63,7 +63,7 @@ importers:
         version: 16.4.2
       '@qiwi/multi-semantic-release':
         specifier: ^7.0.0
-        version: 7.0.0(typescript@5.1.6)
+        version: 7.0.0
       '@secretlint/secretlint-rule-preset-recommend':
         specifier: ^7.0.2
         version: 7.0.2
@@ -138,7 +138,7 @@ importers:
         version: 7.0.2(typescript@5.1.6)
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       sort-package-json:
         specifier: ^2.5.0
         version: 2.5.0
@@ -308,7 +308,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(ts-node@10.9.1)(typescript@5.1.6)
@@ -338,7 +338,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(ts-node@10.9.1)(typescript@5.1.6)
@@ -451,6 +451,9 @@ importers:
       eslint-plugin-no-use-extend-native:
         specifier: ^0.5.0
         version: 0.5.0
+      eslint-plugin-perfectionist:
+        specifier: ^1.4.0
+        version: 1.4.0(eslint@8.44.0)(typescript@5.1.6)
       eslint-plugin-promise:
         specifier: ^6.1.1
         version: 6.1.1(eslint@8.44.0)
@@ -466,15 +469,9 @@ importers:
       eslint-plugin-sonarjs:
         specifier: ^0.19.0
         version: 0.19.0(eslint@8.44.0)
-      eslint-plugin-sort-keys-fix:
-        specifier: ^1.1.2
-        version: 1.1.2
       eslint-plugin-toml:
         specifier: ^0.5.0
         version: 0.5.0(eslint@8.44.0)
-      eslint-plugin-typescript-sort-keys:
-        specifier: ^2.3.0
-        version: 2.3.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
       eslint-plugin-unicorn:
         specifier: ^47.0.0
         version: 47.0.0(eslint@8.44.0)
@@ -484,6 +481,9 @@ importers:
       find-up:
         specifier: 5.0.0
         version: 5.0.0
+      globals:
+        specifier: ^13.20.0
+        version: 13.20.0
       jsonc-eslint-parser:
         specifier: ^2.3.0
         version: 2.3.0
@@ -579,6 +579,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 5.0.0
         version: link:../semantic-release-preset
+      '@arthurgeron/eslint-plugin-react-usememo':
+        specifier: ^1.1.4
+        version: 1.1.4
       '@testing-library/dom':
         specifier: ^9.3.1
         version: 9.3.1
@@ -620,7 +623,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       type-fest:
         specifier: ^3.12.0
         version: 3.12.0
@@ -657,7 +660,7 @@ importers:
         version: 2.8.8
       secretlint:
         specifier: ^7.0.2
-        version: 7.0.2(typescript@5.1.6)
+        version: 7.0.2
       stylelint:
         specifier: ^15.9.0
         version: 15.9.0
@@ -691,7 +694,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(ts-node@10.9.1)(typescript@5.1.6)
@@ -742,7 +745,7 @@ importers:
         version: 9.0.3(semantic-release@21.0.2)
       '@semantic-release/npm':
         specifier: ^10.0.4
-        version: 10.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: 10.0.4(semantic-release@21.0.2)
       '@semantic-release/release-notes-generator':
         specifier: ^11.0.3
         version: 11.0.3(semantic-release@21.0.2)
@@ -763,7 +766,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       semantic-release-conventional-commits:
         specifier: ^3.0.0
         version: 3.0.0
@@ -794,7 +797,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(ts-node@10.9.1)(typescript@5.1.6)
@@ -824,7 +827,7 @@ importers:
         version: 9.0.3(semantic-release@21.0.2)
       '@semantic-release/npm':
         specifier: ^10.0.4
-        version: 10.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+        version: 10.0.4(semantic-release@21.0.2)
       '@semantic-release/release-notes-generator':
         specifier: ^11.0.3
         version: 11.0.3(semantic-release@21.0.2)
@@ -837,7 +840,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(postcss@8.4.24)(ts-node@10.9.1)(typescript@5.1.6)
@@ -895,7 +898,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       stylelint:
         specifier: 15.9.0
         version: 15.9.0
@@ -977,7 +980,7 @@ importers:
         version: 5.0.1
       semantic-release:
         specifier: ^21.0.2
-        version: 21.0.2(typescript@5.1.6)
+        version: 21.0.2
       textlint:
         specifier: ^13.3.3
         version: 13.3.3
@@ -1006,6 +1009,10 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
+
+  /@arthurgeron/eslint-plugin-react-usememo@1.1.4:
+    resolution: {integrity: sha512-OIjOhplz6MT+HgJjKZT1SDGzhofSRZaYfNBc7yRl/eeuh2VfUlRQP9ulReBLmfwuQWyRLr0wcdazQNKq35MaEw==}
+    dev: true
 
   /@azu/format-text@1.0.2:
     resolution: {integrity: sha512-Swi4N7Edy1Eqq82GxgEECXSSLyn6GOb5htRFPzBDdUkECGXtlf12ynO5oJSpWKPwCaUssOu7NfhDcCWpIC6Ywg==}
@@ -3960,7 +3967,7 @@ packages:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  /@qiwi/multi-semantic-release@7.0.0(typescript@5.1.6):
+  /@qiwi/multi-semantic-release@7.0.0:
     resolution: {integrity: sha512-uI9LF8E/+vLrsPFbbbkJK3XRlr3+qlYbcRQqSwhftb4uN1KtSmxKOEnlkIb5F3fdIuu5TtKIkeHZQhJDyZgqHw==}
     engines: {node: '>=14', yarn: '>=1.0.0'}
     hasBin: true
@@ -3978,14 +3985,13 @@ packages:
       meow: 12.0.1
       promise-events: 0.2.4
       resolve-from: 5.0.0
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
       semver: 7.5.3
       signale: 1.4.0
       stream-buffers: 3.0.2
     transitivePeerDependencies:
       - encoding
       - supports-color
-      - typescript
     dev: false
 
   /@ronilaukkarinen/stylelint-a11y@1.2.7(stylelint@15.9.0):
@@ -4119,7 +4125,7 @@ packages:
       aggregate-error: 3.1.0
       fs-extra: 11.1.1
       lodash: 4.17.21
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
 
   /@semantic-release/commit-analyzer@10.0.1(semantic-release@21.0.2):
     resolution: {integrity: sha512-9ejHzTAijYs9z246sY/dKBatmOPcd0GQ7lH4MgLCkv1q4GCiDZRkjHJkaQZXZVaK7mJybS+sH3Ng6G8i3pYMGQ==}
@@ -4134,7 +4140,7 @@ packages:
       import-from: 4.0.0
       lodash-es: 4.17.21
       micromatch: 4.0.5
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -4151,7 +4157,7 @@ packages:
       import-from: 4.0.0
       lodash: 4.17.21
       micromatch: 4.0.5
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -4175,7 +4181,7 @@ packages:
       execa: 5.1.1
       lodash: 4.17.21
       parse-json: 5.2.0
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -4193,7 +4199,7 @@ packages:
       lodash: 4.17.21
       micromatch: 4.0.5
       p-reduce: 2.1.0
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -4218,7 +4224,7 @@ packages:
       mime: 3.0.0
       p-filter: 2.1.0
       p-retry: 4.6.2
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
       url-join: 4.0.1
     transitivePeerDependencies:
       - encoding
@@ -4245,13 +4251,13 @@ packages:
       lodash-es: 4.17.21
       mime: 3.0.0
       p-filter: 3.0.0
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
       url-join: 5.0.0
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  /@semantic-release/npm@10.0.4(semantic-release@21.0.2)(typescript@5.1.6):
+  /@semantic-release/npm@10.0.4(semantic-release@21.0.2):
     resolution: {integrity: sha512-6R3timIQ7VoL2QWRkc9DG8v74RQtRp7UOe/2KbNaqwJ815qOibAv65bH3RtTEhs4axEaHoZf7HDgFs5opaZ9Jw==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -4266,13 +4272,11 @@ packages:
       normalize-url: 8.0.0
       npm: 9.6.6
       rc: 1.2.8
-      read-pkg: 8.0.0(typescript@5.1.6)
+      read-pkg: 8.0.0
       registry-auth-token: 5.0.2
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
       semver: 7.5.3
       tempy: 3.0.0
-    transitivePeerDependencies:
-      - typescript
 
   /@semantic-release/release-notes-generator@11.0.3(semantic-release@21.0.2):
     resolution: {integrity: sha512-NU77dWKQf+QcZrv/Hcp3DPeSxglPu8hYKCipGxAPpeaneLkg6S0zfTVug4tg4mfDhZHC6RtoI7ljQDK8VoJ2Dw==}
@@ -4290,7 +4294,7 @@ packages:
       into-stream: 7.0.0
       lodash-es: 4.17.21
       read-pkg-up: 9.1.0
-      semantic-release: 21.0.2(typescript@5.1.6)
+      semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5403,14 +5407,6 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: false
 
-  /acorn-jsx@5.3.2(acorn@7.4.1):
-    resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
-    peerDependencies:
-      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      acorn: 7.4.1
-    dev: false
-
   /acorn-jsx@5.3.2(acorn@8.8.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -5429,11 +5425,6 @@ packages:
   /acorn-walk@8.2.0:
     resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
     engines: {node: '>=0.4.0'}
-
-  /acorn@7.4.1:
-    resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
-    engines: {node: '>=0.4.0'}
-    dev: false
 
   /acorn@8.8.2:
     resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
@@ -8003,6 +7994,23 @@ packages:
       is-proto-prop: 2.0.0
     dev: false
 
+  /eslint-plugin-perfectionist@1.4.0(eslint@8.44.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-9gO+qmuU1DYzoYeN2D0PqYrI1FlqMPYGsZTWUWnWPrMQdFGFtq7eYraeQ57/8ffNBbVX6e6HvQOJ9iok9DfJvw==}
+    peerDependencies:
+      eslint: '>=8.0.0'
+    dependencies:
+      '@typescript-eslint/types': 5.61.0
+      '@typescript-eslint/utils': 5.61.0(eslint@8.44.0)(typescript@5.1.6)
+      eslint: 8.44.0
+      is-core-module: 2.12.1
+      json5: 2.2.3
+      minimatch: 9.0.1
+      natural-compare-lite: 1.4.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: false
+
   /eslint-plugin-playwright@0.15.2(eslint-plugin-jest@27.2.2)(eslint@8.44.0):
     resolution: {integrity: sha512-Q2jQ7ORjZscvwxR6MEgITZy23vxlnYlJlMR7aICFczWVMijTCZPGvvMoZaLWkAzx5J6fciulwbg+JJeRjMkTig==}
     requiresBuild: true
@@ -8123,16 +8131,6 @@ packages:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       eslint: 8.44.0
-    dev: false
-
-  /eslint-plugin-sort-keys-fix@1.1.2:
-    resolution: {integrity: sha512-DNPHFGCA0/hZIsfODbeLZqaGY/+q3vgtshF85r+YWDNCQ2apd9PNs/zL6ttKm0nD1IFwvxyg3YOTI7FHl4unrw==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      espree: 6.2.1
-      esutils: 2.0.3
-      natural-compare: 1.4.0
-      requireindex: 1.2.0
     dev: false
 
   /eslint-plugin-storybook@0.6.12(eslint@8.44.0)(typescript@5.1.6):
@@ -8340,11 +8338,6 @@ packages:
     dev: false
     optional: true
 
-  /eslint-visitor-keys@1.3.0:
-    resolution: {integrity: sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==}
-    engines: {node: '>=4'}
-    dev: false
-
   /eslint-visitor-keys@2.1.0:
     resolution: {integrity: sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==}
     engines: {node: '>=10'}
@@ -8401,15 +8394,6 @@ packages:
       text-table: 0.2.0
     transitivePeerDependencies:
       - supports-color
-
-  /espree@6.2.1:
-    resolution: {integrity: sha512-ysCxRQY3WaXJz9tdbWOwuWr5Y/XrPTGX9Kiz3yoUXwW0VZ4w30HTkQLaGx/+ttFjF8i+ACbArnB4ce68a9m5hw==}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      acorn: 7.4.1
-      acorn-jsx: 5.3.2(acorn@7.4.1)
-      eslint-visitor-keys: 1.3.0
-    dev: false
 
   /espree@9.5.2:
     resolution: {integrity: sha512-7OASN1Wma5fum5SrNhFMAMJxOUAbhyfQ8dQ//PJaJbNw0URTPWqIghHWt1MmAANKhHZIYOHruW4Kw4ruUWOdGw==}
@@ -13113,6 +13097,15 @@ packages:
       parse-json: 5.2.0
       type-fest: 2.19.0
 
+  /read-pkg@8.0.0:
+    resolution: {integrity: sha512-Ajb9oSjxXBw0YyOiwtQ2dKbAA/vMnUPnY63XcCk+mXo0BwIdQEMgZLZiMWGttQHcUhUgbK0mH85ethMPKXxziw==}
+    engines: {node: '>=16'}
+    dependencies:
+      '@types/normalize-package-data': 2.4.1
+      normalize-package-data: 5.0.0
+      parse-json: 7.0.0
+      type-fest: 3.12.0
+
   /read-pkg@8.0.0(typescript@5.1.6):
     resolution: {integrity: sha512-Ajb9oSjxXBw0YyOiwtQ2dKbAA/vMnUPnY63XcCk+mXo0BwIdQEMgZLZiMWGttQHcUhUgbK0mH85ethMPKXxziw==}
     engines: {node: '>=16'}
@@ -13123,6 +13116,7 @@ packages:
       type-fest: 3.10.0(typescript@5.1.6)
     transitivePeerDependencies:
       - typescript
+    dev: false
 
   /readable-stream@1.0.34:
     resolution: {integrity: sha512-ok1qVCJuRkNmvebYikljxJA/UEsKwLl2nI1OmaqAu4/UE+h0wKCHok4XkL/gvi39OacXvw59RJUOFUkDib2rHg==}
@@ -13676,6 +13670,24 @@ packages:
       regexp-ast-analysis: 0.6.0
     dev: false
 
+  /secretlint@7.0.2:
+    resolution: {integrity: sha512-AByRXUsGRQjpVsFLzktIDoSGXPAjgBlVQJMgSjqvgNjuCuCzB+zOFIkuQT3+bbPEZ0NwiVnvW3DZ7z+hl+yQ9A==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      '@secretlint/config-creator': 7.0.2
+      '@secretlint/formatter': 7.0.2
+      '@secretlint/node': 7.0.2
+      '@secretlint/profiler': 7.0.2
+      debug: 4.3.4
+      globby: 13.2.1
+      meow: 12.0.1
+      read-pkg: 8.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+    optional: true
+
   /secretlint@7.0.2(typescript@5.1.6):
     resolution: {integrity: sha512-AByRXUsGRQjpVsFLzktIDoSGXPAjgBlVQJMgSjqvgNjuCuCzB+zOFIkuQT3+bbPEZ0NwiVnvW3DZ7z+hl+yQ9A==}
     engines: {node: ^14.13.1 || >=16.0.0}
@@ -13708,7 +13720,7 @@ packages:
       conventional-commits-parser: 3.2.4
     dev: true
 
-  /semantic-release@21.0.2(typescript@5.1.6):
+  /semantic-release@21.0.2:
     resolution: {integrity: sha512-Hl6lyJdZ0pAYD07Z1FIUmg06UzSC3fEjHS7U31YppNQ8jOwjjt7pVzW9OfpoO0vbmqD3Tc+b/iZh5fqvKt01OA==}
     engines: {node: '>=18'}
     hasBin: true
@@ -13716,7 +13728,7 @@ packages:
       '@semantic-release/commit-analyzer': 9.0.2(semantic-release@21.0.2)
       '@semantic-release/error': 3.0.0
       '@semantic-release/github': 8.0.7(semantic-release@21.0.2)
-      '@semantic-release/npm': 10.0.4(semantic-release@21.0.2)(typescript@5.1.6)
+      '@semantic-release/npm': 10.0.4(semantic-release@21.0.2)
       '@semantic-release/release-notes-generator': 11.0.3(semantic-release@21.0.2)
       aggregate-error: 4.0.1
       cosmiconfig: 8.2.0
@@ -13744,7 +13756,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-      - typescript
 
   /semver-diff@3.1.1:
     resolution: {integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==}
@@ -15124,6 +15135,7 @@ packages:
       typescript: '>=4.7.0'
     dependencies:
       typescript: 5.1.6
+    dev: false
 
   /type-fest@3.12.0:
     resolution: {integrity: sha512-qj9wWsnFvVEMUDbESiilKeXeHL7FwwiFcogfhfyjmvT968RXSvnl23f1JOClTHYItsi7o501C/7qVllscUP3oA==}

@@ -263,22 +263,30 @@ const config: Linter.Config = {
                 ],
 
                 // Prevent usage of setState in componentWillUpdate
+                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+                "react/jsx-indent": ["error", indent, { checkAttributes: true, indentLogicalExpressions: true }],
+
+                // Prevent direct mutation of this.state
+                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
+                "react/jsx-indent-props": ["error", indent],
+
+                // Prevent usage of isMounted
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
                 "react/jsx-key": "off",
 
-                // Prevent direct mutation of this.state
+                // Prevent multiple component definition per file
                 // https://github.com/yannickcr/eslint-plugin-react/blob/abe8381c0d6748047224c430ce47f02e40160ed0/docs/rules/jsx-max-depth.md
                 "react/jsx-max-depth": "off",
 
-                // Prevent usage of isMounted
+                // Prevent usage of setState
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
                 "react/jsx-max-props-per-line": ["error", { maximum: 1, when: "multiline" }],
 
-                // Prevent multiple component definition per file
+                // Prevent using string references
                 // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
                 "react/jsx-newline": "off",
 
-                // Prevent usage of setState
+                // Prevent usage of unknown DOM property
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
                 "react/jsx-no-bind": [
                     "error",
@@ -291,23 +299,23 @@ const config: Linter.Config = {
                     },
                 ],
 
-                // Prevent using string references
+                // Require ES6 class declarations over React.createClass
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
                 "react/jsx-no-comment-textnodes": "error",
 
-                // Prevent usage of unknown DOM property
+                // Require stateless functions when not using lifecycle methods, setState or ref
                 // https://github.com/yannickcr/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-no-constructed-context-values.md
                 "react/jsx-no-constructed-context-values": "error",
 
-                // Require ES6 class declarations over React.createClass
+                // Prevent missing props validation in a React component definition
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
                 "react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],
 
-                // Require stateless functions when not using lifecycle methods, setState or ref
+                // Prevent missing React when using JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
                 "react/jsx-no-literals": ["off", { noStrings: true }],
 
-                // Prevent missing props validation in a React component definition
+                // Require render() methods to return something
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
                 "react/jsx-no-script-url": [
                     "error",
@@ -319,23 +327,23 @@ const config: Linter.Config = {
                     ],
                 ],
 
-                // Prevent missing React when using JSX
+                // Prevent extra closing tags for components without children
                 // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
                 "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
 
-                // Require render() methods to return something
+                // Enforce defaultProps declarations alphabetical sorting
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
                 "react/jsx-no-undef": "error",
 
-                // Prevent extra closing tags for components without children
+                // Enforce component methods order
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
                 "react/jsx-no-useless-fragment": "error",
 
-                // Enforce defaultProps declarations alphabetical sorting
+                // Require that the first prop in a JSX element be on a new line when the element is multiline
                 // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-one-expression-per-line.md
                 "react/jsx-one-expression-per-line": ["error", { allow: "single-child" }],
 
-                // Enforce component methods order
+                // Enforce spacing around jsx equals signs
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
                 "react/jsx-pascal-case": [
                     "error",
@@ -345,11 +353,12 @@ const config: Linter.Config = {
                     },
                 ],
 
-                // Require that the first prop in a JSX element be on a new line when the element is multiline
+                // Enforce JSX indentation
                 // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
                 "react/jsx-props-no-multi-spaces": "error",
 
-                // Enforce spacing around jsx equals signs
+                // Prevent usage of setState in componentDidMount
+                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
                 "react/jsx-props-no-spreading": [
                     "error",
@@ -361,28 +370,9 @@ const config: Linter.Config = {
                     },
                 ],
 
-                // Enforce JSX indentation
-                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
-                "react/jsx-sort-props": [
-                    "off",
-                    {
-                        callbacksLast: false,
-                        ignoreCase: true,
-                        noSortAlphabetically: false,
-                        reservedFirst: true,
-                        shorthandFirst: false,
-                        shorthandLast: false,
-                    },
-                ],
-
-                // Prevent usage of setState in componentDidMount
-                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-                "react/jsx-indent": ["error", indent, { checkAttributes: true, indentLogicalExpressions: true }],
-
                 // Prevent usage of setState in componentDidUpdate
-                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-                "react/jsx-indent-props": ["error", indent],
+                // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
+                "react/jsx-sort-props": "off",
 
                 // Disallow target="_blank" on links
                 // Deprecated in favor of jsx-tag-spacing

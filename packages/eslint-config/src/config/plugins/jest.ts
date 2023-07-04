@@ -1,4 +1,5 @@
 import type { Linter } from "eslint";
+import globals from "globals";
 
 const config: Linter.Config = {
     overrides: [
@@ -25,6 +26,9 @@ const config: Linter.Config = {
                 "**/__mocks__/*.{js,ts,tsx}",
                 "**/__tests__/*.{js,ts,tsx}",
             ],
+            globals: {
+                ...globals.jest,
+            },
             plugins: ["jest"],
             rules: {
                 "@typescript-eslint/ban-ts-comment": "off",

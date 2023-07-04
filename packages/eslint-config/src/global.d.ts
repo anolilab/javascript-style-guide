@@ -13,6 +13,8 @@ declare global {
 
     var hasAnolilabEsLintConfigJsyA11yStorybook: boolean;
 
+    var hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys: boolean;
+
     var hasAnolilabEsLintConfigPlaywrightJest: boolean;
 
     var anolilabEslintIndent: number;

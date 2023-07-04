@@ -1,12 +1,12 @@
 import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, readFileSync, writeFile } from "node:fs";
 import { join } from "node:path";
+import { env, exit } from "node:process";
 import { promisify } from "node:util";
 import type { TsConfigJson } from "type-fest";
 
-if (process.env["CI"]) {
-    // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(0);
+if (env["CI"]) {
+    exit(0);
 }
 
 const writeFileAsync = promisify(writeFile);
@@ -43,12 +43,12 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
     const tsconfigPath = join(projectPath, "tsconfig.json");
 
+    let ecmaVersion = "latest";
+
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(tsconfigPath)) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         const tsConfig = JSON.parse(readFileSync(tsconfigPath, "utf8")) as TsConfigJson;
-
-        let ecmaVersion = "latest";
 
         if (tsConfig.compilerOptions?.target) {
             ecmaVersion = tsConfig.compilerOptions.target;
@@ -69,7 +69,9 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
     },`;
     }
 
-    const content = `/** @ts-check */
+    const content = `${
+        ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion) ? 'var { globals } = require("./packages/eslint-config");\n\n' : ""
+    }/** @ts-check */
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
     root: true,
@@ -79,7 +81,11 @@ module.exports = {
         // Your environments (which contains several predefined global variables)
         // Most environments are loaded automatically if our rules are added
     },${parserOptions}
-    globals: {
+    globals: {${
+        ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion)
+            ? `\n        ...globals.${ecmaVersion === "latest" ? "es2021" : ecmaVersion},`
+            : ""
+    }
         // Your global variables (setting to false means it's not allowed to be reassigned)
         // myGlobal: false
     },
@@ -141,13 +147,11 @@ const writeEslintIgnore = () => {
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(0);
+        exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
         console.error(error);
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(1);
+        exit(1);
     }
 })();

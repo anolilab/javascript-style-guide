@@ -77,8 +77,9 @@ const config: Linter.Config = {
             },
             plugins: ["@typescript-eslint"],
             rules: {
+                // Disabled because of perfectionist/sort-interfaces rule
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/adjacent-overload-signatures.md
-                "@typescript-eslint/adjacent-overload-signatures": "error",
+                "@typescript-eslint/adjacent-overload-signatures": "off",
 
                 // Replace 'brace-style' rule with '@typescript-eslint' version
                 // Requires using either T[] for arrays (array-type)

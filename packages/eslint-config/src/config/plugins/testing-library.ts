@@ -5,7 +5,10 @@ import { createConfig } from "../../utils/create-config";
 import anolilabEslintConfig from "../../utils/eslint-config";
 import { consolePlugin } from "../../utils/loggers";
 
-if (global.anolilabEslintConfigTestingLibraryRuleSet === undefined && (hasDependency("react") || hasDevDependency("react") || hasDependency("@testing-library/react") || hasDevDependency("@testing-library/react"))) {
+if (
+    global.anolilabEslintConfigTestingLibraryRuleSet === undefined &&
+    (hasDependency("react") || hasDevDependency("react") || hasDependency("@testing-library/react") || hasDevDependency("@testing-library/react"))
+) {
     global.anolilabEslintConfigTestingLibraryRuleSet = "react";
 }
 

@@ -14,6 +14,7 @@ import "@rushstack/eslint-patch/modern-module-resolution";
 
 import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+import globals from "globals";
 import { join } from "node:path";
 import semver from "semver";
 
@@ -115,6 +116,11 @@ const config: Linter.Config = {
 
         ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.js`)),
     ],
+    globals: {
+        ...globals.browser,
+        ...globals.nodeBuiltin,
+    },
+
     ignorePatterns: [
         "!.*",
 
@@ -142,7 +148,6 @@ const config: Linter.Config = {
 
         "pnpm-lock.yaml",
     ],
-
     overrides: [
         {
             files: ["**/migrations/*.{js,ts}"],

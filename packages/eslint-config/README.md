@@ -76,8 +76,6 @@ If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, wi
 
 ```js
 module.exports = {
-    root: true,
-    extends: ["@anolilab/eslint-config"],
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -87,11 +85,13 @@ module.exports = {
         // jest: true,
         // jquery: true
     },
+    extends: ["@anolilab/eslint-config"],
     globals: {
         // Your global variables (setting to false means it's not allowed to be reassigned)
         //
         // myGlobal: false
     },
+    root: true,
     rules: {
         // Customize your rules
     },
@@ -125,8 +125,6 @@ Extend the `.eslintrc.js` file:
 
 ```js
 module.children = {
-    root: true,
-    extends: ["@anolilab/eslint-config", "@anolilab/eslint-config/typescript-type-checking"],
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -136,11 +134,13 @@ module.children = {
         // jest: true,
         // jquery: true
     },
+    extends: ["@anolilab/eslint-config", "@anolilab/eslint-config/typescript-type-checking"],
     globals: {
         // Your global variables (setting to false means it's not allowed to be reassigned)
         //
         // myGlobal: false
     },
+    root: true,
     rules: {
         // Customize your rules
     },
@@ -426,7 +426,6 @@ The following test plugins are supported:
 -   eslint-plugin-regexp
 -   eslint-plugin-simple-import-sort
 -   eslint-plugin-sonarjs
--   eslint-plugin-sort-keys-fix
 -   eslint-plugin-toml
 -   eslint-plugin-typescript-sort-keys
 -   eslint-plugin-unicorn

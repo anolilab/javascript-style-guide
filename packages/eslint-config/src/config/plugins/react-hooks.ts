@@ -1,15 +1,15 @@
 import type { Linter } from "eslint";
 
+import { createConfig } from "../../utils/create-config";
+
 // @see https://github.com/yannickcr/eslint-plugin-react
-const config: Linter.Config = {
+const config: Linter.Config = createConfig("jsx_and_tsx", {
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
     },
-
     plugins: ["react-hooks"],
-
     rules: {
         // Enforce Rules of Hooks
         // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
@@ -19,6 +19,6 @@ const config: Linter.Config = {
         // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
         "react-hooks/rules-of-hooks": "error",
     },
-};
+});
 
 export default config;

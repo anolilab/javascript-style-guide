@@ -502,6 +502,14 @@ const config: Linter.Config = {
                 message: "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
                 selector: "WithStatement",
             },
+            {
+                message: "`useMemo` with an empty dependency array can't provide a stable reference, use `useRef` instead.",
+                selector: "CallExpression[callee.name=useMemo][arguments.1.type=ArrayExpression][arguments.1.elements.length=0]",
+            },
+            {
+                message: "Use `.key` instead of `.keyCode`",
+                selector: "MemberExpression > .property[type=Identifier][name=keyCode]",
+            },
         ],
 
         // disallow space between function identifier and application
@@ -634,7 +642,7 @@ const config: Linter.Config = {
         "semi-style": ["error", "last"],
 
         // requires object keys to be sorted
-        "sort-keys": ["off", "asc", { caseSensitive: false, natural: true }],
+        "sort-keys": "off",
 
         // sort variables within the same declaration block
         "sort-vars": "off",

@@ -29,6 +29,7 @@ const internalPluginConfig = [
     "antfu",
     "unicorn",
     "es",
+    "perfectionist",
 ];
 
 const pluginConfig: PackageRules = [
@@ -70,7 +71,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "react-redux",
-        dependencies: ["eslint-plugin-react-redux"],
+        dependencies: ["react", "react-dom", "eslint-plugin-react-redux"],
     },
     {
         configName: "jsx-a11y",
@@ -79,6 +80,10 @@ const pluginConfig: PackageRules = [
     {
         configName: "react-hooks",
         dependencies: ["react", "react-dom", "eslint-plugin-react-hooks"],
+    },
+    {
+        configName: "react-usememo",
+        dependencies: ["react", "react-dom", "@arthurgeron/eslint-plugin-react-usememo"],
     },
     {
         configName: "you-dont-need-momentjs",
@@ -131,10 +136,6 @@ const pluginConfig: PackageRules = [
     {
         configName: "etc",
         dependencies: ["typescript", "eslint-plugin-etc"],
-    },
-    {
-        configName: "typescript-sort-keys",
-        dependencies: ["typescript", "eslint-plugin-typescript-sort-keys"],
     },
     {
         configName: "vitest",

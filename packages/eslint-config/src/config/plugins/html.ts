@@ -10,8 +10,8 @@ if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || has
 if (global.hasAnolilabEsLintConfigPrettier) {
     global.anolilabEslintConfigHtmlPrettierRules = {
         "@html-eslint/element-newline": "off",
-        "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/indent": "off",
+        "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
     };
 

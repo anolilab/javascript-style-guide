@@ -78,17 +78,18 @@ extends browserslist-config-anolilab
 Or when using [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env)
 
 ```js
-{
+module.exports = {
     presets: [
         [
             'env',
             {
                 targets: {
+                    // eslint-disable-next-line global-require
                     browsers: require('browserslist-config-anolilab'),
                 },
             },
         ],
-    ];
+    ],
 }
 ```
 

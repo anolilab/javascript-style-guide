@@ -181,7 +181,7 @@ This preset can be configured to support `react`, using `"react": true` or `"rea
 
 Or
 
-```json
+```json5
 {
     "presets": [
         [

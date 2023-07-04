@@ -46,44 +46,44 @@ If you don’t have a `.prettierrc.js` and `.prettierignore`, we will create the
 <summary>File content of the `.prettierrc.js`</summary>
 
 ```js
-{
+module.exports = {
+    // brackets are required for arrow function parameter, even when there is only one parameter
+    arrowParens: "always",
+    // spaces are required at the beginning and end of the braces
+    bracketSpacing: true,
+    // formats quoted code embedded
+    embeddedLanguageFormatting: "auto",
+    // lf for newline
+    endOfLine: "lf",
+    // decide whether to break the html according to the display style
+    htmlWhitespaceSensitivity: "css",
+    // No need to automatically insert @prettier at the beginning of the file
+    insertPragma: false,
+    // use double quotes instead of single quotes in jsx
+    jsxSingleQuote: false,
     // max 160 characters per line
     printWidth: 160,
-    // use 4 spaces for indentation
-    tabWidth: 4,
-    // use spaces instead of indentations
-    useTabs: false,
+    // use default break criteria
+    proseWrap: "preserve",
+    // object's key is quoted only when necessary
+    quoteProps: "as-needed",
+    rangeEnd: Number.POSITIVE_INFINITY,
+    // format the entire contents of the file
+    rangeStart: 0,
+    // no need to write the beginning @prettier of the file
+    requirePragma: false,
     // semicolon at the end of the line
     semi: true,
     // use single quotes
     singleQuote: false,
-    // object's key is quoted only when necessary
-    quoteProps: "as-needed",
-    // use double quotes instead of single quotes in jsx
-    jsxSingleQuote: false,
+    // use 4 spaces for indentation
+    tabWidth: 4,
     // all comma at the end
     trailingComma: "all",
-    // spaces are required at the beginning and end of the braces
-    bracketSpacing: true,
-    // brackets are required for arrow function parameter, even when there is only one parameter
-    arrowParens: "always",
-    // format the entire contents of the file
-    rangeStart: 0,
-    rangeEnd: Number.POSITIVE_INFINITY,
-    // no need to write the beginning @prettier of the file
-    requirePragma: false,
-    // No need to automatically insert @prettier at the beginning of the file
-    insertPragma: false,
-    // use default break criteria
-    proseWrap: "preserve",
-    // decide whether to break the html according to the display style
-    htmlWhitespaceSensitivity: "css",
+    // use spaces instead of indentations
+    useTabs: false,
     // vue files script and style tags indentation
     vueIndentScriptAndStyle: false,
-    // lf for newline
-    endOfLine: "lf",
-    // formats quoted code embedded
-    embeddedLanguageFormatting: "auto",
 }
 ```
 </details>

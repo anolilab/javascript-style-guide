@@ -1,3 +1,17 @@
+## @anolilab/lint-staged-config [1.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.0...@anolilab/lint-staged-config@1.1.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* Revise optional chaining and promise handling in scripts ([4f1d996](https://github.com/anolilab/javascript-style-guide/commit/4f1d9965e862d72d3a50ef8652347d63ac5ef990))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.1
+
 ## @anolilab/lint-staged-config [1.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.0.1...@anolilab/lint-staged-config@1.1.0) (2023-07-03)
 
 

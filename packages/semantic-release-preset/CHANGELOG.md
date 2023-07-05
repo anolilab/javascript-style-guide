@@ -1,3 +1,16 @@
+## @anolilab/semantic-release-preset [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@5.0.0...@anolilab/semantic-release-preset@5.0.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* Refactor async functions to use async/await and update tsconfig.json ([2a59d6e](https://github.com/anolilab/javascript-style-guide/commit/2a59d6e0d06a5a37c92b222961acbe9f17578f26))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.1
+
 ## @anolilab/semantic-release-preset [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@4.1.0...@anolilab/semantic-release-preset@5.0.0) (2023-07-03)
 
 

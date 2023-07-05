@@ -14,7 +14,7 @@ if (
 
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintTestConfigLoaded) {
-    if (anolilabEslintConfig?.["info_on_testing_library_framework"] !== false) {
+    if (anolilabEslintConfig["info_on_testing_library_framework"] !== false) {
         consolePlugin(`testing-library: loading "${global.anolilabEslintConfigTestingLibraryRuleSet ?? "dom"}" ruleset`);
     }
 

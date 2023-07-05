@@ -77,11 +77,7 @@ const getType = (type: FileType) => {
     }
 };
 
-export const createConfig = (
-    type: FileType,
-    config: Omit<Linter.ConfigOverride<Linter.RulesRecord>, "files">,
-    environment?: { [name: string]: boolean },
-): Linter.Config => {
+export const createConfig = (type: FileType, config: Omit<Linter.ConfigOverride, "files">, environment?: { [name: string]: boolean }): Linter.Config => {
     return {
         env: environment,
         overrides: [
@@ -94,7 +90,7 @@ export const createConfig = (
 };
 export const createConfigs = (
     rules: {
-        config: Omit<Linter.ConfigOverride<Linter.RulesRecord>, "files">;
+        config: Omit<Linter.ConfigOverride, "files">;
         type: FileType;
     }[],
 ): Linter.Config => {

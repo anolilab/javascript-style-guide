@@ -3,21 +3,21 @@ import type { Linter } from "eslint";
 export {};
 
 declare global {
-    var hasAnolilabEsLintConfigLoaded: boolean;
+    var hasAnolilabEsLintConfigLoaded: undefined | boolean;
 
-    var hasAnolilabEsLintConfigReactRuntimePath: boolean;
+    var hasAnolilabEsLintConfigReactRuntimePath: undefined | boolean;
 
-    var hasAnolilabEsLintTestConfigLoaded: boolean;
+    var hasAnolilabEsLintTestConfigLoaded: undefined | boolean;
 
-    var hasAnolilabEsLintConfigPrettier: boolean;
+    var hasAnolilabEsLintConfigPrettier: undefined | boolean;
 
-    var hasAnolilabEsLintConfigJsyA11yStorybook: boolean;
+    var hasAnolilabEsLintConfigJsyA11yStorybook: undefined | boolean;
 
-    var hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys: boolean;
+    var hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys: undefined | boolean;
 
-    var hasAnolilabEsLintConfigPlaywrightJest: boolean;
+    var hasAnolilabEsLintConfigPlaywrightJest: undefined | boolean;
 
-    var anolilabEslintIndent: number;
+    var anolilabEslintIndent: undefined | number;
 
     var anolilabEslintPackageJsonConfig: undefined | { [key: string]: boolean | undefined };
 

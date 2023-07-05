@@ -48,13 +48,14 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
         ].forEach((plugin) => consolePlugin(plugin));
     }
 
-    let hasLogged = false;
+    let hasLogged: boolean = false;
 
     Object.entries(possiblePluginRules).forEach(([plugin, dependencies]) => {
         const hasOneDependency = Object.values(dependencies).some(Boolean);
 
         if (hasOneDependency) {
             hasLogged = true;
+
             consoleLog(
                 `\nYour package.json container dependencies for the "${plugin}" eslint-plugin, please add the following dependencies with your chosen package manager to enable this plugin:`,
             );
@@ -67,6 +68,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
         }
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (hasLogged) {
         consoleLog("\nTo disable this message, add the following to your package.json:");
         consoleLog('    "anolilab": { "eslint-config": { plugin: { "plugin-name": false } } }\n');
@@ -99,7 +101,7 @@ Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
 if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
     global.hasAnolilabEsLintConfigPrettier = true;
 
-    if (anolilabEslintConfig?.["info_on_disabling_prettier_conflict_rule"] !== false) {
+    if (anolilabEslintConfig["info_on_disabling_prettier_conflict_rule"] !== false) {
         consoleLog("\nFound prettier as dependency, disabling some rules to fix wrong behavior of the rule with eslint and prettier");
     }
 }
@@ -120,7 +122,6 @@ const config: Linter.Config = {
         ...globals.browser,
         ...globals.nodeBuiltin,
     },
-
     ignorePatterns: [
         "!.*",
 
@@ -177,7 +178,6 @@ const config: Linter.Config = {
     // Disable the parser by default
     parser: "",
     // is loaded.
-    root: true,
     rules: {
         ...configRules,
     },

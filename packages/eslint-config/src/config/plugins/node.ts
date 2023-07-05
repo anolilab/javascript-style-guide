@@ -2,7 +2,7 @@ import { pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 if (global.anolilabEslintConfigNodeRules === undefined && pkg?.engines?.["node"]) {
-    const version: string = pkg?.engines?.["node"];
+    const version: string = pkg.engines["node"];
 
     global.anolilabEslintConfigNodeRules = {
         "n/no-unsupported-features/es-builtins": ["error", { version }],

@@ -16,7 +16,7 @@ const hasSortPackageJson = hasDependency("sort-package-json") || hasDevDependenc
 if (hasSortPackageJson) {
     let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSONC_SORT_KEYS_RULE"] !== "true";
 
-    if (showLog && anolilabEslintConfig?.["info_on_disabling_jsonc_sort_keys_rule"] !== undefined) {
+    if (showLog && anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] !== undefined) {
         showLog = anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"];
     }
 

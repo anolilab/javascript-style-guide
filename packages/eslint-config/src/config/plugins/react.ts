@@ -45,7 +45,7 @@ const hasJsxRuntime = (() => {
 
         let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSX_REACT_RULE"] !== "true";
 
-        if (showLog && anolilabEslintConfig?.["info_on_disabling_jsx_react_rule"] !== undefined) {
+        if (showLog && anolilabEslintConfig["info_on_disabling_jsx_react_rule"] !== undefined) {
             showLog = anolilabEslintConfig["info_on_disabling_jsx_react_rule"];
         }
 
@@ -77,7 +77,7 @@ if (!global.anolilabEslintConfigReactVersion) {
     }
 }
 
-if (global.anolilabEslintConfigReactVersion !== undefined && anolilabEslintConfig?.["info_on_found_react_version"] !== false) {
+if (global.anolilabEslintConfigReactVersion !== undefined && anolilabEslintConfig["info_on_found_react_version"] !== false) {
     consoleLog(
         `\n@anolilab/eslint-config found the version ${global.anolilabEslintConfigReactVersion} of react in your dependencies, this version ${global.anolilabEslintConfigReactVersion} will be used to setup the "eslint-plugin-react"\n`,
     );

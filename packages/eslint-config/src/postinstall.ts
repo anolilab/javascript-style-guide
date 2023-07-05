@@ -19,7 +19,7 @@ const configFile = ".eslintrc";
  * Writes .eslintrc.js if it doesn't exist. Warns if it exists.
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
-const writeEslintRc = () => {
+const writeEslintRc = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -28,7 +28,7 @@ const writeEslintRc = () => {
 Make sure that it includes the following for @anolilab/eslint-config'
 to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
-            return Promise.resolve();
+            return;
         }
     }
 
@@ -63,14 +63,14 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
         parserOptions = `
     parserOptions: {
-        project: "./tsconfig.json",
+        project: true,
         ecmaVersion: ${ecmaVersion === "latest" ? `"${ecmaVersion}"` : ecmaVersion},
         sourceType: ${packageIsTypeModule ? '"module"' : '"commonjs"'},
     },`;
     }
 
     const content = `${
-        ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion) ? 'var { globals } = require("./packages/eslint-config");\n\n' : ""
+        ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion) ? 'var { globals } = require("@anolilab/eslint-config/globals");\n\n' : ""
     }/** @ts-check */
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
@@ -120,23 +120,23 @@ module.exports = {
 };
 `;
 
-    return writeFileAsync(eslintPath, content, "utf8");
+    await writeFileAsync(eslintPath, content, "utf8");
 };
 
 /**
  * Writes .eslintignore if it doesn't exist. Warns if it exists.
  */
-const writeEslintIgnore = () => {
+const writeEslintIgnore = async () => {
     const eslintIgnorePath = join(projectPath, ".eslintignore");
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(eslintIgnorePath)) {
         console.warn("⚠️  .eslintignore already exists");
 
-        return Promise.resolve();
+        return;
     }
 
-    return writeFileAsync(eslintIgnorePath, "", "utf8");
+    await writeFileAsync(eslintIgnorePath, "", "utf8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

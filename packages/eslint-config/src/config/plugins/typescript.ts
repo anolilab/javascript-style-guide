@@ -16,8 +16,7 @@ const errorsRules = errorsConfig.rules as Linter.RulesRecord;
 const styleRules = styleConfig.rules as Linter.RulesRecord;
 // eslint-disable-next-line unicorn/prevent-abbreviations
 const eS6Rules = eS6Config.rules as Linter.RulesRecord;
-const importsRules = ((importsConfig.overrides as Linter.ConfigOverride<Linter.RulesRecord>[])[0] as Linter.ConfigOverride<Linter.RulesRecord>)
-    .rules as Linter.RulesRecord;
+const importsRules = ((importsConfig.overrides as Linter.ConfigOverride[])[0] as Linter.ConfigOverride).rules as Linter.RulesRecord;
 const variablesRules = variablesConfig.rules as Linter.RulesRecord;
 
 const { indent, quotes, semi } = styleRules;
@@ -52,7 +51,7 @@ const commaDangle = styleRules["comma-dangle"] as any[];
 
 let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
 
-if (anolilabEslintConfig?.["warn_on_unsupported_typescript_version"] !== undefined) {
+if (anolilabEslintConfig["warn_on_unsupported_typescript_version"] !== undefined) {
     showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig["warn_on_unsupported_typescript_version"];
 }
 

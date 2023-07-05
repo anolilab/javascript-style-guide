@@ -71,7 +71,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "react-redux",
-        dependencies: ["react", "react-dom", "eslint-plugin-react-redux"],
+        dependencies: ["@reduxjs/toolkit", "redux", "eslint-plugin-react-redux"],
     },
     {
         configName: "jsx-a11y",
@@ -170,7 +170,7 @@ pluginConfig.forEach((plugin) => {
     const { configName, dependencies } = plugin;
 
     // eslint-disable-next-line security/detect-object-injection
-    if ((anolilabEslintConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
+    if ((anolilabEslintConfig as unknown as { [key: string]: { [key: string]: false | undefined } })["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {

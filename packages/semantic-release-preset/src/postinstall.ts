@@ -15,7 +15,7 @@ console.log("Configuring @anolilab/semantic-release-preset", projectPath, "\n");
 /**
  * Writes .releaserc.json if it doesn't exist. Warns if it exists.
  */
-const writeReleaseRc = () => {
+const writeReleaseRc = async () => {
     if (
         pkg &&
         (hasDevDependencies(["multi-semantic-release", "@qiwi/multi-semantic-release"]) ||
@@ -23,7 +23,7 @@ const writeReleaseRc = () => {
     ) {
         console.warn("⚠️  found use of multi-semantic-release;");
 
-        return Promise.resolve();
+        return;
     }
 
     const releaseRcPath = join(projectPath, ".releaserc.json");
@@ -32,7 +32,7 @@ const writeReleaseRc = () => {
     if (existsSync(releaseRcPath)) {
         console.warn("⚠️  .releaserc.json already exists;");
 
-        return Promise.resolve();
+        return;
     }
 
     const content = `{
@@ -41,7 +41,7 @@ const writeReleaseRc = () => {
 
 `;
 
-    return writeFileAsync(releaseRcPath, content, "utf-8");
+    await writeFileAsync(releaseRcPath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

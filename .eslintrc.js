@@ -1,34 +1,26 @@
-const config = require("./packages/eslint-config");
+const config = require("./packages/eslint-config/dist");
+const globals = require("./packages/eslint-config/dist/globals");
 
 module.exports = {
     ...config,
-    env: {
-        // Your environments (which contains several predefined global variables)
-        browser: true,
-        commonjs: true,
-        es6: true,
-        node: false,
-        // mocha: true,
-        // jquery: true
-    },
+    extends: [...config.extends, "./packages/eslint-config/dist/typescript-type-checking"],
     globals: {
-        // Your global variables (setting to false means it's not allowed to be reassigned)
-        //
-        // myGlobal: false
+        ...config?.globals,
+        ...globals.es2021,
     },
     overrides: [
+        ...config.overrides,
         {
-            files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+            files: ["*.ts", "*.mts", "*.cts", "*.tsx", ".mdx"],
             parserOptions: {
-                project: "./tsconfig.json",
-
+                project: true,
                 tsconfigRootDir: __dirname,
             },
         },
     ],
-    plugins: [],
     root: true,
     rules: {
+        ...config.rules,
         // Customize your rules
         "no-console": "off",
         "no-secrets/no-secrets": "off",

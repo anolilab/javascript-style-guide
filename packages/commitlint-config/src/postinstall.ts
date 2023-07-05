@@ -15,14 +15,14 @@ console.log("Configuring @anolilab/commitlint-config", projectPath, "\n");
 /**
  * Writes commitlint.config.js if it doesn't exist. Warns if it exists.
  */
-const writeCommitLintConfig = () => {
+const writeCommitLintConfig = async () => {
     const commitlintPath = join(projectPath, "commitlint.config.js");
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(commitlintPath)) {
         console.warn("⚠️  commitlint.config.js already exists;");
 
-        return Promise.resolve();
+        return;
     }
 
     const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
@@ -35,20 +35,20 @@ const writeCommitLintConfig = () => {
 
 `;
 
-    return writeFileAsync(commitlintPath, content, "utf-8");
+    await writeFileAsync(commitlintPath, content, "utf-8");
 };
 
 /**
  * Writes .czrc if it doesn't exist. Warns if it exists.
  */
-const writeCzrc = () => {
+const writeCzrc = async () => {
     const filePath = join(projectPath, ".czrc");
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filePath)) {
         console.warn("⚠️  .czrc already exists;");
 
-        return Promise.resolve();
+        return;
     }
 
     const content = `{
@@ -57,7 +57,7 @@ const writeCzrc = () => {
 
 `;
 
-    return writeFileAsync(filePath, content, "utf-8");
+    await writeFileAsync(filePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

@@ -15,7 +15,7 @@ console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.
  */
-const writeTextLintRc = () => {
+const writeTextLintRc = async () => {
     const filePath = join(projectPath, ".textlintrc");
     const content = `{
     "@textlint/markdown": {
@@ -161,16 +161,16 @@ const writeTextLintRc = () => {
 Make sure that it includes the following for @anolilab/textlint-config'
 to work as it should: ${content}.`);
 
-        return Promise.resolve();
+        return;
     }
 
-    return writeFileAsync(filePath, content, "utf-8");
+    await writeFileAsync(filePath, content, "utf-8");
 };
 
 /**
  * Writes .textlintignore if it doesn't exist. Warns if it exists.
  */
-const writeTextLintIgnore = () => {
+const writeTextLintIgnore = async () => {
     const filePath = join(projectPath, ".textlintignore");
     const content = "";
 
@@ -178,10 +178,10 @@ const writeTextLintIgnore = () => {
     if (existsSync(filePath)) {
         console.warn("⚠️  .textlintignore already exists;");
 
-        return Promise.resolve();
+        return;
     }
 
-    return writeFileAsync(filePath, content, "utf-8");
+    await writeFileAsync(filePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

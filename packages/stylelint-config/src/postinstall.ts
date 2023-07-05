@@ -17,7 +17,7 @@ const file = ".stylelintrc";
 /**
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
-const writeStylelintRc = () => {
+const writeStylelintRc = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -26,7 +26,7 @@ const writeStylelintRc = () => {
                 '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
             );
 
-            return Promise.resolve();
+            return;
         }
     }
 
@@ -39,13 +39,13 @@ const writeStylelintRc = () => {
 
 `;
 
-    return writeFileAsync(stylelintPath, content, "utf-8");
+    await writeFileAsync(stylelintPath, content, "utf-8");
 };
 
 /**
  * Writes .stylelintignore if it doesn't exist. Warns if it exists.
  */
-const writeStylelintIgnore = () => {
+const writeStylelintIgnore = async () => {
     const stylelintIgnorePath = join(projectPath, ".stylelintignore");
     const content = `package.json
 package-lock.json
@@ -58,10 +58,10 @@ node_modules/**
 `;
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(stylelintIgnorePath)) {
-        return Promise.resolve();
+        return;
     }
 
-    return writeFileAsync(stylelintIgnorePath, content, "utf-8");
+    await writeFileAsync(stylelintIgnorePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await

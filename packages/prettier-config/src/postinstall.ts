@@ -19,7 +19,7 @@ const configFile = ".prettierrc";
 /**
  * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
-const writePrettierRc = () => {
+const writePrettierRc = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [
         configFile,
@@ -39,13 +39,13 @@ const writePrettierRc = () => {
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, undefined, 4)}\n`);
 
-            return Promise.resolve();
+            return;
         }
     }
 
     const prettierPath = join(projectPath, ".prettierrc.js");
 
-    return writeFileAsync(
+    await writeFileAsync(
         prettierPath,
         `${packageIsTypeModule ? 'import config from "@anolilab/prettier-config";' : 'var config = require("@anolilab/prettier-config");'}
 
@@ -60,17 +60,17 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 /**
  * Writes .prettierignore if it doesn't exist. Warns if it exists.
  */
-const writePrettierIgnore = () => {
+const writePrettierIgnore = async () => {
     const prettierPath = join(projectPath, ".prettierignore");
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(prettierPath)) {
         console.warn("⚠️  .prettierignore already exists");
 
-        return Promise.resolve();
+        return;
     }
 
-    return writeFileAsync(
+    await writeFileAsync(
         prettierPath,
         `${["*.md", "*.sh", "*.yml", "*.svg", "*.gif", "*.log", ".DS_Store", "CNAME", "AUTHORS", "LICENSE", "es/", "lib/", "dist/", "coverage/"].join("\n")}\n`,
         "utf8",

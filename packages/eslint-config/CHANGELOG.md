@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [9.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.1...@anolilab/eslint-config@9.0.2) (2023-07-05)
+
+
+### Bug Fixes
+
+* Split react-redux config for eslint-plugin ([6601721](https://github.com/anolilab/javascript-style-guide/commit/660172135f699ba1a9c001b5e74c3c156e3c1d01))
+
 ## @anolilab/eslint-config [9.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.0...@anolilab/eslint-config@9.0.1) (2023-07-05)
 
 

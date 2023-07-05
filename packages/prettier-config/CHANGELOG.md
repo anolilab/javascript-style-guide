@@ -1,3 +1,22 @@
+## @anolilab/prettier-config [4.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.2.0...@anolilab/prettier-config@4.2.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* Refactor async functions to use async/await and update tsconfig.json ([2a59d6e](https://github.com/anolilab/javascript-style-guide/commit/2a59d6e0d06a5a37c92b222961acbe9f17578f26))
+
+
+### Miscellaneous Chores
+
+* Reorganize Prettier config and update README examples ([cc2a4be](https://github.com/anolilab/javascript-style-guide/commit/cc2a4be9a223c722fcec370a8260028cc5f6fbd0))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.1
+
 ## @anolilab/prettier-config [4.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.1.4...@anolilab/prettier-config@4.2.0) (2023-07-03)
 
 

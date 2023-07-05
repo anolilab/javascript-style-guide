@@ -71,7 +71,11 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "react-redux",
-        dependencies: ["@reduxjs/toolkit", "redux", "eslint-plugin-react-redux"],
+        dependencies: ["redux", "eslint-plugin-react-redux"],
+    },
+    {
+        configName: "react-redux",
+        dependencies: ["@reduxjs/toolkit", "eslint-plugin-react-redux"],
     },
     {
         configName: "jsx-a11y",

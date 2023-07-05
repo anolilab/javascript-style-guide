@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.0...@anolilab/package-json-utils@2.0.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* Refactor async functions to use async/await and update tsconfig.json ([2a59d6e](https://github.com/anolilab/javascript-style-guide/commit/2a59d6e0d06a5a37c92b222961acbe9f17578f26))
+
 ## @anolilab/package-json-utils [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@1.6.0...@anolilab/package-json-utils@2.0.0) (2023-07-03)
 
 

@@ -31,7 +31,7 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
-const writeLintstagedRc = () => {
+const writeLintstagedRc = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const filename of [
         configFile,
@@ -46,7 +46,7 @@ const writeLintstagedRc = () => {
         "lint-staged.config.cjs",
     ]) {
         if (checkIfFileExists(join(projectPath, filename))) {
-            return Promise.resolve();
+            return;
         }
     }
 
@@ -59,7 +59,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 };
 `;
 
-    return writeFileAsync(lintstagedPath, content, "utf-8");
+    await writeFileAsync(lintstagedPath, content, "utf-8");
 };
 
 /**
@@ -119,8 +119,12 @@ fi
     let hasPnpm = false;
 
     try {
-        hasPnpm = getNearestConfigPath("pnpm-lock.yaml") !== undefined;
+        getNearestConfigPath("pnpm-lock.yaml");
+
+        hasPnpm = true;
     } catch {
+        hasPnpm = false;
+
         // ignore
     }
 

@@ -63,7 +63,7 @@ groups.forEach((plugin) => {
     const { config, configName, dependencies } = plugin;
 
     // eslint-disable-next-line security/detect-object-injection
-    if ((anolilabLintStagedConfig as unknown as { [key: string]: { [key: string]: false | undefined } })?.["plugin"]?.[configName] !== false) {
+    if ((anolilabLintStagedConfig as unknown as { [key: string]: { [key: string]: false | undefined } })["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {

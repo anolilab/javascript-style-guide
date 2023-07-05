@@ -15,7 +15,8 @@ type ESLintSettings = {
     };
 };
 
-const eslintSettings: ESLintSettings["settings"]["eslint"] = (anolilabLintStagedConfig as unknown as ESLintSettings)?.["settings"]?.["eslint"] ?? ({} as ESLintSettings["settings"]["eslint"]);
+const eslintSettings: ESLintSettings["settings"]["eslint"] =
+    (anolilabLintStagedConfig as unknown as ESLintSettings).settings.eslint ?? ({} as ESLintSettings["settings"]["eslint"]);
 
 const eslintGlobalRulesForFix = [
     // react-hooks/eslint and react in general is very strict about exhaustively
@@ -53,8 +54,8 @@ const createEslintArguments = (): string[] => {
 
     const rules = [];
 
-    if (eslintSettings?.["rules"] !== undefined && Array.isArray(eslintSettings["rules"])) {
-        rules.push([...eslintSettings["rules"], ...eslintGlobalRulesForFix].filter((rule) => rule.trim().length > 0).map((r) => `"${r.trim()}"`));
+    if (eslintSettings?.rules !== undefined && Array.isArray(eslintSettings.rules)) {
+        rules.push([...eslintSettings.rules, ...eslintGlobalRulesForFix].filter((rule) => rule.trim().length > 0).map((r) => `"${r.trim()}"`));
     } else {
         rules.push(eslintGlobalRulesForFix.map((r) => `"${r.trim()}"`));
     }
@@ -71,7 +72,7 @@ const createEslintArguments = (): string[] => {
         eslintArguments.push(`--fix-type ${fixType.join(",")}`, "--fix");
     }
 
-    if (eslintSettings?.["cache"]) {
+    if (eslintSettings?.cache) {
         eslintArguments.push("--cache");
     }
 
@@ -83,8 +84,8 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
 
     const eslintArguments = createEslintArguments();
 
-    if (eslintSettings?.["config"]) {
-        eslintArguments.push(`--config ${eslintSettings["config"]}`);
+    if (eslintSettings?.config) {
+        eslintArguments.push(`--config ${eslintSettings.config}`);
 
         return [`cross-env NO_LOGS=true eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`];
     }

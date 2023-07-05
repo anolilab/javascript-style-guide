@@ -32,6 +32,7 @@ if (!global.hasAnolilabStagedLintConfigLoaded) {
         }
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (hasLogged) {
         consoleLog("\nTo disable this message, add the following to your package.json:");
         consoleLog('    "anolilab": { "lint-stage-config": { plugin: { "plugin-name": false } } }\n');

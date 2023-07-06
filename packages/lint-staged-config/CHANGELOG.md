@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [1.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.1...@anolilab/lint-staged-config@1.1.2) (2023-07-06)
+
+
+### Bug Fixes
+
+* Update file matching pattern to include nested directories ([5ea5c3f](https://github.com/anolilab/javascript-style-guide/commit/5ea5c3fbec11bd1c93559a4362365264dcc9c7c5))
+
 ## @anolilab/lint-staged-config [1.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.0...@anolilab/lint-staged-config@1.1.1) (2023-07-05)
 
 

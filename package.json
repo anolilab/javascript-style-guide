@@ -59,7 +59,7 @@
         "clean": "nx run-many --target=clean && rimraf node_modules",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky install",
-        "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.js --ext .js,.cjs,.mjs,.ts,.tsx,.json,.yaml,.yml,.md,.mdx ./packages --cache --cache-strategy content .",
+        "lint:eslint": "cross-env NO_LOGS=true eslint -c ./.eslintrc.js --ext js,cjs,mjs,ts,tsx,json,yaml,yml,md,mdx ./packages --cache --cache-strategy content .",
         "lint:eslint:fix": "pnpm run lint:eslint --fix",
         "lint:prettier:root": "prettier --config=.prettierrc.js --check '*.{json,yml,yaml,js,ts}'",
         "lint:prettier:root:fix": "prettier --config=.prettierrc.js --write '*.{json,yml,yaml,js,ts}'",

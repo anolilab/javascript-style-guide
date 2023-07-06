@@ -12,13 +12,13 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
-import { hasDependency, hasDevDependency, pkg } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import globals from "globals";
 import { join } from "node:path";
 import semver from "semver";
 
-import { pluginRules, possiblePluginRules, rules } from "./config";
+import { internalPluginConfig, pluginRules, possiblePluginRules, rules } from "./config";
 import engineRules from "./engine-node-overwrite";
 import anolilabEslintConfig from "./utils/eslint-config";
 import { consoleLog, consolePlugin } from "./utils/loggers";
@@ -29,23 +29,19 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
         consoleLog("\n@anolilab/eslint-config loaded the following plugins:\n");
 
         consoleLog("  @rushstack/eslint-plugin-security");
-        [
-            "compat",
-            "eslint-comments",
-            "i",
-            "promise",
-            "simple-import-sort",
-            "unicorn",
-            "no-secrets",
-            "sonarjs",
-            "json",
-            "jsonc",
-            "markdown",
-            "toml",
-            "yml",
-            "es",
-            ...pluginRules,
-        ].forEach((plugin) => consolePlugin(plugin));
+        internalPluginConfig
+            .map((name: string) => {
+                if (name === "import") {
+                    return "i";
+                }
+
+                if (name === "node") {
+                    return "n";
+                }
+
+                return name;
+            })
+            .forEach((plugin) => consolePlugin(plugin));
     }
 
     let hasLogged: boolean = false;
@@ -172,6 +168,17 @@ const config: Linter.Config = {
             rules: {
                 "no-magic-numbers": "off",
                 "sonarjs/no-duplicate-string": "off",
+            },
+        },
+        // Fixes https://github.com/eslint/eslint/discussions/15305
+        {
+            files: packageIsTypeModule ? ["*.js", "*.mjs"] : ["*.mjs"],
+            parser: "@babel/eslint-parser",
+            parserOptions: {
+                babelOptions: {
+                    plugins: ["@babel/plugin-syntax-import-assertions"],
+                },
+                requireConfigFile: false,
             },
         },
     ],

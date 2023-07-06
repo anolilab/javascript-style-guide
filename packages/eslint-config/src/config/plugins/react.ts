@@ -90,7 +90,7 @@ const config: Linter.Config = {
                 browser: true,
             },
 
-            files: ["*.mdx", "*.jsx", "*.tsx"],
+            files: ["*.jsx", "*.tsx"],
 
             parserOptions: {
                 ecmaFeatures: {

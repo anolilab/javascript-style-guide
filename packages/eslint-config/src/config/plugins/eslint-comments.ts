@@ -1,6 +1,8 @@
 import type { Linter } from "eslint";
 
-const config: Linter.Config = {
+import { createConfig } from "../../utils/create-config";
+
+const config: Linter.Config = createConfig("all", {
     extends: ["plugin:eslint-comments/recommended"],
     plugins: ["eslint-comments"],
     rules: {
@@ -15,6 +17,6 @@ const config: Linter.Config = {
         "eslint-comments/no-use": "off",
         "eslint-comments/require-description": "off",
     },
-};
+});
 
 export default config;

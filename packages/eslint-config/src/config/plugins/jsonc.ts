@@ -11,9 +11,9 @@ if (hasDependency("prettier") || hasDevDependency("prettier")) {
     extendedPlugins.push("plugin:jsonc/prettier");
 }
 
-const hasSortPackageJson = hasDependency("sort-package-json") || hasDevDependency("sort-package-json");
+if (!global.hasAnolilabEsLintConfigJsoncPackageJsonSort && (hasDependency("sort-package-json") || hasDevDependency("sort-package-json"))) {
+    global.hasAnolilabEsLintConfigJsoncPackageJsonSort = true;
 
-if (hasSortPackageJson) {
     let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSONC_SORT_KEYS_RULE"] !== "true";
 
     if (showLog && anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] !== undefined) {
@@ -50,7 +50,7 @@ const config: Linter.Config = {
             files: ["package.json"],
             rules: {
                 // When the package "sort-package-json" is installed, we disable the rule "jsonc/sort-keys" because, the package "sort-package-json" is responsible for sorting the keys.
-                "jsonc/sort-keys": hasSortPackageJson
+                "jsonc/sort-keys": global.hasAnolilabEsLintConfigJsoncPackageJsonSort
                     ? "off"
                     : [
                           "error",

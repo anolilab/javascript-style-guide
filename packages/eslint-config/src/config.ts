@@ -1,11 +1,12 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, resolvePackage } from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 import anolilabEslintConfig from "./utils/eslint-config";
 
 const baseConfig = ["best-practices", "errors", "style", "es6", "variables"];
 
-const internalPluginConfig = [
+// eslint-disable-next-line import/exports-last
+export const internalPluginConfig = [
     "compat",
     "eslint-comments",
     "import",
@@ -60,6 +61,8 @@ const pluginConfig: PackageRules = [
     {
         configName: "mdx",
         dependencies: ["eslint-plugin-mdx"],
+        oneOfDependency: ["nextra", "docz", "@docusaurus/core", "gatsby-plugin-mdx"],
+        resolve: ["@mdx-js/mdx", "remark-mdx", "@mdx-js/loader", "@mdx-js/rollup", "@mdx-js/react"],
     },
     {
         configName: "no-unsanitized",
@@ -71,11 +74,8 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "react-redux",
-        dependencies: ["redux", "eslint-plugin-react-redux"],
-    },
-    {
-        configName: "react-redux",
-        dependencies: ["@reduxjs/toolkit", "eslint-plugin-react-redux"],
+        dependencies: ["eslint-plugin-react-redux"],
+        oneOfDependency: ["@reduxjs/toolkit", "redux"],
     },
     {
         configName: "jsx-a11y",
@@ -170,6 +170,7 @@ const pluginConfig: PackageRules = [
 const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 pluginConfig.forEach((plugin) => {
     const { configName, dependencies } = plugin;
 
@@ -183,12 +184,37 @@ pluginConfig.forEach((plugin) => {
             }
         });
 
+        // eslint-disable-next-line security/detect-object-injection
+        possiblePlugins[configName] = {};
+
+        if (foundDependencies.length === 0 && plugin.resolve !== undefined) {
+            plugin.resolve.forEach((rdependency) => {
+                if (resolvePackage(rdependency) !== undefined) {
+                    dependencies.forEach((dependency) => {
+                        // eslint-disable-next-line security/detect-object-injection
+                        (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                    });
+                }
+            });
+        }
+
+        if (foundDependencies.length === 0 && plugin.oneOfDependency !== undefined) {
+            plugin.oneOfDependency.forEach((oneOfdependency) => {
+                if (hasDependency(oneOfdependency) || hasDevDependency(oneOfdependency)) {
+                    [...dependencies, ...(plugin.oneOfDependency as string[])].forEach((dependency) => {
+                        // eslint-disable-next-line security/detect-object-injection
+                        (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                    });
+                }
+            });
+        }
+
         if (foundDependencies.length === dependencies.length) {
+            // eslint-disable-next-line security/detect-object-injection,@typescript-eslint/no-dynamic-delete
+            delete possiblePlugins[configName];
+
             loadedPlugins.push(configName);
         } else {
-            // eslint-disable-next-line security/detect-object-injection
-            possiblePlugins[configName] = {};
-
             dependencies.forEach((dependency) => {
                 // eslint-disable-next-line security/detect-object-injection
                 (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);

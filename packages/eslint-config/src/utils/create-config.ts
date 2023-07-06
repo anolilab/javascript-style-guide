@@ -1,24 +1,45 @@
 import type { Linter } from "eslint";
 
-type FileType = "all" | "ava" | "javascript" | "jest" | "js_and_ts" | "jsx_and_tsx" | "tests" | "typescript" | "vitest";
+type FileType =
+    | "all"
+    | "ava"
+    | "javascript"
+    | "jest"
+    | "js_and_ts"
+    | "jsx_and_tsx"
+    | "markdown_inline_js_jsx"
+    | "markdown"
+    | "mdx"
+    | "tests"
+    | "typescript"
+    | "vitest";
 
 const getType = (type: FileType) => {
     switch (type) {
         case "typescript": {
             // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
-            return ["*.ts", "*.tsx", "*.mts", "*.cts", "*.mdx"];
+            return ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
         }
         case "jsx_and_tsx": {
-            return ["*.jsx", "*.tsx", "*.md{,x}"];
+            return ["**/*.jsx", "**/*.tsx"];
         }
         case "js_and_ts": {
-            return ["*.js", "*.mjs", "*.cjs", "*.ts", "*.mts", "*.cts", "*.mdx"];
+            return ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.d.ts", "**/*.mts", "**/*.cts"];
         }
         case "javascript": {
-            return ["*.js", "*.mjs", "*.cjs"];
+            return ["**/*.js", "**/*.mjs", "**/*.cjs"];
         }
         case "all": {
-            return ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts", "*.mdx"];
+            return ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
+        }
+        case "markdown": {
+            return ["**/*.{md,mkdn,mdown,markdown}"];
+        }
+        case "markdown_inline_js_jsx": {
+            return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}"];
+        }
+        case "mdx": {
+            return ["**/*.mdx"];
         }
         case "jest": {
             return [

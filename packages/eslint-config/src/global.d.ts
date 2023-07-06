@@ -17,6 +17,8 @@ declare global {
 
     var hasAnolilabEsLintConfigPlaywrightJest: undefined | boolean;
 
+    var hasAnolilabEsLintConfigJsoncPackageJsonSort: undefined | boolean;
+
     var anolilabEslintIndent: undefined | number;
 
     var anolilabEslintPackageJsonConfig: undefined | { [key: string]: boolean | undefined };

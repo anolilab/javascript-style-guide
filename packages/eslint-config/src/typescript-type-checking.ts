@@ -1,9 +1,17 @@
 import type { Linter } from "eslint";
+import { env } from "node:process";
 
 import bestPracticesConfig from "./config/best-practices";
 import { createConfig } from "./utils/create-config";
+import anolilabEslintConfig from "./utils/eslint-config";
 
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
+
+let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
+
+if (anolilabEslintConfig["warn_on_unsupported_typescript_version"] !== undefined) {
+    showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig["warn_on_unsupported_typescript_version"];
+}
 
 const config = createConfig("typescript", {
     // TODO: enable the rule when typescript-eslint 6.0.0 is released
@@ -12,6 +20,15 @@ const config = createConfig("typescript", {
     // "plugin:@typescript-eslint/strict-type-checked",
     // "plugin:@typescript-eslint/stylistic-type-checked"
     // ],
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        sourceType: "module",
+        warnOnUnsupportedTypeScriptVersion: showUnsupportedTypeScriptVersionWarning,
+    },
+    plugins: ["@typescript-eslint"],
     rules: {
         // Disallows awaiting a value that is not a Thenable
         "@typescript-eslint/await-thenable": "error",

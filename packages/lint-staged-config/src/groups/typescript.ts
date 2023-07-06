@@ -4,7 +4,7 @@ import { env } from "node:process";
 import getNearestConfigPath from "../utils/get-nearest-config-path";
 
 const group: Config = {
-    [`*.{${["ts", "mts", "cts"].join(",")}}`]: (filenames: string[]) => {
+    [`**/*.{${["ts", "mts", "cts"].join(",")}}`]: (filenames: string[]) => {
         const commands = new Set<string>();
 
         filenames.forEach((filePath) => {

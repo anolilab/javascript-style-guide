@@ -19,8 +19,8 @@ if (!global.hasAnolilabLintStagedMarkdownCli && !global.hasAnolilabLintStagedMar
 }
 
 const group: Config = {
-    [`*.{${["json", "json5", "jsonc"].join(",")}}`]: async (filenames: string[]) => [...(await createEslintCommands(filenames))],
-    [`*.{${[extensions].join(",")}}`]: async (filenames: string[]) => [
+    [`**/*.{${["json", "json5", "jsonc"].join(",")}}`]: async (filenames: string[]) => [...(await createEslintCommands(filenames))],
+    [`**/*.{${[extensions].join(",")}}`]: async (filenames: string[]) => [
         `prettier --write ${concatFiles(filenames)}`,
         ...(await createEslintCommands(filenames)),
     ],

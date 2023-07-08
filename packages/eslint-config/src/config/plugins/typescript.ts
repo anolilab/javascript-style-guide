@@ -143,27 +143,9 @@ const config: Linter.Config = {
                 "@typescript-eslint/lines-between-class-members": styleRules["lines-between-class-members"],
 
                 // Replace 'keyword-spacing' rule with '@typescript-eslint' version
-                // Enforce a standard member declaration order. (member-ordering from TSLint)
-                "@typescript-eslint/member-ordering": [
-                    "error",
-                    {
-                        default: [
-                            "public-static-field",
-                            "protected-static-field",
-                            "private-static-field",
-                            "public-static-method",
-                            "protected-static-method",
-                            "private-static-method",
-                            "public-instance-field",
-                            "protected-instance-field",
-                            "private-instance-field",
-                            "constructor",
-                            "public-instance-method",
-                            "protected-instance-method",
-                            "private-instance-method",
-                        ],
-                    },
-                ],
+                // Disabled because of perfectionist/sort-interfaces rule
+                "@typescript-eslint/member-ordering": "off",
+
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/method-signature-style.md
                 "@typescript-eslint/method-signature-style": "error",
 

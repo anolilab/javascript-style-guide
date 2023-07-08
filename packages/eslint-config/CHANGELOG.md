@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.3...@anolilab/eslint-config@9.0.4) (2023-07-08)
+
+
+### Bug Fixes
+
+* Disable 'member-ordering' and simplify 'simple-import-sort' ([1d9b551](https://github.com/anolilab/javascript-style-guide/commit/1d9b551f78022136c45bdf4bb25fb953060c092d))
+
 ## @anolilab/eslint-config [9.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.2...@anolilab/eslint-config@9.0.3) (2023-07-06)
 
 

@@ -135,7 +135,7 @@ importers:
         version: 5.0.1
       secretlint:
         specifier: 7.0.2
-        version: 7.0.2(typescript@5.1.6)
+        version: 7.0.2
       semantic-release:
         specifier: ^21.0.2
         version: 21.0.2
@@ -869,8 +869,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(stylelint@15.9.0)
       stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.9.0)
+        specifier: ^34.0.0
+        version: 34.0.0(stylelint@15.9.0)
       stylelint-declaration-block-no-ignored-properties:
         specifier: ^2.7.0
         version: 2.7.0(stylelint@15.9.0)
@@ -878,8 +878,8 @@ importers:
         specifier: ^1.8.0
         version: 1.8.0(stylelint@15.9.0)
       stylelint-no-unsupported-browser-features:
-        specifier: ^6.1.0
-        version: 6.1.0(stylelint@15.9.0)
+        specifier: ^7.0.0
+        version: 7.0.0(stylelint@15.9.0)
       stylelint-require-units:
         specifier: ^1.0.2
         version: 1.0.2(stylelint@15.9.0)
@@ -6873,15 +6873,6 @@ packages:
     resolution: {integrity: sha512-/9lCvYZaUbBGvYUgYGFJ4dcYiyqdhSjG7IPVluoV8A1ILjkF7ilmhp1OGUz8n+nmBcu0RNrQAzgD8B6FJbrt2w==}
     engines: {node: '>=12.22'}
 
-  /css-rule-stream@1.1.0:
-    resolution: {integrity: sha512-qiio/Zkr8I19jh/XuzEkK8OKDQRTrEYaRyIHy4Bwh/tPUe0w8GcQs7r6x24Yc9lT+FbnZFYULxEIXCmaymguUQ==}
-    dependencies:
-      css-tokenize: 1.0.1
-      duplexer2: 0.0.2
-      ldjson-stream: 1.2.1
-      through2: 0.6.5
-    dev: false
-
   /css-tokenize@1.0.1:
     resolution: {integrity: sha512-gLmmbJdwH9HLY4bcA17lnZ8GgPwEXRbvxBJGHnkiB6gLhRpTzjkjtMIvz7YORGW/Ptv2oMk8b5g+u7mRD6Dd7A==}
     dependencies:
@@ -7201,20 +7192,20 @@ packages:
     dependencies:
       esutils: 2.0.3
 
-  /doiuse@4.4.1:
-    resolution: {integrity: sha512-TUpr1/YNg20IB09tZmwGCTsTQoxj8jUld/hUZprZMj8vj0VpAJySXEWCr8WMvqvgzk0/kG/FxeSMGKode4UjPg==}
-    engines: {node: '>=10'}
+  /doiuse@6.0.2:
+    resolution: {integrity: sha512-eBTs23NOX+EAYPr4RbCR6J4DRW/TML3uMo37y0X1whlkersDYFCk9HmCl09KX98cis22VKsV1QaxfVNauJ3NBw==}
+    engines: {node: '>=16'}
+    hasBin: true
     dependencies:
       browserslist: 4.21.9
       caniuse-lite: 1.0.30001512
-      css-rule-stream: 1.1.0
-      duplexer2: 0.0.2
+      css-tokenize: 1.0.1
+      duplexify: 4.1.2
       ldjson-stream: 1.2.1
       multimatch: 5.0.0
       postcss: 8.4.24
       source-map: 0.7.4
-      through2: 4.0.2
-      yargs: 16.2.0
+      yargs: 17.7.2
     dev: false
 
   /dom-accessibility-api@0.5.16:
@@ -7262,12 +7253,6 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /duplexer2@0.0.2:
-    resolution: {integrity: sha512-+AWBwjGadtksxjOQSFDhPNQbed7icNXApT4+2BNpsXzcCBiInq2H9XW0O8sfHFaPmnQRs7cg/P0fAr2IWQSW0g==}
-    dependencies:
-      readable-stream: 1.1.14
-    dev: false
-
   /duplexer2@0.1.4:
     resolution: {integrity: sha512-asLFVfWWtJ90ZyOUHMqk7/S2w2guQKxUI2itj3d92ADHhxUSbCMGi1f1cBcJ7xM1To+pE/Khbwo1yuNbMEPKeA==}
     dependencies:
@@ -7275,6 +7260,15 @@ packages:
 
   /duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
+    dev: false
+
+  /duplexify@4.1.2:
+    resolution: {integrity: sha512-fz3OjcNCHmRP12MJoZMPglx8m4rrFP8rovnk4vT8Fs+aonZoCwGg10dSsQsfP/E62eZcPTMSMP6686fu9Qlqtw==}
+    dependencies:
+      end-of-stream: 1.4.4
+      inherits: 2.0.4
+      readable-stream: 3.6.2
+      stream-shift: 1.0.1
     dev: false
 
   /e-prime@0.10.4:
@@ -13718,25 +13712,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
-    optional: true
-
-  /secretlint@7.0.2(typescript@5.1.6):
-    resolution: {integrity: sha512-AByRXUsGRQjpVsFLzktIDoSGXPAjgBlVQJMgSjqvgNjuCuCzB+zOFIkuQT3+bbPEZ0NwiVnvW3DZ7z+hl+yQ9A==}
-    engines: {node: ^14.13.1 || >=16.0.0}
-    hasBin: true
-    dependencies:
-      '@secretlint/config-creator': 7.0.2
-      '@secretlint/formatter': 7.0.2
-      '@secretlint/node': 7.0.2
-      '@secretlint/profiler': 7.0.2
-      debug: 4.3.4
-      globby: 13.2.1
-      meow: 12.0.1
-      read-pkg: 8.0.0(typescript@5.1.6)
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: false
 
   /select-section@0.4.6:
     resolution: {integrity: sha512-0WGMcD/Q6SoD/I3TfZyOstTpXZ0J072Qr+vdH+fCMEc5Z+4u/hFRQzc9prVlUpStHWH7phJ44+9nIVySyEQmTg==}
@@ -14101,6 +14076,10 @@ packages:
       duplexer: 0.1.2
     dev: false
 
+  /stream-shift@1.0.1:
+    resolution: {integrity: sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==}
+    dev: false
+
   /string-argv@0.3.2:
     resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
     engines: {node: '>=0.6.19'}
@@ -14303,21 +14282,23 @@ packages:
       stylelint-order: 6.0.3(stylelint@15.9.0)
     dev: false
 
-  /stylelint-config-recommended@12.0.0(stylelint@15.9.0):
-    resolution: {integrity: sha512-x6x8QNARrGO2sG6iURkzqL+Dp+4bJorPMMRNPScdvaUK8PsynriOcMW7AFDKqkWAS5wbue/u8fUT/4ynzcmqdQ==}
+  /stylelint-config-recommended@13.0.0(stylelint@15.9.0):
+    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.5.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.9.0
     dev: false
 
-  /stylelint-config-standard@33.0.0(stylelint@15.9.0):
-    resolution: {integrity: sha512-eyxnLWoXImUn77+ODIuW9qXBDNM+ALN68L3wT1lN2oNspZ7D9NVGlNHb2QCUn4xDug6VZLsh0tF8NyoYzkgTzg==}
+  /stylelint-config-standard@34.0.0(stylelint@15.9.0):
+    resolution: {integrity: sha512-u0VSZnVyW9VSryBG2LSO+OQTjN7zF9XJaAJRX/4EwkmU0R2jYwmBSN10acqZisDitS0CLiEiGjX7+Hrq8TAhfQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.5.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.9.0
-      stylelint-config-recommended: 12.0.0(stylelint@15.9.0)
+      stylelint-config-recommended: 13.0.0(stylelint@15.9.0)
     dev: false
 
   /stylelint-declaration-block-no-ignored-properties@2.7.0(stylelint@15.9.0):
@@ -14338,13 +14319,13 @@ packages:
       stylelint: 15.9.0
     dev: false
 
-  /stylelint-no-unsupported-browser-features@6.1.0(stylelint@15.9.0):
-    resolution: {integrity: sha512-3Taj+z9PjIiY6cz4hg3eN8Khue3kMm9lPXYuEvdjAFXDK20uQo2NocJaWN6anIKclYlwrpkBAS9W/KV3qPTWsw==}
-    engines: {node: '>=14'}
+  /stylelint-no-unsupported-browser-features@7.0.0(stylelint@15.9.0):
+    resolution: {integrity: sha512-O5VYlBhr+lpJ6jeTJSy+SMbHJhW5h5EJxsoicYcTi/07m45V/CF1mQidwRQLjv8y9BFQMpioWz60O89IkmbaNw==}
+    engines: {node: '>=16'}
     peerDependencies:
       stylelint: ^14.0.0||^15.0.0
     dependencies:
-      doiuse: 4.4.1
+      doiuse: 6.0.2
       lodash: 4.17.21
       postcss: 8.4.24
       stylelint: 15.9.0

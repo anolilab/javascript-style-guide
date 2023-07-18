@@ -1,16 +1,17 @@
 import { isPackageAvailable, showMissingPackages } from "@anolilab/package-json-utils";
 // @ts-expect-error TS2305: Module '"@babel/helper-plugin-utils"' has no exported member 'declarePreset'.
 import { declare } from "@babel/helper-plugin-utils";
+import type { TransformOptions } from "@babel/core";
 
-type BabelAPI = {
+interface BabelAPI {
     assertVersion: (version: string) => void;
     cache: {
         using: (function_: () => boolean) => boolean;
     };
     env: (environment: string) => boolean;
-};
+}
 
-type Options = {
+interface Options {
     corejs?: boolean | { method?: string; version?: number };
     debug?: boolean;
     development?: boolean;
@@ -24,10 +25,10 @@ type Options = {
     polyfillRegenerator?: boolean;
     react?: boolean | object;
     removePropTypes?: boolean | object;
-    targets?: any;
+    targets?: TransformOptions["targets"];
     typescript?: boolean;
     useBuiltIns?: boolean;
-};
+}
 
 const babelPresetTypescript = "@babel/preset-typescript";
 const babelPluginTransformTypescript = "@babel/plugin-transform-typescript";
@@ -36,7 +37,7 @@ const babelPresetReact = "@babel/preset-react";
 const babelPluginTransformReactRemovePropertyTypes = "babel-plugin-transform-react-remove-prop-types";
 
 // eslint-disable-next-line sonarjs/cognitive-complexity,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
-const preset = declare((api: BabelAPI, options: Options): Record<string, any> => {
+const preset = declare((api: BabelAPI, options: Options): TransformOptions => {
     // see docs about api at https://babeljs.io/docs/en/config-files#apicache
     api.assertVersion("^7.13");
 
@@ -52,7 +53,6 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
         polyfillRegenerator = false,
         react = false,
         removePropTypes: removePropertyTypes = false,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         targets,
         typescript = false,
         useBuiltIns = false,
@@ -109,7 +109,6 @@ const preset = declare((api: BabelAPI, options: Options): Record<string, any> =>
                 loose,
                 modules: modules === false ? false : "auto",
                 shippedProposals: api.env("modern"),
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 targets,
                 useBuiltIns,
             },

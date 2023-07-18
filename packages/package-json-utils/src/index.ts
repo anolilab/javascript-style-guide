@@ -58,14 +58,15 @@ export const hasPackageSubProperties =
 // eslint-disable-next-line security/detect-object-injection
 export const environmentIsSet = (name: string): boolean => Boolean(env[name] && env[name] !== "undefined");
 
-export const parseEnvironment = (name: string, defaultValue: unknown): any => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const parseEnvironment = <ReturnValue = any>(name: string, defaultValue: ReturnValue): ReturnValue => {
     if (environmentIsSet(name)) {
         try {
-            // eslint-disable-next-line security/detect-object-injection
+            // eslint-disable-next-line security/detect-object-injection,@typescript-eslint/no-unsafe-return
             return JSON.parse(env[name] ?? "");
         } catch {
             // eslint-disable-next-line security/detect-object-injection
-            return env[name];
+            return env[name] as ReturnValue;
         }
     }
 
@@ -90,8 +91,8 @@ export const hasDevDependency = hasPackageSubProperty("devDependencies");
 export const hasDevDependencies = hasPackageSubProperties("devDependencies");
 
 export const hasAnyDep = (arguments_: string[], options?: { peerDeps?: boolean; strict?: boolean }): boolean =>
-    [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some(
-        (function_: (arguments_: string[], strict?: boolean) => boolean) => function_(arguments_, options?.strict),
+    [hasDependencies, hasDevDependencies, options?.peerDeps === false ? () => false : hasPeerDependencies].some((function_) =>
+        function_(arguments_, options?.strict),
     );
 
 export const hasTypescript: boolean = (hasDependency("typescript") || hasDevDependency("typescript")) && hasFile("tsconfig.json");

@@ -1,3 +1,30 @@
+## @anolilab/eslint-config [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.4...@anolilab/eslint-config@10.0.0) (2023-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* fixing broken releases that semantic-release did create
+Signed-off-by: prisis <d.bannert@anolilab.de>
+* Updated TypeScript rules in typescript-type-checking.ts by enabling some previously commented out rules. This was done as the previous todo comment noted that these should be enabled once typescript-eslint 6.0.0 is released. Following this, multiple dependencies across several files were updated to newer versions. This is part of regular maintenance to keep the dependencies up-to-date and secure. Some minor code changes and refactoring was also included where necessary.
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Update TypeScript rules and bump dependencies ([b0a8c46](https://github.com/anolilab/javascript-style-guide/commit/b0a8c46200bd375307502cd02be55e4df684195b))
+
+
+### Bug Fixes
+
+* fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
+* update node version ([9a22309](https://github.com/anolilab/javascript-style-guide/commit/9a22309775cd2219320eed903ac3e22f66ffbe94))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.1
+
 ## @anolilab/eslint-config [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.3...@anolilab/eslint-config@9.0.4) (2023-07-08)
 
 

@@ -1,3 +1,28 @@
+## @anolilab/prettier-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.2.1...@anolilab/prettier-config@5.0.0) (2023-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* fixing broken releases that semantic-release did create
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Bug Fixes
+
+* fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
+* update node version ([9a22309](https://github.com/anolilab/javascript-style-guide/commit/9a22309775cd2219320eed903ac3e22f66ffbe94))
+
+
+### Miscellaneous Chores
+
+* "Update package versions in pnpm-lock.yaml" ([9c24c65](https://github.com/anolilab/javascript-style-guide/commit/9c24c6549de3f3df60fc4ca3cef3e8759da40a8e))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.1
+
 ## @anolilab/prettier-config [4.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@4.2.0...@anolilab/prettier-config@4.2.1) (2023-07-05)
 
 

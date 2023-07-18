@@ -54,14 +54,14 @@ describe("package-json-utils", () => {
     it("parseEnvironment: returns the parsed value of the environment variable", () => {
         process.env["TEST_VAR"] = JSON.stringify({ value: "test" });
 
-        expect(parseEnvironment("TEST_VAR", undefined)).toStrictEqual({ value: "test" });
+        expect(parseEnvironment<string | undefined>("TEST_VAR", undefined)).toStrictEqual({ value: "test" });
     });
 
     it("parseEnvironment: returns the default value when the environment variable is not set", () => {
         // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
         delete process.env["TEST_VAR"];
 
-        expect(parseEnvironment("TEST_VAR", { value: "default" })).toStrictEqual({ value: "default" });
+        expect(parseEnvironment<object>("TEST_VAR", { value: "default" })).toStrictEqual({ value: "default" });
     });
 
     it("fromRoot: joins the provided path segments with the app directory", () => {

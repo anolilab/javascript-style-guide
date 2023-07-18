@@ -1,3 +1,20 @@
+## @anolilab/package-json-utils [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.1...@anolilab/package-json-utils@3.0.0) (2023-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* Updated TypeScript rules in typescript-type-checking.ts by enabling some previously commented out rules. This was done as the previous todo comment noted that these should be enabled once typescript-eslint 6.0.0 is released. Following this, multiple dependencies across several files were updated to newer versions. This is part of regular maintenance to keep the dependencies up-to-date and secure. Some minor code changes and refactoring was also included where necessary.
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Update TypeScript rules and bump dependencies ([b0a8c46](https://github.com/anolilab/javascript-style-guide/commit/b0a8c46200bd375307502cd02be55e4df684195b))
+
+
+### Bug Fixes
+
+* fixed changelog ([cc92e21](https://github.com/anolilab/javascript-style-guide/commit/cc92e21a52cf320578b4b5c8e8b5d78bc5a80678))
+* Update semantic-release packages and Refactor parseEnvironment function ([99ed8d2](https://github.com/anolilab/javascript-style-guide/commit/99ed8d2d7caa1678dd600ecfefe549200a1c3755))
 
 ### Bug Fixes
 

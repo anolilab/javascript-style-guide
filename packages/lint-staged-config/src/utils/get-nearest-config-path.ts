@@ -2,6 +2,7 @@ import findUp from "find-up";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import type { Join } from "type-fest";
+import type { AbsolutePath, ConfigFileName, ConfigPath } from "./types";
 
 const packageDirectorySync = (cwd?: string) => {
     const filePath = findUp.sync("package.json", { cwd });
@@ -29,7 +30,7 @@ const joinPaths = <T extends ReadonlyArray<string>>(paths: T): Join<T, "/"> => {
     throw new TypeError(`Joined path did not return an absolute path.`);
 };
 
-const getNearestConfigPath = <N extends ConfigFileName, A extends AbsolutePath = AbsolutePath>(fileName: N, cwd?: A): ConfigPath<A, N> => {
+const getNearestConfigPath = <N extends ConfigFileName = ConfigFileName, A extends AbsolutePath = AbsolutePath>(fileName: N, cwd?: A): ConfigPath<A, N> => {
     const packageRootPath = getNearestPackageRootPath(cwd);
     const configPath = joinPaths<[A, N]>([packageRootPath as A, fileName]);
 
@@ -40,9 +41,5 @@ const getNearestConfigPath = <N extends ConfigFileName, A extends AbsolutePath =
 
     throw new Error(`Cannot locate nearest "${fileName}" file!`);
 };
-
-export type AbsolutePath = `/${string}`;
-export type ConfigFileName = string;
-export type ConfigPath<A extends AbsolutePath, N extends ConfigFileName> = Join<[A, N], "/">;
 
 export default getNearestConfigPath;

@@ -9,11 +9,10 @@ const group: Config = {
 
         filenames.forEach((filePath) => {
             try {
-                // eslint-disable-next-line no-template-curly-in-string
-                const tsconfigPath = getNearestConfigPath("tsconfig.json", filePath as "/${string}");
+                const tsconfigPath = getNearestConfigPath("tsconfig.json", filePath as "/${string}") as string;
 
                 commands.add(`tsc --noEmit --project ${tsconfigPath}`);
-            } catch (error: any) {
+            } catch (error) {
                 if (env["DEBUG"]) {
                     console.error(error);
                 }

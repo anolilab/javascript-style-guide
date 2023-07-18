@@ -1,3 +1,15 @@
+## @anolilab/semantic-release-preset [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@5.0.1...@anolilab/semantic-release-preset@6.0.0) (2023-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* fixing broken releases that semantic-release did create
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Bug Fixes
+
+* fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
+
 ## @anolilab/semantic-release-preset [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@5.0.0...@anolilab/semantic-release-preset@5.0.1) (2023-07-05)
 
 

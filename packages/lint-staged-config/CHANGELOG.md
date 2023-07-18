@@ -13,7 +13,6 @@
 * Revise optional chaining and promise handling in scripts ([4f1d996](https://github.com/anolilab/javascript-style-guide/commit/4f1d9965e862d72d3a50ef8652347d63ac5ef990))
 
 
-
 ### Dependencies
 
 * **@anolilab/package-json-utils:** upgraded to 2.0.1

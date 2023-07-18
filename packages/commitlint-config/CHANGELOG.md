@@ -6,7 +6,6 @@
 * Refactor async functions to use async/await and update tsconfig.json ([2a59d6e](https://github.com/anolilab/javascript-style-guide/commit/2a59d6e0d06a5a37c92b222961acbe9f17578f26))
 
 
-
 ### Dependencies
 
 * **@anolilab/package-json-utils:** upgraded to 2.0.1

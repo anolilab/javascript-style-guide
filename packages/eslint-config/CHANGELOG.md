@@ -27,7 +27,6 @@
 * Improve clarity of code and fix potential null exceptions ([8c468f4](https://github.com/anolilab/javascript-style-guide/commit/8c468f428bf3feb9425b90861264b873a590ba45))
 
 
-
 ### Dependencies
 
 * **@anolilab/package-json-utils:** upgraded to 2.0.1

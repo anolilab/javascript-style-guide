@@ -12,7 +12,6 @@
 * Reorganize Prettier config and update README examples ([cc2a4be](https://github.com/anolilab/javascript-style-guide/commit/cc2a4be9a223c722fcec370a8260028cc5f6fbd0))
 
 
-
 ### Dependencies
 
 * **@anolilab/semantic-release-preset:** upgraded to 5.0.1

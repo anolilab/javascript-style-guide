@@ -1,3 +1,17 @@
+## @anolilab/textlint-config [7.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@7.0.1...@anolilab/textlint-config@7.0.2) (2023-07-18)
+
+
+### Miscellaneous Chores
+
+* "Update package versions in pnpm-lock.yaml" ([9c24c65](https://github.com/anolilab/javascript-style-guide/commit/9c24c6549de3f3df60fc4ca3cef3e8759da40a8e))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 2.0.2
+* **@anolilab/semantic-release-preset:** upgraded to 5.0.2
+
 ## @anolilab/textlint-config [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@7.0.0...@anolilab/textlint-config@7.0.1) (2023-07-05)
 
 

@@ -5,6 +5,27 @@
 
 * Update semantic-release packages and Refactor parseEnvironment function ([99ed8d2](https://github.com/anolilab/javascript-style-guide/commit/99ed8d2d7caa1678dd600ecfefe549200a1c3755))
 
+## @anolilab/package-json-utils [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.1...@anolilab/package-json-utils@2.0.2) (2023-07-18)
+
+
+### Bug Fixes
+
+* Update semantic-release packages and Refactor parseEnvironment function ([99ed8d2](https://github.com/anolilab/javascript-style-guide/commit/99ed8d2d7caa1678dd600ecfefe549200a1c3755))
+
+## @anolilab/package-json-utils [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.1...@anolilab/package-json-utils@2.0.2) (2023-07-18)
+
+
+### Bug Fixes
+
+* Update semantic-release packages and Refactor parseEnvironment function ([99ed8d2](https://github.com/anolilab/javascript-style-guide/commit/99ed8d2d7caa1678dd600ecfefe549200a1c3755))
+
+## @anolilab/package-json-utils [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.1...@anolilab/package-json-utils@2.0.2) (2023-07-18)
+
+
+### Bug Fixes
+
+* Update semantic-release packages and Refactor parseEnvironment function ([99ed8d2](https://github.com/anolilab/javascript-style-guide/commit/99ed8d2d7caa1678dd600ecfefe549200a1c3755))
+
 ## @anolilab/package-json-utils [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@2.0.0...@anolilab/package-json-utils@2.0.1) (2023-07-05)
 
 

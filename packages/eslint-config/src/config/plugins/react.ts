@@ -10,8 +10,9 @@ import indent from "../../utils/indent";
 import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
 
-const styleRules = styleConfig.rules as Linter.RulesRecord;
-const dangleRules = styleRules["no-underscore-dangle"] as any[];
+// @ts-expect-error TODO: find the correct type
+const styleRules = styleConfig.overrides[0].rules as Linter.RulesRecord;
+const dangleRules = styleRules["no-underscore-dangle"] as Linter.RuleEntry;
 
 if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
     global.hasAnolilabEsLintConfigPrettier = true;
@@ -131,11 +132,11 @@ const config: Linter.Config = {
                 "jsx-quotes": ["error", "prefer-double"],
 
                 "no-underscore-dangle": [
-                    dangleRules[0],
+                    (dangleRules as unknown[])[0] as Linter.RuleLevel,
                     {
-                        ...dangleRules[1],
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-                        allow: [...dangleRules[1].allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
+                        ...((dangleRules as unknown[])[1] as Linter.RuleLevelAndOptions[]),
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-explicit-any
+                        allow: [...(dangleRules as any)[1].allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
                     },
                 ],
 

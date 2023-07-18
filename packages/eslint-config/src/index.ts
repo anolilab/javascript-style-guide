@@ -44,7 +44,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
             .forEach((plugin) => consolePlugin(plugin));
     }
 
-    let hasLogged: boolean = false;
+    let hasLogged = false;
 
     Object.entries(possiblePluginRules).forEach(([plugin, dependencies]) => {
         const hasOneDependency = Object.values(dependencies).some(Boolean);

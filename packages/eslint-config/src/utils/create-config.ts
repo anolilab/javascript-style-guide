@@ -3,6 +3,7 @@ import type { Linter } from "eslint";
 type FileType =
     | "all"
     | "ava"
+    | "d.ts"
     | "javascript"
     | "jest"
     | "js_and_ts"
@@ -14,8 +15,8 @@ type FileType =
     | "typescript"
     | "vitest";
 
-const getType = (type: FileType) => {
-    switch (type) {
+const getType = (fileType: FileType) => {
+    switch (fileType) {
         case "typescript": {
             // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
             return ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
@@ -92,13 +93,16 @@ const getType = (type: FileType) => {
                 "**/?(*.){test,spec}.?(c|m)[jt]s?(x)",
             ];
         }
+        case "d.ts": {
+            return ["**/*.d.ts"];
+        }
         default: {
-            throw new Error(`Unknown type: ${type}`);
+            throw new Error("Unknown type");
         }
     }
 };
 
-export const createConfig = (type: FileType, config: Omit<Linter.ConfigOverride, "files">, environment?: { [name: string]: boolean }): Linter.Config => {
+export const createConfig = (type: FileType, config: Omit<Linter.ConfigOverride, "files">, environment?: Record<string, boolean>): Linter.Config => {
     return {
         env: environment,
         overrides: [

@@ -1,3 +1,24 @@
+## @anolilab/lint-staged-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.2...@anolilab/lint-staged-config@2.0.0) (2023-07-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* fixing broken releases that semantic-release did create
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Bug Fixes
+
+* fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
+* Refactor code to use type annotations and Record utility type ([9021e22](https://github.com/anolilab/javascript-style-guide/commit/9021e221d0ad139e224d272f3238ddd136688028))
+* update node version ([9a22309](https://github.com/anolilab/javascript-style-guide/commit/9a22309775cd2219320eed903ac3e22f66ffbe94))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.1
+
 ## @anolilab/lint-staged-config [1.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.1...@anolilab/lint-staged-config@1.1.2) (2023-07-06)
 
 

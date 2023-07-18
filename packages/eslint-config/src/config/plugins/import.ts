@@ -1,19 +1,25 @@
 import { fromRoot, hasTypescript } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+import { createConfigs } from "../../utils/create-config";
 
-const config: Linter.Config = {
-    env: {
-        es6: true,
-    },
-    overrides: [
-        {
-            files: ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
+const config: Linter.Config = createConfigs([
+    {
+        config: {
+            env: {
+                es6: true,
+            },
+
+            parserOptions: {
+                ecmaVersion: 6,
+                sourceType: "module",
+            },
+            plugins: ["import"],
             rules: {
                 // Static analysis:
 
                 // ensure imports point to files/modules that can be resolved
-                // TODO, semver-major: enable (just in case)
-                "import/consistent-type-specifier-style": ["off", "prefer-inline"],
+                // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
+                "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 
                 // ensure named imports coupled with named exports
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/default.md#when-not-to-use-it
@@ -44,6 +50,7 @@ const config: Linter.Config = {
                     "error",
                     "ignorePackages",
                     {
+                        cjs: "never",
                         js: "never",
                         jsx: "never",
                         mjs: "never",
@@ -136,7 +143,7 @@ const config: Linter.Config = {
                 "import/no-empty-named-blocks": "error",
 
                 // Forbid import of modules using absolute paths
-                // paths are treated both as absolute paths, and relative to process.cwd()
+                //  are treated both as absolute paths, and relative to process.cwd()
                 "import/no-extraneous-dependencies": [
                     "error",
                     {
@@ -254,7 +261,6 @@ const config: Linter.Config = {
 
                 // Reports modules without any exports, or with unused exports
                 // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
-                // TODO: enforce a stricter convention in module import order?
                 "import/order": [
                     "error",
                     {
@@ -272,6 +278,11 @@ const config: Linter.Config = {
                 "import/unambiguous": "off",
             },
             settings: {
+                "import/core-modules": [],
+                // https://github.com/import-js/eslint-plugin-import/blob/master/docs/rules/extensions.md
+                "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
+                // Ensure consistent use of file extension within the import path
+                "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
                 "import/resolver": {
                     node: {
                         extensions: [".mjs", ".js", ".json"],
@@ -285,14 +296,13 @@ const config: Linter.Config = {
                           }
                         : {}),
                 },
-                ...(hasTypescript ? { "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] } } : {}),
-                "import/core-modules": [],
-                "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
-                "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
             },
         },
-        {
-            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+        type: "all",
+    },
+    {
+        config: {
+            extends: ["plugin:import/typescript"],
             rules: {
                 // Does not work when the TS definition exports a default const.
                 "import/default": "off",
@@ -301,16 +311,54 @@ const config: Linter.Config = {
                 "import/export": "off",
 
                 // Disabled as it doesn't work with TypeScript.
+                "import/extensions": [
+                    "error",
+                    "ignorePackages",
+                    {
+                        js: "never",
+                        jsx: "never",
+                        mjs: "never",
+                        ts: "never",
+                        tsx: "never",
+                    },
+                ],
+
                 // This issue and some others: https://github.com/benmosher/eslint-plugin-import/issues/1341
                 "import/named": "off",
+
+                // Enforce consistent usage of type imports.
+                "import/no-unresolved": "off",
+            },
+            settings: {
+                // Append 'ts' extensions to 'import/extensions' setting
+                "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx", ".d.ts", ".cjs", ".cts", ".mts"],
+
+                // Resolve type definition packages
+                "import/external-module-folders": ["node_modules", "node_modules/@types"],
+
+                // Apply special parsing for TypeScript files
+                "import/parsers": {
+                    "@typescript-eslint/parser": [".ts", ".cts", ".mts", ".tsx", ".d.ts"],
+                },
+
+                // Append 'ts' extensions to 'import/resolver' setting
+                "import/resolver": {
+                    node: {
+                        extensions: [".mjs", ".cjs", ".js", ".json", ".ts", ".d.ts"],
+                    },
+                },
             },
         },
-    ],
-    parserOptions: {
-        ecmaVersion: 6,
-        sourceType: "module",
+        type: "typescript",
     },
-    plugins: ["import"],
-};
+    {
+        config: {
+            rules: {
+                "import/no-duplicates": "off",
+            },
+        },
+        type: "d.ts",
+    },
+]);
 
 export default config;

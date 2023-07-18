@@ -22,11 +22,8 @@ if (global.anolilabEslintConfigBabelPrettierRules === undefined && (hasDependenc
 const config: Linter.Config = createConfig("all", {
     plugins: ["babel"],
     rules: {
-        "babel/camelcase": [
-            // Deep clone to avoid object mutation wierdness
-            (styleRules["camelcase"] as any[])[0],
-            { ...(styleRules["camelcase"] as any[])[1] },
-        ],
+        // Deep clone to avoid object mutation weirdness
+        "babel/camelcase": [...(styleRules["camelcase"] as unknown[])] as Linter.RuleEntry,
         "babel/new-cap": styleRules["new-cap"],
 
         "babel/no-invalid-this": bestPracticesRules["no-invalid-this"],

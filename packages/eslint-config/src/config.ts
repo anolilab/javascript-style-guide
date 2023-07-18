@@ -168,14 +168,14 @@ const pluginConfig: PackageRules = [
 ];
 
 const loadedPlugins: string[] = [...internalPluginConfig];
-const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
+const possiblePlugins: Record<string, Record<string, boolean>> = {};
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 pluginConfig.forEach((plugin) => {
     const { configName, dependencies } = plugin;
 
     // eslint-disable-next-line security/detect-object-injection
-    if ((anolilabEslintConfig as unknown as { [key: string]: { [key: string]: false | undefined } })["plugin"]?.[configName] !== false) {
+    if ((anolilabEslintConfig as unknown as Record<string, Record<string, false | undefined>>)["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {
@@ -192,18 +192,7 @@ pluginConfig.forEach((plugin) => {
                 if (resolvePackage(rdependency) !== undefined) {
                     dependencies.forEach((dependency) => {
                         // eslint-disable-next-line security/detect-object-injection
-                        (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
-                    });
-                }
-            });
-        }
-
-        if (foundDependencies.length === 0 && plugin.oneOfDependency !== undefined) {
-            plugin.oneOfDependency.forEach((oneOfdependency) => {
-                if (hasDependency(oneOfdependency) || hasDevDependency(oneOfdependency)) {
-                    [...dependencies, ...(plugin.oneOfDependency as string[])].forEach((dependency) => {
-                        // eslint-disable-next-line security/detect-object-injection
-                        (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                        (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
                     });
                 }
             });
@@ -217,7 +206,7 @@ pluginConfig.forEach((plugin) => {
         } else {
             dependencies.forEach((dependency) => {
                 // eslint-disable-next-line security/detect-object-injection
-                (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
             });
         }
     }

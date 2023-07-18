@@ -14,12 +14,11 @@ if (anolilabEslintConfig["warn_on_unsupported_typescript_version"] !== undefined
 }
 
 const config = createConfig("typescript", {
-    // TODO: enable the rule when typescript-eslint 6.0.0 is released
-    // extends: [
-    // "plugin:@typescript-eslint/recommended-type-checked",
-    // "plugin:@typescript-eslint/strict-type-checked",
-    // "plugin:@typescript-eslint/stylistic-type-checked"
-    // ],
+    extends: [
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+    ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaFeatures: {
@@ -107,10 +106,12 @@ const config = createConfig("typescript", {
         "@typescript-eslint/no-unnecessary-type-assertion": "off",
 
         // Warns if a type assertion does not change the type of an expression
+        "@typescript-eslint/non-nullable-type-assertion-style": "off",
+
+        // Enforce includes method over indexOf method.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-includes.md
         "@typescript-eslint/prefer-includes": "error",
 
-        // Enforce includes method over indexOf method.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
         "@typescript-eslint/prefer-nullish-coalescing": [
             "error",
@@ -120,24 +121,24 @@ const config = createConfig("typescript", {
             },
         ],
 
+        // Enforce RegExp#exec over String#match if no global flag is provided.
         // Requires that private members are marked as readonly if they're never modified outside of the constructor
         "@typescript-eslint/prefer-readonly": ["error", { onlyInlineLambdas: false }],
 
-        // Enforce RegExp#exec over String#match if no global flag is provided.
+        // Enforce that this is used when only this type is returned.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-reduce-type-parameter.md
         "@typescript-eslint/prefer-reduce-type-parameter": "error",
 
-        // Enforce that this is used when only this type is returned.
+        // Enforce using String#startsWith and String#endsWith over other equivalent methods of checking substrings.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-regexp-exec.md
         "@typescript-eslint/prefer-regexp-exec": "error",
 
-        // Enforce using String#startsWith and String#endsWith over other equivalent methods of checking substrings.
+        // Replace 'require-await' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-return-this-type.md
         "@typescript-eslint/prefer-return-this-type": "error",
-
-        // Replace 'require-await' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
+
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/promise-function-async.md
         "@typescript-eslint/promise-function-async": "error",
 
@@ -157,29 +158,12 @@ const config = createConfig("typescript", {
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
         "@typescript-eslint/return-await": ["error", "always"],
 
+        // Disallow unnecessary namespace qualifiers.
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/switch-exhaustiveness-check.md
         "@typescript-eslint/switch-exhaustiveness-check": "error",
 
-        // Disallow unnecessary namespace qualifiers.
         // Enforces unbound methods are called with their expected scope
         "@typescript-eslint/unbound-method": ["error", { ignoreStatic: false }],
-
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md
-        "dot-notation": "off",
-
-        // Disallow conditionals where the type is always truthy or always falsy.
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-implied-eval.md
-        "no-implied-eval": "off",
-
-        // Disallow type arguments that are equal to the default.
-        "no-new-func": "off",
-
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-throw-literal.md
-        "no-throw-literal": "off",
-
-        // Enforce using type parameter when calling Array#reduce instead of casting.
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-await.md
-        "require-await": "off",
     },
 });
 

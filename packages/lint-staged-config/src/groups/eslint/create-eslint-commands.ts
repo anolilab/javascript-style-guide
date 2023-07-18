@@ -3,7 +3,7 @@ import anolilabLintStagedConfig from "../../utils/lint-staged-config";
 import groupFilePathsByDirectoryName from "./group-file-paths-by-directory-name";
 import removeIgnoredFiles from "./remove-ignored-files";
 
-type ESLintSettings = {
+interface ESLintSettings {
     settings: {
         eslint?: {
             cache?: boolean;
@@ -13,7 +13,7 @@ type ESLintSettings = {
             rules?: string[];
         };
     };
-};
+}
 
 const eslintSettings: ESLintSettings["settings"]["eslint"] =
     (anolilabLintStagedConfig as unknown as ESLintSettings).settings.eslint ?? ({} as ESLintSettings["settings"]["eslint"]);
@@ -102,8 +102,7 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
             }
 
             try {
-                // eslint-disable-next-line no-template-curly-in-string
-                config = getNearestConfigPath(configName, filePaths[0] as "/${string}");
+                config = getNearestConfigPath(configName, filePaths[0] as "/${string}") as string;
             } catch {
                 // Ignore
             }

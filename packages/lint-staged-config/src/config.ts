@@ -57,13 +57,13 @@ const groups: Groups = [
 let loadedPlugins: Config = {};
 const loadedPluginsNames: string[] = [];
 
-const possiblePlugins: { [rule: string]: { [packageName: string]: boolean } } = {};
+const possiblePlugins: Record<string, Record<string, boolean>> = {};
 
 groups.forEach((plugin) => {
     const { config, configName, dependencies } = plugin;
 
     // eslint-disable-next-line security/detect-object-injection
-    if ((anolilabLintStagedConfig as unknown as { [key: string]: { [key: string]: false | undefined } })["plugin"]?.[configName] !== false) {
+    if ((anolilabLintStagedConfig as unknown as Record<string, Record<string, false | undefined>>)["plugin"]?.[configName] !== false) {
         const foundDependencies = [];
 
         dependencies.forEach((dependency) => {
@@ -81,7 +81,7 @@ groups.forEach((plugin) => {
 
             dependencies.forEach((dependency) => {
                 // eslint-disable-next-line security/detect-object-injection
-                (possiblePlugins[configName] as { [key: string]: boolean })[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
             });
         }
     }

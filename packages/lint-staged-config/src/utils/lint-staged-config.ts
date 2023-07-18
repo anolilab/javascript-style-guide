@@ -5,6 +5,6 @@ if (!global.anolilabLintStagedPackageJsonConfig && pkg) {
     global.anolilabLintStagedPackageJsonConfig = pkg["anolilab"]?.["lint-staged-config"];
 }
 
-const config: { [key: string]: boolean | undefined } = global.anolilabLintStagedPackageJsonConfig ?? {};
+const config: Record<string, boolean | undefined> = global.anolilabLintStagedPackageJsonConfig ?? {};
 
 export default config;

@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.0...@anolilab/lint-staged-config@2.0.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* Update logging instruction and tweak ESLint setting ([c61790a](https://github.com/anolilab/javascript-style-guide/commit/c61790afc2886685829ec10ed96fcbf9fc638641))
+
 ## @anolilab/lint-staged-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@1.1.2...@anolilab/lint-staged-config@2.0.0) (2023-07-18)
 
 

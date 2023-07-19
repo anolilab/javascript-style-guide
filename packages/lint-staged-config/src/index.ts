@@ -38,7 +38,7 @@ if (!global.hasAnolilabStagedLintConfigLoaded) {
         consoleLog('    "anolilab": { "lint-stage-config": { plugin: { "plugin-name": false } } }\n');
     }
 
-    consoleLog('To disable all logging, add the following to your eslint command call "NO_LOGS=true eslint ..."');
+    consoleLog('To disable all logging, add the following to your lint-staged command call "NO_LOGS=true lint-staged ..."');
 
     global.hasAnolilabStagedLintConfigLoaded = true;
 }

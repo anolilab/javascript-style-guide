@@ -161,8 +161,8 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
         version: 7.22.5
@@ -286,8 +286,8 @@ importers:
         version: 0.4.24
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       '@babel/cli':
         specifier: ^7.22.9
         version: 7.22.9(@babel/core@7.22.9)
@@ -325,8 +325,8 @@ importers:
   packages/browserslist-config-anolilab:
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       browserslist:
         specifier: 4.21.9
         version: 4.21.9
@@ -352,8 +352,8 @@ importers:
   packages/commitlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
       '@commitlint/config-conventional':
         specifier: ^17.6.6
         version: 17.6.6
@@ -371,8 +371,8 @@ importers:
         version: 3.3.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       '@commitlint/cli':
         specifier: ^17.6.6
         version: 17.6.6
@@ -389,8 +389,8 @@ importers:
   packages/eslint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
       '@babel/eslint-parser':
         specifier: ^7.22.9
         version: 7.22.9(@babel/core@7.22.9)(eslint@8.45.0)
@@ -589,8 +589,8 @@ importers:
         version: 1.6.0(eslint@8.45.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       '@testing-library/dom':
         specifier: ^9.3.1
         version: 9.3.1
@@ -646,8 +646,8 @@ importers:
   packages/lint-staged-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -678,8 +678,8 @@ importers:
         version: 4.3.4(@types/node@16.18.36)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.4.2
         version: 0.4.2
@@ -792,12 +792,12 @@ importers:
   packages/prettier-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
@@ -817,7 +817,7 @@ importers:
   packages/semantic-release-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.0
+        specifier: 3.0.1
         version: link:../package-json-utils
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -860,13 +860,13 @@ importers:
   packages/stylelint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 3.0.1
+        version: link:../package-json-utils
       '@ronilaukkarinen/stylelint-a11y':
         specifier: ^1.2.7
         version: 1.2.7(stylelint@15.10.1)
       browserslist-config-anolilab:
-        specifier: 4.2.1
+        specifier: 5.0.0
         version: link:../browserslist-config-anolilab
       stylelint-config-clean-order:
         specifier: ^5.0.1
@@ -897,8 +897,8 @@ importers:
         version: 0.33.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 5.0.1
-        version: 5.0.1(semantic-release@21.0.2)
+        specifier: 6.0.1
+        version: link:../semantic-release-preset
       postcss:
         specifier: ^8.4.26
         version: 8.4.26
@@ -915,7 +915,7 @@ importers:
   packages/textlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.0
+        specifier: 3.0.1
         version: link:../package-json-utils
       '@textlint-rule/textlint-rule-no-invalid-control-character':
         specifier: ^2.0.0
@@ -982,7 +982,7 @@ importers:
         version: 1.0.8(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.32.2)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.0
+        specifier: 6.0.1
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.1
@@ -1018,34 +1018,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
-
-  /@anolilab/package-json-utils@2.0.1:
-    resolution: {integrity: sha512-l7/oNO2ATOYXJYT5p0++f6ErQwszhUhK7E+4TJ3EHkIak7rjqoGcTYsH2GUO3LMOEPdd2sYk82JLKT2LUtIPXQ==}
-    engines: {node: '>=16'}
-    dependencies:
-      dot-path-value: 0.0.10
-      read-pkg-up: 7.0.1
-
-  /@anolilab/semantic-release-preset@5.0.1(semantic-release@21.0.2):
-    resolution: {integrity: sha512-Hkz1RHi2BEyWLgJYh1Ior3B0y1tkvkPDXSvS/iLrh0ljSOS2NtmQ8X7M35lfBDp+Ywz6F/ei+IUqG8b+vWnaEA==}
-    engines: {node: '>=16'}
-    requiresBuild: true
-    peerDependencies:
-      semantic-release: ^21.0.0
-    dependencies:
-      '@anolilab/package-json-utils': 2.0.1
-      '@semantic-release/changelog': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/commit-analyzer': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/exec': 6.0.3(semantic-release@21.0.2)
-      '@semantic-release/git': 10.0.1(semantic-release@21.0.2)
-      '@semantic-release/github': 9.0.4(semantic-release@21.0.2)
-      '@semantic-release/npm': 10.0.4(semantic-release@21.0.2)
-      '@semantic-release/release-notes-generator': 11.0.4(semantic-release@21.0.2)
-      conventional-changelog-conventionalcommits: 6.1.0
-      semantic-release: 21.0.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /@arthurgeron/eslint-plugin-react-usememo@1.1.4:
     resolution: {integrity: sha512-OIjOhplz6MT+HgJjKZT1SDGzhofSRZaYfNBc7yRl/eeuh2VfUlRQP9ulReBLmfwuQWyRLr0wcdazQNKq35MaEw==}
@@ -7633,6 +7605,7 @@ packages:
 
   /dot-path-value@0.0.10:
     resolution: {integrity: sha512-MrVpDoFwk1xjeM0sGRuei7N3LQOylJ9iamgfxAQwPY0hPnDHL981hM/KpoQwFHMckgjZvJA0MyH7VN//ernFFA==}
+    dev: false
 
   /dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}

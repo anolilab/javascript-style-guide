@@ -3,20 +3,22 @@ import anolilabLintStagedConfig from "../../utils/lint-staged-config";
 import groupFilePathsByDirectoryName from "./group-file-paths-by-directory-name";
 import removeIgnoredFiles from "./remove-ignored-files";
 
+interface EslintConfig {
+    cache?: boolean;
+    config?: string;
+    "fix-type"?: string[];
+    "max-warnings"?: number | string | false;
+    rules?: string[];
+}
+
 interface ESLintSettings {
-    settings: {
-        eslint?: {
-            cache?: boolean;
-            config?: string;
-            "fix-type": string[];
-            "max-warnings"?: number | string | false;
-            rules?: string[];
-        };
+    settings?: {
+        eslint?: EslintConfig;
     };
 }
 
-const eslintSettings: ESLintSettings["settings"]["eslint"] =
-    (anolilabLintStagedConfig as unknown as ESLintSettings).settings.eslint ?? ({} as ESLintSettings["settings"]["eslint"]);
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+const eslintSettings: EslintConfig = (anolilabLintStagedConfig as ESLintSettings)?.settings?.eslint ?? ({} as EslintConfig);
 
 const eslintGlobalRulesForFix = [
     // react-hooks/eslint and react in general is very strict about exhaustively
@@ -46,15 +48,15 @@ const configFile = ".eslintrc";
 const createEslintArguments = (): string[] => {
     const eslintArguments: string[] = [];
 
-    if (eslintSettings?.["max-warnings"] !== undefined && Number.isNaN(eslintSettings["max-warnings"])) {
+    if (eslintSettings["max-warnings"] !== undefined && Number.isNaN(eslintSettings["max-warnings"])) {
         eslintArguments.push(`--max-warnings=${eslintSettings["max-warnings"]}`);
-    } else if (eslintSettings?.["max-warnings"] !== false) {
+    } else if (eslintSettings["max-warnings"] !== false) {
         eslintArguments.push("--max-warnings=0");
     }
 
     const rules = [];
 
-    if (eslintSettings?.rules !== undefined && Array.isArray(eslintSettings.rules)) {
+    if (eslintSettings.rules !== undefined && Array.isArray(eslintSettings.rules)) {
         rules.push([...eslintSettings.rules, ...eslintGlobalRulesForFix].filter((rule) => rule.trim().length > 0).map((r) => `"${r.trim()}"`));
     } else {
         rules.push(eslintGlobalRulesForFix.map((r) => `"${r.trim()}"`));
@@ -66,13 +68,13 @@ const createEslintArguments = (): string[] => {
 
     // For lint-staged it's safer to not apply the fix command if it changes the AST
     // @see https://eslint.org/docs/user-guide/command-line-interface#--fix-type
-    const fixType = [...(eslintSettings?.["fix-type"] ?? ["layout"])].filter((type) => type.trim().length > 0);
+    const fixType = [...(eslintSettings["fix-type"] ?? ["layout"])].filter((type) => type.trim().length > 0);
 
     if (fixType.length > 0) {
         eslintArguments.push(`--fix-type ${fixType.join(",")}`, "--fix");
     }
 
-    if (eslintSettings?.cache) {
+    if (eslintSettings.cache) {
         eslintArguments.push("--cache");
     }
 
@@ -84,7 +86,7 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
 
     const eslintArguments = createEslintArguments();
 
-    if (eslintSettings?.config) {
+    if (eslintSettings.config) {
         eslintArguments.push(`--config ${eslintSettings.config}`);
 
         return [`cross-env NO_LOGS=true eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`];

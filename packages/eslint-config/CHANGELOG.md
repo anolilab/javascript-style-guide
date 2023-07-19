@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [10.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.0...@anolilab/eslint-config@10.0.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* Add json to eslint-config and update vitest rules ([4c55941](https://github.com/anolilab/javascript-style-guide/commit/4c55941137d90c047a5411317c89f75e620a628e))
+
 ## @anolilab/eslint-config [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@9.0.4...@anolilab/eslint-config@10.0.0) (2023-07-18)
 
 

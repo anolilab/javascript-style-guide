@@ -37,7 +37,7 @@ const getType = (fileType: FileType) => {
             return ["**/*.{md,mkdn,mdown,markdown}"];
         }
         case "markdown_inline_js_jsx": {
-            return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}"];
+            return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node,json}"];
         }
         case "mdx": {
             return ["**/*.mdx"];

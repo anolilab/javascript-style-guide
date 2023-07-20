@@ -5,8 +5,8 @@ const config: Linter.Config = {
     extends: ["plugin:promise/recommended"],
     plugins: ["promise"],
     rules: {
-        "promise/prefer-await-to-callbacks": "off",
-        "promise/prefer-await-to-then": "off",
+        "promise/prefer-await-to-callbacks": "error",
+        "promise/prefer-await-to-then": "error",
     },
 };
 

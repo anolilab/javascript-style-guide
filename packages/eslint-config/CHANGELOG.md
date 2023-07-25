@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [10.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.1...@anolilab/eslint-config@10.0.2) (2023-07-25)
+
+
+### Bug Fixes
+
+* Update eslint configuration and plugin versions ([721e059](https://github.com/anolilab/javascript-style-guide/commit/721e0598f7a6e276e9ccec45f042c8ededffe7c2))
+
 ## @anolilab/eslint-config [10.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.0...@anolilab/eslint-config@10.0.1) (2023-07-19)
 
 

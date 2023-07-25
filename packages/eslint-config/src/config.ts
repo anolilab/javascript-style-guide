@@ -126,11 +126,11 @@ const pluginConfig: PackageRules = [
         dependencies: ["tailwindcss"],
     },
     {
-        configName: "testing-library",
+        configName: "testing-library-dom",
         dependencies: ["@testing-library/dom", "eslint-plugin-testing-library"],
     },
     {
-        configName: "testing-library",
+        configName: "testing-library-react",
         dependencies: ["react", "@testing-library/react", "eslint-plugin-testing-library"],
     },
     {

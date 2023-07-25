@@ -1,21 +1,13 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import { createConfig } from "../../utils/create-config";
 import anolilabEslintConfig from "../../utils/eslint-config";
 import { consolePlugin } from "../../utils/loggers";
 
-if (
-    global.anolilabEslintConfigTestingLibraryRuleSet === undefined &&
-    (hasDependency("react") || hasDevDependency("react") || hasDependency("@testing-library/react") || hasDevDependency("@testing-library/react"))
-) {
-    global.anolilabEslintConfigTestingLibraryRuleSet = "react";
-}
-
 // Workaround VS Code trying to run this file twice!
 if (!global.hasAnolilabEsLintTestConfigLoaded) {
     if (anolilabEslintConfig["info_on_testing_library_framework"] !== false) {
-        consolePlugin(`testing-library: loading "${global.anolilabEslintConfigTestingLibraryRuleSet ?? "dom"}" ruleset`);
+        consolePlugin(`testing-library: loading "react" ruleset`);
     }
 
     global.hasAnolilabEsLintTestConfigLoaded = true;
@@ -25,7 +17,7 @@ if (!global.hasAnolilabEsLintTestConfigLoaded) {
 const config: Linter.Config = createConfig(
     "tests",
     {
-        extends: [`plugin:testing-library/${global.anolilabEslintConfigTestingLibraryRuleSet ?? "dom"}`],
+        extends: [`plugin:testing-library/react`],
     },
     {
         browser: true,

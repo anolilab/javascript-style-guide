@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [10.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.2...@anolilab/eslint-config@10.0.3) (2023-07-25)
+
+
+### Bug Fixes
+
+* Split 'testing-library' into 'testing-library-dom' and 'testing-library-react' ([e4bfa5e](https://github.com/anolilab/javascript-style-guide/commit/e4bfa5ed3da1847058df81745ca673b194d9e11a))
+
 ## @anolilab/eslint-config [10.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.1...@anolilab/eslint-config@10.0.2) (2023-07-25)
 
 

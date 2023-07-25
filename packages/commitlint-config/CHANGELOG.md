@@ -1,3 +1,15 @@
+## @anolilab/commitlint-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.0...@anolilab/commitlint-config@3.0.1) (2023-07-25)
+
+
+### Bug Fixes
+
+* Update commitlint dependencies to latest version ([f9874a5](https://github.com/anolilab/javascript-style-guide/commit/f9874a59b7bfc2a7f21235ef37fbf61bd5d862b3))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([a1724b8](https://github.com/anolilab/javascript-style-guide/commit/a1724b836e1720de713d1d5771db5aca750f7f5f))
+
 ## @anolilab/commitlint-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@2.0.1...@anolilab/commitlint-config@3.0.0) (2023-07-18)
 
 

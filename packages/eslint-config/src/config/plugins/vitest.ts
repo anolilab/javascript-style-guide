@@ -31,7 +31,7 @@ const config: Linter.Config = {
 
                 // Disallow using expect outside of it or test blocks
                 // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
-                "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2 }],
+                "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],
             },
         },
     ],

@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [10.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.5...@anolilab/eslint-config@10.0.6) (2023-07-26)
+
+
+### Bug Fixes
+
+* Update postcss config file extensions ([1c2bb1d](https://github.com/anolilab/javascript-style-guide/commit/1c2bb1d03a6505d8cf73d77eb40332eea140db62))
+
 ## @anolilab/eslint-config [10.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.4...@anolilab/eslint-config@10.0.5) (2023-07-26)
 
 

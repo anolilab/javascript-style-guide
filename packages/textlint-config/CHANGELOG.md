@@ -1,3 +1,17 @@
+## @anolilab/textlint-config [8.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.1...@anolilab/textlint-config@8.0.2) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.2
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.2
+
 ## @anolilab/textlint-config [8.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.0...@anolilab/textlint-config@8.0.1) (2023-07-18)
 
 

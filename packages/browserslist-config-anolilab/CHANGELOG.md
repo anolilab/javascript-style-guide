@@ -1,3 +1,21 @@
+## browserslist-config-anolilab [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.0...browserslist-config-anolilab@5.0.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([a1724b8](https://github.com/anolilab/javascript-style-guide/commit/a1724b836e1720de713d1d5771db5aca750f7f5f))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.2
+
 ## browserslist-config-anolilab [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@4.2.1...browserslist-config-anolilab@5.0.0) (2023-07-18)
 
 

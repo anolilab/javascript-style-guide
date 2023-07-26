@@ -1,7 +1,7 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import { createConfig } from "../../utils/create-config";
+import { createConfigs } from "../../utils/create-config";
 import { consoleLog } from "../../utils/loggers";
 
 if (
@@ -14,18 +14,31 @@ if (
 }
 
 // @see https://github.com/azat-io/eslint-plugin-perfectionist
-const config: Linter.Config = createConfig("all", {
-    extends: ["plugin:perfectionist/recommended-natural"],
-    plugins: ["perfectionist"],
-    rules: {
-        // Disabled because of sort-imports
-        "perfectionist/sort-imports": "off",
-        // Disabled because of @typescript-eslint/sort-type-constituents
-        "perfectionist/sort-union-types": "off",
+const config: Linter.Config = createConfigs([
+    {
+        config: {
+            extends: ["plugin:perfectionist/recommended-natural"],
+            plugins: ["perfectionist"],
+            rules: {
+                // Disabled because of sort-imports
+                "perfectionist/sort-imports": "off",
+                // Disabled because of @typescript-eslint/sort-type-constituents
+                "perfectionist/sort-union-types": "off",
 
-        // Disabled because of perfectionist/sort-objects
-        "sort-keys": "off",
+                // Disabled because of perfectionist/sort-objects
+                "sort-keys": "off",
+            },
+        },
+        type: "all",
     },
-});
+    {
+        config: {
+            rules: {
+                "perfectionist/sort-objects": "off",
+            },
+        },
+        type: "postcss",
+    },
+]);
 
 export default config;

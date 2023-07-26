@@ -11,6 +11,7 @@ type FileType =
     | "markdown_inline_js_jsx"
     | "markdown"
     | "mdx"
+    | "postcss"
     | "tests"
     | "typescript"
     | "vitest";
@@ -95,6 +96,9 @@ const getType = (fileType: FileType) => {
         }
         case "d.ts": {
             return ["**/*.d.ts"];
+        }
+        case "postcss": {
+            return ["**/postcss.config.js", "**/postcssrc.js"];
         }
         default: {
             throw new Error("Unknown type");

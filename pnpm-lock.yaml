@@ -135,7 +135,7 @@ importers:
         version: 5.0.1
       secretlint:
         specifier: 7.0.3
-        version: 7.0.3
+        version: 7.0.3(typescript@5.1.6)
       semantic-release:
         specifier: ^21.0.2
         version: 21.0.2
@@ -161,7 +161,7 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
@@ -286,7 +286,7 @@ importers:
         version: 0.4.24
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       '@babel/cli':
         specifier: ^7.22.9
@@ -325,7 +325,7 @@ importers:
   packages/browserslist-config-anolilab:
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       browserslist:
         specifier: 4.21.9
@@ -352,7 +352,7 @@ importers:
   packages/commitlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@commitlint/config-conventional':
         specifier: ^17.6.7
@@ -371,7 +371,7 @@ importers:
         version: 3.3.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       '@commitlint/cli':
         specifier: ^17.6.7
@@ -389,7 +389,7 @@ importers:
   packages/eslint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@babel/eslint-parser':
         specifier: ^7.22.9
@@ -589,7 +589,7 @@ importers:
         version: 1.6.0(eslint@8.45.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       '@testing-library/dom':
         specifier: ^9.3.1
@@ -646,7 +646,7 @@ importers:
   packages/lint-staged-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       cross-env:
         specifier: ^7.0.3
@@ -678,7 +678,7 @@ importers:
         version: 4.3.4(@types/node@16.18.36)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.4.2
@@ -792,11 +792,11 @@ importers:
   packages/prettier-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       prettier:
         specifier: ^3.0.0
@@ -817,7 +817,7 @@ importers:
   packages/semantic-release-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -860,13 +860,13 @@ importers:
   packages/stylelint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@ronilaukkarinen/stylelint-a11y':
         specifier: ^1.2.7
         version: 1.2.7(stylelint@15.10.2)
       browserslist-config-anolilab:
-        specifier: 5.0.0
+        specifier: 5.0.1
         version: link:../browserslist-config-anolilab
       stylelint-config-clean-order:
         specifier: ^5.0.1
@@ -897,7 +897,7 @@ importers:
         version: 0.33.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       postcss:
         specifier: ^8.4.27
@@ -915,7 +915,7 @@ importers:
   packages/textlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.1
+        specifier: 3.0.2
         version: link:../package-json-utils
       '@textlint-rule/textlint-rule-no-invalid-control-character':
         specifier: ^2.0.0
@@ -982,7 +982,7 @@ importers:
         version: 1.0.8(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.33.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.1
+        specifier: 6.0.2
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.1
@@ -6168,6 +6168,7 @@ packages:
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
 
   /axe-core@4.7.0:
     resolution: {integrity: sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==}
@@ -7882,6 +7883,7 @@ packages:
   /es-set-tostringtag@2.0.1:
     resolution: {integrity: sha512-g3OMbtlwY3QewlqAiMLI47KywjWZoEytKr8pf6iTC8uJq5bIAH52Z9pnQ8pVL6whrCto53JZDuUIsifGeLorTg==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       get-intrinsic: 1.2.0
       has: 1.0.3
@@ -7897,6 +7899,7 @@ packages:
   /es-to-primitive@1.2.1:
     resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       is-callable: 1.2.7
       is-date-object: 1.0.5
@@ -9305,6 +9308,7 @@ packages:
 
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
+    requiresBuild: true
     dependencies:
       is-callable: 1.2.7
 
@@ -9407,6 +9411,7 @@ packages:
   /function.prototype.name@1.1.5:
     resolution: {integrity: sha512-uN7m/BzVKQnCUF/iW8jYea67v++2u7m5UgENbHRtdDVclOUP+FMPlCNdmk0h/ysGyo2tavMJEDqJAkJdRa1vMA==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.2.0
@@ -9464,6 +9469,7 @@ packages:
   /get-symbol-description@1.0.0:
     resolution: {integrity: sha512-2EmdH1YvIQiZpltCNgkuiUnyukzxM/R6NDJX31Ke3BG1Nq5b0S2PhX59UKi9vZpPDQVdqn+1IcaAwnzTT5vCjw==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.2.0
@@ -9652,6 +9658,7 @@ packages:
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       define-properties: 1.2.0
     dev: false
@@ -9693,6 +9700,7 @@ packages:
 
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
+    requiresBuild: true
     dependencies:
       get-intrinsic: 1.2.0
 
@@ -9768,6 +9776,7 @@ packages:
   /has-proto@1.0.1:
     resolution: {integrity: sha512-7qE+iP+O+bgF9clE5+UoBFzE65mlBiVj3tKCrlNQ0Ogwm0BjpT/gK4SlLYDMybDh5I3TCTKnPPa0oMG7JDYrhg==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dev: false
 
   /has-symbols@1.0.3:
@@ -10184,6 +10193,7 @@ packages:
   /is-callable@1.2.7:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
 
   /is-ci@2.0.0:
     resolution: {integrity: sha512-YfJT7rkpQB0updsdHLGWrvhBJfcfzNNawYDNIyQXJz0IViGf75O8EBPKSdvw2rF+LGCsX4FZ8tcr3b19LcZq4w==}
@@ -10339,6 +10349,7 @@ packages:
   /is-negative-zero@2.0.2:
     resolution: {integrity: sha512-dqJvarLawXsFbNDeJW7zAz8ItJ9cd28YufuuFzh0G8pNHjJMnY08Dv7sYX2uF5UpQOwieAeOExEYAWWfu7ZZUA==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dev: false
 
   /is-npm@4.0.0:
@@ -10461,6 +10472,7 @@ packages:
   /is-typed-array@1.1.10:
     resolution: {integrity: sha512-PJqgEHiWZvMpaFZ3uTc8kHPM4+4ADTlDniuQL7cU/UDA0Ql7F70yGfHph3cLNe+c9toaigv+DFzTJKhc2CtO6A==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       available-typed-arrays: 1.0.5
       call-bind: 1.0.2
@@ -10488,6 +10500,7 @@ packages:
 
   /is-weakref@1.0.2:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
     dev: false
@@ -14247,6 +14260,7 @@ packages:
 
   /safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.2.0
@@ -14291,6 +14305,25 @@ packages:
       read-pkg: 8.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+    optional: true
+
+  /secretlint@7.0.3(typescript@5.1.6):
+    resolution: {integrity: sha512-SUdZFVau9mybs7u4QrxTfcp3EynQcyUEkghNhn7Fv2FXcaeUSFnENX4eUBZA5n3NzHzOPC1+kyZP6eigHLbP0w==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      '@secretlint/config-creator': 7.0.3
+      '@secretlint/formatter': 7.0.3
+      '@secretlint/node': 7.0.3
+      '@secretlint/profiler': 7.0.3
+      debug: 4.3.4
+      globby: 13.2.1
+      meow: 12.0.1
+      read-pkg: 8.0.0(typescript@5.1.6)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: false
 
   /select-section@0.4.6:
@@ -14728,6 +14761,7 @@ packages:
   /string.prototype.trim@1.2.7:
     resolution: {integrity: sha512-p6TmeT1T3411M8Cgg9wBTMRtY2q9+PNy9EV1i2lIXUN/btt763oIfxwN3RR8VU6wHX8j/1CFy0L+YuThm6bgOg==}
     engines: {node: '>= 0.4'}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.2.0
@@ -14736,6 +14770,7 @@ packages:
 
   /string.prototype.trimend@1.0.6:
     resolution: {integrity: sha512-JySq+4mrPf9EsDBEDYMOb/lM7XQLulwg5R/m1r0PXEFqrV0qHvl58sdTilSXtKOflCsK2E8jxf+GKC0T07RWwQ==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.2.0
@@ -14744,6 +14779,7 @@ packages:
 
   /string.prototype.trimstart@1.0.6:
     resolution: {integrity: sha512-omqjMDaY92pbn5HOX7f9IccLA+U1tA9GvtU4JrodiXFfYB7jPzzHpRzpglLAjtUV6bB557zwClJezTqnAiYnQA==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.2.0
@@ -15770,6 +15806,7 @@ packages:
 
   /typed-array-length@1.0.4:
     resolution: {integrity: sha512-KjZypGq+I/H7HI5HlOoGHkWUUGq+Q0TPhQurLbyrVrvnKTBgzLhIJ7j6J/XTQOi0d1RjyZ0wdas8bKs2p0x3Ng==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       for-each: 0.3.3
@@ -15803,6 +15840,7 @@ packages:
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
+    requiresBuild: true
     dependencies:
       call-bind: 1.0.2
       has-bigints: 1.0.2

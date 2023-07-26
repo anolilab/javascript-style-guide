@@ -1,3 +1,24 @@
+## @anolilab/stylelint-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.0...@anolilab/stylelint-config@6.0.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency stylelint to v15.10.2 ([061c2cf](https://github.com/anolilab/javascript-style-guide/commit/061c2cff2e5b02d1decd2c01a07136cb042be7a9))
+* Upgrade postcss version in devDependencies ([9da3b7d](https://github.com/anolilab/javascript-style-guide/commit/9da3b7d838dfff0417443119b21071e64930b19e))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.2
+* **browserslist-config-anolilab:** upgraded to 5.0.1
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.2
+
 ## @anolilab/stylelint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@5.1.1...@anolilab/stylelint-config@6.0.0) (2023-07-18)
 
 

@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [3.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.1...@anolilab/package-json-utils@3.0.2) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
 ## @anolilab/package-json-utils [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.0...@anolilab/package-json-utils@3.0.1) (2023-07-18)
 
 

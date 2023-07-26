@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [10.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.4...@anolilab/eslint-config@10.0.5) (2023-07-26)
+
+
+### Bug Fixes
+
+* Add support for PostCSS in ESLint config ([c67d0f9](https://github.com/anolilab/javascript-style-guide/commit/c67d0f9931655343b0548006c4611ba5985e7033))
+
 ## @anolilab/eslint-config [10.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.3...@anolilab/eslint-config@10.0.4) (2023-07-26)
 
 

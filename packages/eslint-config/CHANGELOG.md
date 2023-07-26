@@ -1,3 +1,22 @@
+## @anolilab/eslint-config [10.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.3...@anolilab/eslint-config@10.0.4) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency @types/eslint to ^8.44.1 ([5899a67](https://github.com/anolilab/javascript-style-guide/commit/5899a6770af5dd92aecbe0479e713c995d6b1980))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.2
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.2
+
 ## @anolilab/eslint-config [10.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.2...@anolilab/eslint-config@10.0.3) (2023-07-25)
 
 

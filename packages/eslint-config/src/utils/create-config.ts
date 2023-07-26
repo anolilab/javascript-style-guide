@@ -98,7 +98,7 @@ const getType = (fileType: FileType) => {
             return ["**/*.d.ts"];
         }
         case "postcss": {
-            return ["**/postcss.config.js", "**/postcssrc.js"];
+            return ["**/postcss.config.js", "**/postcssrc.js", "**/postcss.config.cjs", "**/postcssrc.cjs"];
         }
         default: {
             throw new Error("Unknown type");

@@ -1,3 +1,23 @@
+## @anolilab/lint-staged-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.1...@anolilab/lint-staged-config@2.0.2) (2023-07-26)
+
+
+### Bug Fixes
+
+* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency stylelint to v15.10.2 ([061c2cf](https://github.com/anolilab/javascript-style-guide/commit/061c2cff2e5b02d1decd2c01a07136cb042be7a9))
+* Upgrade vite version in lint-staged-config ([ea52ad5](https://github.com/anolilab/javascript-style-guide/commit/ea52ad5e3bd672a2973f151bdf04ce6113980fce))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.2
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.2
+
 ## @anolilab/lint-staged-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.0...@anolilab/lint-staged-config@2.0.1) (2023-07-19)
 
 

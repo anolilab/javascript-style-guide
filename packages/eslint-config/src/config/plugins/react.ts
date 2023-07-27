@@ -530,12 +530,13 @@ const config: Linter.Config = {
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
                 "react/react-in-jsx-scope": hasJsxRuntime ? "off" : "error",
 
-                // Enforce linebreaks in curly braces in JSX attributes and expressions.
+                // Enforce a defaultProps definition for every prop that is not a required prop
                 // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/require-default-props.md
                 "react/require-default-props": [
                     "error",
                     {
                         forbidDefaultForRequired: true,
+                        functions: hasDependency("typescript") || hasDevDependency("typescript") ? "defaultArguments" : "defaultProps",
                     },
                 ],
 

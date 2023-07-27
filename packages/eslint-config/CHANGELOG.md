@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [11.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.0...@anolilab/eslint-config@11.0.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* Change ESLint errors config type to "all" ([3411686](https://github.com/anolilab/javascript-style-guide/commit/3411686a7ef3489c412d66dd4fd7b35a5866ea0a))
+
 ## @anolilab/eslint-config [11.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.6...@anolilab/eslint-config@11.0.0) (2023-07-27)
 
 

@@ -104,6 +104,7 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
             }
 
             try {
+                // eslint-disable-next-line no-template-curly-in-string
                 config = getNearestConfigPath(configName, filePaths[0] as "/${string}") as string;
             } catch {
                 // Ignore

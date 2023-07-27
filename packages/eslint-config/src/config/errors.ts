@@ -179,7 +179,7 @@ const config: Linter.Config = createConfigs([
                 "valid-typeof": ["error", { requireStringLiterals: true }],
             },
         },
-        type: "javascript",
+        type: "all",
     },
     {
         config: {

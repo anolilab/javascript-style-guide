@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [11.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.6...@anolilab/eslint-config@11.0.0) (2023-07-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* Updated the rule 'react/require-default-props' in react.ts to enforce a 'defaultProps' definition for every property that is not marked as required. This change aims to use types from typescript.
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Enforce defaultProp definitions for js and defaultArguments for ts files on non-required props ([c1fa64d](https://github.com/anolilab/javascript-style-guide/commit/c1fa64d46265c8d33864cefed31f57a671e87a63))
+
 ## @anolilab/eslint-config [10.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@10.0.5...@anolilab/eslint-config@10.0.6) (2023-07-26)
 
 

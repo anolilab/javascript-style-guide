@@ -17,15 +17,6 @@ const config: Linter.Config = {
         node: true,
     },
     extends: ["plugin:n/recommended"],
-    overrides: [
-        {
-            files: ["*.js", "*.mjs", "*.cjs"],
-            rules: {
-                // We have this enabled in addition to `import/extensions` as this one has an auto-fix.
-                "n/file-extension-in-import": ["error", "always"],
-            },
-        },
-    ],
     parserOptions: {
         ecmaVersion: 2021,
     },
@@ -36,19 +27,24 @@ const config: Linter.Config = {
         // enforce return after a callback
         "n/callback-return": "off",
 
+        // enforce the style of file extensions in import declarations
+        // This rule is buggy @see https://github.com/eslint-community/eslint-plugin-n/issues/21
         "n/file-extension-in-import": "off",
+
         // enforces error handling in callbacks (node environment)
         "n/handle-callback-err": "off",
 
         // Redundant with `import/no-extraneous-dependencies`.
         "n/no-extraneous-import": "off",
 
+        // disallow require() expressions which import extraneous modules
         "n/no-extraneous-require": "off",
 
         // require all requires be top-level
         // Redundant with `import/no-unresolved`.
         "n/no-missing-import": "off", // This rule is also buggy and doesn't support `node:`.
 
+        // disallow require() expressions which import non-existence modules
         "n/no-missing-require": "off",
 
         // disallow use of the Buffer() constructor
@@ -78,8 +74,10 @@ const config: Linter.Config = {
         // disallow use of synchronous methods (off by default)
         "n/no-sync": "off",
 
+        // disallow bin files that npm ignores
         "n/no-unpublished-bin": "error",
 
+        // require that process.exit() expressions use the same code path as throw
         "n/process-exit-as-throw": "error",
 
         // https://eslint.org/docs/rules/no-buffer-constructor

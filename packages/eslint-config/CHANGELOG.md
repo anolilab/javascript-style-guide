@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [11.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.1...@anolilab/eslint-config@11.0.2) (2023-07-28)
+
+
+### Bug Fixes
+
+* Remove 'n/file-extension-in-import' rule from overrides ([3541b6d](https://github.com/anolilab/javascript-style-guide/commit/3541b6d0bf490cc049263159dfce6e1a341cd797))
+
 ## @anolilab/eslint-config [11.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.0...@anolilab/eslint-config@11.0.1) (2023-07-27)
 
 

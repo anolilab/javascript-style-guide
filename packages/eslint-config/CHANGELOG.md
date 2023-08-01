@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [11.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.2...@anolilab/eslint-config@11.0.3) (2023-08-01)
+
+
+### Bug Fixes
+
+* **deps:** update eslint ([#723](https://github.com/anolilab/javascript-style-guide/issues/723)) ([014a1df](https://github.com/anolilab/javascript-style-guide/commit/014a1dffbeef83f855fb95aaa19c6de10b4dc854))
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([#722](https://github.com/anolilab/javascript-style-guide/issues/722)) ([76b3c10](https://github.com/anolilab/javascript-style-guide/commit/76b3c10387d333541c84b39300db503d00f4f78f))
+* **deps:** update eslint ([5d2daef](https://github.com/anolilab/javascript-style-guide/commit/5d2daefe7d777a23b3c83535d3f3a51915942f20))
+
 ## @anolilab/eslint-config [11.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.1...@anolilab/eslint-config@11.0.2) (2023-07-28)
 
 

@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [11.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.3...@anolilab/eslint-config@11.1.0) (2023-08-02)
+
+
+### Features
+
+* add eslint-plugin-editorconfig to enforce code style consistency ([7503e7b](https://github.com/anolilab/javascript-style-guide/commit/7503e7be8fd398154d127bc49d1ca6b69dbf3181))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([#724](https://github.com/anolilab/javascript-style-guide/issues/724)) ([4dc5902](https://github.com/anolilab/javascript-style-guide/commit/4dc5902b7a2fb5892923bf8eaedbe6f60cf0fce6))
+
 ## @anolilab/eslint-config [11.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.2...@anolilab/eslint-config@11.0.3) (2023-08-01)
 
 

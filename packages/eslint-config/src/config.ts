@@ -1,4 +1,4 @@
-import { hasDependency, hasDevDependency, resolvePackage } from "@anolilab/package-json-utils";
+import { hasDependency, hasDevDependency, hasFile, resolvePackage } from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 import anolilabEslintConfig from "./utils/eslint-config";
@@ -136,6 +136,7 @@ const pluginConfig: PackageRules = [
     {
         configName: "typescript",
         dependencies: ["typescript"],
+        files: ["tsconfig.json", "tsconfig.eslint.json"],
     },
     {
         configName: "etc",
@@ -154,6 +155,11 @@ const pluginConfig: PackageRules = [
         dependencies: ["ava", "eslint-plugin-ava"],
     },
     {
+        configName: "editorconfig",
+        dependencies: ["eslint-plugin-editorconfig"],
+        files: [".editorconfig"],
+    },
+    {
         configName: "storybook",
         dependencies: ["storybook", "eslint-plugin-storybook"],
     },
@@ -170,47 +176,71 @@ const pluginConfig: PackageRules = [
 const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: Record<string, Record<string, boolean>> = {};
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
-pluginConfig.forEach((plugin) => {
-    const { configName, dependencies } = plugin;
-
-    // eslint-disable-next-line security/detect-object-injection
-    if ((anolilabEslintConfig as unknown as Record<string, Record<string, false | undefined>>)["plugin"]?.[configName] !== false) {
-        const foundDependencies = [];
-
-        dependencies.forEach((dependency) => {
-            if (hasDependency(dependency) || hasDevDependency(dependency)) {
-                foundDependencies.push(dependency);
-            }
-        });
+if (loadedPlugins.length === internalPluginConfig.length) {
+    // eslint-disable-next-line sonarjs/cognitive-complexity
+    pluginConfig.forEach((plugin) => {
+        const { configName, dependencies } = plugin;
 
         // eslint-disable-next-line security/detect-object-injection
-        possiblePlugins[configName] = {};
+        if ((anolilabEslintConfig as unknown as Record<string, Record<string, false | undefined>>)["plugin"]?.[configName] !== false) {
+            const foundDependencies = [];
 
-        if (foundDependencies.length === 0 && plugin.resolve !== undefined) {
-            plugin.resolve.forEach((rdependency) => {
-                if (resolvePackage(rdependency) !== undefined) {
-                    dependencies.forEach((dependency) => {
-                        // eslint-disable-next-line security/detect-object-injection
-                        (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
-                    });
+            dependencies.forEach((dependency) => {
+                if (hasDependency(dependency) || hasDevDependency(dependency)) {
+                    foundDependencies.push(dependency);
                 }
             });
-        }
 
-        if (foundDependencies.length === dependencies.length) {
-            // eslint-disable-next-line security/detect-object-injection,@typescript-eslint/no-dynamic-delete
-            delete possiblePlugins[configName];
+            // eslint-disable-next-line security/detect-object-injection
+            possiblePlugins[configName] = {};
 
-            loadedPlugins.push(configName);
-        } else {
-            dependencies.forEach((dependency) => {
-                // eslint-disable-next-line security/detect-object-injection
-                (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
-            });
+            if (foundDependencies.length === 0) {
+                if (plugin.oneOfDependency !== undefined) {
+                    let foundOneOfDependency = false;
+
+                    plugin.oneOfDependency.forEach((dependency) => {
+                        if (!foundOneOfDependency && (hasDependency(dependency) || hasDevDependency(dependency))) {
+                            foundOneOfDependency = true;
+
+                            // eslint-disable-next-line security/detect-object-injection
+                            (possiblePlugins[configName] as Record<string, boolean>)[dependency] = true;
+                        }
+                    });
+                }
+
+                if (plugin.resolve !== undefined) {
+                    plugin.resolve.forEach((rdependency) => {
+                        if (resolvePackage(rdependency) !== undefined) {
+                            // eslint-disable-next-line security/detect-object-injection
+                            (possiblePlugins[configName] as Record<string, boolean>)[rdependency] = true;
+                        }
+                    });
+                }
+
+                if (plugin.files !== undefined) {
+                    plugin.files.forEach((file) => {
+                        if (hasFile(file)) {
+                            // eslint-disable-next-line security/detect-object-injection
+                            (possiblePlugins[configName] as Record<string, boolean>)[file] = true;
+                        }
+                    });
+                }
+            }
+
+            if (foundDependencies.length === dependencies.length) {
+                // eslint-disable-next-line security/detect-object-injection,@typescript-eslint/no-dynamic-delete
+                delete possiblePlugins[configName];
+
+                loadedPlugins.push(configName);
+            } else {
+                dependencies.forEach((dependency) => {
+                    // eslint-disable-next-line security/detect-object-injection
+                    (possiblePlugins[configName] as Record<string, boolean>)[dependency] = hasDependency(dependency) || hasDevDependency(dependency);
+                });
+            }
         }
-    }
-});
+    });
+}
 
 export const rules = baseConfig;
 export const pluginRules = loadedPlugins;

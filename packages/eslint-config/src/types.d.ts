@@ -3,4 +3,5 @@ export type PackageRules = {
     dependencies: string[];
     oneOfDependency?: string[];
     resolve?: string[];
+    files?: string[];
 }[];

@@ -79,6 +79,9 @@
             "url": "https://anolilab.com/support"
         }
     ],
+    "bin": {
+        "anolilab-eslint-config": "./bin/generate-eslint-cofig.js"
+    },
     "license": "MIT",
     "author": {
         "name": "Daniel Bannert",
@@ -98,11 +101,16 @@
             "types": "./dist/globals.d.ts",
             "require": "./dist/globals.js"
         },
+        "./define-config": {
+            "types": "./dist/define-config.d.ts",
+            "require": "./dist/define-config.js"
+        },
         "./package.json": "./package.json"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
+        "bin/generate-eslint-cofig.js",
         "dist",
         "skip.js",
         "globals.js",
@@ -128,6 +136,7 @@
         "@typescript-eslint/eslint-plugin": ">=6.2.0",
         "@typescript-eslint/parser": "^6.2.0",
         "confusing-browser-globals": "^1.0.11",
+        "eslint-define-config": "^1.22.0",
         "eslint-import-resolver-node": "^0.3.7",
         "eslint-import-resolver-typescript": "^3.5.5",
         "eslint-plugin-antfu": "^0.40.0",
@@ -172,6 +181,7 @@
         "eslint-find-rules": "^4.1.0",
         "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-cypress": "^2.13.3",
+        "eslint-plugin-editorconfig": "^4.0.3",
         "eslint-plugin-etc": "^2.0.3",
         "eslint-plugin-jest": "^27.2.3",
         "eslint-plugin-jest-async": "^1.0.3",
@@ -182,7 +192,6 @@
         "eslint-plugin-no-unsanitized": "^4.0.2",
         "eslint-plugin-prefer-object-spread": "^1.2.1",
         "eslint-plugin-react": "^7.33.1",
-        "eslint-plugin-editorconfig": "^4.0.3",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-redux": "^4.0.0",
         "eslint-plugin-storybook": "^0.6.13",
@@ -209,9 +218,9 @@
         "@tanstack/eslint-plugin-query": "^4.32.1",
         "eslint-plugin-array-func": "^3.1.8",
         "eslint-plugin-ava": "^14.0.0",
-        "eslint-plugin-editorconfig": "^4.0.3",
         "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-cypress": "^2.13.3",
+        "eslint-plugin-editorconfig": "^4.0.3",
         "eslint-plugin-jest": "^27.2.3",
         "eslint-plugin-jest-async": "^1.0.3",
         "eslint-plugin-jest-dom": "^5.0.1",
@@ -301,6 +310,7 @@
         "src/globals.ts",
         "src/index.ts",
         "src/postinstall.ts",
-        "src/typescript-type-checking.ts"
+        "src/typescript-type-checking.ts",
+        "src/define-config.ts"
     ]
 }

@@ -43,6 +43,7 @@ In summary, our package provides comprehensive and adaptable ESLint configuratio
 -   Automatically enables rules based on the [engines](https://docs.npmjs.com/files/package.json#engines) field in your package.json.
 -   Specify indent and semicolon preferences easily without messing with the rule config.
 -   Disables rules that conflict with [Prettier](#let-prettier-handle-style-related-rules).
+-   Typesafe, because it's written in TypeScript and uses [eslint-define-config](https://github.com/Shinigami92/eslint-define-config) to define the config.
 
 ## Install
 
@@ -68,14 +69,17 @@ If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, wi
 
 > Note: If the script detects an existing `.eslintrc.js` file, it will not overwrite it.
 
-> Note: It can happen that the postinstall script don't run, then you have to add the `.eslintrc.js` manually.
+> Note: It can happen that the postinstall script don't run, then you have to add the `.eslintrc.js` manually, or you will use bin command `./node_modules/bin/anolilab-eslint-config` to generate it.
 
 > Note: Our default export contains all of our ESLint rules, including ECMAScript 6+. `@anolilab/eslint-config` use the `ecmaVersion`:`2021` as default.
 >
 > To change this configuration, change `env: { es2021: false, then active you needed env }` same for, `parserOptions: { "ecmaVersion": 2021 change the version }`
 
 ```js
-module.exports = {
+/** @ts-check */
+const { defineConfig } = require('@anolilab/eslint-config/define-config');
+
+module.exports = defineConfig({
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -95,7 +99,7 @@ module.exports = {
     rules: {
         // Customize your rules
     },
-};
+});
 ```
 
 For more advanced use cases see the example configurations for Node, TypeScript, React or Prettier.
@@ -124,7 +128,10 @@ For projects that use TypeScript and want additional rules that require type inf
 Extend the `.eslintrc.js` file:
 
 ```js
-module.children = {
+/** @ts-check */
+const { defineConfig } = require('@anolilab/eslint-config/define-config');
+
+module.exports = defineConfig({
     env: {
         // Your environments (which contains several predefined global variables)
         //
@@ -144,7 +151,7 @@ module.children = {
     rules: {
         // Customize your rules
     },
-};
+});
 ```
 
 > Tip: Run eslint with the TIMING=1 to identify slow rules.

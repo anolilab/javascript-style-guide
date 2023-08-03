@@ -418,6 +418,9 @@ importers:
       confusing-browser-globals:
         specifier: ^1.0.11
         version: 1.0.11
+      eslint-define-config:
+        specifier: ^1.22.0
+        version: 1.22.0
       eslint-import-resolver-node:
         specifier: ^0.3.7
         version: 0.3.7
@@ -8166,6 +8169,11 @@ packages:
   /escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
+
+  /eslint-define-config@1.22.0:
+    resolution: {integrity: sha512-pckNJppFwC4AX+AGK63aa4sX5BluPwWwHES3fq/ER0jDR2U2czwlngg38B4EQ2ibvofufc+R5QfmdPKI6+74vQ==}
+    engines: {node: ^16.13.0 || >=18.0.0, npm: '>=7.0.0', pnpm: '>= 8.6.0'}
+    dev: false
 
   /eslint-etc@5.2.1(eslint@8.45.0)(typescript@5.1.6):
     resolution: {integrity: sha512-lFJBSiIURdqQKq9xJhvSJFyPA+VeTh5xvk24e8pxVL7bwLBtGF60C/KRkLTMrvCZ6DA3kbPuYhLWY0TZMlqTsg==}

@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [11.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.1.0...@anolilab/eslint-config@11.2.0) (2023-08-03)
+
+
+### Features
+
+* Add eslint-define-config and bin command for auto-generation of config ([f9c84ab](https://github.com/anolilab/javascript-style-guide/commit/f9c84ab23a2000552a9eeac771078555163aefe9))
+
+
+### Styles
+
+* fixed bin file ([5b25641](https://github.com/anolilab/javascript-style-guide/commit/5b25641e1038f76c6831a477318e3d1b46f0d4b0))
+
 ## @anolilab/eslint-config [11.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.0.3...@anolilab/eslint-config@11.1.0) (2023-08-02)
 
 

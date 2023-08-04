@@ -1,3 +1,25 @@
+## @anolilab/lint-staged-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.2...@anolilab/lint-staged-config@2.0.3) (2023-08-04)
+
+
+### Bug Fixes
+
+* Update package dependencies ([a8786f2](https://github.com/anolilab/javascript-style-guide/commit/a8786f219badb9ebd4af825d28be85d3d2eea89c))
+
+
+### Miscellaneous Chores
+
+* Add eslint-disable for no-template-curly-in-string in typescript.ts ([56473a4](https://github.com/anolilab/javascript-style-guide/commit/56473a42821eb66ffe52835dd1e41d064da94983))
+* **deps:** update all non-major dependencies ([#722](https://github.com/anolilab/javascript-style-guide/issues/722)) ([76b3c10](https://github.com/anolilab/javascript-style-guide/commit/76b3c10387d333541c84b39300db503d00f4f78f))
+* **deps:** update devdependencies ([#724](https://github.com/anolilab/javascript-style-guide/issues/724)) ([4dc5902](https://github.com/anolilab/javascript-style-guide/commit/4dc5902b7a2fb5892923bf8eaedbe6f60cf0fce6))
+* **deps:** update eslint ([5d2daef](https://github.com/anolilab/javascript-style-guide/commit/5d2daefe7d777a23b3c83535d3f3a51915942f20))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.3
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.3
+
 ## @anolilab/lint-staged-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.1...@anolilab/lint-staged-config@2.0.2) (2023-07-26)
 
 

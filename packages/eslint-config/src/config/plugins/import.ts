@@ -18,7 +18,7 @@ const config: Linter.Config = createConfigs([
                 // Static analysis:
 
                 // ensure imports point to files/modules that can be resolved
-                // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
+                // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
                 "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 
                 // ensure named imports coupled with named exports
@@ -139,7 +139,7 @@ const config: Linter.Config = createConfigs([
                 "import/no-dynamic-require": "error",
 
                 // Forbid modules to have too many dependencies
-                // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
+                // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
                 "import/no-empty-named-blocks": "error",
 
                 // Forbid import of modules using absolute paths
@@ -269,7 +269,7 @@ const config: Linter.Config = createConfigs([
                 ],
 
                 // enforce a consistent style for type specifiers (inline or top-level)
-                // https://github.com/import-js/eslint-plugin-import/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
+                // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
                 // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
                 "import/prefer-default-export": "error",
 
@@ -279,7 +279,7 @@ const config: Linter.Config = createConfigs([
             },
             settings: {
                 "import/core-modules": [],
-                // https://github.com/import-js/eslint-plugin-import/blob/master/docs/rules/extensions.md
+                // https://github.com/un-es/eslint-plugin-i/blob/master/docs/rules/extensions.md
                 "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
                 // Ensure consistent use of file extension within the import path
                 "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],

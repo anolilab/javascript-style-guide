@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.3...@anolilab/lint-staged-config@2.0.4) (2023-08-08)
+
+
+### Bug Fixes
+
+* update dependencies across projects ([22e49ef](https://github.com/anolilab/javascript-style-guide/commit/22e49ef5c7e4f2eafee49c99d024789a39521679))
+
 ## @anolilab/lint-staged-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.2...@anolilab/lint-staged-config@2.0.3) (2023-08-04)
 
 

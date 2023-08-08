@@ -49,16 +49,18 @@ In summary, our package provides comprehensive and adaptable ESLint configuratio
 
 To install this config, run the following command.
 
+> Note: `eslint-plugin-import@npm:eslint-plugin-i` is needed to use the correct package.
+
 ```bash
-npm install --save-dev eslint @anolilab/eslint-config
+npm install --save-dev eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
 ```
 
 ```sh
-pnpm add -D eslint @anolilab/eslint-config
+pnpm add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
 ```
 
 ```sh
-yarn add -D eslint @anolilab/eslint-config
+yarn add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
 ```
 
 ## Usage

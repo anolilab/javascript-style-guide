@@ -346,6 +346,7 @@ const config: Linter.Config = createConfigs([
                     node: {
                         extensions: [".mjs", ".cjs", ".js", ".json", ".ts", ".d.ts"],
                     },
+                    typescript: true,
                 },
             },
         },

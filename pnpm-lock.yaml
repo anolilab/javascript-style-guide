@@ -531,8 +531,8 @@ importers:
         specifier: ^5.3.1
         version: 5.3.1(eslint@8.46.0)
       eslint-plugin-cypress:
-        specifier: ^2.13.3
-        version: 2.13.3(eslint@8.46.0)
+        specifier: ^2.14.0
+        version: 2.14.0(eslint@8.46.0)
       eslint-plugin-editorconfig:
         specifier: ^4.0.3
         version: 4.0.3
@@ -8109,14 +8109,14 @@ packages:
       semver: 7.3.8
     dev: false
 
-  /eslint-plugin-cypress@2.13.3(eslint@8.46.0):
-    resolution: {integrity: sha512-nAPjZE5WopCsgJwl3vHm5iafpV+ZRO76Z9hMyRygWhmg5ODXDPd+9MaPl7kdJ2azj+sO87H3P1PRnggIrz848g==}
+  /eslint-plugin-cypress@2.14.0(eslint@8.46.0):
+    resolution: {integrity: sha512-eW6tv7iIg7xujleAJX4Ujm649Bf5jweqa4ObPEIuueYRyLZt7qXGWhCY/n4bfeFW/j6nQZwbIBHKZt6EKcL/cg==}
     requiresBuild: true
     peerDependencies:
       eslint: '>= 3.2.1'
     dependencies:
       eslint: 8.46.0
-      globals: 11.12.0
+      globals: 13.20.0
     dev: false
     optional: true
 
@@ -8221,11 +8221,11 @@ packages:
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.61.0)(eslint-import-resolver-node@0.3.9)(eslint@8.46.0)
       has: 1.0.3
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.3
+      resolve: 1.22.4
       semver: 6.3.1
       tsconfig-paths: 4.2.0
     transitivePeerDependencies:
@@ -8254,11 +8254,11 @@ packages:
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.2.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       has: 1.0.3
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.3
+      resolve: 1.22.4
       semver: 6.3.1
       tsconfig-paths: 4.2.0
     transitivePeerDependencies:
@@ -13422,7 +13422,7 @@ packages:
       postcss: 8.4.27
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
-      resolve: 1.22.3
+      resolve: 1.22.4
     dev: false
     optional: true
 
@@ -15199,7 +15199,7 @@ packages:
       postcss-nested: 6.0.1(postcss@8.4.27)
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      resolve: 1.22.3
+      resolve: 1.22.4
       sucrase: 3.32.0
     transitivePeerDependencies:
       - ts-node

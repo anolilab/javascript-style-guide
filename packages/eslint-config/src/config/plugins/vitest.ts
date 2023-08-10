@@ -1,9 +1,20 @@
 import type { Linter } from "eslint";
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
+
+if (!global.hasAnolilabEsLintVitestGlobalsPlugin) {
+    global.hasAnolilabEsLintVitestGlobalsPlugin = hasDependency("eslint-plugin-vitest-globals") || hasDevDependency("eslint-plugin-vitest-globals");
+}
+
+const plugins = ["plugin:vitest/recommended", "plugin:vitest/all"];
+
+if (global.hasAnolilabEsLintVitestGlobalsPlugin) {
+    plugins.push("plugin:vitest-globals/recommended");
+}
 
 const config: Linter.Config = {
     overrides: [
         {
-            extends: ["plugin:vitest/recommended", "plugin:vitest/all"],
+            extends: plugins,
             files: ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"],
             plugins: ["vitest"],
             // TODO: transform all rules to error

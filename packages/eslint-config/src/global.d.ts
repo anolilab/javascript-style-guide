@@ -11,6 +11,8 @@ declare global {
 
     var hasAnolilabEsLintConfigPrettier: undefined | boolean;
 
+    var hasAnolilabEsLintVitestGlobalsPlugin: undefined | boolean;
+
     var hasAnolilabEsLintConfigJsyA11yStorybook: undefined | boolean;
 
     var hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys: undefined | boolean;

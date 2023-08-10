@@ -144,7 +144,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "vitest",
-        dependencies: ["vitest", "eslint-plugin-vitest"],
+        dependencies: ["vitest", "eslint-plugin-vitest", "eslint-plugin-vitest-globals"],
     },
     {
         configName: "zod",

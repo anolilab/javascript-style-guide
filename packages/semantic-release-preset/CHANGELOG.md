@@ -1,3 +1,11 @@
+## @anolilab/semantic-release-preset [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.3...@anolilab/semantic-release-preset@6.0.4) (2023-08-10)
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.4
+
 ## @anolilab/semantic-release-preset [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.2...@anolilab/semantic-release-preset@6.0.3) (2023-08-04)
 
 

@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [11.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.2.3...@anolilab/eslint-config@11.3.0) (2023-08-10)
+
+
+### Features
+
+* updated eslint-config to include eslint-plugin-vitest-globals ([5752b1f](https://github.com/anolilab/javascript-style-guide/commit/5752b1f2addbc7e8d91798212e4d501c74f6e791))
+
 ## @anolilab/eslint-config [11.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.2.2...@anolilab/eslint-config@11.2.3) (2023-08-10)
 
 

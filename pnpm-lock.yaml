@@ -161,7 +161,7 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
@@ -286,7 +286,7 @@ importers:
         version: 0.4.24
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       '@babel/cli':
         specifier: ^7.22.10
@@ -325,7 +325,7 @@ importers:
   packages/browserslist-config-anolilab:
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       browserslist:
         specifier: 4.21.10
@@ -352,7 +352,7 @@ importers:
   packages/commitlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@commitlint/config-conventional':
         specifier: ^17.7.0
@@ -371,7 +371,7 @@ importers:
         version: 3.3.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       '@commitlint/cli':
         specifier: ^17.7.1
@@ -389,7 +389,7 @@ importers:
   packages/eslint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@babel/eslint-parser':
         specifier: ^7.22.10
@@ -595,7 +595,7 @@ importers:
         version: 1.6.0(eslint@8.46.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       '@testing-library/dom':
         specifier: ^9.3.1
@@ -652,7 +652,7 @@ importers:
   packages/lint-staged-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       cross-env:
         specifier: ^7.0.3
@@ -684,7 +684,7 @@ importers:
         version: 4.3.4(@types/node@16.18.36)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.4.2
@@ -798,11 +798,11 @@ importers:
   packages/prettier-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       prettier:
         specifier: ^3.0.1
@@ -823,7 +823,7 @@ importers:
   packages/semantic-release-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -866,13 +866,13 @@ importers:
   packages/stylelint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@ronilaukkarinen/stylelint-a11y':
         specifier: ^1.2.7
         version: 1.2.7(stylelint@15.10.2)
       browserslist-config-anolilab:
-        specifier: 5.0.2
+        specifier: 5.0.3
         version: link:../browserslist-config-anolilab
       stylelint-config-clean-order:
         specifier: ^5.0.1
@@ -903,7 +903,7 @@ importers:
         version: 0.34.1
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       postcss:
         specifier: ^8.4.27
@@ -921,7 +921,7 @@ importers:
   packages/textlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.3
+        specifier: 3.0.4
         version: link:../package-json-utils
       '@textlint-rule/textlint-rule-no-invalid-control-character':
         specifier: ^2.0.0
@@ -988,7 +988,7 @@ importers:
         version: 1.0.8(eslint-plugin-import@2.27.5)(eslint-plugin-jsx-a11y@6.7.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.33.1)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 6.0.3
+        specifier: 6.0.4
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.1
@@ -2686,8 +2686,6 @@ packages:
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-modules-commonjs': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-typescript': 7.22.10(@babel/core@7.22.10)
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /@babel/regjsgen@0.8.0:
@@ -2859,30 +2857,6 @@ packages:
       '@commitlint/rules': 17.7.0
       '@commitlint/types': 17.4.4
 
-  /@commitlint/load@17.6.7:
-    resolution: {integrity: sha512-QZ2rJTbX55BQdYrCm/p6+hh/pFBgC9nTJxfsrK6xRPe2thiQzHN0AQDBqBwAirn6gIkHrjIbCbtAE6kiDYLjrw==}
-    engines: {node: '>=v14'}
-    requiresBuild: true
-    dependencies:
-      '@commitlint/config-validator': 17.6.7
-      '@commitlint/execute-rule': 17.4.0
-      '@commitlint/resolve-extends': 17.6.7
-      '@commitlint/types': 17.4.4
-      '@types/node': 16.18.36
-      chalk: 4.1.2
-      cosmiconfig: 8.2.0
-      cosmiconfig-typescript-loader: 4.3.0(@types/node@16.18.36)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.6)
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      lodash.uniq: 4.5.0
-      resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@16.18.36)(typescript@5.1.6)
-      typescript: 5.1.6
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-    optional: true
-
   /@commitlint/load@17.7.1:
     resolution: {integrity: sha512-S/QSOjE1ztdogYj61p6n3UbkUvweR17FQ0zDbNtoTLc+Hz7vvfS7ehoTMQ27hPSjVBpp7SzEcOQu081RLjKHJQ==}
     engines: {node: '>=v14'}
@@ -2899,7 +2873,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.4.7)(typescript@5.1.6)
+      ts-node: 10.9.1(@types/node@16.18.36)(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
       - '@swc/core'
@@ -7180,22 +7154,6 @@ packages:
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  /cosmiconfig-typescript-loader@4.3.0(@types/node@16.18.36)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.6):
-    resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
-    engines: {node: '>=12', npm: '>=6'}
-    requiresBuild: true
-    peerDependencies:
-      '@types/node': '*'
-      cosmiconfig: '>=7'
-      ts-node: '>=10'
-      typescript: '>=3'
-    dependencies:
-      '@types/node': 16.18.36
-      cosmiconfig: 8.2.0
-      ts-node: 10.9.1(@types/node@16.18.36)(typescript@5.1.6)
-      typescript: 5.1.6
-    optional: true
-
   /cosmiconfig-typescript-loader@4.3.0(@types/node@20.4.7)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.6):
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
     engines: {node: '>=12', npm: '>=6'}
@@ -7208,7 +7166,7 @@ packages:
     dependencies:
       '@types/node': 20.4.7
       cosmiconfig: 8.2.0
-      ts-node: 10.9.1(@types/node@20.4.7)(typescript@5.1.6)
+      ts-node: 10.9.1(@types/node@16.18.36)(typescript@5.1.6)
       typescript: 5.1.6
 
   /cosmiconfig@6.0.0:
@@ -7313,7 +7271,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 17.6.7
+      '@commitlint/load': 17.7.1
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -12811,7 +12769,7 @@ packages:
       tar-stream: 2.2.0
       tmp: 0.2.1
       tsconfig-paths: 4.2.0
-      tslib: 2.5.2
+      tslib: 2.6.1
       v8-compile-cache: 2.3.0
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -15216,7 +15174,7 @@ packages:
       chokidar: 3.5.3
       didyoumean: 1.2.2
       dlv: 1.1.3
-      fast-glob: 3.3.0
+      fast-glob: 3.3.1
       glob-parent: 6.0.2
       is-glob: 4.0.3
       jiti: 1.18.2
@@ -15733,37 +15691,6 @@ packages:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 16.18.36
-      acorn: 8.9.0
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.1.6
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-
-  /ts-node@10.9.1(@types/node@20.4.7)(typescript@5.1.6):
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.4.7
       acorn: 8.9.0
       acorn-walk: 8.2.0
       arg: 4.1.3

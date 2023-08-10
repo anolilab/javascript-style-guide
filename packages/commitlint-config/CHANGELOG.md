@@ -1,3 +1,17 @@
+## @anolilab/commitlint-config [3.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.3...@anolilab/commitlint-config@3.0.4) (2023-08-10)
+
+
+### Bug Fixes
+
+* upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.4
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.4
+
 ## @anolilab/commitlint-config [3.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.2...@anolilab/commitlint-config@3.0.3) (2023-08-04)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/eslint-config",
-    "version": "11.2.2",
+    "version": "11.2.3",
     "description": "ESLint shareable config for the Anolilab JavaScript style guide.",
     "keywords": [
         "anolilab",
@@ -126,7 +126,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "3.0.3",
+        "@anolilab/package-json-utils": "3.0.4",
         "@babel/eslint-parser": "^7.22.10",
         "@babel/plugin-syntax-import-assertions": "^7.22.5",
         "@html-eslint/eslint-plugin": "^0.19.1",
@@ -170,7 +170,7 @@
         "yaml-eslint-parser": "^1.2.2"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "6.0.3",
+        "@anolilab/semantic-release-preset": "6.0.4",
         "@arthurgeron/eslint-plugin-react-usememo": "^1.1.4",
         "@testing-library/dom": "^9.3.1",
         "@total-typescript/ts-reset": "^0.4.2",

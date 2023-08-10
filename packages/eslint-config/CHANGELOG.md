@@ -1,3 +1,22 @@
+## @anolilab/eslint-config [11.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.2.2...@anolilab/eslint-config@11.2.3) (2023-08-10)
+
+
+### Bug Fixes
+
+* upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-cypress to ^2.14.0 ([#727](https://github.com/anolilab/javascript-style-guide/issues/727)) ([75296ea](https://github.com/anolilab/javascript-style-guide/commit/75296eaeb1a271597a7d309c5ae7ba52cb3b7889))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.4
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.4
+
 ## @anolilab/eslint-config [11.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.2.1...@anolilab/eslint-config@11.2.2) (2023-08-08)
 
 

@@ -1,3 +1,22 @@
+## @anolilab/babel-preset [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.3...@anolilab/babel-preset@9.0.4) (2023-08-10)
+
+
+### Bug Fixes
+
+* upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([#725](https://github.com/anolilab/javascript-style-guide/issues/725)) ([059f0a3](https://github.com/anolilab/javascript-style-guide/commit/059f0a31de4d2432652cf83b6c291c4f973cd132))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.4
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.4
+
 ## @anolilab/babel-preset [9.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.2...@anolilab/babel-preset@9.0.3) (2023-08-04)
 
 

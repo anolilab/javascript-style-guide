@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/babel-preset",
-    "version": "9.0.3",
+    "version": "9.0.4",
     "description": "A babel preset for transforming your JavaScript for Anolilab.",
     "keywords": [
         "babel",
@@ -57,7 +57,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "3.0.3",
+        "@anolilab/package-json-utils": "3.0.4",
         "@babel/helper-plugin-utils": "^7.22.5",
         "@babel/plugin-proposal-class-properties": "^7.18.6",
         "@babel/plugin-proposal-class-static-block": "^7.21.0",
@@ -95,7 +95,7 @@
         "babel-plugin-polyfill-regenerator": "^0.5.2"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "6.0.3",
+        "@anolilab/semantic-release-preset": "6.0.4",
         "@babel/cli": "^7.22.10",
         "@babel/core": "^7.22.10",
         "@babel/plugin-syntax-jsx": "7.22.5",

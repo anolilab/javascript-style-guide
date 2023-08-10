@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [3.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.3...@anolilab/package-json-utils@3.0.4) (2023-08-10)
+
+
+### Bug Fixes
+
+* upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
+
 ## @anolilab/package-json-utils [3.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.2...@anolilab/package-json-utils@3.0.3) (2023-08-04)
 
 

@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [11.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.0...@anolilab/eslint-config@11.3.1) (2023-08-14)
+
+
+### Bug Fixes
+
+* update usage of createConfig utility in jsx-a11y config ([9f14734](https://github.com/anolilab/javascript-style-guide/commit/9f147346ad43691c48a83860280e88ee54b8850c))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint to ^8.47.0 ([#730](https://github.com/anolilab/javascript-style-guide/issues/730)) ([afa200d](https://github.com/anolilab/javascript-style-guide/commit/afa200d232ebee4d60e816b8b616d690845e401b))
+
 ## @anolilab/eslint-config [11.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.2.3...@anolilab/eslint-config@11.3.0) (2023-08-10)
 
 

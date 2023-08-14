@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [11.3.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.1...@anolilab/eslint-config@11.3.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* Add second "vitest" configuration in eslint-config with eslint-plugin-vitest-globals check ([78105cf](https://github.com/anolilab/javascript-style-guide/commit/78105cf64b049245aa292b3c82e859661ce23c0d))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-testing-library to v6 ([#731](https://github.com/anolilab/javascript-style-guide/issues/731)) ([5643435](https://github.com/anolilab/javascript-style-guide/commit/56434350afc2f092569e74c9c5bac36e9ecec700))
+
 ## @anolilab/eslint-config [11.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.0...@anolilab/eslint-config@11.3.1) (2023-08-14)
 
 

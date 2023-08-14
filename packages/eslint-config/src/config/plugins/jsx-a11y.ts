@@ -1,18 +1,19 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+import { createConfig } from "../../utils/create-config";
 
 if (!global.hasAnolilabEsLintConfigJsyA11yStorybook && (hasDevDependency("storybook") || hasDependency("storybook"))) {
     global.hasAnolilabEsLintConfigJsyA11yStorybook = true;
 }
 
-const config: Linter.Config = {
+const config: Linter.Config = createConfig("jsx_and_tsx", {
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
     },
 
-    plugins: ["jsx-a11y", "react"],
+    plugins: ["jsx-a11y"],
 
     rules: {
         // Enforce that anchors have content
@@ -259,6 +260,6 @@ const config: Linter.Config = {
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
         "jsx-a11y/tabindex-no-positive": "error",
     },
-};
+});
 
 export default config;

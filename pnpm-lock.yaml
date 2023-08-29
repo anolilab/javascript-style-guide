@@ -768,8 +768,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       conventional-changelog-conventionalcommits:
-        specifier: ^6.1.0
-        version: 6.1.0
+        specifier: ^7.0.1
+        version: 7.0.1
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -8572,7 +8572,6 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       compare-func: 2.0.0
-    dev: false
 
   /conventional-changelog-writer@6.0.0:
     resolution: {integrity: sha512-8PyWTnn7zBIt9l4hj4UusFs1TyG+9Ulu1zlOAc72L7Sdv9Hsc8E86ot7htY3HXCVhXHB/NO0pVGvZpwsyJvFfw==}
@@ -11487,6 +11486,7 @@ packages:
 
   /has-property-descriptors@1.0.0:
     resolution: {integrity: sha512-62DVLZGoiEBDHQyqG4w9xCuZ7eJEwNmJRWw2VY84Oedb7WFcA27fiEVe8oUQx9hAUJ4ekurquucTGwsyO1XGdQ==}
+    requiresBuild: true
     dependencies:
       get-intrinsic: 1.2.1
 

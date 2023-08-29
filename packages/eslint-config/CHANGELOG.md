@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [11.3.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.3...@anolilab/eslint-config@11.3.4) (2023-08-29)
+
+
+### Bug Fixes
+
+* modifying markdown plugin to disable the 'no-cond-assign' ([8f2750f](https://github.com/anolilab/javascript-style-guide/commit/8f2750f1348fdb6a7be81edff06fd1907c5a1ad0))
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([#747](https://github.com/anolilab/javascript-style-guide/issues/747)) ([746f4c6](https://github.com/anolilab/javascript-style-guide/commit/746f4c6f59ddf6f3c5f7646be80599998011c43e))
+* **deps:** update eslint ([#746](https://github.com/anolilab/javascript-style-guide/issues/746)) ([6b37144](https://github.com/anolilab/javascript-style-guide/commit/6b37144a8cb47fe3993bd9eccd075c695da8dde0))
+
 ## @anolilab/eslint-config [11.3.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.2...@anolilab/eslint-config@11.3.3) (2023-08-25)
 
 

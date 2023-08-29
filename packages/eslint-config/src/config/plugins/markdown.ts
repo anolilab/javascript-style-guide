@@ -8,6 +8,9 @@ const config: Linter.Config = createConfigs([
             extends: "plugin:markdown/recommended",
             plugins: ["markdown"],
             processor: "markdown/markdown",
+            rules: {
+                "no-cond-assign": "off",
+            },
         },
         type: "markdown",
     },

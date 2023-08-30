@@ -1,3 +1,21 @@
+## @anolilab/babel-preset [9.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.4...@anolilab/babel-preset@9.0.5) (2023-08-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([#736](https://github.com/anolilab/javascript-style-guide/issues/736)) ([eb2f1fb](https://github.com/anolilab/javascript-style-guide/commit/eb2f1fbac325d6188dab9d373afa25d2fd44e389))
+* **deps:** update dependency semantic-release to ^21.1.1 ([#738](https://github.com/anolilab/javascript-style-guide/issues/738)) ([ee6e926](https://github.com/anolilab/javascript-style-guide/commit/ee6e926d19848a6d7aaca6b3b0f92befaed59e08))
+* **deps:** update dependency typescript to v5.2.2 ([#745](https://github.com/anolilab/javascript-style-guide/issues/745)) ([90c1703](https://github.com/anolilab/javascript-style-guide/commit/90c1703dfc87ac2e16e181f3a42c099e47af609f))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+* **deps:** update devdependencies ([#740](https://github.com/anolilab/javascript-style-guide/issues/740)) ([8fdacef](https://github.com/anolilab/javascript-style-guide/commit/8fdacef017f429bb3ae556c7c55754ee145144b9))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## @anolilab/babel-preset [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.3...@anolilab/babel-preset@9.0.4) (2023-08-10)
 
 

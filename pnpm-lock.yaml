@@ -23,6 +23,7 @@ overrides:
   cosmiconfig-typescript-loader: ^4.3.0
   semantic-release: ^21.0.2
   esbuild: ^0.18.10
+  conventional-changelog-conventionalcommits: 6.1.0
 
 importers:
 
@@ -89,8 +90,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       conventional-changelog-conventionalcommits:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: 6.1.0
+        version: 6.1.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -364,8 +365,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       conventional-changelog-conventionalcommits:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: 6.1.0
+        version: 6.1.0
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0
@@ -768,8 +769,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       conventional-changelog-conventionalcommits:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: 6.1.0
+        version: 6.1.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -847,8 +848,8 @@ importers:
         specifier: ^11.0.7
         version: 11.0.7(semantic-release@21.0.2)
       conventional-changelog-conventionalcommits:
-        specifier: ^7.0.1
-        version: 7.0.1
+        specifier: 6.1.0
+        version: 6.1.0
     devDependencies:
       rimraf:
         specifier: ^5.0.1
@@ -7100,12 +7101,6 @@ packages:
   /conventional-changelog-conventionalcommits@6.1.0:
     resolution: {integrity: sha512-3cS3GEtR78zTfMzk0AizXKKIdN4OvSh7ibNz6/DPbhWWQu7LqE/8+/GqSodV+sywUR2gpJAdP/1JFf4XtN7Zpw==}
     engines: {node: '>=14'}
-    dependencies:
-      compare-func: 2.0.0
-
-  /conventional-changelog-conventionalcommits@7.0.1:
-    resolution: {integrity: sha512-VfFJxBmi+LYXeb4pIfZGbuaFCpWZh0qXbUAKP/s6B8tigV6R4D8j5PDlTtMMWawa7+DcNySVoF7kPWz0EMYuCQ==}
-    engines: {node: '>=16'}
     dependencies:
       compare-func: 2.0.0
 

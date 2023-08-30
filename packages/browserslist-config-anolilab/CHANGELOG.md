@@ -1,3 +1,20 @@
+## browserslist-config-anolilab [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.3...browserslist-config-anolilab@5.0.4) (2023-08-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to ^21.1.1 ([#738](https://github.com/anolilab/javascript-style-guide/issues/738)) ([ee6e926](https://github.com/anolilab/javascript-style-guide/commit/ee6e926d19848a6d7aaca6b3b0f92befaed59e08))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+* **deps:** update devdependencies ([#726](https://github.com/anolilab/javascript-style-guide/issues/726)) ([89c529d](https://github.com/anolilab/javascript-style-guide/commit/89c529d1ee0a10f8d030840ea80d027cd1fa84b1))
+* **deps:** update devdependencies ([#740](https://github.com/anolilab/javascript-style-guide/issues/740)) ([8fdacef](https://github.com/anolilab/javascript-style-guide/commit/8fdacef017f429bb3ae556c7c55754ee145144b9))
+* **deps:** update devdependencies ([#744](https://github.com/anolilab/javascript-style-guide/issues/744)) ([782b4fb](https://github.com/anolilab/javascript-style-guide/commit/782b4fbb8dc934f9db171c52878af44615bf0c29))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## browserslist-config-anolilab [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.2...browserslist-config-anolilab@5.0.3) (2023-08-10)
 
 

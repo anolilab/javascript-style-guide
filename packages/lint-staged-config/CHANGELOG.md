@@ -1,3 +1,29 @@
+## @anolilab/lint-staged-config [2.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.5...@anolilab/lint-staged-config@2.0.6) (2023-08-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update all non-major dependencies ([#736](https://github.com/anolilab/javascript-style-guide/issues/736)) ([eb2f1fb](https://github.com/anolilab/javascript-style-guide/commit/eb2f1fbac325d6188dab9d373afa25d2fd44e389))
+* **deps:** update dependency eslint to ^8.47.0 ([#730](https://github.com/anolilab/javascript-style-guide/issues/730)) ([afa200d](https://github.com/anolilab/javascript-style-guide/commit/afa200d232ebee4d60e816b8b616d690845e401b))
+* **deps:** update dependency lint-staged to v14 ([#732](https://github.com/anolilab/javascript-style-guide/issues/732)) ([ef3234c](https://github.com/anolilab/javascript-style-guide/commit/ef3234cbddaf67dabc429140824fdc217cde511b))
+* **deps:** update dependency lint-staged to v14 ([#733](https://github.com/anolilab/javascript-style-guide/issues/733)) ([39b8ab1](https://github.com/anolilab/javascript-style-guide/commit/39b8ab187c13c3ef791862efe3c92b6b9890e77a))
+* **deps:** update dependency prettier to ^3.0.3 ([#737](https://github.com/anolilab/javascript-style-guide/issues/737)) ([6966403](https://github.com/anolilab/javascript-style-guide/commit/69664036183617fc6a8a1218f43d35f8f27ca87d))
+* **deps:** update dependency semantic-release to ^21.1.1 ([#738](https://github.com/anolilab/javascript-style-guide/issues/738)) ([ee6e926](https://github.com/anolilab/javascript-style-guide/commit/ee6e926d19848a6d7aaca6b3b0f92befaed59e08))
+* **deps:** update dependency typescript to v5.2.2 ([#745](https://github.com/anolilab/javascript-style-guide/issues/745)) ([90c1703](https://github.com/anolilab/javascript-style-guide/commit/90c1703dfc87ac2e16e181f3a42c099e47af609f))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+* **deps:** update devdependencies ([#726](https://github.com/anolilab/javascript-style-guide/issues/726)) ([89c529d](https://github.com/anolilab/javascript-style-guide/commit/89c529d1ee0a10f8d030840ea80d027cd1fa84b1))
+* **deps:** update devdependencies ([#740](https://github.com/anolilab/javascript-style-guide/issues/740)) ([8fdacef](https://github.com/anolilab/javascript-style-guide/commit/8fdacef017f429bb3ae556c7c55754ee145144b9))
+* **deps:** update devdependencies ([#744](https://github.com/anolilab/javascript-style-guide/issues/744)) ([782b4fb](https://github.com/anolilab/javascript-style-guide/commit/782b4fbb8dc934f9db171c52878af44615bf0c29))
+* **deps:** update eslint ([#746](https://github.com/anolilab/javascript-style-guide/issues/746)) ([6b37144](https://github.com/anolilab/javascript-style-guide/commit/6b37144a8cb47fe3993bd9eccd075c695da8dde0))
+* **deps:** update stylelint ([#741](https://github.com/anolilab/javascript-style-guide/issues/741)) ([195cb45](https://github.com/anolilab/javascript-style-guide/commit/195cb45c1e213f61e8ac98c3323517c38003fa87))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## @anolilab/lint-staged-config [2.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.4...@anolilab/lint-staged-config@2.0.5) (2023-08-10)
 
 

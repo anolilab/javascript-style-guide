@@ -1,3 +1,25 @@
+## @anolilab/stylelint-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.3...@anolilab/stylelint-config@6.0.4) (2023-08-30)
+
+
+### Bug Fixes
+
+* updated dependencies to latest versions ([509bb76](https://github.com/anolilab/javascript-style-guide/commit/509bb763780a2fa85a275d8e91cc0525cc57e29f))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to ^21.1.1 ([#738](https://github.com/anolilab/javascript-style-guide/issues/738)) ([ee6e926](https://github.com/anolilab/javascript-style-guide/commit/ee6e926d19848a6d7aaca6b3b0f92befaed59e08))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+* **deps:** update stylelint ([#741](https://github.com/anolilab/javascript-style-guide/issues/741)) ([195cb45](https://github.com/anolilab/javascript-style-guide/commit/195cb45c1e213f61e8ac98c3323517c38003fa87))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+* **browserslist-config-anolilab:** upgraded to 5.0.4
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## @anolilab/stylelint-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.2...@anolilab/stylelint-config@6.0.3) (2023-08-10)
 
 

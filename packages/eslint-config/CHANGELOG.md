@@ -1,3 +1,26 @@
+## @anolilab/eslint-config [11.3.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.4...@anolilab/eslint-config@11.3.5) (2023-08-30)
+
+
+### Bug Fixes
+
+* updated dependencies to latest versions ([509bb76](https://github.com/anolilab/javascript-style-guide/commit/509bb763780a2fa85a275d8e91cc0525cc57e29f))
+* updated URLs for ESLint rules ([e6edc33](https://github.com/anolilab/javascript-style-guide/commit/e6edc337e3a6c4f8d326a5a889cd008c6a4739af))
+* updated URLs for ESLint rules and removed storybook jsx rules ([f8fbd16](https://github.com/anolilab/javascript-style-guide/commit/f8fbd16d2752e84fa490d350c4de80ff613833f5))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency typescript to v5.2.2 ([#745](https://github.com/anolilab/javascript-style-guide/issues/745)) ([90c1703](https://github.com/anolilab/javascript-style-guide/commit/90c1703dfc87ac2e16e181f3a42c099e47af609f))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+* **deps:** update devdependencies ([#744](https://github.com/anolilab/javascript-style-guide/issues/744)) ([782b4fb](https://github.com/anolilab/javascript-style-guide/commit/782b4fbb8dc934f9db171c52878af44615bf0c29))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## @anolilab/eslint-config [11.3.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.3...@anolilab/eslint-config@11.3.4) (2023-08-29)
 
 

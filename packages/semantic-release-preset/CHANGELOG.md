@@ -1,3 +1,18 @@
+## @anolilab/semantic-release-preset [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.4...@anolilab/semantic-release-preset@6.0.5) (2023-08-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v7 ([#749](https://github.com/anolilab/javascript-style-guide/issues/749)) ([ca57778](https://github.com/anolilab/javascript-style-guide/commit/ca5777809d0c1087dabb1ae191c7466c086b09e9))
+* fix for https://github.com/semantic-release/semantic-release/issues/2929 ([05c0392](https://github.com/anolilab/javascript-style-guide/commit/05c0392c4a564cbf556f6d5dfab46919002cad48))
+* updated dependencies to latest versions ([509bb76](https://github.com/anolilab/javascript-style-guide/commit/509bb763780a2fa85a275d8e91cc0525cc57e29f))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+
 ## @anolilab/semantic-release-preset [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.3...@anolilab/semantic-release-preset@6.0.4) (2023-08-10)
 
 

@@ -1,3 +1,18 @@
+## @anolilab/textlint-config [8.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.4...@anolilab/textlint-config@8.0.5) (2023-08-30)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to ^21.1.1 ([#738](https://github.com/anolilab/javascript-style-guide/issues/738)) ([ee6e926](https://github.com/anolilab/javascript-style-guide/commit/ee6e926d19848a6d7aaca6b3b0f92befaed59e08))
+* **deps:** update dependency vitest to ^0.34.3 ([#739](https://github.com/anolilab/javascript-style-guide/issues/739)) ([67dd404](https://github.com/anolilab/javascript-style-guide/commit/67dd404766bceb0103f637208fc646ed40aefb16))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.5
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.5
+
 ## @anolilab/textlint-config [8.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.3...@anolilab/textlint-config@8.0.4) (2023-08-10)
 
 

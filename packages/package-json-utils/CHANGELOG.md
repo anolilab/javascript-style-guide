@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [3.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.4...@anolilab/package-json-utils@3.0.5) (2023-08-30)
+
+
+### Bug Fixes
+
+* fix for https://github.com/semantic-release/semantic-release/issues/2929 ([05c0392](https://github.com/anolilab/javascript-style-guide/commit/05c0392c4a564cbf556f6d5dfab46919002cad48))
+
 ## @anolilab/package-json-utils [3.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.3...@anolilab/package-json-utils@3.0.4) (2023-08-10)
 
 

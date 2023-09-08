@@ -1,3 +1,20 @@
+## @anolilab/eslint-config [12.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.5...@anolilab/eslint-config@12.0.0) (2023-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed lodash rules, extended why no to use lodash
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* removed support for lodash and lodash-fp ([3b6eb4b](https://github.com/anolilab/javascript-style-guide/commit/3b6eb4b4604d8f87bcfc01a94fa4fa27294a1a88))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-vitest to v0.3.1 ([#752](https://github.com/anolilab/javascript-style-guide/issues/752)) ([94043ae](https://github.com/anolilab/javascript-style-guide/commit/94043ae08a0f327823b7e8d13ec0ca229ccc39c8))
+
 ## @anolilab/eslint-config [11.3.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.4...@anolilab/eslint-config@11.3.5) (2023-08-30)
 
 

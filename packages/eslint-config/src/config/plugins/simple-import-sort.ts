@@ -9,12 +9,8 @@ const config: Linter.Config = createConfig("all", {
     },
     plugins: ["simple-import-sort"],
     rules: {
-        "import/first": "error",
-        "import/newline-after-import": "error",
-        "import/no-duplicates": "error",
-
-        "simple-import-sort/exports": "off",
-        "simple-import-sort/imports": "off",
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error",
     },
 });
 

@@ -261,12 +261,8 @@ const config: Linter.Config = createConfigs([
 
                 // Reports modules without any exports, or with unused exports
                 // https://github.com/benmosher/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
-                "import/order": [
-                    "error",
-                    {
-                        groups: [["builtin", "external", "internal"]],
-                    },
-                ],
+                // simple-import-sort does this better
+                "import/order": "off",
 
                 // enforce a consistent style for type specifiers (inline or top-level)
                 // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md

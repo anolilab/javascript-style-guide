@@ -1,7 +1,7 @@
 import { isPackageAvailable, showMissingPackages } from "@anolilab/package-json-utils";
+import type { TransformOptions } from "@babel/core";
 // @ts-expect-error TS2305: Module '"@babel/helper-plugin-utils"' has no exported member 'declarePreset'.
 import { declare } from "@babel/helper-plugin-utils";
-import type { TransformOptions } from "@babel/core";
 
 interface BabelAPI {
     assertVersion: (version: string) => void;

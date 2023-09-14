@@ -1,8 +1,9 @@
-import { getByPath } from "dot-path-value";
 import { existsSync, realpathSync } from "node:fs";
 import module from "node:module";
 import { dirname, join } from "node:path";
 import { cwd, env, exit, versions } from "node:process";
+
+import { getByPath } from "dot-path-value";
 import type { NormalizedPackageJson } from "read-pkg";
 import readPkgUp from "read-pkg-up";
 

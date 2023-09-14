@@ -1,4 +1,5 @@
 import type { Linter } from "eslint";
+
 import { createConfigs } from "../utils/create-config";
 
 const config: Linter.Config = createConfigs([

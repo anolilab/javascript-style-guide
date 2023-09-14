@@ -1,6 +1,7 @@
+import { env } from "node:process";
+
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
-import { env } from "node:process";
 
 import anolilabEslintConfig from "../../utils/eslint-config";
 import { consoleLog } from "../../utils/loggers";

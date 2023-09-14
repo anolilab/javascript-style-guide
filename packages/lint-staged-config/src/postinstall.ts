@@ -1,8 +1,9 @@
-import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, mkdir, writeFile } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
 import { promisify } from "node:util";
+
+import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 
 import getNearestConfigPath from "./utils/get-nearest-config-path";
 

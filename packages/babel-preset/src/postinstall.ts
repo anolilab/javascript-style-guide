@@ -1,8 +1,9 @@
-import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
-import { promisify } from "node:util";
 import { env, exit } from "node:process";
+import { promisify } from "node:util";
+
+import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 
 if (env["CI"]) {
     exit(0);

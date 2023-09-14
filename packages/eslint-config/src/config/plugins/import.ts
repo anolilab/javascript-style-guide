@@ -1,5 +1,6 @@
 import { fromRoot, hasTypescript } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
+
 import { createConfigs } from "../../utils/create-config";
 
 const config: Linter.Config = createConfigs([

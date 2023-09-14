@@ -1,7 +1,8 @@
-import { projectPath } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
+
+import { projectPath } from "@anolilab/package-json-utils";
 
 if (process.env["CI"]) {
     // eslint-disable-next-line unicorn/no-process-exit

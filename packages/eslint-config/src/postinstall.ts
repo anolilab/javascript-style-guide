@@ -1,7 +1,9 @@
-import { projectPath } from "@anolilab/package-json-utils";
 import { env, exit } from "node:process";
-import writeEslintRc from "./postinstall/write-eslint-rc";
+
+import { projectPath } from "@anolilab/package-json-utils";
+
 import writeEslintIgnore from "./postinstall/write-eslint-ignore";
+import writeEslintRc from "./postinstall/write-eslint-rc";
 
 if (env["CI"]) {
     exit(0);

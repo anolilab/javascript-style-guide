@@ -12,10 +12,11 @@
  */
 import "@rushstack/eslint-patch/modern-module-resolution";
 
+import { join } from "node:path";
+
 import { hasDependency, hasDevDependency, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import globals from "globals";
-import { join } from "node:path";
 import semver from "semver";
 
 import { internalPluginConfig, pluginRules, possiblePluginRules, rules } from "./config";

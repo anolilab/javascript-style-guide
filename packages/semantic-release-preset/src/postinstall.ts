@@ -1,8 +1,9 @@
-import { hasDependencies, hasDevDependencies, pkg, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { env, exit } from "node:process";
 import { promisify } from "node:util";
+
+import { hasDependencies, hasDevDependencies, pkg, projectPath } from "@anolilab/package-json-utils";
 
 if (env["CI"]) {
     exit(0);

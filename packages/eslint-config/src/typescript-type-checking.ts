@@ -1,5 +1,6 @@
-import type { Linter } from "eslint";
 import { env } from "node:process";
+
+import type { Linter } from "eslint";
 
 import bestPracticesConfig from "./config/best-practices";
 import { createConfig } from "./utils/create-config";

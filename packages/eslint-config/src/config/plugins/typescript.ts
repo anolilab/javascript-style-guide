@@ -1,7 +1,9 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
 import { env } from "node:process";
 
+import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
+import type { Linter } from "eslint";
+
+import { createConfigs } from "../../utils/create-config";
 import anolilabEslintConfig from "../../utils/eslint-config";
 import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
@@ -9,7 +11,6 @@ import errorsConfig from "../errors";
 import eS6Config from "../es6";
 import styleConfig from "../style";
 import variablesConfig from "../variables";
-import { createConfigs } from "../../utils/create-config";
 
 const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
 // @ts-expect-error TODO: find the correct type

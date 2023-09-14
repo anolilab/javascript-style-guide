@@ -1,7 +1,8 @@
-import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { existsSync, readFileSync, writeFile } from "node:fs";
 import { join } from "node:path";
 import { promisify } from "node:util";
+
+import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import type { TsConfigJson } from "type-fest";
 
 const writeFileAsync = promisify(writeFile);

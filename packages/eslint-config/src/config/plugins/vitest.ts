@@ -1,5 +1,5 @@
-import type { Linter } from "eslint";
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
+import type { Linter } from "eslint";
 
 if (!global.hasAnolilabEsLintVitestGlobalsPlugin) {
     global.hasAnolilabEsLintVitestGlobalsPlugin = hasDependency("eslint-plugin-vitest-globals") || hasDevDependency("eslint-plugin-vitest-globals");

@@ -1,5 +1,6 @@
-import browserslist from "browserslist-config-anolilab";
 import { env } from "node:process";
+
+import browserslist from "browserslist-config-anolilab";
 
 const config = {
     plugins: ["stylelint-no-unsupported-browser-features"],

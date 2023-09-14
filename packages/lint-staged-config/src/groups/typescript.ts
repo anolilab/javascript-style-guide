@@ -1,5 +1,6 @@
-import type { Config } from "lint-staged";
 import { env } from "node:process";
+
+import type { Config } from "lint-staged";
 
 import getNearestConfigPath from "../utils/get-nearest-config-path";
 

@@ -1,8 +1,9 @@
 // @see https://github.com/yannickcr/eslint-plugin-react
+import { env } from "node:process";
+
 import { getPackageSubProperty, hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import findUp from "find-up";
-import { env } from "node:process";
 import { parse } from "semver";
 
 import anolilabEslintConfig from "../../utils/eslint-config";

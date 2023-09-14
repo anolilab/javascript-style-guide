@@ -1,8 +1,8 @@
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
-import indent from "../utils/indent";
 import { createConfigs } from "../utils/create-config";
+import indent from "../utils/indent";
 
 if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
     global.hasAnolilabEsLintConfigPrettier = true;

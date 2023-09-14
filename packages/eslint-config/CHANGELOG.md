@@ -1,3 +1,32 @@
+## @anolilab/eslint-config [13.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@12.0.0...@anolilab/eslint-config@13.0.0) (2023-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* enabled simple-import-sort rules
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* enabled simple-import-sort and update dependencies ([9a2a9e0](https://github.com/anolilab/javascript-style-guide/commit/9a2a9e02b7343078abe25426af8276d889b533a0))
+
+
+### Styles
+
+* cs fixes based on new rules ([b99c020](https://github.com/anolilab/javascript-style-guide/commit/b99c020b9f61f2517acd65b4d1a9f3d1f15812b1))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency vitest to ^0.34.4 ([#755](https://github.com/anolilab/javascript-style-guide/issues/755)) ([3246b55](https://github.com/anolilab/javascript-style-guide/commit/3246b55702eae25cf8d95ac95bd5f9b1323b51ff))
+* **deps:** update devdependencies ([#751](https://github.com/anolilab/javascript-style-guide/issues/751)) ([01d4824](https://github.com/anolilab/javascript-style-guide/commit/01d482420a1ef6bbf01ff4b24336dac60d27637c))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.6
+
 ## @anolilab/eslint-config [12.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@11.3.5...@anolilab/eslint-config@12.0.0) (2023-09-08)
 
 

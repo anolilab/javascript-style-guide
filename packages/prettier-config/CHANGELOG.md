@@ -1,3 +1,21 @@
+## @anolilab/prettier-config [5.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.4...@anolilab/prettier-config@5.0.5) (2023-09-14)
+
+
+### Styles
+
+* cs fixes based on new rules ([b99c020](https://github.com/anolilab/javascript-style-guide/commit/b99c020b9f61f2517acd65b4d1a9f3d1f15812b1))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency vitest to ^0.34.4 ([#755](https://github.com/anolilab/javascript-style-guide/issues/755)) ([3246b55](https://github.com/anolilab/javascript-style-guide/commit/3246b55702eae25cf8d95ac95bd5f9b1323b51ff))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 6.0.6
+
 ## @anolilab/prettier-config [5.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.3...@anolilab/prettier-config@5.0.4) (2023-08-30)
 
 

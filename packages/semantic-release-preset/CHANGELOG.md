@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.5...@anolilab/semantic-release-preset@6.0.6) (2023-09-14)
+
+
+### Bug Fixes
+
+* update dependencies ([72eabc7](https://github.com/anolilab/javascript-style-guide/commit/72eabc78c68be9778ac3e06ec4c2abb982da0636))
+
 ## @anolilab/semantic-release-preset [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.4...@anolilab/semantic-release-preset@6.0.5) (2023-08-30)
 
 

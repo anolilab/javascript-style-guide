@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [13.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@13.0.0...@anolilab/eslint-config@13.0.1) (2023-09-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @rushstack/eslint-plugin-security to ^0.7.0 ([#758](https://github.com/anolilab/javascript-style-guide/issues/758)) ([5fe11f1](https://github.com/anolilab/javascript-style-guide/commit/5fe11f12be7cbd8e514467107af7a3673a0e40bc))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-jsdoc to ^46.8.0 ([#757](https://github.com/anolilab/javascript-style-guide/issues/757)) ([a9ab7c6](https://github.com/anolilab/javascript-style-guide/commit/a9ab7c60773c51ff5b690bb27b77601d3eb5ec99))
+
 ## @anolilab/eslint-config [13.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@12.0.0...@anolilab/eslint-config@13.0.0) (2023-09-14)
 
 

@@ -748,8 +748,8 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3(semantic-release@21.0.2)
       '@semantic-release/commit-analyzer':
-        specifier: ^10.0.4
-        version: 10.0.4(semantic-release@21.0.2)
+        specifier: ^11.0.0
+        version: 11.0.0(semantic-release@21.0.2)
       '@semantic-release/exec':
         specifier: ^6.0.3
         version: 6.0.3(semantic-release@21.0.2)
@@ -760,11 +760,11 @@ importers:
         specifier: ^9.0.5
         version: 9.0.5(semantic-release@21.0.2)
       '@semantic-release/npm':
-        specifier: ^10.0.5
-        version: 10.0.5(semantic-release@21.0.2)
+        specifier: ^11.0.0
+        version: 11.0.0(semantic-release@21.0.2)
       '@semantic-release/release-notes-generator':
-        specifier: ^11.0.7
-        version: 11.0.7(semantic-release@21.0.2)
+        specifier: ^12.0.0
+        version: 12.0.0(semantic-release@21.0.2)
       commitizen:
         specifier: ^4.3.0
         version: 4.3.0
@@ -4230,6 +4230,25 @@ packages:
       semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@semantic-release/commit-analyzer@11.0.0(semantic-release@21.0.2):
+    resolution: {integrity: sha512-uEXyf4Z0AWJuxI9TbSQP5kkIYqus1/E1NcmE7pIv6d6/m/5EJcNWAGR4FOo34vrV26FhEaRVkxFfYzp/M7BKIg==}
+    engines: {node: ^18.17 || >=20.6.1}
+    peerDependencies:
+      semantic-release: ^21.0.2
+    dependencies:
+      conventional-changelog-angular: 7.0.0
+      conventional-commits-filter: 4.0.0
+      conventional-commits-parser: 5.0.0
+      debug: 4.3.4
+      import-from: 4.0.0
+      lodash-es: 4.17.21
+      micromatch: 4.0.5
+      semantic-release: 21.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@semantic-release/commit-analyzer@9.0.2(semantic-release@21.0.2):
     resolution: {integrity: sha512-E+dr6L+xIHZkX4zNMe6Rnwg4YQrWNXK+rNsvwOPpdFppvZO1olE2fIgWhv89TkQErygevbjsZFSIxp+u6w2e5g==}
@@ -4384,6 +4403,29 @@ packages:
       semantic-release: 21.0.2
       semver: 7.5.4
       tempy: 3.0.0
+    dev: false
+
+  /@semantic-release/npm@11.0.0(semantic-release@21.0.2):
+    resolution: {integrity: sha512-ozNCiPUp14Xp2rgeY7j96yFTEhDncLSWOJr0IAUr888+ax6fH5xgYkNVv08vpkV8C5GIXBgnGd9coRiOCD6oqQ==}
+    engines: {node: ^18.17 || >=20}
+    peerDependencies:
+      semantic-release: ^21.0.2
+    dependencies:
+      '@semantic-release/error': 4.0.0
+      aggregate-error: 5.0.0
+      execa: 8.0.1
+      fs-extra: 11.1.1
+      lodash-es: 4.17.21
+      nerf-dart: 1.0.0
+      normalize-url: 8.0.0
+      npm: 10.1.0
+      rc: 1.2.8
+      read-pkg: 8.0.0
+      registry-auth-token: 5.0.2
+      semantic-release: 21.0.2
+      semver: 7.5.4
+      tempy: 3.0.0
+    dev: true
 
   /@semantic-release/release-notes-generator@11.0.4(semantic-release@21.0.2):
     resolution: {integrity: sha512-j0Znnwq9IdWTCGzqSlkLv4MpALTsVDZxcVESzJCNN8pK2BYQlYaKsdZ1Ea/+7RlppI3vjhEi33ZKmjSGY1FLKw==}
@@ -4424,6 +4466,28 @@ packages:
       semantic-release: 21.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@semantic-release/release-notes-generator@12.0.0(semantic-release@21.0.2):
+    resolution: {integrity: sha512-m7Ds8ComP1KJgA2Lke2xMwE1TOOU40U7AzP4lT8hJ2tUAeicziPz/1GeDFmRkTOkMFlfHvE6kuvMkvU+mIzIDQ==}
+    engines: {node: ^18.17 || >=20.6.1}
+    peerDependencies:
+      semantic-release: ^21.0.2
+    dependencies:
+      conventional-changelog-angular: 7.0.0
+      conventional-changelog-writer: 7.0.1
+      conventional-commits-filter: 4.0.0
+      conventional-commits-parser: 5.0.0
+      debug: 4.3.4
+      get-stream: 7.0.0
+      import-from: 4.0.0
+      into-stream: 7.0.0
+      lodash-es: 4.17.21
+      read-pkg-up: 10.0.0
+      semantic-release: 21.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@semrel-extra/topo@1.13.0:
     resolution: {integrity: sha512-yaCH6vRjypPiIORmhE/n+Bh1TPl2Stbg96JGoXDlbTZLkbWoZmAxMMAzEPYJ7NE9hnC+ID2LYqoru7529tTm4w==}
@@ -5693,6 +5757,14 @@ packages:
       clean-stack: 4.2.0
       indent-string: 5.0.0
 
+  /aggregate-error@5.0.0:
+    resolution: {integrity: sha512-gOsf2YwSlleG6IjRYG2A7k0HmBMEo6qVNk9Bp/EaLgAJT5ngH6PXbqa4ItvnEwCm/velL5jAnQgsHsWnjhGmvw==}
+    engines: {node: '>=18'}
+    dependencies:
+      clean-stack: 5.2.0
+      indent-string: 5.0.0
+    dev: true
+
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
     dependencies:
@@ -6684,6 +6756,13 @@ packages:
     dependencies:
       escape-string-regexp: 5.0.0
 
+  /clean-stack@5.2.0:
+    resolution: {integrity: sha512-TyUIUJgdFnCISzG5zu3291TAsE77ddchd0bepon1VVQrKLGKFED4iXFEDQ24mIPdPBbyE16PK3F8MYE1CmcBEQ==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      escape-string-regexp: 5.0.0
+    dev: true
+
   /cli-boxes@2.2.1:
     resolution: {integrity: sha512-y4coMcylgSCdVinjiDBuR8PCC2bLjyGTwEmPb9NHR/QaNU6EUOXcTY/s6VjGMD6ENSEaeQYHCY0GNGS5jfMwPw==}
     engines: {node: '>=6'}
@@ -6939,6 +7018,13 @@ packages:
     dependencies:
       compare-func: 2.0.0
 
+  /conventional-changelog-angular@7.0.0:
+    resolution: {integrity: sha512-ROjNchA9LgfNMTTFSIWPzebCwOGFdgkEq45EnvvrmSLvCtAw0HSmrCs7/ty+wAeYUZyNay0YMUNYFTRL72PkBQ==}
+    engines: {node: '>=16'}
+    dependencies:
+      compare-func: 2.0.0
+    dev: true
+
   /conventional-changelog-conventionalcommits@6.1.0:
     resolution: {integrity: sha512-3cS3GEtR78zTfMzk0AizXKKIdN4OvSh7ibNz6/DPbhWWQu7LqE/8+/GqSodV+sywUR2gpJAdP/1JFf4XtN7Zpw==}
     engines: {node: '>=14'}
@@ -6957,6 +7043,19 @@ packages:
       meow: 8.1.2
       semver: 6.3.1
       split: 1.0.1
+
+  /conventional-changelog-writer@7.0.1:
+    resolution: {integrity: sha512-Uo+R9neH3r/foIvQ0MKcsXkX642hdm9odUp7TqgFS7BsalTcjzRlIfWZrZR1gbxOozKucaKt5KAbjW8J8xRSmA==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      conventional-commits-filter: 4.0.0
+      handlebars: 4.7.7
+      json-stringify-safe: 5.0.1
+      meow: 12.0.1
+      semver: 7.5.4
+      split2: 4.2.0
+    dev: true
 
   /conventional-commit-types@3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
@@ -12622,6 +12721,81 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
+
+  /npm@10.1.0:
+    resolution: {integrity: sha512-pZ2xybXzNGbJFZEKNbPoEXsE38Xou9VTnxxBk+B3pz0ndsGCs7iWHoUCPSsISU2hjmkWfDkJo3bYKE8RDOg4eg==}
+    engines: {node: ^18.17.0 || >=20.5.0}
+    hasBin: true
+    dev: true
+    bundledDependencies:
+      - '@isaacs/string-locale-compare'
+      - '@npmcli/arborist'
+      - '@npmcli/config'
+      - '@npmcli/fs'
+      - '@npmcli/map-workspaces'
+      - '@npmcli/package-json'
+      - '@npmcli/promise-spawn'
+      - '@npmcli/run-script'
+      - '@sigstore/tuf'
+      - abbrev
+      - archy
+      - cacache
+      - chalk
+      - ci-info
+      - cli-columns
+      - cli-table3
+      - columnify
+      - fastest-levenshtein
+      - fs-minipass
+      - glob
+      - graceful-fs
+      - hosted-git-info
+      - ini
+      - init-package-json
+      - is-cidr
+      - json-parse-even-better-errors
+      - libnpmaccess
+      - libnpmdiff
+      - libnpmexec
+      - libnpmfund
+      - libnpmhook
+      - libnpmorg
+      - libnpmpack
+      - libnpmpublish
+      - libnpmsearch
+      - libnpmteam
+      - libnpmversion
+      - make-fetch-happen
+      - minimatch
+      - minipass
+      - minipass-pipeline
+      - ms
+      - node-gyp
+      - nopt
+      - npm-audit-report
+      - npm-install-checks
+      - npm-package-arg
+      - npm-pick-manifest
+      - npm-profile
+      - npm-registry-fetch
+      - npm-user-validate
+      - npmlog
+      - p-map
+      - pacote
+      - parse-conflict-json
+      - proc-log
+      - qrcode-terminal
+      - read
+      - semver
+      - ssri
+      - supports-color
+      - tar
+      - text-table
+      - tiny-relative-date
+      - treeverse
+      - validate-npm-package-name
+      - which
+      - write-file-atomic
 
   /npm@9.6.6:
     resolution: {integrity: sha512-GIe+nCIw8EJIv52IXDVETSGnx7p9Ttg4VsaXNIeT4eaKZpIZ635rKC/uzQ6nnc4ibCUmESoK3PrXG0/puoqNcg==}

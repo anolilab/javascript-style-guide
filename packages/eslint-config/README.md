@@ -341,7 +341,7 @@ Of course, we also provide a recommended Prettier [configuration](../prettier-co
 If you are using experimental features such as class fields with JavaScript files you should install `@babel/eslint-parser`.
 
 ```bash
-npm install --save-dev @babel/eslint-parser
+npm install --save-dev @babel/core @babel/eslint-parser
 ```
 
 ## Plugins

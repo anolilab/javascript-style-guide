@@ -8,55 +8,55 @@
         {
             groupName: "devDependencies",
             matchDepTypes: ["devDependencies"],
-            rangeStrategy: "bump"
+            rangeStrategy: "bump",
         },
         {
             groupName: "dependencies",
             matchDepTypes: ["dependencies"],
-            rangeStrategy: "replace"
+            rangeStrategy: "replace",
         },
         {
             groupName: "peerDependencies",
             matchDepTypes: ["peerDependencies"],
-            rangeStrategy: "widen"
+            rangeStrategy: "widen",
         },
         {
             groupName: "engines",
             matchDepTypes: ["engines"],
-            rangeStrategy: "replace"
+            rangeStrategy: "replace",
         },
         {
             groupName: "semantic-release",
-            matchPackagePrefixes: ["semantic-release", "@semantic-.*"]
+            matchPackagePrefixes: ["semantic-release", "@semantic-.*", "conventional-changelog-conventionalcommits"],
         },
         {
             groupName: "eslint",
-            matchPackagePrefixes: ["@typescript-eslint/", "eslint", "eslint-.*"]
+            matchPackagePrefixes: ["@typescript-eslint/", "eslint", "eslint-.*"],
         },
         {
             groupName: "vitest",
-            matchPackageNames: ["@vitest/coverage-c8", "@vitest/ui", "vitest", "c8"]
+            matchPackageNames: ["@vitest/coverage-c8", "@vitest/ui", "vitest", "c8"],
         },
         {
             groupName: "prettier",
-            matchPackageNames: ["@types/prettier", "prettier"]
+            matchPackageNames: ["@types/prettier", "prettier"],
         },
         {
             groupName: "stylelint",
-            matchPackageNames: ["stylelint", "stylelint-.*", "postcss", "@ronilaukkarinen/stylelint-a11y"]
+            matchPackageNames: ["stylelint", "stylelint-.*", "postcss", "@ronilaukkarinen/stylelint-a11y"],
         },
         {
             groupName: "textlint",
-            matchPackageNames: ["textlint", "textlint-.*", "@textlint*"]
+            matchPackageNames: ["textlint", "textlint-.*", "@textlint*"],
         },
         {
             groupName: "typescript",
-            matchPackageNames: ["typescript"]
-        }
+            matchPackageNames: ["typescript"],
+        },
     ],
     vulnerabilityAlerts: {
         labels: ["c: security"],
-        assignees: ["team:maintainers"]
+        assignees: ["team:maintainers"],
     },
-    ignoreDeps: ["read-pkg", "read-pkg-up", "find-up", "@types/node"]
+    ignoreDeps: ["read-pkg", "read-pkg-up", "find-up", "@types/node"],
 }

@@ -1,3 +1,22 @@
+## @anolilab/lint-staged-config [2.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.7...@anolilab/lint-staged-config@2.0.8) (2023-09-21)
+
+
+### Miscellaneous Chores
+
+* update package versions and Node.js versions in actions ([ba1bd5f](https://github.com/anolilab/javascript-style-guide/commit/ba1bd5fbdb5a053b7b2929c189486399012d58bc))
+* updated deps ([a287003](https://github.com/anolilab/javascript-style-guide/commit/a2870031901767b64c304f1c926173d66ffaf283))
+
+
+### Continuous Integration
+
+* downgrade semantic-release to v21 and conventional-changelog-conventionalcommits to v6.1 ([30d8cd7](https://github.com/anolilab/javascript-style-guide/commit/30d8cd78dae211ed4566c7d23f5b85b696cbae13))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.0
+
 ## @anolilab/lint-staged-config [2.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.6...@anolilab/lint-staged-config@2.0.7) (2023-09-14)
 
 

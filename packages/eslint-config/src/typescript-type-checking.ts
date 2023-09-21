@@ -6,7 +6,8 @@ import bestPracticesConfig from "./config/best-practices";
 import { createConfig } from "./utils/create-config";
 import anolilabEslintConfig from "./utils/eslint-config";
 
-const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
+// @ts-expect-error TODO: find the correct type
+const bestPracticesRules = bestPracticesConfig.overrides[0].rules as Linter.RulesRecord;
 
 let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
 

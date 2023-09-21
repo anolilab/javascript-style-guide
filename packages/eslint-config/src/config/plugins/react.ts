@@ -705,6 +705,7 @@ const config: Linter.Config = {
                 // Disable JS specific rules
                 "react/jsx-filename-extension": "off",
                 "react/prop-types": "off",
+                "react/require-default-props": "off",
             },
         },
     ],

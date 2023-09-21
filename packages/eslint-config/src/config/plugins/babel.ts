@@ -6,9 +6,12 @@ import bestPracticesConfig from "../best-practices";
 import errorsConfig from "../errors";
 import styleConfig from "../style";
 
-const bestPracticesRules = bestPracticesConfig.rules as Linter.RulesRecord;
-const errorsRules = errorsConfig.rules as Linter.RulesRecord;
-const styleRules = styleConfig.rules as Linter.RulesRecord;
+// @ts-expect-error TODO: find the correct type
+const bestPracticesRules = bestPracticesConfig.overrides[0].rules as Linter.RulesRecord;
+// @ts-expect-error TODO: find the correct type
+const errorsRules = errorsConfig.overrides[0].rules as Linter.RulesRecord;
+// @ts-expect-error TODO: find the correct type
+const styleRules = styleConfig.overrides[0].rules as Linter.RulesRecord;
 
 if (global.anolilabEslintConfigBabelPrettierRules === undefined && (hasDependency("prettier") || hasDevDependency("prettier"))) {
     global.anolilabEslintConfigBabelPrettierRules = {

@@ -17,6 +17,12 @@ module.exports = {
                 tsconfigRootDir: __dirname,
             },
         },
+        {
+            files: ["packages/eslint-config/src/config/**/*.ts"],
+            rules: {
+                "perfectionist/sort-objects": "off",
+            },
+        },
     ],
     root: true,
     rules: {

@@ -81,7 +81,8 @@ const config: Linter.Config = createConfigs([
                     },
                 ],
 
-                // disallow unnecessary semicolons
+                // Disallow non-null assertion in locations that may be confusing.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
                 "no-extra-semi": "error",
 
                 // disallow overwriting functions written as function declarations
@@ -182,84 +183,28 @@ const config: Linter.Config = createConfigs([
         },
         type: "all",
     },
+    // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
+    // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
     {
         config: {
             rules: {
-                // Some built-in types have aliases, while some types are considered dangerous or harmful.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
-                "no-array-constructor": "off",
-
-                // Enforce constituents of a type union/intersection to be sorted alphabetically.
-                "no-const-assign": "off",
+                "getter-return": "off",
 
                 // Enforce using @ts-expect-error over @ts-ignore.
                 "no-dupe-args": "off",
 
-                // Enforce specifying generic type arguments on constructor name of a constructor call.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
-                "no-dupe-class-members": "off",
-
                 // Require explicit accessibility modifiers on class properties and methods.
                 "no-dupe-keys": "off",
-
-                // Require explicit return and argument types on exported functions' and classes' public class methods.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
-                "no-empty-function": "off",
 
                 // Enforce using a particular method signature syntax.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
                 "no-extra-parens": "off",
 
-                // Disallow non-null assertion in locations that may be confusing.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
-                "no-extra-semi": "off",
-
                 // Disallow duplicate enum member values.
                 "no-func-assign": "off",
 
-                // Disallow using to delete operator on computed key expressions.
-                // Disable the "no-implied-eval" and "no-new-func" rule, as it can report incorrect errors on TypeScript code
-                "no-implied-eval": "off",
-
-                // Disallow extra non-null assertions.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
-                "no-loop-func": "off",
-
-                // Disallow void type outside of generic or return types.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
-                "no-magic-numbers": "off",
-
-                // Enforce valid definition of new and constructor.
-                "no-new-func": "off",
-
-                // Disallow TypeScript namespaces.
-                "no-new-symbol": "off",
-
                 // Disallow non-null assertions in the left operand of a nullish coalescing operator.
                 "no-obj-calls": "off",
-
-                // Disallow non-null assertions after an optional chain expression.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
-                "no-redeclare": "off",
-
-                // Disallow non-null assertions using the ! postfix operator.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
-                "no-return-await": "off",
-
-                // Disallow invocation of require().
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
-                "no-shadow": "off",
-
-                // Disallow aliasing this.
-                "no-this-before-super": "off",
-
-                // Disallow type assertions that do not change the type of expression.
-                // Disable the "no-throw-literal" rule, as it can report incorrect errors on TypeScript code
-                "no-throw-literal": "off",
-
-                // Disallow unnecessary constraints on generic types.
-                "no-undef": "off",
 
                 // Disallow calling a function with a value with type any.
                 "no-unreachable": "off",
@@ -267,31 +212,13 @@ const config: Linter.Config = createConfigs([
                 // Disallow assigning a value with type any to variables and properties.
                 "no-unsafe-negation": "off",
 
-                // Disallow calling a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-                "no-unused-expressions": "off",
-
-                // Disallow unsafe declaration merging.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-                "no-unused-vars": "off",
-
-                // Disallow member access on a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-                "no-use-before-define": "off",
-
-                // Disallow returning a value with type any from a function.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-                "no-useless-constructor": "off",
-
-                // Enforce using function types instead of interfaces with call signatures.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
-                "space-before-function-paren": "off",
-
                 // Enforce using the nullish coalescing operator instead of logical chaining.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.md
                 "space-infix-ops": "off",
 
                 "valid-typeof": "off",
+
+                "no-extra-semi": "off",
             },
         },
         type: "typescript",

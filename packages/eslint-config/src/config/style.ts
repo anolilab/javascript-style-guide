@@ -73,7 +73,6 @@ if (global.hasAnolilabEsLintConfigPrettier) {
         "space-before-blocks": "off",
         "space-before-function-paren": "off",
         "space-in-parens": "off",
-        "space-infix-ops": "off",
         "space-unary-ops": "off",
         "switch-colon-spacing": "off",
         "template-curly-spacing": "off",
@@ -726,15 +725,12 @@ const config: Linter.Config = createConfigs([
                 camelcase: "off",
                 // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
                 "comma-dangle": "off",
+
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
                 "comma-spacing": "off",
-                // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
-                "constructor-super": "off",
-                // Disable the "dot-notation" rule, as it can report incorrect errors on TypeScript code
-                "dot-notation": "off",
+
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
                 "func-call-spacing": "off",
-                "getter-return": "off",
 
                 // Require that function overload signatures be consecutive.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
@@ -754,9 +750,14 @@ const config: Linter.Config = createConfigs([
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
                 semi: "off",
 
-                // Disallow empty exports that don't change anything in a module file.
-                // Breaks @typescript-eslint/parser
-                strict: "off",
+                // Enforce using function types instead of interfaces with call signatures.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
+                "space-before-function-paren": "off",
+
+                // Some built-in types have aliases, while some types are considered dangerous or harmful.
+                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
+                "no-array-constructor": "off",
             },
         },
         type: "typescript",

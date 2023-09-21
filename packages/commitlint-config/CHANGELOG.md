@@ -1,3 +1,31 @@
+## @anolilab/commitlint-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.6...@anolilab/commitlint-config@4.0.0) (2023-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* update conventional-changelog-conventionalcommits to v7
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* updated conventional-changelog-conventionalcommits to v7 ([3fd9b04](https://github.com/anolilab/javascript-style-guide/commit/3fd9b04d933ee8a017d1f309a64c42e1c3dc58eb))
+
+
+### Miscellaneous Chores
+
+* update package versions and Node.js versions in actions ([ba1bd5f](https://github.com/anolilab/javascript-style-guide/commit/ba1bd5fbdb5a053b7b2929c189486399012d58bc))
+
+
+### Continuous Integration
+
+* downgrade semantic-release to v21 and conventional-changelog-conventionalcommits to v6.1 ([30d8cd7](https://github.com/anolilab/javascript-style-guide/commit/30d8cd78dae211ed4566c7d23f5b85b696cbae13))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.0
+
 ## @anolilab/commitlint-config [3.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.5...@anolilab/commitlint-config@3.0.6) (2023-09-14)
 
 

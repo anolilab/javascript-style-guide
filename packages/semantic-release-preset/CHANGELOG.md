@@ -1,3 +1,20 @@
+## @anolilab/semantic-release-preset [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.6...@anolilab/semantic-release-preset@7.0.0) (2023-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* updated semantic-release to v22 and conventional-changelog-conventionalcommits to v7
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* updated all semantic-release packages to the newest version ([d54b2d9](https://github.com/anolilab/javascript-style-guide/commit/d54b2d91407984bc2b5ae057d1b5d4abc56fde19))
+
+
+### Bug Fixes
+
+* Downgrade semantic-release and conventional-changelog packages for compatibility ([62614d5](https://github.com/anolilab/javascript-style-guide/commit/62614d5787fc52d88a28fc10b141b0d81a471d87))
+
 ## @anolilab/semantic-release-preset [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.5...@anolilab/semantic-release-preset@6.0.6) (2023-09-14)
 
 

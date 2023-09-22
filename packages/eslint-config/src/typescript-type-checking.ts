@@ -94,6 +94,11 @@ const config = createConfig("typescript", {
 
         // Replace 'no-implied-eval' and 'no-new-func' rules with '@typescript-eslint' version
         "@typescript-eslint/no-throw-literal": bestPracticesRules["no-throw-literal"],
+
+        // Force array predicates to return something that could be either truthy or falsy.
+        // See https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
+        // See also https://github.com/typescript-eslint/typescript-eslint/issues/1038
+        // See also https://github.com/microsoft/TypeScript/issues/19456
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
         "@typescript-eslint/no-unnecessary-condition": "error",
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md
@@ -103,12 +108,15 @@ const config = createConfig("typescript", {
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-arguments.md
         "@typescript-eslint/no-unnecessary-type-arguments": "error",
 
-        // Disallow Promises in places not designed to handle them.
         // Disabling here because in most cases the explicitness is still valuable
         "@typescript-eslint/no-unnecessary-type-assertion": "off",
 
         // Warns if a type assertion does not change the type of an expression
-        "@typescript-eslint/non-nullable-type-assertion-style": "off",
+        // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
+        "@typescript-eslint/non-nullable-type-assertion-style": "error",
+
+        // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/method-signature-style.md
+        "@typescript-eslint/method-signature-style": "error",
 
         // Enforce includes method over indexOf method.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-includes.md
@@ -166,6 +174,25 @@ const config = createConfig("typescript", {
 
         // Enforces unbound methods are called with their expected scope
         "@typescript-eslint/unbound-method": ["error", { ignoreStatic: false }],
+
+        "@typescript-eslint/consistent-type-assertions": [
+            "error",
+            {
+                assertionStyle: "never",
+            },
+        ],
+
+        "@typescript-eslint/strict-boolean-expressions": [
+            "error",
+            {
+                allowString: false,
+                allowNumber: false,
+                allowNullableObject: false,
+            },
+        ],
+
+        // Interfaces encourage OO, types encourage FP.
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
 });
 

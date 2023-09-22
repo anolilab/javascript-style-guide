@@ -429,6 +429,7 @@ The following test plugins are supported:
 -   eslint-plugin-markdown
 -   eslint-plugin-mdx
 -   eslint-plugin-no-loops
+-   eslint-plugin-no-only-tests
 -   eslint-plugin-no-secrets
 -   eslint-plugin-no-use-extend-native
 -   eslint-plugin-promise

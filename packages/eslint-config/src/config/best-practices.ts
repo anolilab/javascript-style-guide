@@ -436,7 +436,7 @@ const config: Linter.Config = createConfigs([
                 "require-await": "off",
 
                 // https://eslint.org/docs/rules/require-unicode-regexp
-                "require-unicode-regexp": "off",
+                "require-unicode-regexp": "error",
 
                 // require immediate function invocation to be wrapped in parentheses
                 // requires to declare all vars on top of their containing scope

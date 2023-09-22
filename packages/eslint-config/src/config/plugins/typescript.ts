@@ -257,6 +257,23 @@ const config: Linter.Config = createConfigs([
                             Number: { message: "Use number instead", fixWith: "number" },
                             Object: { message: "Use object instead", fixWith: "object" },
                             Array: { message: "Provide a more specific type" },
+                            // Ban the type-unsafe built-in utility types because they're vulnerable to typos and to failing silently after a rename refactoring.
+                            // See https://www.typescriptlang.org/docs/handbook/utility-types.html
+                            // See https://github.com/pelotom/type-zoo#omitstrictt-k-extends-keyof-t
+                            // See https://github.com/krzkaczor/ts-essentials#Comparison-between-Omit-and-StrictOmit
+                            // TODO make this a real rule instead of using `ban-types`: https://github.com/danielnixon/eslint-plugin-total-functions/issues/88
+                            Omit: {
+                                fixWith: "OmitStrict",
+                                message: "Omit is not type-safe. Prefer a strict version such as OmitStrict from the type-zoo package.",
+                            },
+                            Exclude: {
+                                fixWith: "ExcludeStrict",
+                                message: "Exclude is not type-safe. Prefer a strict version such as ExcludeStrict from the type-zoo package.",
+                            },
+                            Extract: {
+                                fixWith: "ExtractStrict",
+                                message: "Extract is not type-safe. Prefer a strict version such as ExtractStrict from the type-zoo package.",
+                            },
                         },
                     },
                 ],

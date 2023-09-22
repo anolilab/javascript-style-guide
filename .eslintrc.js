@@ -18,7 +18,7 @@ module.exports = {
             },
         },
         {
-            files: ["packages/eslint-config/src/config/**/*.ts"],
+            files: ["packages/eslint-config/src/config/**/*.ts", "packages/eslint-config/src/typescript-type-checking.ts"],
             rules: {
                 "perfectionist/sort-objects": "off",
             },

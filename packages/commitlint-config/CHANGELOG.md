@@ -1,3 +1,11 @@
+## @anolilab/commitlint-config [4.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@4.0.0...@anolilab/commitlint-config@4.0.1) (2023-09-22)
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## @anolilab/commitlint-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@3.0.6...@anolilab/commitlint-config@4.0.0) (2023-09-21)
 
 

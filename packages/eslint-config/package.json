@@ -79,9 +79,6 @@
             "url": "https://anolilab.com/support"
         }
     ],
-    "bin": {
-        "anolilab-eslint-config": "./bin/generate-eslint-cofig.js"
-    },
     "license": "MIT",
     "author": {
         "name": "Daniel Bannert",
@@ -109,6 +106,9 @@
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "bin": {
+        "anolilab-eslint-config": "./bin/generate-eslint-cofig.js"
+    },
     "files": [
         "bin/generate-eslint-cofig.js",
         "dist",
@@ -128,11 +128,10 @@
     "dependencies": {
         "@anolilab/package-json-utils": "3.0.5",
         "@babel/eslint-parser": "^7.22.15",
-        "eslint-plugin-no-only-tests": "^3.1.0",
         "@babel/plugin-syntax-import-assertions": "^7.22.5",
+        "@eslint/js": "^8.49.0",
         "@html-eslint/eslint-plugin": "^0.19.1",
         "@html-eslint/parser": "^0.19.1",
-        "@eslint/js": "^8.49.0",
         "@rushstack/eslint-patch": "^1.4.0",
         "@rushstack/eslint-plugin-security": "^0.7.0",
         "@typescript-eslint/eslint-plugin": ">=6.7.2",
@@ -151,6 +150,7 @@
         "eslint-plugin-markdown": "^3.0.1",
         "eslint-plugin-mdx": "^2.2.0",
         "eslint-plugin-no-loops": "^0.3.0",
+        "eslint-plugin-no-only-tests": "^3.1.0",
         "eslint-plugin-no-secrets": "^0.8.9",
         "eslint-plugin-no-use-extend-native": "^0.5.0",
         "eslint-plugin-perfectionist": "^2.1.0",
@@ -174,7 +174,6 @@
     "devDependencies": {
         "@anolilab/semantic-release-preset": "7.0.0",
         "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
-        "eslint-plugin-ssr-friendly": "^1.2.0",
         "@testing-library/dom": "^9.3.3",
         "@total-typescript/ts-reset": "^0.5.1",
         "@types/confusing-browser-globals": "^1.0.1",
@@ -184,24 +183,25 @@
         "eslint-find-rules": "^4.1.0",
         "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-cypress": "^2.15.1",
+        "eslint-plugin-deprecation": "^2.0.0",
         "eslint-plugin-editorconfig": "^4.0.3",
         "eslint-plugin-etc": "^2.0.3",
         "eslint-plugin-jest": "^27.4.0",
         "eslint-plugin-jest-async": "^1.0.3",
-        "eslint-plugin-deprecation": "^2.0.0",
         "eslint-plugin-jest-dom": "^5.1.0",
         "eslint-plugin-jest-formatting": "^3.1.0",
         "eslint-plugin-jsdoc": "^46.8.2",
         "eslint-plugin-jsx-a11y": "^6.7.1",
-        "eslint-plugin-validate-jsx-nesting": "^1.0.1",
         "eslint-plugin-no-unsanitized": "^4.0.2",
         "eslint-plugin-prefer-object-spread": "^1.2.1",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-redux": "^4.0.0",
+        "eslint-plugin-ssr-friendly": "^1.2.0",
         "eslint-plugin-storybook": "^0.6.14",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-testing-library": "^6.0.1",
+        "eslint-plugin-validate-jsx-nesting": "^1.0.1",
         "eslint-plugin-vitest": "^0.3.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
         "eslint-plugin-you-dont-need-momentjs": "^1.6.0",
@@ -216,12 +216,11 @@
         "vitest": "^0.34.5"
     },
     "peerDependencies": {
-        "eslint": "^8.15.0",
-        "@babel/core": "^7.22.20"
+        "@babel/core": "^7.22.20",
+        "eslint": "^8.15.0"
     },
     "optionalDependencies": {
         "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
-        "eslint-plugin-ssr-friendly": "^1.2.0",
         "@tanstack/eslint-plugin-query": "^4.34.1",
         "eslint-plugin-array-func": "^4.0.0",
         "eslint-plugin-ava": "^14.0.0",
@@ -234,7 +233,6 @@
         "eslint-plugin-jest-formatting": "^3.1.0",
         "eslint-plugin-jsdoc": "^46.8.2",
         "eslint-plugin-jsx-a11y": "^6.7.1",
-        "eslint-plugin-validate-jsx-nesting": "^1.0.1",
         "eslint-plugin-n": "^16.1.0",
         "eslint-plugin-no-unsanitized": "^4.0.2",
         "eslint-plugin-playwright": "^0.16.0",
@@ -242,10 +240,12 @@
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-redux": "^4.0.0",
+        "eslint-plugin-ssr-friendly": "^1.2.0",
         "eslint-plugin-storybook": "^0.6.14",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-testing-library": "^6.0.1",
         "eslint-plugin-tsdoc": "^0.2.17",
+        "eslint-plugin-validate-jsx-nesting": "^1.0.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
         "eslint-plugin-you-dont-need-momentjs": "^1.6.0"
     },

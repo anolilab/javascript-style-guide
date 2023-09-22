@@ -33,7 +33,7 @@ const checkIfFileExists = (filename: string): boolean => {
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
 const writeLintstagedRc = async () => {
-    // eslint-disable-next-line no-restricted-syntax
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
         `${configFile}.js`,

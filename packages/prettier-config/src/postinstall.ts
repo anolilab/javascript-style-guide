@@ -21,7 +21,7 @@ const configFile = ".prettierrc";
  * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = async () => {
-    // eslint-disable-next-line no-restricted-syntax
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
         `${configFile}.js`,

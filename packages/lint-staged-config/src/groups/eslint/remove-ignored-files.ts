@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ESLint } from "eslint";
 import { quote } from "shell-quote";
 

@@ -1,3 +1,16 @@
+## browserslist-config-anolilab [5.0.7](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.6...browserslist-config-anolilab@5.0.7) (2023-09-22)
+
+
+### Bug Fixes
+
+* changed optionalDependencies to peerDependencies with peerDependenciesMeta ([2a21b86](https://github.com/anolilab/javascript-style-guide/commit/2a21b861f1ff60483f9ee5762579e4369fca5467))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## browserslist-config-anolilab [5.0.6](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.5...browserslist-config-anolilab@5.0.6) (2023-09-21)
 
 

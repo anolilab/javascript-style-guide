@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [14.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.0...@anolilab/eslint-config@14.0.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* Update eslint rule severity and modify todo comments ([5f9d6fe](https://github.com/anolilab/javascript-style-guide/commit/5f9d6fe2da99599d51a573c98fa1b47f0366e28d))
+* Updated eslint configurations and upgraded module dependencies ([763d446](https://github.com/anolilab/javascript-style-guide/commit/763d44691bbeef33adde14b8c62f32a8e0be286b))
+
 ## @anolilab/eslint-config [14.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@13.0.2...@anolilab/eslint-config@14.0.0) (2023-09-22)
 
 

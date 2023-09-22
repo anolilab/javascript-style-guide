@@ -9,7 +9,7 @@ describe("remove-ignored-files", () => {
 
         expect(result).toHaveLength(files.length);
 
-        result.forEach((file) => expect(file).toMatch(/"file\d"/));
+        result.forEach((file) => expect(file).toMatch(/"file\d"/u));
     });
 
     // TODO: find a good way to mock eslint.isPathIgnored
@@ -20,6 +20,6 @@ describe("remove-ignored-files", () => {
 
         expect(result).toHaveLength(files.length - 2);
 
-        result.forEach((file) => expect(file).toMatch(/"file\d"/));
+        result.forEach((file) => expect(file).toMatch(/"file\d"/u));
     });
 });

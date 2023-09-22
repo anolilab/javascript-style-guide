@@ -1,14 +1,14 @@
 import { existsSync, writeFile } from "node:fs";
 import { join } from "node:path";
+import { env, exit } from "node:process";
 import { promisify } from "node:util";
 
 import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 
 import content from ".";
 
-if (process.env["CI"]) {
-    // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(0);
+if (env["CI"] !== undefined) {
+    exit(0);
 }
 
 const writeFileAsync = promisify(writeFile);
@@ -86,13 +86,11 @@ const writePrettierIgnore = async () => {
 
         console.log("😎  Everything went well, have fun!");
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(0);
+        exit(0);
     } catch (error) {
         console.log("😬  something went wrong:");
         console.error(error);
 
-        // eslint-disable-next-line unicorn/no-process-exit
-        process.exit(1);
+        exit(1);
     }
 })();

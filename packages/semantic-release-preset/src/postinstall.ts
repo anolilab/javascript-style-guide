@@ -5,7 +5,7 @@ import { promisify } from "node:util";
 
 import { hasDependencies, hasDevDependencies, pkg, projectPath } from "@anolilab/package-json-utils";
 
-if (env["CI"]) {
+if (env["CI"] !== undefined) {
     exit(0);
 }
 
@@ -18,7 +18,7 @@ console.log("Configuring @anolilab/semantic-release-preset", projectPath, "\n");
  */
 const writeReleaseRc = async () => {
     if (
-        pkg &&
+        pkg !== undefined &&
         (hasDevDependencies(["multi-semantic-release", "@qiwi/multi-semantic-release"]) ||
             hasDependencies(["multi-semantic-release", "@qiwi/multi-semantic-release"]))
     ) {

@@ -1,5 +1,4 @@
-// eslint-disable-next-line unicorn/better-regex
-const automaticCommitPattern = /^chore\(release\):.*\[skip ci\]/;
+const automaticCommitPattern = /^chore\(release\):.*\[skip ci\]/u;
 
 const config = {
     extends: ["@commitlint/config-conventional"],
@@ -24,22 +23,7 @@ const config = {
         "type-enum": [
             2,
             "always",
-            [
-                "build",
-                "chore",
-                "ci",
-                "deps",
-                "docs",
-                "feat",
-                "fix",
-                "perf",
-                "refactor",
-                "revert",
-                "security",
-                "style",
-                "test",
-                "translation",
-            ],
+            ["build", "chore", "ci", "deps", "docs", "feat", "fix", "perf", "refactor", "revert", "security", "style", "test", "translation"],
         ],
     },
 };

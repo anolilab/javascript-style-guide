@@ -1,3 +1,16 @@
+## @anolilab/babel-preset [9.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.7...@anolilab/babel-preset@9.0.8) (2023-09-22)
+
+
+### Bug Fixes
+
+* changed optionalDependencies to peerDependencies with peerDependenciesMeta ([2a21b86](https://github.com/anolilab/javascript-style-guide/commit/2a21b861f1ff60483f9ee5762579e4369fca5467))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## @anolilab/babel-preset [9.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/babel-preset@9.0.6...@anolilab/babel-preset@9.0.7) (2023-09-21)
 
 

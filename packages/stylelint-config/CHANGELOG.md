@@ -1,3 +1,17 @@
+## @anolilab/stylelint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.6...@anolilab/stylelint-config@6.0.7) (2023-09-22)
+
+
+### Styles
+
+* cs fixes ([8e66dc2](https://github.com/anolilab/javascript-style-guide/commit/8e66dc261129837075a52a4364036918f1bbc115))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 5.0.7
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## @anolilab/stylelint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.5...@anolilab/stylelint-config@6.0.6) (2023-09-21)
 
 

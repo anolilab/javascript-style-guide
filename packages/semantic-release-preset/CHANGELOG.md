@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [7.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@7.0.1...@anolilab/semantic-release-preset@7.0.2) (2023-09-22)
+
+
+### Bug Fixes
+
+* downgrade @semantic-release/release-notes-generator to v11.0.7 ([f2ec7eb](https://github.com/anolilab/javascript-style-guide/commit/f2ec7eb7648846598015bb1492d0984f1bedca22))
+
 ## @anolilab/semantic-release-preset [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@7.0.0...@anolilab/semantic-release-preset@7.0.1) (2023-09-22)
 
 

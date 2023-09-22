@@ -50,13 +50,13 @@ const config: Linter.Config = {
             "error",
             {
                 case: "kebabCase",
-                ignore: [/(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/],
+                ignore: [/(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u],
             },
         ],
 
         "unicorn/no-array-for-each": "off",
 
-        // TODO: Disabled for now as I don't have time to deal with the backslash that might come from this. Try to enable this rule in 2021.
+        // TODO: Disabled for now as I don't have time to deal with the backslash that might come from this. Try to enable this rule in 2024.
         "unicorn/no-null": "off",
 
         // TODO: Temporarily disabled until it becomes more mature.

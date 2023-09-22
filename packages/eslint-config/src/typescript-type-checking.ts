@@ -113,7 +113,7 @@ const config = createConfig("typescript", {
 
         // Warns if a type assertion does not change the type of an expression
         // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
-        "@typescript-eslint/non-nullable-type-assertion-style": "error",
+        "@typescript-eslint/non-nullable-type-assertion-style": "off",
 
         // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/method-signature-style.md
         "@typescript-eslint/method-signature-style": "error",
@@ -175,15 +175,17 @@ const config = createConfig("typescript", {
         // Enforces unbound methods are called with their expected scope
         "@typescript-eslint/unbound-method": ["error", { ignoreStatic: false }],
 
+        // TODO: enable this rule when decision is made on
         "@typescript-eslint/consistent-type-assertions": [
-            "error",
+            "off",
             {
                 assertionStyle: "never",
             },
         ],
 
+        // TODO: enable this rule when decision is made on
         "@typescript-eslint/strict-boolean-expressions": [
-            "error",
+            "off",
             {
                 allowString: false,
                 allowNumber: false,
@@ -192,7 +194,7 @@ const config = createConfig("typescript", {
         ],
 
         // Interfaces encourage OO, types encourage FP.
-        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+        "@typescript-eslint/consistent-type-definitions": "off",
     },
 });
 

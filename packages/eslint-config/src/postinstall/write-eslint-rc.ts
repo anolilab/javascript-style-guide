@@ -13,7 +13,7 @@ const configFile = ".eslintrc";
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const writeEslintRc = async (): Promise<void> => {
-    // eslint-disable-next-line no-restricted-syntax
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`]) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(projectPath, filename))) {

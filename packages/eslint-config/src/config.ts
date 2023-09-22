@@ -25,6 +25,7 @@ export const internalPluginConfig = [
     "toml",
     "yml",
     "html",
+    "no-loops",
 
     // custom rules
     "antfu",
@@ -370,21 +371,34 @@ const pluginConfig: PackageRules = [
         dependencies: ["react", "react-dom", "eslint-plugin-react"],
     },
     {
+        configName: "validate-jsx-nesting",
+        dependencies: ["eslint-plugin-validate-jsx-nesting"],
+        oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
+    },
+    {
+        configName: "ssr-friendly",
+        dependencies: ["eslint-plugin-ssr-friendly"],
+        oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
+    },
+    {
         configName: "react-redux",
         dependencies: ["eslint-plugin-react-redux"],
         oneOfDependency: ["@reduxjs/toolkit", "redux"],
     },
     {
         configName: "jsx-a11y",
-        dependencies: ["react", "react-dom", "eslint-plugin-jsx-a11y"],
+        dependencies: ["eslint-plugin-jsx-a11y"],
+        oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
     },
     {
         configName: "react-hooks",
-        dependencies: ["react", "react-dom", "eslint-plugin-react-hooks"],
+        dependencies: ["eslint-plugin-react-hooks"],
+        oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
     },
     {
         configName: "react-usememo",
-        dependencies: ["react", "react-dom", "@arthurgeron/eslint-plugin-react-usememo"],
+        dependencies: ["@arthurgeron/eslint-plugin-react-usememo"],
+        oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
     },
     {
         configName: "you-dont-need-momentjs",
@@ -397,6 +411,7 @@ const pluginConfig: PackageRules = [
     {
         configName: "tailwindcss",
         dependencies: ["eslint-plugin-tailwindcss"],
+        oneOfDependency: ["tailwindcss", "@tailwindcss/typography", "@tailwindcss/forms", "@tailwindcss/aspect-ratio", "@tailwindcss/line-clamp"],
     },
     {
         configName: "cypress",
@@ -434,6 +449,16 @@ const pluginConfig: PackageRules = [
         configName: "typescript",
         dependencies: ["typescript"],
         files: ["tsconfig.json", "tsconfig.eslint.json"],
+    },
+    {
+        configName: "deprecation",
+        dependencies: ["typescript"],
+        files: ["tsconfig.json", "tsconfig.eslint.json"],
+    },
+    {
+        configName: "no-only-tests",
+        dependencies: [],
+        oneOfDependency: ["jest", "mocha", "jasmine", "tape", "ava", "qunit", "cypress"],
     },
     {
         configName: "etc",

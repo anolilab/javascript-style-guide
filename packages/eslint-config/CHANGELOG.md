@@ -1,3 +1,31 @@
+## @anolilab/eslint-config [14.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@13.0.2...@anolilab/eslint-config@14.0.0) (2023-09-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added new rules for "no-loops", "validate-jsx-nesting", "ssr-friendly", "deprecation", and "no-only-tests"
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* Update eslint config and dependencies, added new rules for "no-loops", "validate-jsx-nesting", "ssr-friendly", "deprecation", and "no-only-tests" ([883af9b](https://github.com/anolilab/javascript-style-guide/commit/883af9b331df5feedcee79cad19fe4127b9fd3fd))
+
+
+### Bug Fixes
+
+* changed optionalDependencies to peerDependencies with peerDependenciesMeta ([2a21b86](https://github.com/anolilab/javascript-style-guide/commit/2a21b861f1ff60483f9ee5762579e4369fca5467))
+
+
+### Miscellaneous Chores
+
+* updated lock and sorted package.json ([7f7ed5a](https://github.com/anolilab/javascript-style-guide/commit/7f7ed5a79df26e79c61bf2f84c37f86379edf836))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## @anolilab/eslint-config [13.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@13.0.1...@anolilab/eslint-config@13.0.2) (2023-09-21)
 
 

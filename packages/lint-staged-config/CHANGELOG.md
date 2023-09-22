@@ -1,3 +1,21 @@
+## @anolilab/lint-staged-config [2.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.8...@anolilab/lint-staged-config@2.0.9) (2023-09-22)
+
+
+### Bug Fixes
+
+* changed optionalDependencies to peerDependencies with peerDependenciesMeta ([2a21b86](https://github.com/anolilab/javascript-style-guide/commit/2a21b861f1ff60483f9ee5762579e4369fca5467))
+
+
+### Styles
+
+* cs fixes ([8e66dc2](https://github.com/anolilab/javascript-style-guide/commit/8e66dc261129837075a52a4364036918f1bbc115))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.2
+
 ## @anolilab/lint-staged-config [2.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.7...@anolilab/lint-staged-config@2.0.8) (2023-09-21)
 
 

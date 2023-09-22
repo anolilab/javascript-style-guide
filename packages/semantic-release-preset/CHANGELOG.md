@@ -1,3 +1,10 @@
+## @anolilab/semantic-release-preset [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@7.0.0...@anolilab/semantic-release-preset@7.0.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* changed optionalDependencies to peerDependencies with peerDependenciesMeta ([2a21b86](https://github.com/anolilab/javascript-style-guide/commit/2a21b861f1ff60483f9ee5762579e4369fca5467))
+
 ## @anolilab/semantic-release-preset [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@6.0.6...@anolilab/semantic-release-preset@7.0.0) (2023-09-21)
 
 

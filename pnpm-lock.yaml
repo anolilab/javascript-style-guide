@@ -268,7 +268,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       '@babel/cli':
         specifier: ^7.22.15
         version: 7.22.15(@babel/core@7.22.20)
@@ -322,7 +322,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       browserslist:
         specifier: 4.21.11
         version: 4.21.11
@@ -368,7 +368,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       '@commitlint/cli':
         specifier: ^17.7.1
         version: 17.7.1
@@ -540,7 +540,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       '@arthurgeron/eslint-plugin-react-usememo':
         specifier: ^2.0.1
         version: 2.0.1
@@ -697,7 +697,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       '@total-typescript/ts-reset':
         specifier: ^0.5.1
         version: 0.5.1
@@ -815,7 +815,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -856,8 +856,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0(semantic-release@21.1.2)
       '@semantic-release/release-notes-generator':
-        specifier: 12.0.0
-        version: 12.0.0(semantic-release@21.1.2)
+        specifier: 11.0.7
+        version: 11.0.7(semantic-release@21.1.2)
       conventional-changelog-conventionalcommits:
         specifier: 6.1.0
         version: 6.1.0
@@ -916,7 +916,7 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-preset':
         specifier: 7.0.0
-        version: link:../semantic-release-preset
+        version: 7.0.0(semantic-release@21.1.2)
       postcss:
         specifier: ^8.4.30
         version: 8.4.30
@@ -1000,7 +1000,7 @@ importers:
         version: 1.0.8
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.0
+        specifier: 7.0.1
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.1
@@ -1035,6 +1035,35 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
+
+  /@anolilab/package-json-utils@3.0.5:
+    resolution: {integrity: sha512-0cwWHsD+TlFxl1OvcYpqxmrec/V2v15j6gjL5pvbiyTbp0ctNY64EdawIJKjvtAS3vN7GhOBHNWSHpS8KTEfHA==}
+    engines: {node: '>=18'}
+    dependencies:
+      dot-path-value: 0.0.10
+      read-pkg-up: 7.0.1
+    dev: true
+
+  /@anolilab/semantic-release-preset@7.0.0(semantic-release@21.1.2):
+    resolution: {integrity: sha512-lqxqkbL02pSU1ZMQYultdGTis0RRudZ3DhuQlXjqrWtiWyu/tJ7faATAqsd3e3Uo5oxEwbOw7BVeM/xk/tiiEg==}
+    engines: {node: '>=18.17'}
+    requiresBuild: true
+    peerDependencies:
+      semantic-release: ^21.1.2
+    dependencies:
+      '@anolilab/package-json-utils': 3.0.5
+      '@semantic-release/changelog': 6.0.3(semantic-release@21.1.2)
+      '@semantic-release/commit-analyzer': 10.0.4(semantic-release@21.1.2)
+      '@semantic-release/exec': 6.0.3(semantic-release@21.1.2)
+      '@semantic-release/git': 10.0.1(semantic-release@21.1.2)
+      '@semantic-release/github': 9.0.6(semantic-release@21.1.2)
+      '@semantic-release/npm': 11.0.0(semantic-release@21.1.2)
+      '@semantic-release/release-notes-generator': 11.0.7(semantic-release@21.1.2)
+      conventional-changelog-conventionalcommits: 6.1.0
+      semantic-release: 21.1.2(typescript@5.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@arthurgeron/eslint-plugin-react-usememo@2.0.1:
     resolution: {integrity: sha512-cv1S9f3PBRfysxEpQjHcLlDGVnuQCJNu2tvAaWd4nf9HoXFCK2aSCCHf53ZCXxpHj20lq8PCMHd1tG+Sy2iuuQ==}
@@ -4300,6 +4329,7 @@ packages:
       semantic-release: 21.1.2(typescript@5.2.2)
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@semrel-extra/topo@1.14.0:
     resolution: {integrity: sha512-i4nMOxEva7HFfTIg0ao6Gjvdep6ux9/7tdQ4Mb/JrOj6vBJxSzYPJYZ85aB9eD3jMSWy4lkaclHsMslV5VMmIQ==}
@@ -6633,6 +6663,7 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       compare-func: 2.0.0
+    dev: true
 
   /conventional-changelog-conventionalcommits@6.1.0:
     resolution: {integrity: sha512-3cS3GEtR78zTfMzk0AizXKKIdN4OvSh7ibNz6/DPbhWWQu7LqE/8+/GqSodV+sywUR2gpJAdP/1JFf4XtN7Zpw==}
@@ -6664,6 +6695,7 @@ packages:
       meow: 12.1.1
       semver: 7.5.4
       split2: 4.2.0
+    dev: true
 
   /conventional-commit-types@3.0.0:
     resolution: {integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==}
@@ -7214,7 +7246,6 @@ packages:
 
   /dot-path-value@0.0.10:
     resolution: {integrity: sha512-MrVpDoFwk1xjeM0sGRuei7N3LQOylJ9iamgfxAQwPY0hPnDHL981hM/KpoQwFHMckgjZvJA0MyH7VN//ernFFA==}
-    dev: false
 
   /dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}

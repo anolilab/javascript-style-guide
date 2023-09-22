@@ -115,16 +115,34 @@
         "vitest": "^0.34.5"
     },
     "peerDependencies": {
-        "husky": "^8.x",
-        "lint-staged": "^13.x || ^14.0.0"
-    },
-    "optionalDependencies": {
         "eslint": "^8.49.0",
+        "husky": "^8.x",
         "jest": "^29.7.0",
+        "lint-staged": "^13.x || ^14.0.0",
         "prettier": "^3.0.3",
         "secretlint": "^7.0.7",
         "stylelint": "^15.10.3",
         "vite": "^4.4.9"
+    },
+    "peerDependenciesMeta": {
+        "eslint": {
+            "optional": true
+        },
+        "jest": {
+            "optional": true
+        },
+        "prettier": {
+            "optional": true
+        },
+        "secretlint": {
+            "optional": true
+        },
+        "stylelint": {
+            "optional": true
+        },
+        "vite": {
+            "optional": true
+        }
     },
     "engines": {
         "node": ">=18"

@@ -115,15 +115,30 @@
     },
     "peerDependencies": {
         "@babel/core": "^7.16.5",
-        "babel-plugin-polyfill-corejs3": "^0.8.0",
-        "core-js": "^3.26.0"
-    },
-    "optionalDependencies": {
         "@babel/plugin-syntax-jsx": "^7.22.5",
         "@babel/plugin-transform-typescript": "^7.22.15",
         "@babel/preset-react": "^7.22.15",
         "@babel/preset-typescript": "^7.22.15",
-        "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
+        "babel-plugin-polyfill-corejs3": "^0.8.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "core-js": "^3.26.0"
+    },
+    "peerDependenciesMeta": {
+        "@babel/plugin-syntax-jsx": {
+            "optional": true
+        },
+        "@babel/plugin-transform-typescript": {
+            "optional": true
+        },
+        "@babel/preset-react": {
+            "optional": true
+        },
+        "@babel/preset-typescript": {
+            "optional": true
+        },
+        "babel-plugin-transform-react-remove-prop-types": {
+            "optional": true
+        }
     },
     "engines": {
         "node": ">=18"

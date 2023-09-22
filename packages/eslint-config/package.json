@@ -139,7 +139,7 @@
         "confusing-browser-globals": "^1.0.11",
         "eslint-define-config": "^1.23.0",
         "eslint-import-resolver-node": "^0.3.9",
-        "eslint-import-resolver-typescript": "^3.6.0",
+        "eslint-import-resolver-typescript": "^3.6.1",
         "eslint-plugin-antfu": "^0.43.1",
         "eslint-plugin-compat": "^4.2.0",
         "eslint-plugin-es-x": "^7.2.0",
@@ -201,7 +201,7 @@
         "eslint-plugin-storybook": "^0.6.14",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-testing-library": "^6.0.1",
-        "eslint-plugin-validate-jsx-nesting": "^1.0.1",
+        "eslint-plugin-validate-jsx-nesting": "^0.1.1",
         "eslint-plugin-vitest": "^0.3.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
         "eslint-plugin-you-dont-need-momentjs": "^1.6.0",
@@ -216,12 +216,10 @@
         "vitest": "^0.34.5"
     },
     "peerDependencies": {
-        "@babel/core": "^7.22.20",
-        "eslint": "^8.15.0"
-    },
-    "optionalDependencies": {
         "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
+        "@babel/core": "^7.22.20",
         "@tanstack/eslint-plugin-query": "^4.34.1",
+        "eslint": "^8.15.0",
         "eslint-plugin-array-func": "^4.0.0",
         "eslint-plugin-ava": "^14.0.0",
         "eslint-plugin-babel": "^5.3.1",
@@ -248,6 +246,92 @@
         "eslint-plugin-validate-jsx-nesting": "^1.0.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
         "eslint-plugin-you-dont-need-momentjs": "^1.6.0"
+    },
+    "peerDependenciesMeta": {
+        "@arthurgeron/eslint-plugin-react-usememo": {
+            "optional": true
+        },
+        "@tanstack/eslint-plugin-query": {
+            "optional": true
+        },
+        "eslint-plugin-array-func": {
+            "optional": true
+        },
+        "eslint-plugin-ava": {
+            "optional": true
+        },
+        "eslint-plugin-babel": {
+            "optional": true
+        },
+        "eslint-plugin-cypress": {
+            "optional": true
+        },
+        "eslint-plugin-editorconfig": {
+            "optional": true
+        },
+        "eslint-plugin-jest": {
+            "optional": true
+        },
+        "eslint-plugin-jest-async": {
+            "optional": true
+        },
+        "eslint-plugin-jest-dom": {
+            "optional": true
+        },
+        "eslint-plugin-jest-formatting": {
+            "optional": true
+        },
+        "eslint-plugin-jsdoc": {
+            "optional": true
+        },
+        "eslint-plugin-jsx-a11y": {
+            "optional": true
+        },
+        "eslint-plugin-n": {
+            "optional": true
+        },
+        "eslint-plugin-no-unsanitized": {
+            "optional": true
+        },
+        "eslint-plugin-playwright": {
+            "optional": true
+        },
+        "eslint-plugin-prefer-object-spread": {
+            "optional": true
+        },
+        "eslint-plugin-react": {
+            "optional": true
+        },
+        "eslint-plugin-react-hooks": {
+            "optional": true
+        },
+        "eslint-plugin-react-redux": {
+            "optional": true
+        },
+        "eslint-plugin-ssr-friendly": {
+            "optional": true
+        },
+        "eslint-plugin-storybook": {
+            "optional": true
+        },
+        "eslint-plugin-tailwindcss": {
+            "optional": true
+        },
+        "eslint-plugin-testing-library": {
+            "optional": true
+        },
+        "eslint-plugin-tsdoc": {
+            "optional": true
+        },
+        "eslint-plugin-validate-jsx-nesting": {
+            "optional": true
+        },
+        "eslint-plugin-you-dont-need-lodash-underscore": {
+            "optional": true
+        },
+        "eslint-plugin-you-dont-need-momentjs": {
+            "optional": true
+        }
     },
     "engines": {
         "node": ">=18"

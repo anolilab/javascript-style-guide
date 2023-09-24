@@ -531,9 +531,6 @@ importers:
       toml-eslint-parser:
         specifier: ^0.6.0
         version: 0.6.0
-      tsup:
-        specifier: ^7.2.0
-        version: 7.2.0(postcss@8.4.30)(ts-node@10.9.1)(typescript@5.2.2)
       yaml-eslint-parser:
         specifier: ^1.2.2
         version: 1.2.2
@@ -652,6 +649,9 @@ importers:
       semantic-release:
         specifier: ^21.1.2
         version: 21.1.2(typescript@5.2.2)
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(postcss@8.4.30)(ts-node@10.9.1)(typescript@5.2.2)
       type-fest:
         specifier: ^4.3.1
         version: 4.3.1
@@ -9141,6 +9141,7 @@ packages:
       minimatch: 3.0.5
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: false
 
   /glob@7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
@@ -11870,6 +11871,7 @@ packages:
     resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -13825,7 +13827,7 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
-      glob: 7.1.4
+      glob: 7.2.3
 
   /rimraf@5.0.1:
     resolution: {integrity: sha512-OfFZdwtd3lZ+XZzYP/6gTACubwFcHdLRqS9UX3UwpU2dnGQYkPFISRwvM3w9IiB2w7bW5qGo/uAwE4SmXXSKvg==}

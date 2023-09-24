@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.1...@anolilab/eslint-config@14.0.2) (2023-09-24)
+
+
+### Bug Fixes
+
+* removed tsup from the deps ([f8249f4](https://github.com/anolilab/javascript-style-guide/commit/f8249f41aa194125e425ed23654d4e090e673622))
+
 ## @anolilab/eslint-config [14.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.0...@anolilab/eslint-config@14.0.1) (2023-09-22)
 
 

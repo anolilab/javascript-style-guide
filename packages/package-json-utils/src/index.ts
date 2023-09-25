@@ -30,15 +30,15 @@ export const getPackageProperty = <T = unknown>(property: string): T | undefined
 
 export const getPackageSubProperty =
     <T = unknown>(packageProperty: string) =>
-    (property: string): T | undefined =>
-        getPackageProperty<T>(`${packageProperty}.${property}`);
+        (property: string): T | undefined =>
+            getPackageProperty<T>(`${packageProperty}.${property}`);
 
 export const hasPackageProperty = (property: string): boolean => Boolean(packageJson !== undefined && getByPath(packageJson, property));
 
 export const hasPackageSubProperty =
     (packageProperty: string) =>
-    (property: string): boolean =>
-        hasPackageProperty(`${packageProperty}.${property}`);
+        (property: string): boolean =>
+            hasPackageProperty(`${packageProperty}.${property}`);
 
 export const hasPackageProperties = (properties: string[], strict?: boolean): boolean => {
     if (strict) {
@@ -50,11 +50,11 @@ export const hasPackageProperties = (properties: string[], strict?: boolean): bo
 
 export const hasPackageSubProperties =
     (packageProperty: string) =>
-    (properties: string[], strict?: boolean): boolean =>
-        hasPackageProperties(
-            properties.map((p) => `${packageProperty}.${p}`),
-            strict,
-        );
+        (properties: string[], strict?: boolean): boolean =>
+            hasPackageProperties(
+                properties.map((p) => `${packageProperty}.${p}`),
+                strict,
+            );
 
 // eslint-disable-next-line security/detect-object-injection
 export const environmentIsSet = (name: string): boolean => Boolean(env[name] && env[name] !== "undefined");

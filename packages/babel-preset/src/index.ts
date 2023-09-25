@@ -115,12 +115,12 @@ const preset = declare((api: BabelAPI, options: Options): TransformOptions => {
         ],
         typescript
             ? [
-                  "@babel/preset-typescript",
-                  {
-                      allExtensions: true,
-                      isTSX: true,
-                  },
-              ]
+                "@babel/preset-typescript",
+                {
+                    allExtensions: true,
+                    isTSX: true,
+                },
+            ]
             : undefined,
         react ? ["@babel/preset-react", { development, ...(typeof react === "object" ? react : {}) }] : undefined,
     ].filter(Boolean) as [string, object?][];
@@ -188,13 +188,13 @@ const preset = declare((api: BabelAPI, options: Options): TransformOptions => {
         ],
         react && removePropertyTypes
             ? [
-                  "babel-plugin-transform-react-remove-prop-types",
-                  {
-                      ignoreFilenames: ["node_modules"],
-                      mode: "unsafe-wrap",
-                      ...(removePropertyTypes as object),
-                  },
-              ]
+                "babel-plugin-transform-react-remove-prop-types",
+                {
+                    ignoreFilenames: ["node_modules"],
+                    mode: "unsafe-wrap",
+                    ...(removePropertyTypes as object),
+                },
+            ]
             : undefined,
         "@babel/plugin-proposal-export-namespace-from",
         typescript ? "@babel/plugin-transform-typescript" : undefined,
@@ -216,22 +216,22 @@ const preset = declare((api: BabelAPI, options: Options): TransformOptions => {
         "babel-plugin-macros",
         polyfillRegenerator
             ? [
-                  "babel-plugin-polyfill-regenerator",
-                  {
-                      method: "usage-pure",
-                  },
-              ]
+                "babel-plugin-polyfill-regenerator",
+                {
+                    method: "usage-pure",
+                },
+            ]
             : undefined,
         typeof corejs === "object"
             ? [
-                  "babel-plugin-polyfill-corejs3",
-                  {
-                      absoluteImports: "core-js",
-                      method: corejs.method ?? "usage-global",
-                      version: corejs.version,
-                      ...corejs,
-                  },
-              ]
+                "babel-plugin-polyfill-corejs3",
+                {
+                    absoluteImports: "core-js",
+                    method: corejs.method ?? "usage-global",
+                    version: corejs.version,
+                    ...corejs,
+                },
+            ]
             : undefined,
     ].filter(Boolean) as [string, object?][];
 

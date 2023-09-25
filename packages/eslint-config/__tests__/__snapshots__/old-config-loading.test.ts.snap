@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`integration - old config > installs & works > stderr should be empty 1`] = `""`;
+
+exports[`integration - old config > installs & works > stdout should show 4 errors 1`] = `
+"
+Your package.json container dependencies for the \\"mdx\\" eslint-plugin, please add the following dependencies with your chosen package manager to enable this plugin:
+    eslint-plugin-mdx
+
+To disable this message, add the following to your package.json:
+    \\"anolilab\\": { \\"eslint-config\\": { plugin: { \\"plugin-name\\": false } } }
+
+To disable all logging, add the following to your eslint command call \\"NO_LOGS=true eslint ...\\"
+
+mocked-root-dir/.eslintrc.js
+  1:24  error  \\"@anolilab/eslint-config\\" is not published  n/no-unpublished-require
+  2:25  error  \\"@anolilab/eslint-config\\" is not published  n/no-unpublished-require
+
+/home/prisi/WebstormProjects/anolilab/javascript-style-guide/packages/eslint-config/__fixtures__/old-config/index.js
+  1:1  error    Too many blank lines at the beginning of file. Max of 0 allowed  no-multiple-empty-lines
+  2:1  warning  Unexpected console statement                                     no-console
+
+✖ 4 problems (3 errors, 1 warning)
+  1 error and 0 warnings potentially fixable with the \`--fix\` option.
+
+"
+`;

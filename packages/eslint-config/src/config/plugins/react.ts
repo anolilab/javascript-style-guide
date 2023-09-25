@@ -708,6 +708,13 @@ const config: Linter.Config = {
                 "react/require-default-props": "off",
             },
         },
+        {
+            // For performance run storybook/recommended on test files, not regular code
+            files: ["**/*.stories.{ts,tsx,mdx}"],
+            rules: {
+                "react/jsx-props-no-spreading": "off",
+            }
+        },
     ],
 };
 

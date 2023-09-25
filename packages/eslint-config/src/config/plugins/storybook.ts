@@ -11,7 +11,7 @@ const config: Linter.Config = {
         {
             extends: ["plugin:storybook/recommended"],
             // For performance run storybook/recommended on test files, not regular code
-            files: ["**/*.stories.{ts,tsx,mdx}"],
+            files: ["**/*.stories.{ts,tsx,mdx}", ".storybook/**/*"],
         },
     ],
 };

@@ -115,6 +115,11 @@ const config: Linter.Config = createConfigs([
                 // disallow the use of object properties of the global object (Math and JSON) as functions
                 "no-obj-calls": "error",
 
+                // Disallow new operators with global non-constructor functions
+                // https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
+                // TODO: semver-major, enable
+                'no-new-native-nonconstructor': 'off',
+
                 // disallow use of Object.prototypes builtins directly
                 // https://eslint.org/docs/rules/no-promise-executor-return
                 "no-promise-executor-return": "error",

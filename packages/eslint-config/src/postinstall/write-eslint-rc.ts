@@ -74,10 +74,10 @@ module.exports = defineConfig({
         // Most environments are loaded automatically if our rules are added
     },${parserOptions}
     globals: {${
-        ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion)
-            ? `\n        ...globals.${ecmaVersion === "latest" ? "es2021" : ecmaVersion},`
-            : ""
-    }
+    ["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion)
+        ? `\n        ...globals.${ecmaVersion === "latest" ? "es2021" : ecmaVersion},`
+        : ""
+}
         // Your global variables (setting to false means it's not allowed to be reassigned)
         // myGlobal: false
     },

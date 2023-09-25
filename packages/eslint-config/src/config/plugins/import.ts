@@ -49,17 +49,17 @@ const config: Linter.Config = createConfigs([
                     "ignorePackages",
                     packageIsTypeModule
                         ? {
-                              cjs: "always",
-                              js: "always",
-                              jsx: "always",
-                              mjs: "always",
-                          }
+                            cjs: "always",
+                            js: "always",
+                            jsx: "always",
+                            mjs: "always",
+                        }
                         : {
-                              cjs: "never",
-                              js: "never",
-                              jsx: "never",
-                              mjs: "never",
-                          },
+                            cjs: "never",
+                            js: "never",
+                            jsx: "never",
+                            mjs: "never",
+                        },
                 ],
 
                 // disallow non-import statements appearing before import statements
@@ -174,6 +174,7 @@ const config: Linter.Config = createConfigs([
                             "**/.eslintrc.js", // eslint config
                             "**/.eslintrc.cjs", // eslint config
                             "**/.eslintrc.mjs", // eslint config
+                            '**/eslint.config.js', // eslint flat config
                             "**/vite.config.js", // vite config
                             "**/vite.config.ts", // vite config
                             "**/vitest.config.js", // vitest config
@@ -306,11 +307,11 @@ const config: Linter.Config = createConfigs([
                     },
                     ...(hasTypescript
                         ? {
-                              typescript: {
-                                  alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                                  project: fromRoot("tsconfig.json"),
-                              },
-                          }
+                            typescript: {
+                                alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                                project: fromRoot("tsconfig.json"),
+                            },
+                        }
                         : {}),
                 },
             },

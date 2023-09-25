@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.2...@anolilab/eslint-config@14.0.3) (2023-09-25)
+
+
+### Bug Fixes
+
+* Refactor ESLint configurations for improved readability and consistency ([85f6f1e](https://github.com/anolilab/javascript-style-guide/commit/85f6f1e5f2ef59f0b831a52dcf71b36fd5230b60))
+
 ## @anolilab/eslint-config [14.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.1...@anolilab/eslint-config@14.0.2) (2023-09-24)
 
 

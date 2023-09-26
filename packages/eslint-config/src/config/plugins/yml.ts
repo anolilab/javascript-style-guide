@@ -11,7 +11,7 @@ const config: Linter.Config = {
     overrides: [
         {
             extends: ["plugin:yml/recommended", ...(global.hasAnolilabEsLintConfigPrettier ? ["plugin:yml/prettier"] : [])],
-            files: ["*.yaml", "*.yml"],
+            files: ["**/*.yaml", "**/*.yml"],
             parser: "yaml-eslint-parser",
             rules: {
                 indent: [global.hasAnolilabEsLintConfigPrettier ? "off" : "error", indent],

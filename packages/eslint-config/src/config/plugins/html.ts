@@ -32,7 +32,19 @@ const config: Linter.Config = {
     overrides: [
         {
             extends: ["plugin:@html-eslint/recommended"],
-            files: ["*.erb", "*.handlebars", "*.hbs", "*.htm", "*.html", "*.mustache", "*.nunjucks", "*.php", "*.tag", "*.twig", "*.we"],
+            files: [
+                "**/*.erb",
+                "**/*.handlebars",
+                "**/*.hbs",
+                "**/*.htm",
+                "**/*.html",
+                "**/*.mustache",
+                "**/*.nunjucks",
+                "**/*.php",
+                "**/*.tag",
+                "**/*.twig",
+                "**/*.we",
+            ],
             globals: {
                 sourceCode: true,
             },

@@ -6,7 +6,7 @@ import { createConfigs } from "../../utils/create-config";
 const config: Linter.Config = createConfigs([
     {
         config: {
-            excludedFiles: ["**/?(*.)+(test).{js,jsx,ts,tsx}", "*.stories.{js,ts,jsx,tsx}"],
+            excludedFiles: ["**/?(*.)+(test).{js,jsx,ts,tsx}", "**/*.stories.{js,ts,jsx,tsx}"],
             extends: ["plugin:sonarjs/recommended"],
             rules: {
                 "sonarjs/no-nested-template-literals": "off",

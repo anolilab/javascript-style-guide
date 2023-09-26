@@ -4,7 +4,7 @@ const config: Linter.Config = {
     overrides: [
         {
             extends: ["plugin:toml/standard"],
-            files: ["*.toml"],
+            files: ["**/*.toml"],
             parser: "toml-eslint-parser",
         },
     ],

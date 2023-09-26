@@ -92,7 +92,7 @@ const config: Linter.Config = {
                 browser: true,
             },
 
-            files: ["*.jsx", "*.tsx"],
+            files: ["**/*.jsx", "**/*.tsx"],
 
             parserOptions: {
                 ecmaFeatures: {
@@ -663,7 +663,7 @@ const config: Linter.Config = {
             },
         },
         {
-            files: ["*.jsx"],
+            files: ["**/*.jsx"],
             parser: "@babel/eslint-parser",
             parserOptions: {
                 ecmaFeatures: {
@@ -703,7 +703,7 @@ const config: Linter.Config = {
             },
         },
         {
-            files: ["*.tsx"],
+            files: ["**/*.tsx"],
             rules: {
                 "react/default-props-match-prop-types": "off",
                 // Disable JS specific rules

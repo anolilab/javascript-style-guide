@@ -87,25 +87,25 @@ module.exports = defineConfig({
     overrides: [
         {
             files: [
-                "*.ts",
-                "*.tsx",
-                "*.mts",
-                "*.cts",
-                "*.js",
-                "*.jsx",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.mts",
+                "**/*.cts",
+                "**/*.js",
+                "**/*.jsx",
             ],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
             parserOptions: {},
             rules: {},
         },
         {
-            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+            files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
             // Set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
             parserOptions: {},
             rules: {},
         },
         {
-            files: ["*.js", "*.jsx"],
+            files: ["**/*.js", "**/*.jsx"],
             rules: {},
         },
     ],

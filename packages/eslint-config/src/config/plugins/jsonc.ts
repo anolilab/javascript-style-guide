@@ -31,20 +31,20 @@ const config: Linter.Config = {
     overrides: [
         {
             extends: extendedPlugins,
-            files: ["*.json", "*.json5", "*.jsonc"],
+            files: ["**/*.json", "**/*.json5", "**/*.jsonc"],
             parser: "jsonc-eslint-parser",
         },
         {
             extends: ["plugin:jsonc/recommended-with-json5"],
-            files: ["*.json5"],
+            files: ["**/*.json5"],
         },
         {
             extends: ["plugin:jsonc/recommended-with-jsonc"],
-            files: ["*.jsonc"],
+            files: ["**/*.jsonc"],
         },
         {
             extends: ["plugin:jsonc/recommended-with-json"],
-            files: ["*.json"],
+            files: ["**/*.json"],
         },
         {
             extends: ["plugin:jsonc/recommended-with-json"],

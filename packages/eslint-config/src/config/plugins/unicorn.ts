@@ -24,7 +24,7 @@ const config: Linter.Config = {
             },
         },
         {
-            files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+            files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
             rules: {
                 "unicorn/import-style": "off",
             },

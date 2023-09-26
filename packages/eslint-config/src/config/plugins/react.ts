@@ -649,11 +649,6 @@ const config: Linter.Config = {
 
             // View link below for react rules documentation
             settings: {
-                "import/resolver": {
-                    node: {
-                        extensions: [".js", ".jsx", ".json", ".cjs", ".mjs"],
-                    },
-                },
                 propWrapperFunctions: [
                     "forbidExtraProps", // https://www.npmjs.com/package/airbnb-prop-types
                     "exact", // https://www.npmjs.com/package/prop-types-exact
@@ -669,6 +664,15 @@ const config: Linter.Config = {
         },
         {
             files: ["*.jsx"],
+            parser: "@babel/eslint-parser",
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+            },
+            settings: {
+                extensions: [".jsx"],
+            },
             rules: {
                 // only .jsx files may have JSX
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md

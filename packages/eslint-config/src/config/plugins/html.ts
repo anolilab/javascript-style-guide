@@ -36,6 +36,10 @@ const config: Linter.Config = {
             globals: {
                 sourceCode: true,
             },
+            env: {
+                browser: true,
+                node: false,
+            },
             parser: "@html-eslint/parser",
             plugins: ["html", "@html-eslint"],
             rules: {

@@ -17,7 +17,7 @@ import { join } from "node:path";
 import { hasDependency, hasDevDependency, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import globals from "globals";
-import semver from "semver";
+import { intersects, rcompare } from "semver";
 
 import { internalPluginConfig, pluginRules, possiblePluginRules, rules } from "./config";
 import engineRules from "./engine-node-overwrite";
@@ -77,6 +77,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 }
 
 const configRules: Linter.RulesRecord = {};
+
 let nodeVersion: string | undefined;
 
 if (pkg?.engines?.["node"]) {
@@ -85,9 +86,9 @@ if (pkg?.engines?.["node"]) {
 
 Object.entries(engineRules).forEach(([rule, ruleConfig]) => {
     Object.keys(ruleConfig)
-        .sort(semver.rcompare)
+        .sort(rcompare)
         .forEach((minVersion) => {
-            if (nodeVersion && semver.intersects(nodeVersion, `<${minVersion}`)) {
+            if (nodeVersion && intersects(nodeVersion, `<${minVersion}`)) {
                 // eslint-disable-next-line security/detect-object-injection
                 configRules[rule] = ruleConfig[minVersion as keyof typeof ruleConfig] as Linter.RuleEntry;
             }
@@ -118,6 +119,14 @@ const config: Linter.Config = {
     globals: {
         ...globals.browser,
         ...globals.nodeBuiltin,
+        ...(packageIsTypeModule
+            ? {
+                __dirname: "off",
+                __filename: "off",
+                exports: "off",
+                require: "off",
+            }
+            : { __dirname: true, __filename: true, exports: true, require: true }),
     },
     ignorePatterns: [
         "!.*",
@@ -173,13 +182,38 @@ const config: Linter.Config = {
         },
         // Fixes https://github.com/eslint/eslint/discussions/15305
         {
-            files: packageIsTypeModule ? ["*.js", "*.mjs"] : ["*.mjs"],
+            files: packageIsTypeModule ? ["**/*.js", "**/*.mjs"] : ["**/*.mjs"],
             parser: "@babel/eslint-parser",
             parserOptions: {
                 babelOptions: {
                     plugins: ["@babel/plugin-syntax-import-assertions"],
                 },
                 requireConfigFile: false,
+            },
+        },
+        {
+            env: {
+                commonjs: true,
+            },
+            files: ["**/*.cjs"],
+            // inside *.cjs files. restore commonJS "globals"
+            globals: {
+                __dirname: true,
+                __filename: true,
+                exports: true,
+                require: true,
+            },
+        },
+        {
+            env: {
+                commonjs: false,
+            },
+            files: ["**/*.mjs"],
+            globals: {
+                __dirname: "off",
+                __filename: "off",
+                exports: "off",
+                require: "off",
             },
         },
     ],

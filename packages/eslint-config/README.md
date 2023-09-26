@@ -52,15 +52,15 @@ To install this config, run the following command.
 > Note: `eslint-plugin-import@npm:eslint-plugin-i` is needed to use the correct package.
 
 ```bash
-npm install --save-dev eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
+npm install --save-dev eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
 ```
 
 ```sh
-pnpm add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
+pnpm add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
 ```
 
 ```sh
-yarn add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest
+yarn add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
 ```
 
 ## Usage
@@ -112,7 +112,7 @@ For more advanced use cases see the example configurations for Node, TypeScript,
 ### TypeScript
 
 ```bash
-npm install --save-dev eslint typescript @anolilab/eslint-config
+npm install --save-dev typescript
 ```
 
 Please extend the `.eslintrc.js` file with the correct `tsconfig.js` path if you have a custom path.
@@ -167,7 +167,11 @@ module.exports = defineConfig({
 You need to have "react" and "react-dom" installed.
 
 ```bash
-  npm install --save-dev eslint eslint-plugin-react eslint-plugin-react-hooks @anolilab/eslint-config
+npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
+
+yarn add -D eslint-plugin-react eslint-plugin-react-hooks
+
+pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 Or for the use of `TypeScript` in react install "typescript" as a dev dependency.
@@ -182,10 +186,38 @@ module.exports = {
 };
 ```
 
+Or for the use of `.jsx` files install "@babel/plugin-syntax-jsx" as a dev dependency.
+
+```bash
+npm install --save-dev babel @babel/plugin-syntax-jsx
+
+yarn add -D babel @babel/plugin-syntax-jsx
+
+pnpm add -D babel @babel/plugin-syntax-jsx
+```
+
+In your `babel.config.js` file add the plugin.
+
+```js
+const babelPluginSyntaxJSX = require("@babel/plugin-syntax-jsx");
+
+module.exports = {
+  plugins: [
+    [
+      babelPluginSyntaxJSX,
+      {
+        pragma: "React.createElement",
+        pragmaFrag: "React.Fragment",
+      },
+    ],
+  ],
+};
+```
+
 ### MDX
 
 ```bash
-npm install --save-dev eslint eslint-plugin-mdx @anolilab/eslint-config
+npm install --save-dev eslint eslint-plugin-mdx
 ```
 
 For more information about `missing` or `optional` to install rules see the `eslint` console output.
@@ -359,7 +391,7 @@ Of course, we also provide a recommended Prettier [configuration](../prettier-co
 If you are using experimental features such as class fields with JavaScript files you should install `@babel/eslint-parser`.
 
 ```bash
-npm install --save-dev @babel/core @babel/eslint-parser
+npm install --save-dev @babel/core
 ```
 
 ## Plugins

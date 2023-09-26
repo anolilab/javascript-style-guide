@@ -1,6 +1,6 @@
 import { hasDependency, hasDevDependency, packageIsTypeModule } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
-import semver from "semver";
+import { gte } from "semver";
 
 import indent from "../../utils/indent";
 
@@ -67,7 +67,7 @@ const config: Linter.Config = {
 
         "unicorn/prefer-module": packageIsTypeModule ? "error" : "off",
 
-        "unicorn/prefer-node-protocol": semver.gte(process.version, "v16.0.0") ? "error" : "off",
+        "unicorn/prefer-node-protocol": gte(process.version, "v16.0.0") ? "error" : "off",
 
         // We only enforce it for single-line statements to not be too opinionated.
         "unicorn/prefer-ternary": ["error", "only-single-line"],

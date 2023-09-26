@@ -1,4 +1,4 @@
-import { fromRoot, hasTypescript, packageIsTypeModule } from "@anolilab/package-json-utils";
+import { fromRoot, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 
 import { createConfigs } from "../../utils/create-config";
@@ -62,12 +62,14 @@ const config: Linter.Config = createConfigs([
                             js: "always",
                             jsx: "always",
                             mjs: "always",
+                            json: "always",
                         }
                         : {
                             cjs: "never",
                             js: "never",
                             jsx: "never",
                             mjs: "never",
+                            json: "always",
                         },
                 ],
 
@@ -86,7 +88,11 @@ const config: Linter.Config = createConfigs([
                 // deprecated: use `import/first`
                 "import/imports-first": "off",
 
-                // Forbid modules to have too many dependencies
+                // "import/max-dependencies" is not super useful
+                // Either you will disable the eslint rule because it's "normal"
+                // to have a lot of dependencies or feel compelled to reduce the number of imports.
+                // It's already visible that a file has many imports and that ideally they should be
+                // less imports, no need for ESLint, let's keep ESLint for more valuable things.
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/max-dependencies.md
                 "import/max-dependencies": ["off", { max: 10 }],
 
@@ -283,8 +289,10 @@ const config: Linter.Config = createConfigs([
                 "import/no-relative-packages": "error",
 
                 // Ensures that there are no useless path segments
+                // TODO: Create a PR to fix commonjs option, when eslint --fix is run, it throws an error on the no-useless-path-segments.js:118
+                // @see https://github.com/import-js/eslint-plugin-import/pull/2886
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md
-                "import/no-useless-path-segments": ["error", { commonjs: !packageIsTypeModule, noUselessIndex: true }],
+                "import/no-useless-path-segments": ["error", { commonjs: false, noUselessIndex: true }],
 
                 // Forbid Webpack loader syntax in imports
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md
@@ -312,22 +320,22 @@ const config: Linter.Config = createConfigs([
                 "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
                 // Ensure consistent use of file extension within the import path
                 "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
-                "import/resolver": {
-                    node: {
-                        extensions: [".mjs", ".js", ".json", ".cjs", ".jsx"],
-                    },
-                    ...(hasTypescript
-                        ? {
-                            typescript: {
-                                alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                                project: fromRoot("tsconfig.json"),
-                            },
-                        }
-                        : {}),
-                },
             },
         },
         type: "all",
+    },
+    {
+        config: {
+            settings: {
+                "import/resolver": {
+                    "@jsenv/eslint-import-resolver": {
+                        rootDirectoryUrl: projectPath,
+                        packageConditions: ["node", "import"],
+                    },
+                },
+            },
+        },
+        type: "javascript",
     },
     {
         config: {
@@ -347,8 +355,11 @@ const config: Linter.Config = createConfigs([
                         js: "never",
                         jsx: "never",
                         mjs: "never",
+                        cjs: "never",
                         ts: "never",
                         tsx: "never",
+                        json: "always",
+                        svg: "always",
                     },
                 ],
 
@@ -372,10 +383,10 @@ const config: Linter.Config = createConfigs([
 
                 // Append 'ts' extensions to 'import/resolver' setting
                 "import/resolver": {
-                    node: {
-                        extensions: [".mjs", ".cjs", ".js", ".json", ".ts", ".d.ts"],
+                    typescript: {
+                        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                        project: fromRoot("tsconfig.json"),
                     },
-                    typescript: true,
                 },
             },
         },

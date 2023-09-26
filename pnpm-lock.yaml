@@ -408,6 +408,9 @@ importers:
       '@html-eslint/parser':
         specifier: ^0.19.1
         version: 0.19.1
+      '@jsenv/eslint-import-resolver':
+        specifier: ^8.0.2
+        version: 8.0.2
       '@rushstack/eslint-patch':
         specifier: ^1.4.0
         version: 1.4.0
@@ -544,9 +547,6 @@ importers:
       '@arthurgeron/eslint-plugin-react-usememo':
         specifier: ^2.0.1
         version: 2.0.1
-      '@jsenv/eslint-import-resolver':
-        specifier: ^8.0.2
-        version: 8.0.2
       '@testing-library/dom':
         specifier: ^9.3.3
         version: 9.3.3
@@ -3584,7 +3584,7 @@ packages:
   /@jsenv/abort@4.2.4:
     resolution: {integrity: sha512-Dew36ZfMzG/0xe/C0VLtgPrpimTkfUg2A6Snlqt3pJDNplZ3+xfKJSzYxV0fmVgs6INqt3enIjCnCbxtsRIQXQ==}
     engines: {node: '>=16.14.0'}
-    dev: true
+    dev: false
 
   /@jsenv/eslint-import-resolver@8.0.2:
     resolution: {integrity: sha512-1MBDJKE4tAuRhwt1o1xQVj0ZtIDT8td5KkhuOUCZH3Bn/XqbZfpS0l4u1ml5PJFpq1FkC0HGcyodiwf+bynYkg==}
@@ -3592,7 +3592,7 @@ packages:
       '@jsenv/filesystem': 4.2.6
       '@jsenv/importmap': 1.2.1
       '@jsenv/node-esm-resolution': 1.0.1
-    dev: true
+    dev: false
 
   /@jsenv/filesystem@4.2.6:
     resolution: {integrity: sha512-YYuk3yFOHDjmNkjwP7dyXunq5N+uZ7c2TIv/uYqWW9YCdTR7wW2CccBL14BNDUPpTe3wSY8zy9k6MYxJNbtbhg==}
@@ -3600,24 +3600,24 @@ packages:
       '@jsenv/abort': 4.2.4
       '@jsenv/url-meta': 8.1.0
       '@jsenv/urls': 2.2.1
-    dev: true
+    dev: false
 
   /@jsenv/importmap@1.2.1:
     resolution: {integrity: sha512-0kz5V1s1DLJ+Z+FU/+jCjbFTTE+p/0HykgVzLU84qe5wgm1fpgFHtwVniC8Jpv1dLHhLAr5OR5XBJ7tOomUKqA==}
     engines: {node: '>=16.13.0'}
-    dev: true
+    dev: false
 
   /@jsenv/node-esm-resolution@1.0.1:
     resolution: {integrity: sha512-up2oVJzovAInG9vMr6ajxGBlOMzW1qbIWt79iDHUB8VDC6HhK7zOdmtBMOJV261yqGHELb+tA5TG61hbXLYLLg==}
-    dev: true
+    dev: false
 
   /@jsenv/url-meta@8.1.0:
     resolution: {integrity: sha512-BPy0gGT9zpenNXKjjCEgJe6sDQVmbwTXk4Zjc50CBibjZ+pmkK8toJR747Q3H+8Ss5mYiFfPCm9GzvEYNqJZoA==}
-    dev: true
+    dev: false
 
   /@jsenv/urls@2.2.1:
     resolution: {integrity: sha512-t27m0pcF/0/a3FxwHI244gCK6bbvv7qkSNwJV/QXUjPB4FUgrxXcN8bzdIZwap0MlhxfyS17jur4d2DM/QtByQ==}
-    dev: true
+    dev: false
 
   /@mdn/browser-compat-data@5.3.18:
     resolution: {integrity: sha512-QkLweIx1dEF7nBWZhRKDsYd26k/RW2G87x7Dy8YDSeYq4sPMpqVMRZnLEcKwwoIgQJOcgGaGcVMRWaQHhrhB/g==}

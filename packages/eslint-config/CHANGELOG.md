@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.8...@anolilab/eslint-config@14.0.9) (2023-09-26)
+
+
+### Bug Fixes
+
+* A new dependency "@jsenv/eslint-import-resolver" was added to tackle the issue of "import/no-useless-path-segments", "import/no-unused-modules" and some other import rules not working correctly. ([8b9b033](https://github.com/anolilab/javascript-style-guide/commit/8b9b03333363413b214b5f5d01b6c5ebd7dd08b3))
+
 ## @anolilab/eslint-config [14.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.7...@anolilab/eslint-config@14.0.8) (2023-09-26)
 
 

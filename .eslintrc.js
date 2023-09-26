@@ -1,9 +1,9 @@
 const config = require("./packages/eslint-config/dist");
-const globals = require("./packages/eslint-config/globals");
+const globals = require("./packages/eslint-config/dist/globals");
 
 module.exports = {
     ...config,
-    extends: [...config.extends, "./packages/eslint-config/typescript-type-checking"],
+    extends: [...config.extends, "./packages/eslint-config/dist/typescript-type-checking"],
     globals: {
         ...config?.globals,
         ...globals.es2021,

@@ -161,7 +161,7 @@ importers:
   packages/babel-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@babel/helper-plugin-utils':
         specifier: ^7.22.5
@@ -270,7 +270,7 @@ importers:
         version: 0.5.2(@babel/core@7.23.0)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       '@babel/cli':
         specifier: ^7.23.0
@@ -324,7 +324,7 @@ importers:
   packages/browserslist-config-anolilab:
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       browserslist:
         specifier: 4.21.11
@@ -351,7 +351,7 @@ importers:
   packages/commitlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@commitlint/config-conventional':
         specifier: ^17.7.0
@@ -370,7 +370,7 @@ importers:
         version: 3.3.0
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       '@commitlint/cli':
         specifier: ^17.7.1
@@ -388,7 +388,7 @@ importers:
   packages/eslint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@babel/core':
         specifier: ^7.22.20
@@ -539,7 +539,7 @@ importers:
         version: 1.2.2
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       '@arthurgeron/eslint-plugin-react-usememo':
         specifier: ^2.0.1
@@ -668,7 +668,7 @@ importers:
   packages/lint-staged-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       cross-env:
         specifier: ^7.0.3
@@ -699,7 +699,7 @@ importers:
         version: 4.3.4(@types/node@16.18.36)
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       '@total-typescript/ts-reset':
         specifier: ^0.5.1
@@ -813,11 +813,11 @@ importers:
   packages/prettier-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       prettier:
         specifier: ^3.0.3
@@ -838,7 +838,7 @@ importers:
   packages/semantic-release-preset:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -881,13 +881,13 @@ importers:
   packages/stylelint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@ronilaukkarinen/stylelint-a11y':
         specifier: ^1.2.7
         version: 1.2.7(stylelint@15.10.3)
       browserslist-config-anolilab:
-        specifier: 5.0.7
+        specifier: 5.0.8
         version: link:../browserslist-config-anolilab
       stylelint-config-clean-order:
         specifier: ^5.2.0
@@ -918,7 +918,7 @@ importers:
         version: 0.34.5
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       postcss:
         specifier: ^8.4.30
@@ -936,7 +936,7 @@ importers:
   packages/textlint-config:
     dependencies:
       '@anolilab/package-json-utils':
-        specifier: 3.0.5
+        specifier: 3.0.6
         version: link:../package-json-utils
       '@textlint-rule/textlint-rule-no-invalid-control-character':
         specifier: ^2.0.0
@@ -1003,7 +1003,7 @@ importers:
         version: 1.0.8
     devDependencies:
       '@anolilab/semantic-release-preset':
-        specifier: 7.0.2
+        specifier: 7.0.3
         version: link:../semantic-release-preset
       rimraf:
         specifier: ^5.0.2

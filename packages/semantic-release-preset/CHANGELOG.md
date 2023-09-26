@@ -1,3 +1,16 @@
+## @anolilab/semantic-release-preset [7.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@7.0.2...@anolilab/semantic-release-preset@7.0.3) (2023-09-26)
+
+
+### Bug Fixes
+
+* Various project dependencies have been updated to their respective newer versions. This covers multiple packages such as '@babel/cli', '@babel/core', '@nrwl/js', and 'eslint' among others within the package.json file. This upgrade is necessary to ensure the utilization of the most recent features, optimization and security improvements of the updated packages, and it also helps to maintain overall project consistency. ([38535ab](https://github.com/anolilab/javascript-style-guide/commit/38535abf2557680e3f22e1ff74372764ca11c2f1))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.6
+
 ## @anolilab/semantic-release-preset [7.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/semantic-release-preset@7.0.1...@anolilab/semantic-release-preset@7.0.2) (2023-09-22)
 
 

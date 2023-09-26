@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.7...@anolilab/eslint-config@14.0.8) (2023-09-26)
+
+
+### Bug Fixes
+
+* dont use a default value for anolilabEslintImportNoUnusedModulesConfig ([ab8a8a2](https://github.com/anolilab/javascript-style-guide/commit/ab8a8a23e4d1aef231455d35237a0eb3459ae8b3))
+
 ## @anolilab/eslint-config [14.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.6...@anolilab/eslint-config@14.0.7) (2023-09-26)
 
 

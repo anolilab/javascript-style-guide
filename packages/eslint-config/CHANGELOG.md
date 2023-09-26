@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.6...@anolilab/eslint-config@14.0.7) (2023-09-26)
+
+
+### Bug Fixes
+
+* `anolilabEslintConfig` object, the configuration for "import_ignore_exports" is introduced ([65985e0](https://github.com/anolilab/javascript-style-guide/commit/65985e0bef128b3e20782df08354602db537da93))
+
 ## @anolilab/eslint-config [14.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.5...@anolilab/eslint-config@14.0.6) (2023-09-26)
 
 

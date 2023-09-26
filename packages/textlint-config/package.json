@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/textlint-config",
-    "version": "8.0.9",
+    "version": "8.0.10",
     "description": "Anolilab Coding Standard for text linting.",
     "keywords": [
         "anolilab",
@@ -63,7 +63,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "3.0.5",
+        "@anolilab/package-json-utils": "3.0.6",
         "@textlint-rule/textlint-rule-no-invalid-control-character": "^2.0.0",
         "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.9",
         "@textlint-rule/textlint-rule-preset-google": "^0.1.2",
@@ -87,7 +87,7 @@
         "write-good": "^1.0.8"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "7.0.2",
+        "@anolilab/semantic-release-preset": "7.0.3",
         "rimraf": "^5.0.2",
         "semantic-release": "^21.1.2",
         "textlint": "^13.3.3",

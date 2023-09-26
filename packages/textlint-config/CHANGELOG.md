@@ -1,3 +1,22 @@
+## @anolilab/textlint-config [8.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.9...@anolilab/textlint-config@8.0.10) (2023-09-26)
+
+
+### Bug Fixes
+
+* Various project dependencies have been updated to their respective newer versions. This covers multiple packages such as '@babel/cli', '@babel/core', '@nrwl/js', and 'eslint' among others within the package.json file. This upgrade is necessary to ensure the utilization of the most recent features, optimization and security improvements of the updated packages, and it also helps to maintain overall project consistency. ([38535ab](https://github.com/anolilab/javascript-style-guide/commit/38535abf2557680e3f22e1ff74372764ca11c2f1))
+
+
+### Styles
+
+* cs fixes ([e053d90](https://github.com/anolilab/javascript-style-guide/commit/e053d90a4ab7a6466699c17d5afec1a7adc2459d))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.6
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.3
+
 ## @anolilab/textlint-config [8.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.8...@anolilab/textlint-config@8.0.9) (2023-09-22)
 
 

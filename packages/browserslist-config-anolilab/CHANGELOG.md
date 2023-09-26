@@ -1,3 +1,16 @@
+## browserslist-config-anolilab [5.0.8](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.7...browserslist-config-anolilab@5.0.8) (2023-09-26)
+
+
+### Bug Fixes
+
+* Various project dependencies have been updated to their respective newer versions. This covers multiple packages such as '@babel/cli', '@babel/core', '@nrwl/js', and 'eslint' among others within the package.json file. This upgrade is necessary to ensure the utilization of the most recent features, optimization and security improvements of the updated packages, and it also helps to maintain overall project consistency. ([38535ab](https://github.com/anolilab/javascript-style-guide/commit/38535abf2557680e3f22e1ff74372764ca11c2f1))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.3
+
 ## browserslist-config-anolilab [5.0.7](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.6...browserslist-config-anolilab@5.0.7) (2023-09-22)
 
 

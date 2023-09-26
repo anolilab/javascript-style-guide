@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.5...@anolilab/eslint-config@14.0.6) (2023-09-26)
+
+
+### Bug Fixes
+
+* Refine eslint import plugin rules to accommodate .jsx and .cjs ([2a6f441](https://github.com/anolilab/javascript-style-guide/commit/2a6f4415abe082372083b355c1e567d9fdb41361))
+
 ## @anolilab/eslint-config [14.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.4...@anolilab/eslint-config@14.0.5) (2023-09-26)
 
 

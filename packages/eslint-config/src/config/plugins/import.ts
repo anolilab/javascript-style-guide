@@ -174,7 +174,9 @@ const config: Linter.Config = createConfigs([
                             "**/.eslintrc.js", // eslint config
                             "**/.eslintrc.cjs", // eslint config
                             "**/.eslintrc.mjs", // eslint config
-                            '**/eslint.config.js', // eslint flat config
+                            "**/eslint.config.js", // eslint flat config
+                            "**/eslint.config.mjs", // eslint flat config
+                            "**/eslint.config.cjs", // eslint flat config
                             "**/vite.config.js", // vite config
                             "**/vite.config.ts", // vite config
                             "**/vitest.config.js", // vitest config

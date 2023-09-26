@@ -117,7 +117,7 @@ const config: Linter.Config = createConfigs([
 
                 // disallow require()
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-commonjs.md
-                "import/no-commonjs": packageIsTypeModule ? "error" : "off",
+                "import/no-commonjs": packageIsTypeModule ? ["error", { allowPrimitiveModules: true }] : "off",
 
                 // Forbid cyclical dependencies between modules
                 // https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
@@ -254,7 +254,7 @@ const config: Linter.Config = createConfigs([
                 "import/no-unused-modules": [
                     packageIsTypeModule ? "error" : "off",
                     {
-                        ignoreExports: [],
+                        ignoreExports: ["**/*.cjs"],
                         missingExports: true,
                         unusedExports: true,
                     },
@@ -305,7 +305,7 @@ const config: Linter.Config = createConfigs([
                 "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
                 "import/resolver": {
                     node: {
-                        extensions: [".mjs", ".js", ".json"],
+                        extensions: [".mjs", ".js", ".json", ".cjs", ".jsx"],
                     },
                     ...(hasTypescript
                         ? {

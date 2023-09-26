@@ -2,6 +2,17 @@ import { fromRoot, hasTypescript, packageIsTypeModule } from "@anolilab/package-
 import type { Linter } from "eslint";
 
 import { createConfigs } from "../../utils/create-config";
+import anolilabEslintConfig from "../../utils/eslint-config";
+
+if (global.anolilabEslintImportNoUnusedModulesConfig === undefined && anolilabEslintConfig["import_ignore_exports"]) {
+    if (!Array.isArray(anolilabEslintConfig["import_ignore_exports"])) {
+        throw new TypeError("import.ignore_exports must be a array");
+    }
+
+    global.anolilabEslintImportNoUnusedModulesConfig = anolilabEslintConfig["import_ignore_exports"] as string[];
+} else {
+    global.anolilabEslintImportNoUnusedModulesConfig = [];
+}
 
 const config: Linter.Config = createConfigs([
     {
@@ -254,7 +265,7 @@ const config: Linter.Config = createConfigs([
                 "import/no-unused-modules": [
                     packageIsTypeModule ? "error" : "off",
                     {
-                        ignoreExports: ["**/*.cjs"],
+                        ignoreExports: global.anolilabEslintImportNoUnusedModulesConfig,
                         missingExports: true,
                         unusedExports: true,
                     },

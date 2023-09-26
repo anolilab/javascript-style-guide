@@ -5,6 +5,6 @@ if (!global.anolilabEslintPackageJsonConfig && pkg) {
     global.anolilabEslintPackageJsonConfig = pkg["anolilab"]?.["eslint-config"];
 }
 
-const config: Record<string, boolean | undefined> = global.anolilabEslintPackageJsonConfig ?? {};
+const config: Record<string, string[] | boolean | undefined> = global.anolilabEslintPackageJsonConfig ?? {};
 
 export default config;

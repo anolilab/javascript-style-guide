@@ -56,7 +56,7 @@ const commaDangle = styleRules["comma-dangle"] as any[];
 let showUnsupportedTypeScriptVersionWarning: boolean = env["DISABLE_ESLINT_WARN_UNSUPPORTED_TYPESCRIPT_VERSION"] !== "true";
 
 if (anolilabEslintConfig["warn_on_unsupported_typescript_version"] !== undefined) {
-    showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig["warn_on_unsupported_typescript_version"];
+    showUnsupportedTypeScriptVersionWarning = anolilabEslintConfig["warn_on_unsupported_typescript_version"] as boolean;
 }
 
 const config: Linter.Config = createConfigs([

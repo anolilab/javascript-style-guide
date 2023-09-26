@@ -43,4 +43,6 @@ declare global {
     var anolilabEslintConfigTestingLibraryRuleSet: undefined | string;
 
     var anolilabEslintConfigUnicornPrettierRules: undefined | Linter.RulesRecord;
+
+    var anolilabEslintImportNoUnusedModulesConfig: undefined | string[];
 }

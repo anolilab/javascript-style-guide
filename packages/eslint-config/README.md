@@ -324,6 +324,24 @@ To disable the info, set the value to `false`.
 }
 ```
 
+#### import_ignore_exports
+
+Type: `string[]`
+
+Default: `[]`
+
+An array with files/paths for which unused exports will not be reported (e.g module entry points in a published package).
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "import_ignore_exports": []
+        }
+    }
+}
+```
+
 ### Let [Prettier](https://prettier.io/) handle style-related rules
 
 Prettier is a code formatting tool that offers fewer options but is more professional than the style-related rules in ESLint.

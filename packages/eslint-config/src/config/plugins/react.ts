@@ -48,7 +48,7 @@ const hasJsxRuntime = (() => {
         let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSX_REACT_RULE"] !== "true";
 
         if (showLog && anolilabEslintConfig["info_on_disabling_jsx_react_rule"] !== undefined) {
-            showLog = anolilabEslintConfig["info_on_disabling_jsx_react_rule"];
+            showLog = anolilabEslintConfig["info_on_disabling_jsx_react_rule"] as boolean;
         }
 
         if (showLog && isFile) {
@@ -713,7 +713,7 @@ const config: Linter.Config = {
             files: ["**/*.stories.{ts,tsx,mdx}"],
             rules: {
                 "react/jsx-props-no-spreading": "off",
-            }
+            },
         },
     ],
 };

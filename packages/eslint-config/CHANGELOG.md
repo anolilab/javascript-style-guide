@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.4...@anolilab/eslint-config@14.0.5) (2023-09-26)
+
+
+### Bug Fixes
+
+* Update package dependencies and remove redundant config files ([24a5dfd](https://github.com/anolilab/javascript-style-guide/commit/24a5dfdcd52a2a75a5c4fb03c993791ce61604dc))
+
 ## @anolilab/eslint-config [14.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.3...@anolilab/eslint-config@14.0.4) (2023-09-26)
 
 

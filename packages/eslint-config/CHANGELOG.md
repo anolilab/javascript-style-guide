@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [14.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.9...@anolilab/eslint-config@14.0.10) (2023-09-26)
+
+
+### Bug Fixes
+
+* moved @jsenv/eslint-import-resolver from dev to require dependency ([981eb4d](https://github.com/anolilab/javascript-style-guide/commit/981eb4d3e4c3b784f2567e7887a5f1d80b7cf0d2))
+* Updated file patterns in eslint configs to apply to subdirectories ([13ec6fb](https://github.com/anolilab/javascript-style-guide/commit/13ec6fbdc22717204562aa945bf6bda483d2e642))
+
 ## @anolilab/eslint-config [14.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.8...@anolilab/eslint-config@14.0.9) (2023-09-26)
 
 

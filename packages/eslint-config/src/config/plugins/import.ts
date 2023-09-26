@@ -10,8 +10,6 @@ if (global.anolilabEslintImportNoUnusedModulesConfig === undefined && anolilabEs
     }
 
     global.anolilabEslintImportNoUnusedModulesConfig = anolilabEslintConfig["import_ignore_exports"] as string[];
-} else {
-    global.anolilabEslintImportNoUnusedModulesConfig = [];
 }
 
 const config: Linter.Config = createConfigs([
@@ -265,7 +263,7 @@ const config: Linter.Config = createConfigs([
                 "import/no-unused-modules": [
                     packageIsTypeModule ? "error" : "off",
                     {
-                        ignoreExports: global.anolilabEslintImportNoUnusedModulesConfig,
+                        ignoreExports: global.anolilabEslintImportNoUnusedModulesConfig ?? [],
                         missingExports: true,
                         unusedExports: true,
                     },

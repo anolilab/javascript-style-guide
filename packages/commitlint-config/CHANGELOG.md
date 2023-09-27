@@ -1,3 +1,16 @@
+## @anolilab/commitlint-config [4.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@4.0.2...@anolilab/commitlint-config@4.0.3) (2023-09-27)
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([#766](https://github.com/anolilab/javascript-style-guide/issues/766)) ([ef64bea](https://github.com/anolilab/javascript-style-guide/commit/ef64bea2701995c85b9d1a0ad07ec4da6f7e4b25))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.4
+
 ## @anolilab/commitlint-config [4.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@4.0.1...@anolilab/commitlint-config@4.0.2) (2023-09-26)
 
 

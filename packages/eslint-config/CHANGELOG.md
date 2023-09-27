@@ -1,3 +1,21 @@
+## @anolilab/eslint-config [14.0.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.10...@anolilab/eslint-config@14.0.11) (2023-09-27)
+
+
+### Bug Fixes
+
+* Update import/no-useless-path-segments rule and eslint dependency versions ([e265315](https://github.com/anolilab/javascript-style-guide/commit/e265315c4c864d9a23001aee6159017655586ace))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([#766](https://github.com/anolilab/javascript-style-guide/issues/766)) ([ef64bea](https://github.com/anolilab/javascript-style-guide/commit/ef64bea2701995c85b9d1a0ad07ec4da6f7e4b25))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.4
+
 ## @anolilab/eslint-config [14.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.9...@anolilab/eslint-config@14.0.10) (2023-09-26)
 
 

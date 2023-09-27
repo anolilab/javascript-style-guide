@@ -289,10 +289,8 @@ const config: Linter.Config = createConfigs([
                 "import/no-relative-packages": "error",
 
                 // Ensures that there are no useless path segments
-                // TODO: Create a PR to fix commonjs option, when eslint --fix is run, it throws an error on the no-useless-path-segments.js:118
-                // @see https://github.com/import-js/eslint-plugin-import/pull/2886
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md
-                "import/no-useless-path-segments": ["error", { commonjs: false, noUselessIndex: true }],
+                "import/no-useless-path-segments": ["error", { commonjs: true, noUselessIndex: true }],
 
                 // Forbid Webpack loader syntax in imports
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md

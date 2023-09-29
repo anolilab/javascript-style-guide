@@ -1,3 +1,16 @@
+## browserslist-config-anolilab [5.0.10](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.9...browserslist-config-anolilab@5.0.10) (2023-09-29)
+
+
+### Bug Fixes
+
+* Update dependencies to latest versions ([6cdc09b](https://github.com/anolilab/javascript-style-guide/commit/6cdc09b5b9319ee7cc327b025c235972aa6be04f))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.5
+
 ## browserslist-config-anolilab [5.0.9](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.8...browserslist-config-anolilab@5.0.9) (2023-09-27)
 
 

@@ -25,8 +25,8 @@ const config: Linter.Config = createConfigs([
                 // Disabled because of @typescript-eslint/sort-type-constituents
                 "perfectionist/sort-union-types": "off",
 
-                // Disabled because of perfectionist/sort-objects
-                "sort-keys": "off",
+                // Disabled because of simple-import-sort/imports
+                "perfectionist/sort-named-imports": "off",
             },
         },
         type: "all",

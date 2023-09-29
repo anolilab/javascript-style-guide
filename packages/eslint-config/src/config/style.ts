@@ -632,6 +632,7 @@ const config: Linter.Config = createConfigs([
                 "semi-style": ["error", "last"],
 
                 // requires object keys to be sorted
+                // Disabled because of perfectionist/sort-objects
                 "sort-keys": "off",
 
                 // sort variables within the same declaration block

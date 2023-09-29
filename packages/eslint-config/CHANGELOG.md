@@ -1,3 +1,17 @@
+## @anolilab/eslint-config [14.0.12](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.11...@anolilab/eslint-config@14.0.12) (2023-09-29)
+
+
+### Bug Fixes
+
+* Update dependencies to latest versions ([6cdc09b](https://github.com/anolilab/javascript-style-guide/commit/6cdc09b5b9319ee7cc327b025c235972aa6be04f))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.7
+* **@anolilab/semantic-release-preset:** upgraded to 7.0.5
+
 ## @anolilab/eslint-config [14.0.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.10...@anolilab/eslint-config@14.0.11) (2023-09-27)
 
 

@@ -452,7 +452,7 @@ const pluginConfig: PackageRules = [
     },
     {
         configName: "deprecation",
-        dependencies: ["typescript"],
+        dependencies: ["eslint-plugin-deprecation", "typescript"],
         files: ["tsconfig.json", "tsconfig.eslint.json"],
     },
     {

@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.17](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.16...@anolilab/eslint-config@14.0.17) (2023-09-29)
+
+
+### Bug Fixes
+
+* fixed wrong version for eslint-plugin-validate-jsx-nesting ([c0de235](https://github.com/anolilab/javascript-style-guide/commit/c0de2354c5d57fb1a593a784f77bbececbcbc041))
+
 ## @anolilab/eslint-config [14.0.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.15...@anolilab/eslint-config@14.0.16) (2023-09-29)
 
 

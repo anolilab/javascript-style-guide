@@ -373,7 +373,7 @@ jobs:
 
 </details>
 
-To release multi package repositories, you need to install `@qiwi/multi-semantic-release` and `semantic-release`.
+To release multi package repositories, you need to install `@anolilab/multi-semantic-release` and `semantic-release`.
 
 <details>
 <summary>Multi package semantic-release example with pnpm</summary>
@@ -441,11 +441,11 @@ jobs:
               env:
                   SKIP_CHECK: "true"
 
-            - name: "Build"
-              run: "pnpm run build:packages"
+            # - name: "Build"
+            #   run: "pnpm run build:packages"
 
-            - name: "test and coverage"
-              run: "pnpm run test:coverage"
+            # - name: "test and coverage"
+            #   run: "pnpm run test:coverage"
 
     semantic-release:
         name: "Semantic Release"
@@ -484,8 +484,8 @@ jobs:
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile"
 
-            - name: "Build Production"
-              run: "pnpm run build:prod:packages"
+            # - name: "Build Production"
+            #   run: "pnpm run build:prod:packages"
 
             - name: "npm v8.5+ requires workspaces-update to be set to false"
               run: "echo 'workspaces-update=false' >> .npmrc"
@@ -499,7 +499,7 @@ jobs:
                   GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
                   GIT_COMMITTER_NAME: "github-actions-shell"
                   GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
-              run: "pnpm multi-semantic-release"
+              run: "pnpm exec multi-semantic-release"
 
     pnpm-lock-update:
         name: "pnpm-lock.yaml update"

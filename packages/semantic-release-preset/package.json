@@ -72,25 +72,25 @@
     "dependencies": {
         "@anolilab/package-json-utils": "3.0.7",
         "@semantic-release/changelog": "^6.0.3",
-        "@semantic-release/commit-analyzer": "10.0.4",
+        "@semantic-release/commit-analyzer": "11.0.0",
         "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^9.2.1",
         "@semantic-release/npm": "^11.0.0",
-        "@semantic-release/release-notes-generator": "11.0.7",
-        "conventional-changelog-conventionalcommits": "6.1.0"
+        "@semantic-release/release-notes-generator": "12.0.0",
+        "conventional-changelog-conventionalcommits": "7.0.2"
     },
     "devDependencies": {
         "rimraf": "^5.0.5",
-        "semantic-release": "^21.1.2",
+        "semantic-release": "^22.0.5",
         "tsup": "^7.2.0",
         "vitest": "^0.34.6"
     },
     "peerDependencies": {
-        "semantic-release": ">=21.0.0 < 22.*"
+        "semantic-release": ">=22"
     },
     "engines": {
-        "node": ">=18.17"
+        "node": "^18.17 || >=20.6.1"
     },
     "publishConfig": {
         "access": "public",

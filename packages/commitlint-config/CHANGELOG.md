@@ -57,7 +57,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* update conventional-changelog-conventionalcommits to v7
+* update conventional-changelog-conventionalcommits to v7 (was reverted)
 Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Features

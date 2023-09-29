@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.13...@anolilab/eslint-config@14.0.14) (2023-09-29)
+
+
+### Bug Fixes
+
+* added missing eslint-plugin-n to the deps ([0f1e67f](https://github.com/anolilab/javascript-style-guide/commit/0f1e67f42cb29f6d1f2bdd2d41bc19286d8b3632))
+
 ## @anolilab/eslint-config [14.0.13](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.12...@anolilab/eslint-config@14.0.13) (2023-09-29)
 
 

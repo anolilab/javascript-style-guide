@@ -1,3 +1,17 @@
+## @anolilab/stylelint-config [6.0.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.10...@anolilab/stylelint-config@6.0.11) (2023-09-29)
+
+
+### Miscellaneous Chores
+
+* updated dev deps ([d4bf8d9](https://github.com/anolilab/javascript-style-guide/commit/d4bf8d9b636e68bb214c527791dbb76ee47c6af5))
+
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 5.0.11
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.0
+
 ## @anolilab/stylelint-config [6.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.9...@anolilab/stylelint-config@6.0.10) (2023-09-29)
 
 

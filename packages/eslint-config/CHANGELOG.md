@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.15...@anolilab/eslint-config@14.0.16) (2023-09-29)
+
+
+### Bug Fixes
+
+* disabled perfectionist/sort-named-imports because of simple-import-sort/imports ([be32888](https://github.com/anolilab/javascript-style-guide/commit/be32888124bdf8515fcf44ce7056063209757655))
+
 ## @anolilab/eslint-config [14.0.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.14...@anolilab/eslint-config@14.0.15) (2023-09-29)
 
 

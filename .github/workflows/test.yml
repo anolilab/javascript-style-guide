@@ -46,7 +46,7 @@ jobs:
             matrix:
                 os:
                     - "ubuntu-latest"
-                node_version: ["18", "19", "20"]
+                node_version: ["18", "20"]
                 include:
                     - os: "macos-latest"
                       node_version: "18"

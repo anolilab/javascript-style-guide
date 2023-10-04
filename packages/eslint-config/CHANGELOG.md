@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [14.0.18](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.17...@anolilab/eslint-config@14.0.18) (2023-10-04)
+
+
+### Bug Fixes
+
+* update core dependencies ([45e2304](https://github.com/anolilab/javascript-style-guide/commit/45e2304f9449ed896457bb142118ded98548503e))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-jest to ^27.4.2 ([#764](https://github.com/anolilab/javascript-style-guide/issues/764)) ([d68604f](https://github.com/anolilab/javascript-style-guide/commit/d68604f016952e8de8f0a9245c3b2995b8f9717c))
+
 ## @anolilab/eslint-config [14.0.17](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.16...@anolilab/eslint-config@14.0.17) (2023-09-29)
 
 

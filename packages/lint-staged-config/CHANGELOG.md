@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.0.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.14...@anolilab/lint-staged-config@2.0.15) (2023-10-05)
+
+
+### Bug Fixes
+
+* added missing exec ([ac12738](https://github.com/anolilab/javascript-style-guide/commit/ac12738253ad8b180db3865aaa628a35adb034f5))
+
 ## @anolilab/lint-staged-config [2.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.13...@anolilab/lint-staged-config@2.0.14) (2023-10-05)
 
 

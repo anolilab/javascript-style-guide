@@ -1,4 +1,7 @@
+import { hasDependency, hasDevDependency, isPackageAvailable } from "@anolilab/package-json-utils";
+
 import getNearestConfigPath from "../../utils/get-nearest-config-path";
+import getPackageManager from "../../utils/get-package-manager";
 import anolilabLintStagedConfig from "../../utils/lint-staged-config";
 import groupFilePathsByDirectoryName from "./group-file-paths-by-directory-name";
 import removeIgnoredFiles from "./remove-ignored-files";
@@ -20,7 +23,9 @@ interface ESLintSettings {
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 const eslintSettings: EslintConfig = (anolilabLintStagedConfig as ESLintSettings)?.settings?.eslint ?? ({} as EslintConfig);
 
-const eslintGlobalRulesForFix = [
+const eslintGlobalRulesForFix: string[] = [];
+
+if (hasDependency("eslint-plugin-react-hooks") || hasDevDependency("eslint-plugin-react-hooks")) {
     // react-hooks/eslint and react in general is very strict about exhaustively
     // declaring the dependencies when using the useEffect, useCallback... hooks.
     //
@@ -40,8 +45,16 @@ const eslintGlobalRulesForFix = [
     //
     // @see https://reactjs.org/docs/hooks-rules.html
     // @see https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments
-    "react-hooks/exhaustive-deps: off",
-];
+    eslintGlobalRulesForFix.push("react-hooks/exhaustive-deps:off");
+}
+
+if (
+    hasDependency("eslint-plugin-eslint-comments") ||
+    hasDevDependency("eslint-plugin-eslint-comments") ||
+    isPackageAvailable("eslint-plugin-eslint-comments")
+) {
+    eslintGlobalRulesForFix.push("eslint-comments/no-unused-disable:off");
+}
 
 const configFile = ".eslintrc";
 
@@ -54,16 +67,10 @@ const createEslintArguments = (): string[] => {
         eslintArguments.push("--max-warnings=0");
     }
 
-    const rules = [];
-
-    if (eslintSettings.rules !== undefined && Array.isArray(eslintSettings.rules)) {
-        rules.push([...eslintSettings.rules, ...eslintGlobalRulesForFix].filter((rule) => rule.trim().length > 0).map((r) => `"${r.trim()}"`));
-    } else {
-        rules.push(eslintGlobalRulesForFix.map((r) => `"${r.trim()}"`));
-    }
+    const rules = [...(eslintSettings.rules ?? []), ...eslintGlobalRulesForFix].filter((rule) => rule.trim().length > 0);
 
     if (rules.length > 0) {
-        eslintArguments.push(`--rule ${rules.join(" --rule ")}`);
+        eslintArguments.push(rules.map((rule) => `--rule "${rule}"`).join(" "));
     }
 
     // For lint-staged it's safer to not apply the fix command if it changes the AST
@@ -89,7 +96,7 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
     if (eslintSettings.config) {
         eslintArguments.push(`--config ${eslintSettings.config}`);
 
-        return [`cross-env NO_LOGS=true eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`];
+        return [`${getPackageManager()} exec eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`];
     }
 
     const groupedFilesNames = groupFilePathsByDirectoryName(filteredFiles);
@@ -112,7 +119,7 @@ const createEslintCommands = async (filenames: string[]): Promise<string[]> => {
         });
 
         if (config) {
-            eslintCommands.push(`cross-env NO_LOGS=true eslint ${eslintArguments.join(" ")} --config ${config} ${filePaths.join(" ")}`);
+            eslintCommands.push(`${getPackageManager()} exec eslint ${eslintArguments.join(" ")} --config ${config} ${filePaths.join(" ")}`);
         }
     });
 

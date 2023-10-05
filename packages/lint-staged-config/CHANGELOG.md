@@ -1,3 +1,15 @@
+## @anolilab/lint-staged-config [2.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.13...@anolilab/lint-staged-config@2.0.14) (2023-10-05)
+
+
+### Bug Fixes
+
+* fixed wrong handling of eslint rule overwrite, removed cross-env ([a62e721](https://github.com/anolilab/javascript-style-guide/commit/a62e721456a8dfb2757d341d78966238cc26b287))
+
+
+### Miscellaneous Chores
+
+* update core dependencies ([479d0e6](https://github.com/anolilab/javascript-style-guide/commit/479d0e603bb7ec8d3d33edafc086be0d2fc04f40))
+
 ## @anolilab/lint-staged-config [2.0.13](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.12...@anolilab/lint-staged-config@2.0.13) (2023-09-29)
 
 

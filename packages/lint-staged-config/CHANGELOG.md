@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.0...@anolilab/lint-staged-config@2.1.1) (2023-10-09)
+
+
+### Bug Fixes
+
+* fixed exclude checking ([461c524](https://github.com/anolilab/javascript-style-guide/commit/461c524c548295e141cc3216dc4a055494532b84))
+
 ## @anolilab/lint-staged-config [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.15...@anolilab/lint-staged-config@2.1.0) (2023-10-09)
 
 

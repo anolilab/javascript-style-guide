@@ -14,14 +14,26 @@ interface EslintConfig {
     rules?: string[];
 }
 
-interface ESLintSettings {
+interface StagedConfig {
+    eslint?: EslintConfig;
     settings?: {
         eslint?: EslintConfig;
     };
 }
 
+let eslintSettings: EslintConfig = {} as EslintConfig;
+
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-const eslintSettings: EslintConfig = (anolilabLintStagedConfig as ESLintSettings)?.settings?.eslint ?? ({} as EslintConfig);
+if ((anolilabLintStagedConfig as StagedConfig)?.eslint) {
+    eslintSettings = (anolilabLintStagedConfig as StagedConfig).eslint as EslintConfig;
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+} else if ((anolilabLintStagedConfig as StagedConfig)?.settings?.eslint) {
+    eslintSettings = (
+        (anolilabLintStagedConfig as StagedConfig).settings as {
+            eslint?: EslintConfig;
+        }
+    ).eslint as EslintConfig;
+}
 
 const eslintGlobalRulesForFix: string[] = [];
 

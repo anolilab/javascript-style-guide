@@ -79,6 +79,74 @@ module.exports = {
     ...config,
 };
 ```
+### Config
+
+You can configure `@anolilab/lint-staged-config` options with your `package.json` file.
+
+Add this property to your package.json:
+
+```json5
+{
+    anolilab: {
+        "lint-staged-config": {
+            // ...options
+        },
+    },
+}
+```
+
+#### typescript
+
+Type: `object`
+
+Options:
+- `exclude` - Exclude files from tsc linting. Provide the path to the tsconfig.json file.
+  - Type: `string[]`
+  - Default: `[]`
+
+Example using package.json:
+
+```json5
+{
+    "anolilab": {
+        "lint-staged-config": {
+            "typescript": {
+                // ...options
+            }
+        }
+    }
+}
+```
+
+#### eslint
+
+Type: `object`
+
+Options:
+- `cache` - Enable or disable caching.
+  - Type: `boolean`
+- config - Change path to eslint config.
+  - Type: `string`
+- "fix-type"
+  - Type: `string[]`
+- "max-warnings"
+  - Type: `number | string | false`
+- rules - Override rules from eslint config.
+  - Type: `string[]`
+
+Example using package.json:
+
+```json5
+{
+    "anolilab": {
+        "lint-staged-config": {
+            "eslint": {
+                // ...options
+            }
+        }
+    }
+}
+```
 
 ## Configuration
 

@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [14.0.20](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.19...@anolilab/eslint-config@14.0.20) (2023-10-09)
+
+
+### Bug Fixes
+
+* disabled perfectionist/sort-named-exports because of simple-import-sort/exports ([3baac79](https://github.com/anolilab/javascript-style-guide/commit/3baac79be4235781e1fad9846905f433cc07e26c))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency type-fest to ^4.4.0 ([#771](https://github.com/anolilab/javascript-style-guide/issues/771)) ([8046ba7](https://github.com/anolilab/javascript-style-guide/commit/8046ba7c65f96342fbf46e3ee08bcdfa20c08af1))
+* **deps:** update eslint ([#774](https://github.com/anolilab/javascript-style-guide/issues/774)) ([bd623fc](https://github.com/anolilab/javascript-style-guide/commit/bd623fcf500f0d8cae31a4e7d2ae90b2e5149b5b))
+
 ## @anolilab/eslint-config [14.0.19](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.18...@anolilab/eslint-config@14.0.19) (2023-10-05)
 
 

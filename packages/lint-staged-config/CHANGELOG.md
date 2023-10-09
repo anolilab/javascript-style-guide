@@ -1,3 +1,15 @@
+## @anolilab/lint-staged-config [2.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.15...@anolilab/lint-staged-config@2.1.0) (2023-10-09)
+
+
+### Features
+
+* added new config to disable tsc checking, added new docs for eslint and tsc ([40581ab](https://github.com/anolilab/javascript-style-guide/commit/40581ab6c5f3a2c6e120c1d3be6883eb10c3c550))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency type-fest to ^4.4.0 ([#771](https://github.com/anolilab/javascript-style-guide/issues/771)) ([8046ba7](https://github.com/anolilab/javascript-style-guide/commit/8046ba7c65f96342fbf46e3ee08bcdfa20c08af1))
+
 ## @anolilab/lint-staged-config [2.0.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.0.14...@anolilab/lint-staged-config@2.0.15) (2023-10-05)
 
 

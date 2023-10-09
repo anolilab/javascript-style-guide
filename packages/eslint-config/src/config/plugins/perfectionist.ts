@@ -27,6 +27,8 @@ const config: Linter.Config = createConfigs([
 
                 // Disabled because of simple-import-sort/imports
                 "perfectionist/sort-named-imports": "off",
+                // Disabled because of simple-import-sort/exports
+                "perfectionist/sort-named-exports": "off",
             },
         },
         type: "all",

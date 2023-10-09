@@ -22,12 +22,24 @@ const group: Config = {
         const commands = new Set<string>();
 
         filenames.forEach((filePath) => {
-            if (typescriptSettings.exclude?.includes(filePath)) {
-                if (env["DEBUG"]) {
-                    console.info(`Skipping ${filePath} as it's excluded in the settings.`);
-                }
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            if (typescriptSettings?.exclude && Array.isArray(typescriptSettings.exclude)) {
+                let exclude = false;
 
-                return;
+                typescriptSettings.exclude.forEach((value) => {
+                    if (!exclude && filePath.includes(value)) {
+                        exclude = true;
+                    }
+                });
+
+                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                if (exclude) {
+                    if (env["DEBUG"]) {
+                        console.info(`Skipping ${filePath} as it's excluded in the settings.`);
+                    }
+
+                    return;
+                }
             }
 
             try {

@@ -22,7 +22,7 @@ if (!global.hasAnolilabEsLintConfigJsoncPackageJsonSort && (hasDependency("sort-
     }
 
     if (showLog) {
-        consoleLog(`\n@anolilab/eslint-config found sort-package-json. \n
+        consoleLog(`\n@anolilab/eslint-config found "sort-package-json" package. \n
     Following rules are disabled: jsonc/sort-keys for all package.json files. \n`);
     }
 }

@@ -21,6 +21,8 @@ declare global {
 
     var hasAnolilabEsLintConfigJsoncPackageJsonSort: undefined | boolean;
 
+    var hasAnolilabEsLintConfigDeprecation: undefined | boolean;
+
     var anolilabEslintIndent: undefined | number;
 
     var anolilabEslintPackageJsonConfig: undefined | { [key: string]: boolean | undefined };

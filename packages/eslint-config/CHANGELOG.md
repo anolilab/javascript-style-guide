@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.23](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.22...@anolilab/eslint-config@14.0.23) (2023-10-10)
+
+
+### Bug Fixes
+
+* moved etc/no-deprecated into the etc config and extend the log messages ([4229224](https://github.com/anolilab/javascript-style-guide/commit/4229224079bf1a75eb554dd264f3c05b65b45cb7))
+
 ## @anolilab/eslint-config [14.0.22](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.21...@anolilab/eslint-config@14.0.22) (2023-10-10)
 
 

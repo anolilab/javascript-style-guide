@@ -36,6 +36,15 @@ const config: Linter.Config = createConfigs([
     {
         config: {
             rules: {
+                // Disabled because of @typescript-eslint/member-ordering
+                "perfectionist/sort-classes": "off",
+            },
+        },
+        type: "typescript",
+    },
+    {
+        config: {
+            rules: {
                 "perfectionist/sort-objects": "off",
             },
         },

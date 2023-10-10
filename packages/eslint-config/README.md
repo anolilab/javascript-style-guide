@@ -320,6 +320,42 @@ To disable the info, set the value to `false`.
 }
 ```
 
+#### info_on_disabling_jsonc_sort_keys_rule
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_disabling_jsonc_sort_keys_rule": false
+        }
+    }
+}
+```
+
+#### info_on_disabling_etc_no_deprecated
+
+Type: `boolean`
+
+Default: `undefined`
+
+To disable the info, set the value to `false`.
+
+```json
+{
+    "anolilab": {
+        "eslint-config": {
+            "info_on_disabling_etc_no_deprecated": false
+        }
+    }
+}
+```
+
 #### info_on_testing_library_framework
 
 Type: `boolean`

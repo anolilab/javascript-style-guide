@@ -6,6 +6,10 @@ import { createConfig } from "../../utils/create-config";
 const config: Linter.Config = createConfig("typescript", {
     plugins: ["deprecation"],
     extends: ["plugin:deprecation/recommended"],
+    rules: {
+        // Disabled because of deprecation/deprecation
+        "etc/no-deprecated": "off",
+    },
 });
 
 export default config;

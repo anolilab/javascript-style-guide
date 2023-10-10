@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.21](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.20...@anolilab/eslint-config@14.0.21) (2023-10-10)
+
+
+### Bug Fixes
+
+* disabled perfectionist/sort-classes on ts files ([0103983](https://github.com/anolilab/javascript-style-guide/commit/010398389b9f9863a2f10ef4e18d80af701dcd60))
+
 ## @anolilab/eslint-config [14.0.20](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.19...@anolilab/eslint-config@14.0.20) (2023-10-09)
 
 

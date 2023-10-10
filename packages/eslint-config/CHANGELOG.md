@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [14.0.22](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.21...@anolilab/eslint-config@14.0.22) (2023-10-10)
+
+
+### Bug Fixes
+
+* disabled etc/no-deprecated if deprecation is used ([65276fa](https://github.com/anolilab/javascript-style-guide/commit/65276fac2c68e6b3e7950ebfbb4d88ecd1fe6429))
+
 ## @anolilab/eslint-config [14.0.21](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.20...@anolilab/eslint-config@14.0.21) (2023-10-10)
 
 

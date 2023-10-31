@@ -1,9 +1,10 @@
 {
+    "extends": "@nrwl/workspace/presets/npm.json",
     "tasksRunnerOptions": {
         "default": {
             "runner": "nx/tasks-runners/default",
             "options": {
-                "cacheableOperations": ["build", "build:prod", "test"]
+                "cacheableOperations": ["build", "build:prod", "test", "lint:eslint", "lint:eslint:fix"]
             }
         }
     },
@@ -18,6 +19,15 @@
     "targetDefaults": {
         "postinstall": {
             "dependsOn": ["^postinstall"]
+        },
+        "build": {
+            "dependsOn": ["^build"]
+        },
+        "prepare": {
+            "dependsOn": ["^prepare"]
+        },
+        "package": {
+            "dependsOn": ["^package"]
         }
     },
     "pluginsConfig": {

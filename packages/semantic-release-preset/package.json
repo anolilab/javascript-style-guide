@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/semantic-release-preset",
-    "version": "8.0.0",
+    "version": "8.0.1",
     "description": "Anolilab Coding Standard for semantic-release.",
     "keywords": [
         "anolilab",
@@ -70,7 +70,7 @@
         "postinstall": "node ./skip.js || node ./dist/postinstall.js"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "3.0.7",
+        "@anolilab/package-json-utils": "3.0.8",
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/commit-analyzer": "11.0.0",
         "@semantic-release/exec": "^6.0.3",

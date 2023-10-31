@@ -1,3 +1,29 @@
+## @anolilab/eslint-config [15.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.24...@anolilab/eslint-config@15.0.0) (2023-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* Disabled core and unicorn regex rules, in favor of regexp plugin
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* change core and unicorn regex rules to regexp plugin, updated deps, added better type support ([53d55c4](https://github.com/anolilab/javascript-style-guide/commit/53d55c4567b5610f5777ceb7a425cbad8c56e537))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency eslint-plugin-testing-library to ^6.1.0 ([#778](https://github.com/anolilab/javascript-style-guide/issues/778)) ([7494185](https://github.com/anolilab/javascript-style-guide/commit/74941854aa46d19213909cfb9dbadc9155a8a018))
+* **deps:** update devdependencies ([#777](https://github.com/anolilab/javascript-style-guide/issues/777)) ([ad38256](https://github.com/anolilab/javascript-style-guide/commit/ad3825605a878c3058d56291c70c2e989f30d628))
+* **deps:** update peerdependencies (major) ([#788](https://github.com/anolilab/javascript-style-guide/issues/788)) ([127dbb3](https://github.com/anolilab/javascript-style-guide/commit/127dbb3cd9b99c62450edc0542150d954f98678d))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.8
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.1
+
 ## @anolilab/eslint-config [14.0.24](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@14.0.23...@anolilab/eslint-config@14.0.24) (2023-10-10)
 
 

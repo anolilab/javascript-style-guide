@@ -1,4 +1,6 @@
 {
     "upgrade": true,
-    "reject": ["read-pkg", "read-pkg-up", "find-up", "@types/node"]
+    "reject": ["read-pkg", "read-pkg-up", "find-up", "@types/node"],
+    "workspaces": true,
+    "root": true
 }

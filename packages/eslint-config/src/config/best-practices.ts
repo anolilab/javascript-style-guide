@@ -424,8 +424,9 @@ const config: Linter.Config = createConfigs([
                 // https://eslint.org/docs/rules/prefer-promise-reject-errors
                 "prefer-promise-reject-errors": ["error", { allowEmptyReject: true }],
 
+                // Disabled because of eslint-plugin-regexp
                 // https://eslint.org/docs/rules/prefer-regex-literals
-                "prefer-regex-literals": "error",
+                "prefer-regex-literals": "off",
 
                 // require `await` in `async function` (note: this is a horrible rule that should never be used)
                 // require use of the second argument for parseInt()
@@ -435,8 +436,9 @@ const config: Linter.Config = createConfigs([
                 // https://eslint.org/docs/rules/require-await
                 "require-await": "off",
 
+                // Disabled because of eslint-plugin-regexp
                 // https://eslint.org/docs/rules/require-unicode-regexp
-                "require-unicode-regexp": "error",
+                "require-unicode-regexp": "off",
 
                 // require immediate function invocation to be wrapped in parentheses
                 // requires to declare all vars on top of their containing scope

@@ -35,8 +35,9 @@ const config: Linter.Config = createConfigs([
                 // disallow use of constant expressions in conditions
                 "no-constant-condition": "warn",
 
+                // Disabled because of eslint-plugin-regexp
                 // disallow control characters in regular expressions
-                "no-control-regex": "error",
+                "no-control-regex": "off",
 
                 // disallow use of debugger
                 "no-debugger": "error",
@@ -94,8 +95,9 @@ const config: Linter.Config = createConfigs([
                 // disallow function or variable declarations in nested blocks
                 "no-inner-declarations": "error",
 
+                // Disabled because of eslint-plugin-regexp
                 // disallow invalid regular expression strings in the RegExp constructor
-                "no-invalid-regexp": "error",
+                "no-invalid-regexp": "off",
 
                 // disallow irregular whitespace outside of strings and comments
                 "no-irregular-whitespace": "error",
@@ -118,7 +120,7 @@ const config: Linter.Config = createConfigs([
                 // Disallow new operators with global non-constructor functions
                 // https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
                 // TODO: semver-major, enable
-                'no-new-native-nonconstructor': 'off',
+                "no-new-native-nonconstructor": "off",
 
                 // disallow use of Object.prototypes builtins directly
                 // https://eslint.org/docs/rules/no-promise-executor-return
@@ -127,9 +129,9 @@ const config: Linter.Config = createConfigs([
                 // https://eslint.org/docs/rules/no-prototype-builtins
                 "no-prototype-builtins": "error",
 
-                // Disallow returning values from setters
+                // Disabled because of eslint-plugin-regexp
                 // disallow multiple spaces in a regular expression literal
-                "no-regex-spaces": "error",
+                "no-regex-spaces": "off",
 
                 // https://eslint.org/docs/rules/no-setter-return
                 "no-setter-return": "error",

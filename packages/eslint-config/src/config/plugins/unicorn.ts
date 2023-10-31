@@ -1,6 +1,5 @@
 import { hasDependency, hasDevDependency, packageIsTypeModule } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
-import { gte } from "semver";
 
 import indent from "../../utils/indent";
 
@@ -34,13 +33,8 @@ const config: Linter.Config = {
     rules: {
         // TODO: Temporarily disabled as the rule is buggy.
         "function-call-argument-newline": "off",
-        // The character class sorting is a bit buggy at the moment.
-        "unicorn/better-regex": [
-            "error",
-            {
-                sortCharacterClasses: false,
-            },
-        ],
+        // Disabled because of eslint-plugin-regexp
+        "unicorn/better-regex": "off",
         // TODO: Disabled for now until it becomes more stable: https://github.com/sindresorhus/eslint-plugin-unicorn/search?q=consistent-destructuring+is:issue&state=open&type=issues
         "unicorn/consistent-destructuring": "off",
         // TODO: Remove this override when the rule is more stable.
@@ -67,7 +61,7 @@ const config: Linter.Config = {
 
         "unicorn/prefer-module": packageIsTypeModule ? "error" : "off",
 
-        "unicorn/prefer-node-protocol": gte(process.version, "v16.0.0") ? "error" : "off",
+        "unicorn/prefer-node-protocol": "error",
 
         // We only enforce it for single-line statements to not be too opinionated.
         "unicorn/prefer-ternary": ["error", "only-single-line"],

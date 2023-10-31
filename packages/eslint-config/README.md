@@ -52,15 +52,15 @@ To install this config, run the following command.
 > Note: `eslint-plugin-import@npm:eslint-plugin-i` is needed to use the correct package.
 
 ```bash
-npm install --save-dev eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
+npm install --save-dev eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core @eslint-types/import @eslint-types/deprecation @eslint-types/jsdoc @eslint-types/typescript-eslint @eslint-types/unicorn
 ```
 
 ```sh
-pnpm add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
+pnpm add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core @eslint-types/import @eslint-types/deprecation @eslint-types/jsdoc @eslint-types/typescript-eslint @eslint-types/unicorn
 ```
 
 ```sh
-yarn add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core
+yarn add -D eslint @anolilab/eslint-config eslint-plugin-import@npm:eslint-plugin-i@latest @babel/core @eslint-types/import @eslint-types/deprecation @eslint-types/jsdoc @eslint-types/typescript-eslint @eslint-types/unicorn
 ```
 
 ## Usage
@@ -80,6 +80,12 @@ If you already have a `.eslintrc.js`, then you can extend the `.eslintrc.js`, wi
 ```js
 /** @ts-check */
 const { defineConfig } = require('@anolilab/eslint-config/define-config');
+
+/// <reference types="@eslint-types/unicorn" />
+/// <reference types="@eslint-types/typescript-eslint" />
+/// <reference types="@eslint-types/jsdoc" />
+/// <reference types="@eslint-types/import" />
+/// <reference types="@eslint-types/deprecation" />
 
 module.exports = defineConfig({
     env: {
@@ -132,6 +138,12 @@ Extend the `.eslintrc.js` file:
 ```js
 /** @ts-check */
 const { defineConfig } = require('@anolilab/eslint-config/define-config');
+
+/// <reference types="@eslint-types/unicorn" />
+/// <reference types="@eslint-types/typescript-eslint" />
+/// <reference types="@eslint-types/jsdoc" />
+/// <reference types="@eslint-types/import" />
+/// <reference types="@eslint-types/deprecation" />
 
 module.exports = defineConfig({
     env: {

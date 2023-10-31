@@ -64,7 +64,14 @@ to work as it should: { extends: ["@anolilab/eslint-config"] }.`);
 
     const content = `/** @ts-check */
 const { defineConfig } = require('@anolilab/eslint-config/define-config');
-${["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion) ? 'const { globals } = require("@anolilab/eslint-config/globals");\n\n' : ""}
+${["es2015", "es2017", "es2020", "es2021", "latest"].includes(ecmaVersion) ? 'const { globals } = require("@anolilab/eslint-config/globals");' : ""}
+
+/// <reference types="@eslint-types/unicorn" />
+/// <reference types="@eslint-types/typescript-eslint" />
+/// <reference types="@eslint-types/jsdoc" />
+/// <reference types="@eslint-types/import" />
+/// <reference types="@eslint-types/deprecation" />
+
 module.exports = defineConfig({
     root: true,
     extends: ["@anolilab/eslint-config"${pluginExtends}],

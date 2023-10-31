@@ -1,3 +1,23 @@
+## @anolilab/commitlint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.0...@anolilab/commitlint-config@5.0.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* update package deps ([8d87ed0](https://github.com/anolilab/javascript-style-guide/commit/8d87ed044dd78658045c99b61f91d0594da21009))
+
+
+### Miscellaneous Chores
+
+* **deps:** update devdependencies ([#777](https://github.com/anolilab/javascript-style-guide/issues/777)) ([ad38256](https://github.com/anolilab/javascript-style-guide/commit/ad3825605a878c3058d56291c70c2e989f30d628))
+* **deps:** update peerdependencies (major) ([#788](https://github.com/anolilab/javascript-style-guide/issues/788)) ([127dbb3](https://github.com/anolilab/javascript-style-guide/commit/127dbb3cd9b99c62450edc0542150d954f98678d))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.8
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.1
+
 ## @anolilab/commitlint-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@4.0.4...@anolilab/commitlint-config@5.0.0) (2023-09-29)
 
 

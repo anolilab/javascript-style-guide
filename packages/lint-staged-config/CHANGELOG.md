@@ -1,3 +1,15 @@
+## @anolilab/lint-staged-config [2.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.4...@anolilab/lint-staged-config@2.1.5) (2023-11-02)
+
+
+### Bug Fixes
+
+* dont quote @ on a folder name ([5dae84f](https://github.com/anolilab/javascript-style-guide/commit/5dae84f0d7ee266ee0c1266cbef3ed987a338a0a))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency stylelint to ^15.11.0 ([52ef87c](https://github.com/anolilab/javascript-style-guide/commit/52ef87c275c33e2ab4fca9f1ea4ba8ce65737a20))
+
 ## @anolilab/lint-staged-config [2.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.3...@anolilab/lint-staged-config@2.1.4) (2023-11-02)
 
 

@@ -20,17 +20,17 @@ const groups: Groups = [
     {
         config: eslintConfig,
         configName: "eslint",
-        dependencies: ["prettier", "eslint"],
+        dependencies: ["eslint"],
     },
     {
         config: jsonConfig,
         configName: "json",
-        dependencies: ["prettier", "sort-package-json"],
+        dependencies: ["prettier"],
     },
     {
         config: markdownConfig,
         configName: "markdown",
-        dependencies: ["prettier", "markdownlint-cli", "markdownlint-cli2"],
+        dependencies: ["markdownlint-cli", "markdownlint-cli2"],
     },
     {
         config: secretlintConfig,

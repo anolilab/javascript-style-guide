@@ -3,6 +3,7 @@ import type { Config } from "lint-staged";
 
 import concatFiles from "../../utils/concat-files";
 import getPackageManager from "../../utils/get-package-manager";
+import consoleLog from "../../utils/logger";
 import createEslintCommands from "./create-eslint-commands";
 
 const extensions = ["cjs", "js", "mjs", "cts", "ts", "mts", "yml", "yaml", "jsx", "tsx", "mdx", "toml"];
@@ -19,10 +20,16 @@ if (!global.hasAnolilabLintStagedMarkdownCli && !global.hasAnolilabLintStagedMar
     extensions.push("md");
 }
 
+if (!global.hasAnolilabLintStagedPrettier) {
+    global.hasAnolilabLintStagedPrettier = hasDependency("prettier") || hasDevDependency("prettier");
+
+    consoleLog("Prettier was found inside your package.json. It will be used to format your files, before eslint is executed.");
+}
+
 const group: Config = {
     [`**/*.{${["json", "json5", "jsonc"].join(",")}}`]: async (filenames: string[]) => [...(await createEslintCommands(filenames))],
     [`**/*.{${[extensions].join(",")}}`]: async (filenames: string[]) => [
-        `${getPackageManager()} exec prettier --write ${concatFiles(filenames)}`,
+        ...(global.hasAnolilabLintStagedPrettier ? [`${getPackageManager()} exec prettier --write ${concatFiles(filenames)}`] : []),
         ...(await createEslintCommands(filenames)),
     ],
 };

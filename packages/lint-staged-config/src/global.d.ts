@@ -12,4 +12,6 @@ declare global {
     var anolilabLintStagedPackageJsonConfig: undefined | { [key: string]: boolean | undefined };
 
     var anolilabLintStagedPackageManager: undefined | "pnpm" | "npm" | "yarn";
+
+    var hasAnolilabLintStagedPrettier: undefined | boolean;
 }

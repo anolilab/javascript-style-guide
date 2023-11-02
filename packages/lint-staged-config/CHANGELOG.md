@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.2...@anolilab/lint-staged-config@2.1.3) (2023-11-02)
+
+
+### Bug Fixes
+
+* added checks for prettier, for the eslint, stylelint and markdown lint group ([db409b7](https://github.com/anolilab/javascript-style-guide/commit/db409b77b1db051b7b1bcc36ad6d956e8ddd42b1))
+
 ## @anolilab/lint-staged-config [2.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.1...@anolilab/lint-staged-config@2.1.2) (2023-10-31)
 
 

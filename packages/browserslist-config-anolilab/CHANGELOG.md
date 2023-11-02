@@ -1,3 +1,16 @@
+## browserslist-config-anolilab [5.0.13](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.12...browserslist-config-anolilab@5.0.13) (2023-11-02)
+
+
+### Bug Fixes
+
+* allow node 21 ([e95c9f7](https://github.com/anolilab/javascript-style-guide/commit/e95c9f70fb7d1ffa7c27e3d07067606b9b91bf54))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.2
+
 ## browserslist-config-anolilab [5.0.12](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.11...browserslist-config-anolilab@5.0.12) (2023-10-31)
 
 

@@ -1,3 +1,17 @@
+## @anolilab/commitlint-config [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.1...@anolilab/commitlint-config@5.0.2) (2023-11-02)
+
+
+### Bug Fixes
+
+* allow node 21 ([e95c9f7](https://github.com/anolilab/javascript-style-guide/commit/e95c9f70fb7d1ffa7c27e3d07067606b9b91bf54))
+
+
+
+### Dependencies
+
+* **@anolilab/package-json-utils:** upgraded to 3.0.9
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.2
+
 ## @anolilab/commitlint-config [5.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.0...@anolilab/commitlint-config@5.0.1) (2023-10-31)
 
 

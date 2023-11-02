@@ -1,54 +1,43 @@
+import { createRequire } from "node:module";
+
 import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Config } from "lint-staged";
 
-import eslintConfig from "./groups/eslint";
-import jsonConfig from "./groups/json";
-import markdownConfig from "./groups/markdown";
-import secretlintConfig from "./groups/secretlint";
-import stylesheetsConfig from "./groups/stylesheets";
-import testsConfig from "./groups/tests";
-import typescriptConfig from "./groups/typescript";
 import anolilabLintStagedConfig from "./utils/lint-staged-config";
 
+const require = createRequire(import.meta.url);
+
 type Groups = {
-    config: Config;
     configName: string;
     dependencies: string[];
 }[];
 
 const groups: Groups = [
     {
-        config: eslintConfig,
         configName: "eslint",
         dependencies: ["eslint"],
     },
     {
-        config: jsonConfig,
         configName: "json",
         dependencies: ["prettier"],
     },
     {
-        config: markdownConfig,
         configName: "markdown",
         dependencies: ["markdownlint-cli", "markdownlint-cli2"],
     },
     {
-        config: secretlintConfig,
         configName: "secretlint",
         dependencies: ["secretlint"],
     },
     {
-        config: stylesheetsConfig,
         configName: "stylesheets",
         dependencies: ["stylelint"],
     },
     {
-        config: testsConfig,
         configName: "tests",
         dependencies: ["vite", "jest", "ava"],
     },
     {
-        config: typescriptConfig,
         configName: "typescript",
         dependencies: ["typescript"],
     },
@@ -60,7 +49,7 @@ const loadedPluginsNames: string[] = [];
 const possiblePlugins: Record<string, Record<string, boolean>> = {};
 
 groups.forEach((plugin) => {
-    const { config, configName, dependencies } = plugin;
+    const { configName, dependencies } = plugin;
 
     // eslint-disable-next-line security/detect-object-injection
     if ((anolilabLintStagedConfig as unknown as Record<string, Record<string, false | undefined>>)["plugin"]?.[configName] !== false) {
@@ -73,6 +62,9 @@ groups.forEach((plugin) => {
         });
 
         if (foundDependencies.length > 0) {
+            // eslint-disable-next-line security/detect-non-literal-require,import/no-dynamic-require
+            const config = require(`./groups/${configName}`) as Config;
+
             loadedPlugins = { ...loadedPlugins, ...config };
             loadedPluginsNames.push(configName);
         } else {

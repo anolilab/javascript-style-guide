@@ -10,9 +10,7 @@ const group: Config = {
     [`**/*.{${["json", "json5", "jsonc"].join(",")}}`]: (filenames: string[]) => [`${getPackageManager()} exec prettier --write ${concatFiles(filenames)}`],
     ...(hasSortPackageJson
         ? {
-            "package.json,{packages,apps}/*/package.json": (filenames: string[]) => [
-                `${getPackageManager()} exec sort-package-json ${concatFiles(filenames)}`,
-            ],
+            "**/package.json": (filenames: string[]) => [`${getPackageManager()} exec sort-package-json ${concatFiles(filenames)}`],
         }
         : {}),
 };

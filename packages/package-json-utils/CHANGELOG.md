@@ -1,3 +1,10 @@
+## @anolilab/package-json-utils [3.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.8...@anolilab/package-json-utils@3.0.9) (2023-11-02)
+
+
+### Bug Fixes
+
+* allow node 21 ([e95c9f7](https://github.com/anolilab/javascript-style-guide/commit/e95c9f70fb7d1ffa7c27e3d07067606b9b91bf54))
+
 ## @anolilab/package-json-utils [3.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/package-json-utils@3.0.7...@anolilab/package-json-utils@3.0.8) (2023-10-31)
 
 

@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [2.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.3...@anolilab/lint-staged-config@2.1.4) (2023-11-02)
+
+
+### Bug Fixes
+
+* changed config loading to lazy, changed package.json key search ([b97cc00](https://github.com/anolilab/javascript-style-guide/commit/b97cc003f90e88306582806b8c6f228c4c30dcdb))
+
 ## @anolilab/lint-staged-config [2.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.2...@anolilab/lint-staged-config@2.1.3) (2023-11-02)
 
 

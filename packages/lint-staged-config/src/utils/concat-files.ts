@@ -10,9 +10,16 @@ import isWindows from "./is-windows";
  *
  * @link https://github.com/okonet/lint-staged/issues/676
  *
+ * The @ type shouldn't be quoted, but it is.
+ * If a folder name contains a @, it will be escaped as \@ (example test/@types), which is wrong.
+ *
  * @param {string[]} filenames
  * @returns {string} Return concatenated and escaped filenames
  */
-const concatFiles = (filenames: string[]): string => filenames.map((filename) => `"${isWindows ? filename : quote([filename])}"`).join(" ");
+const concatFiles = (filenames: string[]): string =>
+    filenames
+        .map((filename) => `"${isWindows ? filename : quote([filename])}"`)
+        .join(" ")
+        .replaceAll("/@", "/@");
 
 export default concatFiles;

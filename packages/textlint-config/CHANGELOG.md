@@ -1,3 +1,16 @@
+## @anolilab/textlint-config [8.0.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.15...@anolilab/textlint-config@8.0.16) (2023-12-22)
+
+
+### Bug Fixes
+
+* update deps ([e75d029](https://github.com/anolilab/javascript-style-guide/commit/e75d02912fe8c0333f9fa30726f517638ac62ff7))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## @anolilab/textlint-config [8.0.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.14...@anolilab/textlint-config@8.0.15) (2023-11-02)
 
 

@@ -1,3 +1,16 @@
+## @anolilab/prettier-config [5.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.13...@anolilab/prettier-config@5.0.14) (2023-12-22)
+
+
+### Miscellaneous Chores
+
+* update deps ([4f773ac](https://github.com/anolilab/javascript-style-guide/commit/4f773ac635af4e27d500a6d2423898445e0f08fd))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## @anolilab/prettier-config [5.0.13](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.12...@anolilab/prettier-config@5.0.13) (2023-11-02)
 
 

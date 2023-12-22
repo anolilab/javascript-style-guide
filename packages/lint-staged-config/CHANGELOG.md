@@ -1,3 +1,16 @@
+## @anolilab/lint-staged-config [2.1.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.6...@anolilab/lint-staged-config@2.1.7) (2023-12-22)
+
+
+### Bug Fixes
+
+* update deps ([e75d029](https://github.com/anolilab/javascript-style-guide/commit/e75d02912fe8c0333f9fa30726f517638ac62ff7))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## @anolilab/lint-staged-config [2.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.5...@anolilab/lint-staged-config@2.1.6) (2023-11-02)
 
 

@@ -1,3 +1,16 @@
+## @anolilab/eslint-config [15.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@15.0.2...@anolilab/eslint-config@15.0.3) (2023-12-22)
+
+
+### Miscellaneous Chores
+
+* update deps ([a7c1f3b](https://github.com/anolilab/javascript-style-guide/commit/a7c1f3b47c76188a592cc8388db96ff21d17b797))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## @anolilab/eslint-config [15.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@15.0.1...@anolilab/eslint-config@15.0.2) (2023-11-02)
 
 

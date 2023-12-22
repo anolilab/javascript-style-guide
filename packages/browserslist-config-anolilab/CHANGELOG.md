@@ -1,3 +1,16 @@
+## browserslist-config-anolilab [5.0.14](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.13...browserslist-config-anolilab@5.0.14) (2023-12-22)
+
+
+### Miscellaneous Chores
+
+* dep update ([1af9698](https://github.com/anolilab/javascript-style-guide/commit/1af9698f21adfa547144ae1f2dd307ea081557df))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## browserslist-config-anolilab [5.0.13](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.12...browserslist-config-anolilab@5.0.13) (2023-11-02)
 
 

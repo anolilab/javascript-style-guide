@@ -1,3 +1,16 @@
+## @anolilab/commitlint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.2...@anolilab/commitlint-config@5.0.3) (2023-12-22)
+
+
+### Bug Fixes
+
+* dep update ([5f6245c](https://github.com/anolilab/javascript-style-guide/commit/5f6245c1dd9a66b487887bb801ef823b07f0f8f3))
+
+
+
+### Dependencies
+
+* **@anolilab/semantic-release-preset:** upgraded to 8.0.3
+
 ## @anolilab/commitlint-config [5.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.1...@anolilab/commitlint-config@5.0.2) (2023-11-02)
 
 

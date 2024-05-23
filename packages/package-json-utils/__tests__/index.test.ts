@@ -135,9 +135,9 @@ describe("package-json-utils", () => {
             });
 
             expect(consoleMock).toHaveBeenCalledTimes(1);
-            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
-            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
-            expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
+            expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("example could not find the following packages"));
+            expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("package1"));
+            expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("package2"));
 
             consoleMock.mockRestore();
         },
@@ -152,11 +152,11 @@ describe("package-json-utils", () => {
         });
 
         expect(consoleMock).toHaveBeenCalledTimes(1);
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("pre message"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("example could not find the following packages"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package1"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("package2"));
-        expect(consoleMock).toHaveBeenCalledWith(expect.stringContaining("post message"));
+        expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("pre message"));
+        expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("example could not find the following packages"));
+        expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("package1"));
+        expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("package2"));
+        expect(consoleMock).toHaveBeenCalledWithExactlyOnceWith(expect.stringContaining("post message"));
 
         consoleMock.mockRestore();
     });

@@ -11,6 +11,7 @@ on: # yamllint disable-line rule:truthy
             - "next-major"
             - "alpha"
             - "beta"
+    workflow_dispatch: # yamllint disable-line rule:empty-values
 
 permissions:
     contents: "read" # for checkout
@@ -18,6 +19,7 @@ permissions:
 jobs:
     semantic-release:
         name: "Semantic Release"
+        if: "github.repository == 'anolilab/javascript-style-guide'"
         runs-on: "ubuntu-latest"
         permissions:
             contents: "write" # to be able to publish a GitHub release
@@ -27,22 +29,23 @@ jobs:
 
         steps:
             - name: "Harden Runner"
-              uses: "step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142" # v2.7.0
+              uses: "step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6" # v2.8.1
               with:
                   egress-policy: "audit"
 
             - name: "Wait for tests to succeed"
-              uses: "lewagon/wait-on-check-action@595dabb3acf442d47e29c9ec9ba44db0c6bdd18f" # v1.3.3
+              uses: "lewagon/wait-on-check-action@ccfb013c15c8afb7bf2b7c028fb74dc5a068cccc" # v1.3.4
               timeout-minutes: 20
               with:
                   ref: "${{ github.event.pull_request.head.sha || github.sha }}"
                   repo-token: "${{ secrets.GITHUB_TOKEN }}"
                   wait-interval: 60 # seconds
                   running-workflow-name: "Semantic Release" # wait for all other checks to complete
-                  allowed-conclusions: "success,skipped" # all other checks must pass, being skipped or cancelled is not sufficient
+                  allowed-conclusions: "success,skipped,neutral" # all other checks must pass, being skipped or cancelled is not sufficient
+                  ignore-checks: "lock-closed / lock-closed, Socket Security: Pull Request Alerts"
 
             - name: "Git checkout"
-              uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11" # v4.1.1
+              uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
               with:
                   fetch-depth: 0
                   persist-credentials: false
@@ -51,41 +54,22 @@ jobs:
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
-            - uses: "pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598" # v2.4.0
+            - name: "Setup resources and environment"
+              id: "setup"
+              uses: "anolilab/workflows/step/setup@main"
               with:
-                  version: 8
-                  run_install: false
-
-            - name: "Use Node.js 20.x"
-              uses: "actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8" # v4.0.2
-              with:
-                  node-version: "20.6.1"
-                  cache: "pnpm"
-
-            # @see: npm install -g npm@latest is necessary to make provenance available. More info: https://docs.npmjs.com/generating-provenance-statements
-            - name: "Upgrade npm to latest version"
-              run: "npm install --global npm@9.6.x"
-              env:
-                  SKIP_CHECK: "true"
-
-            - name: "Check npm version"
-              run: "npm -v"
-              env:
-                  SKIP_CHECK: "true"
-
-            - name: "Install packages"
-              run: "pnpm install --frozen-lockfile"
-              env:
-                  SKIP_BUILD: "true"
-
-            - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"
-              run: "npm audit signatures"
+                  node-version: "18.x"
+                  cache-prefix: "semantic-release"
 
             - name: "Build Production"
-              run: "pnpm run build:prod:packages"
+              run: "pnpm run build:packages:prod"
 
-            - name: "npm v8.5+ requires workspaces-update to be set to false"
-              run: "echo 'workspaces-update=false' >> .npmrc"
+            - name: "test and coverage"
+              run: "pnpm run test:all"
+
+            - name: "Prepare nx cache"
+              shell: "bash"
+              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
 
             - name: "Semantic Release"
               if: "success()"
@@ -97,47 +81,3 @@ jobs:
                   GIT_COMMITTER_NAME: "github-actions-shell"
                   GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
               run: "pnpm exec multi-semantic-release"
-
-    pnpm-lock-update:
-        needs: "semantic-release"
-        name: "pnpm-lock.yaml update"
-        runs-on: "ubuntu-latest"
-        permissions:
-            contents: "write" # to be able to publish
-        steps:
-            - name: "Harden Runner"
-              uses: "step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142" # v2.7.0
-              with:
-                  egress-policy: "audit"
-
-            - name: "Git checkout"
-              uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11" # v4.1.1
-              with:
-                  fetch-depth: 2
-              env:
-                  GIT_COMMITTER_NAME: "GitHub Actions Shell"
-                  GIT_AUTHOR_NAME: "GitHub Actions Shell"
-                  EMAIL: "github-actions[bot]@users.noreply.github.com"
-
-            - uses: "pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598" # v2.4.0
-              with:
-                  version: 8
-
-            - name: "Use Node.js 20.x"
-              uses: "actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8" # v4.0.2
-              with:
-                  node-version: "20.6.1"
-
-            - name: "Update pnpm lock"
-              run: "pnpm install --no-frozen-lockfile"
-              env:
-                  SKIP_BUILD: "true"
-
-            - name: "Commit modified files"
-              uses: "stefanzweifel/git-auto-commit-action@8756aa072ef5b4a080af5dc8fef36c5d586e521d" # v5.0.0
-              with:
-                  commit_message: "chore: updated pnpm-lock.yaml"
-                  commit_author: "prisis <d.bannert@anolilab.de>"
-                  commit_user_email: "d.bannert@anolilab.de"
-                  commit_user_name: "prisis"
-                  branch: "${{ github.head_ref }}"

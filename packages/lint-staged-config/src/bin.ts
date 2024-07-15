@@ -1,27 +1,18 @@
-import { existsSync, mkdir, writeFile } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
-import { promisify } from "node:util";
 
 import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
+import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 
 import getNearestConfigPath from "./utils/get-nearest-config-path";
-
-if (process.env["CI"]) {
-    exit(0);
-}
-
-const writeFileAsync = promisify(writeFile);
-const mkdirAsync = promisify(mkdir);
 
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
 const configFile = ".lintstagedrc";
 
 const checkIfFileExists = (filename: string): boolean => {
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (existsSync(filename)) {
-        console.warn(`⚠️  ${filename} already exists;`);
+    if (isAccessibleSync(filename)) {
+        console.warn(`⚠️ ${filename} already exists;`);
 
         return true;
     }
@@ -60,7 +51,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 };
 `;
 
-    await writeFileAsync(lintstagedPath, content, "utf-8");
+    writeFileSync(lintstagedPath, content, );
 };
 
 /**
@@ -71,22 +62,19 @@ const writeHuskyFiles = async () => {
     const hasHusky = hasDependency("husky") || hasDevDependency("husky");
 
     if (!hasHusky) {
-        console.warn("⚠️  husky is not installed;");
+        console.warn("⚠️ husky is not installed;");
 
         return;
     }
 
     const huskyFolderPath = join(projectPath, ".husky");
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (!existsSync(huskyFolderPath)) {
-        await mkdirAsync(huskyFolderPath);
-    }
+    ensureDirSync(huskyFolderPath);
 
     const commonShPath = join(huskyFolderPath, "common.sh");
 
     if (!checkIfFileExists(commonShPath)) {
-        await writeFileAsync(
+        writeFileSync(
             commonShPath,
             `#!/bin/sh
 
@@ -110,8 +98,7 @@ if [ "$IS_WINDOWS" = "true" ]; then
         exec < /dev/tty
     fi
 fi
-`,
-            "utf-8",
+`
         );
     }
 
@@ -125,12 +112,10 @@ fi
         hasPnpm = true;
     } catch {
         hasPnpm = false;
-
-        // ignore
     }
 
     if (!checkIfFileExists(preCommitPath)) {
-        await writeFileAsync(
+        writeFileSync(
             preCommitPath,
             `#!/bin/sh
 
@@ -147,8 +132,7 @@ ${hasPnpm ? "pnpx" : "npx"} lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
-`,
-            "utf-8",
+`
         );
     }
 
@@ -156,7 +140,7 @@ echo --------------------------------------------
     const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
 
     if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
-        await writeFileAsync(
+        writeFileSync(
             prepareCommitMessagePath,
             `#!/bin/sh
 
@@ -200,8 +184,7 @@ fi
 
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
-`,
-            "utf-8",
+`
         );
     }
 };
@@ -212,11 +195,11 @@ echo --------------------------------------------
         await writeLintstagedRc();
         await writeHuskyFiles();
 
-        console.log("😎  Everything went well, have fun!");
+        console.log("😎 Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
-        console.log("😬  something went wrong:");
+        console.log("😬 something went wrong:");
         console.error(error);
 
         exit(1);

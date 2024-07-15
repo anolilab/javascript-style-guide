@@ -35,7 +35,7 @@ const groups: Groups = [
     },
     {
         configName: "tests",
-        dependencies: ["vite", "jest", "ava"],
+        dependencies: ["vitest", "jest", "ava"],
     },
     {
         configName: "typescript",

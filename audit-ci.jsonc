@@ -1,0 +1,10 @@
+{
+    // $schema provides code completion hints to IDEs.
+    "$schema": "https://github.com/IBM/audit-ci/raw/main/docs/schema.json",
+    "low": true,
+    "package-manager": "pnpm",
+    "report-type": "important",
+    "allowlist": [
+        "GHSA-67hx-6x53-jw92|. > babel-plugin-transform-es2015-modules-commonjs"
+    ]
+}

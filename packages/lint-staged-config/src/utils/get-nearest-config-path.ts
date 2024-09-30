@@ -1,13 +1,12 @@
-import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-import findUp from "find-up";
+import { findUpSync, isAccessibleSync } from "@visulima/fs";
 import type { Join } from "type-fest";
 
 import type { AbsolutePath, ConfigFileName, ConfigPath } from "./types";
 
 const packageDirectorySync = (cwd?: string) => {
-    const filePath = findUp.sync("package.json", { cwd });
+    const filePath = findUpSync("package.json", { cwd });
 
     return filePath && dirname(filePath);
 };
@@ -36,8 +35,7 @@ const getNearestConfigPath = <N extends ConfigFileName = ConfigFileName, A exten
     const packageRootPath = getNearestPackageRootPath(cwd);
     const configPath = joinPaths<[A, N]>([packageRootPath as A, fileName]);
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (existsSync(configPath)) {
+    if (isAccessibleSync(configPath)) {
         return configPath;
     }
 

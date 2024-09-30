@@ -62,13 +62,12 @@ pnpm add -D husky is-ci
 
 ## Usage
 
-If you don’t have a `.lintstagedrc.js`, we will create the file for you after installing `@anolilab/lint-staged-config`.
+If you don’t have a `.lintstagedrc.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
 
 If you already have a `.lintstagedrc.js`, then you can extend the `.lintstagedrc.js`, with `@anolilab/lint-staged-config`.
 
 > Note: If the script detects an existing `.lintstagedrc.js` file, it will not overwrite it.
 
-> Note: It can happen that the postinstall script don't run, then you have to add the `.lintstagedrc.js` manually.
 
 The content of the `.lintstagedrc.js` should look like this:
 
@@ -199,9 +198,7 @@ echo --------------------------------------------
 
 ```
 
-Our package includes a `postinstall` script to automatically add the `pre-commit`, `common.sh`, `prepare-commit-msg hooks to your `.husky` folder.
-
-> Note: It can be that the postinstall script don't run, then you have to add the hooks manually.
+Our package includes a `lint-stage-config:install` command to add the `pre-commit`, `common.sh`, `prepare-commit-msg hooks to your `.husky` folder.
 
 If `commitzen` is installed, the `prepare-commit-msg` hook with predefined content will be added to your `.husky` folder.
 

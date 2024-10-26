@@ -3,18 +3,23 @@
 name: "Tests"
 
 on: # yamllint disable-line rule:truthy
-    push:
-        branches:
-            - "main"
     # eslint-disable-next-line yml/no-empty-mapping-value
     pull_request: # yamllint disable-line rule:empty-values
+        types: ["opened", "synchronize", "reopened"]
+    merge_group: # yamllint disable-line rule:empty-values
 
 concurrency:
-    group: "ci-tests-${{ github.ref }}-1"
+    group: "${{ github.workflow }}-${{ github.ref }}"
     cancel-in-progress: true
 
 permissions:
-    contents: "read"
+    contents: "read" # to fetch code (actions/checkout)
+
+env:
+    NX_BRANCH: "${{ github.event.number }}"
+    NX_RUN_GROUP: "${{ github.run_id }}"
+    HEAD_REF: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}"
+    HEAD_REPOSITORY: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}"
 
 jobs:
     files-changed:
@@ -24,69 +29,70 @@ jobs:
         # Map a step output to a job output
         outputs:
             packages: "${{ steps.changes.outputs.packages }}"
+            codecov: "${{ steps.changes.outputs.codecov }}"
         steps:
+            - name: "Harden Runner"
+              uses: "step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6" # v2.8.1
+              with:
+                  egress-policy: "audit"
+
             - name: "Git checkout"
-              uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11" # v4.1.1
+              uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
 
             - name: "Check for file changes"
-              uses: "dorny/paths-filter@7267a8516b6f92bdb098633497bad573efdbf271" # v2.12.0
+              uses: "dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36" # v3.0.2
               id: "changes"
               with:
                   token: "${{ github.token }}"
                   filters: ".github/file-filters.yml"
 
     test:
+        name: "Test (node-${{ matrix.node_version }}, ${{ matrix.os }})"
         if: "needs.files-changed.outputs.packages == 'true'"
         needs: "files-changed"
         strategy:
+            max-parallel: 4
             matrix:
                 os:
                     - "ubuntu-latest"
-                node_version: ["18", "20", "21"]
+                node_version: ["18", "20", "21", "22"]
+                # On the other platforms, we only test the lts node version
                 include:
                     - os: "macos-latest"
                       node_version: "20"
                     - os: "windows-latest"
-                      node_version: "20"
+                      node_version: "20.14" # https://github.com/nodejs/node/issues/48673
             fail-fast: false
-
-        name: "Build & Unit Test: node-${{ matrix.node_version }}, ${{ matrix.os }}"
-
         runs-on: "${{ matrix.os }}"
-
+        env:
+            NODE: "${{ matrix.node_version }}"
         steps:
             - name: "Harden Runner"
-              uses: "step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142" # v2.7.0
+              uses: "step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6" # v2.8.1
               with:
                   egress-policy: "audit"
 
-            - name: "Git checkout"
-              uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11" # v4.1.1
+            - name: "Git checkout ${{ env.HEAD_REPOSITORY }}:${{ env.HEAD_REF }}"
+              uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
                   EMAIL: "github-actions[bot]@users.noreply.github.com"
-
-            - uses: "pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598" # v2.4.0
               with:
-                  version: 8
-                  run_install: false
+                  # Number of commits to fetch. 0 indicates all history for all branches and tags.
+                  # Pulls all commits (needed for NX)
+                  fetch-depth: 0
 
-            - name: "Set node version to ${{ matrix.node_version }}"
-              uses: "actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8" # v4.0.2
+            - name: "Setup resources and environment"
+              id: "setup"
+              uses: "anolilab/workflows/step/setup@main"
               with:
                   node-version: "${{ matrix.node_version }}"
-                  cache: "pnpm"
-
-            - name: "Install packages"
-              run: "pnpm install --frozen-lockfile"
-              env:
-                  SKIP_CHECK: "true"
-                  SKIP_BUILD: "true"
+                  install-bun: false
 
             - name: "Build"
               run: "pnpm run build:packages"
@@ -106,18 +112,27 @@ jobs:
             - name: "Run babel config test"
               run: "pnpm run test:babel"
 
+            - name: "Prepare nx cache"
+              shell: "bash"
+              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+
     # This check runs once all dependant jobs have passed
-    # It symbolizes that all required Frontend checks have succesfully passed (Or skipped)
-    # This check is the only required Github check
+    # It symbolizes that all required checks have successfully passed (Or skipped)
+    # This check is the only required GitHub check
     test-required-check:
         needs: ["files-changed", "test"]
         name: "Check Test Run"
         # This is necessary since a failed/skipped dependent job would cause this job to be skipped
-        if: "always()"
+        if: "always() && (needs.test.result == 'success' || needs.test.result == 'skipped')"
         runs-on: "ubuntu-22.04"
         steps:
             # If any jobs we depend on fail, we will fail since this is a required check
             # NOTE: A timeout is considered a failure
+            - name: "Harden Runner"
+              uses: "step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6" # v2.8.1
+              with:
+                  egress-policy: "audit"
+
             - name: "Check for failures"
               if: "contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')"
               run: |

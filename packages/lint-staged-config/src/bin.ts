@@ -1,27 +1,16 @@
-import { existsSync, mkdir, writeFile } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
-import { promisify } from "node:util";
 
 import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
+import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 
 import getNearestConfigPath from "./utils/get-nearest-config-path";
 
-if (process.env["CI"]) {
-    exit(0);
-}
-
-const writeFileAsync = promisify(writeFile);
-const mkdirAsync = promisify(mkdir);
-
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
-const configFile = ".lintstagedrc";
-
 const checkIfFileExists = (filename: string): boolean => {
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (existsSync(filename)) {
-        console.warn(`⚠️  ${filename} already exists;`);
+    if (isAccessibleSync(filename)) {
+        console.warn(`⚠️ ${filename} already exists;`);
 
         return true;
     }
@@ -32,7 +21,9 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
-const writeLintstagedRc = async () => {
+const writeLintStagedRc = async () => {
+    const configFile = ".lintstagedrc";
+
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
@@ -51,8 +42,7 @@ const writeLintstagedRc = async () => {
         }
     }
 
-    const lintstagedPath = join(projectPath, ".lintstagedrc.js");
-
+    const filePath = join(projectPath, ".lintstagedrc.js");
     const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
 
 ${packageIsTypeModule ? "export default" : "module.exports ="} {
@@ -60,7 +50,39 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 };
 `;
 
-    await writeFileAsync(lintstagedPath, content, "utf-8");
+    writeFileSync(filePath, content);
+};
+
+const writeNanoStagedRc = async () => {
+    const configFile = ".nano-staged";
+
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
+    for (const filename of [
+        configFile,
+        `${configFile}.js`,
+        `${configFile}.cjs`,
+        `${configFile}.mjs`,
+        `${configFile}.json`,
+        `${configFile.replace(".", "")}.js`,
+        `${configFile.replace(".", "")}.cjs`,
+        `${configFile.replace(".", "")}.mjs`,
+        `${configFile.replace(".", "")}.json`,
+        ".nanostagedrc",
+    ]) {
+        if (checkIfFileExists(join(projectPath, filename))) {
+            return;
+        }
+    }
+
+    const filePath = join(projectPath, ".nano-staged.js");
+    const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
+
+${packageIsTypeModule ? "export default" : "module.exports ="} {
+    ...config,
+};
+`;
+
+    writeFileSync(filePath, content);
 };
 
 /**
@@ -71,22 +93,19 @@ const writeHuskyFiles = async () => {
     const hasHusky = hasDependency("husky") || hasDevDependency("husky");
 
     if (!hasHusky) {
-        console.warn("⚠️  husky is not installed;");
+        console.warn("⚠️ husky is not installed;");
 
         return;
     }
 
     const huskyFolderPath = join(projectPath, ".husky");
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (!existsSync(huskyFolderPath)) {
-        await mkdirAsync(huskyFolderPath);
-    }
+    ensureDirSync(huskyFolderPath);
 
     const commonShPath = join(huskyFolderPath, "common.sh");
 
     if (!checkIfFileExists(commonShPath)) {
-        await writeFileAsync(
+        writeFileSync(
             commonShPath,
             `#!/bin/sh
 
@@ -111,7 +130,6 @@ if [ "$IS_WINDOWS" = "true" ]; then
     fi
 fi
 `,
-            "utf-8",
         );
     }
 
@@ -125,12 +143,10 @@ fi
         hasPnpm = true;
     } catch {
         hasPnpm = false;
-
-        // ignore
     }
 
     if (!checkIfFileExists(preCommitPath)) {
-        await writeFileAsync(
+        writeFileSync(
             preCommitPath,
             `#!/bin/sh
 
@@ -148,7 +164,6 @@ ${hasPnpm ? "pnpx" : "npx"} lint-staged --verbose --concurrent false
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
 `,
-            "utf-8",
         );
     }
 
@@ -156,7 +171,7 @@ echo --------------------------------------------
     const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
 
     if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
-        await writeFileAsync(
+        writeFileSync(
             prepareCommitMessagePath,
             `#!/bin/sh
 
@@ -201,22 +216,29 @@ fi
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
 `,
-            "utf-8",
         );
     }
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
+    const hasLintStaged = hasDependency("lint-staged") || hasDevDependency("lint-staged");
+    const hasNanoStaged = hasDependency("nano-staged") || hasDevDependency("nano-staged");
+
     try {
-        await writeLintstagedRc();
+        if (hasLintStaged) {
+            await writeLintStagedRc();
+        } else if (hasNanoStaged) {
+            await writeNanoStagedRc();
+        }
+
         await writeHuskyFiles();
 
-        console.log("😎  Everything went well, have fun!");
+        console.log("😎 Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
-        console.log("😬  something went wrong:");
+        console.log("😬 something went wrong:");
         console.error(error);
 
         exit(1);

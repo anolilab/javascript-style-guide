@@ -2,7 +2,7 @@
 
 <h1>Shareable Lint-Staged Config</h1>
 
-Package that contains shareable configuration for [lint-staged](https://github.com/okonet/lint-staged) — a popular tool for running linters on staged Git files.
+Package that contains shareable configuration for [lint-staged][lint-staged] / [nano-staged][nano-staged] — a popular tool for running linters on staged Git files.
 
 And optionally for [husky](https://github.com/typicode/husky) — a popular choice for configuring git hooks.
 
@@ -24,19 +24,21 @@ And optionally for [husky](https://github.com/typicode/husky) — a popular choi
 
 Simplify your project setup with our comprehensive collection of preconfigured configuration files.
 Designed for effortless integration, these ready-to-use files can be seamlessly imported into your projects.
-These functions streamline the utilization of [lint-staged](https://github.com/okonet/lint-staged) alongside popular tools such as [ESLint](https://eslint.org), [Prettier](https://prettier.io), [StyleLint](https://stylelint.io) and [SecretLint](https://github.com/secretlint/secretlint).
+These functions streamline the utilization of [lint-staged][lint-staged] / [nano-staged][nano-staged] alongside popular tools such as [ESLint](https://eslint.org), [Prettier](https://prettier.io), [StyleLint](https://stylelint.io) and [SecretLint](https://github.com/secretlint/secretlint).
 
 Say goodbye to complex configurations and enjoy a smoother development experience with our all-inclusive package.
 
 ## Purpose
 
-- Enhance your development workflow with hassle-free and readily shareable lint-staged configuration files.
+- Enhance your development workflow with hassle-free and readily shareable lint-staged / nano-staged configuration files.
 - These files empower developers to maintain a uniform coding style and detect prevalent errors even before they are added to the source control system.
 - Additionally, our inclusive helper module offers convenient utility functions that seamlessly integrate lint-staged with popular linting and formatting tools.
 
 ## Install
 
 ```bash
+npm install --dev-save @anolilab/lint-staged-config nano-staged
+// or
 npm install --dev-save @anolilab/lint-staged-config lint-staged
 
 Optional:
@@ -45,6 +47,8 @@ npm install --dev-save husky is-ci
 ```
 
 ```sh
+yarn add -D @anolilab/lint-staged-config nano-staged
+// or
 yarn add -D @anolilab/lint-staged-config lint-staged
 
 Optional:
@@ -53,6 +57,8 @@ yarn add -D husky is-ci
 ```
 
 ```sh
+pnpm add -D @anolilab/lint-staged-config nano-staged
+// or
 pnpm add -D @anolilab/lint-staged-config lint-staged
 
 Optional:
@@ -62,19 +68,26 @@ pnpm add -D husky is-ci
 
 ## Usage
 
-If you don’t have a `.lintstagedrc.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
+If you don’t have a `.lintstagedrc.js` or `.nano-staged.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
 
-If you already have a `.lintstagedrc.js`, then you can extend the `.lintstagedrc.js`, with `@anolilab/lint-staged-config`.
+If you already have a `.lintstagedrc.js` or `.nano-staged.js`, then you can extend the `.lintstagedrc.js` or `.nano-staged.js`, with `@anolilab/lint-staged-config`.
 
-> Note: If the script detects an existing `.lintstagedrc.js` file, it will not overwrite it.
+> Note: If the script detects an existing `.lintstagedrc.js` or `.nano-staged.js` file, it will not overwrite it.
 
-
-The content of the `.lintstagedrc.js` should look like this:
+The content of the `.lintstagedrc.js` or `.nano-staged.js` should look like this:
 
 ```js
 const config = require("@anolilab/lint-staged-config");
 
 module.exports = {
+    ...config,
+};
+
+// or
+
+import config from "@anolilab/lint-staged-config";
+
+export default {
     ...config,
 };
 ```
@@ -172,8 +185,6 @@ Adding the following script to your root `package.json` file makes it easier to 
 pnpm pkg set scripts.prepare="is-ci || husky install || exit 0"
 ```
 
-For `npm` users, replace `pnpm` with `npm` in the above command.
-
 This script will install husky only if it is not running in a CI environment.
 
 After that you can find a `.husky` folder in your root directory, with a `pre-commit` (if not please create it) file.
@@ -191,11 +202,29 @@ The file content can look like this:
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-pnpx lint-staged --verbose --concurrent false
+./node_modules/.bin/lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
+```
 
+or with `nano-staged`:
+
+```bash
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# The hook should exit with non-zero status after issuing
+# an appropriate message if it wants to stop the commit.
+
+echo --------------------------------------------
+echo Starting Git hook: pre-commit
+
+./node_modules/.bin/nano-staged
+
+echo Finished Git hook: pre-commit
+echo --------------------------------------------
 ```
 
 Our package includes a `lint-stage-config:install` command to add the `pre-commit`, `common.sh`, `prepare-commit-msg hooks to your `.husky` folder.
@@ -232,3 +261,5 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 [license-url]: LICENSE.md "license"
 [npm-image]: https://img.shields.io/npm/v/@anolilab/lint-staged-config/latest.svg?style=for-the-badge&logo=npm
 [npm-url]: https://www.npmjs.com/package/@anolilab/lint-staged-config/v/latest "npm"
+[lint-staged]: https://github.com/okonet/lint-staged
+[nano-staged]: https://github.com/usmanyunusov/nano-staged

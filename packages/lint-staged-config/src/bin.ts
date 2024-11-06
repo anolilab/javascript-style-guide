@@ -8,8 +8,6 @@ import getNearestConfigPath from "./utils/get-nearest-config-path";
 
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
-const configFile = ".lintstagedrc";
-
 const checkIfFileExists = (filename: string): boolean => {
     if (isAccessibleSync(filename)) {
         console.warn(`⚠️ ${filename} already exists;`);
@@ -23,7 +21,9 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
-const writeLintstagedRc = async () => {
+const writeLintStagedRc = async () => {
+    const configFile = ".lintstagedrc";
+
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
@@ -42,8 +42,7 @@ const writeLintstagedRc = async () => {
         }
     }
 
-    const lintstagedPath = join(projectPath, ".lintstagedrc.js");
-
+    const filePath = join(projectPath, ".lintstagedrc.js");
     const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
 
 ${packageIsTypeModule ? "export default" : "module.exports ="} {
@@ -51,7 +50,39 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
 };
 `;
 
-    writeFileSync(lintstagedPath, content, );
+    writeFileSync(filePath, content);
+};
+
+const writeNanoStagedRc = async () => {
+    const configFile = ".nano-staged";
+
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
+    for (const filename of [
+        configFile,
+        `${configFile}.js`,
+        `${configFile}.cjs`,
+        `${configFile}.mjs`,
+        `${configFile}.json`,
+        `${configFile.replace(".", "")}.js`,
+        `${configFile.replace(".", "")}.cjs`,
+        `${configFile.replace(".", "")}.mjs`,
+        `${configFile.replace(".", "")}.json`,
+        ".nanostagedrc",
+    ]) {
+        if (checkIfFileExists(join(projectPath, filename))) {
+            return;
+        }
+    }
+
+    const filePath = join(projectPath, ".nano-staged.js");
+    const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
+
+${packageIsTypeModule ? "export default" : "module.exports ="} {
+    ...config,
+};
+`;
+
+    writeFileSync(filePath, content);
 };
 
 /**
@@ -98,7 +129,7 @@ if [ "$IS_WINDOWS" = "true" ]; then
         exec < /dev/tty
     fi
 fi
-`
+`,
         );
     }
 
@@ -132,7 +163,7 @@ ${hasPnpm ? "pnpx" : "npx"} lint-staged --verbose --concurrent false
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
-`
+`,
         );
     }
 
@@ -184,15 +215,23 @@ fi
 
 echo Finished Git hook: prepare-commit-msg
 echo --------------------------------------------
-`
+`,
         );
     }
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
+    const hasLintStaged = hasDependency("lint-staged") || hasDevDependency("lint-staged");
+    const hasNanoStaged = hasDependency("nano-staged") || hasDevDependency("nano-staged");
+
     try {
-        await writeLintstagedRc();
+        if (hasLintStaged) {
+            await writeLintStagedRc();
+        } else if (hasNanoStaged) {
+            await writeNanoStagedRc();
+        }
+
         await writeHuskyFiles();
 
         console.log("😎 Everything went well, have fun!");

@@ -12,10 +12,12 @@ const cconfig = [
     "./dist/config/tailwindcss.mjs",
 ];
 
-const require = createRequire(import.meta.url);
+const resolvePath = async (path) => {
+    return await import.meta.resolve(path, import.meta.url);
+};
 
 const config = {
-    extends: [...cconfig.map((element) => require.resolve(element)), "stylelint-config-clean-order"],
+    extends: [...cconfig.map((element) => resolvePath(element)), "stylelint-config-clean-order"],
 };
 
 export default config;

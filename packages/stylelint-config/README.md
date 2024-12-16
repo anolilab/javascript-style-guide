@@ -51,13 +51,11 @@ yarn add -D browserslist stylelint @anolilab/stylelint-config
 
 ## Usage
 
-If you don’t have a `.stylelintrc.js`, we will create the file for you after installing `@anolilab/stylelint-config`.
-
-If you already have a `.stylelintrc.js`, then you can extend the `.stylelintrc.js`, with `@anolilab/stylelint-config`.
+If you don’t have a `.stylelintrc.js` or the other supported file names and `.stylelintignore`, we can create the file for you after installing `@anolilab/stylelint-config`, call `pnpm stylelint-config:install`.
 
 > Note: If the script detects an existing `.stylelintrc.js` file, it will not overwrite it.
 
-> Note: It can happen that the postinstall script don't run, then you have to add the `.stylelintrc.js` manually.
+If you already have a `.stylelintrc.js`, then you can extend the `.stylelintrc.js`, with `@anolilab/stylelint-config`.
 
 ```js
 module.exports = {

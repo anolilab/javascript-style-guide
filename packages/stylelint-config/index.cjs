@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-var
-var config = [
+const config = [
     "./dist/config/a11y.js",
     "./dist/config/best-practices.js",
     "./dist/config/declaration-block-no-ignored-properties.js",

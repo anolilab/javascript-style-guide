@@ -55,6 +55,7 @@ pnpm-lock.yaml
 build/**
 node_modules/**
 .next/**
+dist/**
 
 `;
     // eslint-disable-next-line security/detect-non-literal-fs-filename

@@ -35,7 +35,9 @@ pnpm add -D @anolilab/textlint-config textlint
 
 ## Usage
 
-If you don’t have a `.textlintrc`, we will create the file for you after installing `@anolilab/textlint-config`.
+If you don’t have a `.textlintrc` or the other supported file names and `.textlintignore`, we can create the file for you after installing `@anolilab/textlint-config`, call `pnpm textlint-config:install`.
+
+> Note: If the script detects an existing `.textlintrc` or `.textlintignore` file, it will not overwrite it.
 
 If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with `@anolilab/textlint-config`.
 

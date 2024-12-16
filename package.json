@@ -55,8 +55,8 @@
     ],
     "scripts": {
         "audit": "audit-ci --config ./audit-ci.jsonc",
-        "build:packages": "pnpm --filter \"package-json-utils\" run build && nx run-many --target=build --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config,semantic-release-preset,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
-        "build:packages:prod": "pnpm --filter \"package-json-utils\" run build:prod && nx run-many --target=build:prod --projects=browserslist-config-anolilab,babel-preset,prettier-config,textlint-config,semantic-release-preset,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
+        "build:packages": "nx run-many --target=build --projects=browserslist-config-anolilab,prettier-config,textlint-config,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
+        "build:packages:prod": "nx run-many --target=build:prod --projects=browserslist-config-anolilab,prettier-config,textlint-config,stylelint-config,eslint-config,commitlint-config,lint-staged-config",
         "clean": "nx run-many --target=clean && rimraf node_modules",
         "preinstall": "node verify-node-version.cjs",
         "postinstall": "is-ci || husky || exit 0",
@@ -71,18 +71,17 @@
         "lint:text:fix": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --fix",
         "prettier": "prettier --config=.prettierrc.js --write '**/*.{js,jsx,cjs,tsx,ts,less,md,json}'",
         "sort-package-json": "sort-package-json ./packages/**/package.json ./package.json",
-        "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,package-json-utils,stylelint-config,eslint-config && pnpm test:stylelint && pnpm test:babel",
+        "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,stylelint-config,eslint-config && pnpm test:stylelint && pnpm test:babel",
         "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
         "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
         "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",
-        "test:coverage:package-json-utils": "pnpm --filter \"package-json-utils\" run test:coverage",
         "test:coverage:stylelint-config": "pnpm --filter \"stylelint-config\" run test:coverage",
         "test:eslint-config": "pnpm --filter \"eslint-config\" run test",
         "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
-        "test:package-json-utils": "pnpm --filter \"package-json-utils\" run test",
         "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css",
-        "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test"
+        "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test",
+        "update:deps": "taze"
     },
     "dependencies": {
         "@anolilab/multi-semantic-release": "^1.1.6",
@@ -122,30 +121,14 @@
         "semantic-release": "^24.2.0",
         "sort-package-json": "^2.12.0",
         "stylelint": "^16.12.0",
+        "taze": "^0.18.0",
         "textlint": "^14.4.0",
-        "tsup": "^8.3.5",
         "typescript": "5.7.2",
         "vitest": "^2.1.8"
     },
-    "packageManager": "pnpm@9.5.0",
+    "packageManager": "pnpm@9.15.0",
     "engines": {
-        "node": ">=18.* <=21.*"
-    },
-    "pnpm": {
-        "overrides": {
-            "vite@>=5.0.0 <=5.0.11": ">=5.0.12",
-            "vite@>=5.0.0 <=5.0.12": ">=5.0.13",
-            "chrono-node@<2.2.4": ">=2.2.4",
-            "semver@>=7.0.0 <7.5.2": ">=7.5.2",
-            "axios@>=1.3.2 <=1.7.3": ">=1.7.4",
-            "micromatch@<4.0.8": ">=4.0.8",
-            "vite@>=5.3.0 <5.3.6": ">=5.3.6",
-            "vite@>=4.0.0 <4.5.4": ">=4.5.4",
-            "vite@>=4.0.0 <=4.5.3": ">=4.5.4",
-            "vite@>=5.3.0 <=5.3.5": ">=5.3.6",
-            "rollup@>=3.0.0 <3.29.5": ">=3.29.5",
-            "rollup@>=4.0.0 <4.22.4": ">=4.22.4"
-        }
+        "node": ">=18.* <=23.*"
     },
     "anolilab": {
         "lint-staged-config": {
@@ -163,6 +146,12 @@
             "info_on_disabling_prettier_conflict_rule": false,
             "info_on_disabling_jsonc_sort_keys_rule": false,
             "info_on_disabling_etc_no_deprecated": false
+        }
+    },
+    "pnpm": {
+        "overrides": {
+            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+            "nanoid@<3.3.8": ">=3.3.8"
         }
     }
 }

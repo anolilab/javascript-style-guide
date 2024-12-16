@@ -23,24 +23,22 @@ Package that contains shareable configuration for [prettier](https://github.com/
 ## Install
 
 ```bash
-npm install --dev-save @anolilab/prettier-config
+npm install --dev-save prettier @anolilab/prettier-config
 ```
 
 ```sh
-yarn add -D @anolilab/prettier-config
+yarn add -D prettier @anolilab/prettier-config
 ```
 
 ```sh
-pnpm add -D @anolilab/prettier-config
+pnpm add -D prettier @anolilab/prettier-config
 ```
 
 ## Usage
 
-If you don’t have a `.prettierrc.js` and `.prettierignore`, we will create the file for you after installing `@anolilab/prettier-config`.
+If you don’t have a `.prettierrc.js` or the other supported file names and `.prettierignore`, we can create the file for you after installing `@anolilab/prettier-config`, call `pnpm prettier-config:install`.
 
 > Note: If the script detects an existing `.prettierrc.js` file, it will not overwrite it.
-
-> Note: It can happen that the postinstall script don't run, then you have to add the `.prettierrc.js` manually.
 
 <details>
 <summary>File content of the `.prettierrc.js`</summary>

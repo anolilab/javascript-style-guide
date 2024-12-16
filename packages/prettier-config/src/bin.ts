@@ -26,12 +26,14 @@ const writePrettierRc = async () => {
         configFile,
         `${configFile}.js`,
         `${configFile}.cjs`,
+        `${configFile}.mjs`,
         `${configFile}.json`,
         `${configFile}.json5`,
         `${configFile}.yaml`,
         `${configFile}.yml`,
         `${configFile}.toml`,
         "prettier.config.js",
+        "prettier.config.mjs",
         "prettier.config.cjs",
     ]) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -81,8 +83,8 @@ const writePrettierIgnore = async () => {
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
     try {
-        // eslint-disable-next-line compat/compat
-        await Promise.all([writePrettierRc(), writePrettierIgnore()]);
+        await writePrettierRc();
+        await writePrettierIgnore();
 
         console.log("😎  Everything went well, have fun!");
 

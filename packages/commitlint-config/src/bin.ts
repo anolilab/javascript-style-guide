@@ -13,18 +13,48 @@ const writeFileAsync = promisify(writeFile);
 
 console.log("Configuring @anolilab/commitlint-config", projectPath, "\n");
 
+const checkIfFileExists = (filename: string): boolean => {
+    if (existsSync(filename)) {
+        console.warn(`⚠️ ${filename} already exists;`);
+
+        return true;
+    }
+
+    return false;
+};
+
 /**
  * Writes commitlint.config.js if it doesn't exist. Warns if it exists.
  */
 const writeCommitLintConfig = async () => {
-    const commitlintPath = join(projectPath, "commitlint.config.js");
+    const configFile = "commitlint";
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    if (existsSync(commitlintPath)) {
-        console.warn("⚠️  commitlint.config.js already exists;");
+    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
+    for (const filename of [
+        configFile,
+        `.${configFile}rc`,
+        `.${configFile}.json`,
+        `.${configFile}.yaml`,
+        `.${configFile}.yml`,
+        `.${configFile}.js`,
+        `.${configFile}.cjs`,
+        `.${configFile}.mjs`,
+        `.${configFile}.ts`,
+        `.${configFile}.cts`,
+        `.${configFile}.config.js`,
+        `.${configFile}.config.cjs`,
+        `.${configFile}.config.mjs`,
+        `.${configFile}.config.ts`,
+        `.${configFile}.config.cts`,
+    ]) {
+        if (checkIfFileExists(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;`);
 
-        return;
+            return;
+        }
     }
+
+    const filePath = join(projectPath, "commitlint.config.js");
 
     const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
     extends: ["@anolilab/commitlint-config"],
@@ -36,7 +66,7 @@ const writeCommitLintConfig = async () => {
 
 `;
 
-    await writeFileAsync(commitlintPath, content, "utf-8");
+    await writeFileAsync(filePath, content, "utf-8");
 };
 
 /**

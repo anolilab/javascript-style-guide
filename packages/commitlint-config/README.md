@@ -43,11 +43,13 @@ pnpm add -D @commitlint/cli @anolilab/commitlint-config
 
 ## Usage
 
-When installing this package for the first time, the following shareable configuration `commitlint.config.js` is automatically added to your project folder:
+If you don’t have a `commitlint.config.js` or the other supported names, we can create the file for you after installing `@anolilab/commitlint-config`, call `pnpm commitlint-config:install`.
+
+> Alternatively the configuration can be defined in a `commitlint.config.js`, `.commitlintrc.js`, `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yml` file
+
+If you already have a `commitlint.config.js`, then you can extend the `commitlint.config.js`, with `@anolilab/commitlint-config`.
 
 > Note: If the script detects an existing `commitlint.config.js` file, it will not overwrite it.
-
-> Note: It can happen that the postinstall script dont run, then you have to add the `commitlint.config.js` manually.
 
 ```js
 module.exports = {
@@ -71,8 +73,6 @@ export default {
 ```
 
 This extends the `@anolilab/commitlint-config` and uses its pre-defined configuration.
-
-> Alternatively the configuration can be defined in a `commitlint.config.js`, `.commitlintrc.js`, `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yml` file
 
 ## Commitlint Rules
 

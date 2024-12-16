@@ -4,8 +4,6 @@ import { exit } from "node:process";
 import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
 import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 
-import getNearestConfigPath from "./utils/get-nearest-config-path";
-
 console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
 
 const checkIfFileExists = (filename: string): boolean => {
@@ -38,6 +36,8 @@ const writeLintStagedRc = async () => {
         "lint-staged.config.cjs",
     ]) {
         if (checkIfFileExists(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;`);
+
             return;
         }
     }
@@ -70,6 +70,8 @@ const writeNanoStagedRc = async () => {
         ".nanostagedrc",
     ]) {
         if (checkIfFileExists(join(projectPath, filename))) {
+            console.warn(`⚠️  ${filename} already exists;`);
+
             return;
         }
     }
@@ -89,7 +91,7 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
-const writeHuskyFiles = async () => {
+const writeHuskyFiles = async (hasNanoStaged: boolean) => {
     const hasHusky = hasDependency("husky") || hasDevDependency("husky");
 
     if (!hasHusky) {
@@ -135,16 +137,6 @@ fi
 
     const preCommitPath = join(huskyFolderPath, "pre-commit");
 
-    let hasPnpm = false;
-
-    try {
-        getNearestConfigPath("pnpm-lock.yaml");
-
-        hasPnpm = true;
-    } catch {
-        hasPnpm = false;
-    }
-
     if (!checkIfFileExists(preCommitPath)) {
         writeFileSync(
             preCommitPath,
@@ -159,7 +151,7 @@ fi
 echo --------------------------------------------
 echo Starting Git hook: pre-commit
 
-${hasPnpm ? "pnpx" : "npx"} lint-staged --verbose --concurrent false
+${hasNanoStaged ? "./node_modules/.bin/nano-staged" : "./node_modules/.bin/lint-staged --verbose --concurrent false"}
 
 echo Finished Git hook: pre-commit
 echo --------------------------------------------
@@ -181,14 +173,14 @@ echo --------------------------------------------
 echo --------------------------------------------
 echo Starting Git hook: prepare-commit-msg
 
-# if we hve a cmd that is running ${hasPnpm ? "pnpx" : "npx"} cz that means finalize and commit
+# if we hve a cmd that is running ./node_modules/.bin/cz that means finalize and commit
 FILE=commit.cmd
 if test -f "$FILE"; then
     echo "$FILE exists."
     rm commit.cmd
     exit 0;
 fi
-# if on Windows, spawn a cmd that will run ${hasPnpm ? "pnpx" : "npx"} cz
+# if on Windows, spawn a cmd that will run ./node_modules/.bin/cz
 case \`uname\` in
     *CYGWIN*|*MINGW*|*MSYS* )
         # Only run commitizen if no commit message was already provided.
@@ -196,7 +188,7 @@ case \`uname\` in
             export CZ_TYPE="\${CZ_TYPE:-fix}"
             export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
             export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
-            echo "${hasPnpm ? "pnpx" : "npx"} cz && exit" > commit.cmd
+            echo "./node_modules/.bin/cz && exit" > commit.cmd
             start commit.cmd
             exit 1;
         fi
@@ -210,7 +202,7 @@ if [ -z "\${2-}" ]; then
     export CZ_MAX_HEADER_WIDTH=$COMMITLINT_MAX_WIDTH
     export CZ_MAX_LINE_WIDTH=$CZ_MAX_HEADER_WIDTH
     # By default git hooks are not interactive. exec < /dev/tty allows a users terminal to interact with commitizen.
-    exec < /dev/tty && ${hasPnpm ? "pnpx" : "npx"} cz --hook || true
+    exec < /dev/tty && ./node_modules/.bin/cz --hook || true
 fi
 
 echo Finished Git hook: prepare-commit-msg
@@ -232,7 +224,7 @@ echo --------------------------------------------
             await writeNanoStagedRc();
         }
 
-        await writeHuskyFiles();
+        await writeHuskyFiles(hasNanoStaged);
 
         console.log("😎 Everything went well, have fun!");
 

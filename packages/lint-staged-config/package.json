@@ -120,9 +120,6 @@
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
-    "bin": {
-        "lint-stage-config:install": "./dist/bin.mjs"
-    },
     "typesVersions": {
         ">=5.0": {
             ".": [
@@ -150,6 +147,9 @@
                 "./dist/groups/typescript.d.ts"
             ]
         }
+    },
+    "bin": {
+        "lint-stage-config:install": "./dist/bin.mjs"
     },
     "files": [
         "dist",
@@ -204,6 +204,12 @@
         "jest": {
             "optional": true
         },
+        "lint-staged": {
+            "optional": true
+        },
+        "nano-staged": {
+            "optional": true
+        },
         "prettier": {
             "optional": true
         },
@@ -214,12 +220,6 @@
             "optional": true
         },
         "vitest": {
-            "optional": true
-        },
-        "lint-staged": {
-            "optional": true
-        },
-        "nano-staged": {
             "optional": true
         }
     },

@@ -1,23 +1,17 @@
-import { existsSync, writeFile } from "node:fs";
+import { existsSync } from "node:fs";
+import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { env, exit } from "node:process";
-import { promisify } from "node:util";
-
-import { projectPath } from "@anolilab/package-json-utils";
 
 if (env["CI"] !== undefined) {
     exit(0);
 }
 
-const writeFileAsync = promisify(writeFile);
-
-console.log("Configuring @anolilab/textlint-config", projectPath, "\n");
-
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.
  */
-const writeTextLintRc = async () => {
-    const filePath = join(projectPath, ".textlintrc");
+const writeTextLintRc = async (cwd: string) => {
+    const filePath = join(cwd, ".textlintrc");
     const content = `{
     "@textlint/markdown": {
         "extensions": [".md", ".mdx"]
@@ -165,14 +159,14 @@ to work as it should: ${content}.`);
         return;
     }
 
-    await writeFileAsync(filePath, content, "utf-8");
+    await writeFile(filePath, content, "utf-8");
 };
 
 /**
  * Writes .textlintignore if it doesn't exist. Warns if it exists.
  */
-const writeTextLintIgnore = async () => {
-    const filePath = join(projectPath, ".textlintignore");
+const writeTextLintIgnore = async (cwd: string) => {
+    const filePath = join(cwd, ".textlintignore");
     const content = "";
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -182,14 +176,18 @@ const writeTextLintIgnore = async () => {
         return;
     }
 
-    await writeFileAsync(filePath, content, "utf-8");
+    await writeFile(filePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
+    const cwd = process.cwd();
+
+    console.log("Configuring @anolilab/textlint-config", cwd, "\n");
+
     try {
-        await writeTextLintRc();
-        await writeTextLintIgnore();
+        await writeTextLintRc(cwd);
+        await writeTextLintIgnore(cwd);
 
         console.log("😎  Everything went well, have fun!");
 

@@ -1,11 +1,7 @@
 import { existsSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { env, exit } from "node:process";
-
-if (env["CI"] !== undefined) {
-    exit(0);
-}
+import { exit } from "node:process";
 
 /**
  * Writes .textlintrc if it doesn't exist. Warns if it exists.

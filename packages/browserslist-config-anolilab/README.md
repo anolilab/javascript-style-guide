@@ -104,16 +104,7 @@ module.exports = {
 
 ```json
 {
-    "production": [
-        "> 1%",
-        "last 2 versions",
-        "Firefox ESR"
-    ],
-    "legacyBrowsers": [
-        "> 1%",
-        "last 2 versions",
-        "Firefox ESR"
-    ],
+    "legacyBrowsers": ["> 1%", "last 2 versions", "Firefox ESR"],
     "modernBrowsers": [
         "last 2 Chrome versions",
         "not Chrome < 60",
@@ -126,9 +117,9 @@ module.exports = {
         "last 2 Edge versions",
         "not Edge < 15"
     ],
-    "ssr": [
-        "node 12"
-    ]
+    "node": ["last 2 node major versions"],
+    "production": ["> 1%", "last 2 versions", "Firefox ESR", "not dead"],
+    "ssr": ["node 22"]
 }
 ```
 

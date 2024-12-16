@@ -15,7 +15,7 @@ const config = {
     /** NOTE: Meaning LTS version. Any version above LTS is not considered as "major release", AFAIK. */
     node: ["last 2 node major versions"],
     production: ["> 1%", "last 2 versions", "Firefox ESR", "not dead"],
-    ssr: ["node 16"],
+    ssr: ["node 22"],
 };
 
 export default config;

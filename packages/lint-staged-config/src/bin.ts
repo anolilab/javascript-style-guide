@@ -1,10 +1,9 @@
 import { join } from "node:path";
 import { exit } from "node:process";
 
-import { hasDependency, hasDevDependency, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
-import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
-
-console.log("Configuring @anolilab/lint-staged-config", projectPath, "\n");
+import { ensureDirSync, isAccessibleSync, readFile, writeFileSync } from "@visulima/fs";
+import { existsSync } from "node:fs";
+import { hasPackageJsonAnyDependency, type NormalizedPackageJson, parsePackageJson } from "@visulima/package";
 
 const checkIfFileExists = (filename: string): boolean => {
     if (isAccessibleSync(filename)) {
@@ -19,7 +18,7 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
-const writeLintStagedRc = async () => {
+const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     const configFile = ".lintstagedrc";
 
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
@@ -35,25 +34,23 @@ const writeLintStagedRc = async () => {
         "lint-staged.config.mjs",
         "lint-staged.config.cjs",
     ]) {
-        if (checkIfFileExists(join(projectPath, filename))) {
+        if (checkIfFileExists(join(cwd, filename))) {
             console.warn(`⚠️  ${filename} already exists;`);
 
             return;
         }
     }
 
-    const filePath = join(projectPath, ".lintstagedrc.js");
-    const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
+    const filePath = join(cwd, ".lintstagedrc.js");
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
-${packageIsTypeModule ? "export default" : "module.exports ="} {
-    ...config,
-};
+${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
 
     writeFileSync(filePath, content);
 };
 
-const writeNanoStagedRc = async () => {
+const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     const configFile = ".nano-staged";
 
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
@@ -69,19 +66,17 @@ const writeNanoStagedRc = async () => {
         `${configFile.replace(".", "")}.json`,
         ".nanostagedrc",
     ]) {
-        if (checkIfFileExists(join(projectPath, filename))) {
+        if (checkIfFileExists(join(cwd, filename))) {
             console.warn(`⚠️  ${filename} already exists;`);
 
             return;
         }
     }
 
-    const filePath = join(projectPath, ".nano-staged.js");
-    const content = `${packageIsTypeModule ? 'import config from "@anolilab/lint-staged-config"' : 'const config = require("@anolilab/lint-staged-config")'};
+    const filePath = join(cwd, ".nano-staged.js");
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
-${packageIsTypeModule ? "export default" : "module.exports ="} {
-    ...config,
-};
+${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
 
     writeFileSync(filePath, content);
@@ -91,8 +86,8 @@ ${packageIsTypeModule ? "export default" : "module.exports ="} {
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
-const writeHuskyFiles = async (hasNanoStaged: boolean) => {
-    const hasHusky = hasDependency("husky") || hasDevDependency("husky");
+const writeHuskyFiles = async (cwd: string, packageJson: NormalizedPackageJson, hasNanoStaged: boolean) => {
+    const hasHusky = hasPackageJsonAnyDependency(packageJson, ["husky"]);
 
     if (!hasHusky) {
         console.warn("⚠️ husky is not installed;");
@@ -100,7 +95,7 @@ const writeHuskyFiles = async (hasNanoStaged: boolean) => {
         return;
     }
 
-    const huskyFolderPath = join(projectPath, ".husky");
+    const huskyFolderPath = join(cwd, ".husky");
 
     ensureDirSync(huskyFolderPath);
 
@@ -160,7 +155,7 @@ echo --------------------------------------------
     }
 
     const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
-    const hasCz = hasDependency("commitizen") || hasDevDependency("commitizen");
+    const hasCz = hasPackageJsonAnyDependency(packageJson, ["commitizen"]);
 
     if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
         writeFileSync(
@@ -214,24 +209,38 @@ echo --------------------------------------------
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
-    const hasLintStaged = hasDependency("lint-staged") || hasDevDependency("lint-staged");
-    const hasNanoStaged = hasDependency("nano-staged") || hasDevDependency("nano-staged");
+    const cwd = process.cwd();
+
+    console.log("Configuring @anolilab/lint-staged-config", cwd, "\n");
+
+    const packageJsonPath = join(cwd, "package.json");
+
+    if (!existsSync(packageJsonPath)) {
+        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+
+        exit(1);
+    }
+
+    const packageJson = parsePackageJson(await readFile(packageJsonPath));
+    const isTypeModule = packageJson.type === "module";
+
+    const hasLintStaged = hasPackageJsonAnyDependency(packageJson, ["lint-staged"]);
+    const hasNanoStaged = hasPackageJsonAnyDependency(packageJson, ["nano-staged"]);
 
     try {
         if (hasLintStaged) {
-            await writeLintStagedRc();
+            await writeLintStagedRc(cwd, isTypeModule);
         } else if (hasNanoStaged) {
-            await writeNanoStagedRc();
+            await writeNanoStagedRc(cwd, isTypeModule);
         }
 
-        await writeHuskyFiles(hasNanoStaged);
+        await writeHuskyFiles(cwd, packageJson, hasNanoStaged);
 
-        console.log("😎 Everything went well, have fun!");
+        console.log("Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
-        console.log("😬 something went wrong:");
-        console.error(error);
+        console.error("Something went wrong:", error);
 
         exit(1);
     }

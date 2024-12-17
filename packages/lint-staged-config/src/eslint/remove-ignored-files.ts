@@ -1,7 +1,7 @@
 import { ESLint } from "eslint";
 import { quote } from "shell-quote";
 
-import isWindows from "../../utils/is-windows";
+import isWindows from "../utils/is-windows";
 
 const removeIgnoredFiles = async (filenames: string[]): Promise<string[]> => {
     const eslint = new ESLint();

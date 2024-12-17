@@ -77,87 +77,34 @@ If you already have a `.lintstagedrc.js` or `.nano-staged.js`, then you can exte
 The content of the `.lintstagedrc.js` or `.nano-staged.js` should look like this:
 
 ```js
-const config = require("@anolilab/lint-staged-config");
+const { defineConfig } = require("@anolilab/lint-staged-config");
 
-module.exports = {
-    ...config,
-};
+module.exports = defineConfig();
 
 // or
 
-import config from "@anolilab/lint-staged-config";
+import { defineConfig } from "@anolilab/lint-staged-config";
 
-export default {
-    ...config,
-};
+export default defineConfig();
 ```
 ### Config
 
-You can configure `@anolilab/lint-staged-config` options with your `package.json` file.
+You can configure `@anolilab/lint-staged-config` options inside the `defineConfig` function.
 
-Add this property to your package.json:
+```js
+const { defineConfig } = require("@anolilab/lint-staged-config");
 
-```json5
-{
-    anolilab: {
-        "lint-staged-config": {
-            // ...options
-        },
-    },
-}
-```
+module.exports = defineConfig({
+  // Add your configuration here
+});
 
-#### typescript
+// or
 
-Type: `object`
+import { defineConfig } from "@anolilab/lint-staged-config";
 
-Options:
-- `exclude` - Exclude files from tsc linting. Provide the path to the tsconfig.json file.
-  - Type: `string[]`
-  - Default: `[]`
-
-Example using package.json:
-
-```json5
-{
-    "anolilab": {
-        "lint-staged-config": {
-            "typescript": {
-                // ...options
-            }
-        }
-    }
-}
-```
-
-#### eslint
-
-Type: `object`
-
-Options:
-- `cache` - Enable or disable caching.
-  - Type: `boolean`
-- config - Change path to eslint config.
-  - Type: `string`
-- "fix-type"
-  - Type: `string[]`
-- "max-warnings"
-  - Type: `number | string | false`
-- rules - Override rules from eslint config.
-  - Type: `string[]`
-
-Example using package.json:
-
-```json5
-{
-    "anolilab": {
-        "lint-staged-config": {
-            "eslint": {
-                // ...options
-            }
-        }
-    }
-}
+export default defineConfig({
+  // Add your configuration here
+});
 ```
 
 ## Configuration

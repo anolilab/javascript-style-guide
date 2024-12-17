@@ -3,7 +3,7 @@ import { dirname, join } from "node:path";
 import { findUpSync, isAccessibleSync } from "@visulima/fs";
 import type { Join } from "type-fest";
 
-import type { AbsolutePath, ConfigFileName, ConfigPath } from "./types";
+import type { AbsolutePath, ConfigFileName, ConfigPath } from "../types";
 
 const packageDirectorySync = (cwd?: string) => {
     const filePath = findUpSync("package.json", { cwd });

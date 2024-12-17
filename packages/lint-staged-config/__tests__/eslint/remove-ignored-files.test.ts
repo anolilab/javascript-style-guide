@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import removeIgnoredFiles from "../../../src/groups/eslint/remove-ignored-files";
+import removeIgnoredFiles from "../../src/eslint/remove-ignored-files";
 
 describe("remove-ignored-files", () => {
     it("should verity with non-ignored files", async () => {

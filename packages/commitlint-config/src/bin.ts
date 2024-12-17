@@ -1,17 +1,7 @@
-import { existsSync, writeFile } from "node:fs";
+import { existsSync } from "node:fs";
+import { writeFile, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { promisify } from "node:util";
-
-import { packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
-
-if (process.env["CI"]) {
-    // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(0);
-}
-
-const writeFileAsync = promisify(writeFile);
-
-console.log("Configuring @anolilab/commitlint-config", projectPath, "\n");
+import process from "node:process";
 
 const checkIfFileExists = (filename: string): boolean => {
     if (existsSync(filename)) {
@@ -26,7 +16,7 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes commitlint.config.js if it doesn't exist. Warns if it exists.
  */
-const writeCommitLintConfig = async () => {
+const writeCommitLintConfig = async (cwd: string, isTypeModule: boolean) => {
     const configFile = "commitlint";
 
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
@@ -47,16 +37,16 @@ const writeCommitLintConfig = async () => {
         `.${configFile}.config.ts`,
         `.${configFile}.config.cts`,
     ]) {
-        if (checkIfFileExists(join(projectPath, filename))) {
+        if (checkIfFileExists(join(cwd, filename))) {
             console.warn(`⚠️  ${filename} already exists;`);
 
             return;
         }
     }
 
-    const filePath = join(projectPath, "commitlint.config.js");
+    const filePath = join(cwd, "commitlint.config.js");
 
-    const content = `${packageIsTypeModule ? "export default" : "module.exports ="} {
+    const content = `${isTypeModule ? "export default" : "module.exports ="} {
     extends: ["@anolilab/commitlint-config"],
     rules: {
         // overwrite rules here
@@ -66,14 +56,14 @@ const writeCommitLintConfig = async () => {
 
 `;
 
-    await writeFileAsync(filePath, content, "utf-8");
+    await writeFile(filePath, content, "utf-8");
 };
 
 /**
  * Writes .czrc if it doesn't exist. Warns if it exists.
  */
-const writeCzrc = async () => {
-    const filePath = join(projectPath, ".czrc");
+const writeCzrc = async (cwd: string) => {
+    const filePath = join(cwd, ".czrc");
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(filePath)) {
@@ -88,22 +78,36 @@ const writeCzrc = async () => {
 
 `;
 
-    await writeFileAsync(filePath, content, "utf-8");
+    await writeFile(filePath, content, "utf-8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 (async () => {
-    try {
-        await writeCommitLintConfig();
-        await writeCzrc();
+    const cwd = process.cwd();
 
-        console.log("😎  Everything went well, have fun!");
+    const packageJsonPath = join(cwd, "package.json");
+
+    if (!existsSync(packageJsonPath)) {
+        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+
+        process.exit(1);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf-8"));
+
+    console.log("Configuring @anolilab/commitlint-config", cwd, "\n");
+
+    try {
+        await writeCommitLintConfig(cwd, packageJson.type === "module");
+        await writeCzrc(cwd);
+
+        console.log("Everything went well, have fun!");
 
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(0);
     } catch (error) {
-        console.log("😬  something went wrong:");
-        console.error(error);
+        console.error("Something went wrong:", error);
 
         // eslint-disable-next-line unicorn/no-process-exit
         process.exit(1);

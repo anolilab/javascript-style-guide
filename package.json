@@ -40,7 +40,6 @@
         "textlint",
         "write-good"
     ],
-    "type": "module",
     "homepage": "https://github.com/anolilab/javascript-style-guide#readme",
     "bugs": {
         "url": "https://github.com/anolilab/javascript-style-guide/issues"
@@ -51,6 +50,7 @@
     },
     "license": "MIT",
     "author": "Daniel Bannert <d.bannert@anolilab.de>",
+    "type": "module",
     "workspaces": [
         "packages/*"
     ],
@@ -130,6 +130,12 @@
     "engines": {
         "node": ">=18.* <=23.*"
     },
+    "pnpm": {
+        "overrides": {
+            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+            "nanoid@<3.3.8": ">=3.3.8"
+        }
+    },
     "anolilab": {
         "lint-staged-config": {
             "eslint": {
@@ -146,12 +152,6 @@
             "info_on_disabling_prettier_conflict_rule": false,
             "info_on_disabling_jsonc_sort_keys_rule": false,
             "info_on_disabling_etc_no_deprecated": false
-        }
-    },
-    "pnpm": {
-        "overrides": {
-            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
-            "nanoid@<3.3.8": ">=3.3.8"
         }
     }
 }

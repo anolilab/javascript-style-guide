@@ -1,5 +1,3 @@
-const config = require("./packages/lint-staged-config/dist");
+import { defineConfig } from "./packages/lint-staged-config/dist/index.mjs";
 
-module.exports = {
-    ...config,
-};
+export default defineConfig();

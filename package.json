@@ -40,6 +40,7 @@
         "textlint",
         "write-good"
     ],
+    "type": "module",
     "homepage": "https://github.com/anolilab/javascript-style-guide#readme",
     "bugs": {
         "url": "https://github.com/anolilab/javascript-style-guide/issues"
@@ -72,7 +73,6 @@
         "prettier": "prettier --config=.prettierrc.js --write '**/*.{js,jsx,cjs,tsx,ts,less,md,json}'",
         "sort-package-json": "sort-package-json ./packages/**/package.json ./package.json",
         "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,stylelint-config,eslint-config && pnpm test:stylelint && pnpm test:babel",
-        "test:babel": "babel --config-file=./packages/babel-preset/dist/index.js ./packages/babel-preset/fixture/test.ts --out-file=./packages/babel-preset/fixture/test.js",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
         "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
         "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",

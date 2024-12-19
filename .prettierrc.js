@@ -1,7 +1,3 @@
-// @ts-check
+import config from "./packages/prettier-config";
 
-/**
- * @type {import('prettier').Options}
- */
-
-module.exports = require("./packages/prettier-config");
+export default config;

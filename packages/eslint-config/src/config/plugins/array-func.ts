@@ -1,19 +1,23 @@
-// eslint-disable-next-line unicorn/prevent-abbreviations
-import type { Linter } from "eslint";
-
 import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 
-const config: Linter.Config = createConfig("all", {
-    extends: ["plugin:array-func/recommended"],
-    plugins: ["array-func"],
-    rules: {
-        // Rule disabled due to clash with Unicorn
-        "array-func/prefer-array-from": "off",
+export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
+    const { overrides, files = oFiles } = config;
 
-        // Rules not in recommended config
-        "array-func/prefer-flat": 0,
-        "array-func/prefer-flat-map": 0,
-    },
+    const arrayFuncPlugin = await interopDefault(import("eslint-plugin-array-func"));
+
+    return [
+        {
+            files,
+            name: "anolilab/array-func/rules",
+            parserOptions: {
+                ecmaVersion: 2018,
+            },
+            rules: {
+                ...arrayFuncPlugin.rules,
+                ...overrides,
+            },
+        },
+    ];
 });
-
-export default config;

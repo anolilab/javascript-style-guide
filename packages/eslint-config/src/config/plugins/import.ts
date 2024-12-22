@@ -58,19 +58,19 @@ const config: Linter.Config = createConfigs([
                     "ignorePackages",
                     packageIsTypeModule
                         ? {
-                            cjs: "always",
-                            js: "always",
-                            jsx: "always",
-                            mjs: "always",
-                            json: "always",
-                        }
+                              cjs: "always",
+                              js: "always",
+                              jsx: "always",
+                              mjs: "always",
+                              json: "always",
+                          }
                         : {
-                            cjs: "never",
-                            js: "never",
-                            jsx: "never",
-                            mjs: "never",
-                            json: "always",
-                        },
+                              cjs: "never",
+                              js: "never",
+                              jsx: "never",
+                              mjs: "never",
+                              json: "always",
+                          },
                 ],
 
                 // disallow non-import statements appearing before import statements

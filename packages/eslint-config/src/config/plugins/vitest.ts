@@ -1,24 +1,42 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import { createConfig } from "../../utils/create-config";
+import type { OptionsFiles, OptionsOverrides } from "../../types";
+import interopDefault from "../../utils/interop-default";
 
-if (!global.hasAnolilabEsLintVitestGlobalsPlugin) {
-    global.hasAnolilabEsLintVitestGlobalsPlugin = hasDependency("eslint-plugin-vitest-globals") || hasDevDependency("eslint-plugin-vitest-globals");
-}
+// Hold the reference so we don't redeclare the plugin on each call
+let _pluginTest: any;
 
-const plugins = ["plugin:vitest/recommended", "plugin:vitest/all"];
+export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
 
-if (global.hasAnolilabEsLintVitestGlobalsPlugin) {
-    plugins.push("plugin:vitest-globals/recommended");
-}
+    const [vitestPlugin, noOnlyTestsPlugin] = await Promise.all([
+        interopDefault(import("@vitest/eslint-plugin")),
+        // @ts-expect-error missing types
+        interopDefault(import("eslint-plugin-no-only-tests")),
+    ] as const);
 
-const config: Linter.Config = {
-    overrides: [
+    _pluginTest = _pluginTest || {
+        ...vitestPlugin,
+        rules: {
+            ...vitestPlugin.rules,
+            // extend `test/no-only-tests` rule
+            ...noOnlyTestsPlugin.rules,
+        },
+    };
+
+    return [
         {
-            extends: plugins,
-            files: ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"],
-            plugins: ["vitest"],
-            // TODO: transform all rules to error
+            name: "anolilab/vitest/setup",
+            plugins: {
+                vitest: _pluginTest,
+            },
+        },
+        {
+            files,
+            name: "anolilab/vitest/rules",
             rules: {
+                ...vitestPlugin.configs.all.rules,
+                ...vitestPlugin.configs.recommended.rules,
+
                 // Enforce a maximum number of expect per test
                 // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md
                 // This rule should be set on the root config
@@ -43,9 +61,30 @@ const config: Linter.Config = {
                 // Disallow using expect outside of it or test blocks
                 // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
                 "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],
+
+                // Disables
+                // @TODO move this into the correct places
+                ...{
+                    "antfu/no-top-level-await": "off",
+                    "no-unused-expressions": "off",
+                    "node/prefer-global/process": "off",
+                    "ts/explicit-function-return-type": "off",
+                },
+
+                ...overrides,
+            },
+            // TODO: hide this behind a config flag
+            settings: {
+                vitest: {
+                    typecheck: true,
+                },
+            },
+            // TODO: hide this behind a config flag
+            languageOptions: {
+                globals: {
+                    ...vitestPlugin.environments.env.globals,
+                },
             },
         },
-    ],
-};
-
-export default config;
+    ];
+});

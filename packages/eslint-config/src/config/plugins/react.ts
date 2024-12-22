@@ -1,109 +1,156 @@
-// @see https://github.com/yannickcr/eslint-plugin-react
-import { env } from "node:process";
-
-import { getPackageSubProperty, hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
-import findUp from "find-up";
 import { parse } from "semver";
 
-import anolilabEslintConfig from "../../utils/eslint-config";
-import indent from "../../utils/indent";
-import { consoleLog } from "../../utils/loggers";
 import styleConfig from "../style";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsPackageJson,
+    OptionsStylistic,
+    OptionsTypeScriptParserOptions,
+    OptionsTypeScriptWithTypes,
+    TypedFlatConfigItem,
+} from "../../types";
+import interopDefault from "../../utils/interop-default";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
+import { readTsConfig } from "@visulima/tsconfig";
 
 // @ts-expect-error TODO: find the correct type
 const styleRules = styleConfig.overrides[0].rules as Linter.RulesRecord;
 const dangleRules = styleRules["no-underscore-dangle"] as Linter.RuleEntry;
 
-if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
-    global.hasAnolilabEsLintConfigPrettier = true;
-}
+// react refresh
+const ReactRefreshAllowConstantExportPackages = ["vite"];
+const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
+const NextJsPackages = ["next"];
 
-if (global.anolilabEslintConfigReactPrettierRules === undefined && global.hasAnolilabEsLintConfigPrettier) {
-    global.anolilabEslintConfigReactPrettierRules = {
-        "react/jsx-child-element-spacing": "off",
-        "react/jsx-closing-bracket-location": "off",
-        "react/jsx-closing-tag-location": "off",
-        "react/jsx-curly-newline": "off",
-        "react/jsx-curly-spacing": "off",
-        "react/jsx-equals-spacing": "off",
-        "react/jsx-first-prop-new-line": "off",
-        "react/jsx-indent": "off",
-        "react/jsx-indent-props": "off",
-        "react/jsx-max-props-per-line": "off",
-        "react/jsx-newline": "off",
-        "react/jsx-one-expression-per-line": "off",
-        "react/jsx-props-no-multi-spaces": "off",
-        "react/jsx-tag-spacing": "off",
-        "react/jsx-wrap-multilines": "off",
+// @see https://github.com/yannickcr/eslint-plugin-react
+export default createConfig<
+    OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles & OptionsPackageJson & OptionsHasPrettier & OptionsStylistic
+>("jsx_and_tsx", async (config, oFiles) => {
+    const {
+        files = oFiles,
+        filesTypeAware = [GLOB_TS, GLOB_TSX],
+        ignoresTypeAware = [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS],
+        overrides,
+        tsconfigPath,
+        packageJson,
+        prettier,
+        stylistic = true,
+    } = config;
+
+    const isTypeAware = tsconfigPath !== undefined;
+
+    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
+
+    const typeAwareRules: TypedFlatConfigItem["rules"] = {
+        "react/no-leaked-conditional-rendering": "warn",
     };
-}
 
-const hasJsxRuntime = (() => {
-    // Workaround VS Code trying to run this file twice!
-    if (!global.hasAnolilabEsLintConfigReactRuntimePath) {
-        const reactPath = findUp.sync("node_modules/react/jsx-runtime.js");
-        const isFile = typeof reactPath === "string";
+    const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
+        interopDefault(import("@eslint-react/eslint-plugin")),
+        interopDefault(import("eslint-plugin-react-hooks")),
+        interopDefault(import("eslint-plugin-react-refresh")),
+    ] as const);
 
-        let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSX_REACT_RULE"] !== "true";
+    const isAllowConstantExport = hasPackageJsonAnyDependency(packageJson, ReactRefreshAllowConstantExportPackages);
+    const isUsingRemix = hasPackageJsonAnyDependency(packageJson, RemixPackages);
+    const isUsingNext = hasPackageJsonAnyDependency(packageJson, NextJsPackages);
 
-        if (showLog && anolilabEslintConfig["info_on_disabling_jsx_react_rule"] !== undefined) {
-            showLog = anolilabEslintConfig["info_on_disabling_jsx_react_rule"] as boolean;
-        }
+    const plugins = pluginReact.configs.all.plugins;
 
-        if (showLog && isFile) {
-            consoleLog(`\n@anolilab/eslint-config found react jsx-runtime. \n
-  Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
-  If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
-        }
-
-        global.hasAnolilabEsLintConfigReactRuntimePath = isFile;
-    }
-
-    return global.hasAnolilabEsLintConfigReactRuntimePath;
-})();
-
-if (!global.anolilabEslintConfigReactVersion) {
-    let reactVersion = getPackageSubProperty<string | undefined>("dependencies")("react");
-
-    if (reactVersion === undefined) {
-        reactVersion = getPackageSubProperty<string | undefined>("devDependencies")("react");
-    }
+    let reactVersion = packageJson?.["dependencies"]?.["react"] || packageJson?.["devDependencies"]?.["react"];
 
     if (reactVersion !== undefined) {
         const parsedVersion = parse(reactVersion);
 
         if (parsedVersion !== null) {
-            global.anolilabEslintConfigReactVersion = `${parsedVersion.major}.${parsedVersion.minor}`;
+            reactVersion = `${parsedVersion.major}.${parsedVersion.minor}`;
+
+            // TODO: add log flag
+            console.info(
+                `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
+            );
         }
     }
-}
 
-if (global.anolilabEslintConfigReactVersion !== undefined && anolilabEslintConfig["info_on_found_react_version"] !== false) {
-    consoleLog(
-        `\n@anolilab/eslint-config found the version ${global.anolilabEslintConfigReactVersion} of react in your dependencies, this version ${global.anolilabEslintConfigReactVersion} will be used to setup the "eslint-plugin-react"\n`,
-    );
-}
+    let hasJsxRuntime = false;
 
-const config: Linter.Config = {
-    overrides: [
+    if (tsconfigPath !== undefined) {
+        const tsConfig = readTsConfig(tsconfigPath);
+
+        if (tsConfig?.compilerOptions !== undefined && (tsConfig?.compilerOptions.jsx === "react-jsx" || tsConfig?.compilerOptions.jsx === "react-jsxdev")) {
+            hasJsxRuntime = true;
+            // TODO: add log flag
+            console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
+  Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
+  If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
+        }
+    }
+
+    return [
         {
+            name: "anolilab/react/setup",
+            plugins: {
+                react: plugins["@eslint-react"],
+                "react-dom": plugins["@eslint-react/dom"],
+                "react-hooks": pluginReactHooks,
+                "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
+                "react-naming-convention": plugins["@eslint-react/naming-convention"],
+                "react-refresh": pluginReactRefresh,
+            },
+        },
+        {
+            name: "anolilab/react/rules",
             env: {
                 browser: true,
             },
-
-            files: ["**/*.jsx", "**/*.tsx"],
-
+            files,
             parserOptions: {
                 ecmaFeatures: {
                     jsx: true,
                 },
             },
-
-            plugins: ["react"],
-
             // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
             rules: {
+                // Enforce Rules of Hooks
+                // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
+                "react-hooks/exhaustive-deps": "error",
+
+                // Verify the list of the dependencies for Hooks like useEffect and similar
+                // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
+                "react-hooks/rules-of-hooks": "error",
+
+                // react refresh
+                "react-refresh/only-export-components": [
+                    "warn",
+                    {
+                        allowConstantExport: isAllowConstantExport,
+                        allowExportNames: [
+                            ...(isUsingNext
+                                ? [
+                                      "dynamic",
+                                      "dynamicParams",
+                                      "revalidate",
+                                      "fetchCache",
+                                      "runtime",
+                                      "preferredRegion",
+                                      "maxDuration",
+                                      "config",
+                                      "generateStaticParams",
+                                      "metadata",
+                                      "generateMetadata",
+                                      "viewport",
+                                      "generateViewport",
+                                  ]
+                                : []),
+                            ...(isUsingRemix ? ["meta", "links", "headers", "loader", "action"] : []),
+                        ],
+                    },
+                ],
+
                 "class-methods-use-this": [
                     "error",
                     {
@@ -537,7 +584,7 @@ const config: Linter.Config = {
                     "error",
                     {
                         forbidDefaultForRequired: true,
-                        functions: hasDependency("typescript") || hasDevDependency("typescript") ? "defaultArguments" : "defaultProps",
+                        functions: hasPackageJsonAnyDependency(packageJson, ["typescript"]) ? "defaultArguments" : "defaultProps",
                     },
                 ],
 
@@ -629,12 +676,10 @@ const config: Linter.Config = {
                 ],
 
                 // Prevent adjacent inline elements not separated by whitespace
-                // TODO: set to "never" once @anolilab/babel-preset supports public class fields
-                "react/state-in-constructor": ["error", "always"],
+                "react/state-in-constructor": ["error", "never"],
 
                 // Enforce a specific function type for function components
-                // TODO: set to "static public field" once @anolilab/babel-preset supports public class fields
-                "react/static-property-placement": ["error", "property assignment"],
+                "react/static-property-placement": ["error", "static public field"],
 
                 // Enforce a new line after jsx elements and expressions
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
@@ -644,7 +689,28 @@ const config: Linter.Config = {
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...global.anolilabEslintConfigReactPrettierRules,
+                ...(prettier
+                    ? {
+                          "react/jsx-child-element-spacing": "off",
+                          "react/jsx-closing-bracket-location": "off",
+                          "react/jsx-closing-tag-location": "off",
+                          "react/jsx-curly-newline": "off",
+                          "react/jsx-curly-spacing": "off",
+                          "react/jsx-equals-spacing": "off",
+                          "react/jsx-first-prop-new-line": "off",
+                          "react/jsx-indent": "off",
+                          "react/jsx-indent-props": "off",
+                          "react/jsx-max-props-per-line": "off",
+                          "react/jsx-newline": "off",
+                          "react/jsx-one-expression-per-line": "off",
+                          "react/jsx-props-no-multi-spaces": "off",
+                          "react/jsx-tag-spacing": "off",
+                          "react/jsx-wrap-multilines": "off",
+                      }
+                    : {}),
+
+                // overrides
+                ...overrides,
             },
 
             // View link below for react rules documentation
@@ -658,11 +724,12 @@ const config: Linter.Config = {
                     // The default value is "detect". Automatic detection works by loading the entire React library
                     // into the linter's process, which is inefficient. It is recommended to specify the version
                     // explicity.
-                    version: global.anolilabEslintConfigReactVersion ?? "detect",
+                    version: reactVersion ?? "detect",
                 },
             },
         },
         {
+            name: "anolilab/react/jsx",
             files: ["**/*.jsx"],
             parser: "@babel/eslint-parser",
             parserOptions: {
@@ -703,6 +770,7 @@ const config: Linter.Config = {
             },
         },
         {
+            name: "anolilab/react/tsx",
             files: ["**/*.tsx"],
             rules: {
                 "react/default-props-match-prop-types": "off",
@@ -713,13 +781,24 @@ const config: Linter.Config = {
             },
         },
         {
+            name: "anolilab/react/storybook",
             // For performance run storybook/recommended on test files, not regular code
-            files: ["**/*.stories.{ts,tsx,mdx}"],
+            files: getFilesGlobs("storybook"),
             rules: {
                 "react/jsx-props-no-spreading": "off",
             },
         },
-    ],
-};
-
-export default config;
+        ...(isTypeAware
+            ? [
+                  {
+                      files: filesTypeAware,
+                      ignores: ignoresTypeAware,
+                      name: "anolilab/react/type-aware-rules",
+                      rules: {
+                          ...typeAwareRules,
+                      },
+                  },
+              ]
+            : []),
+    ];
+});

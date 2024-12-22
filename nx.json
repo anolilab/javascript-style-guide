@@ -13,12 +13,20 @@
         },
         "lint:eslint": {
             "dependsOn": ["default"],
-            "inputs": ["default", "{workspaceRoot}/.eslintrc.cjs", "{workspaceRoot}/.eslintrc.js"],
+            "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.cjs",
+                "{workspaceRoot}/.eslintrc.js"
+            ],
             "cache": true
         },
         "lint:eslint:fix": {
             "dependsOn": ["default"],
-            "inputs": ["default", "{workspaceRoot}/.eslintrc.cjs", "{workspaceRoot}/.eslintrc.js"],
+            "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.cjs",
+                "{workspaceRoot}/.eslintrc.js"
+            ],
             "cache": true
         },
         "lint:package-json": {
@@ -38,11 +46,19 @@
             "cache": true
         },
         "test": {
-            "dependsOn": ["default", "^default", "{projectRoot}/vitest.config.ts"],
+            "dependsOn": [
+                "default",
+                "^default",
+                "{projectRoot}/vitest.config.ts"
+            ],
             "cache": true
         },
         "test:coverage": {
-            "dependsOn": ["default", "^default", "{projectRoot}/vitest.config.ts"],
+            "dependsOn": [
+                "default",
+                "^default",
+                "{projectRoot}/vitest.config.ts"
+            ],
             "cache": true
         }
     },
@@ -52,7 +68,11 @@
         }
     },
     "namedInputs": {
-        "default": ["sharedGlobals", "{projectRoot}/**/*", "!{projectRoot}/**/*.md"],
+        "default": [
+            "sharedGlobals",
+            "{projectRoot}/**/*",
+            "!{projectRoot}/**/*.md"
+        ],
         "public": [
             "default",
             "{workspaceRoot}/dist",

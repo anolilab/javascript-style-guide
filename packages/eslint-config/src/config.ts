@@ -401,14 +401,6 @@ const pluginConfig: PackageRules = [
         oneOfDependency: ["react", "react-dom", "preact", "preact/compat"],
     },
     {
-        configName: "you-dont-need-momentjs",
-        dependencies: ["moment", "eslint-plugin-you-dont-need-momentjs"],
-    },
-    {
-        configName: "you-dont-need-momentjs",
-        dependencies: ["moment-timezone", "eslint-plugin-you-dont-need-momentjs"],
-    },
-    {
         configName: "tailwindcss",
         dependencies: ["eslint-plugin-tailwindcss"],
         oneOfDependency: ["tailwindcss", "@tailwindcss/typography", "@tailwindcss/forms", "@tailwindcss/aspect-ratio", "@tailwindcss/line-clamp"],

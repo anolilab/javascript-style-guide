@@ -1,31 +1,62 @@
-import { hasDependency, hasDevDependency, hasTypescript } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import type { OptionsFiles, OptionsPackageJson, OptionsStylistic } from "../../types";
+import interopDefault from "../../utils/interop-default";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import { consoleLog } from "../../utils/loggers";
+export default createConfig<OptionsFiles & OptionsPackageJson & OptionsStylistic>("js", async (config, oFiles) => {
+    const { files = oFiles, packageJson, stylistic = true } = config;
 
-if (global.anolilabEslintConfigJsDocRules === undefined && hasTypescript) {
-    if (hasDependency("eslint-plugin-tsdoc") || hasDevDependency("eslint-plugin-tsdoc")) {
-        consoleLog("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
-    } else {
-        global.anolilabEslintConfigJsDocRules = [
-            {
-                extends: ["plugin:jsdoc/recommended-typescript-error"],
-                files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
-                plugins: ["jsdoc"],
-            },
-        ];
+    const jsdocPlugin = await interopDefault(import("eslint-plugin-jsdoc"));
+
+    const hasTypescript = hasPackageJsonAnyDependency(packageJson, ["typescript"]);
+    const hasTsDocPlugin = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-tsdoc"]);
+
+    if (hasTsDocPlugin) {
+        console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     }
-}
 
-const config: Linter.Config = {
-    overrides: [
+    const rules = [
         {
-            extends: ["plugin:jsdoc/recommended-error"],
-            files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs"],
-            plugins: ["jsdoc"],
+            name: "anolilab/jsdoc/setup",
+            files: getFilesGlobs("all"),
+            plugins: {
+                jsdoc: jsdocPlugin,
+            },
         },
-        ...(global.anolilabEslintConfigJsDocRules ?? []),
-    ],
-};
+        {
+            name: "anolilab/jsdoc/js-rules",
+            files,
+            rules: {
+                ...jsdocPlugin.configs["flat/recommended-error"].rules,
 
-export default config;
+                ...(stylistic
+                    ? {
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
+            },
+        },
+    ];
+
+    if (hasTypescript && !hasTsDocPlugin) {
+        rules.push({
+            name: "anolilab/jsdoc/ts-rules",
+            files,
+            rules: {
+                ...jsdocPlugin.configs["flat/contents-typescript-error"].rules,
+                ...jsdocPlugin.configs["flat/logical-typescript-error"].rules,
+                ...jsdocPlugin.configs["flat/stylistic-typescript-error"].rules,
+
+                ...(stylistic
+                    ? {
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
+            },
+        });
+    }
+
+    return rules;
+});

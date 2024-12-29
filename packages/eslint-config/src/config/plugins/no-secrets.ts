@@ -1,17 +1,26 @@
-import type { Linter } from "eslint";
+import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
+import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/nickdeis/eslint-plugin-no-secrets
-const config: Linter.Config = {
-    overrides: [
+export default async (config: OptionsOverrides): Promise<TypedFlatConfigItem[]> => {
+    const noSecretsPlugin = await interopDefault(import("eslint-plugin-no-secrets"));
+
+    return [
         {
-            excludedFiles: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
+            name: "anolilab/no-secrets",
+            ignores: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
             files: ["*", "*/**"],
-            plugins: ["no-secrets"],
+            languageOptions: {
+                ecmaVersion: 6,
+            },
+            plugins: {
+                "no-secrets": noSecretsPlugin,
+            },
             rules: {
                 "no-secrets/no-secrets": "error",
+
+                ...config.overrides,
             },
         },
-    ],
+    ];
 };
-
-export default config;

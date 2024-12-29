@@ -5,7 +5,7 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;
 
-    const pluginComments = await interopDefault(import("eslint-plugin-eslint-comments"));
+    const pluginComments = await interopDefault(import("@eslint-community/eslint-plugin-eslint-comments"));
 
     return [
         {

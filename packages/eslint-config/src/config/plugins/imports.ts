@@ -1,29 +1,23 @@
-import { fromRoot, packageIsTypeModule, projectPath } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import type { OptionsCwd, OptionsFiles, OptionsOverrides, OptionsPackageJson, OptionsStylistic, OptionsTypeScriptWithTypes } from "../../types";
+import interopDefault from "../../utils/interop-default";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
+import tsParser from "@typescript-eslint/parser";
 
-import { createConfigs } from "../../utils/create-config";
-import anolilabEslintConfig from "../../utils/eslint-config";
+export default createConfig<
+    OptionsFiles & OptionsOverrides & OptionsStylistic & OptionsPackageJson & OptionsCwd & OptionsTypeScriptWithTypes & { importNoUnusedModules?: string[] }
+>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides, stylistic, packageJson, importNoUnusedModules = [], cwd, tsconfigPath } = config;
 
-if (global.anolilabEslintImportNoUnusedModulesConfig === undefined && anolilabEslintConfig["import_ignore_exports"]) {
-    if (!Array.isArray(anolilabEslintConfig["import_ignore_exports"])) {
-        throw new TypeError("import.ignore_exports must be a array");
-    }
+    const importPlugin = await interopDefault(import("eslint-plugin-import-x"));
 
-    global.anolilabEslintImportNoUnusedModulesConfig = anolilabEslintConfig["import_ignore_exports"] as string[];
-}
-
-const config: Linter.Config = createConfigs([
-    {
-        config: {
-            env: {
-                es6: true,
+    const options = [
+        {
+            name: "anolilab/import/rules",
+            plugins: {
+                import: importPlugin,
             },
-
-            parserOptions: {
-                ecmaVersion: 6,
-                sourceType: "module",
-            },
-            plugins: ["import"],
+            files,
             rules: {
                 // enforce a consistent style for type specifiers (inline or top-level)
                 // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/consistent-type-specifier-style.md
@@ -56,7 +50,7 @@ const config: Linter.Config = createConfigs([
                 "import/extensions": [
                     "error",
                     "ignorePackages",
-                    packageIsTypeModule
+                    packageJson.type === "module"
                         ? {
                               cjs: "always",
                               js: "always",
@@ -106,7 +100,11 @@ const config: Linter.Config = createConfigs([
 
                 // Require a newline after the last import/require in a group
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
-                "import/newline-after-import": "error",
+                ...(stylistic
+                    ? {
+                          "import/newline-after-import": ["error", { count: 1 }],
+                      }
+                    : {}),
 
                 // Forbid import of modules using absolute paths
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md
@@ -132,7 +130,7 @@ const config: Linter.Config = createConfigs([
 
                 // disallow require()
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-commonjs.md
-                "import/no-commonjs": packageIsTypeModule ? ["error", { allowPrimitiveModules: true }] : "off",
+                "import/no-commonjs": packageJson.type === "module" ? ["error", { allowPrimitiveModules: true }] : "off",
 
                 // Forbid cyclical dependencies between modules
                 // https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
@@ -241,7 +239,6 @@ const config: Linter.Config = createConfigs([
 
                 // No Node.js builtin modules
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-nodejs-modules.md
-                // TODO: enable?
                 "import/no-nodejs-modules": "off",
 
                 // Use this rule to prevent imports to folders in relative parent paths.
@@ -267,9 +264,9 @@ const config: Linter.Config = createConfigs([
                 // Reports modules without any exports, or with unused exports
                 // https://github.com/import-js/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md
                 "import/no-unused-modules": [
-                    packageIsTypeModule ? "error" : "off",
+                    packageJson.type === "module" ? "error" : "off",
                     {
-                        ignoreExports: global.anolilabEslintImportNoUnusedModulesConfig ?? [],
+                        ignoreExports: importNoUnusedModules ?? [],
                         missingExports: true,
                         unusedExports: true,
                     },
@@ -278,7 +275,7 @@ const config: Linter.Config = createConfigs([
                 // Reports the use of import declarations with CommonJS exports in any module except for the main module.
                 // https://github.com/import-js/eslint-plugin-import/blob/1012eb951767279ce3b540a4ec4f29236104bb5b/docs/rules/no-import-module-exports.md
                 "import/no-import-module-exports": [
-                    packageIsTypeModule ? "off" : "error",
+                    packageJson.type === "module" ? "off" : "error",
                     {
                         exceptions: [],
                     },
@@ -311,6 +308,8 @@ const config: Linter.Config = createConfigs([
                 // this should not be enabled until this proposal has at least been *presented* to TC39.
                 // At the moment, it's not a thing.
                 "import/unambiguous": "off",
+
+                ...overrides,
             },
             settings: {
                 "import/core-modules": [],
@@ -320,24 +319,37 @@ const config: Linter.Config = createConfigs([
                 "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
             },
         },
-        type: "all",
-    },
-    {
-        config: {
+        {
+            name: "anolilab/import/js-rules",
+            files: getFilesGlobs("js"),
             settings: {
                 "import/resolver": {
                     "@jsenv/eslint-import-resolver": {
-                        rootDirectoryUrl: projectPath,
+                        rootDirectoryUrl: cwd,
                         packageConditions: ["node", "import"],
                     },
                 },
             },
         },
-        type: "javascript",
-    },
-    {
-        config: {
-            extends: ["plugin:import/typescript"],
+        {
+            name: "anolilab/import/d.ts-rules",
+            files: getFilesGlobs("d.ts"),
+            rules: {
+                "import/no-duplicates": "off",
+            },
+        },
+        hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]) ? importPlugin.flatConfigs.react : {},
+    ];
+
+    if (hasPackageJsonAnyDependency(packageJson, ["typescript"])) {
+        options.push({
+            name: "anolilab/import/ts-rules",
+            files: getFilesGlobs("ts"),
+            languageOptions: {
+                parser: tsParser,
+                ecmaVersion: "latest",
+                sourceType: "module",
+            },
             rules: {
                 // Does not work when the TS definition exports a default const.
                 "import/default": "off",
@@ -354,10 +366,7 @@ const config: Linter.Config = createConfigs([
                         jsx: "never",
                         mjs: "never",
                         cjs: "never",
-                        ts: "never",
-                        tsx: "never",
                         json: "always",
-                        svg: "always",
                     },
                 ],
 
@@ -369,35 +378,30 @@ const config: Linter.Config = createConfigs([
             },
             settings: {
                 // Append 'ts' extensions to 'import/extensions' setting
-                "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx", ".d.ts", ".cjs", ".cts", ".mts"],
+                "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map((ext) => ext.replace("**/*", "")),
 
                 // Resolve type definition packages
                 "import/external-module-folders": ["node_modules", "node_modules/@types"],
 
                 // Apply special parsing for TypeScript files
                 "import/parsers": {
-                    "@typescript-eslint/parser": [".ts", ".cts", ".mts", ".tsx", ".d.ts"],
+                    "@typescript-eslint/parser": getFilesGlobs("ts").map((ext) => ext.replace("**/*", "")),
                 },
 
-                // Append 'ts' extensions to 'import/resolver' setting
-                "import/resolver": {
-                    typescript: {
-                        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                        project: fromRoot("tsconfig.json"),
-                    },
-                },
+                ...(tsconfigPath
+                    ? {
+                          // Append 'ts' extensions to 'import/resolver' setting
+                          "import/resolver": {
+                              typescript: {
+                                  alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                                  project: tsconfigPath,
+                              },
+                          },
+                      }
+                    : {}),
             },
-        },
-        type: "typescript",
-    },
-    {
-        config: {
-            rules: {
-                "import/no-duplicates": "off",
-            },
-        },
-        type: "d.ts",
-    },
-]);
+        });
+    }
 
-export default config;
+    return options;
+});

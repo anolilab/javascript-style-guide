@@ -1,10 +1,13 @@
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+import type { OptionsFiles } from "../types";
 
-import { createConfigs } from "../utils/create-config";
+export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
+    const { files = oFiles } = config;
 
-const config: Linter.Config = createConfigs([
-    {
-        config: {
+    return [
+        {
+            name: "anolilab/errors/rules",
+            files,
             rules: {
                 // Enforce “for” loop update clause moving the counter in the right direction
                 // https://eslint.org/docs/rules/for-direction
@@ -119,8 +122,7 @@ const config: Linter.Config = createConfigs([
 
                 // Disallow new operators with global non-constructor functions
                 // https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
-                // TODO: semver-major, enable
-                "no-new-native-nonconstructor": "off",
+                "no-new-native-nonconstructor": "error",
 
                 // disallow use of Object.prototypes builtins directly
                 // https://eslint.org/docs/rules/no-promise-executor-return
@@ -188,12 +190,11 @@ const config: Linter.Config = createConfigs([
                 "valid-typeof": ["error", { requireStringLiterals: true }],
             },
         },
-        type: "all",
-    },
-    // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
-    // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
-    {
-        config: {
+        // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
+        // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
+        {
+            name: "anolilab/errors/ts-rules",
+            files: getFilesGlobs("ts"),
             rules: {
                 "getter-return": "off",
 
@@ -228,8 +229,5 @@ const config: Linter.Config = createConfigs([
                 "no-extra-semi": "off",
             },
         },
-        type: "typescript",
-    },
-]);
-
-export default config;
+    ];
+});

@@ -26,8 +26,7 @@
         "eslint-plugin-html",
         "eslint-plugin-i",
         "eslint-plugin-jsonc",
-        "eslint-plugin-markdown",
-        "eslint-plugin-no-loops",
+        "eslint-markdown",
         "eslint-plugin-no-secrets",
         "eslint-plugin-no-use-extend-native",
         "eslint-plugin-promise",
@@ -36,7 +35,6 @@
         "eslint-plugin-toml",
         "eslint-plugin-unicorn",
         "eslint-plugin-yml",
-        "eslint-plugin-array-func",
         "eslint-plugin-playwright",
         "eslint-plugin-jsdoc",
         "eslint-plugin-jsx-a11y",
@@ -73,27 +71,23 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
-    "type": "commonjs",
+    "type": "module",
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "require": "./dist/index.js"
-        },
-        "./typescript-type-checking": {
-            "types": "./dist/typescript-type-checking.d.ts",
-            "require": "./dist/typescript-type-checking.js"
-        },
-        "./globals": {
-            "types": "./dist/globals.d.ts",
-            "require": "./dist/globals.js"
-        },
-        "./define-config": {
-            "types": "./dist/define-config.d.ts",
-            "require": "./dist/define-config.js"
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            },
+            "import": {
+                "types": "./dist/index.d.tjs",
+                "default": "./dist/index.mjs"
+            }
         },
         "./package.json": "./package.json"
     },
-    "main": "dist/index.js",
+    "sideEffects": false,
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
     "bin": {
         "anolilab-eslint-config": "./bin/generate-eslint-cofig.js"
@@ -109,10 +103,12 @@
         "LICENSE.md"
     ],
     "scripts": {
+        "build:typegen": "tsx ./scripts/typegen.ts",
         "build": "packem build --development",
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
-        "debug:rules": "@eslint/config-inspector",
+        "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",
+        "preinstall": "tsx ./scripts/typegen.ts",
         "lint:attw": "attw --pack",
         "lint:prettier": "prettier --config=.prettierrc.cjs --check .",
         "lint:prettier:fix": "prettier --config=.prettierrc.cjs --write .",
@@ -122,6 +118,7 @@
         "test:watch": "vitest"
     },
     "dependencies": {
+        "@eslint/compat": "^1.2.4",
         "@antfu/install-pkg": "^0.5.0",
         "@babel/eslint-parser": "^7.25.9",
         "@babel/plugin-syntax-import-assertions": "^7.26.0",
@@ -130,13 +127,15 @@
         "@eslint/markdown": "^6.2.1",
         "@html-eslint/eslint-plugin": "^0.31.1",
         "@html-eslint/parser": "^0.31.0",
+        "eslint-plugin-no-only-tests": "^3.3.0",
         "@jsenv/eslint-import-resolver": "^8.2.0",
         "@stylistic/eslint-plugin": "^2.12.1",
-        "@typescript-eslint/eslint-plugin": "^8.18.1",
-        "@typescript-eslint/parser": "^8.18.1",
-        "@visulima/package": "^3.2.0",
-        "@visulima/tsconfig": "^1.1.2",
-        "@vitest/eslint-plugin": "^1.1.17",
+        "typescript-eslint": "^8.18.2",
+        "@typescript-eslint/eslint-plugin": "^8.18.2",
+        "@typescript-eslint/parser": "^8.18.2",
+        "@visulima/package": "^3.2.1",
+        "@visulima/tsconfig": "^1.1.3",
+        "@vitest/eslint-plugin": "^1.1.21",
         "confusing-browser-globals": "^1.0.11",
         "eslint-config-flat-gitignore": "^0.3.0",
         "eslint-flat-config-utils": "^0.4.0",
@@ -147,23 +146,21 @@
         "eslint-plugin-compat": "^6.0.2",
         "eslint-plugin-es-x": "^8.4.1",
         "eslint-plugin-html": "^8.1.2",
-        "eslint-plugin-import-x": "^4.5.1",
+        "eslint-plugin-import-x": "^4.6.1",
         "eslint-plugin-jsonc": "^2.18.2",
-        "eslint-plugin-n": "^17.15.0",
-        "eslint-plugin-no-loops": "^0.4.0",
-        "eslint-plugin-no-only-tests": "^3.3.0",
+        "eslint-plugin-n": "^17.15.1",
         "eslint-plugin-no-secrets": "^2.1.1",
-        "eslint-plugin-no-use-extend-native": "^0.7.2",
-        "eslint-plugin-perfectionist": "^4.3.0",
+        "eslint-plugin-perfectionist": "^4.4.0",
         "eslint-plugin-promise": "^7.2.1",
         "eslint-plugin-regexp": "^2.7.0",
         "eslint-plugin-security": "^3.0.1",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
         "eslint-plugin-sonarjs": "^3.0.1",
         "eslint-plugin-toml": "^0.12.0",
         "eslint-plugin-unicorn": "^56.0.1",
         "eslint-plugin-unused-imports": "^4.1.4",
         "eslint-plugin-yml": "^1.16.0",
-        "globals": "^15.13.0",
+        "globals": "^15.14.0",
         "jsonc-eslint-parser": "^2.4.0",
         "parse-gitignore": "^2.0.0",
         "semver": "^7.6.3",
@@ -171,17 +168,19 @@
         "yaml-eslint-parser": "^1.2.3"
     },
     "devDependencies": {
-        "@types/eslint-plugin-tailwindcss": "^3.17.0",
         "@anolilab/prettier-config": "^5.0.14",
         "@anolilab/semantic-release-preset": "9.0.3",
-        "@eslint-react/eslint-plugin": "^1.20.0",
+        "@eslint-react/eslint-plugin": "^1.22.1",
         "@eslint/config-inspector": "^0.6.0",
         "@stylistic/eslint-plugin-migrate": "^2.12.1",
         "@testing-library/dom": "^10.4.0",
         "@total-typescript/ts-reset": "^0.6.1",
         "@types/confusing-browser-globals": "^1.0.3",
         "@types/eslint": "^9.6.1",
+        "@types/eslint-plugin-tailwindcss": "^3.17.0",
         "@types/semver": "^7.5.8",
+        "@visulima/packem": "^1.10.2",
+        "esbuild": "^0.24.2",
         "eslint": "^9.17.0",
         "eslint-find-rules": "^4.2.0",
         "eslint-plugin-etc": "^2.0.3",
@@ -190,14 +189,15 @@
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-no-unsanitized": "^4.1.2",
         "eslint-plugin-prefer-object-spread": "^1.2.1",
-        "eslint-plugin-react": "^7.37.2",
-        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-react-hooks": "^5.1.0",
+        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-storybook": "^0.11.1",
         "eslint-plugin-tailwindcss": "^3.17.5",
         "eslint-plugin-testing-library": "^7.1.1",
         "eslint-plugin-validate-jsx-nesting": "^0.1.1",
         "eslint-plugin-vitest": "^0.5.4",
+        "@eslint-react/shared": "^1.22.1",
+        "@eslint-react/tools": "^1.20.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.14.0",
         "eslint-plugin-zod": "^1.4.0",
         "eslint-typegen": "^0.3.2",
@@ -205,26 +205,24 @@
         "react": "^19.0.0",
         "rimraf": "^6.0.1",
         "semantic-release": "^24.2.0",
-        "type-fest": "^4.30.2",
+        "tsx": "^4.19.2",
+        "type-fest": "^4.31.0",
         "typescript": "^5.7.2",
         "vitest": "^2.1.8"
     },
     "peerDependencies": {
         "@babel/core": "^7.22.20",
+        "@eslint-react/eslint-plugin": "^1.22.1",
         "@tanstack/eslint-plugin-query": "^4.34.1 || ^5.0.0",
-        "@visulima/packem": "^1.10.0",
-        "esbuild": "^0.24.0",
         "eslint": "^9.10.0",
-        "eslint-plugin-array-func": "^4.0.0",
         "eslint-plugin-format": ">=0.1.0",
         "eslint-plugin-jsdoc": "^46.8.2",
         "eslint-plugin-jsx-a11y": "^6.7.1",
         "eslint-plugin-no-unsanitized": "^4.0.2",
         "eslint-plugin-playwright": "^0.16.0 || ^0.18.0",
         "eslint-plugin-prefer-object-spread": "^1.2.1",
-        "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-storybook": "^0.6.14",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-testing-library": "^6.0.1",
@@ -234,9 +232,6 @@
     },
     "peerDependenciesMeta": {
         "@tanstack/eslint-plugin-query": {
-            "optional": true
-        },
-        "eslint-plugin-array-func": {
             "optional": true
         },
         "eslint-plugin-jsdoc": {
@@ -291,5 +286,12 @@
     "publishConfig": {
         "access": "public",
         "provenance": true
+    },
+    "typesVersions": {
+        ">=5.0": {
+            ".": [
+                "./dist/index.d.ts"
+            ]
+        }
     }
 }

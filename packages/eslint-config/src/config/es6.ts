@@ -1,13 +1,13 @@
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+import type { OptionsFiles } from "../types";
 
-import { createConfigs } from "../utils/create-config";
+export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
+    const { files = oFiles } = config;
 
-const config: Linter.Config = createConfigs([
-    {
-        config: {
-            env: {
-                es6: true,
-            },
+    return [
+        {
+            name: "anolilab/es6/rules",
+            files,
             parserOptions: {
                 ecmaFeatures: {
                     generators: false,
@@ -354,12 +354,11 @@ const config: Linter.Config = createConfigs([
                 "yield-star-spacing": ["error", "after"],
             },
         },
-        type: "all",
-    },
-    // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
-    // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
-    {
-        config: {
+        // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
+        // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
+        {
+            name: "anolilab/es6/ts-rules",
+            files: getFilesGlobs("ts"),
             rules: {
                 "constructor-super": "off",
 
@@ -381,8 +380,5 @@ const config: Linter.Config = createConfigs([
                 "no-this-before-super": "off",
             },
         },
-        type: "typescript",
-    },
-]);
-
-export default config;
+    ];
+});

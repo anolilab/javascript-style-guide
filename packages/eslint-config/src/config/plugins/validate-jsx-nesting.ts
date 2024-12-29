@@ -10,6 +10,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
 
     return [
         {
+            name: "anolilab/validate-jsx-nesting/setup",
             files,
             plugins: {
                 "validate-jsx-nesting": validateJsxNestingPlugin,

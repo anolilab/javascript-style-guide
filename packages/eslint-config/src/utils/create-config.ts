@@ -1,41 +1,57 @@
-import type { Linter } from "eslint";
-import type { OptionsFiles, OptionsHasTypeScript, OptionsIsInEditor, OptionsOverrides, OptionsStylistic, TypedFlatConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
 type FileType =
     | "all"
+    | "astro"
     | "d.ts"
-    | "javascript"
+    | "js"
+    | "ts"
     | "js_and_ts"
     | "jsx_and_tsx"
     | "markdown_inline_js_jsx"
+    | "markdown_in_markdown"
     | "markdown"
     | "postcss"
     | "yaml"
     | "toml"
     | "storybook"
-    | "typescript"
+    | "e2e"
+    | "html"
     | "vitest";
+
+// @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
+const dtsGlobal = ["**/*.d.ts", "**/*.d.cts", "**/*.d.mts"];
+const tsGlobal = ["**/*.ts", "**/*.cts", "**/*.mts"];
+const tsxGlobal = ["**/*.tsx", "**/*.mtsx", "**/*.ctsx"];
+
+const jsGlobal = ["**/*.js", "**/*.mjs", "**/*.cjs"];
+const jsxGlobal = ["**/*.jsx", "**/*.mjsx", "**/*.cjsx"];
 
 export const getFilesGlobs = (fileType: FileType): string[] => {
     switch (fileType) {
-        case "typescript": {
-            // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
-            return ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
-        }
         case "jsx_and_tsx": {
-            return ["**/*.jsx", "**/*.tsx"];
+            return [...jsxGlobal, ...tsxGlobal];
+        }
+        case "astro": {
+            return ["'**/*.astro/*.ts"];
+        }
+        case "ts": {
+            return [...tsGlobal, ...dtsGlobal, ...tsxGlobal];
+        }
+        case "js": {
+            return jsGlobal;
         }
         case "js_and_ts": {
-            return ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.d.ts", "**/*.mts", "**/*.cts"];
-        }
-        case "javascript": {
-            return ["**/*.js", "**/*.mjs", "**/*.cjs"];
+            return [...jsGlobal, ...tsGlobal];
         }
         case "all": {
-            return ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.mts", "**/*.cts"];
+            return [...jsGlobal, ...dtsGlobal, ...tsGlobal, ...tsxGlobal, ...jsxGlobal];
         }
         case "markdown": {
             return ["**/*.{md,mkdn,mdown,markdown}"];
+        }
+        case "markdown_in_markdown": {
+            return ["**/*.{md,mkdn,mdown,markdown}/*.{md,mkdn,mdown,markdown}"];
         }
         case "markdown_inline_js_jsx": {
             return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node,json}"];
@@ -44,7 +60,7 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"];
         }
         case "d.ts": {
-            return ["**/*.d.ts"];
+            return dtsGlobal;
         }
         case "storybook": {
             return ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)", "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)"];
@@ -55,8 +71,14 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         case "yaml": {
             return ["**/*.yaml", "**/*.yml"];
         }
+        case "e2e": {
+            return ["**/e2e/**/*.test.{js,ts,jsx,tsx}"];
+        }
         case "toml": {
             return ["**/*.toml"];
+        }
+        case "html": {
+            return ["**/*.erb", "**/*.handlebars", "**/*.hbs", "**/*.htm", "**/*.html", "**/*.mustache", "**/*.nunjucks", "**/*.php", "**/*.tag", "**/*.twig", "**/*.we"];
         }
         default: {
             throw new Error("Unknown type");
@@ -68,18 +90,3 @@ export const createConfig =
     <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) =>
     async (options: O): Promise<TypedFlatConfigItem[]> =>
         await rules(options, getFilesGlobs(type));
-export const createConfigs = (
-    rules: {
-        config: Omit<Linter.ConfigOverride, "files">;
-        type: FileType;
-    }[],
-): Linter.Config => {
-    return {
-        overrides: rules.map(({ config, type }) => {
-            return {
-                files: getFilesGlobs(type),
-                ...config,
-            };
-        }),
-    };
-};

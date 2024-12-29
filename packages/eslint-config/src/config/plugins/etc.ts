@@ -21,7 +21,7 @@ if (!global.hasAnolilabEsLintConfigDeprecation && (hasDependency("eslint-plugin-
     }
 }
 
-const config: Linter.Config = createConfig("typescript", {
+const config: Linter.Config = createConfig("ts", {
     extends: ["plugin:etc/recommended"],
     plugins: ["etc"],
     rules: {

@@ -2,7 +2,7 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
 
-export default createConfig<OptionsFiles & OptionsOverrides>("typescript", async (config, oFiles) => {
+export default createConfig<OptionsFiles & OptionsOverrides>("ts", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;
 
     const eslintPluginTsdoc = await interopDefault(import("eslint-plugin-tsdoc"));

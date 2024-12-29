@@ -192,15 +192,6 @@ export interface OptionsOverrides {
     overrides?: TypedFlatConfigItem["rules"];
 }
 
-export interface OptionsProjectType {
-    /**
-     * Type of the project. `lib` will enable more strict rules for libraries.
-     *
-     * @default 'app'
-     */
-    type?: "app" | "lib";
-}
-
 export interface OptionsRegExp {
     /**
      * Override rulelevels
@@ -225,7 +216,7 @@ export interface OptionsUnoCSS extends OptionsOverrides {
     strict?: boolean;
 }
 
-export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType {
+export interface OptionsConfig extends OptionsComponentExts {
     /**
      * The working directory for the config.
      *
@@ -408,13 +399,6 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      * @default auto-detect based on the process.env
      */
     isInEditor?: boolean;
-
-    /**
-     * Automatically rename plugins in the config.
-     *
-     * @default true
-     */
-    autoRenamePlugins?: boolean;
 
     /**
      * Provide overrides for rules for each integration.

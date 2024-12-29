@@ -1,57 +1,59 @@
-import { env } from "node:process";
+import type { OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsStylistic, TypedFlatConfigItem } from "../../types";
+import interopDefault from "../../utils/interop-default";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+export default async (config: OptionsHasPrettier & OptionsPackageJson & OptionsOverrides & OptionsStylistic): Promise<TypedFlatConfigItem[]> => {
+    const { prettier, packageJson, overrides, stylistic = true } = config;
+    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
-import anolilabEslintConfig from "../../utils/eslint-config";
-import { consoleLog } from "../../utils/loggers";
+    const jsoncPlugin = await interopDefault(import("eslint-plugin-jsonc"));
 
-const extendedPlugins: string[] = [];
+    const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, ["sort-package-json"]);
 
-if (hasDependency("prettier") || hasDevDependency("prettier")) {
-    extendedPlugins.push("plugin:jsonc/prettier");
-}
-
-if (!global.hasAnolilabEsLintConfigJsoncPackageJsonSort && (hasDependency("sort-package-json") || hasDevDependency("sort-package-json"))) {
-    global.hasAnolilabEsLintConfigJsoncPackageJsonSort = true;
-
-    let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSONC_SORT_KEYS_RULE"] !== "true";
-
-    if (showLog && anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] !== undefined) {
-        showLog = anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] as boolean;
-    }
-
-    if (showLog) {
-        consoleLog(`\n@anolilab/eslint-config found "sort-package-json" package. \n
+    if (hasSortPackageJson) {
+        console.info(`\n@anolilab/eslint-config found "sort-package-json" package. \n
     Following rules are disabled: jsonc/sort-keys for all package.json files. \n`);
     }
-}
 
-const config: Linter.Config = {
-    overrides: [
+    return [
+        ...jsoncPlugin.configs["flat/base"],
         {
-            extends: extendedPlugins,
-            files: ["**/*.json", "**/*.json5", "**/*.jsonc"],
-            parser: "jsonc-eslint-parser",
-        },
-        {
-            extends: ["plugin:jsonc/recommended-with-json5"],
+            name: "anolilab/jsonc/json5-rules",
             files: ["**/*.json5"],
-        },
-        {
-            extends: ["plugin:jsonc/recommended-with-jsonc"],
-            files: ["**/*.jsonc"],
-        },
-        {
-            extends: ["plugin:jsonc/recommended-with-json"],
-            files: ["**/*.json"],
-        },
-        {
-            extends: ["plugin:jsonc/recommended-with-json"],
-            files: ["package.json"],
             rules: {
+                ...jsoncPlugin.configs["flat/recommended-with-json5"].rules,
+            },
+        },
+        {
+            name: "anolilab/jsonc/jsonc-rules",
+            files: ["**/*.jsonc"],
+            rules: {
+                ...jsoncPlugin.configs["flat/recommended-with-jsonc"].rules,
+            },
+        },
+        {
+            name: "anolilab/jsonc/json-rules",
+            files: ["**/*.json"],
+            rules: {
+                ...jsoncPlugin.configs["flat/recommended-with-json"].rules,
+            },
+        },
+        {
+            name: "anolilab/jsonc/package.json-rules",
+            files: ["**/package.json"],
+            rules: {
+                "jsonc/sort-array-values": hasSortPackageJson
+                    ? "off"
+                    : [
+                          "error",
+                          {
+                              order: { type: "asc" },
+                              pathPattern: "^files$",
+                          },
+                      ],
+
                 // When the package "sort-package-json" is installed, we disable the rule "jsonc/sort-keys" because, the package "sort-package-json" is responsible for sorting the keys.
-                "jsonc/sort-keys": global.hasAnolilabEsLintConfigJsoncPackageJsonSort
+                "jsonc/sort-keys": hasSortPackageJson
                     ? "off"
                     : [
                           "error",
@@ -66,6 +68,7 @@ const config: Linter.Config = {
                                   "packageManager",
                                   "description",
                                   "author",
+                                  "contributors",
                                   "license",
                                   "funding",
                                   "homepage",
@@ -105,16 +108,171 @@ const config: Linter.Config = {
                           },
                           {
                               order: { type: "asc" },
-                              pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
+                              pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
                           },
                           {
-                              order: ["types", "require", "import"],
+                              order: { type: "asc" },
+                              pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$",
+                          },
+                          {
+                              order: ["types", "import", "require", "default"],
                               pathPattern: "^exports.*$",
+                          },
+                          {
+                              order: [
+                                  // client hooks only
+                                  "pre-commit",
+                                  "prepare-commit-msg",
+                                  "commit-msg",
+                                  "post-commit",
+                                  "pre-rebase",
+                                  "post-rewrite",
+                                  "post-checkout",
+                                  "post-merge",
+                                  "pre-push",
+                                  "pre-auto-gc",
+                              ],
+                              pathPattern: "^(?:gitHooks|husky|simple-git-hooks)$",
                           },
                       ],
             },
         },
-    ],
-};
+        {
+            files: ["**/tsconfig.json", "**/tsconfig.*.json"],
+            name: "anolilab/jsonc/tsconfig-json",
+            rules: {
+                "jsonc/sort-keys": [
+                    "error",
+                    {
+                        order: ["extends", "compilerOptions", "references", "files", "include", "exclude"],
+                        pathPattern: "^$",
+                    },
+                    {
+                        order: [
+                            /* Projects */
+                            "incremental",
+                            "composite",
+                            "tsBuildInfoFile",
+                            "disableSourceOfProjectReferenceRedirect",
+                            "disableSolutionSearching",
+                            "disableReferencedProjectLoad",
+                            /* Language and Environment */
+                            "target",
+                            "jsx",
+                            "jsxFactory",
+                            "jsxFragmentFactory",
+                            "jsxImportSource",
+                            "lib",
+                            "moduleDetection",
+                            "noLib",
+                            "reactNamespace",
+                            "useDefineForClassFields",
+                            "emitDecoratorMetadata",
+                            "experimentalDecorators",
+                            /* Modules */
+                            "baseUrl",
+                            "rootDir",
+                            "rootDirs",
+                            "customConditions",
+                            "module",
+                            "moduleResolution",
+                            "moduleSuffixes",
+                            "noResolve",
+                            "paths",
+                            "resolveJsonModule",
+                            "resolvePackageJsonExports",
+                            "resolvePackageJsonImports",
+                            "typeRoots",
+                            "types",
+                            "allowArbitraryExtensions",
+                            "allowImportingTsExtensions",
+                            "allowUmdGlobalAccess",
+                            /* JavaScript Support */
+                            "allowJs",
+                            "checkJs",
+                            "maxNodeModuleJsDepth",
+                            /* Type Checking */
+                            "strict",
+                            "strictBindCallApply",
+                            "strictFunctionTypes",
+                            "strictNullChecks",
+                            "strictPropertyInitialization",
+                            "allowUnreachableCode",
+                            "allowUnusedLabels",
+                            "alwaysStrict",
+                            "exactOptionalPropertyTypes",
+                            "noFallthroughCasesInSwitch",
+                            "noImplicitAny",
+                            "noImplicitOverride",
+                            "noImplicitReturns",
+                            "noImplicitThis",
+                            "noPropertyAccessFromIndexSignature",
+                            "noUncheckedIndexedAccess",
+                            "noUnusedLocals",
+                            "noUnusedParameters",
+                            "useUnknownInCatchVariables",
+                            /* Emit */
+                            "declaration",
+                            "declarationDir",
+                            "declarationMap",
+                            "downlevelIteration",
+                            "emitBOM",
+                            "emitDeclarationOnly",
+                            "importHelpers",
+                            "importsNotUsedAsValues",
+                            "inlineSourceMap",
+                            "inlineSources",
+                            "mapRoot",
+                            "newLine",
+                            "noEmit",
+                            "noEmitHelpers",
+                            "noEmitOnError",
+                            "outDir",
+                            "outFile",
+                            "preserveConstEnums",
+                            "preserveValueImports",
+                            "removeComments",
+                            "sourceMap",
+                            "sourceRoot",
+                            "stripInternal",
+                            /* Interop Constraints */
+                            "allowSyntheticDefaultImports",
+                            "esModuleInterop",
+                            "forceConsistentCasingInFileNames",
+                            "isolatedDeclarations",
+                            "isolatedModules",
+                            "preserveSymlinks",
+                            "verbatimModuleSyntax",
+                            /* Completeness */
+                            "skipDefaultLibCheck",
+                            "skipLibCheck",
+                        ],
+                        pathPattern: "^compilerOptions$",
+                    },
+                ],
+            },
+        },
+        ...(prettier ? jsoncPlugin.configs["flat/prettier"] : []),
+        {
+            files: ["**/*.json", "**/*.jsonc", "**/*.json5"],
+            rules: {
+                ...(stylistic
+                    ? {
+                          "jsonc/array-bracket-spacing": ["error", "never"],
+                          "jsonc/comma-dangle": ["error", "never"],
+                          "jsonc/comma-style": ["error", "last"],
+                          "jsonc/indent": ["error", indent],
+                          "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
+                          "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
+                          "jsonc/object-curly-spacing": ["error", "always"],
+                          "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+                          "jsonc/quote-props": "error",
+                          "jsonc/quotes": "error",
+                      }
+                    : {}),
 
-export default config;
+                ...overrides,
+            },
+        },
+    ];
+};

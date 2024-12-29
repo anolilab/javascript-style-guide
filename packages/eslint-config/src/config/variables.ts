@@ -1,11 +1,15 @@
 import confusingBrowserGlobals from "confusing-browser-globals";
-import type { Linter } from "eslint";
 
-import { createConfigs } from "../utils/create-config";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+import type { OptionsFiles } from "../types";
 
-const config: Linter.Config = createConfigs([
-    {
-        config: {
+export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
+    const { files = oFiles } = config;
+
+    return [
+        {
+            name: "anolilab/variables/rules",
+            files,
             rules: {
                 // enforce or disallow variable initializations at definition
                 "init-declarations": "off",
@@ -62,10 +66,9 @@ const config: Linter.Config = createConfigs([
                 "no-use-before-define": ["error", { classes: true, functions: true, variables: true }],
             },
         },
-        type: "all",
-    },
-    {
-        config: {
+        {
+            name: "anolilab/variables/ts-rules",
+            files: getFilesGlobs("ts"),
             rules: {
                 // Disallow member access on a value with type any.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
@@ -83,8 +86,5 @@ const config: Linter.Config = createConfigs([
                 "no-undef": "off",
             },
         },
-        type: "typescript",
-    },
-]);
-
-export default config;
+    ];
+});

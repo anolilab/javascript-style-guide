@@ -1,12 +1,12 @@
 import { createConfig } from "../../utils/create-config";
-import type { OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsFiles, OptionsHasPrettier, OptionsIsInEditor, OptionsOverrides } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
 // Hold the reference so we don't redeclare the plugin on each call
 let _pluginTest: any;
 
-export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
-    const { files = oFiles, overrides } = config;
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsIsInEditor & OptionsHasPrettier>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides, isInEditor = false, prettier } = config;
 
     const [vitestPlugin, noOnlyTestsPlugin] = await Promise.all([
         interopDefault(import("@vitest/eslint-plugin")),
@@ -63,15 +63,26 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],
 
                 // Disables
-                // @TODO move this into the correct places
-                ...{
-                    "antfu/no-top-level-await": "off",
-                    "no-unused-expressions": "off",
-                    "node/prefer-global/process": "off",
-                    "ts/explicit-function-return-type": "off",
-                },
+                "antfu/no-top-level-await": "off",
+                "no-unused-expressions": "off",
+                "node/prefer-global/process": "off",
+                "@typescript-eslint/explicit-function-return-type": "off",
+
+                "vitest/no-only-tests": isInEditor ? "off" : "error",
+                "vitest/consistent-test-it": ["error", { fn: "it", withinDescribe: "it" }],
 
                 ...overrides,
+
+                ...(prettier ? {
+                    "vitest/padding-around-after-all-blocks": "off",
+                    "vitest/padding-around-after-each-blocks": "off",
+                    "vitest/padding-around-before-all-blocks": "off",
+                    "vitest/padding-around-before-each-blocks": "off",
+                    "vitest/padding-around-describe-blocks": "off",
+                    "vitest/padding-around-expect-blocks": "off",
+                    "vitest/padding-around-test-blocks": "off",
+                    "vitest/padding-around-all": "off",
+                } : {}),
             },
             // TODO: hide this behind a config flag
             settings: {

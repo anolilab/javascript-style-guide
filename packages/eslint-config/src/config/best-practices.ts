@@ -1,10 +1,13 @@
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+import type { OptionsFiles } from "../types";
 
-import { createConfigs } from "../utils/create-config";
+export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
+    const { files = oFiles } = config;
 
-const config: Linter.Config = createConfigs([
-    {
-        config: {
+    return [
+        {
+            name: "anolilab/best-practices/rules",
+            files,
             rules: {
                 // enforces getter/setter pairs in objects
                 "accessor-pairs": "off",
@@ -450,12 +453,9 @@ const config: Linter.Config = createConfigs([
                 yoda: "error",
             },
         },
-        type: "all",
-    },
-    // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
-    // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
-    {
-        config: {
+        {
+            name: "anolilab/best-practices/ts-rules",
+            files: getFilesGlobs("ts"),
             rules: {
                 // Disallow non-null assertions using the ! postfix operator.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
@@ -498,8 +498,5 @@ const config: Linter.Config = createConfigs([
                 "no-redeclare": "off",
             },
         },
-        type: "typescript",
-    },
-]);
-
-export default config;
+    ];
+});

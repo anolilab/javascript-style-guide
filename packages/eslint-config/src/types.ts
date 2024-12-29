@@ -36,6 +36,15 @@ export interface OptionsPackageJson {
     packageJson: NormalizedPackageJson;
 }
 
+export interface OptionsCwd {
+    /**
+     * The working directory for the config.
+     *
+     * @default process.cwd()
+     */
+    cwd: string;
+}
+
 export type OptionsTypescript = (OptionsTypeScriptWithTypes & OptionsOverrides) | (OptionsTypeScriptParserOptions & OptionsOverrides);
 
 export interface OptionsFormatters {
@@ -280,28 +289,28 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      *
      * @default true
      */
-    test?: boolean | OptionsOverrides;
+    test?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable JSONC support.
      *
      * @default true
      */
-    jsonc?: boolean | OptionsOverrides;
+    jsonc?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable YAML support.
      *
      * @default true
      */
-    yaml?: boolean | OptionsOverrides;
+    yaml?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable TOML support.
      *
      * @default true
      */
-    toml?: boolean | OptionsOverrides;
+    toml?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable ASTRO support.
@@ -314,7 +323,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      *
      * @default false
      */
-    astro?: boolean | OptionsOverrides;
+    astro?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable linting for **code snippets** in Markdown.
@@ -323,7 +332,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      *
      * @default true
      */
-    markdown?: boolean | OptionsOverrides;
+    markdown?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable stylistic rules.
@@ -331,7 +340,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      * @see https://eslint.style/
      * @default true
      */
-    stylistic?: boolean | (StylisticConfig & OptionsOverrides);
+    stylistic?: boolean | (StylisticConfig & OptionsOverrides & OptionsFiles);
 
     /**
      * Enable regexp rules.
@@ -339,7 +348,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      * @see https://ota-meshi.github.io/eslint-plugin-regexp/
      * @default true
      */
-    regexp?: boolean | (OptionsRegExp & OptionsOverrides);
+    regexp?: boolean | (OptionsRegExp & OptionsOverrides & OptionsFiles);
 
     /**
      * Enable react rules.
@@ -351,7 +360,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      *
      * @default false
      */
-    react?: boolean | OptionsOverrides;
+    react?: boolean | OptionsOverrides & OptionsFiles;
     /**
      * Enable solid rules.
      *
@@ -360,7 +369,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
      *
      * @default false
      */
-    solid?: boolean | OptionsOverrides;
+    solid?: boolean | OptionsOverrides & OptionsFiles;
 
     /**
      * Enable svelte rules.

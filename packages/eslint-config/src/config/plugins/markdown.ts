@@ -1,56 +1,84 @@
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
+import parserPlain from "../../utils/parser-plain";
+import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
+import type { OptionsComponentExts, OptionsFiles, OptionsOverrides } from "../../types";
 
-import { createConfigs } from "../../utils/create-config";
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsComponentExts>("markdown", async (config, oFiles) => {
+    const { componentExts = [], files = oFiles, overrides } = config;
 
-const config: Linter.Config = createConfigs([
-    {
-        config: {
-            extends: "plugin:markdown/recommended",
-            plugins: ["markdown"],
-            processor: "markdown/markdown",
-            rules: {
-                "no-cond-assign": "off",
+    const markdown = await interopDefault(import("@eslint/markdown"));
+
+    return [
+        {
+            name: "anolilab/markdown/setup",
+            plugins: {
+                markdown,
             },
         },
-        type: "markdown",
-    },
-    {
-        config: {
-            extends: "plugin:markdown/recommended",
-            parserOptions: {
-                ecmacFeatures: {
-                    impliedStrict: true,
+        {
+            files,
+            ignores: getFilesGlobs("markdown_in_markdown"),
+            name: "anolilab/markdown/processor",
+            // `eslint-plugin-markdown` only creates virtual files for code blocks,
+            // but not the markdown file itself. We use `eslint-merge-processors` to
+            // add a pass-through processor for the markdown file itself.
+            processor: mergeProcessors([markdown.processors!.markdown, processorPassThrough]),
+        },
+        {
+            files,
+            languageOptions: {
+                parser: parserPlain,
+            },
+            name: "anolilab/markdown/parser",
+            rules: {
+                ...markdown.configs.recommended.rules,
+            }
+        },
+        {
+            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExts.map((ext) => `**/*.md/**/*.${ext}`)],
+            languageOptions: {
+                parserOptions: {
+                    ecmaFeatures: {
+                        impliedStrict: true,
+                    },
                 },
             },
-            plugins: ["markdown"],
-            processor: "markdown/markdown",
+            name: "anolilab/markdown/disables",
             rules: {
-                "@typescript-eslint/comma-dangle": "off",
-                "@typescript-eslint/no-redeclare": "off",
-                "@typescript-eslint/no-unused-vars": "off",
-                "@typescript-eslint/no-use-before-define": "off",
-                "@typescript-eslint/no-var-requires": "off",
+                "antfu/no-top-level-await": "off",
 
-                "global-require": "off",
-
-                "import/no-unresolved": "off",
-                "import/order": "off",
+                "import/newline-after-import": "off",
 
                 "no-alert": "off",
                 "no-console": "off",
-                "no-restricted-imports": "off",
+                "no-labels": "off",
+                "no-lone-blocks": "off",
+                "no-restricted-syntax": "off",
                 "no-undef": "off",
                 "no-unused-expressions": "off",
+                "no-unused-labels": "off",
+
                 "no-unused-vars": "off",
+                "node/prefer-global/process": "off",
+                "style/comma-dangle": "off",
 
-                "prefer-reflect": "off",
-                "sonar/no-dead-store": "off",
+                "style/eol-last": "off",
+                "typescript/consistent-type-imports": "off",
+                "typescript/explicit-function-return-type": "off",
+                "typescript/no-namespace": "off",
+                "typescript/no-redeclare": "off",
+                "typescript/no-require-imports": "off",
+                "typescript/no-unused-expressions": "off",
+                "typescript/no-unused-vars": "off",
+                "typescript/no-use-before-define": "off",
 
-                strict: "off",
+                "unicode-bom": "off",
+                "unused-imports/no-unused-imports": "off",
+                "unused-imports/no-unused-vars": "off",
+
+                ...overrides,
             },
         },
-        type: "markdown_inline_js_jsx",
-    },
-]);
-
-export default config;
+    ];
+});

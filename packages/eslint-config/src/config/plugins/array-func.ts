@@ -11,8 +11,11 @@ export default createConfig<OptionsOverrides & OptionsFiles>("all", async (confi
         {
             files,
             name: "anolilab/array-func/rules",
-            parserOptions: {
+            languageOptions: {
                 ecmaVersion: 2018,
+            },
+            plugins: {
+                "array-func": arrayFuncPlugin,
             },
             rules: {
                 ...arrayFuncPlugin.rules,

@@ -1,91 +1,22 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+import type { OptionsFiles, OptionsHasPrettier, OptionsStylistic } from "../types";
 
-import { createConfigs } from "../utils/create-config";
-import indent from "../utils/indent";
+export const noUnderscoreDangle = {
+    allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
+    allowAfterSuper: false,
+    allowAfterThis: false,
+    enforceInMethodNames: true,
+};
 
-if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
-    global.hasAnolilabEsLintConfigPrettier = true;
-}
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsStylistic>("all", async (config, oFiles) => {
+    const { files = oFiles, prettier, stylistic = true } = config;
 
-let prettierRules: Linter.Config["rules"] = {};
+    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
-if (global.hasAnolilabEsLintConfigPrettier) {
-    prettierRules = {
-        // The rest are rules that you never need to enable when using Prettier.
-        "array-bracket-newline": "off",
-        "array-bracket-spacing": "off",
-        "array-element-newline": "off",
-        "arrow-parens": "off",
-        "arrow-spacing": "off",
-        "block-spacing": "off",
-        "brace-style": "off",
-        "comma-dangle": "off",
-
-        "comma-spacing": "off",
-        "comma-style": "off",
-        "computed-property-spacing": "off",
-        // script can distinguish them.)
-        curly: 0,
-        "dot-location": "off",
-        "eol-last": "off",
-        "func-call-spacing": "off",
-        "function-call-argument-newline": "off",
-        "function-paren-newline": "off",
-        "generator-star-spacing": "off",
-        "implicit-arrow-linebreak": "off",
-        indent: "off",
-        "jsx-quotes": "off",
-        "key-spacing": "off",
-        "keyword-spacing": "off",
-        "linebreak-style": "off",
-        "lines-around-comment": 0,
-        "max-len": 0,
-        "max-statements-per-line": "off",
-        "multiline-ternary": "off",
-        "new-parens": "off",
-        "newline-per-chained-call": "off",
-        "no-confusing-arrow": 0,
-        "no-extra-parens": "off",
-        "no-extra-semi": "off",
-        "no-floating-decimal": "off",
-        "no-mixed-operators": 0,
-        "no-mixed-spaces-and-tabs": "off",
-        "no-multi-spaces": "off",
-        "no-multiple-empty-lines": "off",
-        "no-tabs": 0,
-        "no-trailing-spaces": "off",
-        "no-unexpected-multiline": 0,
-        "no-whitespace-before-property": "off",
-        "nonblock-statement-body-position": "off",
-        "object-curly-newline": "off",
-        "object-curly-spacing": "off",
-        "object-property-newline": "off",
-        "one-var-declaration-per-line": "off",
-        "operator-linebreak": "off",
-        "padded-blocks": "off",
-        "quote-props": "off",
-        quotes: 0,
-        "rest-spread-spacing": "off",
-        semi: "off",
-        "semi-spacing": "off",
-        "semi-style": "off",
-        "space-before-blocks": "off",
-        "space-before-function-paren": "off",
-        "space-in-parens": "off",
-        "space-unary-ops": "off",
-        "switch-colon-spacing": "off",
-        "template-curly-spacing": "off",
-        "template-tag-spacing": "off",
-        "wrap-iife": "off",
-        "wrap-regex": "off",
-        "yield-star-spacing": "off",
-    };
-}
-
-const config: Linter.Config = createConfigs([
-    {
-        config: {
+    return [
+        {
+            name: "anolilab/style/rules",
+            files,
             rules: {
                 // enforce line breaks after opening and before closing array brackets
                 // https://eslint.org/docs/rules/array-bracket-newline
@@ -523,15 +454,7 @@ const config: Linter.Config = createConfigs([
 
                 // disallow dangling underscores in identifiers
                 // https://eslint.org/docs/rules/no-underscore-dangle
-                "no-underscore-dangle": [
-                    "error",
-                    {
-                        allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
-                        allowAfterSuper: false,
-                        allowAfterThis: false,
-                        enforceInMethodNames: true,
-                    },
-                ],
+                "no-underscore-dangle": ["error", noUnderscoreDangle],
 
                 // disallow the use of Boolean literals in conditional expressions
                 // also, prefer `a || b` over `a ? a : b`
@@ -702,23 +625,92 @@ const config: Linter.Config = createConfigs([
                 // require regex literals to be wrapped in parentheses
                 "wrap-regex": "off",
 
-                ...prettierRules,
+                ...(prettier
+                    ? {
+                          // The rest are rules that you never need to enable when using Prettier.
+                          "array-bracket-newline": "off",
+                          "array-bracket-spacing": "off",
+                          "array-element-newline": "off",
+                          "arrow-parens": "off",
+                          "arrow-spacing": "off",
+                          "block-spacing": "off",
+                          "brace-style": "off",
+                          "comma-dangle": "off",
+
+                          "comma-spacing": "off",
+                          "comma-style": "off",
+                          "computed-property-spacing": "off",
+                          // script can distinguish them.)
+                          curly: 0,
+                          "dot-location": "off",
+                          "eol-last": "off",
+                          "func-call-spacing": "off",
+                          "function-call-argument-newline": "off",
+                          "function-paren-newline": "off",
+                          "generator-star-spacing": "off",
+                          "implicit-arrow-linebreak": "off",
+                          indent: "off",
+                          "jsx-quotes": "off",
+                          "key-spacing": "off",
+                          "keyword-spacing": "off",
+                          "linebreak-style": "off",
+                          "lines-around-comment": 0,
+                          "max-len": 0,
+                          "max-statements-per-line": "off",
+                          "multiline-ternary": "off",
+                          "new-parens": "off",
+                          "newline-per-chained-call": "off",
+                          "no-confusing-arrow": 0,
+                          "no-extra-parens": "off",
+                          "no-extra-semi": "off",
+                          "no-floating-decimal": "off",
+                          "no-mixed-operators": 0,
+                          "no-mixed-spaces-and-tabs": "off",
+                          "no-multi-spaces": "off",
+                          "no-multiple-empty-lines": "off",
+                          "no-tabs": 0,
+                          "no-trailing-spaces": "off",
+                          "no-unexpected-multiline": 0,
+                          "no-whitespace-before-property": "off",
+                          "nonblock-statement-body-position": "off",
+                          "object-curly-newline": "off",
+                          "object-curly-spacing": "off",
+                          "object-property-newline": "off",
+                          "one-var-declaration-per-line": "off",
+                          "operator-linebreak": "off",
+                          "padded-blocks": "off",
+                          "quote-props": "off",
+                          quotes: 0,
+                          "rest-spread-spacing": "off",
+                          semi: "off",
+                          "semi-spacing": "off",
+                          "semi-style": "off",
+                          "space-before-blocks": "off",
+                          "space-before-function-paren": "off",
+                          "space-in-parens": "off",
+                          "space-unary-ops": "off",
+                          "switch-colon-spacing": "off",
+                          "template-curly-spacing": "off",
+                          "template-tag-spacing": "off",
+                          "wrap-iife": "off",
+                          "wrap-regex": "off",
+                          "yield-star-spacing": "off",
+                      }
+                    : {}),
             },
         },
-        type: "all",
-    },
-    {
-        config: {
+        {
+            name: "anolilab/style/js-rules",
+            files: getFilesGlobs("js"),
             rules: {
                 // require or disallow newlines around directives
                 // https://eslint.org/docs/rules/lines-between-class-members
                 "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
             },
         },
-        type: "javascript",
-    },
-    {
-        config: {
+        {
+            name: "anolilab/style/ts-rules",
+            files: getFilesGlobs("ts"),
             rules: {
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
                 "brace-style": "off",
@@ -761,8 +753,5 @@ const config: Linter.Config = createConfigs([
                 "no-array-constructor": "off",
             },
         },
-        type: "typescript",
-    },
-]);
-
-export default config;
+    ];
+});

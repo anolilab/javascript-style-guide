@@ -1,7 +1,6 @@
-import type { Linter } from "eslint";
 import { parse } from "semver";
 
-import styleConfig from "../style";
+import { noUnderscoreDangle } from "../style";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import type {
     OptionsFiles,
@@ -17,10 +16,6 @@ import interopDefault from "../../utils/interop-default";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 
-// @ts-expect-error TODO: find the correct type
-const styleRules = styleConfig.overrides[0].rules as Linter.RulesRecord;
-const dangleRules = styleRules["no-underscore-dangle"] as Linter.RuleEntry;
-
 // react refresh
 const ReactRefreshAllowConstantExportPackages = ["vite"];
 const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
@@ -32,8 +27,8 @@ export default createConfig<
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
         files = oFiles,
-        filesTypeAware = [GLOB_TS, GLOB_TSX],
-        ignoresTypeAware = [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS],
+        filesTypeAware = getFilesGlobs("ts"),
+        ignoresTypeAware = [`**/*.md/**`, ...getFilesGlobs("astro")],
         overrides,
         tsconfigPath,
         packageJson,
@@ -180,11 +175,11 @@ export default createConfig<
                 "jsx-quotes": ["error", "prefer-double"],
 
                 "no-underscore-dangle": [
-                    (dangleRules as unknown[])[0] as Linter.RuleLevel,
+                    "error",
                     {
-                        ...((dangleRules as unknown[])[1] as Linter.RuleLevelAndOptions[]),
+                        ...noUnderscoreDangle,
                         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-explicit-any
-                        allow: [...(dangleRules as any)[1].allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
+                        allow: [...noUnderscoreDangle.allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
                     },
                 ],
 

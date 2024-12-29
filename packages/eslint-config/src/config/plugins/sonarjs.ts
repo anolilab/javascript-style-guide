@@ -1,47 +1,8 @@
-import type { Linter } from "eslint";
-
-import { createConfig, createConfigs, getFilesGlobs } from "../../utils/create-config";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/SonarSource/eslint-plugin-sonarjs
-const config: Linter.Config = createConfigs([
-    {
-        config: {
-            excludedFiles: ["**/?(*.)+(test).{js,jsx,ts,tsx}", "**/*.stories.{js,ts,jsx,tsx}"],
-            extends: ["plugin:sonarjs/recommended"],
-            rules: {
-                "sonarjs/no-nested-template-literals": "off",
-            },
-        },
-        type: "all",
-    },
-    {
-        config: {
-            rules: {
-                // relax complexity for react code
-                "sonarjs/cognitive-complexity": ["error", 15],
-                // relax duplicate strings
-                "sonarjs/no-duplicate-string": "off",
-            },
-        },
-        type: "js_and_ts",
-    },
-    {
-        config: {
-            parser: "espree",
-            parserOptions: {
-                ecmaVersion: 2020,
-            },
-            rules: {
-                "sonarjs/no-all-duplicated-branches": "off",
-                "sonarjs/no-duplicate-string": "off",
-            },
-        },
-        type: "javascript",
-    },
-]);
-
 export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
     const { overrides, files = oFiles } = config;
 
@@ -55,7 +16,7 @@ export default createConfig<OptionsOverrides & OptionsFiles>("all", async (confi
             },
         },
         {
-            name: "anolilab/sonarjs/config",
+            name: "anolilab/sonarjs/rules",
             files,
             rules: {
                 ...sonarJsPlugin.configs["recommended"].rules,
@@ -68,12 +29,23 @@ export default createConfig<OptionsOverrides & OptionsFiles>("all", async (confi
             },
         },
         {
-            name: "anolilab/sonarjs/js_and_ts",
+            name: "anolilab/sonarjs/js-and-ts-rules",
             files: getFilesGlobs("js_and_ts"),
             rules: {
                 // relax complexity for react code
                 "sonarjs/cognitive-complexity": ["error", 15],
                 // relax duplicate strings
+                "sonarjs/no-duplicate-string": "off",
+            },
+        },
+        {
+            name: "anolilab/sonarjs/js-rules",
+            files: getFilesGlobs("js"),
+            languageOptions: {
+                ecmaVersion: 2020,
+            },
+            rules: {
+                "sonarjs/no-all-duplicated-branches": "off",
                 "sonarjs/no-duplicate-string": "off",
             },
         },

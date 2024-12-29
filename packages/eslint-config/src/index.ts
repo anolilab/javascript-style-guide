@@ -43,6 +43,8 @@ import bestPractices from "./config/best-practices";
 import variables from "./config/variables";
 import style from "./config/style";
 import errors from "./config/errors";
+import typescript from "./config/plugins/typescript";
+import eslintJs from "@eslint/js";
 
 const flatConfigProps = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -109,11 +111,10 @@ export const createConfig = async (
         tanstack: enableTanstack = false,
         tsdoc: enableTsdoc = false,
         astro: enableAstro = false,
-        autoRenamePlugins = true,
         componentExts = [],
         gitignore: enableGitignore = true,
         jsx: enableJsx = true,
-        react: enableReact = false,
+        react: enableReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]),
         regexp: enableRegexp = true,
         solid: enableSolid = false,
         svelte: enableSvelte = false,
@@ -174,6 +175,7 @@ export const createConfig = async (
         errors({}),
         style({}),
         variables({}),
+        [eslintJs.configs.recommended],
         comments({
             files: getFiles(options, "comments"),
             overrides: getOverrides(options, "comments"),
@@ -271,16 +273,17 @@ export const createConfig = async (
         );
     }
 
-    // if (enableTypeScript) {
-    //     configs.push(
-    //         typescript({
-    //             ...typescriptOptions,
-    //             componentExts,
-    //             overrides: getOverrides(options, "typescript"),
-    //             type: options.type,
-    //         }),
-    //     );
-    // }
+    if (enableTypeScript) {
+        configs.push(
+            typescript({
+                ...typescriptOptions,
+                componentExts,
+                overrides: getOverrides(options, "typescript"),
+                prettier: enablePrettier,
+                stylistic: stylisticOptions,
+            }),
+        );
+    }
 
     if (stylisticOptions) {
         configs.push(

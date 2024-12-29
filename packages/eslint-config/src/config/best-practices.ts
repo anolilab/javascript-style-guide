@@ -1,5 +1,48 @@
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 import type { OptionsFiles } from "../types";
+import { Linter } from "eslint";
+
+export const bestPracticesRules: Partial<Linter.RulesRecord> = {
+    // Disallow non-null assertions using the ! postfix operator.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
+    "no-return-await": "off",
+
+    // Disallow calling a value with type any.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+    "no-unused-expressions": "off",
+
+    // Disallow type assertions that do not change the type of expression.
+    // Disable the "no-throw-literal" rule, as it can report incorrect errors on TypeScript code
+    "no-throw-literal": "off",
+
+    // Disallow empty exports that don't change anything in a module file.
+    // Breaks @typescript-eslint/parser
+    strict: "off",
+
+    // Disable the "dot-notation" rule, as it can report incorrect errors on TypeScript code
+    "dot-notation": "off",
+
+    // Require explicit return and argument types on exported functions' and classes' public class methods.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
+    "no-empty-function": "off",
+
+    // Disallow using to delete operator on computed key expressions.
+    // Disable the "no-implied-eval" and "no-new-func" rule, as it can report incorrect errors on TypeScript code
+    "no-implied-eval": "off",
+    "no-new-func": "off",
+
+    // Disallow extra non-null assertions.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
+    "no-loop-func": "off",
+
+    // Disallow void type outside of generic or return types.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
+    "no-magic-numbers": "off",
+
+    // Disallow non-null assertions after an optional chain expression.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
+    "no-redeclare": "off",
+};
 
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
     const { files = oFiles } = config;
@@ -456,47 +499,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
         {
             name: "anolilab/best-practices/ts-rules",
             files: getFilesGlobs("ts"),
-            rules: {
-                // Disallow non-null assertions using the ! postfix operator.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
-                "no-return-await": "off",
-
-                // Disallow calling a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-                "no-unused-expressions": "off",
-
-                // Disallow type assertions that do not change the type of expression.
-                // Disable the "no-throw-literal" rule, as it can report incorrect errors on TypeScript code
-                "no-throw-literal": "off",
-
-                // Disallow empty exports that don't change anything in a module file.
-                // Breaks @typescript-eslint/parser
-                strict: "off",
-
-                // Disable the "dot-notation" rule, as it can report incorrect errors on TypeScript code
-                "dot-notation": "off",
-
-                // Require explicit return and argument types on exported functions' and classes' public class methods.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
-                "no-empty-function": "off",
-
-                // Disallow using to delete operator on computed key expressions.
-                // Disable the "no-implied-eval" and "no-new-func" rule, as it can report incorrect errors on TypeScript code
-                "no-implied-eval": "off",
-                "no-new-func": "off",
-
-                // Disallow extra non-null assertions.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
-                "no-loop-func": "off",
-
-                // Disallow void type outside of generic or return types.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
-                "no-magic-numbers": "off",
-
-                // Disallow non-null assertions after an optional chain expression.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
-                "no-redeclare": "off",
-            },
+            rules: bestPracticesRules,
         },
     ];
 });

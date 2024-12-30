@@ -35,6 +35,8 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
                 message: `Use window.${g} instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md`,
             };
         }),
+        { message: "Use `globalThis` instead.", name: "global" },
+        { message: "Use `globalThis` instead.", name: "self" },
     ],
 
     // disallow declaration of variables already declared in the outer scope

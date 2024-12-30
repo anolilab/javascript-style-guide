@@ -369,7 +369,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                         property: "parseInt",
                     },
                     {
-                        message: "Use `Object.getPrototypeOf` instead.",
+                        message: "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
                         property: "__proto__",
                     },
                     {

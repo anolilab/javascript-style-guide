@@ -5,15 +5,15 @@ import { hasPackageJsonAnyDependency } from "@visulima/package";
 import tsParser from "@typescript-eslint/parser";
 
 export default createConfig<
-    OptionsFiles & OptionsOverrides & OptionsStylistic & OptionsPackageJson & OptionsCwd & OptionsTypeScriptWithTypes & { importNoUnusedModules?: string[] }
+    OptionsFiles & OptionsOverrides & OptionsStylistic & OptionsPackageJson & OptionsTypeScriptWithTypes & { importNoUnusedModules?: string[] }
 >("all", async (config, oFiles) => {
-    const { files = oFiles, overrides, stylistic, packageJson, importNoUnusedModules = [], cwd, tsconfigPath } = config;
+    const { files = oFiles, overrides, stylistic, packageJson, importNoUnusedModules = [], tsconfigPath } = config;
 
     const importPlugin = await interopDefault(import("eslint-plugin-import-x"));
 
     const options = [
         {
-            name: "anolilab/import/rules",
+            name: "anolilab/imports/rules",
             plugins: {
                 import: importPlugin,
             },
@@ -311,28 +311,9 @@ export default createConfig<
 
                 ...overrides,
             },
-            settings: {
-                "import/core-modules": [],
-                // https://github.com/un-es/eslint-plugin-i/blob/main/docs/rules/extensions.md
-                "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
-                // Ensure consistent use of file extension within the import path
-                "import/ignore": ["\\.(coffee|scss|css|less|hbs|svg|json)$"],
-            },
         },
         {
-            name: "anolilab/import/js-rules",
-            files: getFilesGlobs("js"),
-            settings: {
-                "import/resolver": {
-                    "@jsenv/eslint-import-resolver": {
-                        rootDirectoryUrl: cwd,
-                        packageConditions: ["node", "import"],
-                    },
-                },
-            },
-        },
-        {
-            name: "anolilab/import/d.ts-rules",
+            name: "anolilab/imports/d.ts-rules",
             files: getFilesGlobs("d.ts"),
             rules: {
                 "import/no-duplicates": "off",
@@ -374,7 +355,7 @@ export default createConfig<
                 "import/named": "off",
 
                 // ensure imports point to files/modules that can be resolved
-                "import/no-unresolved": "off",
+                // "import/no-unresolved": "off",
             },
             settings: {
                 // Append 'ts' extensions to 'import/extensions' setting

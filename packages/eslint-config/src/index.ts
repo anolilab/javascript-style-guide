@@ -22,7 +22,6 @@ import stylistic from "./config/plugins/stylistic";
 import react from "./config/plugins/react";
 import regexp from "./config/plugins/regexp";
 import vitest from "./config/plugins/vitest";
-// import typescript from "./config/plugins/typescript";
 import jsonc from "./config/plugins/jsonc";
 import antfu from "./config/plugins/antfu";
 import compat from "./config/plugins/compat";
@@ -44,7 +43,8 @@ import variables from "./config/variables";
 import style from "./config/style";
 import errors from "./config/errors";
 import typescript from "./config/plugins/typescript";
-import eslintJs from "@eslint/js";
+import ignores from "./config/ignores";
+import javascript from "./config/plugins/javascript";
 
 const flatConfigProps = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -170,12 +170,12 @@ export const createConfig = async (
 
     // Base configs
     configs.push(
-        // ignores(options.ignores),
+        ignores(options.ignores),
+        javascript({}),
         bestPractices({}),
         errors({}),
         style({}),
         variables({}),
-        [eslintJs.configs.recommended],
         comments({
             files: getFiles(options, "comments"),
             overrides: getOverrides(options, "comments"),

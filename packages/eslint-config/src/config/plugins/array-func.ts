@@ -1,19 +1,19 @@
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
-import type { OptionsFiles, OptionsOverrides } from "../../types";
 
-export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
-    const { overrides, files = oFiles } = config;
+export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
 
     const arrayFuncPlugin = await interopDefault(import("eslint-plugin-array-func"));
 
     return [
         {
             files,
-            name: "anolilab/array-func/rules",
             languageOptions: {
                 ecmaVersion: 2018,
             },
+            name: "anolilab/array-func/rules",
             plugins: {
                 "array-func": arrayFuncPlugin,
             },

@@ -1,9 +1,21 @@
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsPackageJson,
+    OptionsStylistic,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
-import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsStylistic } from "../../types";
 
-export default createConfig<OptionsOverrides & OptionsStylistic & OptionsFiles & OptionsHasPrettier & OptionsPackageJson>("all", async (config, oFiles) => {
-    const { files = oFiles, prettier, stylistic = true, overrides, packageJson } = config;
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic>("all", async (config, oFiles) => {
+    const {
+        files = oFiles,
+        overrides,
+        packageJson,
+        prettier,
+        stylistic = true,
+    } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -17,8 +29,8 @@ export default createConfig<OptionsOverrides & OptionsStylistic & OptionsFiles &
             },
         },
         {
-            name: "anolilab/unicorn/rules",
             files,
+            name: "anolilab/unicorn/rules",
             rules: {
                 // TODO: Temporarily disabled as the rule is buggy.
                 "function-call-argument-newline": "off",
@@ -55,30 +67,30 @@ export default createConfig<OptionsOverrides & OptionsStylistic & OptionsFiles &
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "unicorn/empty-brace-spaces": "off",
-                          "unicorn/no-nested-ternary": "off",
-                          "unicorn/number-literal-case": "off",
-                          "unicorn/template-indent": "off",
-                      }
+                        "unicorn/empty-brace-spaces": "off",
+                        "unicorn/no-nested-ternary": "off",
+                        "unicorn/number-literal-case": "off",
+                        "unicorn/template-indent": "off",
+                    }
                     : {
-                          "unicorn/template-indent": ["error", { indent }],
-                      }),
+                        "unicorn/template-indent": ["error", { indent }],
+                    },
 
                 ...overrides,
             },
         },
         {
-            name: "anolilab/unicorn/tsconfig-overrides",
             files: ["tsconfig.dev.json", "tsconfig.prod.json"],
+            name: "anolilab/unicorn/tsconfig-overrides",
             rules: {
                 "unicorn/prevent-abbreviations": "off",
             },
         },
         {
-            name: "anolilab/unicorn/ts-overrides",
             files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+            name: "anolilab/unicorn/ts-overrides",
             rules: {
                 "unicorn/import-style": "off",
             },

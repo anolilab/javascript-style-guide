@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides, OptionsStylistic } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>("toml", async (config, oFiles) => {
@@ -11,14 +11,14 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
 
     return [
         {
-            plugins: {
-                toml: pluginToml,
-            },
             files,
             languageOptions: {
                 parser: parserToml,
             },
             name: "anolilab/toml",
+            plugins: {
+                toml: pluginToml,
+            },
             rules: {
                 // @TODO: move this to the correct place
                 "style/spaced-comment": "off",
@@ -33,21 +33,21 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
 
                 "toml/vue-custom-block/no-parsing-error": "error",
 
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "toml/array-bracket-newline": "error",
-                          "toml/array-bracket-spacing": "error",
-                          "toml/array-element-newline": "error",
-                          "toml/indent": ["error", indent === "tab" ? 2 : indent],
-                          "toml/inline-table-curly-spacing": "error",
-                          "toml/key-spacing": "error",
-                          "toml/padding-line-between-pairs": "error",
-                          "toml/padding-line-between-tables": "error",
-                          "toml/quoted-keys": "error",
-                          "toml/spaced-comment": "error",
-                          "toml/table-bracket-spacing": "error",
-                      }
-                    : {}),
+                        "toml/array-bracket-newline": "error",
+                        "toml/array-bracket-spacing": "error",
+                        "toml/array-element-newline": "error",
+                        "toml/indent": ["error", indent === "tab" ? 2 : indent],
+                        "toml/inline-table-curly-spacing": "error",
+                        "toml/key-spacing": "error",
+                        "toml/padding-line-between-pairs": "error",
+                        "toml/padding-line-between-tables": "error",
+                        "toml/quoted-keys": "error",
+                        "toml/spaced-comment": "error",
+                        "toml/table-bracket-spacing": "error",
+                    }
+                    : {},
 
                 ...overrides,
             },

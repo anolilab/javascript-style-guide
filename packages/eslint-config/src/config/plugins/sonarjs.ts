@@ -1,10 +1,10 @@
-import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/SonarSource/eslint-plugin-sonarjs
-export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
-    const { overrides, files = oFiles } = config;
+export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
 
     const sonarJsPlugin = await interopDefault(import("eslint-plugin-sonarjs"));
 
@@ -16,21 +16,21 @@ export default createConfig<OptionsOverrides & OptionsFiles>("all", async (confi
             },
         },
         {
-            name: "anolilab/sonarjs/rules",
             files,
+            name: "anolilab/sonarjs/rules",
             rules: {
                 ...sonarJsPlugin.configs["recommended"].rules,
-                "sonarjs/no-nested-template-literals": "off",
                 "sonarjs/file-name-differ-from-class": "error",
                 "sonarjs/no-collapsible-if": "error",
+                "sonarjs/no-nested-template-literals": "off",
                 "sonarjs/no-tab": "error",
 
                 ...overrides,
             },
         },
         {
-            name: "anolilab/sonarjs/js-and-ts-rules",
             files: getFilesGlobs("js_and_ts"),
+            name: "anolilab/sonarjs/js-and-ts-rules",
             rules: {
                 // relax complexity for react code
                 "sonarjs/cognitive-complexity": ["error", 15],
@@ -39,11 +39,11 @@ export default createConfig<OptionsOverrides & OptionsFiles>("all", async (confi
             },
         },
         {
-            name: "anolilab/sonarjs/js-rules",
             files: getFilesGlobs("js"),
             languageOptions: {
                 ecmaVersion: 2020,
             },
+            name: "anolilab/sonarjs/js-rules",
             rules: {
                 "sonarjs/no-all-duplicated-branches": "off",
                 "sonarjs/no-duplicate-string": "off",

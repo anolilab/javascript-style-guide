@@ -1,6 +1,7 @@
-import { createConfig, getFilesGlobs } from "../utils/create-config";
-import type { OptionsFiles } from "../types";
 import { Linter } from "eslint";
+
+import type { OptionsFiles } from "../types";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const errorsRules: Partial<Linter.RulesRecord> = {
     // Enforce “for” loop update clause moving the counter in the right direction
@@ -65,24 +66,6 @@ export const errorsRules: Partial<Linter.RulesRecord> = {
     // https://eslint.org/docs/rules/no-extra-boolean-cast
     "no-extra-boolean-cast": "error",
 
-    // disallow unnecessary parentheses
-    // https://eslint.org/docs/rules/no-extra-parens
-    "no-extra-parens": [
-        "error",
-        "all",
-        {
-            conditionalAssign: true,
-            enforceForArrowConditionals: false,
-            ignoreJSX: "all", // delegate to eslint-plugin-react
-            nestedBinaryExpressions: false,
-            returnAssign: false,
-        },
-    ],
-
-    // Disallow non-null assertion in locations that may be confusing.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
-    "no-extra-semi": "error",
-
     // disallow overwriting functions written as function declarations
     "no-func-assign": "error",
 
@@ -110,13 +93,13 @@ export const errorsRules: Partial<Linter.RulesRecord> = {
     // deprecated in favor of no-unsafe-negation
     "no-negated-in-lhs": "off",
 
-    // Disallow returning values from Promise executor functions
-    // disallow the use of object properties of the global object (Math and JSON) as functions
-    "no-obj-calls": "error",
-
     // Disallow new operators with global non-constructor functions
     // https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
     "no-new-native-nonconstructor": "error",
+
+    // Disallow returning values from Promise executor functions
+    // disallow the use of object properties of the global object (Math and JSON) as functions
+    "no-obj-calls": "error",
 
     // disallow use of Object.prototypes builtins directly
     // https://eslint.org/docs/rules/no-promise-executor-return
@@ -189,15 +172,15 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
 
     return [
         {
-            name: "anolilab/errors/rules",
             files,
+            name: "anolilab/errors/rules",
             rules: errorsRules,
         },
         // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
         // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
         {
-            name: "anolilab/errors/ts-rules",
             files: getFilesGlobs("ts"),
+            name: "anolilab/errors/ts-rules",
             rules: {
                 "getter-return": "off",
 
@@ -210,6 +193,8 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 // Enforce using a particular method signature syntax.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
                 "no-extra-parens": "off",
+
+                "no-extra-semi": "off",
 
                 // Disallow duplicate enum member values.
                 "no-func-assign": "off",
@@ -228,8 +213,6 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 "space-infix-ops": "off",
 
                 "valid-typeof": "off",
-
-                "no-extra-semi": "off",
             },
         },
     ];

@@ -1,6 +1,7 @@
-import { createConfig, getFilesGlobs } from "../utils/create-config";
-import type { OptionsFiles } from "../types";
 import { Linter } from "eslint";
+
+import type { OptionsFiles } from "../types";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const eS6Rules: Partial<Linter.RulesRecord> = {
     // enforces no braces where they can be omitted
@@ -118,7 +119,7 @@ export const eS6Rules: Partial<Linter.RulesRecord> = {
                     name: "sys",
                 },
                 {
-                    message: 'Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try "qs" as a package',
+                    message: "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
                     name: "querystring",
                 },
                 {
@@ -130,7 +131,7 @@ export const eS6Rules: Partial<Linter.RulesRecord> = {
                     name: "mkdirp",
                 },
                 {
-                    message: 'Please use "@faker-js/faker" as a replacement',
+                    message: "Please use \"@faker-js/faker\" as a replacement",
                     name: "faker",
                 },
                 {
@@ -150,23 +151,23 @@ export const eS6Rules: Partial<Linter.RulesRecord> = {
                     name: "rimraf",
                 },
                 {
-                    message: 'just use "".padStart() and "".padEnd()',
+                    message: "just use \"\".padStart() and \"\".padEnd()",
                     name: "pad-left",
                 },
                 {
-                    message: 'just use "".padStart() and "".padEnd()',
+                    message: "just use \"\".padStart() and \"\".padEnd()",
                     name: "pad-right",
                 },
                 {
-                    message: 'just use "".padStart() and "".padEnd()',
+                    message: "just use \"\".padStart() and \"\".padEnd()",
                     name: "left-pad",
                 },
                 {
-                    message: 'just use "".padStart() and "".padEnd()',
+                    message: "just use \"\".padStart() and \"\".padEnd()",
                     name: "right-pad",
                 },
                 {
-                    message: 'just use "".padStart() and "".padEnd()',
+                    message: "just use \"\".padStart() and \"\".padEnd()",
                     name: "pad",
                 },
                 {
@@ -341,8 +342,8 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
 
     return [
         {
-            name: "anolilab/es6/rules",
             files,
+            name: "anolilab/es6/rules",
             parserOptions: {
                 ecmaFeatures: {
                     generators: false,
@@ -356,27 +357,27 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
         // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
         // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
         {
-            name: "anolilab/es6/ts-rules",
             files: getFilesGlobs("ts"),
+            name: "anolilab/es6/ts-rules",
             rules: {
                 "constructor-super": "off",
 
-                // Disallow returning a value with type any from a function.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-                "no-useless-constructor": "off",
+                // Enforce constituents of a type union/intersection to be sorted alphabetically.
+                "no-const-assign": "off",
 
                 // Enforce specifying generic type arguments on constructor name of a constructor call.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
                 "no-dupe-class-members": "off",
-
-                // Enforce constituents of a type union/intersection to be sorted alphabetically.
-                "no-const-assign": "off",
 
                 // Disallow TypeScript namespaces.
                 "no-new-symbol": "off",
 
                 // Disallow aliasing this.
                 "no-this-before-super": "off",
+
+                // Disallow returning a value with type any from a function.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
+                "no-useless-constructor": "off",
             },
         },
     ];

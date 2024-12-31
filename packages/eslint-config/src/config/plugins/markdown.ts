@@ -1,10 +1,11 @@
+import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
+
+import type { OptionsComponentExts, OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
-import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides } from "../../types";
 
-export default createConfig<OptionsFiles & OptionsOverrides & OptionsComponentExts>("markdown", async (config, oFiles) => {
+export default createConfig<OptionsComponentExts & OptionsFiles & OptionsOverrides>("markdown", async (config, oFiles) => {
     const { componentExts = [], files = oFiles, overrides } = config;
 
     const markdown = await interopDefault(import("@eslint/markdown"));
@@ -33,10 +34,10 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsComponentEx
             name: "anolilab/markdown/parser",
             rules: {
                 ...markdown.configs.recommended.rules,
-            }
+            },
         },
         {
-            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExts.map((ext) => `**/*.md/**/*.${ext}`)],
+            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExts.map(ext => `**/*.md/**/*.${ext}`)],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {

@@ -1,10 +1,11 @@
-import { createConfig } from "../../utils/create-config";
-import type { OptionsFiles, OptionsOverrides } from "../../types";
-import interopDefault from "../../utils/interop-default";
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 
+import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
+
 // @see https://github.com/xjamundx/eslint-plugin-promise#readme
-export default createConfig<OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
+export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;
 
     const promisesPlugin = await interopDefault(import("eslint-plugin-promise"));

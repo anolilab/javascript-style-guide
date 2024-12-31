@@ -1,4 +1,4 @@
-import type { TypedFlatConfigItem, Awaitable } from "../types";
+import type { Awaitable, TypedFlatConfigItem } from "../types";
 
 /**
  * Combine array and non-array configs into a single array.
@@ -7,6 +7,6 @@ const combine = async (...configs: Awaitable<TypedFlatConfigItem | TypedFlatConf
     const resolved = await Promise.all(configs);
 
     return resolved.flat();
-}
+};
 
 export default combine;

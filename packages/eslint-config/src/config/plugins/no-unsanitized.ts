@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/mozilla/eslint-plugin-no-unsanitized
@@ -10,8 +10,8 @@ export default createConfig<OptionsFiles & OptionsOverrides>("js", async (config
 
     return [
         {
-            name: "anolilab/no-unsanitized/setup",
             files,
+            name: "anolilab/no-unsanitized/setup",
             plugins: {
                 "no-unsanitized": noUnsanitizedPlugin,
             },

@@ -1,6 +1,6 @@
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
-import type { OptionsFiles, OptionsOverrides } from "../../types";
 
 export default createConfig<OptionsFiles & OptionsOverrides>("ts", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;

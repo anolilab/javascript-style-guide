@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsOverrides>("e2e", async (config, oFiles) => {

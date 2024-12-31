@@ -1,9 +1,9 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides, OptionsPackageJson } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/eslint-community/eslint-plugin-n
-export default createConfig<OptionsOverrides & OptionsFiles & OptionsPackageJson>("all", async (config, oFiles) => {
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson>("all", async (config, oFiles) => {
     const { files = oFiles, overrides, packageJson } = config;
 
     const pluginNode = await interopDefault(import("eslint-plugin-n"));
@@ -12,8 +12,8 @@ export default createConfig<OptionsOverrides & OptionsFiles & OptionsPackageJson
 
     return [
         {
-            name: "anolilab/node",
             files,
+            name: "anolilab/node",
             plugins: {
                 n: pluginNode,
             },
@@ -84,13 +84,13 @@ export default createConfig<OptionsOverrides & OptionsFiles & OptionsPackageJson
                 // https://eslint.org/docs/rules/no-path-concat
                 "no-path-concat": "error",
 
-                ...(nodeVersion
+                ...nodeVersion
                     ? {
-                          "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],
-                          "n/no-unsupported-features/es-syntax": ["error", { ignores: ["modules"], version: nodeVersion }],
-                          "n/no-unsupported-features/node-builtins": ["error", { version: nodeVersion }],
-                      }
-                    : {}),
+                        "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],
+                        "n/no-unsupported-features/es-syntax": ["error", { ignores: ["modules"], version: nodeVersion }],
+                        "n/no-unsupported-features/node-builtins": ["error", { version: nodeVersion }],
+                    }
+                    : {},
 
                 ...overrides,
             },

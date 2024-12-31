@@ -1,6 +1,6 @@
-import { createConfig } from "../../utils/create-config";
-
 import globals from "globals";
+
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig("js", async () => {

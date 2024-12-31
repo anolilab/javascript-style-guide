@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://tanstack.com/query/v4/docs/react/eslint/eslint-plugin-query
@@ -16,6 +16,6 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
         rules: {
             ...pluginTanstackQuery.configs["recommended"].rules,
             ...overrides,
-        }
-    }]
+        },
+    }];
 });

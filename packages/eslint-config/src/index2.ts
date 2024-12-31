@@ -14,12 +14,22 @@ import "@rushstack/eslint-patch/modern-module-resolution";
 
 import { join } from "node:path";
 
-import { hasDependency, hasDevDependency, packageIsTypeModule, pkg } from "@anolilab/package-json-utils";
+import {
+    hasDependency,
+    hasDevDependency,
+    packageIsTypeModule,
+    pkg,
+} from "@anolilab/package-json-utils";
 import type { Linter } from "eslint";
 import globals from "globals";
 import { intersects, rcompare } from "semver";
 
-import { internalPluginConfig, pluginRules, possiblePluginRules, rules } from "./config";
+import {
+    internalPluginConfig,
+    pluginRules,
+    possiblePluginRules,
+    rules,
+} from "./config";
 import engineRules from "./engine-node-overwrite";
 import anolilabEslintConfig from "./utils/eslint-config";
 import { consoleLog, consolePlugin } from "./utils/loggers";
@@ -42,7 +52,7 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
 
                 return name;
             })
-            .forEach((plugin) => consolePlugin(plugin));
+            .forEach(plugin => consolePlugin(plugin));
     }
 
     let hasLogged = false;
@@ -68,10 +78,10 @@ if (!global.hasAnolilabEsLintConfigLoaded) {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (hasLogged) {
         consoleLog("\nTo disable this message, add the following to your package.json:");
-        consoleLog('    "anolilab": { "eslint-config": { plugin: { "plugin-name": false } } }\n');
+        consoleLog("    \"anolilab\": { \"eslint-config\": { plugin: { \"plugin-name\": false } } }\n");
     }
 
-    consoleLog('To disable all logging, add the following to your eslint command call "NO_LOGS=true eslint ..."');
+    consoleLog("To disable all logging, add the following to your eslint command call \"NO_LOGS=true eslint ...\"");
 
     global.hasAnolilabEsLintConfigLoaded = true;
 }
@@ -112,21 +122,26 @@ const config: Linter.Config = {
     //
     // Setting root=true causes ESLint to stop looking for other config files after the first .eslintrc.js
     extends: [
-        ...rules.map((plugin) => join(__dirname, `./config/${plugin}.js`)),
+        ...rules.map(plugin => join(__dirname, `./config/${plugin}.js`)),
 
-        ...pluginRules.map((plugin) => join(__dirname, `./config/plugins/${plugin}.js`)),
+        ...pluginRules.map(plugin => join(__dirname, `./config/plugins/${plugin}.js`)),
     ],
     globals: {
         ...globals.browser,
         ...globals.nodeBuiltin,
-        ...(packageIsTypeModule
+        ...packageIsTypeModule
             ? {
-                  __dirname: "off",
-                  __filename: "off",
-                  exports: "off",
-                  require: "off",
-              }
-            : { __dirname: true, __filename: true, exports: true, require: true }),
+                __dirname: "off",
+                __filename: "off",
+                exports: "off",
+                require: "off",
+            }
+            : {
+                __dirname: true,
+                __filename: true,
+                exports: true,
+                require: true,
+            },
     },
     ignorePatterns: [
         "!.*",

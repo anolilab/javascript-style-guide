@@ -1,6 +1,7 @@
-import { createConfig, getFilesGlobs } from "../utils/create-config";
-import type { OptionsFiles, OptionsHasPrettier, OptionsStylistic } from "../types";
 import { Linter } from "eslint";
+
+import type { OptionsFiles, OptionsHasPrettier } from "../types";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const noUnderscoreDangle = {
     allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
@@ -20,13 +21,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
 
     // https://eslint.org/docs/rules/array-element-newline
     "array-element-newline": "off",
-
-    // enforce spacing inside single-line blocks
-    // https://eslint.org/docs/rules/block-spacing
-    "block-spacing": ["error", "always"],
-
-    // enforce one true brace style
-    "brace-style": ["error", "1tbs", { allowSingleLine: true }],
 
     // require camel case names
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
@@ -49,21 +43,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
             },
         },
     ],
-
-    // require trailing commas in multiline object literals
-    "comma-dangle": [
-        "error",
-        {
-            arrays: "always-multiline",
-            exports: "always-multiline",
-            functions: "always-multiline",
-            imports: "always-multiline",
-            objects: "always-multiline",
-        },
-    ],
-
-    // enforce spacing before and after comma
-    "comma-spacing": ["error", { after: true, before: false }],
 
     // enforce one true comma style
     "comma-style": [
@@ -97,9 +76,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
 
     // enforce newline at the end of file, with no multiple empty lines
     "eol-last": ["error", "always"],
-
-    // https://eslint.org/docs/rules/func-call-spacing
-    "func-call-spacing": ["error", "never"],
 
     // enforce spacing between functions and their invocations
     // https://eslint.org/docs/rules/func-name-matching
@@ -152,23 +128,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     // https://eslint.org/docs/rules/jsx-quotes
     "jsx-quotes": ["off", "prefer-double"],
 
-    // enforces spacing between keys and values in object literal properties
-    "key-spacing": ["error", { afterColon: true, beforeColon: false }],
-
-    // require a space before & after certain keywords
-    "keyword-spacing": [
-        "error",
-        {
-            after: true,
-            before: true,
-            overrides: {
-                case: { after: true },
-                return: { after: true },
-                throw: { after: true },
-            },
-        },
-    ],
-
     // enforce position of line comments
     // https://eslint.org/docs/rules/line-comment-position
     "line-comment-position": "off",
@@ -176,10 +135,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     // https://eslint.org/docs/rules/linebreak-style
     "linebreak-style": ["error", "unix"],
-
-    // require or disallow an empty line between class members
-    // enforces empty lines around comments
-    "lines-around-comment": "off",
 
     // https://eslint.org/docs/rules/lines-around-directive
     "lines-around-directive": [
@@ -477,19 +432,9 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     // https://eslint.org/docs/rules/prefer-object-spread
     "prefer-object-spread": "error",
 
-    // require quotes around object literal property names
-    // https://eslint.org/docs/rules/quote-props.html
-    "quote-props": ["error", "as-needed", { keywords: false, numbers: false, unnecessary: true }],
-
-    // specify whether double or single quotes should be used
-    quotes: ["error", "double", { avoidEscape: true }],
-
     // do not require jsdoc
     // https://eslint.org/docs/rules/require-jsdoc
     "require-jsdoc": "off",
-
-    // require or disallow use of semicolons instead of ASI
-    semi: ["error", "always"],
 
     // enforce spacing before and after semicolons
     "semi-spacing": ["error", { after: true, before: false }],
@@ -505,25 +450,8 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     // sort variables within the same declaration block
     "sort-vars": "off",
 
-    // require or disallow space before blocks
-    "space-before-blocks": "error",
-
-    // require or disallow space before function opening parenthesis
-    // https://eslint.org/docs/rules/space-before-function-paren
-    "space-before-function-paren": [
-        "error",
-        {
-            anonymous: "always",
-            asyncArrow: "always",
-            named: "never",
-        },
-    ],
-
     // require or disallow spaces inside parentheses
     "space-in-parens": ["error", "never"],
-
-    // require spaces around operators
-    "space-infix-ops": "error",
 
     // Require or disallow spaces before/after unary operators
     // https://eslint.org/docs/rules/space-unary-ops
@@ -570,152 +498,93 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     "wrap-regex": "off",
 };
 
-export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsStylistic>("all", async (config, oFiles) => {
-    const { files = oFiles, prettier, stylistic = true } = config;
-
-    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
+export default createConfig<OptionsFiles & OptionsHasPrettier>("all", async (config, oFiles) => {
+    const { files = oFiles, prettier } = config;
 
     return [
         {
-            name: "anolilab/style/rules",
             files,
+            name: "anolilab/style/rules",
             rules: {
                 ...styleRules,
+                "quote-props": "off",
 
-                // this option sets a specific tab width for your code
-                // https://eslint.org/docs/rules/indent
-                indent: [
-                    "error",
-                    indent,
-                    {
-                        ArrayExpression: 1,
-                        CallExpression: {
-                            arguments: 1,
-                        },
-                        // MemberExpression: null,
-                        FunctionDeclaration: {
-                            body: 1,
-                            parameters: 1,
-                        },
-                        FunctionExpression: {
-                            body: 1,
-                            parameters: 1,
-                        },
-                        ImportDeclaration: 1,
-                        ObjectExpression: 1,
-                        SwitchCase: 1,
-                        VariableDeclarator: 1,
-                        flatTernaryExpressions: false,
-                        ignoreComments: false,
-                        // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
-                        ignoredNodes: [
-                            "JSXElement",
-                            "JSXElement > *",
-                            "JSXAttribute",
-                            "JSXIdentifier",
-                            "JSXNamespacedName",
-                            "JSXMemberExpression",
-                            "JSXSpreadAttribute",
-                            "JSXExpressionContainer",
-                            "JSXOpeningElement",
-                            "JSXClosingElement",
-                            "JSXFragment",
-                            "JSXOpeningFragment",
-                            "JSXClosingFragment",
-                            "JSXText",
-                            "JSXEmptyExpression",
-                            "JSXSpreadChild",
-                        ],
-                        outerIIFEBody: 1,
-                    },
-                ],
-
-                ...(prettier
+                ...prettier
                     ? {
-                          // The rest are rules that you never need to enable when using Prettier.
-                          "array-bracket-newline": "off",
-                          "array-bracket-spacing": "off",
-                          "array-element-newline": "off",
-                          "arrow-parens": "off",
-                          "arrow-spacing": "off",
-                          "block-spacing": "off",
-                          "brace-style": "off",
-                          "comma-dangle": "off",
+                        // The rest are rules that you never need to enable when using Prettier.
+                        "array-bracket-newline": "off",
+                        "array-bracket-spacing": "off",
+                        "array-element-newline": "off",
+                        "arrow-parens": "off",
+                        "arrow-spacing": "off",
+                        "block-spacing": "off",
+                        "brace-style": "off",
+                        "comma-dangle": "off",
 
-                          "comma-spacing": "off",
-                          "comma-style": "off",
-                          "computed-property-spacing": "off",
-                          // script can distinguish them.)
-                          curly: 0,
-                          "dot-location": "off",
-                          "eol-last": "off",
-                          "func-call-spacing": "off",
-                          "function-call-argument-newline": "off",
-                          "function-paren-newline": "off",
-                          "generator-star-spacing": "off",
-                          "implicit-arrow-linebreak": "off",
-                          indent: "off",
-                          "jsx-quotes": "off",
-                          "key-spacing": "off",
-                          "keyword-spacing": "off",
-                          "linebreak-style": "off",
-                          "lines-around-comment": 0,
-                          "max-len": 0,
-                          "max-statements-per-line": "off",
-                          "multiline-ternary": "off",
-                          "new-parens": "off",
-                          "newline-per-chained-call": "off",
-                          "no-confusing-arrow": 0,
-                          "no-extra-parens": "off",
-                          "no-extra-semi": "off",
-                          "no-floating-decimal": "off",
-                          "no-mixed-operators": 0,
-                          "no-mixed-spaces-and-tabs": "off",
-                          "no-multi-spaces": "off",
-                          "no-multiple-empty-lines": "off",
-                          "no-tabs": 0,
-                          "no-trailing-spaces": "off",
-                          "no-unexpected-multiline": 0,
-                          "no-whitespace-before-property": "off",
-                          "nonblock-statement-body-position": "off",
-                          "object-curly-newline": "off",
-                          "object-curly-spacing": "off",
-                          "object-property-newline": "off",
-                          "one-var-declaration-per-line": "off",
-                          "operator-linebreak": "off",
-                          "padded-blocks": "off",
-                          "quote-props": "off",
-                          quotes: 0,
-                          "rest-spread-spacing": "off",
-                          semi: "off",
-                          "semi-spacing": "off",
-                          "semi-style": "off",
-                          "space-before-blocks": "off",
-                          "space-before-function-paren": "off",
-                          "space-in-parens": "off",
-                          "space-unary-ops": "off",
-                          "switch-colon-spacing": "off",
-                          "template-curly-spacing": "off",
-                          "template-tag-spacing": "off",
-                          "wrap-iife": "off",
-                          "wrap-regex": "off",
-                          "yield-star-spacing": "off",
-                      }
-                    : {}),
+                        "comma-spacing": "off",
+                        "comma-style": "off",
+                        "computed-property-spacing": "off",
+                        // script can distinguish them.
+                        curly: 0,
+                        "dot-location": "off",
+                        "eol-last": "off",
+                        "func-call-spacing": "off",
+                        "function-call-argument-newline": "off",
+                        "function-paren-newline": "off",
+                        "generator-star-spacing": "off",
+                        "implicit-arrow-linebreak": "off",
+                        indent: "off",
+                        "jsx-quotes": "off",
+                        "key-spacing": "off",
+                        "keyword-spacing": "off",
+                        "linebreak-style": "off",
+                        "lines-around-comment": 0,
+                        "max-len": 0,
+                        "max-statements-per-line": "off",
+                        "multiline-ternary": "off",
+                        "new-parens": "off",
+                        "newline-per-chained-call": "off",
+                        "no-confusing-arrow": 0,
+                        "no-extra-parens": "off",
+                        "no-extra-semi": "off",
+                        "no-floating-decimal": "off",
+                        "no-mixed-operators": 0,
+                        "no-mixed-spaces-and-tabs": "off",
+                        "no-multi-spaces": "off",
+                        "no-multiple-empty-lines": "off",
+                        "no-tabs": 0,
+                        "no-trailing-spaces": "off",
+                        "no-unexpected-multiline": 0,
+                        "no-whitespace-before-property": "off",
+                        "nonblock-statement-body-position": "off",
+                        "object-curly-newline": "off",
+                        "object-curly-spacing": "off",
+                        "object-property-newline": "off",
+                        "one-var-declaration-per-line": "off",
+                        "operator-linebreak": "off",
+                        "padded-blocks": "off",
+                        quotes: 0,
+                        "rest-spread-spacing": "off",
+                        semi: "off",
+                        "semi-spacing": "off",
+                        "semi-style": "off",
+                        "space-before-blocks": "off",
+                        "space-before-function-paren": "off",
+                        "space-in-parens": "off",
+                        "space-unary-ops": "off",
+                        "switch-colon-spacing": "off",
+                        "template-curly-spacing": "off",
+                        "template-tag-spacing": "off",
+                        "wrap-iife": "off",
+                        "wrap-regex": "off",
+                        "yield-star-spacing": "off",
+                    }
+                    : {},
             },
         },
         {
-            name: "anolilab/style/js-rules",
-            files: getFilesGlobs("js"),
-            rules: {
-                // require or disallow newlines around directives
-                // https://eslint.org/docs/rules/lines-between-class-members
-                "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
-            },
-        },
-        {
-            name: "anolilab/style/ts-rules",
             files: getFilesGlobs("ts"),
+            name: "anolilab/style/ts-rules",
             rules: {
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
                 "brace-style": "off",
@@ -740,6 +609,11 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsStylistic
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
                 "lines-between-class-members": "off",
 
+                // Some built-in types have aliases, while some types are considered dangerous or harmful.
+                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
+                "no-array-constructor": "off",
+
                 // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
                 quotes: "off",
@@ -751,11 +625,6 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsStylistic
                 // Enforce using function types instead of interfaces with call signatures.
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
                 "space-before-function-paren": "off",
-
-                // Some built-in types have aliases, while some types are considered dangerous or harmful.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
-                "no-array-constructor": "off",
             },
         },
     ];

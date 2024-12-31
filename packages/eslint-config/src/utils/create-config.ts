@@ -29,14 +29,20 @@ const jsxGlobal = ["**/*.jsx", "**/*.mjsx", "**/*.cjsx"];
 
 export const getFilesGlobs = (fileType: FileType): string[] => {
     switch (fileType) {
-        case "jsx_and_tsx": {
-            return [...jsxGlobal, ...tsxGlobal];
+        case "all": {
+            return [...jsGlobal, ...dtsGlobal, ...tsGlobal, ...tsxGlobal, ...jsxGlobal];
         }
         case "astro": {
             return ["'**/*.astro/*.ts"];
         }
-        case "ts": {
-            return [...tsGlobal, ...dtsGlobal, ...tsxGlobal];
+        case "d.ts": {
+            return dtsGlobal;
+        }
+        case "e2e": {
+            return ["**/e2e/**/*.test.{js,ts,jsx,tsx}"];
+        }
+        case "html": {
+            return ["**/*.erb", "**/*.handlebars", "**/*.hbs", "**/*.htm", "**/*.html", "**/*.mustache", "**/*.nunjucks", "**/*.php", "**/*.tag", "**/*.twig", "**/*.we"];
         }
         case "js": {
             return jsGlobal;
@@ -44,8 +50,8 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         case "js_and_ts": {
             return [...jsGlobal, ...tsGlobal];
         }
-        case "all": {
-            return [...jsGlobal, ...dtsGlobal, ...tsGlobal, ...tsxGlobal, ...jsxGlobal];
+        case "jsx_and_tsx": {
+            return [...jsxGlobal, ...tsxGlobal];
         }
         case "markdown": {
             return ["**/*.{md,mkdn,mdown,markdown}"];
@@ -56,29 +62,23 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         case "markdown_inline_js_jsx": {
             return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node,json}"];
         }
-        case "vitest": {
-            return ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"];
-        }
-        case "d.ts": {
-            return dtsGlobal;
+        case "postcss": {
+            return ["**/postcss.config.js", "**/postcssrc.js", "**/postcss.config.cjs", "**/postcssrc.cjs"];
         }
         case "storybook": {
             return ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)", "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)"];
         }
-        case "postcss": {
-            return ["**/postcss.config.js", "**/postcssrc.js", "**/postcss.config.cjs", "**/postcssrc.cjs"];
-        }
-        case "yaml": {
-            return ["**/*.yaml", "**/*.yml"];
-        }
-        case "e2e": {
-            return ["**/e2e/**/*.test.{js,ts,jsx,tsx}"];
-        }
         case "toml": {
             return ["**/*.toml"];
         }
-        case "html": {
-            return ["**/*.erb", "**/*.handlebars", "**/*.hbs", "**/*.htm", "**/*.html", "**/*.mustache", "**/*.nunjucks", "**/*.php", "**/*.tag", "**/*.twig", "**/*.we"];
+        case "ts": {
+            return [...tsGlobal, ...dtsGlobal, ...tsxGlobal];
+        }
+        case "vitest": {
+            return ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"];
+        }
+        case "yaml": {
+            return ["**/*.yaml", "**/*.yml"];
         }
         default: {
             throw new Error("Unknown type");
@@ -86,7 +86,4 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
     }
 };
 
-export const createConfig =
-    <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) =>
-    async (options: O): Promise<TypedFlatConfigItem[]> =>
-        await rules(options, getFilesGlobs(type));
+export const createConfig = <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) => async (options: O): Promise<TypedFlatConfigItem[]> => await rules(options, getFilesGlobs(type));

@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/francoismassart/eslint-plugin-tailwindcss,
@@ -10,8 +10,8 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
 
     return [
         {
-            name: "anolilab/validate-jsx-nesting/setup",
             files,
+            name: "anolilab/validate-jsx-nesting/setup",
             plugins: {
                 "validate-jsx-nesting": validateJsxNestingPlugin,
             },

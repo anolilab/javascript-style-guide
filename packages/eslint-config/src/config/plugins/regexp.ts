@@ -1,10 +1,15 @@
-import { createConfig } from "../../utils/create-config";
-import type { OptionsOverrides, OptionsRegExp, OptionsFiles, TypedFlatConfigItem } from "../../types";
-
 import { configs } from "eslint-plugin-regexp";
 
-export default createConfig<OptionsRegExp & OptionsOverrides & OptionsFiles>("all", async (config, oFiles) => {
-    const { overrides, level, files = oFiles } = config;
+import type {
+    OptionsFiles,
+    OptionsOverrides,
+    OptionsRegExp,
+    TypedFlatConfigItem,
+} from "../../types";
+import { createConfig } from "../../utils/create-config";
+
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsRegExp>("all", async (config, oFiles) => {
+    const { files = oFiles, level, overrides } = config;
     const recommended = configs["flat/recommended"] as TypedFlatConfigItem;
 
     const rules = {
@@ -18,6 +23,7 @@ export default createConfig<OptionsRegExp & OptionsOverrides & OptionsFiles>("al
             }
         }
     }
+
     return [
         {
             ...recommended,

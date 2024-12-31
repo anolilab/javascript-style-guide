@@ -1,7 +1,8 @@
-import { createConfig, getFilesGlobs } from "../../utils/create-config";
-import type { OptionsFiles, OptionsPackageJson, OptionsStylistic } from "../../types";
-import interopDefault from "../../utils/interop-default";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
+
+import type { OptionsFiles, OptionsPackageJson, OptionsStylistic } from "../../types";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsPackageJson & OptionsStylistic>("js", async (config, oFiles) => {
     const { files = oFiles, packageJson, stylistic = true } = config;
@@ -17,43 +18,43 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsStylistic
 
     const rules = [
         {
-            name: "anolilab/jsdoc/setup",
             files: getFilesGlobs("all"),
+            name: "anolilab/jsdoc/setup",
             plugins: {
                 jsdoc: jsdocPlugin,
             },
         },
         {
-            name: "anolilab/jsdoc/js-rules",
             files,
+            name: "anolilab/jsdoc/js-rules",
             rules: {
                 ...jsdocPlugin.configs["flat/recommended-error"].rules,
 
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "jsdoc/check-alignment": "warn",
-                          "jsdoc/multiline-blocks": "warn",
-                      }
-                    : {}),
+                        "jsdoc/check-alignment": "warn",
+                        "jsdoc/multiline-blocks": "warn",
+                    }
+                    : {},
             },
         },
     ];
 
     if (hasTypescript && !hasTsDocPlugin) {
         rules.push({
-            name: "anolilab/jsdoc/ts-rules",
             files,
+            name: "anolilab/jsdoc/ts-rules",
             rules: {
                 ...jsdocPlugin.configs["flat/contents-typescript-error"].rules,
                 ...jsdocPlugin.configs["flat/logical-typescript-error"].rules,
                 ...jsdocPlugin.configs["flat/stylistic-typescript-error"].rules,
 
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "jsdoc/check-alignment": "warn",
-                          "jsdoc/multiline-blocks": "warn",
-                      }
-                    : {}),
+                        "jsdoc/check-alignment": "warn",
+                        "jsdoc/multiline-blocks": "warn",
+                    }
+                    : {},
             },
         });
     }

@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", async (config, oFiles) => {
@@ -9,17 +9,17 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
 
     return [
         {
-            name: "anolilab/jsx-a11y/setup",
             files,
-            plugins: {
-                "jsx-a11y": jsxA11yPlugin,
-            },
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {
                         jsx: true,
                     },
                 },
+            },
+            name: "anolilab/jsx-a11y/setup",
+            plugins: {
+                "jsx-a11y": jsxA11yPlugin,
             },
             rules: {
                 rules: {
@@ -33,9 +33,9 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
                         "error",
                         {
                             area: [],
-                            elements: ["img", "object", "area", 'input[type="image"]'],
+                            elements: ["img", "object", "area", "input[type=\"image\"]"],
                             img: [],
-                            'input[type="image"]': [],
+                            "input[type=\"image\"]": [],
                             object: [],
                         },
                     ],

@@ -1,9 +1,19 @@
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsStylistic,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
-import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<OptionsOverrides & OptionsFiles & OptionsHasPrettier & OptionsStylistic>("html", async (config, oFiles) => {
-    const { files = oFiles, overrides, prettier, stylistic = true } = config;
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("html", async (config, oFiles) => {
+    const {
+        files = oFiles,
+        overrides,
+        prettier,
+        stylistic = true,
+    } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -11,8 +21,8 @@ export default createConfig<OptionsOverrides & OptionsFiles & OptionsHasPrettier
 
     return [
         {
-            name: "anolilab/html/setup",
             files,
+            name: "anolilab/html/setup",
             plugins: {
                 html: htmlPlugin,
             },
@@ -22,22 +32,22 @@ export default createConfig<OptionsOverrides & OptionsFiles & OptionsHasPrettier
                 // @see https://github.com/yeonjuan/html-eslint/issues/67 bug in html-eslint
                 "spaced-comment": "off",
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "@html-eslint/element-newline": "off",
-                          "@html-eslint/indent": "off",
-                          "@html-eslint/no-extra-spacing-attrs": "off",
-                          "@html-eslint/quotes": "off",
-                      }
-                    : {}),
+                        "@html-eslint/element-newline": "off",
+                        "@html-eslint/indent": "off",
+                        "@html-eslint/no-extra-spacing-attrs": "off",
+                        "@html-eslint/quotes": "off",
+                    }
+                    : {},
 
                 ...overrides,
             },
 
             settings: {
-                "html/report-bad-indent": "error",
                 "html/indent": `+${indent}`,
-                ...(prettier ? { "html/report-bad-indent": "off" } : {}),
+                "html/report-bad-indent": "error",
+                ...prettier ? { "html/report-bad-indent": "off" } : {},
             },
         },
     ];

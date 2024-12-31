@@ -1,5 +1,5 @@
-import { createConfig } from "../../utils/create-config";
 import type { OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsOverrides>("storybook", async (config) => {

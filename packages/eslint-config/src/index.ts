@@ -1,50 +1,56 @@
-import { FlatConfigComposer } from "eslint-flat-config-utils";
-import type { Awaitable, OptionsConfig, TypedFlatConfigItem, ConfigNames } from "./types";
-import type { Linter } from "eslint";
-import isInEditorEnv from "./utils/is-in-editor";
-import interopDefault from "./utils/interop-default";
-import type { RuleOptions } from "./typegen";
-import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import yaml from "./config/plugins/yml";
-import toml from "./config/plugins/toml";
-import markdown from "./config/plugins/markdown";
-import comments from "./config/plugins/comments";
-import node from "./config/plugins/node";
-import jsdoc from "./config/plugins/jsdoc";
-import imports from "./config/plugins/imports";
-import perfectionist from "./config/plugins/perfectionist";
-import unicorn from "./config/plugins/unicorn";
-import { getFilesGlobs } from "./utils/create-config";
-import stylistic from "./config/plugins/stylistic";
-import react from "./config/plugins/react";
-import regexp from "./config/plugins/regexp";
-import vitest from "./config/plugins/vitest";
-import jsonc from "./config/plugins/jsonc";
+import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
+import type { Linter } from "eslint";
+import { FlatConfigComposer } from "eslint-flat-config-utils";
+
+import bestPractices from "./config/best-practices";
+import errors from "./config/errors";
+import ignores from "./config/ignores";
 import antfu from "./config/plugins/antfu";
+import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
 import html from "./config/plugins/html";
+import imports from "./config/plugins/imports";
+import javascript from "./config/plugins/javascript";
+import jsdoc from "./config/plugins/jsdoc";
+import jsonc from "./config/plugins/jsonc";
 import jsxA11y from "./config/plugins/jsx-a11y";
+import markdown from "./config/plugins/markdown";
 import noSecrets from "./config/plugins/no-secrets";
 import noUnsanitized from "./config/plugins/no-unsanitized";
+import node from "./config/plugins/node";
+import perfectionist from "./config/plugins/perfectionist";
 import playwright from "./config/plugins/playwright";
 import promise from "./config/plugins/promise";
+import react from "./config/plugins/react";
+import regexp from "./config/plugins/regexp";
 import simpleImportSort from "./config/plugins/simple-import-sort";
 import sonarjs from "./config/plugins/sonarjs";
 import storybook from "./config/plugins/storybook";
+import stylistic from "./config/plugins/stylistic";
 import tailwindcss from "./config/plugins/tailwindcss";
 import tanstackQuery from "./config/plugins/tanstack-query";
+import toml from "./config/plugins/toml";
 import tsdoc from "./config/plugins/tsdoc";
-import validateJsxNesting from "./config/plugins/validate-jsx-nesting";
-import bestPractices from "./config/best-practices";
-import variables from "./config/variables";
-import style from "./config/style";
-import errors from "./config/errors";
 import typescript from "./config/plugins/typescript";
-import ignores from "./config/ignores";
-import javascript from "./config/plugins/javascript";
+import unicorn from "./config/plugins/unicorn";
+import validateJsxNesting from "./config/plugins/validate-jsx-nesting";
+import vitest from "./config/plugins/vitest";
+import yaml from "./config/plugins/yml";
+import style from "./config/style";
+import variables from "./config/variables";
+import type { RuleOptions } from "./typegen";
+import type {
+    Awaitable,
+    ConfigNames,
+    OptionsConfig,
+    TypedFlatConfigItem,
+} from "./types";
+import { getFilesGlobs } from "./utils/create-config";
+import interopDefault from "./utils/interop-default";
+import isInEditorEnv from "./utils/is-in-editor";
 
 const flatConfigProps = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -59,7 +65,7 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
 
     return {
         ...(options.overrides as any)?.[key],
-        ...("overrides" in sub ? sub.overrides : {}),
+        ..."overrides" in sub ? sub.overrides : {},
     };
 };
 
@@ -88,12 +94,12 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
  *  The merged ESLint configurations.
  */
 export const createConfig = async (
-    options: OptionsConfig & Omit<TypedFlatConfigItem, "files"> = {},
+    options: Omit<TypedFlatConfigItem, "files"> & OptionsConfig = {},
     ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
     if ("files" in options) {
         throw new Error(
-            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
+            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
         );
     }
 
@@ -104,24 +110,24 @@ export const createConfig = async (
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
 
     const {
-        html: enableHtml = false,
-        playwright: enablePlaywright = false,
-        storybook: enableStorybook = false,
-        tailwindcss: enableTailwindCss = false,
-        tanstack: enableTanstack = false,
-        tsdoc: enableTsdoc = false,
         astro: enableAstro = false,
         componentExts = [],
         gitignore: enableGitignore = true,
+        html: enableHtml = false,
         jsx: enableJsx = true,
+        playwright: enablePlaywright = false,
         react: enableReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]),
         regexp: enableRegexp = true,
         solid: enableSolid = false,
+        storybook: enableStorybook = false,
         svelte: enableSvelte = false,
+        tailwindcss: enableTailwindCss = false,
+        tanstack: enableTanstack = false,
+        test: enableTest = true,
+        tsdoc: enableTsdoc = false,
         typescript: enableTypeScript = hasPackageJsonAnyDependency(packageJson, ["typescript"]),
         unicorn: enableUnicorn = true,
         unocss: enableUnoCSS = false,
-        test: enableTest = true,
     } = options;
 
     let isInEditor = options.isInEditor;
@@ -146,7 +152,7 @@ export const createConfig = async (
     if (enableGitignore) {
         if (typeof enableGitignore !== "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
                     r({
                         name: "anolilab/gitignore",
                         ...enableGitignore,
@@ -155,7 +161,7 @@ export const createConfig = async (
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
                     r({
                         name: "anolilab/gitignore",
                         strict: false,
@@ -186,28 +192,28 @@ export const createConfig = async (
             packageJson,
         }),
         jsdoc({
-            stylistic: stylisticOptions,
             files: getFiles(options, "jsdoc"),
             // overrides: getFiles(options, "jsdoc"),
             packageJson,
+            stylistic: stylisticOptions,
         }),
         imports({
-            stylistic: stylisticOptions,
-            overrides: getOverrides(options, "imports"),
-            packageJson,
             cwd,
             files: getFiles(options, "imports"),
+            overrides: getOverrides(options, "imports"),
+            packageJson,
+            stylistic: stylisticOptions,
             tsconfigPath,
         }),
         simpleImportSort({
-            overrides: getOverrides(options, "simpleImportSort"),
             files: getFiles(options, "simpleImportSort"),
+            overrides: getOverrides(options, "simpleImportSort"),
         }),
         antfu({
-            overrides: getOverrides(options, "antfu"),
             files: getFiles(options, "antfu"),
-            packageJson,
             lessOpinionated: options.lessOpinionated,
+            overrides: getOverrides(options, "antfu"),
+            packageJson,
         }),
         compat({
             files: getFiles(options, "compat"),
@@ -219,28 +225,28 @@ export const createConfig = async (
             overrides: getOverrides(options, "noUnsanitized"),
         }),
         promise({
-            overrides: getOverrides(options, "promise"),
             files: getFiles(options, "promise"),
+            overrides: getOverrides(options, "promise"),
         }),
         sonarjs({
-            overrides: getOverrides(options, "sonarjs"),
             files: getFiles(options, "sonarjs"),
+            overrides: getOverrides(options, "sonarjs"),
         }),
         perfectionist({
-            overrides: getOverrides(options, "perfectionist"),
             files: getFiles(options, "perfectionist"),
+            overrides: getOverrides(options, "perfectionist"),
             packageJson,
         }),
     );
-    //
+
     if (enableUnicorn) {
         configs.push(
             unicorn({
-                overrides: getOverrides(options, "unicorn"),
                 files: getFiles(options, "unicorn"),
-                stylistic: stylisticOptions,
-                prettier: enablePrettier,
+                overrides: getOverrides(options, "unicorn"),
                 packageJson,
+                prettier: enablePrettier,
+                stylistic: stylisticOptions,
             }),
         );
     }
@@ -261,14 +267,14 @@ export const createConfig = async (
         ]);
         configs.push(
             jsxA11y({
-                overrides: getOverrides(options, "jsx-a11y"),
                 files: getFiles(options, "jsx-a11y"),
+                overrides: getOverrides(options, "jsx-a11y"),
             }),
         );
         configs.push(
             validateJsxNesting({
-                overrides: getOverrides(options, "validateJsxNesting"),
                 files: getFiles(options, "validateJsxNesting"),
+                overrides: getOverrides(options, "validateJsxNesting"),
             }),
         );
     }
@@ -298,22 +304,22 @@ export const createConfig = async (
         configs.push(regexp(typeof enableRegexp === "boolean" ? {} : enableRegexp));
     }
 
-    if (enableTest) {
-        configs.push(
-            vitest({
-                isInEditor,
-                overrides: getOverrides(options, "test"),
-                files: getFiles(options, "test"),
-                prettier: enablePrettier,
-            }),
-        );
-    }
+    // if (enableTest) {
+    //     configs.push(
+    //         vitest({
+    //             isInEditor,
+    //             overrides: getOverrides(options, "test"),
+    //             files: getFiles(options, "test"),
+    //             prettier: enablePrettier,
+    //         }),
+    //     );
+    // }
 
     if (enablePlaywright) {
         configs.push(
             playwright({
-                overrides: getOverrides(options, "playwright"),
                 files: getFiles(options, "playwright"),
+                overrides: getOverrides(options, "playwright"),
             }),
         );
     }
@@ -337,8 +343,8 @@ export const createConfig = async (
     if (enableTanstack) {
         configs.push(
             tanstackQuery({
-                overrides: getOverrides(options, "tanstack"),
                 files: getFiles(options, "tanstack"),
+                overrides: getOverrides(options, "tanstack"),
             }),
         );
     }
@@ -346,8 +352,8 @@ export const createConfig = async (
     if (enableHtml) {
         configs.push(
             html({
-                overrides: getOverrides(options, "html"),
                 files: getFiles(options, "html"),
+                overrides: getOverrides(options, "html"),
                 prettier: enablePrettier,
                 stylistic: stylisticOptions,
             }),
@@ -357,8 +363,8 @@ export const createConfig = async (
     if (enableTsdoc) {
         configs.push(
             tsdoc({
-                overrides: getOverrides(options, "tsdoc"),
                 files: getFiles(options, "tsdoc"),
+                overrides: getOverrides(options, "tsdoc"),
             }),
         );
     }
@@ -368,6 +374,7 @@ export const createConfig = async (
             react({
                 ...typescriptOptions,
                 overrides: getOverrides(options, "react"),
+                packageJson,
                 tsconfigPath,
             }),
         );
@@ -395,9 +402,9 @@ export const createConfig = async (
         configs.push(
             jsonc({
                 overrides: getOverrides(options, "jsonc"),
-                stylistic: stylisticOptions,
-                prettier: enablePrettier,
                 packageJson,
+                prettier: enablePrettier,
+                stylistic: stylisticOptions,
             }),
         );
     }
@@ -405,9 +412,9 @@ export const createConfig = async (
     if (options.toml ?? true) {
         configs.push(
             toml({
+                files: getFiles(options, "toml"),
                 overrides: getOverrides(options, "toml"),
                 stylistic: stylisticOptions,
-                files: getFiles(options, "toml"),
             }),
         );
     }
@@ -416,8 +423,8 @@ export const createConfig = async (
         configs.push(
             markdown({
                 componentExts,
-                overrides: getOverrides(options, "markdown"),
                 files: getFiles(options, "markdown"),
+                overrides: getOverrides(options, "markdown"),
             }),
         );
     }
@@ -425,10 +432,10 @@ export const createConfig = async (
     if (options.yaml ?? true) {
         configs.push(
             yaml({
-                overrides: getOverrides(options, "yaml"),
-                stylistic: stylisticOptions,
-                prettier: enablePrettier,
                 files: getFiles(options, "yaml"),
+                overrides: getOverrides(options, "yaml"),
+                prettier: enablePrettier,
+                stylistic: stylisticOptions,
             }),
         );
     }
@@ -437,6 +444,7 @@ export const createConfig = async (
     // We pick the known keys as ESLint would do schema validation
     const fusedConfig = flatConfigProps.reduce((acc, key) => {
         if (key in options) acc[key] = options[key] as any;
+
         return acc;
     }, {} as TypedFlatConfigItem);
 

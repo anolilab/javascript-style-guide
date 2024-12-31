@@ -34,6 +34,16 @@ const config = createConfig("typescript", {
         // Disallows awaiting a value that is not a Thenable
         "@typescript-eslint/await-thenable": "error",
 
+        // TODO: enable this rule when decision is made on
+        "@typescript-eslint/consistent-type-assertions": [
+            "off",
+            {
+                assertionStyle: "never",
+            },
+        ],
+
+        // Interfaces encourage OO, types encourage FP.
+        "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/consistent-type-exports": [
             "error",
             {
@@ -43,6 +53,10 @@ const config = createConfig("typescript", {
 
         // Replace 'dot-notation' rule with '@typescript-eslint' version
         "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
+
+        // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/method-signature-style.md
+        "@typescript-eslint/method-signature-style": "error",
+
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-base-to-string.md
         "@typescript-eslint/no-base-to-string": [
             "error",
@@ -68,7 +82,6 @@ const config = createConfig("typescript", {
                 ignoreVoid: true,
             },
         ],
-
         // Disallow iterating over an array with a for-in loop
         "@typescript-eslint/no-for-in-array": "error",
 
@@ -101,6 +114,7 @@ const config = createConfig("typescript", {
         // See also https://github.com/microsoft/TypeScript/issues/19456
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
         "@typescript-eslint/no-unnecessary-condition": "error",
+
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md
         "@typescript-eslint/no-unnecessary-qualifier": "error",
 
@@ -114,9 +128,6 @@ const config = createConfig("typescript", {
         // Warns if a type assertion does not change the type of an expression
         // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
         "@typescript-eslint/non-nullable-type-assertion-style": "off",
-
-        // See https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/method-signature-style.md
-        "@typescript-eslint/method-signature-style": "error",
 
         // Enforce includes method over indexOf method.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-includes.md
@@ -138,7 +149,6 @@ const config = createConfig("typescript", {
         // Enforce that this is used when only this type is returned.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-reduce-type-parameter.md
         "@typescript-eslint/prefer-reduce-type-parameter": "error",
-
         // Enforce using String#startsWith and String#endsWith over other equivalent methods of checking substrings.
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-regexp-exec.md
         "@typescript-eslint/prefer-regexp-exec": "error",
@@ -146,6 +156,7 @@ const config = createConfig("typescript", {
         // Replace 'require-await' rule with '@typescript-eslint' version
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-return-this-type.md
         "@typescript-eslint/prefer-return-this-type": "error",
+
         // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
 
@@ -168,33 +179,22 @@ const config = createConfig("typescript", {
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
         "@typescript-eslint/return-await": ["error", "always"],
 
+        // TODO: enable this rule when decision is made on
+        "@typescript-eslint/strict-boolean-expressions": [
+            "off",
+            {
+                allowNullableObject: false,
+                allowNumber: false,
+                allowString: false,
+            },
+        ],
+
         // Disallow unnecessary namespace qualifiers.
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/switch-exhaustiveness-check.md
         "@typescript-eslint/switch-exhaustiveness-check": "error",
 
         // Enforces unbound methods are called with their expected scope
         "@typescript-eslint/unbound-method": ["error", { ignoreStatic: false }],
-
-        // TODO: enable this rule when decision is made on
-        "@typescript-eslint/consistent-type-assertions": [
-            "off",
-            {
-                assertionStyle: "never",
-            },
-        ],
-
-        // TODO: enable this rule when decision is made on
-        "@typescript-eslint/strict-boolean-expressions": [
-            "off",
-            {
-                allowString: false,
-                allowNumber: false,
-                allowNullableObject: false,
-            },
-        ],
-
-        // Interfaces encourage OO, types encourage FP.
-        "@typescript-eslint/consistent-type-definitions": "off",
     },
 });
 

@@ -1,24 +1,9 @@
-import { createConfig, getFilesGlobs } from "../utils/create-config";
-import type { OptionsFiles } from "../types";
 import { Linter } from "eslint";
 
+import type { OptionsFiles } from "../types";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
+
 export const bestPracticesRules: Partial<Linter.RulesRecord> = {
-    // Disallow non-null assertions using the ! postfix operator.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
-    "no-return-await": "off",
-
-    // Disallow calling a value with type any.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-    "no-unused-expressions": "off",
-
-    // Disallow type assertions that do not change the type of expression.
-    // Disable the "no-throw-literal" rule, as it can report incorrect errors on TypeScript code
-    "no-throw-literal": "off",
-
-    // Disallow empty exports that don't change anything in a module file.
-    // Breaks @typescript-eslint/parser
-    strict: "off",
-
     // Disable the "dot-notation" rule, as it can report incorrect errors on TypeScript code
     "dot-notation": "off",
 
@@ -29,7 +14,6 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     // Disallow using to delete operator on computed key expressions.
     // Disable the "no-implied-eval" and "no-new-func" rule, as it can report incorrect errors on TypeScript code
     "no-implied-eval": "off",
-    "no-new-func": "off",
 
     // Disallow extra non-null assertions.
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
@@ -39,9 +23,26 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
     "no-magic-numbers": "off",
 
+    "no-new-func": "off",
+
     // Disallow non-null assertions after an optional chain expression.
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
     "no-redeclare": "off",
+    // Disallow non-null assertions using the ! postfix operator.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
+    "no-return-await": "off",
+
+    // Disallow type assertions that do not change the type of expression.
+    // Disable the "no-throw-literal" rule, as it can report incorrect errors on TypeScript code
+    "no-throw-literal": "off",
+
+    // Disallow calling a value with type any.
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+    "no-unused-expressions": "off",
+
+    // Disallow empty exports that don't change anything in a module file.
+    // Breaks @typescript-eslint/parser
+    strict: "off",
 };
 
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
@@ -49,8 +50,8 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
 
     return [
         {
-            name: "anolilab/best-practices/rules",
             files,
+            name: "anolilab/best-practices/rules",
             rules: {
                 // enforces getter/setter pairs in objects
                 "accessor-pairs": "off",
@@ -497,8 +498,8 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
             },
         },
         {
-            name: "anolilab/best-practices/ts-rules",
             files: getFilesGlobs("ts"),
+            name: "anolilab/best-practices/ts-rules",
             rules: bestPracticesRules,
         },
     ];

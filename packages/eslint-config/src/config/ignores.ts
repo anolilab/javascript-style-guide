@@ -43,6 +43,6 @@ const ignores = async (userIgnores: string[] = []): Promise<TypedFlatConfigItem[
             name: "anolilab/ignores",
         },
     ];
-}
+};
 
 export default ignores;

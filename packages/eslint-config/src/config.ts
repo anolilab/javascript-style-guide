@@ -1,4 +1,9 @@
-import { hasDependency, hasDevDependency, hasFile, resolvePackage } from "@anolilab/package-json-utils";
+import {
+    hasDependency,
+    hasDevDependency,
+    hasFile,
+    resolvePackage,
+} from "@anolilab/package-json-utils";
 
 import type { PackageRules } from "./types";
 import anolilabEslintConfig from "./utils/eslint-config";
@@ -495,7 +500,6 @@ const loadedPlugins: string[] = [...internalPluginConfig];
 const possiblePlugins: Record<string, Record<string, boolean>> = {};
 
 if (loadedPlugins.length === internalPluginConfig.length) {
-    // eslint-disable-next-line sonarjs/cognitive-complexity
     pluginConfig.forEach((plugin) => {
         const { configName, dependencies } = plugin;
 

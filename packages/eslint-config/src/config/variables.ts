@@ -1,8 +1,8 @@
 import confusingBrowserGlobals from "confusing-browser-globals";
-
-import { createConfig, getFilesGlobs } from "../utils/create-config";
-import type { OptionsFiles } from "../types";
 import { Linter } from "eslint";
+
+import type { OptionsFiles } from "../types";
+import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const variablesRules: Partial<Linter.RulesRecord> = {
     // enforce or disallow variable initializations at definition
@@ -31,8 +31,8 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
         },
         ...confusingBrowserGlobals.map((g) => {
             return {
-                name: g,
                 message: `Use window.${g} instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md`,
+                name: g,
             };
         }),
         { message: "Use `globalThis` instead.", name: "global" },
@@ -67,28 +67,28 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
 
     return [
         {
-            name: "anolilab/variables/rules",
             files,
+            name: "anolilab/variables/rules",
             rules: variablesRules,
         },
         {
-            name: "anolilab/variables/ts-rules",
             files: getFilesGlobs("ts"),
+            name: "anolilab/variables/ts-rules",
             rules: {
-                // Disallow member access on a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-                "no-use-before-define": "off",
-
-                // Disallow unsafe declaration merging.
-                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-                "no-unused-vars": "off",
-
                 // Disallow invocation of require().
                 // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
                 "no-shadow": "off",
 
                 // Disallow unnecessary constraints on generic types.
                 "no-undef": "off",
+
+                // Disallow unsafe declaration merging.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
+                "no-unused-vars": "off",
+
+                // Disallow member access on a value with type any.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
+                "no-use-before-define": "off",
             },
         },
     ];

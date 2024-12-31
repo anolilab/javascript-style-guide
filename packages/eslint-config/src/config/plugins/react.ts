@@ -1,7 +1,7 @@
+import { hasPackageJsonAnyDependency } from "@visulima/package";
+import { readTsConfig } from "@visulima/tsconfig";
 import { parse } from "semver";
 
-import { noUnderscoreDangle } from "../style";
-import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import type {
     OptionsFiles,
     OptionsHasPrettier,
@@ -12,9 +12,9 @@ import type {
     OptionsTypeScriptWithTypes,
     TypedFlatConfigItem,
 } from "../../types";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
-import { hasPackageJsonAnyDependency } from "@visulima/package";
-import { readTsConfig } from "@visulima/tsconfig";
+import { noUnderscoreDangle } from "../style";
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = ["vite"];
@@ -23,17 +23,17 @@ const NextJsPackages = ["next"];
 
 // @see https://github.com/yannickcr/eslint-plugin-react
 export default createConfig<
-    OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles & OptionsPackageJson & OptionsHasPrettier & OptionsStylistic
+    OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
         files = oFiles,
         filesTypeAware = getFilesGlobs("ts"),
         ignoresTypeAware = [`**/*.md/**`, ...getFilesGlobs("astro")],
         overrides,
-        tsconfigPath,
         packageJson,
         prettier,
         stylistic = true,
+        tsconfigPath,
     } = config;
 
     const isTypeAware = tsconfigPath !== undefined;
@@ -98,11 +98,11 @@ export default createConfig<
             },
         },
         {
-            name: "anolilab/react/rules",
             env: {
                 browser: true,
             },
             files,
+            name: "anolilab/react/rules",
             parserOptions: {
                 ecmaFeatures: {
                     jsx: true,
@@ -110,42 +110,6 @@ export default createConfig<
             },
             // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
             rules: {
-                // Enforce Rules of Hooks
-                // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
-                "react-hooks/exhaustive-deps": "error",
-
-                // Verify the list of the dependencies for Hooks like useEffect and similar
-                // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
-                "react-hooks/rules-of-hooks": "error",
-
-                // react refresh
-                "react-refresh/only-export-components": [
-                    "warn",
-                    {
-                        allowConstantExport: isAllowConstantExport,
-                        allowExportNames: [
-                            ...(isUsingNext
-                                ? [
-                                      "dynamic",
-                                      "dynamicParams",
-                                      "revalidate",
-                                      "fetchCache",
-                                      "runtime",
-                                      "preferredRegion",
-                                      "maxDuration",
-                                      "config",
-                                      "generateStaticParams",
-                                      "metadata",
-                                      "generateMetadata",
-                                      "viewport",
-                                      "generateViewport",
-                                  ]
-                                : []),
-                            ...(isUsingRemix ? ["meta", "links", "headers", "loader", "action"] : []),
-                        ],
-                    },
-                ],
-
                 "class-methods-use-this": [
                     "error",
                     {
@@ -180,6 +144,42 @@ export default createConfig<
                         ...noUnderscoreDangle,
                         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-explicit-any
                         allow: [...noUnderscoreDangle.allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
+                    },
+                ],
+
+                // Enforce Rules of Hooks
+                // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
+                "react-hooks/exhaustive-deps": "error",
+
+                // Verify the list of the dependencies for Hooks like useEffect and similar
+                // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
+                "react-hooks/rules-of-hooks": "error",
+
+                // react refresh
+                "react-refresh/only-export-components": [
+                    "warn",
+                    {
+                        allowConstantExport: isAllowConstantExport,
+                        allowExportNames: [
+                            ...isUsingNext
+                                ? [
+                                    "dynamic",
+                                    "dynamicParams",
+                                    "revalidate",
+                                    "fetchCache",
+                                    "runtime",
+                                    "preferredRegion",
+                                    "maxDuration",
+                                    "config",
+                                    "generateStaticParams",
+                                    "metadata",
+                                    "generateMetadata",
+                                    "viewport",
+                                    "generateViewport",
+                                ]
+                                : [],
+                            ...isUsingRemix ? ["meta", "links", "headers", "loader", "action"] : [],
+                        ],
                     },
                 ],
 
@@ -684,25 +684,25 @@ export default createConfig<
                 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "react/jsx-child-element-spacing": "off",
-                          "react/jsx-closing-bracket-location": "off",
-                          "react/jsx-closing-tag-location": "off",
-                          "react/jsx-curly-newline": "off",
-                          "react/jsx-curly-spacing": "off",
-                          "react/jsx-equals-spacing": "off",
-                          "react/jsx-first-prop-new-line": "off",
-                          "react/jsx-indent": "off",
-                          "react/jsx-indent-props": "off",
-                          "react/jsx-max-props-per-line": "off",
-                          "react/jsx-newline": "off",
-                          "react/jsx-one-expression-per-line": "off",
-                          "react/jsx-props-no-multi-spaces": "off",
-                          "react/jsx-tag-spacing": "off",
-                          "react/jsx-wrap-multilines": "off",
-                      }
-                    : {}),
+                        "react/jsx-child-element-spacing": "off",
+                        "react/jsx-closing-bracket-location": "off",
+                        "react/jsx-closing-tag-location": "off",
+                        "react/jsx-curly-newline": "off",
+                        "react/jsx-curly-spacing": "off",
+                        "react/jsx-equals-spacing": "off",
+                        "react/jsx-first-prop-new-line": "off",
+                        "react/jsx-indent": "off",
+                        "react/jsx-indent-props": "off",
+                        "react/jsx-max-props-per-line": "off",
+                        "react/jsx-newline": "off",
+                        "react/jsx-one-expression-per-line": "off",
+                        "react/jsx-props-no-multi-spaces": "off",
+                        "react/jsx-tag-spacing": "off",
+                        "react/jsx-wrap-multilines": "off",
+                    }
+                    : {},
 
                 // overrides
                 ...overrides,
@@ -724,16 +724,13 @@ export default createConfig<
             },
         },
         {
-            name: "anolilab/react/jsx",
             files: ["**/*.jsx"],
+            name: "anolilab/react/jsx",
             parser: "@babel/eslint-parser",
             parserOptions: {
                 ecmaFeatures: {
                     jsx: true,
                 },
-            },
-            settings: {
-                extensions: [".jsx"],
             },
             rules: {
                 // only .jsx files may have JSX
@@ -763,10 +760,13 @@ export default createConfig<
                 // https://github.com/yannickcr/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/no-typos.md
                 "react/no-typos": "error",
             },
+            settings: {
+                extensions: [".jsx"],
+            },
         },
         {
-            name: "anolilab/react/tsx",
             files: ["**/*.tsx"],
+            name: "anolilab/react/tsx",
             rules: {
                 "react/default-props-match-prop-types": "off",
                 // Disable JS specific rules
@@ -776,24 +776,24 @@ export default createConfig<
             },
         },
         {
-            name: "anolilab/react/storybook",
             // For performance run storybook/recommended on test files, not regular code
             files: getFilesGlobs("storybook"),
+            name: "anolilab/react/storybook",
             rules: {
                 "react/jsx-props-no-spreading": "off",
             },
         },
-        ...(isTypeAware
+        ...isTypeAware
             ? [
-                  {
-                      files: filesTypeAware,
-                      ignores: ignoresTypeAware,
-                      name: "anolilab/react/type-aware-rules",
-                      rules: {
-                          ...typeAwareRules,
-                      },
-                  },
-              ]
-            : []),
+                {
+                    files: filesTypeAware,
+                    ignores: ignoresTypeAware,
+                    name: "anolilab/react/type-aware-rules",
+                    rules: {
+                        ...typeAwareRules,
+                    },
+                },
+            ]
+            : [],
     ];
 });

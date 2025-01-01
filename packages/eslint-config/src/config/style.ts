@@ -1,4 +1,4 @@
-import { Linter } from "eslint";
+import type { Linter } from "eslint";
 
 import type { OptionsFiles, OptionsHasPrettier } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";

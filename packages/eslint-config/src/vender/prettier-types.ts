@@ -28,7 +28,7 @@ export type BuiltInParserName =
     | "xml"
     | "yaml";
 
-export type ExternalParserName = "slidev" | "astro";
+export type ExternalParserName = "astro" | "slidev";
 
 // This utility is here to handle the case where you have an explicit union
 // between string literals and the generic string type. It would normally
@@ -46,7 +46,7 @@ export interface VendoredPrettierOptionsRequired {
      * Include parentheses around a sole arrow function parameter.
      * @default "always"
      */
-    arrowParens: "avoid" | "always";
+    arrowParens: "always" | "avoid";
     /**
      * Put the `>` of a multi-line HTML (HTML, XML, JSX, Vue, Angular) element at the end of the last line instead of being
      * alone on the next line (does not apply to self closing elements).
@@ -60,12 +60,12 @@ export interface VendoredPrettierOptionsRequired {
      * Which end of line characters to apply.
      * @default "lf"
      */
-    endOfLine: "auto" | "lf" | "crlf" | "cr";
+    endOfLine: "auto" | "cr" | "crlf" | "lf";
     /**
      * How to handle whitespaces in HTML.
      * @default "css"
      */
-    htmlWhitespaceSensitivity: "css" | "strict" | "ignore";
+    htmlWhitespaceSensitivity: "css" | "ignore" | "strict";
     /**
      * Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on the next line.
      * @deprecated use bracketSameLine instead
@@ -78,7 +78,7 @@ export interface VendoredPrettierOptionsRequired {
     /**
      * Provide ability to support new languages to prettier.
      */
-    plugins: Array<string | any>;
+    plugins: (any | string)[];
     /**
      * Specify the line length that the printer will wrap on.
      * @default 120
@@ -124,7 +124,7 @@ export interface VendoredPrettierOptionsRequired {
     /**
      * Print trailing commas wherever possible.
      */
-    trailingComma: "none" | "es5" | "all";
+    trailingComma: "all" | "es5" | "none";
     /**
      * Indent lines with tabs instead of spaces
      */
@@ -139,7 +139,7 @@ export interface VendoredPrettierOptionsRequired {
      * How to handle whitespaces in XML.
      * @default "preserve"
      */
-    xmlQuoteAttributes: "single" | "double" | "preserve";
+    xmlQuoteAttributes: "double" | "preserve" | "single";
     /**
      * Whether to put a space inside the brackets of self-closing XML elements.
      * @default true
@@ -154,7 +154,7 @@ export interface VendoredPrettierOptionsRequired {
      * How to handle whitespaces in XML.
      * @default "ignore"
      */
-    xmlWhitespaceSensitivity: "ignore" | "strict" | "preserve";
+    xmlWhitespaceSensitivity: "ignore" | "preserve" | "strict";
 }
 
 export type VendoredPrettierRuleOptions = VendoredPrettierOptions & {

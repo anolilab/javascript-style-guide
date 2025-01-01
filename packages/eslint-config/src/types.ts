@@ -7,7 +7,7 @@ import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { ConfigNames, RuleOptions } from "./typegen";
 import type { VendoredPrettierOptions } from "./vender/prettier-types";
 
-export type Awaitable<T> = T | Promise<T>;
+export type Awaitable<T> = Promise<T> | T;
 
 export interface OptionsComponentExts {
     /**
@@ -52,7 +52,7 @@ export interface OptionsConfig extends OptionsComponentExts {
      *
      * @default false
      */
-    formatters?: boolean | OptionsFormatters;
+    formatters?: OptionsFormatters | boolean;
 
     /**
      * Enable gitignore support.
@@ -62,7 +62,7 @@ export interface OptionsConfig extends OptionsComponentExts {
      * @see https://github.com/antfu/eslint-config-flat-gitignore
      * @default true
      */
-    gitignore?: boolean | FlatGitignoreOptions;
+    gitignore?: FlatGitignoreOptions | boolean;
 
     /**
      * Control to disable some rules in editors.
@@ -197,14 +197,14 @@ export interface OptionsConfig extends OptionsComponentExts {
      *
      * @default auto-detect based on the dependencies
      */
-    typescript?: boolean | OptionsTypescript;
+    typescript?: OptionsTypescript | boolean;
 
     /**
      * Options for eslint-plugin-unicorn.
      *
      * @default true
      */
-    unicorn?: boolean | OptionsUnicorn;
+    unicorn?: OptionsUnicorn | boolean;
 
     /**
      * Enable unocss rules.
@@ -214,7 +214,7 @@ export interface OptionsConfig extends OptionsComponentExts {
      *
      * @default false
      */
-    unocss?: boolean | OptionsUnoCSS;
+    unocss?: OptionsUnoCSS | boolean;
 
     /**
      * Enable YAML support.
@@ -246,14 +246,14 @@ export interface OptionsFormatters {
      *
      * Currently only support Prettier.
      */
-    astro?: "prettier" | boolean;
+    astro?: boolean | "prettier";
 
     /**
      * Enable formatting support for CSS, Less, Sass, and SCSS.
      *
      * Currently only support Prettier.
      */
-    css?: "prettier" | boolean;
+    css?: boolean | "prettier";
 
     /**
      * Custom options for dprint.
@@ -265,14 +265,14 @@ export interface OptionsFormatters {
     /**
      * Enable formatting support for GraphQL.
      */
-    graphql?: "prettier" | boolean;
+    graphql?: boolean | "prettier";
 
     /**
      * Enable formatting support for HTML.
      *
      * Currently only support Prettier.
      */
-    html?: "prettier" | boolean;
+    html?: boolean | "prettier";
 
     /**
      * Enable formatting support for Markdown.
@@ -281,7 +281,7 @@ export interface OptionsFormatters {
      *
      * When set to `true`, it will use Prettier.
      */
-    markdown?: "prettier" | "dprint" | boolean;
+    markdown?: boolean | "dprint" | "prettier";
 
     /**
      * Custom options for Prettier.
@@ -306,14 +306,14 @@ export interface OptionsFormatters {
      *
      * Currently only support Prettier.
      */
-    svg?: "prettier" | boolean;
+    svg?: boolean | "prettier";
 
     /**
      * Enable formatting support for XML.
      *
      * Currently only support Prettier.
      */
-    xml?: "prettier" | boolean;
+    xml?: boolean | "prettier";
 }
 
 export interface OptionsHasPrettier {
@@ -347,10 +347,10 @@ export interface OptionsRegExp {
 }
 
 export interface OptionsStylistic {
-    stylistic?: boolean | StylisticConfig;
+    stylistic?: StylisticConfig | boolean;
 }
 
-export type OptionsTypescript = (OptionsOverrides & OptionsTypeScriptWithTypes) | (OptionsOverrides & OptionsTypeScriptParserOptions);
+export type OptionsTypescript = OptionsOverrides & OptionsTypeScriptParserOptions | OptionsOverrides & OptionsTypeScriptWithTypes;
 
 export interface OptionsTypeScriptParserOptions {
     /**
@@ -408,7 +408,7 @@ export interface OptionsUnoCSS extends OptionsOverrides {
 
 export type Rules = RuleOptions;
 
-export interface StylisticConfig extends Pick<StylisticCustomizeOptions, "indent" | "quotes" | "jsx" | "semi"> {}
+export interface StylisticConfig extends Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi"> {}
 
 export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, "plugins"> & {
     // Relax plugins type limitation, as most of the plugins did not have correct type info yet.

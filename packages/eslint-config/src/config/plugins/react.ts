@@ -142,7 +142,7 @@ export default createConfig<
                     "error",
                     {
                         ...noUnderscoreDangle,
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-explicit-any
+
                         allow: [...noUnderscoreDangle.allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
                     },
                 ],

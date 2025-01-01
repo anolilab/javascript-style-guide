@@ -95,7 +95,7 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
  */
 export const createConfig = async (
     options: Omit<TypedFlatConfigItem, "files"> & OptionsConfig = {},
-    ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
+    ...userConfigs: Awaitable<FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]>[]
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
     if ("files" in options) {
         throw new Error(
@@ -177,7 +177,9 @@ export const createConfig = async (
     // Base configs
     configs.push(
         ignores(options.ignores),
-        javascript({}),
+        javascript({
+            packageJson,
+        }),
         bestPractices({}),
         errors({}),
         style({}),
@@ -443,7 +445,8 @@ export const createConfig = async (
     // User can optionally pass a flat config item to the first argument
     // We pick the known keys as ESLint would do schema validation
     const fusedConfig = flatConfigProps.reduce((acc, key) => {
-        if (key in options) acc[key] = options[key] as any;
+        if (key in options)
+acc[key] = options[key] as any;
 
         return acc;
     }, {} as TypedFlatConfigItem);

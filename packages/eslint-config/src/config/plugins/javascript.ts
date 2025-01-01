@@ -1,9 +1,12 @@
 import globals from "globals";
 
+import type { OptionsPackageJson } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig("js", async () => {
+export default createConfig<OptionsPackageJson>("js", async (config) => {
+    const { packageJson } = config;
+
     const eslintJs = await interopDefault(import("@eslint/js"));
 
     return [
@@ -17,6 +20,19 @@ export default createConfig("js", async () => {
                     document: "readonly",
                     navigator: "readonly",
                     window: "readonly",
+                    ...packageJson.type === "module"
+                        ? {
+                            __dirname: "off",
+                            __filename: "off",
+                            exports: "off",
+                            require: "off",
+                        }
+                        : {
+                            __dirname: true,
+                            __filename: true,
+                            exports: true,
+                            require: true,
+                        },
                 },
                 parserOptions: {
                     ecmaFeatures: {
@@ -33,5 +49,30 @@ export default createConfig("js", async () => {
             name: "anolilab/javascript/setup",
         },
         eslintJs.configs.recommended,
+        {
+            env: {
+                commonjs: true,
+            },
+            files: ["**/*.cjs"],
+            // inside *.cjs files. restore commonJS "globals"
+            globals: {
+                __dirname: true,
+                __filename: true,
+                exports: true,
+                require: true,
+            },
+        },
+        {
+            env: {
+                commonjs: false,
+            },
+            files: ["**/*.mjs"],
+            globals: {
+                __dirname: "off",
+                __filename: "off",
+                exports: "off",
+                require: "off",
+            },
+        },
     ];
 });

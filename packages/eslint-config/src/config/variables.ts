@@ -1,5 +1,5 @@
 import confusingBrowserGlobals from "confusing-browser-globals";
-import { Linter } from "eslint";
+import type { Linter } from "eslint";
 
 import type { OptionsFiles } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";

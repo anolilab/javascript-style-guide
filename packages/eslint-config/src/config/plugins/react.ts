@@ -98,9 +98,6 @@ export default createConfig<
             },
         },
         {
-            env: {
-                browser: true,
-            },
             files,
             name: "anolilab/react/rules",
             parserOptions: {

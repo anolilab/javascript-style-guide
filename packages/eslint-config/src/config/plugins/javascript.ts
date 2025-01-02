@@ -50,28 +50,26 @@ export default createConfig<OptionsPackageJson>("js", async (config) => {
         },
         eslintJs.configs.recommended,
         {
-            env: {
-                commonjs: true,
-            },
             files: ["**/*.cjs"],
-            // inside *.cjs files. restore commonJS "globals"
-            globals: {
-                __dirname: true,
-                __filename: true,
-                exports: true,
-                require: true,
+            languageOptions: {
+                // inside *.cjs files. restore commonJS "globals"
+                globals: {
+                    __dirname: true,
+                    __filename: true,
+                    exports: true,
+                    require: true,
+                },
             },
         },
         {
-            env: {
-                commonjs: false,
-            },
             files: ["**/*.mjs"],
-            globals: {
-                __dirname: "off",
-                __filename: "off",
-                exports: "off",
-                require: "off",
+            languageOptions: {
+                globals: {
+                    __dirname: "off",
+                    __filename: "off",
+                    exports: "off",
+                    require: "off",
+                },
             },
         },
     ];

@@ -150,16 +150,6 @@ export interface OptionsConfig extends OptionsComponentExts {
     regexp?: boolean | (OptionsFiles & OptionsOverrides & OptionsRegExp);
 
     /**
-     * Enable solid rules.
-     *
-     * Requires installing:
-     * - `eslint-plugin-solid`
-     *
-     * @default false
-     */
-    solid?: boolean | OptionsFiles & OptionsOverrides;
-
-    /**
      * Enable stylistic rules.
      *
      * @see https://eslint.style/
@@ -167,15 +157,6 @@ export interface OptionsConfig extends OptionsComponentExts {
      */
     stylistic?: boolean | (OptionsFiles & OptionsOverrides & StylisticConfig);
 
-    /**
-     * Enable svelte rules.
-     *
-     * Requires installing:
-     * - `eslint-plugin-svelte`
-     *
-     * @default false
-     */
-    svelte?: boolean;
     /**
      * Enable test support.
      *

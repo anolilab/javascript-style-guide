@@ -38,6 +38,7 @@ import unicorn from "../src/config/plugins/unicorn";
 import validateJsxNesting from "../src/config/plugins/validate-jsx-nesting";
 import vitest from "../src/config/plugins/vitest";
 import yaml from "../src/config/plugins/yml";
+import youDontNeedLodashUnderscore from "../src/config/plugins/you-dont-need-lodash-underscore";
 import style from "../src/config/style";
 import variables from "../src/config/variables";
 import combine from "../src/utils/combine";
@@ -98,6 +99,7 @@ const configs = await combine(
     node({
         packageJson: fakePackageJson,
     }),
+    youDontNeedLodashUnderscore({}),
     // solid({),
     sortPackageJson({}),
     stylistic({}),

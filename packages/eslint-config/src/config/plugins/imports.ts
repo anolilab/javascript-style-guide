@@ -133,6 +133,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/no-amd": "error",
 
                     // Reports if a module's default export is unnamed
+                    // eslint-disable-next-line no-secrets/no-secrets
                     // https://github.com/import-js/eslint-plugin-import/blob/d9b712ac7fd1fddc391f7b234827925c160d956f/docs/rules/no-anonymous-default-export.md
                     "import/no-anonymous-default-export": [
                         "off",
@@ -171,6 +172,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/no-dynamic-require": "error",
 
                     // Reports the use of empty named import blocks.
+                    // eslint-disable-next-line no-secrets/no-secrets
                     // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
                     "import/no-empty-named-blocks": "error",
 

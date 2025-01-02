@@ -23,6 +23,11 @@ export type { ConfigNames };
 
 export interface OptionsConfig extends OptionsComponentExts {
     /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    antfu?: OptionsFiles & OptionsOverrides;
+
+    /**
      * Enable ASTRO support.
      *
      * Requires installing:
@@ -33,7 +38,17 @@ export interface OptionsConfig extends OptionsComponentExts {
      *
      * @default false
      */
-    astro?: boolean | OptionsFiles & OptionsOverrides;
+    astro?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    comments?: OptionsFiles & OptionsOverrides;
+
+    /**
+     * Override the `files` option to provide custom globs.
+     */
+    compat?: OptionsFiles;
 
     /**
      * The working directory for the config.
@@ -65,6 +80,21 @@ export interface OptionsConfig extends OptionsComponentExts {
     gitignore?: FlatGitignoreOptions | boolean;
 
     /**
+     * Enable HTML support.
+     *
+     * Requires installing:
+     * - `eslint-plugin-html`
+     *
+     * @default false
+     */
+    html?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    imports?: OptionsFiles & OptionsOverrides;
+
+    /**
      * Control to disable some rules in editors.
      * @default auto-detect based on the process.env
      */
@@ -76,11 +106,16 @@ export interface OptionsConfig extends OptionsComponentExts {
     javascript?: OptionsOverrides;
 
     /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    jsdoc?: OptionsFiles & OptionsOverrides;
+
+    /**
      * Enable JSONC support.
      *
      * @default true
      */
-    jsonc?: boolean | OptionsFiles & OptionsOverrides;
+    jsonc?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable JSX related rules.
@@ -90,6 +125,11 @@ export interface OptionsConfig extends OptionsComponentExts {
      * @default true
      */
     jsx?: boolean;
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    "jsx-a11y"?: OptionsFiles & OptionsOverrides;
 
     /**
      * Disable some opinionated rules to Anolilab's preference.
@@ -103,13 +143,38 @@ export interface OptionsConfig extends OptionsComponentExts {
     lessOpinionated?: boolean;
 
     /**
+     * Enable lodash rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-lodash`
+     *
+     * @default false
+     */
+    lodash?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * Enable linting for **code snippets** in Markdown.
      *
      * For formatting Markdown content, enable also `formatters.markdown`.
      *
      * @default true
      */
-    markdown?: boolean | OptionsFiles & OptionsOverrides;
+    markdown?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    node?: OptionsFiles & OptionsOverrides;
+
+    /**
+     * Override some rules.
+     */
+    noSecrets?: OptionsOverrides;
+
+    /**
+     * Override some rules.
+     */
+    noUnsanitized?: OptionsOverrides;
 
     /**
      * Provide overrides for rules for each integration.
@@ -117,17 +182,51 @@ export interface OptionsConfig extends OptionsComponentExts {
      * @deprecated use `overrides` option in each integration key instead
      */
     overrides?: {
+        html?: TypedFlatConfigItem["rules"];
         javascript?: TypedFlatConfigItem["rules"];
         jsonc?: TypedFlatConfigItem["rules"];
+        "jsx-a11y"?: TypedFlatConfigItem["rules"];
+        lodash?: TypedFlatConfigItem["rules"];
         markdown?: TypedFlatConfigItem["rules"];
+        node?: TypedFlatConfigItem["rules"];
+        noSecrets?: TypedFlatConfigItem["rules"];
+        noUnsanitized?: TypedFlatConfigItem["rules"];
+        perfectionist?: TypedFlatConfigItem["rules"];
+        playwright?: TypedFlatConfigItem["rules"];
+        promise?: TypedFlatConfigItem["rules"];
         react?: TypedFlatConfigItem["rules"];
+        simpleImportSort?: TypedFlatConfigItem["rules"];
+        sonarjs?: TypedFlatConfigItem["rules"];
+        storybook?: TypedFlatConfigItem["rules"];
         stylistic?: TypedFlatConfigItem["rules"];
         svelte?: TypedFlatConfigItem["rules"];
         test?: TypedFlatConfigItem["rules"];
         toml?: TypedFlatConfigItem["rules"];
         typescript?: TypedFlatConfigItem["rules"];
+        unocss?: TypedFlatConfigItem["rules"];
+        validateJsxNesting?: TypedFlatConfigItem["rules"];
         yaml?: TypedFlatConfigItem["rules"];
     };
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    perfectionist?: OptionsFiles & OptionsOverrides;
+
+    /**
+     * Enable playwright rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-playwright`
+     *
+     * @default false
+     */
+    playwright?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    promise?: OptionsFiles & OptionsOverrides;
 
     /**
      * Enable react rules.
@@ -139,7 +238,7 @@ export interface OptionsConfig extends OptionsComponentExts {
      *
      * @default false
      */
-    react?: boolean | OptionsFiles & OptionsOverrides;
+    react?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable regexp rules.
@@ -150,6 +249,26 @@ export interface OptionsConfig extends OptionsComponentExts {
     regexp?: boolean | (OptionsFiles & OptionsOverrides & OptionsRegExp);
 
     /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    simpleImportSort?: OptionsFiles & OptionsOverrides;
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    sonarjs?: OptionsFiles & OptionsOverrides;
+
+    /**
+     * Enable Storybook rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-storybook`
+     *
+     * @default false
+     */
+    storybook?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * Enable stylistic rules.
      *
      * @see https://eslint.style/
@@ -158,18 +277,48 @@ export interface OptionsConfig extends OptionsComponentExts {
     stylistic?: boolean | (OptionsFiles & OptionsOverrides & StylisticConfig);
 
     /**
+     * Enable tailwindcss support.
+     *
+     * Requires installing:
+     * - `eslint-plugin-tailwindcss`
+     *
+     * @default false
+     */
+    tailwindcss?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable tanstack rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-tanstack`
+     *
+     * @default false
+     */
+    tanstack?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * Enable test support.
      *
      * @default true
      */
-    test?: boolean | OptionsFiles & OptionsOverrides;
+    test?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable TOML support.
      *
      * @default true
      */
-    toml?: boolean | OptionsFiles & OptionsOverrides;
+    toml?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable tsdoc rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-tsdoc`
+     *
+     * @default false
+     */
+    tsdoc?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable TypeScript support.
@@ -198,11 +347,16 @@ export interface OptionsConfig extends OptionsComponentExts {
     unocss?: OptionsUnoCSS | boolean;
 
     /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    validateJsxNesting?: OptionsFiles & OptionsOverrides;
+
+    /**
      * Enable YAML support.
      *
      * @default true
      */
-    yaml?: boolean | OptionsFiles & OptionsOverrides;
+    yaml?: boolean | (OptionsFiles & OptionsOverrides);
 }
 
 export interface OptionsCwd {
@@ -331,7 +485,7 @@ export interface OptionsStylistic {
     stylistic?: StylisticConfig | boolean;
 }
 
-export type OptionsTypescript = OptionsOverrides & OptionsTypeScriptParserOptions | OptionsOverrides & OptionsTypeScriptWithTypes;
+export type OptionsTypescript = (OptionsOverrides & OptionsTypeScriptParserOptions) | (OptionsOverrides & OptionsTypeScriptWithTypes);
 
 export interface OptionsTypeScriptParserOptions {
     /**
@@ -389,14 +543,16 @@ export interface OptionsUnoCSS extends OptionsOverrides {
 
 export type Rules = RuleOptions;
 
-export interface StylisticConfig extends Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi"> {}
+export type StylisticConfig = Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi">;
 
 export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, "plugins"> & {
     // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
     /**
-     * An object containing a name-value mapping of plugin names to plugin objects. When `files` is specified, these plugins are only available to the matching files.
+     * An object containing a name-value mapping of plugin names to plugin objects.
+     * When `files` is specified, these plugins are only available to the matching files.
      *
      * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     plugins?: Record<string, any>;
 };

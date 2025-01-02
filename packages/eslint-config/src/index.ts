@@ -87,6 +87,7 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
     return undefined;
 };
 
+// eslint-disable-next-line no-secrets/no-secrets
 /**
  * Construct an array of ESLint flat config items.
  *
@@ -576,8 +577,8 @@ export const createConfig = async (
     if (enableLodash) {
         configs.push(
             youDontNeedLodashUnderscore({
-                files: getFiles(options, "youDontNeedLodashUnderscore"),
-                overrides: getOverrides(options, "youDontNeedLodashUnderscore"),
+                files: getFiles(options, "lodash"),
+                overrides: getOverrides(options, "lodash"),
             }),
         );
     }
@@ -666,7 +667,7 @@ export const createConfig = async (
     if (enableTailwindCss) {
         configs.push(
             tailwindcss({
-                overrides: getOverrides(options, "tailwind"),
+                overrides: getOverrides(options, "tailwindcss"),
             }),
         );
     }
@@ -774,7 +775,9 @@ export const createConfig = async (
     // User can optionally pass a flat config item to the first argument
     // We pick the known keys as ESLint would do schema validation
     const fusedConfig = flatConfigProps.reduce((acc, key) => {
-        if (key in options) acc[key] = options[key] as any;
+        if (key in options) {
+            acc[key] = options[key] as any;
+        }
 
         return acc;
     }, {} as TypedFlatConfigItem);
@@ -786,10 +789,6 @@ export const createConfig = async (
     let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
     composer = composer.append(...configs, ...(userConfigs as any));
-
-    // if (autoRenamePlugins) {
-    //     composer = composer.renamePlugins(defaultPluginRenaming);
-    // }
 
     return composer;
 };

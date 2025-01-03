@@ -3,7 +3,6 @@ import fs from "node:fs/promises";
 import type { NormalizedPackageJson } from "@visulima/package";
 import { builtinRules } from "eslint/use-at-your-own-risk";
 import { flatConfigsToRulesDTS } from "eslint-typegen/core";
-import { sortPackageJson } from "sort-package-json";
 
 import bestPractices from "../src/config/best-practices";
 import errors from "../src/config/errors";
@@ -35,13 +34,17 @@ import toml from "../src/config/plugins/toml";
 import tsdoc from "../src/config/plugins/tsdoc";
 import typescript from "../src/config/plugins/typescript";
 import unicorn from "../src/config/plugins/unicorn";
+import unocss from "../src/config/plugins/unocss";
 import validateJsxNesting from "../src/config/plugins/validate-jsx-nesting";
 import vitest from "../src/config/plugins/vitest";
 import yaml from "../src/config/plugins/yml";
 import youDontNeedLodashUnderscore from "../src/config/plugins/you-dont-need-lodash-underscore";
+import zod from "../src/config/plugins/zod";
 import style from "../src/config/style";
 import variables from "../src/config/variables";
 import combine from "../src/utils/combine";
+import astro from "../src/config/plugins/astro";
+import testingLibrary from "../src/config/plugins/testing-library";
 
 const fakePackageJson = {} as NormalizedPackageJson;
 
@@ -56,6 +59,7 @@ const configs = await combine(
     antfu({
         packageJson: fakePackageJson,
     }),
+    astro({}),
     bestPractices({}),
     compat({}),
     errors({}),
@@ -100,10 +104,7 @@ const configs = await combine(
         packageJson: fakePackageJson,
     }),
     youDontNeedLodashUnderscore({}),
-    // solid({),
-    sortPackageJson({}),
     stylistic({}),
-    // svelte({),
     vitest({}),
     toml({}),
     regexp({}),
@@ -111,11 +112,15 @@ const configs = await combine(
     unicorn({
         packageJson: fakePackageJson,
     }),
-    // unocss({),
+    testingLibrary({
+        packageJson: fakePackageJson,
+    }),
+    unocss({}),
     yaml({}),
+    zod({}),
 );
 
-const configNames = configs.map(i => i.name).filter(Boolean) as string[];
+const configNames = configs.map(index => index.name).filter(Boolean) as string[];
 
 let dts = await flatConfigsToRulesDTS(configs, {
     includeAugmentation: false,
@@ -123,7 +128,7 @@ let dts = await flatConfigsToRulesDTS(configs, {
 
 dts += `
 // Names of all the configs
-export type ConfigNames = ${configNames.map(i => `'${i}'`).join(" | ")}
+export type ConfigNames = ${configNames.map(index => `'${index}'`).join(" | ")}
 `;
 
 await fs.writeFile("src/typegen.d.ts", dts);

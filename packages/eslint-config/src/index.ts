@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
+import { ensurePackages, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import type { Linter } from "eslint";
 import { FlatConfigComposer } from "eslint-flat-config-utils";
 
@@ -36,27 +36,23 @@ import toml from "./config/plugins/toml";
 import tsdoc from "./config/plugins/tsdoc";
 import typescript from "./config/plugins/typescript";
 import unicorn from "./config/plugins/unicorn";
+import unocss from "./config/plugins/unocss";
 import validateJsxNesting from "./config/plugins/validate-jsx-nesting";
 import vitest from "./config/plugins/vitest";
 import yaml from "./config/plugins/yml";
 import youDontNeedLodashUnderscore from "./config/plugins/you-dont-need-lodash-underscore";
+import zod from "./config/plugins/zod";
 import style from "./config/style";
 import variables from "./config/variables";
 import type { RuleOptions } from "./typegen";
-import type {
-    Awaitable,
-    ConfigNames,
-    OptionsConfig,
-    OptionsFiles,
-    OptionsOverrides,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "./types";
+import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "./types";
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
-import isInEditorEnv from "./utils/is-in-editor";
+import isInEditorEnvironment from "./utils/is-in-editor";
+import testingLibrary from "./config/plugins/testing-library";
+import astro from "./config/plugins/astro";
 
-const flatConfigProps = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
+const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
@@ -69,7 +65,7 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
 
     return {
         ...(options.overrides as any)?.[key],
-        ..."overrides" in sub ? sub.overrides : {},
+        ...("overrides" in sub ? sub.overrides : {}),
     };
 };
 
@@ -105,19 +101,20 @@ export const createConfig = async (
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
     if ("files" in options) {
         throw new Error(
-            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
+            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
         );
     }
 
     const cwd = options.cwd ?? process.cwd();
-
-    const packageJson = parsePackageJson(readFileSync(join(cwd, "package.json"), "utf-8"));
+    const packageJson = parsePackageJson(readFileSync(join(cwd, "package.json"), "utf8"));
 
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
 
+    const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
+
     const {
         astro: enableAstro = false,
-        componentExts = [],
+        componentExts: componentExtensions = [],
         gitignore: enableGitignore = true,
         html: enableHtml = false,
         jsx: enableJsx = true,
@@ -438,17 +435,74 @@ export const createConfig = async (
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
         tailwindcss: enableTailwindCss = false,
         tanstack: enableTanstack = false,
-        test: enableTest = hasPackageJsonAnyDependency(packageJson, ["vitest"]),
+        vitest: enableVitest = hasPackageJsonAnyDependency(packageJson, ["vitest"]),
+        testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),
         tsdoc: enableTsdoc = false,
         typescript: enableTypeScript = hasPackageJsonAnyDependency(packageJson, ["typescript"]),
         unicorn: enableUnicorn = true,
         unocss: enableUnoCSS = false,
+        zod: enableZod = hasPackageJsonAnyDependency(packageJson, ["zod"]),
     } = options;
+
+    if (isCwdInScope) {
+        const packages = [];
+
+        if (enableZod) {
+            packages.push("eslint-plugin-zod");
+        }
+
+        if (enableUnoCSS) {
+            packages.push("@unocss/eslint-plugin");
+        }
+
+        if (enableTanstack) {
+            packages.push("@tanstack/eslint-plugin-query");
+        }
+
+        if (enableTailwindCss) {
+            packages.push("eslint-plugin-tailwindcss");
+        }
+
+        if (enableStorybook) {
+            packages.push("eslint-plugin-storybook");
+        }
+
+        if (enableReact) {
+            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks");
+        }
+
+        if (enableTestingLibrary) {
+            packages.push("eslint-plugin-testing-library");
+        }
+
+        if (enableJsx) {
+            packages.push("eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting");
+        }
+
+        if (enableLodash) {
+            packages.push("eslint-plugin-you-dont-need-lodash-underscore");
+        }
+
+        if (enableTsdoc) {
+            packages.push("eslint-plugin-tsdoc");
+        }
+
+        if (enableAstro) {
+            packages.push("eslint-plugin-astro", "astro-eslint-parser", "@typescript-eslint/parser");
+        }
+
+        await ensurePackages(packageJson, packages, "devDependencies", {
+            confirm: {
+                message: (packages: string[]) =>
+                    `@anolilab/eslint-config requires the following ${packages.length === 1 ? "package" : "packages"} to be installed: \n\n"${packages.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+            },
+        });
+    }
 
     let isInEditor = options.isInEditor;
 
     if (isInEditor == null) {
-        isInEditor = isInEditorEnv();
+        isInEditor = isInEditorEnvironment();
 
         if (isInEditor) {
             // eslint-disable-next-line no-console
@@ -471,21 +525,21 @@ export const createConfig = async (
     const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
     if (enableGitignore) {
-        if (typeof enableGitignore !== "boolean") {
+        if (typeof enableGitignore === "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
-                        ...enableGitignore,
+                        strict: false,
                     }),
                 ]),
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
-                        strict: false,
+                        ...enableGitignore,
                     }),
                 ]),
             );
@@ -584,26 +638,24 @@ export const createConfig = async (
     }
 
     if (enableJsx) {
-        configs.push([
-            {
-                files: getFilesGlobs("jsx_and_tsx"),
-                languageOptions: {
-                    parserOptions: {
-                        ecmaFeatures: {
-                            jsx: true,
+        configs.push(
+            [
+                {
+                    files: getFilesGlobs("jsx_and_tsx"),
+                    languageOptions: {
+                        parserOptions: {
+                            ecmaFeatures: {
+                                jsx: true,
+                            },
                         },
                     },
+                    name: "anolilab/jsx/setup",
                 },
-                name: "anolilab/jsx/setup",
-            },
-        ]);
-        configs.push(
+            ],
             jsxA11y({
                 files: getFiles(options, "jsx-a11y"),
                 overrides: getOverrides(options, "jsx-a11y"),
             }),
-        );
-        configs.push(
             validateJsxNesting({
                 files: getFiles(options, "validateJsxNesting"),
                 overrides: getOverrides(options, "validateJsxNesting"),
@@ -615,7 +667,7 @@ export const createConfig = async (
         configs.push(
             typescript({
                 ...typescriptOptions,
-                componentExts,
+                componentExts: componentExtensions,
                 overrides: getOverrides(options, "typescript"),
                 prettier: enablePrettier,
                 stylistic: stylisticOptions,
@@ -636,16 +688,27 @@ export const createConfig = async (
         configs.push(regexp(typeof enableRegexp === "boolean" ? {} : enableRegexp));
     }
 
-    // if (enableTest) {
-    //     configs.push(
-    //         vitest({
-    //             isInEditor,
-    //             overrides: getOverrides(options, "test"),
-    //             files: getFiles(options, "test"),
-    //             prettier: enablePrettier,
-    //         }),
-    //     );
-    // }
+    if (enableVitest) {
+        configs.push(
+            vitest({
+                files: getFiles(options, "vitest"),
+                isInEditor,
+                overrides: getOverrides(options, "vitest"),
+                prettier: enablePrettier,
+                tsconfigPath,
+            }),
+        );
+    }
+
+    if (enableTestingLibrary) {
+        configs.push(
+            testingLibrary({
+                files: getFiles(options, "testingLibrary"),
+                overrides: getOverrides(options, "testingLibrary"),
+                packageJson,
+            })
+        );
+    }
 
     if (enablePlaywright) {
         configs.push(
@@ -692,6 +755,15 @@ export const createConfig = async (
         );
     }
 
+    if (enableZod) {
+        configs.push(
+            zod({
+                files: getFiles(options, "zod"),
+                overrides: getOverrides(options, "zod"),
+            }),
+        );
+    }
+
     if (enableTsdoc) {
         configs.push(
             tsdoc({
@@ -712,23 +784,24 @@ export const createConfig = async (
         );
     }
 
-    // if (enableUnoCSS) {
-    //     configs.push(
-    //         unocss({
-    //             ...resolveSubOptions(options, "unocss"),
-    //             overrides: getOverrides(options, "unocss"),
-    //         }),
-    //     );
-    // }
+    if (enableUnoCSS) {
+        configs.push(
+            unocss({
+                ...resolveSubOptions(options, "unocss"),
+                overrides: getOverrides(options, "unocss"),
+            }),
+        );
+    }
 
-    // if (enableAstro) {
-    //     configs.push(
-    //         astro({
-    //             overrides: getOverrides(options, "astro"),
-    //             stylistic: stylisticOptions,
-    //         }),
-    //     );
-    // }
+    if (enableAstro) {
+        configs.push(
+            astro({
+                overrides: getOverrides(options, "astro"),
+                stylistic: stylisticOptions,
+                files: getFiles(options, "astro"),
+            }),
+        );
+    }
 
     if (options.jsonc ?? true) {
         configs.push(
@@ -754,7 +827,7 @@ export const createConfig = async (
     if (options.markdown ?? true) {
         configs.push(
             markdown({
-                componentExts,
+                componentExts: componentExtensions,
                 files: getFiles(options, "markdown"),
                 overrides: getOverrides(options, "markdown"),
             }),
@@ -774,15 +847,16 @@ export const createConfig = async (
 
     // User can optionally pass a flat config item to the first argument
     // We pick the known keys as ESLint would do schema validation
-    const fusedConfig = flatConfigProps.reduce((acc, key) => {
+    // eslint-disable-next-line unicorn/no-array-reduce
+    const fusedConfig = flatConfigProperties.reduce((accumulator, key) => {
         if (key in options) {
-            acc[key] = options[key] as any;
+            accumulator[key] = options[key] as any;
         }
 
-        return acc;
+        return accumulator;
     }, {} as TypedFlatConfigItem);
 
-    if (Object.keys(fusedConfig).length) {
+    if (Object.keys(fusedConfig).length > 0) {
         configs.push([fusedConfig]);
     }
 

@@ -7377,6 +7377,26 @@ export interface RuleOptions {
    */
   'unicorn/throw-new-error'?: Linter.RuleEntry<[]>
   /**
+   * Utilities in UnoCSS blocklist
+   * @see https://unocss.dev/integrations/eslint#rules
+   */
+  'unocss/blocklist'?: Linter.RuleEntry<[]>
+  /**
+   * Enforce class compilation
+   * @see https://unocss.dev/integrations/eslint#rules
+   */
+  'unocss/enforce-class-compile'?: Linter.RuleEntry<UnocssEnforceClassCompile>
+  /**
+   * Order of UnoCSS utilities in class attribute
+   * @see https://unocss.dev/integrations/eslint#rules
+   */
+  'unocss/order'?: Linter.RuleEntry<[]>
+  /**
+   * Order of UnoCSS attributes
+   * @see https://unocss.dev/integrations/eslint#rules
+   */
+  'unocss/order-attributify'?: Linter.RuleEntry<[]>
+  /**
    * Require calls to `isNaN()` when checking for `NaN`
    * @see https://eslint.org/docs/latest/rules/use-isnan
    */
@@ -7559,7 +7579,7 @@ export interface RuleOptions {
    */
   'vitest/padding-around-expect-groups'?: Linter.RuleEntry<[]>
   /**
-   * Enforce padding around afterAll blocks
+   * Enforce padding around `test` blocks
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/padding-around-test-blocks.md
    */
   'vitest/padding-around-test-blocks'?: Linter.RuleEntry<[]>
@@ -7871,6 +7891,16 @@ export interface RuleOptions {
    * @see https://eslint.org/docs/latest/rules/yoda
    */
   'yoda'?: Linter.RuleEntry<Yoda>
+  /**
+   * Prefers `z.enum` over a union of literals.
+   * @see https://github.com/gajus/eslint-plugin-zod#eslint-plugin-zod-rules-prefer-enum
+   */
+  'zod/prefer-enum'?: Linter.RuleEntry<ZodPreferEnum>
+  /**
+   * Requires that objects are initialized with .strict().
+   * @see https://github.com/gajus/eslint-plugin-zod#eslint-plugin-zod-rules-require-strict
+   */
+  'zod/require-strict'?: Linter.RuleEntry<ZodRequireStrict>
 }
 
 /* ======= Declarations ======= */
@@ -12951,7 +12981,11 @@ type PaddingLineBetweenStatements = {
 // ----- perfectionist/sort-array-includes -----
 type PerfectionistSortArrayIncludes = {
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
@@ -12962,6 +12996,8 @@ type PerfectionistSortArrayIncludes = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       selector?: ("literal" | "spread")
@@ -12975,6 +13011,8 @@ type PerfectionistSortArrayIncludes = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     selector?: ("literal" | "spread")
     
@@ -13005,7 +13043,11 @@ type PerfectionistSortClasses = []|[{
   
   ignoreCallbackDependenciesPatterns?: string[]
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   customGroups?: ({
     
@@ -13014,6 +13056,8 @@ type PerfectionistSortClasses = []|[{
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       elementValuePattern?: string
@@ -13033,6 +13077,8 @@ type PerfectionistSortClasses = []|[{
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     elementValuePattern?: string
     
@@ -13066,7 +13112,11 @@ type PerfectionistSortClasses = []|[{
 // ----- perfectionist/sort-decorators -----
 type PerfectionistSortDecorators = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   sortOnParameters?: boolean
   
@@ -13099,7 +13149,11 @@ type PerfectionistSortDecorators = []|[{
 // ----- perfectionist/sort-enums -----
 type PerfectionistSortEnums = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   forceNumericSort?: boolean
   
@@ -13122,7 +13176,11 @@ type PerfectionistSortEnums = []|[{
 // ----- perfectionist/sort-exports -----
 type PerfectionistSortExports = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   groupKind?: ("mixed" | "values-first" | "types-first")
   
@@ -13176,7 +13234,11 @@ type _PerfectionistSortImportsSortImports = (_PerfectionistSortImportsMaxLineLen
     }
   }
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   internalPattern?: string[]
   
@@ -13222,7 +13284,11 @@ type PerfectionistSortInterfaces = {
     declarationMatchesPattern?: string
   }
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
@@ -13232,6 +13298,8 @@ type PerfectionistSortInterfaces = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       modifiers?: ("optional" | "required" | "multiline")[]
@@ -13247,6 +13315,8 @@ type PerfectionistSortInterfaces = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     modifiers?: ("optional" | "required" | "multiline")[]
     
@@ -13278,7 +13348,11 @@ type PerfectionistSortInterfaces = {
 // ----- perfectionist/sort-intersection-types -----
 type PerfectionistSortIntersectionTypes = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   partitionByNewLine?: boolean
   
@@ -13324,7 +13398,11 @@ type PerfectionistSortJsxProps = []|[{
 // ----- perfectionist/sort-maps -----
 type PerfectionistSortMaps = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   partitionByNewLine?: boolean
   
@@ -13343,7 +13421,11 @@ type PerfectionistSortMaps = []|[{
 // ----- perfectionist/sort-modules -----
 type PerfectionistSortModules = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   customGroups?: ({
     
@@ -13352,6 +13434,8 @@ type PerfectionistSortModules = []|[{
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       decoratorNamePattern?: string
@@ -13369,6 +13453,8 @@ type PerfectionistSortModules = []|[{
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     decoratorNamePattern?: string
     
@@ -13400,7 +13486,11 @@ type PerfectionistSortModules = []|[{
 // ----- perfectionist/sort-named-exports -----
 type PerfectionistSortNamedExports = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   groupKind?: ("mixed" | "values-first" | "types-first")
   
@@ -13421,7 +13511,11 @@ type PerfectionistSortNamedExports = []|[{
 // ----- perfectionist/sort-named-imports -----
 type PerfectionistSortNamedImports = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   groupKind?: ("mixed" | "values-first" | "types-first")
   
@@ -13450,7 +13544,11 @@ type PerfectionistSortObjectTypes = {
     declarationMatchesPattern?: string
   }
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   customGroups?: ({
     [k: string]: (string | string[]) | undefined
   } | ({
@@ -13460,6 +13558,8 @@ type PerfectionistSortObjectTypes = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       modifiers?: ("optional" | "required" | "multiline")[]
@@ -13475,6 +13575,8 @@ type PerfectionistSortObjectTypes = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     modifiers?: ("optional" | "required" | "multiline")[]
     
@@ -13517,7 +13619,11 @@ type PerfectionistSortObjects = {
     callingFunctionNamePattern?: string
   }
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   destructureOnly?: boolean
   
@@ -13550,7 +13656,11 @@ type PerfectionistSortObjects = {
 // ----- perfectionist/sort-sets -----
 type PerfectionistSortSets = {
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   groupKind?: ("mixed" | "literals-first" | "spreads-first")
   
@@ -13561,6 +13671,8 @@ type PerfectionistSortSets = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     anyOf?: {
       
       selector?: ("literal" | "spread")
@@ -13574,6 +13686,8 @@ type PerfectionistSortSets = {
     type?: ("alphabetical" | "line-length" | "natural" | "unsorted")
     
     order?: ("desc" | "asc")
+    
+    newlinesInside?: ("always" | "never")
     
     selector?: ("literal" | "spread")
     
@@ -13617,7 +13731,11 @@ type PerfectionistSortSwitchCase = []|[{
 // ----- perfectionist/sort-union-types -----
 type PerfectionistSortUnionTypes = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   partitionByNewLine?: boolean
   
@@ -13640,7 +13758,11 @@ type PerfectionistSortUnionTypes = []|[{
 // ----- perfectionist/sort-variable-declarations -----
 type PerfectionistSortVariableDeclarations = []|[{
   
-  partitionByComment?: (string[] | boolean | string)
+  partitionByComment?: (string[] | boolean | string | {
+    block?: (string[] | boolean | string)
+    line?: (string[] | boolean | string)
+    [k: string]: unknown | undefined
+  })
   
   partitionByNewLine?: boolean
   
@@ -14737,6 +14859,11 @@ type UnicornTemplateIndent = []|[{
   selectors?: string[]
   comments?: string[]
 }]
+// ----- unocss/enforce-class-compile -----
+type UnocssEnforceClassCompile = []|[{
+  prefix?: string
+  enableFix?: boolean
+}]
 // ----- use-isnan -----
 type UseIsnan = []|[{
   enforceForSwitchCase?: boolean
@@ -14802,8 +14929,7 @@ type VitestNoRestrictedViMethods = []|[{
 }]
 // ----- vitest/no-standalone-expect -----
 type VitestNoStandaloneExpect = []|[{
-  additionaltestblockfunctions?: string[]
-  [k: string]: unknown | undefined
+  additionalTestBlockFunctions?: string[]
 }]
 // ----- vitest/prefer-expect-assertions -----
 type VitestPreferExpectAssertions = []|[{
@@ -15065,5 +15191,11 @@ type Yoda = []|[("always" | "never")]|[("always" | "never"), {
   exceptRange?: boolean
   onlyEquality?: boolean
 }]
+// ----- zod/prefer-enum -----
+type ZodPreferEnum = []|[{}]
+// ----- zod/require-strict -----
+type ZodRequireStrict = []|[{
+  allowPassthrough?: boolean
+}]
 // Names of all the configs
-export type ConfigNames = 'anolilab/antfu' | 'anolilab/best-practices/rules' | 'anolilab/best-practices/ts-rules' | 'compat/flat/recommended' | 'anolilab/errors/rules' | 'anolilab/errors/ts-rules' | 'anolilab/html/setup' | 'anolilab/no-secrets' | 'anolilab/no-unsanitized/setup' | 'anolilab/promise/rules' | 'anolilab/simple-import-sort' | 'anolilab/sonarjs/plugin' | 'anolilab/sonarjs/rules' | 'anolilab/sonarjs/js-and-ts-rules' | 'anolilab/sonarjs/js-rules' | 'storybook:recommended:setup' | 'storybook:recommended:stories-rules' | 'storybook:recommended:main-rules' | 'tailwindcss:base' | 'tailwindcss:rules' | 'anolilab/validate-jsx-nesting/setup' | 'anolilab/variables/rules' | 'anolilab/variables/ts-rules' | 'anolilab/style/rules' | 'anolilab/style/ts-rules' | 'anolilab/eslint-comments/rules' | 'anolilab/imports/setup' | 'anolilab/imports/rules' | 'anolilab/imports/d.ts-rules' | 'anolilab/javascript/setup' | 'anolilab/jsx-a11y/setup' | 'anolilab/jsdoc/setup' | 'anolilab/jsdoc/js-rules' | 'anolilab/jsonc/json5-rules' | 'anolilab/jsonc/jsonc-rules' | 'anolilab/jsonc/json-rules' | 'anolilab/jsonc/package.json-rules' | 'anolilab/jsonc/tsconfig-json' | 'anolilab/markdown/setup' | 'anolilab/markdown/processor' | 'anolilab/markdown/parser' | 'anolilab/markdown/disables' | 'anolilab/perfectionist/setup' | 'anolilab/perfectionist/rules' | 'anolilab/perfectionist/typescript' | 'anolilab/perfectionist/postcss' | 'anolilab/react/setup' | 'anolilab/react/rules' | 'anolilab/react/jsx' | 'anolilab/react/tsx' | 'anolilab/react/storybook' | 'anolilab/node' | 'anolilab/stylistic/rules' | 'anolilab/vitest/setup' | 'anolilab/vitest/rules' | 'anolilab/toml' | 'anolilab/regexp/rules' | 'anolilab/typescript/setup' | 'anolilab/typescript/parser' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/strict' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/stylistic' | 'anolilab/typescript/rules' | 'anolilab/unicorn/plugin' | 'anolilab/unicorn/rules' | 'anolilab/unicorn/tsconfig-overrides' | 'anolilab/unicorn/ts-overrides' | 'anolilab/yaml'
+export type ConfigNames = 'anolilab/antfu' | 'anolilab/best-practices/rules' | 'anolilab/best-practices/ts-rules' | 'compat/flat/recommended' | 'anolilab/errors/rules' | 'anolilab/errors/ts-rules' | 'anolilab/html/setup' | 'anolilab/no-secrets' | 'anolilab/no-unsanitized/setup' | 'anolilab/promise/rules' | 'anolilab/simple-import-sort' | 'anolilab/sonarjs/plugin' | 'anolilab/sonarjs/rules' | 'anolilab/sonarjs/js-and-ts-rules' | 'anolilab/sonarjs/js-rules' | 'storybook:recommended:setup' | 'storybook:recommended:stories-rules' | 'storybook:recommended:main-rules' | 'tailwindcss:base' | 'tailwindcss:rules' | 'anolilab/validate-jsx-nesting/setup' | 'anolilab/variables/rules' | 'anolilab/variables/ts-rules' | 'anolilab/style/rules' | 'anolilab/style/ts-rules' | 'anolilab/eslint-comments/rules' | 'anolilab/imports/setup' | 'anolilab/imports/rules' | 'anolilab/imports/d.ts-rules' | 'anolilab/javascript/setup' | 'anolilab/jsx-a11y/setup' | 'anolilab/jsdoc/setup' | 'anolilab/jsdoc/js-rules' | 'anolilab/jsonc/json5-rules' | 'anolilab/jsonc/jsonc-rules' | 'anolilab/jsonc/json-rules' | 'anolilab/jsonc/package.json-rules' | 'anolilab/jsonc/tsconfig-json' | 'anolilab/markdown/setup' | 'anolilab/markdown/processor' | 'anolilab/markdown/parser' | 'anolilab/markdown/disables' | 'anolilab/perfectionist/setup' | 'anolilab/perfectionist/rules' | 'anolilab/perfectionist/typescript' | 'anolilab/perfectionist/postcss' | 'anolilab/react/setup' | 'anolilab/react/rules' | 'anolilab/react/jsx' | 'anolilab/react/tsx' | 'anolilab/react/storybook' | 'anolilab/node' | 'anolilab/stylistic/rules' | 'anolilab/vitest/setup' | 'anolilab/vitest/rules' | 'anolilab/toml' | 'anolilab/regexp/rules' | 'anolilab/typescript/setup' | 'anolilab/typescript/parser' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/strict' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/stylistic' | 'anolilab/typescript/rules' | 'anolilab/unicorn/plugin' | 'anolilab/unicorn/rules' | 'anolilab/unicorn/tsconfig-overrides' | 'anolilab/unicorn/ts-overrides' | 'anolilab/unocss' | 'anolilab/yaml'

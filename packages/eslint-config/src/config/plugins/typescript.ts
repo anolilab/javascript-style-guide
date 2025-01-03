@@ -1,5 +1,5 @@
 import type {
-    OptionsComponentExts,
+    OptionsComponentExtensions,
     OptionsFiles,
     OptionsHasPrettier,
     OptionsOverrides,
@@ -16,14 +16,14 @@ import { styleRules } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
-    OptionsComponentExts & OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
+    OptionsComponentExtensions & OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
-        componentExts = [],
+        componentExts: componentExtensions = [],
         files = oFiles,
-        overrides = {},
-        overridesTypeAware = {},
-        parserOptions = {},
+        overrides,
+        overridesTypeAware,
+        parserOptions,
         prettier,
         stylistic = true,
     } = config;
@@ -38,16 +38,16 @@ export default createConfig<
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
     const ignoresTypeAware = config.ignoresTypeAware ?? [`**/*.md/**`, ...getFilesGlobs("astro")];
     const tsconfigPath = config?.tsconfigPath ? config.tsconfigPath : undefined;
-    const isTypeAware = typeof tsconfigPath !== "undefined";
+    const isTypeAware = tsconfigPath !== undefined;
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         return {
-            files: [...pFiles, ...componentExts.map(ext => `**/*.${ext}`)],
+            files: [...pFiles, ...componentExtensions.map(extension => `**/*.${extension}`)],
             ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: parserTs,
                 parserOptions: {
-                    extraFileExtensions: componentExts.map(ext => `.${ext}`),
+                    extraFileExtensions: componentExtensions.map(extension => `.${extension}`),
                     sourceType: "module",
                     ...typeAware
                         ? {
@@ -82,7 +82,7 @@ export default createConfig<
         rules.push(...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]));
 
         rules.push({
-            files: [...filesTypeAware, ...componentExts.map(ext => `**/*.${ext}`)],
+            files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
             name: "anolilab/typescript/rules-type-aware",
             rules: {
                 // Disallow type assertions that do not change the type of expression.
@@ -116,6 +116,8 @@ export default createConfig<
                 // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
                 // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
                 "@typescript-eslint/prefer-optional-chain": "error",
+
+                ...overridesTypeAware,
             },
         });
     }

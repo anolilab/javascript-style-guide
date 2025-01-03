@@ -4,12 +4,12 @@ import type { NormalizedPackageJson } from "@visulima/package";
 import type { Linter } from "eslint";
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 
-import type { ConfigNames, RuleOptions } from "./typegen";
+import type { RuleOptions } from "./typegen";
 import type { VendoredPrettierOptions } from "./vender/prettier-types";
 
 export type Awaitable<T> = Promise<T> | T;
 
-export interface OptionsComponentExts {
+export interface OptionsComponentExtensions {
     /**
      * Additional extensions for components.
      *
@@ -19,9 +19,9 @@ export interface OptionsComponentExts {
     componentExts?: string[];
 }
 
-export type { ConfigNames };
+export type { ConfigNames } from "./typegen";
 
-export interface OptionsConfig extends OptionsComponentExts {
+export interface OptionsConfig extends OptionsComponentExtensions {
     /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
@@ -297,11 +297,21 @@ export interface OptionsConfig extends OptionsComponentExts {
     tanstack?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
-     * Enable test support.
+     * Enable vitest support.
      *
      * @default true
      */
-    test?: boolean | (OptionsFiles & OptionsOverrides);
+    vitest?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable testing-library rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-testing-library`
+     *
+     * @default false
+     */
+    testingLibrary?: boolean | (OptionsFiles & OptionsOverrides & OptionsPackageJson);
 
     /**
      * Enable TOML support.
@@ -357,6 +367,16 @@ export interface OptionsConfig extends OptionsComponentExts {
      * @default true
      */
     yaml?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable Zod rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-zod`
+     *
+     * @default false
+     */
+    zod?: boolean | (OptionsFiles & OptionsOverrides);
 }
 
 export interface OptionsCwd {
@@ -453,10 +473,6 @@ export interface OptionsFormatters {
 
 export interface OptionsHasPrettier {
     prettier?: boolean;
-}
-
-export interface OptionsHasTypeScript {
-    typescript?: boolean;
 }
 
 export interface OptionsIsInEditor {

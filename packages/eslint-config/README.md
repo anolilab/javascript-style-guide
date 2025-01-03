@@ -485,7 +485,6 @@ The following esLint plugins enforce good coding practices:
 - [eslint-plugin-array-func](https://github.com/freaktechnik/eslint-plugin-array-func)
 - [eslint-plugin-eslint-comments](https://github.com/mysticatea/eslint-plugin-eslint-comments)
 - [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise)
-- [eslint-plugin-no-loops](https://github.com/buildo/eslint-plugin-no-loops)
 - [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
 - [eslint-plugin-es-x](https://github.com/eslint-community/eslint-plugin-es-x)
 
@@ -504,18 +503,10 @@ These plugins add code security rules to esLint:
 The following test plugins are supported:
 
 - [eslint-plugin-ava](https://github.com/avajs/eslint-plugin-ava)
-    - You need to install `eslint-plugin-ava` and `ava` to use this plugin.
-- [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
-    - You need to install `eslint-plugin-jest` and `jest` to use this plugin.
-- [eslint-plugin-jest-async](https://www.npmjs.com/package/eslint-plugin-jest-async)
-    - You need to install `eslint-plugin-jest-async` and `jest` to use this plugin.
-- [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress)
-    - You need to install `eslint-plugin-cypress` and `cypress` to use this plugin.
-
+    - You need to install `@vitest/eslint-plugin` and `vitest` to use this plugin.
 ### List of used plugins
 
 - eslint-plugin-security
-- @rushstack/eslint-plugin-security
 - @typescript-eslint/eslint-plugin
 - eslint-plugin-antfu
 - eslint-plugin-compat
@@ -525,11 +516,8 @@ The following test plugins are supported:
 - eslint-plugin-i
 - eslint-plugin-jsonc
 - eslint-plugin-markdown
-- eslint-plugin-mdx
-- eslint-plugin-no-loops
 - eslint-plugin-no-only-tests
 - eslint-plugin-no-secrets
-- eslint-plugin-no-use-extend-native
 - eslint-plugin-promise
 - eslint-plugin-regexp
 - eslint-plugin-simple-import-sort
@@ -635,7 +623,6 @@ If you would like to help take a look at the [list of issues](https://github.com
 - [Daniel Bannert](https://github.com/prisis)
 - [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
 - [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
-- [eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
 - [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
 
 ## License

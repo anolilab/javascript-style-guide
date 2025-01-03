@@ -1,3 +1,5 @@
+import globals from "globals";
+
 import type {
     OptionsFiles,
     OptionsHasPrettier,
@@ -23,6 +25,9 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
     return [
         {
+            languageOptions: {
+                globals: globals.builtin,
+            },
             name: "anolilab/unicorn/plugin",
             plugins: {
                 unicorn: pluginUnicorn,
@@ -32,6 +37,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             files,
             name: "anolilab/unicorn/rules",
             rules: {
+                ...pluginUnicorn.configs["flat/recommended"].rules,
+
                 // TODO: Temporarily disabled as the rule is buggy.
                 "function-call-argument-newline": "off",
                 // Disabled because of eslint-plugin-regexp

@@ -5,7 +5,7 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
     const { files = oFiles } = config;
 
-    const pluginES = await interopDefault(import("eslint-plugin-es"));
+    const pluginES = await interopDefault(import("eslint-plugin-es-x"));
 
     return [
         {

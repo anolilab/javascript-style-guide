@@ -7,8 +7,10 @@ import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 import bestPractices from "../src/config/best-practices";
 import errors from "../src/config/errors";
 import antfu from "../src/config/plugins/antfu";
+import astro from "../src/config/plugins/astro";
 import comments from "../src/config/plugins/comments";
 import compat from "../src/config/plugins/compat";
+import formatters from "../src/config/plugins/formatters";
 import html from "../src/config/plugins/html";
 import imports from "../src/config/plugins/imports";
 import javascript from "../src/config/plugins/javascript";
@@ -30,6 +32,7 @@ import storybook from "../src/config/plugins/storybook";
 import stylistic from "../src/config/plugins/stylistic";
 import tailwindcss from "../src/config/plugins/tailwindcss";
 import tanstackQuery from "../src/config/plugins/tanstack-query";
+import testingLibrary from "../src/config/plugins/testing-library";
 import toml from "../src/config/plugins/toml";
 import tsdoc from "../src/config/plugins/tsdoc";
 import typescript from "../src/config/plugins/typescript";
@@ -43,8 +46,6 @@ import zod from "../src/config/plugins/zod";
 import style from "../src/config/style";
 import variables from "../src/config/variables";
 import combine from "../src/utils/combine";
-import astro from "../src/config/plugins/astro";
-import testingLibrary from "../src/config/plugins/testing-library";
 
 const fakePackageJson = {} as NormalizedPackageJson;
 
@@ -78,7 +79,7 @@ const configs = await combine(
     variables({}),
     style({}),
     comments({}),
-    // formatters(),
+    formatters({}, {}),
     imports({
         cwd: "",
         packageJson: fakePackageJson,

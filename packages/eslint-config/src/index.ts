@@ -9,8 +9,10 @@ import bestPractices from "./config/best-practices";
 import errors from "./config/errors";
 import ignores from "./config/ignores";
 import antfu from "./config/plugins/antfu";
+import astro from "./config/plugins/astro";
 import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
+import formatters from "./config/plugins/formatters";
 import html from "./config/plugins/html";
 import imports from "./config/plugins/imports";
 import javascript from "./config/plugins/javascript";
@@ -32,6 +34,7 @@ import storybook from "./config/plugins/storybook";
 import stylistic from "./config/plugins/stylistic";
 import tailwindcss from "./config/plugins/tailwindcss";
 import tanstackQuery from "./config/plugins/tanstack-query";
+import testingLibrary from "./config/plugins/testing-library";
 import toml from "./config/plugins/toml";
 import tsdoc from "./config/plugins/tsdoc";
 import typescript from "./config/plugins/typescript";
@@ -45,12 +48,18 @@ import zod from "./config/plugins/zod";
 import style from "./config/style";
 import variables from "./config/variables";
 import type { RuleOptions } from "./typegen";
-import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "./types";
+import type {
+    Awaitable,
+    ConfigNames,
+    OptionsConfig,
+    OptionsFiles,
+    OptionsOverrides,
+    StylisticConfig,
+    TypedFlatConfigItem,
+} from "./types";
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
 import isInEditorEnvironment from "./utils/is-in-editor";
-import testingLibrary from "./config/plugins/testing-library";
-import astro from "./config/plugins/astro";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -65,7 +74,7 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
 
     return {
         ...(options.overrides as any)?.[key],
-        ...("overrides" in sub ? sub.overrides : {}),
+        ..."overrides" in sub ? sub.overrides : {},
     };
 };
 
@@ -101,7 +110,7 @@ export const createConfig = async (
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
     if ("files" in options) {
         throw new Error(
-            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
+            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
         );
     }
 
@@ -435,12 +444,12 @@ export const createConfig = async (
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
         tailwindcss: enableTailwindCss = false,
         tanstack: enableTanstack = false,
-        vitest: enableVitest = hasPackageJsonAnyDependency(packageJson, ["vitest"]),
         testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),
         tsdoc: enableTsdoc = false,
         typescript: enableTypeScript = hasPackageJsonAnyDependency(packageJson, ["typescript"]),
         unicorn: enableUnicorn = true,
         unocss: enableUnoCSS = false,
+        vitest: enableVitest = hasPackageJsonAnyDependency(packageJson, ["vitest"]),
         zod: enableZod = hasPackageJsonAnyDependency(packageJson, ["zod"]),
     } = options;
 
@@ -487,14 +496,31 @@ export const createConfig = async (
             packages.push("eslint-plugin-tsdoc");
         }
 
+        if (options.formatters) {
+            packages.push("eslint-plugin-format");
+        }
+
         if (enableAstro) {
             packages.push("eslint-plugin-astro", "astro-eslint-parser", "@typescript-eslint/parser");
+
+            if (typeof options.formatters === "object" && options.formatters.astro) {
+                packages.push("prettier-plugin-astro");
+            }
+        }
+
+        if (typeof options.formatters === "object") {
+            if (options.formatters?.markdown && options.formatters?.slidev) {
+                packages.push("prettier-plugin-slidev");
+            }
+
+            if (options.formatters?.xml || options.formatters?.svg) {
+                packages.push("@prettier/plugin-xml");
+            }
         }
 
         await ensurePackages(packageJson, packages, "devDependencies", {
             confirm: {
-                message: (packages: string[]) =>
-                    `@anolilab/eslint-config requires the following ${packages.length === 1 ? "package" : "packages"} to be installed: \n\n"${packages.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                message: (packages: string[]) => `@anolilab/eslint-config requires the following ${packages.length === 1 ? "package" : "packages"} to be installed: \n\n"${packages.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
             },
         });
     }
@@ -527,7 +553,7 @@ export const createConfig = async (
     if (enableGitignore) {
         if (typeof enableGitignore === "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
                     r({
                         name: "anolilab/gitignore",
                         strict: false,
@@ -536,7 +562,7 @@ export const createConfig = async (
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
                     r({
                         name: "anolilab/gitignore",
                         ...enableGitignore,
@@ -706,7 +732,7 @@ export const createConfig = async (
                 files: getFiles(options, "testingLibrary"),
                 overrides: getOverrides(options, "testingLibrary"),
                 packageJson,
-            })
+            }),
         );
     }
 
@@ -796,9 +822,9 @@ export const createConfig = async (
     if (enableAstro) {
         configs.push(
             astro({
+                files: getFiles(options, "astro"),
                 overrides: getOverrides(options, "astro"),
                 stylistic: stylisticOptions,
-                files: getFiles(options, "astro"),
             }),
         );
     }
@@ -842,6 +868,28 @@ export const createConfig = async (
                 prettier: enablePrettier,
                 stylistic: stylisticOptions,
             }),
+        );
+    }
+
+    if (options.formatters) {
+        const isPrettierPluginXmlInScope = hasPackageJsonAnyDependency(packageJson, ["@prettier/plugin-xml"]);
+
+        configs.push(
+            formatters(
+                {
+                    astro: hasPackageJsonAnyDependency(packageJson, ["prettier-plugin-astro"]),
+                    css: true,
+                    graphql: true,
+                    html: true,
+                    markdown: true,
+                    slidev: hasPackageJsonAnyDependency(packageJson, ["@slidev/cli"]),
+                    svg: isPrettierPluginXmlInScope,
+                    xml: isPrettierPluginXmlInScope,
+
+                    ...typeof options.formatters === "object" ? options.formatters : {},
+                },
+                typeof stylisticOptions === "object" ? stylisticOptions : {},
+            ),
         );
     }
 

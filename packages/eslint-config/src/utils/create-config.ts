@@ -1,7 +1,7 @@
 import type { TypedFlatConfigItem } from "../types";
 
 type FileType =
-    "all" | "astro" | "d.ts" | "e2e" | "html" | "js_and_ts" | "js" | "jsx_and_tsx" | "markdown_in_markdown" | "markdown_inline_js_jsx" | "markdown" | "postcss" | "storybook" | "toml" | "ts" | "vitest" | "yaml";
+    "all" | "astro_ts" | "astro" | "css" | "d.ts" | "e2e" | "graphql" | "html" | "js_and_ts" | "js" | "jsx_and_tsx" | "less" | "markdown_in_markdown" | "markdown_inline_js_jsx" | "markdown" | "postcss" | "scss" | "storybook" | "svg" | "toml" | "ts" | "vitest" | "xml" | "yaml";
 
 // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
 const dtsGlobal = ["**/*.d.ts", "**/*.d.cts", "**/*.d.mts"];
@@ -17,7 +17,13 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return [...jsGlobal, ...dtsGlobal, ...tsGlobal, ...tsxGlobal, ...jsxGlobal];
         }
         case "astro": {
-            return ["'**/*.astro/*.ts"];
+            return ["**/*.astro"];
+        }
+        case "astro_ts": {
+            return ["**/*.astro/*.ts"];
+        }
+        case "css": {
+            return ["**/*.css"];
         }
         case "d.ts": {
             return dtsGlobal;
@@ -25,8 +31,23 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         case "e2e": {
             return ["**/e2e/**/*.test.{js,ts,jsx,tsx}"];
         }
+        case "graphql": {
+            return ["**/*.{g,graph}ql"];
+        }
         case "html": {
-            return ["**/*.erb", "**/*.handlebars", "**/*.hbs", "**/*.htm", "**/*.html", "**/*.mustache", "**/*.nunjucks", "**/*.php", "**/*.tag", "**/*.twig", "**/*.we"];
+            return [
+                "**/*.erb",
+                "**/*.handlebars",
+                "**/*.hbs",
+                "**/*.htm",
+                "**/*.html",
+                "**/*.mustache",
+                "**/*.nunjucks",
+                "**/*.php",
+                "**/*.tag",
+                "**/*.twig",
+                "**/*.we",
+            ];
         }
         case "js": {
             return jsGlobal;
@@ -36,6 +57,9 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         }
         case "jsx_and_tsx": {
             return [...jsxGlobal, ...tsxGlobal];
+        }
+        case "less": {
+            return ["**/*.less"];
         }
         case "markdown": {
             return ["**/*.{md,mkdn,mdown,markdown}"];
@@ -49,8 +73,14 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         case "postcss": {
             return ["**/postcss.config.js", "**/postcssrc.js", "**/postcss.config.cjs", "**/postcssrc.cjs"];
         }
+        case "scss": {
+            return ["**/*.scss"];
+        }
         case "storybook": {
             return ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)", "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)"];
+        }
+        case "svg": {
+            return ["**/*.svg"];
         }
         case "toml": {
             return ["**/*.toml"];
@@ -60,6 +90,9 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
         }
         case "vitest": {
             return ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"];
+        }
+        case "xml": {
+            return ["**/*.xml"];
         }
         case "yaml": {
             return ["**/*.yaml", "**/*.yml"];

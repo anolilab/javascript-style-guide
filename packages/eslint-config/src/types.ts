@@ -297,13 +297,6 @@ export interface OptionsConfig extends OptionsComponentExtensions {
     tanstack?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
-     * Enable vitest support.
-     *
-     * @default true
-     */
-    vitest?: boolean | (OptionsFiles & OptionsOverrides);
-
-    /**
      * Enable testing-library rules.
      *
      * Requires installing:
@@ -362,6 +355,13 @@ export interface OptionsConfig extends OptionsComponentExtensions {
     validateJsxNesting?: OptionsFiles & OptionsOverrides;
 
     /**
+     * Enable vitest support.
+     *
+     * @default true
+     */
+    vitest?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * Enable YAML support.
      *
      * @default true
@@ -415,7 +415,12 @@ export interface OptionsFormatters {
      *
      * By default it's controlled by our own config.
      */
-    dprintOptions?: boolean;
+    dprintOptions?: {
+        indent?: "space" | "tab";
+        indentWidth?: number;
+        quoteStyle?: "preferDouble" | "preferSingle";
+        useTabs?: boolean;
+    };
 
     /**
      * Enable formatting support for GraphQL.

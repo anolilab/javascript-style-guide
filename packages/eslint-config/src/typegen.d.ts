@@ -1236,6 +1236,271 @@ export interface RuleOptions {
    */
   'arrow-spacing'?: Linter.RuleEntry<ArrowSpacing>
   /**
+   * apply `jsx-a11y/alt-text` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/alt-text/
+   */
+  'astro/jsx-a11y/alt-text'?: Linter.RuleEntry<AstroJsxA11YAltText>
+  /**
+   * apply `jsx-a11y/anchor-ambiguous-text` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/anchor-ambiguous-text/
+   */
+  'astro/jsx-a11y/anchor-ambiguous-text'?: Linter.RuleEntry<AstroJsxA11YAnchorAmbiguousText>
+  /**
+   * apply `jsx-a11y/anchor-has-content` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/anchor-has-content/
+   */
+  'astro/jsx-a11y/anchor-has-content'?: Linter.RuleEntry<AstroJsxA11YAnchorHasContent>
+  /**
+   * apply `jsx-a11y/anchor-is-valid` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/anchor-is-valid/
+   */
+  'astro/jsx-a11y/anchor-is-valid'?: Linter.RuleEntry<AstroJsxA11YAnchorIsValid>
+  /**
+   * apply `jsx-a11y/aria-activedescendant-has-tabindex` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/aria-activedescendant-has-tabindex/
+   */
+  'astro/jsx-a11y/aria-activedescendant-has-tabindex'?: Linter.RuleEntry<AstroJsxA11YAriaActivedescendantHasTabindex>
+  /**
+   * apply `jsx-a11y/aria-props` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/aria-props/
+   */
+  'astro/jsx-a11y/aria-props'?: Linter.RuleEntry<AstroJsxA11YAriaProps>
+  /**
+   * apply `jsx-a11y/aria-proptypes` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/aria-proptypes/
+   */
+  'astro/jsx-a11y/aria-proptypes'?: Linter.RuleEntry<AstroJsxA11YAriaProptypes>
+  /**
+   * apply `jsx-a11y/aria-role` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/aria-role/
+   */
+  'astro/jsx-a11y/aria-role'?: Linter.RuleEntry<AstroJsxA11YAriaRole>
+  /**
+   * apply `jsx-a11y/aria-unsupported-elements` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/aria-unsupported-elements/
+   */
+  'astro/jsx-a11y/aria-unsupported-elements'?: Linter.RuleEntry<AstroJsxA11YAriaUnsupportedElements>
+  /**
+   * apply `jsx-a11y/autocomplete-valid` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/autocomplete-valid/
+   */
+  'astro/jsx-a11y/autocomplete-valid'?: Linter.RuleEntry<AstroJsxA11YAutocompleteValid>
+  /**
+   * apply `jsx-a11y/click-events-have-key-events` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/click-events-have-key-events/
+   */
+  'astro/jsx-a11y/click-events-have-key-events'?: Linter.RuleEntry<AstroJsxA11YClickEventsHaveKeyEvents>
+  /**
+   * apply `jsx-a11y/control-has-associated-label` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/control-has-associated-label/
+   */
+  'astro/jsx-a11y/control-has-associated-label'?: Linter.RuleEntry<AstroJsxA11YControlHasAssociatedLabel>
+  /**
+   * apply `jsx-a11y/heading-has-content` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/heading-has-content/
+   */
+  'astro/jsx-a11y/heading-has-content'?: Linter.RuleEntry<AstroJsxA11YHeadingHasContent>
+  /**
+   * apply `jsx-a11y/html-has-lang` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/html-has-lang/
+   */
+  'astro/jsx-a11y/html-has-lang'?: Linter.RuleEntry<AstroJsxA11YHtmlHasLang>
+  /**
+   * apply `jsx-a11y/iframe-has-title` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/iframe-has-title/
+   */
+  'astro/jsx-a11y/iframe-has-title'?: Linter.RuleEntry<AstroJsxA11YIframeHasTitle>
+  /**
+   * apply `jsx-a11y/img-redundant-alt` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/img-redundant-alt/
+   */
+  'astro/jsx-a11y/img-redundant-alt'?: Linter.RuleEntry<AstroJsxA11YImgRedundantAlt>
+  /**
+   * apply `jsx-a11y/interactive-supports-focus` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/interactive-supports-focus/
+   */
+  'astro/jsx-a11y/interactive-supports-focus'?: Linter.RuleEntry<AstroJsxA11YInteractiveSupportsFocus>
+  /**
+   * apply `jsx-a11y/label-has-associated-control` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/label-has-associated-control/
+   */
+  'astro/jsx-a11y/label-has-associated-control'?: Linter.RuleEntry<AstroJsxA11YLabelHasAssociatedControl>
+  /**
+   * apply `jsx-a11y/lang` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/lang/
+   */
+  'astro/jsx-a11y/lang'?: Linter.RuleEntry<AstroJsxA11YLang>
+  /**
+   * apply `jsx-a11y/media-has-caption` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/media-has-caption/
+   */
+  'astro/jsx-a11y/media-has-caption'?: Linter.RuleEntry<AstroJsxA11YMediaHasCaption>
+  /**
+   * apply `jsx-a11y/mouse-events-have-key-events` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/mouse-events-have-key-events/
+   */
+  'astro/jsx-a11y/mouse-events-have-key-events'?: Linter.RuleEntry<AstroJsxA11YMouseEventsHaveKeyEvents>
+  /**
+   * apply `jsx-a11y/no-access-key` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-access-key/
+   */
+  'astro/jsx-a11y/no-access-key'?: Linter.RuleEntry<AstroJsxA11YNoAccessKey>
+  /**
+   * apply `jsx-a11y/no-aria-hidden-on-focusable` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-aria-hidden-on-focusable/
+   */
+  'astro/jsx-a11y/no-aria-hidden-on-focusable'?: Linter.RuleEntry<AstroJsxA11YNoAriaHiddenOnFocusable>
+  /**
+   * apply `jsx-a11y/no-autofocus` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-autofocus/
+   */
+  'astro/jsx-a11y/no-autofocus'?: Linter.RuleEntry<AstroJsxA11YNoAutofocus>
+  /**
+   * apply `jsx-a11y/no-distracting-elements` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-distracting-elements/
+   */
+  'astro/jsx-a11y/no-distracting-elements'?: Linter.RuleEntry<AstroJsxA11YNoDistractingElements>
+  /**
+   * apply `jsx-a11y/no-interactive-element-to-noninteractive-role` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-interactive-element-to-noninteractive-role/
+   */
+  'astro/jsx-a11y/no-interactive-element-to-noninteractive-role'?: Linter.RuleEntry<AstroJsxA11YNoInteractiveElementToNoninteractiveRole>
+  /**
+   * apply `jsx-a11y/no-noninteractive-element-interactions` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-noninteractive-element-interactions/
+   */
+  'astro/jsx-a11y/no-noninteractive-element-interactions'?: Linter.RuleEntry<AstroJsxA11YNoNoninteractiveElementInteractions>
+  /**
+   * apply `jsx-a11y/no-noninteractive-element-to-interactive-role` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-noninteractive-element-to-interactive-role/
+   */
+  'astro/jsx-a11y/no-noninteractive-element-to-interactive-role'?: Linter.RuleEntry<AstroJsxA11YNoNoninteractiveElementToInteractiveRole>
+  /**
+   * apply `jsx-a11y/no-noninteractive-tabindex` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-noninteractive-tabindex/
+   */
+  'astro/jsx-a11y/no-noninteractive-tabindex'?: Linter.RuleEntry<AstroJsxA11YNoNoninteractiveTabindex>
+  /**
+   * apply `jsx-a11y/no-redundant-roles` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-redundant-roles/
+   */
+  'astro/jsx-a11y/no-redundant-roles'?: Linter.RuleEntry<AstroJsxA11YNoRedundantRoles>
+  /**
+   * apply `jsx-a11y/no-static-element-interactions` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/no-static-element-interactions/
+   */
+  'astro/jsx-a11y/no-static-element-interactions'?: Linter.RuleEntry<AstroJsxA11YNoStaticElementInteractions>
+  /**
+   * apply `jsx-a11y/prefer-tag-over-role` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/prefer-tag-over-role/
+   */
+  'astro/jsx-a11y/prefer-tag-over-role'?: Linter.RuleEntry<AstroJsxA11YPreferTagOverRole>
+  /**
+   * apply `jsx-a11y/role-has-required-aria-props` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/role-has-required-aria-props/
+   */
+  'astro/jsx-a11y/role-has-required-aria-props'?: Linter.RuleEntry<AstroJsxA11YRoleHasRequiredAriaProps>
+  /**
+   * apply `jsx-a11y/role-supports-aria-props` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/role-supports-aria-props/
+   */
+  'astro/jsx-a11y/role-supports-aria-props'?: Linter.RuleEntry<AstroJsxA11YRoleSupportsAriaProps>
+  /**
+   * apply `jsx-a11y/scope` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/scope/
+   */
+  'astro/jsx-a11y/scope'?: Linter.RuleEntry<AstroJsxA11YScope>
+  /**
+   * apply `jsx-a11y/tabindex-no-positive` rule to Astro components
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/jsx-a11y/tabindex-no-positive/
+   */
+  'astro/jsx-a11y/tabindex-no-positive'?: Linter.RuleEntry<AstroJsxA11YTabindexNoPositive>
+  /**
+   * the client:only directive is missing the correct component's framework value
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/missing-client-only-directive-value/
+   */
+  'astro/missing-client-only-directive-value'?: Linter.RuleEntry<[]>
+  /**
+   * disallow conflicting set directives and child contents
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-conflict-set-directives/
+   */
+  'astro/no-conflict-set-directives'?: Linter.RuleEntry<[]>
+  /**
+   * disallow using deprecated `Astro.canonicalURL`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-deprecated-astro-canonicalurl/
+   */
+  'astro/no-deprecated-astro-canonicalurl'?: Linter.RuleEntry<[]>
+  /**
+   * disallow using deprecated `Astro.fetchContent()`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-deprecated-astro-fetchcontent/
+   */
+  'astro/no-deprecated-astro-fetchcontent'?: Linter.RuleEntry<[]>
+  /**
+   * disallow using deprecated `Astro.resolve()`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-deprecated-astro-resolve/
+   */
+  'astro/no-deprecated-astro-resolve'?: Linter.RuleEntry<[]>
+  /**
+   * disallow using deprecated `getEntryBySlug()`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-deprecated-getentrybyslug/
+   */
+  'astro/no-deprecated-getentrybyslug'?: Linter.RuleEntry<[]>
+  /**
+   * disallow value export
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-exports-from-components/
+   */
+  'astro/no-exports-from-components'?: Linter.RuleEntry<[]>
+  /**
+   * disallow use of `set:html` to prevent XSS attack
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-set-html-directive/
+   */
+  'astro/no-set-html-directive'?: Linter.RuleEntry<[]>
+  /**
+   * disallow use of `set:text`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-set-text-directive/
+   */
+  'astro/no-set-text-directive'?: Linter.RuleEntry<[]>
+  /**
+   * disallow selectors defined in `style` tag that don't use in HTML
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-unused-css-selector/
+   */
+  'astro/no-unused-css-selector'?: Linter.RuleEntry<[]>
+  /**
+   * disallow unused `define:vars={...}` in `style` tag
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/no-unused-define-vars-in-style/
+   */
+  'astro/no-unused-define-vars-in-style'?: Linter.RuleEntry<[]>
+  /**
+   * require `class:list` directives instead of `class` with expressions
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/prefer-class-list-directive/
+   */
+  'astro/prefer-class-list-directive'?: Linter.RuleEntry<[]>
+  /**
+   * require use object instead of ternary expression in `class:list`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/prefer-object-class-list/
+   */
+  'astro/prefer-object-class-list'?: Linter.RuleEntry<[]>
+  /**
+   * require use split array elements in `class:list`
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/prefer-split-class-list/
+   */
+  'astro/prefer-split-class-list'?: Linter.RuleEntry<AstroPreferSplitClassList>
+  /**
+   * Require or disallow semicolons instead of ASI
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/semi/
+   */
+  'astro/semi'?: Linter.RuleEntry<AstroSemi>
+  /**
+   * enforce sorting of attributes
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/sort-attributes/
+   */
+  'astro/sort-attributes'?: Linter.RuleEntry<AstroSortAttributes>
+  /**
+   * disallow warnings when compiling.
+   * @see https://ota-meshi.github.io/eslint-plugin-astro/rules/valid-compile/
+   */
+  'astro/valid-compile'?: Linter.RuleEntry<[]>
+  /**
    * Enforce the use of variables within the scope they are defined
    * @see https://eslint.org/docs/latest/rules/block-scoped-var
    */
@@ -1414,6 +1679,14 @@ export interface RuleOptions {
    * @see https://eslint.org/docs/latest/rules/for-direction
    */
   'for-direction'?: Linter.RuleEntry<[]>
+  /**
+   * Use dprint to format code
+   */
+  'format/dprint'?: Linter.RuleEntry<FormatDprint>
+  /**
+   * Use Prettier to format code
+   */
+  'format/prettier'?: Linter.RuleEntry<FormatPrettier>
   /**
    * Require or disallow spacing between function identifiers and their invocations
    * @see https://eslint.org/docs/latest/rules/func-call-spacing
@@ -6556,6 +6829,141 @@ export interface RuleOptions {
    */
   'template-tag-spacing'?: Linter.RuleEntry<TemplateTagSpacing>
   /**
+   * Enforce promises from async event methods are handled
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/await-async-events.md
+   */
+  'testing-library/await-async-events'?: Linter.RuleEntry<TestingLibraryAwaitAsyncEvents>
+  /**
+   * Enforce promises from async queries to be handled
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/await-async-queries.md
+   */
+  'testing-library/await-async-queries'?: Linter.RuleEntry<[]>
+  /**
+   * Enforce promises from async utils to be awaited properly
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/await-async-utils.md
+   */
+  'testing-library/await-async-utils'?: Linter.RuleEntry<[]>
+  /**
+   * Ensures consistent usage of `data-testid`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/consistent-data-testid.md
+   */
+  'testing-library/consistent-data-testid'?: Linter.RuleEntry<TestingLibraryConsistentDataTestid>
+  /**
+   * Disallow unnecessary `await` for sync events
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-await-sync-events.md
+   */
+  'testing-library/no-await-sync-events'?: Linter.RuleEntry<TestingLibraryNoAwaitSyncEvents>
+  /**
+   * Disallow unnecessary `await` for sync queries
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-await-sync-queries.md
+   */
+  'testing-library/no-await-sync-queries'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow the use of `container` methods
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-container.md
+   */
+  'testing-library/no-container'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow the use of debugging utilities like `debug`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-debugging-utils.md
+   */
+  'testing-library/no-debugging-utils'?: Linter.RuleEntry<TestingLibraryNoDebuggingUtils>
+  /**
+   * Disallow importing from DOM Testing Library
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-dom-import.md
+   */
+  'testing-library/no-dom-import'?: Linter.RuleEntry<TestingLibraryNoDomImport>
+  /**
+   * Disallow the use of the global RegExp flag (/g) in queries
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-global-regexp-flag-in-query.md
+   */
+  'testing-library/no-global-regexp-flag-in-query'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow the use of `cleanup`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-manual-cleanup.md
+   */
+  'testing-library/no-manual-cleanup'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow direct Node access
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-node-access.md
+   */
+  'testing-library/no-node-access'?: Linter.RuleEntry<TestingLibraryNoNodeAccess>
+  /**
+   * Disallow the use of promises passed to a `fireEvent` method
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-promise-in-fire-event.md
+   */
+  'testing-library/no-promise-in-fire-event'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow the use of `render` in testing frameworks setup functions
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-render-in-lifecycle.md
+   */
+  'testing-library/no-render-in-lifecycle'?: Linter.RuleEntry<TestingLibraryNoRenderInLifecycle>
+  /**
+   * Disallow wrapping Testing Library utils or empty callbacks in `act`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-unnecessary-act.md
+   */
+  'testing-library/no-unnecessary-act'?: Linter.RuleEntry<TestingLibraryNoUnnecessaryAct>
+  /**
+   * Disallow the use of multiple `expect` calls inside `waitFor`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-wait-for-multiple-assertions.md
+   */
+  'testing-library/no-wait-for-multiple-assertions'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow the use of side effects in `waitFor`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-wait-for-side-effects.md
+   */
+  'testing-library/no-wait-for-side-effects'?: Linter.RuleEntry<[]>
+  /**
+   * Ensures no snapshot is generated inside of a `waitFor` call
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/no-wait-for-snapshot.md
+   */
+  'testing-library/no-wait-for-snapshot'?: Linter.RuleEntry<[]>
+  /**
+   * Suggest using explicit assertions rather than standalone queries
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-explicit-assert.md
+   */
+  'testing-library/prefer-explicit-assert'?: Linter.RuleEntry<TestingLibraryPreferExplicitAssert>
+  /**
+   * Suggest using `find(All)By*` query instead of `waitFor` + `get(All)By*` to wait for elements
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-find-by.md
+   */
+  'testing-library/prefer-find-by'?: Linter.RuleEntry<[]>
+  /**
+   * Suggest using implicit assertions for getBy* & findBy* queries
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-implicit-assert.md
+   */
+  'testing-library/prefer-implicit-assert'?: Linter.RuleEntry<[]>
+  /**
+   * Ensure appropriate `get*`/`query*` queries are used with their respective matchers
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-presence-queries.md
+   */
+  'testing-library/prefer-presence-queries'?: Linter.RuleEntry<TestingLibraryPreferPresenceQueries>
+  /**
+   * Suggest using `queryBy*` queries when waiting for disappearance
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-query-by-disappearance.md
+   */
+  'testing-library/prefer-query-by-disappearance'?: Linter.RuleEntry<[]>
+  /**
+   * Ensure the configured `get*`/`query*` query is used with the corresponding matchers
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-query-matchers.md
+   */
+  'testing-library/prefer-query-matchers'?: Linter.RuleEntry<TestingLibraryPreferQueryMatchers>
+  /**
+   * Suggest using `screen` while querying
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-screen-queries.md
+   */
+  'testing-library/prefer-screen-queries'?: Linter.RuleEntry<[]>
+  /**
+   * Suggest using `userEvent` over `fireEvent` for simulating user interactions
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/prefer-user-event.md
+   */
+  'testing-library/prefer-user-event'?: Linter.RuleEntry<TestingLibraryPreferUserEvent>
+  /**
+   * Enforce a valid naming for return value from `render`
+   * @see https://github.com/testing-library/eslint-plugin-testing-library/tree/main/docs/rules/render-result-naming-convention.md
+   */
+  'testing-library/render-result-naming-convention'?: Linter.RuleEntry<[]>
+  /**
    * enforce linebreaks after opening and before closing array brackets
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/array-bracket-newline.html
    */
@@ -10250,6 +10658,215 @@ type ArrowSpacing = []|[{
   before?: boolean
   after?: boolean
 }]
+// ----- astro/jsx-a11y/alt-text -----
+type AstroJsxA11YAltText = []|[{
+  elements?: string[]
+  img?: string[]
+  object?: string[]
+  area?: string[]
+  "input[type=\"image\"]"?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/anchor-ambiguous-text -----
+type AstroJsxA11YAnchorAmbiguousText = []|[{
+  words?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/anchor-has-content -----
+type AstroJsxA11YAnchorHasContent = []|[{
+  components?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/anchor-is-valid -----
+type AstroJsxA11YAnchorIsValid = []|[{
+  components?: string[]
+  specialLink?: string[]
+  
+  aspects?: [("noHref" | "invalidHref" | "preferButton"), ...(("noHref" | "invalidHref" | "preferButton"))[]]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/aria-activedescendant-has-tabindex -----
+type AstroJsxA11YAriaActivedescendantHasTabindex = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/aria-props -----
+type AstroJsxA11YAriaProps = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/aria-proptypes -----
+type AstroJsxA11YAriaProptypes = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/aria-role -----
+type AstroJsxA11YAriaRole = []|[{
+  allowedInvalidRoles?: string[]
+  ignoreNonDOM?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/aria-unsupported-elements -----
+type AstroJsxA11YAriaUnsupportedElements = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/autocomplete-valid -----
+type AstroJsxA11YAutocompleteValid = []|[{
+  inputComponents?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/click-events-have-key-events -----
+type AstroJsxA11YClickEventsHaveKeyEvents = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/control-has-associated-label -----
+type AstroJsxA11YControlHasAssociatedLabel = []|[{
+  labelAttributes?: string[]
+  controlComponents?: string[]
+  ignoreElements?: string[]
+  ignoreRoles?: string[]
+  
+  depth?: number
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/heading-has-content -----
+type AstroJsxA11YHeadingHasContent = []|[{
+  components?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/html-has-lang -----
+type AstroJsxA11YHtmlHasLang = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/iframe-has-title -----
+type AstroJsxA11YIframeHasTitle = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/img-redundant-alt -----
+type AstroJsxA11YImgRedundantAlt = []|[{
+  components?: string[]
+  words?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/interactive-supports-focus -----
+type AstroJsxA11YInteractiveSupportsFocus = []|[{
+  
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/label-has-associated-control -----
+type AstroJsxA11YLabelHasAssociatedControl = []|[{
+  labelComponents?: string[]
+  labelAttributes?: string[]
+  controlComponents?: string[]
+  
+  assert?: ("htmlFor" | "nesting" | "both" | "either")
+  
+  depth?: number
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/lang -----
+type AstroJsxA11YLang = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/media-has-caption -----
+type AstroJsxA11YMediaHasCaption = []|[{
+  audio?: string[]
+  video?: string[]
+  track?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/mouse-events-have-key-events -----
+type AstroJsxA11YMouseEventsHaveKeyEvents = []|[{
+  
+  hoverInHandlers?: string[]
+  
+  hoverOutHandlers?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-access-key -----
+type AstroJsxA11YNoAccessKey = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-aria-hidden-on-focusable -----
+type AstroJsxA11YNoAriaHiddenOnFocusable = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-autofocus -----
+type AstroJsxA11YNoAutofocus = []|[{
+  ignoreNonDOM?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-distracting-elements -----
+type AstroJsxA11YNoDistractingElements = []|[{
+  
+  elements?: ("marquee" | "blink")[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-interactive-element-to-noninteractive-role -----
+type AstroJsxA11YNoInteractiveElementToNoninteractiveRole = []|[{
+  [k: string]: string[] | undefined
+}]
+// ----- astro/jsx-a11y/no-noninteractive-element-interactions -----
+type AstroJsxA11YNoNoninteractiveElementInteractions = []|[{
+  handlers?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-noninteractive-element-to-interactive-role -----
+type AstroJsxA11YNoNoninteractiveElementToInteractiveRole = []|[{
+  [k: string]: string[] | undefined
+}]
+// ----- astro/jsx-a11y/no-noninteractive-tabindex -----
+type AstroJsxA11YNoNoninteractiveTabindex = []|[{
+  
+  roles?: string[]
+  
+  tags?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/no-redundant-roles -----
+type AstroJsxA11YNoRedundantRoles = []|[{
+  [k: string]: string[] | undefined
+}]
+// ----- astro/jsx-a11y/no-static-element-interactions -----
+type AstroJsxA11YNoStaticElementInteractions = []|[{
+  handlers?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/prefer-tag-over-role -----
+type AstroJsxA11YPreferTagOverRole = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/role-has-required-aria-props -----
+type AstroJsxA11YRoleHasRequiredAriaProps = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/role-supports-aria-props -----
+type AstroJsxA11YRoleSupportsAriaProps = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/scope -----
+type AstroJsxA11YScope = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/jsx-a11y/tabindex-no-positive -----
+type AstroJsxA11YTabindexNoPositive = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- astro/prefer-split-class-list -----
+type AstroPreferSplitClassList = []|[{
+  splitLiteral?: boolean
+}]
+// ----- astro/semi -----
+type AstroSemi = ([]|["never"]|["never", {
+  beforeStatementContinuationChars?: ("always" | "any" | "never")
+}] | []|["always"]|["always", {
+  omitLastInOneLineBlock?: boolean
+  omitLastInOneLineClassBody?: boolean
+}])
+// ----- astro/sort-attributes -----
+type AstroSortAttributes = []|[{
+  type?: ("alphabetical" | "line-length")
+  ignoreCase?: boolean
+  order?: ("asc" | "desc")
+}]
 // ----- block-spacing -----
 type BlockSpacing = []|[("always" | "never")]
 // ----- brace-style -----
@@ -10360,6 +10977,19 @@ type EslintCommentsNoUse = []|[{
 // ----- eslint-comments/require-description -----
 type EslintCommentsRequireDescription = []|[{
   ignore?: ("eslint" | "eslint-disable" | "eslint-disable-line" | "eslint-disable-next-line" | "eslint-enable" | "eslint-env" | "exported" | "global" | "globals")[]
+}]
+// ----- format/dprint -----
+type FormatDprint = []|[{
+  language?: string
+  languageOptions?: {
+    [k: string]: unknown | undefined
+  }
+  [k: string]: unknown | undefined
+}]
+// ----- format/prettier -----
+type FormatPrettier = []|[{
+  parser?: string
+  [k: string]: unknown | undefined
 }]
 // ----- func-call-spacing -----
 type FuncCallSpacing = ([]|["never"] | []|["always"]|["always", {
@@ -13034,7 +13664,11 @@ type PerfectionistSortArrayIncludes = {
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }[]
@@ -13105,7 +13739,11 @@ type PerfectionistSortClasses = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13142,7 +13780,11 @@ type PerfectionistSortDecorators = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13215,7 +13857,11 @@ type PerfectionistSortHeritageClauses = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13264,7 +13910,11 @@ type _PerfectionistSortImportsSortImports = (_PerfectionistSortImportsMaxLineLen
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 })
@@ -13341,7 +13991,11 @@ type PerfectionistSortInterfaces = {
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }[]
@@ -13368,7 +14022,11 @@ type PerfectionistSortIntersectionTypes = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13391,7 +14049,11 @@ type PerfectionistSortJsxProps = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13479,7 +14141,11 @@ type PerfectionistSortModules = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -13601,7 +14267,11 @@ type PerfectionistSortObjectTypes = {
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }[]
@@ -13649,7 +14319,11 @@ type PerfectionistSortObjects = {
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }[]
@@ -13709,7 +14383,11 @@ type PerfectionistSortSets = {
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }[]
@@ -13751,7 +14429,11 @@ type PerfectionistSortUnionTypes = []|[{
   
   locales?: (string | string[])
   
-  groups?: (string | string[])[]
+  groups?: (string | string[] | {
+    
+    newlinesBetween?: ("ignore" | "always" | "never")
+    [k: string]: unknown | undefined
+  })[]
   
   order?: ("asc" | "desc")
 }]
@@ -14535,6 +15217,72 @@ type TailwindcssNoUnnecessaryArbitraryValue = []|[{
 type TemplateCurlySpacing = []|[("always" | "never")]
 // ----- template-tag-spacing -----
 type TemplateTagSpacing = []|[("always" | "never")]
+// ----- testing-library/await-async-events -----
+type TestingLibraryAwaitAsyncEvents = []|[{
+  eventModule?: (("fireEvent" | "userEvent") | ("fireEvent" | "userEvent")[])
+}]
+// ----- testing-library/consistent-data-testid -----
+type TestingLibraryConsistentDataTestid = []|[{
+  testIdPattern: string
+  testIdAttribute?: (string | string[])
+  customMessage?: string
+}]
+// ----- testing-library/no-await-sync-events -----
+type TestingLibraryNoAwaitSyncEvents = []|[{
+  
+  eventModules?: [("fire-event" | "user-event"), ...(("fire-event" | "user-event"))[]]
+}]
+// ----- testing-library/no-debugging-utils -----
+type TestingLibraryNoDebuggingUtils = []|[{
+  utilsToCheckFor?: {
+    prettyFormat?: boolean
+    logDOM?: boolean
+    logRoles?: boolean
+    prettyDOM?: boolean
+    logTestingPlaygroundURL?: boolean
+    debug?: boolean
+  }
+}]
+// ----- testing-library/no-dom-import -----
+type TestingLibraryNoDomImport = []|[string]
+// ----- testing-library/no-node-access -----
+type TestingLibraryNoNodeAccess = []|[{
+  allowContainerFirstChild?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- testing-library/no-render-in-lifecycle -----
+type TestingLibraryNoRenderInLifecycle = []|[{
+  allowTestingFrameworkSetupHook?: ("beforeEach" | "beforeAll")
+  [k: string]: unknown | undefined
+}]
+// ----- testing-library/no-unnecessary-act -----
+type TestingLibraryNoUnnecessaryAct = []|[{
+  isStrict?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- testing-library/prefer-explicit-assert -----
+type TestingLibraryPreferExplicitAssert = []|[{
+  assertion?: ("toBeOnTheScreen" | "toBeInTheDocument" | "toBeTruthy" | "toBeDefined")
+  includeFindQueries?: boolean
+}]
+// ----- testing-library/prefer-presence-queries -----
+type TestingLibraryPreferPresenceQueries = []|[{
+  presence?: boolean
+  absence?: boolean
+}]
+// ----- testing-library/prefer-query-matchers -----
+type TestingLibraryPreferQueryMatchers = []|[{
+  validEntries?: {
+    query?: ("get" | "query")
+    matcher?: string
+    [k: string]: unknown | undefined
+  }[]
+}]
+// ----- testing-library/prefer-user-event -----
+type TestingLibraryPreferUserEvent = []|[{
+  allowedMethods?: unknown[]
+  [k: string]: unknown | undefined
+}]
 // ----- toml/array-bracket-newline -----
 type TomlArrayBracketNewline = []|[(("always" | "never" | "consistent") | {
   multiline?: boolean
@@ -15198,4 +15946,4 @@ type ZodRequireStrict = []|[{
   allowPassthrough?: boolean
 }]
 // Names of all the configs
-export type ConfigNames = 'anolilab/antfu' | 'anolilab/best-practices/rules' | 'anolilab/best-practices/ts-rules' | 'compat/flat/recommended' | 'anolilab/errors/rules' | 'anolilab/errors/ts-rules' | 'anolilab/html/setup' | 'anolilab/no-secrets' | 'anolilab/no-unsanitized/setup' | 'anolilab/promise/rules' | 'anolilab/simple-import-sort' | 'anolilab/sonarjs/plugin' | 'anolilab/sonarjs/rules' | 'anolilab/sonarjs/js-and-ts-rules' | 'anolilab/sonarjs/js-rules' | 'storybook:recommended:setup' | 'storybook:recommended:stories-rules' | 'storybook:recommended:main-rules' | 'tailwindcss:base' | 'tailwindcss:rules' | 'anolilab/validate-jsx-nesting/setup' | 'anolilab/variables/rules' | 'anolilab/variables/ts-rules' | 'anolilab/style/rules' | 'anolilab/style/ts-rules' | 'anolilab/eslint-comments/rules' | 'anolilab/imports/setup' | 'anolilab/imports/rules' | 'anolilab/imports/d.ts-rules' | 'anolilab/javascript/setup' | 'anolilab/jsx-a11y/setup' | 'anolilab/jsdoc/setup' | 'anolilab/jsdoc/js-rules' | 'anolilab/jsonc/json5-rules' | 'anolilab/jsonc/jsonc-rules' | 'anolilab/jsonc/json-rules' | 'anolilab/jsonc/package.json-rules' | 'anolilab/jsonc/tsconfig-json' | 'anolilab/markdown/setup' | 'anolilab/markdown/processor' | 'anolilab/markdown/parser' | 'anolilab/markdown/disables' | 'anolilab/perfectionist/setup' | 'anolilab/perfectionist/rules' | 'anolilab/perfectionist/typescript' | 'anolilab/perfectionist/postcss' | 'anolilab/react/setup' | 'anolilab/react/rules' | 'anolilab/react/jsx' | 'anolilab/react/tsx' | 'anolilab/react/storybook' | 'anolilab/node' | 'anolilab/stylistic/rules' | 'anolilab/vitest/setup' | 'anolilab/vitest/rules' | 'anolilab/toml' | 'anolilab/regexp/rules' | 'anolilab/typescript/setup' | 'anolilab/typescript/parser' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/strict' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/stylistic' | 'anolilab/typescript/rules' | 'anolilab/unicorn/plugin' | 'anolilab/unicorn/rules' | 'anolilab/unicorn/tsconfig-overrides' | 'anolilab/unicorn/ts-overrides' | 'anolilab/unocss' | 'anolilab/yaml'
+export type ConfigNames = 'anolilab/antfu' | 'anolilab/astro/setup' | 'anolilab/astro/rules' | 'anolilab/best-practices/rules' | 'anolilab/best-practices/ts-rules' | 'compat/flat/recommended' | 'anolilab/errors/rules' | 'anolilab/errors/ts-rules' | 'anolilab/html/setup' | 'anolilab/no-secrets' | 'anolilab/no-unsanitized/setup' | 'anolilab/promise/rules' | 'anolilab/simple-import-sort' | 'anolilab/sonarjs/plugin' | 'anolilab/sonarjs/rules' | 'anolilab/sonarjs/js-and-ts-rules' | 'anolilab/sonarjs/js-rules' | 'storybook:recommended:setup' | 'storybook:recommended:stories-rules' | 'storybook:recommended:main-rules' | 'tailwindcss:base' | 'tailwindcss:rules' | 'anolilab/validate-jsx-nesting/setup' | 'anolilab/variables/rules' | 'anolilab/variables/ts-rules' | 'anolilab/style/rules' | 'anolilab/style/ts-rules' | 'anolilab/eslint-comments/rules' | 'anolilab/formatter/setup' | 'anolilab/imports/setup' | 'anolilab/imports/rules' | 'anolilab/imports/d.ts-rules' | 'anolilab/javascript/setup' | 'anolilab/jsx-a11y/setup' | 'anolilab/jsdoc/setup' | 'anolilab/jsdoc/js-rules' | 'anolilab/jsonc/json5-rules' | 'anolilab/jsonc/jsonc-rules' | 'anolilab/jsonc/json-rules' | 'anolilab/jsonc/package.json-rules' | 'anolilab/jsonc/tsconfig-json' | 'anolilab/markdown/setup' | 'anolilab/markdown/processor' | 'anolilab/markdown/parser' | 'anolilab/markdown/disables' | 'anolilab/perfectionist/setup' | 'anolilab/perfectionist/rules' | 'anolilab/perfectionist/typescript' | 'anolilab/perfectionist/postcss' | 'anolilab/react/setup' | 'anolilab/react/rules' | 'anolilab/react/jsx' | 'anolilab/react/tsx' | 'anolilab/react/storybook' | 'anolilab/node' | 'anolilab/stylistic/rules' | 'anolilab/vitest/setup' | 'anolilab/vitest/rules' | 'anolilab/toml' | 'anolilab/regexp/rules' | 'anolilab/typescript/setup' | 'anolilab/typescript/parser' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/strict' | 'typescript-eslint/base' | 'typescript-eslint/eslint-recommended' | 'typescript-eslint/stylistic' | 'anolilab/typescript/rules' | 'anolilab/unicorn/plugin' | 'anolilab/unicorn/rules' | 'anolilab/unicorn/tsconfig-overrides' | 'anolilab/unicorn/ts-overrides' | 'anolilab/unocss' | 'anolilab/yaml'

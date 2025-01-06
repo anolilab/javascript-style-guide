@@ -25,6 +25,7 @@ import perfectionist from "../src/config/plugins/perfectionist";
 import playwright from "../src/config/plugins/playwright";
 import promise from "../src/config/plugins/promise";
 import react from "../src/config/plugins/react";
+import reactRefresh from "../src/config/plugins/react-refresh";
 import regexp from "../src/config/plugins/regexp";
 import simpleImportSort from "../src/config/plugins/simple-import-sort";
 import sonarjs from "../src/config/plugins/sonarjs";
@@ -32,6 +33,7 @@ import storybook from "../src/config/plugins/storybook";
 import stylistic from "../src/config/plugins/stylistic";
 import tailwindcss from "../src/config/plugins/tailwindcss";
 import tanstackQuery from "../src/config/plugins/tanstack-query";
+import tanstackRouter from "../src/config/plugins/tanstack-router";
 import testingLibrary from "../src/config/plugins/testing-library";
 import toml from "../src/config/plugins/toml";
 import tsdoc from "../src/config/plugins/tsdoc";
@@ -74,6 +76,7 @@ const configs = await combine(
     storybook({}),
     tailwindcss({}),
     tanstackQuery({}),
+    tanstackRouter({}),
     tsdoc({}),
     validateJsxNesting({}),
     variables({}),
@@ -100,6 +103,9 @@ const configs = await combine(
     }),
     react({
         packageJson: fakePackageJson,
+    }),
+    reactRefresh({
+        hasVite: false,
     }),
     node({
         packageJson: fakePackageJson,

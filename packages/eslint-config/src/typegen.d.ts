@@ -485,6 +485,26 @@ export interface RuleOptions {
    */
   '@stylistic/yield-star-spacing'?: Linter.RuleEntry<StylisticYieldStarSpacing>
   /**
+   * Exhaustive deps rule for useQuery
+   * @see https://tanstack.com/query/v4/docs/eslint/exhaustive-deps
+   */
+  '@tanstack/query/exhaustive-deps'?: Linter.RuleEntry<[]>
+  /**
+   * Disallows rest destructuring in queries
+   * @see https://tanstack.com/query/v4/docs/eslint/no-rest-destructuring
+   */
+  '@tanstack/query/no-rest-destructuring'?: Linter.RuleEntry<[]>
+  /**
+   * Makes sure that QueryClient is stable
+   * @see https://tanstack.com/query/v4/docs/eslint/stable-query-client
+   */
+  '@tanstack/query/stable-query-client'?: Linter.RuleEntry<[]>
+  /**
+   * Ensure correct order of inference sensitive properties for createRoute functions
+   * @see https://tanstack.com/router/latest/docs/eslint/create-route-property-order
+   */
+  '@tanstack/router/create-route-property-order'?: Linter.RuleEntry<[]>
+  /**
    * Require that function overload signatures be consecutive
    * @see https://typescript-eslint.io/rules/adjacent-overload-signatures
    */
@@ -3338,6 +3358,11 @@ export interface RuleOptions {
    * @deprecated
    */
   'no-floating-decimal'?: Linter.RuleEntry<[]>
+  /**
+   * Do not use for...of loop with array, use for loop instead, because for loop is faster than for...of loop
+   * @see https://www.npmjs.com/package/eslint-plugin-not-for-of-array
+   */
+  'no-for-of-array/no-for-of-array'?: Linter.RuleEntry<[]>
   /**
    * Disallow reassigning `function` declarations
    * @see https://eslint.org/docs/latest/rules/no-func-assign
@@ -6801,21 +6826,6 @@ export interface RuleOptions {
    * @see https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/master/docs/rules/no-unnecessary-arbitrary-value.md
    */
   'tailwindcss/no-unnecessary-arbitrary-value'?: Linter.RuleEntry<TailwindcssNoUnnecessaryArbitraryValue>
-  /**
-   * Exhaustive deps rule for useQuery
-   * @see https://tanstack.com/query/v4/docs/eslint/exhaustive-deps
-   */
-  'tanstack-query/exhaustive-deps'?: Linter.RuleEntry<[]>
-  /**
-   * Disallows rest destructuring in queries
-   * @see https://tanstack.com/query/v4/docs/eslint/no-rest-destructuring
-   */
-  'tanstack-query/no-rest-destructuring'?: Linter.RuleEntry<[]>
-  /**
-   * Makes sure that QueryClient is stable
-   * @see https://tanstack.com/query/v4/docs/eslint/stable-query-client
-   */
-  'tanstack-query/stable-query-client'?: Linter.RuleEntry<[]>
   /**
    * Require or disallow spacing around embedded expressions of template strings
    * @see https://eslint.org/docs/latest/rules/template-curly-spacing

@@ -16,7 +16,13 @@ import { styleRules } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
-    OptionsComponentExtensions & OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
+    OptionsComponentExtensions &
+    OptionsFiles &
+    OptionsHasPrettier &
+    OptionsOverrides &
+    OptionsStylistic &
+    OptionsTypeScriptParserOptions &
+    OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
@@ -29,15 +35,16 @@ export default createConfig<
     } = config;
 
     // eslint-disable-next-line compat/compat
-    const [pluginTs, parserTs, tseslint] = await Promise.all([
+    const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([
         interopDefault(import("@typescript-eslint/eslint-plugin")),
         interopDefault(import("@typescript-eslint/parser")),
         interopDefault(import("typescript-eslint")),
+        interopDefault(import("eslint-plugin-no-for-of-array")),
     ] as const);
 
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
     const ignoresTypeAware = config.ignoresTypeAware ?? [`**/*.md/**`, ...getFilesGlobs("astro")];
-    const tsconfigPath = config?.tsconfigPath ? config.tsconfigPath : undefined;
+    const tsconfigPath = config?.tsconfigPath ?? undefined;
     const isTypeAware = tsconfigPath !== undefined;
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
@@ -71,6 +78,7 @@ export default createConfig<
             name: "anolilab/typescript/setup",
             plugins: {
                 "@typescript-eslint": pluginTs,
+                "no-for-of-array": noForOfArrayPlugin,
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
@@ -79,47 +87,55 @@ export default createConfig<
     ];
 
     if (isTypeAware) {
-        rules.push(...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]));
+        rules.push(
+            ...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]),
+            {
+                files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
+                name: "anolilab/typescript/rules-type-aware",
+                rules: {
+                    // Disallow type assertions that do not change the type of expression.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
+                    "@typescript-eslint/no-unnecessary-type-assertion": "error",
 
-        rules.push({
-            files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
-            name: "anolilab/typescript/rules-type-aware",
-            rules: {
-                // Disallow type assertions that do not change the type of expression.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
-                "@typescript-eslint/no-unnecessary-type-assertion": "error",
+                    // Disallow calling a function with a value with type any.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-argument.md
+                    "@typescript-eslint/no-unsafe-argument": "error",
 
-                // Disallow calling a function with a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-argument.md
-                "@typescript-eslint/no-unsafe-argument": "error",
+                    // Disallow assigning a value with type any to variables and properties.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-assignment.md
+                    "@typescript-eslint/no-unsafe-assignment": "error",
 
-                // Disallow assigning a value with type any to variables and properties.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-assignment.md
-                "@typescript-eslint/no-unsafe-assignment": "error",
+                    // Disallow calling a value with type any.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-call.md
+                    "@typescript-eslint/no-unsafe-call": "error",
 
-                // Disallow calling a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-call.md
-                "@typescript-eslint/no-unsafe-call": "error",
+                    // Disallow member access on a value with type any.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-member-access.md
+                    "@typescript-eslint/no-unsafe-member-access": "error",
 
-                // Disallow member access on a value with type any.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-member-access.md
-                "@typescript-eslint/no-unsafe-member-access": "error",
+                    // Disallow returning a value with type any from a function.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-return.md
+                    "@typescript-eslint/no-unsafe-return": "error",
 
-                // Disallow returning a value with type any from a function.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-return.md
-                "@typescript-eslint/no-unsafe-return": "error",
+                    // Enforce using the nullish coalescing operator instead of logical chaining.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
+                    "@typescript-eslint/prefer-nullish-coalescing": "error",
 
-                // Enforce using the nullish coalescing operator instead of logical chaining.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
-                "@typescript-eslint/prefer-nullish-coalescing": "error",
+                    // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
+                    "@typescript-eslint/prefer-optional-chain": "error",
 
-                // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
-                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
-                "@typescript-eslint/prefer-optional-chain": "error",
-
-                ...overridesTypeAware,
+                    ...overridesTypeAware,
+                },
             },
-        });
+            {
+                files: getFilesGlobs("all"),
+                name: "anolilab/typescript/no-for-of-array/rules",
+                rules: {
+                    "no-for-of-array/no-for-of-array": "error",
+                },
+            },
+        );
     }
 
     if (stylistic) {

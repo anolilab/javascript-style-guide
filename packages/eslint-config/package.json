@@ -26,6 +26,7 @@
         "eslint-plugin-eslint-comments",
         "eslint-plugin-html",
         "eslint-plugin-i",
+        "@tanstack/eslint-plugin-router",
         "eslint-plugin-jsonc",
         "eslint-markdown",
         "eslint-plugin-no-secrets",
@@ -47,6 +48,7 @@
         "eslint-plugin-tailwindcss",
         "eslint-plugin-testing-library",
         "eslint-plugin-tsdoc",
+        "eslint-plugin-no-for-of-array",
         "eslint-plugin-you-dont-need-lodash-underscore"
     ],
     "homepage": "https://anolilab.com/nodejs/packages/eslint-config",
@@ -146,11 +148,13 @@
         "eslint-plugin-jsdoc": "^50.6.1",
         "eslint-plugin-jsonc": "^2.18.2",
         "eslint-plugin-n": "^17.15.1",
+        "eslint-plugin-no-for-of-array": "^0.1.0",
         "eslint-plugin-no-only-tests": "^3.3.0",
         "eslint-plugin-no-secrets": "^2.1.1",
         "eslint-plugin-no-unsanitized": "^4.1.2",
         "eslint-plugin-perfectionist": "^4.6.0",
         "eslint-plugin-promise": "^7.2.1",
+        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-regexp": "^2.7.0",
         "eslint-plugin-security": "^3.0.1",
         "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -173,6 +177,8 @@
         "@eslint-react/eslint-plugin": "^1.23.1",
         "@eslint/config-inspector": "^0.7.0",
         "@stylistic/eslint-plugin-migrate": "^2.12.1",
+        "@tanstack/eslint-plugin-query": "^5.0.0",
+        "@tanstack/eslint-plugin-router": "^1.92.7",
         "@testing-library/dom": "^10.4.0",
         "@total-typescript/ts-reset": "^0.6.1",
         "@types/confusing-browser-globals": "^1.0.3",
@@ -210,7 +216,8 @@
     "peerDependencies": {
         "@babel/core": "^7.22.20",
         "@eslint-react/eslint-plugin": "^1.22.1",
-        "@tanstack/eslint-plugin-query": "^4.34.1 || ^5.0.0",
+        "@tanstack/eslint-plugin-query": "^5.0.0",
+        "@tanstack/eslint-plugin-router": "^1.92.7",
         "@unocss/eslint-plugin": "^0.65.3",
         "astro-eslint-parser": "^1.1.0",
         "eslint": "^9.10.0",
@@ -230,6 +237,9 @@
     },
     "peerDependenciesMeta": {
         "@tanstack/eslint-plugin-query": {
+            "optional": true
+        },
+        "@tanstack/eslint-plugin-router": {
             "optional": true
         },
         "@unocss/eslint-plugin": {

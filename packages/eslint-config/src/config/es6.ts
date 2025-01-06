@@ -3,7 +3,7 @@ import type { Linter } from "eslint";
 import type { OptionsFiles } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
-export const eS6Rules: Partial<Linter.RulesRecord> = {
+export const es6Rules: Partial<Linter.RulesRecord> = {
     // enforces no braces where they can be omitted
     // https://eslint.org/docs/rules/arrow-body-style
     "arrow-body-style": [
@@ -352,7 +352,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 ecmaVersion: 6,
                 sourceType: "module",
             },
-            rules: eS6Rules,
+            rules: es6Rules,
         },
         // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
         // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586

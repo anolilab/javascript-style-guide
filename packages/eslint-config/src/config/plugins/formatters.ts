@@ -247,13 +247,13 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
             files: [...getFilesGlobs("astro"), ...getFilesGlobs("astro_ts")],
             name: "anolilab/formatter/astro/disables",
             rules: {
-                "style/arrow-parens": "off",
-                "style/block-spacing": "off",
-                "style/comma-dangle": "off",
-                "style/indent": "off",
-                "style/no-multi-spaces": "off",
-                "style/quotes": "off",
-                "style/semi": "off",
+                "@stylistic/arrow-parens": "off",
+                "@stylistic/block-spacing": "off",
+                "@stylistic/comma-dangle": "off",
+                "@stylistic/indent": "off",
+                "@stylistic/no-multi-spaces": "off",
+                "@stylistic/quotes": "off",
+                "@stylistic/semi": "off",
             },
         });
     }

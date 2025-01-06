@@ -1,4 +1,6 @@
-const parserPlain = {
+import type { Linter } from "eslint";
+
+const parserPlain: Linter.Parser = {
     meta: {
         name: "parser-plain",
     },

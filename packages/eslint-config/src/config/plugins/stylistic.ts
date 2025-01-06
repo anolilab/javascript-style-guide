@@ -17,6 +17,7 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
         quotes,
         semi,
     } = {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         ...StylisticConfigDefaults,
         ...options,
     };

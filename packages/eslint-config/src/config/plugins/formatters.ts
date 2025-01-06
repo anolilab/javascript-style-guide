@@ -17,9 +17,11 @@ const mergePrettierOptions = (options: VendoredPrettierOptions, overrides: Vendo
     };
 };
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig): Promise<TypedFlatConfigItem[]> => {
-    if (options.slidev && options.markdown !== true && options.markdown !== "prettier")
-throw new Error("`slidev` option only works when `markdown` is enabled with `prettier`");
+    if (options.slidev && options.markdown !== true && options.markdown !== "prettier") {
+        throw new Error("`slidev` option only works when `markdown` is enabled with `prettier`");
+    }
 
     const { indent, quotes, semi } = {
         ...StylisticConfigDefaults,

@@ -1,8 +1,13 @@
-import type { OptionsFiles, OptionsOverrides, OptionsStylistic, TypedFlatConfigItem } from "../../types";
-import interopDefault from "../../utils/interop-default";
+import type {
+    OptionsFiles,
+    OptionsOverrides,
+    OptionsStylistic,
+    TypedFlatConfigItem,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
-export default createConfig<OptionsOverrides & OptionsStylistic & OptionsFiles>("astro", async (config, oFiles): Promise<TypedFlatConfigItem[]> => {
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>("astro", async (config, oFiles): Promise<TypedFlatConfigItem[]> => {
     const { files = oFiles, overrides = {}, stylistic = true } = config;
 
     const [pluginAstro, parserAstro, parserTs] = await Promise.all([
@@ -48,14 +53,14 @@ export default createConfig<OptionsOverrides & OptionsStylistic & OptionsFiles>(
                 "astro/semi": "off",
                 "astro/valid-compile": "error",
 
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "@stylistic/indent": "off",
-                          "@stylistic/jsx-closing-tag-location": "off",
-                          "@stylistic/jsx-one-expression-per-line": "off",
-                          "@stylistic/no-multiple-empty-lines": "off",
-                      }
-                    : {}),
+                        "@stylistic/indent": "off",
+                        "@stylistic/jsx-closing-tag-location": "off",
+                        "@stylistic/jsx-one-expression-per-line": "off",
+                        "@stylistic/no-multiple-empty-lines": "off",
+                    }
+                    : {},
 
                 ...overrides,
             },

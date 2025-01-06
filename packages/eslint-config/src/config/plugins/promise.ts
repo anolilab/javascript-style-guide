@@ -1,4 +1,4 @@
-import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
+import { fixupPluginRules } from "@eslint/compat";
 
 import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";

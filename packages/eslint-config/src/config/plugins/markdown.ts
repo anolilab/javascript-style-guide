@@ -1,12 +1,12 @@
 import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsComponentExts as OptionsComponentExtensions, OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
 
-export default createConfig<OptionsComponentExts & OptionsFiles & OptionsOverrides>("markdown", async (config, oFiles) => {
-    const { componentExts = [], files = oFiles, overrides } = config;
+export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsOverrides>("markdown", async (config, oFiles) => {
+    const { componentExts: componentExtensions = [], files = oFiles, overrides } = config;
 
     const markdown = await interopDefault(import("@eslint/markdown"));
 
@@ -37,7 +37,7 @@ export default createConfig<OptionsComponentExts & OptionsFiles & OptionsOverrid
             },
         },
         {
-            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExts.map(ext => `**/*.md/**/*.${ext}`)],
+            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExtensions.map(extension => `**/*.md/**/*.${extension}`)],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {

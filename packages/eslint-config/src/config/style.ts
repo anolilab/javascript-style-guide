@@ -330,6 +330,14 @@ export const styleRules: Partial<Linter.RulesRecord> = {
             message: "Use `.key` instead of `.keyCode`",
             selector: "MemberExpression > .property[type=Identifier][name=keyCode]",
         },
+        {
+            message: "Do not use full-width tilde. Use wave dash instead.",
+            selector: ":matches(Literal[value=/～/],TemplateElement[value.raw=/～/])",
+        },
+        {
+            message: "Use `.toString()` instead of template literal if you want to convert a value to string.",
+            selector: "TemplateLiteral[quasis.0.value.raw=\"\"][quasis.1.tail=true][quasis.1.value.raw=\"\"]",
+        },
     ],
 
     // disallow space between function identifier and application

@@ -9,7 +9,7 @@ const isInEditorEnvironment = (): boolean => {
         return false;
     }
 
-    return !!(false || process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM || process.env.NVIM);
+    return !!(process.env.VSCODE_PID ?? process.env.VSCODE_CWD ?? process.env.JETBRAINS_IDE ?? process.env.VIM ?? process.env.NVIM);
 };
 
 export default isInEditorEnvironment;

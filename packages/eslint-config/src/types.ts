@@ -290,11 +290,21 @@ export interface OptionsConfig extends OptionsComponentExtensions {
      * Enable tanstack rules.
      *
      * Requires installing:
-     * - `eslint-plugin-tanstack`
+     * - `@tanstack/eslint-plugin-query`
      *
      * @default false
      */
-    tanstack?: boolean | (OptionsFiles & OptionsOverrides);
+    tanstackQuery?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable tanstack rules.
+     *
+     * Requires installing:
+     * - `@tanstack/eslint-plugin-router`
+     *
+     * @default false
+     */
+    tanstackRouter?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable testing-library rules.

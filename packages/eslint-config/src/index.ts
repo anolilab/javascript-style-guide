@@ -27,6 +27,7 @@ import perfectionist from "./config/plugins/perfectionist";
 import playwright from "./config/plugins/playwright";
 import promise from "./config/plugins/promise";
 import react from "./config/plugins/react";
+import reactRefresh from "./config/plugins/react-refresh";
 import regexp from "./config/plugins/regexp";
 import simpleImportSort from "./config/plugins/simple-import-sort";
 import sonarjs from "./config/plugins/sonarjs";
@@ -34,6 +35,7 @@ import storybook from "./config/plugins/storybook";
 import stylistic from "./config/plugins/stylistic";
 import tailwindcss from "./config/plugins/tailwindcss";
 import tanstackQuery from "./config/plugins/tanstack-query";
+import tanstackRouter from "./config/plugins/tanstack-router";
 import testingLibrary from "./config/plugins/testing-library";
 import toml from "./config/plugins/toml";
 import tsdoc from "./config/plugins/tsdoc";
@@ -443,7 +445,8 @@ export const createConfig = async (
         regexp: enableRegexp = true,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
         tailwindcss: enableTailwindCss = false,
-        tanstack: enableTanstack = false,
+        tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
+        tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-router"]),
         testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),
         tsdoc: enableTsdoc = false,
         typescript: enableTypeScript = hasPackageJsonAnyDependency(packageJson, ["typescript"]),
@@ -464,8 +467,12 @@ export const createConfig = async (
             packages.push("@unocss/eslint-plugin");
         }
 
-        if (enableTanstack) {
+        if (enableTanstackQuery) {
             packages.push("@tanstack/eslint-plugin-query");
+        }
+
+        if (enableTanstackRouter) {
+            packages.push("@tanstack/eslint-plugin-router");
         }
 
         if (enableTailwindCss) {
@@ -618,9 +625,6 @@ export const createConfig = async (
             overrides: getOverrides(options, "antfu"),
             packageJson,
         }),
-        compat({
-            files: getFiles(options, "compat"),
-        }),
         noSecrets({
             overrides: getOverrides(options, "noSecrets"),
         }),
@@ -641,6 +645,14 @@ export const createConfig = async (
             packageJson,
         }),
     );
+
+    if (packageJson["browserlist"] !== undefined) {
+        configs.push(
+            compat({
+                files: getFiles(options, "compat"),
+            }),
+        );
+    }
 
     if (enableUnicorn) {
         configs.push(
@@ -761,11 +773,20 @@ export const createConfig = async (
         );
     }
 
-    if (enableTanstack) {
+    if (enableTanstackQuery) {
         configs.push(
             tanstackQuery({
-                files: getFiles(options, "tanstack"),
-                overrides: getOverrides(options, "tanstack"),
+                files: getFiles(options, "tanstackQuery"),
+                overrides: getOverrides(options, "tanstackQuery"),
+            }),
+        );
+    }
+
+    if (enableTanstackRouter) {
+        configs.push(
+            tanstackRouter({
+                files: getFiles(options, "tanstackRouter"),
+                overrides: getOverrides(options, "tanstackRouter"),
             }),
         );
     }
@@ -806,6 +827,9 @@ export const createConfig = async (
                 overrides: getOverrides(options, "react"),
                 packageJson,
                 tsconfigPath,
+            }),
+            reactRefresh({
+                hasVite: hasPackageJsonAnyDependency(packageJson, ["vite"]),
             }),
         );
     }

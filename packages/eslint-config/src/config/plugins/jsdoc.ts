@@ -10,9 +10,9 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsStylistic
     const jsdocPlugin = await interopDefault(import("eslint-plugin-jsdoc"));
 
     const hasTypescript = hasPackageJsonAnyDependency(packageJson, ["typescript"]);
-    const hasTsDocPlugin = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-tsdoc"]);
+    const hasTsDocumentPlugin = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-tsdoc"]);
 
-    if (hasTsDocPlugin) {
+    if (hasTsDocumentPlugin) {
         console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     }
 
@@ -40,7 +40,7 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsStylistic
         },
     ];
 
-    if (hasTypescript && !hasTsDocPlugin) {
+    if (hasTypescript && !hasTsDocumentPlugin) {
         rules.push({
             files,
             name: "anolilab/jsdoc/ts-rules",

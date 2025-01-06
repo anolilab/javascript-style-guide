@@ -373,14 +373,14 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                 },
                 settings: {
                     // Append 'ts' extensions to 'import/extensions' setting
-                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map(ext => ext.replace("**/*", "")),
+                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map(extension => extension.replace("**/*", "")),
 
                     // Resolve type definition packages
                     "import/external-module-folders": ["node_modules", "node_modules/@types"],
 
                     // Apply special parsing for TypeScript files
                     "import/parsers": {
-                        "@typescript-eslint/parser": getFilesGlobs("ts").map(ext => ext.replace("**/*", "")),
+                        "@typescript-eslint/parser": getFilesGlobs("ts").map(extension => extension.replace("**/*", "")),
                     },
 
                     ...tsconfigPath

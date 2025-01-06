@@ -30,7 +30,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 yaml: pluginYaml,
             },
             rules: {
-                "style/spaced-comment": "off",
+                "@stylistic/spaced-comment": "off",
 
                 "yaml/block-mapping": "error",
                 "yaml/block-sequence": "error",

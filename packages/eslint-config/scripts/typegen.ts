@@ -25,7 +25,6 @@ import perfectionist from "../src/config/plugins/perfectionist";
 import playwright from "../src/config/plugins/playwright";
 import promise from "../src/config/plugins/promise";
 import react from "../src/config/plugins/react";
-import reactRefresh from "../src/config/plugins/react-refresh";
 import regexp from "../src/config/plugins/regexp";
 import simpleImportSort from "../src/config/plugins/simple-import-sort";
 import sonarjs from "../src/config/plugins/sonarjs";
@@ -103,9 +102,6 @@ const configs = await combine(
     }),
     react({
         packageJson: fakePackageJson,
-    }),
-    reactRefresh({
-        hasVite: false,
     }),
     node({
         packageJson: fakePackageJson,

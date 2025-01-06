@@ -20,8 +20,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
                 toml: pluginToml,
             },
             rules: {
-                // @TODO: move this to the correct place
-                "style/spaced-comment": "off",
+                ...stylistic ? { "@stylistic/spaced-comment": "off" } : {},
 
                 "toml/comma-style": "error",
                 "toml/keys-order": "error",

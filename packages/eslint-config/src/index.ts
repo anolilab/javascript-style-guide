@@ -27,7 +27,6 @@ import perfectionist from "./config/plugins/perfectionist";
 import playwright from "./config/plugins/playwright";
 import promise from "./config/plugins/promise";
 import react from "./config/plugins/react";
-import reactRefresh from "./config/plugins/react-refresh";
 import regexp from "./config/plugins/regexp";
 import simpleImportSort from "./config/plugins/simple-import-sort";
 import sonarjs from "./config/plugins/sonarjs";
@@ -827,9 +826,6 @@ export const createConfig = async (
                 overrides: getOverrides(options, "react"),
                 packageJson,
                 tsconfigPath,
-            }),
-            reactRefresh({
-                hasVite: hasPackageJsonAnyDependency(packageJson, ["vite"]),
             }),
         );
     }

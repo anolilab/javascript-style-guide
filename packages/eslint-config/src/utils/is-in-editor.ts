@@ -1,7 +1,7 @@
 import isInGitHooksOrLintStaged from "./is-in-git-hooks-or-lint-staged";
 
 const isInEditorEnvironment = (): boolean => {
-    if (process.env.CI) {
+    if (process.env["CI"]) {
         return false;
     }
 
@@ -9,7 +9,7 @@ const isInEditorEnvironment = (): boolean => {
         return false;
     }
 
-    return !!(process.env.VSCODE_PID ?? process.env.VSCODE_CWD ?? process.env.JETBRAINS_IDE ?? process.env.VIM ?? process.env.NVIM);
+    return !!(process.env["VSCODE_PID"] ?? process.env["VSCODE_CWD"] ?? process.env["JETBRAINS_IDE"] ?? process.env["VIM"] ?? process.env["NVIM"]);
 };
 
 export default isInEditorEnvironment;

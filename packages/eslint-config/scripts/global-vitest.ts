@@ -1,14 +1,17 @@
-import { createRequire } from "node:module";
 import { writeFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+// eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const e = (msg, fail = true) => {
+const e = (message, fail = true) => {
     // eslint-disable-next-line no-console
-    console.log(msg);
+    console.log(message);
+
     process.exit(fail ? 1 : 0);
 };
 
@@ -25,6 +28,7 @@ function extract(file) {
                         if (ts.isVariableDeclarationList(node)) {
                             for (const declaration of node.declarations) {
                                 const name = ts.getNameOfDeclaration(declaration);
+
                                 if (name) {
                                     globals.push(name.escapedText);
                                 }
@@ -40,10 +44,10 @@ function extract(file) {
 }
 
 const require = createRequire(import.meta.url);
-const pkgPath = require.resolve("vitest/package.json");
+const packagePath = require.resolve("vitest/package.json");
 const {
     default: { version: vitestVersion },
-} = await import(pkgPath, {
+} = await import(packagePath, {
     with: { type: "json" },
 });
 
@@ -56,9 +60,10 @@ writeFileSync(join(__dirname, "..", "VERSION"), vitestVersion);
 const globalsPath = require.resolve("vitest/globals.d.ts");
 const globalsArray = extract(globalsPath);
 const globals = {};
-if (!globalsArray.length) e("No globals! Check extractor implementation.");
 
-globalsArray.forEach((globalName) => (globals[globalName] = true));
+if (globalsArray.length === 0) e("No globals! Check extractor implementation.");
+
+globalsArray.forEach(globalName => (globals[globalName] = true));
 const moduleContent = `export default /** @type {const} */ (${JSON.stringify(globals, undefined, 2)});`;
 
 writeFileSync(join(__dirname, "..", "index.mjs"), moduleContent);

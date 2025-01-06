@@ -17,6 +17,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsRegExp>("al
     };
 
     if (level === "warn") {
+        // eslint-disable-next-line no-restricted-syntax
         for (const key in rules) {
             if (rules[key] === "error") {
                 rules[key] = "warn";

@@ -1,6 +1,6 @@
 import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 
-import type { OptionsComponentExts as OptionsComponentExtensions, OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsComponentExtensions, OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
@@ -32,9 +32,7 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
                 parser: parserPlain,
             },
             name: "anolilab/markdown/parser",
-            rules: {
-                ...markdown.configs.recommended.rules,
-            },
+            rules: markdown.configs.recommended[0].rules,
         },
         {
             files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExtensions.map(extension => `**/*.md/**/*.${extension}`)],
@@ -47,6 +45,19 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             },
             name: "anolilab/markdown/disables",
             rules: {
+                "@stylistic/comma-dangle": "off",
+                "@stylistic/eol-last": "off",
+                "@stylistic/prefer-global/process": "off",
+
+                "@typescript-eslint/consistent-type-imports": "off",
+                "@typescript-eslint/explicit-function-return-type": "off",
+                "@typescript-eslint/no-namespace": "off",
+                "@typescript-eslint/no-redeclare": "off",
+                "@typescript-eslint/no-require-imports": "off",
+                "@typescript-eslint/no-unused-expressions": "off",
+                "@typescript-eslint/no-unused-vars": "off",
+                "@typescript-eslint/no-use-before-define": "off",
+
                 "antfu/no-top-level-await": "off",
 
                 "import/newline-after-import": "off",
@@ -57,22 +68,11 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
                 "no-lone-blocks": "off",
                 "no-restricted-syntax": "off",
                 "no-undef": "off",
+
                 "no-unused-expressions": "off",
+
                 "no-unused-labels": "off",
-
                 "no-unused-vars": "off",
-                "node/prefer-global/process": "off",
-                "style/comma-dangle": "off",
-
-                "style/eol-last": "off",
-                "typescript/consistent-type-imports": "off",
-                "typescript/explicit-function-return-type": "off",
-                "typescript/no-namespace": "off",
-                "typescript/no-redeclare": "off",
-                "typescript/no-require-imports": "off",
-                "typescript/no-unused-expressions": "off",
-                "typescript/no-unused-vars": "off",
-                "typescript/no-use-before-define": "off",
 
                 "unicode-bom": "off",
                 "unused-imports/no-unused-imports": "off",

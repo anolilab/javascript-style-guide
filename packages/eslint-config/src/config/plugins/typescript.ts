@@ -11,7 +11,7 @@ import type {
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import { bestPracticesRules } from "../best-practices";
-import { eS6Rules } from "../es6";
+import { es6Rules } from "../es6";
 import { styleRules } from "../style";
 import { variablesRules } from "../variables";
 
@@ -34,7 +34,6 @@ export default createConfig<
         stylistic = true,
     } = config;
 
-    // eslint-disable-next-line compat/compat
     const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([
         interopDefault(import("@typescript-eslint/eslint-plugin")),
         interopDefault(import("@typescript-eslint/parser")),
@@ -254,7 +253,7 @@ export default createConfig<
 
             // Replace 'no-dupe-class-members' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
-            "@typescript-eslint/no-dupe-class-members": eS6Rules["no-dupe-class-members"],
+            "@typescript-eslint/no-dupe-class-members": es6Rules["no-dupe-class-members"],
 
             // Disallow duplicate enum member values.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.md
@@ -345,7 +344,7 @@ export default createConfig<
 
             // Replace 'no-useless-constructor' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-            "@typescript-eslint/no-useless-constructor": eS6Rules["no-useless-constructor"],
+            "@typescript-eslint/no-useless-constructor": es6Rules["no-useless-constructor"],
 
             // Disallow empty exports that don't change anything in a module file.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.md

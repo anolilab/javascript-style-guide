@@ -64,6 +64,7 @@ export default createConfig<
                             tsconfigRootDir: process.cwd(),
                         }
                         : {},
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...(parserOptions as any),
                 },
             },
@@ -162,6 +163,10 @@ export default createConfig<
                 },
             ],
 
+            // Enforce specifying generic type arguments on constructor name of a constructor call.
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.md
+            "@typescript-eslint/consistent-generic-constructors": "error",
+
             // @TODO: Fix this rule
             // Some built-in types have aliases, while some types are considered dangerous or harmful.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
@@ -178,10 +183,6 @@ export default createConfig<
             //         },
             //     },
             // ],
-
-            // Enforce specifying generic type arguments on constructor name of a constructor call.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.md
-            "@typescript-eslint/consistent-generic-constructors": "error",
 
             // Enforce consistent usage of type imports.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-type-imports.md
@@ -361,6 +362,9 @@ export default createConfig<
             // Enforce using function types instead of interfaces with call signatures.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-function-type.md
             "@typescript-eslint/prefer-function-type": "error",
+
+            // Disabled to use faster alternatives.
+            "@typescript-eslint/prefer-string-starts-ends-with": "off",
 
             // Enforce using @ts-expect-error over @ts-ignore.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.md

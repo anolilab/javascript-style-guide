@@ -7,6 +7,7 @@ import type {
     OptionsHasPrettier,
     OptionsOverrides,
     OptionsPackageJson,
+    OptionsSilentConsoleLogs,
     OptionsStylistic,
     OptionsTypeScriptParserOptions,
     OptionsTypeScriptWithTypes,
@@ -20,10 +21,20 @@ import { noUnderscoreDangle } from "../style";
 const ReactRefreshAllowConstantExportPackages = ["vite"];
 const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
 const NextJsPackages = ["next"];
+const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@react-router/serve", "@react-router/dev"];
 
 // @see https://github.com/yannickcr/eslint-plugin-react
 export default createConfig<
-    OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
+
+    OptionsFiles &
+    OptionsHasPrettier &
+    OptionsOverrides &
+    OptionsPackageJson &
+    OptionsSilentConsoleLogs &
+    OptionsStylistic &
+    OptionsTypeScriptParserOptions &
+    OptionsTypeScriptWithTypes
+    // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -32,6 +43,7 @@ export default createConfig<
         overrides,
         packageJson,
         prettier,
+        silent,
         stylistic = true,
         tsconfigPath,
     } = config;
@@ -53,6 +65,7 @@ export default createConfig<
     const isAllowConstantExport = hasPackageJsonAnyDependency(packageJson, ReactRefreshAllowConstantExportPackages);
     const isUsingRemix = hasPackageJsonAnyDependency(packageJson, RemixPackages);
     const isUsingNext = hasPackageJsonAnyDependency(packageJson, NextJsPackages);
+    const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
 
     const plugins = pluginReact.configs.all.plugins;
 
@@ -64,10 +77,12 @@ export default createConfig<
         if (parsedVersion !== null) {
             reactVersion = `${parsedVersion.major}.${parsedVersion.minor}`;
 
-            // TODO: add log flag
-            console.info(
-                `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
-            );
+            if (!silent) {
+                // eslint-disable-next-line no-console
+                console.info(
+                    `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
+                );
+            }
         }
     }
 
@@ -78,10 +93,13 @@ export default createConfig<
 
         if (tsConfig?.compilerOptions !== undefined && (tsConfig?.compilerOptions.jsx === "react-jsx" || tsConfig?.compilerOptions.jsx === "react-jsxdev")) {
             hasJsxRuntime = true;
-            // TODO: add log flag
-            console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
+
+            if (!silent) {
+                // eslint-disable-next-line no-console
+                console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
   If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
+            }
         }
     }
 
@@ -175,7 +193,7 @@ export default createConfig<
                                     "generateViewport",
                                 ]
                                 : [],
-                            ...isUsingRemix ? ["meta", "links", "headers", "loader", "action"] : [],
+                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : [],
                         ],
                     },
                 ],

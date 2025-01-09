@@ -7,14 +7,16 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
 
     const pluginTanstackRouter = await interopDefault(import("@tanstack/eslint-plugin-router"));
 
-    return [{
-        files,
-        plugins: {
-            "@tanstack/router": pluginTanstackRouter,
+    return [
+        {
+            files,
+            plugins: {
+                "@tanstack/router": pluginTanstackRouter,
+            },
+            rules: {
+                ...pluginTanstackRouter.configs["recommended"].rules,
+                ...overrides,
+            },
         },
-        rules: {
-            ...pluginTanstackRouter.configs["recommended"].rules,
-            ...overrides,
-        },
-    }];
+    ];
 });

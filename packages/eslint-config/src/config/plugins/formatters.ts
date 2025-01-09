@@ -1,8 +1,4 @@
-import type {
-    OptionsFormatters,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from "../../types";
 import { getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
@@ -228,34 +224,37 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
     }
 
     if (options.astro) {
-        configs.push({
-            files: getFilesGlobs("astro"),
-            languageOptions: {
-                parser: parserPlain,
+        configs.push(
+            {
+                files: getFilesGlobs("astro"),
+                languageOptions: {
+                    parser: parserPlain,
+                },
+                name: "anolilab/formatter/astro",
+                rules: {
+                    "format/prettier": [
+                        "error",
+                        mergePrettierOptions(prettierOptions, {
+                            parser: "astro",
+                            plugins: ["prettier-plugin-astro"],
+                        }),
+                    ],
+                },
             },
-            name: "anolilab/formatter/astro",
-            rules: {
-                "format/prettier": [
-                    "error",
-                    mergePrettierOptions(prettierOptions, {
-                        parser: "astro",
-                        plugins: ["prettier-plugin-astro"],
-                    }),
-                ],
+            {
+                files: [...getFilesGlobs("astro"), ...getFilesGlobs("astro_ts")],
+                name: "anolilab/formatter/astro/disables",
+                rules: {
+                    "@stylistic/arrow-parens": "off",
+                    "@stylistic/block-spacing": "off",
+                    "@stylistic/comma-dangle": "off",
+                    "@stylistic/indent": "off",
+                    "@stylistic/no-multi-spaces": "off",
+                    "@stylistic/quotes": "off",
+                    "@stylistic/semi": "off",
+                },
             },
-        }, {
-            files: [...getFilesGlobs("astro"), ...getFilesGlobs("astro_ts")],
-            name: "anolilab/formatter/astro/disables",
-            rules: {
-                "@stylistic/arrow-parens": "off",
-                "@stylistic/block-spacing": "off",
-                "@stylistic/comma-dangle": "off",
-                "@stylistic/indent": "off",
-                "@stylistic/no-multi-spaces": "off",
-                "@stylistic/quotes": "off",
-                "@stylistic/semi": "off",
-            },
-        });
+        );
     }
 
     if (options.graphql) {

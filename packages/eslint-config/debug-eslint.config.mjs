@@ -1,3 +1,3 @@
-import { createConfig } from "./dist/index.mjs"
+import { createConfig } from "./dist";
 
 export default createConfig({});

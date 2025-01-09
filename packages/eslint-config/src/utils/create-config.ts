@@ -1,7 +1,30 @@
 import type { TypedFlatConfigItem } from "../types";
 
 type FileType =
-    "all" | "astro_ts" | "astro" | "css" | "d.ts" | "e2e" | "graphql" | "html" | "js_and_ts" | "js" | "jsx_and_tsx" | "less" | "markdown_in_markdown" | "markdown_inline_js_jsx" | "markdown" | "postcss" | "scss" | "storybook" | "svg" | "toml" | "ts" | "vitest" | "xml" | "yaml";
+    | "all"
+    | "astro_ts"
+    | "astro"
+    | "css"
+    | "d.ts"
+    | "e2e"
+    | "graphql"
+    | "html"
+    | "js_and_ts"
+    | "js"
+    | "jsx_and_tsx"
+    | "less"
+    | "markdown_in_markdown"
+    | "markdown_inline_js_jsx"
+    | "markdown"
+    | "postcss"
+    | "scss"
+    | "storybook"
+    | "svg"
+    | "toml"
+    | "ts"
+    | "vitest"
+    | "xml"
+    | "yaml";
 
 // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
 const dtsGlobal = ["**/*.d.ts", "**/*.d.cts", "**/*.d.mts"];

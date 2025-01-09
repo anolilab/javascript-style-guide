@@ -93,7 +93,6 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
     return undefined;
 };
 
-// eslint-disable-next-line no-secrets/no-secrets
 /**
  * Construct an array of ESLint flat config items.
  *
@@ -442,6 +441,7 @@ export const createConfig = async (
             "@eslint-react/eslint-plugin",
         ]),
         regexp: enableRegexp = true,
+        silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
         tailwindcss: enableTailwindCss = false,
         tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
@@ -526,14 +526,14 @@ export const createConfig = async (
 
         await ensurePackages(packageJson, packages, "devDependencies", {
             confirm: {
-                message: (packages: string[]) => `@anolilab/eslint-config requires the following ${packages.length === 1 ? "package" : "packages"} to be installed: \n\n"${packages.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                message: (list: string[]) => `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
             },
         });
     }
 
     let isInEditor = options.isInEditor;
 
-    if (isInEditor == null) {
+    if (isInEditor === undefined || isInEditor === false) {
         isInEditor = isInEditorEnvironment();
 
         if (isInEditor) {
@@ -604,6 +604,7 @@ export const createConfig = async (
             files: getFiles(options, "jsdoc"),
             // overrides: getFiles(options, "jsdoc"),
             packageJson,
+            silent,
             stylistic: stylisticOptions,
         }),
         imports({
@@ -825,6 +826,7 @@ export const createConfig = async (
                 ...typescriptOptions,
                 overrides: getOverrides(options, "react"),
                 packageJson,
+                silent,
                 tsconfigPath,
             }),
         );
@@ -855,6 +857,7 @@ export const createConfig = async (
                 overrides: getOverrides(options, "jsonc"),
                 packageJson,
                 prettier: enablePrettier,
+                silent,
                 stylistic: stylisticOptions,
             }),
         );

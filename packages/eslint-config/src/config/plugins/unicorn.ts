@@ -39,8 +39,6 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             rules: {
                 ...pluginUnicorn.configs["flat/recommended"].rules,
 
-                // TODO: Temporarily disabled as the rule is buggy.
-                "function-call-argument-newline": "off",
                 // Disabled because of eslint-plugin-regexp
                 "unicorn/better-regex": "off",
                 // TODO: Disabled for now until it becomes more stable: https://github.com/sindresorhus/eslint-plugin-unicorn/search?q=consistent-destructuring+is:issue&state=open&type=issues
@@ -58,11 +56,11 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
                 "unicorn/no-array-for-each": "off",
 
-                // TODO: Disabled for now as I don't have time to deal with the backslash that might come from this. Try to enable this rule in 2024.
-                "unicorn/no-null": "off",
-
                 // TODO: Temporarily disabled until it becomes more mature.
                 "unicorn/no-useless-undefined": "off",
+
+                // Disabled to use faster alternatives.
+                "unicorn/prefer-at": "off",
 
                 // It will be disabled in the next version of eslint-plugin-unicorn.
                 "unicorn/prefer-json-parse-buffer": "off",

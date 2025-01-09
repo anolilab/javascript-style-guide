@@ -133,7 +133,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/no-amd": "error",
 
                     // Reports if a module's default export is unnamed
-                    // eslint-disable-next-line no-secrets/no-secrets
+
                     // https://github.com/import-js/eslint-plugin-import/blob/d9b712ac7fd1fddc391f7b234827925c160d956f/docs/rules/no-anonymous-default-export.md
                     "import/no-anonymous-default-export": [
                         "off",
@@ -172,7 +172,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/no-dynamic-require": "error",
 
                     // Reports the use of empty named import blocks.
-                    // eslint-disable-next-line no-secrets/no-secrets
+
                     // https://github.com/un-es/eslint-plugin-i/blob/d5fc8b670dc8e6903dbb7b0894452f60c03089f5/docs/rules/no-empty-named-blocks.md
                     "import/no-empty-named-blocks": "error",
 
@@ -286,6 +286,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     // https://github.com/import-js/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
                     "import/no-self-import": "error",
 
+                    // eslint-disable-next-line sonarjs/todo-tag
                     // @TODO: Enable this rule when it's fixed https://github.com/import-js/eslint-plugin-import/issues/2678
                     // Reports modules without any exports, or with unused exports
                     // https://github.com/import-js/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md

@@ -242,11 +242,11 @@ Add this property to your package.json:
 
 ```json5
 {
-    anolilab: {
+    "anolilab": {
         "eslint-config": {
             // options
-        },
-    },
+        }
+    }
 }
 ```
 

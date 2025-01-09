@@ -2,7 +2,7 @@ import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/nickdeis/eslint-plugin-no-secrets
-export default async (config: OptionsOverrides): Promise<TypedFlatConfigItem[]> => {
+const noSecrets = async (config: OptionsOverrides): Promise<TypedFlatConfigItem[]> => {
     const noSecretsPlugin = await interopDefault(import("eslint-plugin-no-secrets"));
 
     return [
@@ -24,3 +24,5 @@ export default async (config: OptionsOverrides): Promise<TypedFlatConfigItem[]> 
         },
     ];
 };
+
+export default noSecrets;

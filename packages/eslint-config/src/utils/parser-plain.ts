@@ -13,7 +13,7 @@ const parserPlain: Linter.Parser = {
             tokens: [],
             type: "Program",
         },
-        scopeManager: null,
+        scopeManager: undefined,
         services: { isPlain: true },
         visitorKeys: {
             Program: [],

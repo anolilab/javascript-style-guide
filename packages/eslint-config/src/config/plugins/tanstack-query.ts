@@ -8,14 +8,16 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
 
     const pluginTanstackQuery = await interopDefault(import("@tanstack/eslint-plugin-query"));
 
-    return [{
-        files,
-        plugins: {
-            "@tanstack/query": pluginTanstackQuery,
+    return [
+        {
+            files,
+            plugins: {
+                "@tanstack/query": pluginTanstackQuery,
+            },
+            rules: {
+                ...pluginTanstackQuery.configs["recommended"].rules,
+                ...overrides,
+            },
         },
-        rules: {
-            ...pluginTanstackQuery.configs["recommended"].rules,
-            ...overrides,
-        },
-    }];
+    ];
 });

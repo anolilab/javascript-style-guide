@@ -205,7 +205,6 @@ export const styleRules: Partial<Linter.RulesRecord> = {
 
     // require multiline ternary
     // https://eslint.org/docs/rules/multiline-ternary
-    // TODO: enable?
     "multiline-ternary": ["off", "never"],
 
     // require a capital letter for constructors
@@ -332,6 +331,7 @@ export const styleRules: Partial<Linter.RulesRecord> = {
         },
         {
             message: "Do not use full-width tilde. Use wave dash instead.",
+            // eslint-disable-next-line no-restricted-syntax
             selector: ":matches(Literal[value=/～/],TemplateElement[value.raw=/～/])",
         },
         {

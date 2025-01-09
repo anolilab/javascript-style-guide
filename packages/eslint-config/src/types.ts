@@ -21,7 +21,7 @@ export interface OptionsComponentExtensions {
 
 export type { ConfigNames } from "./typegen";
 
-export interface OptionsConfig extends OptionsComponentExtensions {
+export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilentConsoleLogs {
     /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
@@ -510,6 +510,13 @@ export interface OptionsRegExp {
      * Override rulelevels
      */
     level?: "error" | "warn";
+}
+
+export interface OptionsSilentConsoleLogs {
+    /**
+     * This option is used to enable or disable to console log information.
+     */
+    silent?: boolean;
 }
 
 export interface OptionsStylistic {

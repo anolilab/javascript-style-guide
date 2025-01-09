@@ -9,6 +9,7 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 // Hold the reference so we don't redeclare the plugin on each call
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let pluginTest: any;
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEditor & OptionsOverrides & OptionsTypeScriptWithTypes>(
@@ -22,7 +23,6 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             tsconfigPath,
         } = config;
 
-        // eslint-disable-next-line compat/compat
         const [vitestPlugin, noOnlyTestsPlugin] = await Promise.all([
             interopDefault(import("@vitest/eslint-plugin")),
             // @ts-expect-error missing types

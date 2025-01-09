@@ -60,13 +60,14 @@ import type {
 } from "./types";
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
-import isInEditorEnvironment from "./utils/is-in-editor";
+import isInEditorEnvironment from "./utils/is-in-editor-environment";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
 };
 
@@ -74,6 +75,7 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
     const sub = resolveSubOptions(options, key);
 
     return {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(options.overrides as any)?.[key],
         ..."overrides" in sub ? sub.overrides : {},
     };
@@ -105,6 +107,7 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
  */
 export const createConfig = async (
     options: Omit<TypedFlatConfigItem, "files"> & OptionsConfig = {},
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...userConfigs: Awaitable<FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]>[]
     // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
@@ -921,6 +924,7 @@ export const createConfig = async (
     // eslint-disable-next-line unicorn/no-array-reduce
     const fusedConfig = flatConfigProperties.reduce((accumulator, key) => {
         if (key in options) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             accumulator[key] = options[key] as any;
         }
 
@@ -933,6 +937,7 @@ export const createConfig = async (
 
     let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     composer = composer.append(...configs, ...(userConfigs as any));
 
     return composer;

@@ -78,6 +78,7 @@ export interface VendoredPrettierOptionsRequired {
     /**
      * Provide ability to support new languages to prettier.
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     plugins: (any | string)[];
     /**
      * Specify the line length that the printer will wrap on.

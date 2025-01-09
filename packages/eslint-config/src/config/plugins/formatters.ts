@@ -177,7 +177,13 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
     if (options.markdown) {
         const formater = options.markdown === true ? "prettier" : options.markdown;
 
-        const GLOB_SLIDEV = options.slidev ? options.slidev === true ? ["**/slides.md"] : options.slidev.files : [];
+        let GLOB_SLIDEV: string[] = [];
+
+        if (typeof options.slidev === "boolean" && options.slidev === true) {
+            GLOB_SLIDEV = ["**/slides.md"];
+        } else if (typeof options.slidev === "object" && options.slidev.files) {
+            GLOB_SLIDEV = options.slidev.files;
+        }
 
         configs.push({
             files: getFilesGlobs("markdown"),

@@ -1,4 +1,5 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
+import type { Linter } from "eslint";
 
 import type {
     OptionsHasPrettier,
@@ -27,6 +28,7 @@ const jsonc = async (
     const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, ["sort-package-json"]);
 
     if (hasSortPackageJson && !silent) {
+        // eslint-disable-next-line no-console
         console.info(`\n@anolilab/eslint-config found "sort-package-json" package. \n
     Following rules are disabled: jsonc/sort-keys for all package.json files. \n`);
     }
@@ -36,23 +38,17 @@ const jsonc = async (
         {
             files: ["**/*.json5"],
             name: "anolilab/jsonc/json5-rules",
-            rules: {
-                ...jsoncPlugin.configs["flat/recommended-with-json5"].rules,
-            },
+            rules: (jsoncPlugin.configs["recommended-with-json5"] as Linter.Config).rules,
         },
         {
             files: ["**/*.jsonc"],
             name: "anolilab/jsonc/jsonc-rules",
-            rules: {
-                ...jsoncPlugin.configs["flat/recommended-with-jsonc"].rules,
-            },
+            rules: (jsoncPlugin.configs["recommended-with-jsonc"] as Linter.Config).rules,
         },
         {
             files: ["**/*.json"],
             name: "anolilab/jsonc/json-rules",
-            rules: {
-                ...jsoncPlugin.configs["flat/recommended-with-json"].rules,
-            },
+            rules: (jsoncPlugin.configs["recommended-with-json"] as Linter.Config).rules,
         },
         {
             files: ["**/package.json"],

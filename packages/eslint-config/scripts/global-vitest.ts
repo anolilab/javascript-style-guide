@@ -3,34 +3,38 @@ import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import type { ModuleBody, SourceFile } from "typescript";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootPath = dirname(fileURLToPath(import.meta.url));
 
-const e = (message, fail = true) => {
+const showMessageAndExit = (message: string, fail = true) => {
     // eslint-disable-next-line no-console
     console.log(message);
 
+    // eslint-disable-next-line unicorn/no-process-exit
     process.exit(fail ? 1 : 0);
 };
 
-function extract(file) {
+const extract = (file: string) => {
     const program = ts.createProgram([file], {});
-    const sourceFile = program.getSourceFile(file);
-    const globals = [];
+    const sourceFile = program.getSourceFile(file) as SourceFile;
+    const globals: string[] = [];
 
     ts.forEachChild(sourceFile, (node) => {
         if (ts.isModuleDeclaration(node)) {
-            ts.forEachChild(node.body, (node) => {
-                if (ts.isVariableStatement(node)) {
-                    ts.forEachChild(node, (node) => {
-                        if (ts.isVariableDeclarationList(node)) {
-                            for (const declaration of node.declarations) {
+            ts.forEachChild(node.body as ModuleBody, (mNode) => {
+                if (ts.isVariableStatement(mNode)) {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    ts.forEachChild(mNode, (vNode: any) => {
+                        if (ts.isVariableDeclarationList(vNode)) {
+                            // eslint-disable-next-line no-restricted-syntax
+                            for (const declaration of vNode.declarations) {
                                 const name = ts.getNameOfDeclaration(declaration);
 
-                                if (name) {
-                                    globals.push(name.escapedText);
+                                if (name && "escapedText" in name) {
+                                    globals.push(name.escapedText as string);
                                 }
                             }
                         }
@@ -41,10 +45,11 @@ function extract(file) {
     });
 
     return globals;
-}
+};
 
 const require = createRequire(import.meta.url);
 const packagePath = require.resolve("vitest/package.json");
+
 const {
     default: { version: vitestVersion },
 } = await import(packagePath, {
@@ -52,21 +57,29 @@ const {
 });
 
 if (!vitestVersion) {
-    e("Vitest version cannot be read.");
+    showMessageAndExit("Vitest version cannot be read.");
 }
 
-writeFileSync(join(__dirname, "..", "VERSION"), vitestVersion);
-
 const globalsPath = require.resolve("vitest/globals.d.ts");
+
 const globalsArray = extract(globalsPath);
-const globals = {};
+const globals: Record<string, boolean> = {};
 
-if (globalsArray.length === 0) e("No globals! Check extractor implementation.");
+if (globalsArray.length === 0) {
+    showMessageAndExit("No globals! Check extractor implementation.");
+}
 
-globalsArray.forEach(globalName => (globals[globalName] = true));
-const moduleContent = `export default /** @type {const} */ (${JSON.stringify(globals, undefined, 2)});`;
+globalsArray.forEach((globalName) => {
+    globals[globalName] = true;
+});
 
-writeFileSync(join(__dirname, "..", "index.mjs"), moduleContent);
+const moduleContent = `/**
+ * vitest version ${vitestVersion}
+ */
+export default /** @type {const} */ (${JSON.stringify(globals, undefined, 4)});
+`;
+
+writeFileSync(join(rootPath, "..", "src", "utils", "vitest-globals.ts"), moduleContent);
 
 // eslint-disable-next-line no-console
 console.log("Finished generation with result:\n", moduleContent);

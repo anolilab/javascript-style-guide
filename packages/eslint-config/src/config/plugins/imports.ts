@@ -68,21 +68,27 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/extensions": [
                         "error",
                         "ignorePackages",
-                        packageJson.type === "module"
-                            ? {
-                                cjs: "always",
-                                js: "always",
-                                json: "always",
-                                jsx: "always",
-                                mjs: "always",
-                            }
-                            : {
-                                cjs: "never",
-                                js: "never",
-                                json: "always",
-                                jsx: "never",
-                                mjs: "never",
+                        {
+                            checkTypeImports: tsconfigPath !== undefined,
+                            ignorePackages: true,
+                            pattern: {
+                                ...packageJson.type === "module"
+                                    ? {
+                                        cjs: "always",
+                                        js: "always",
+                                        json: "always",
+                                        jsx: "always",
+                                        mjs: "always",
+                                    }
+                                    : {
+                                        cjs: "never",
+                                        js: "never",
+                                        json: "always",
+                                        jsx: "never",
+                                        mjs: "never",
+                                    },
                             },
+                        },
                     ],
 
                     // disallow non-import statements appearing before import statements
@@ -286,7 +292,6 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     // https://github.com/import-js/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
                     "import/no-self-import": "error",
 
-                    // eslint-disable-next-line sonarjs/todo-tag
                     // @TODO: Enable this rule when it's fixed https://github.com/import-js/eslint-plugin-import/issues/2678
                     // Reports modules without any exports, or with unused exports
                     // https://github.com/import-js/eslint-plugin-import/blob/f63dd261809de6883b13b6b5b960e6d7f42a7813/docs/rules/no-unused-modules.md

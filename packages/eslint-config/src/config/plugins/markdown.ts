@@ -24,7 +24,7 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             // `eslint-plugin-markdown` only creates virtual files for code blocks,
             // but not the markdown file itself. We use `eslint-merge-processors` to
             // add a pass-through processor for the markdown file itself.
-            processor: mergeProcessors([markdown.processors!.markdown, processorPassThrough]),
+            processor: mergeProcessors([markdown.processors?.markdown, processorPassThrough]),
         },
         {
             files,

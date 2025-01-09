@@ -451,8 +451,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 // https://eslint.org/docs/rules/no-void
                 "no-void": "error",
 
-                // eslint-disable-next-line sonarjs/todo-tag
-                // disallow usage of configurable warning terms in comments: e.g. todo
+                // disallow usage of configurable warning terms in comments: e.g. "todo"
                 "no-warning-comments": [
                     "off",
                     {

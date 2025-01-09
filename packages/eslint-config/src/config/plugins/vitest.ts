@@ -7,13 +7,14 @@ import type {
 } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import vitestGlobals from "../../utils/vitest-globals";
 
 // Hold the reference so we don't redeclare the plugin on each call
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let pluginTest: any;
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEditor & OptionsOverrides & OptionsTypeScriptWithTypes>(
-    "all",
+    "vitest",
     async (config, oFiles) => {
         const {
             files = oFiles,
@@ -57,7 +58,11 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                         },
                     }
                     : {},
-
+                languageOptions: {
+                    globals: {
+                        ...vitestGlobals,
+                    },
+                },
                 name: "anolilab/vitest/rules",
                 rules: {
                     ...vitestPlugin.configs.all.rules,

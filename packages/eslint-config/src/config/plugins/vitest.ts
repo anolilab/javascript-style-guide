@@ -73,9 +73,9 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // Disables
                     "antfu/no-top-level-await": "off",
 
-                    "no-unused-expressions": "off",
+                    "n/prefer-global/process": "off",
 
-                    "node/prefer-global/process": "off",
+                    "no-unused-expressions": "off",
 
                     "vitest/consistent-test-it": ["error", { fn: "it", withinDescribe: "it" }],
 
@@ -87,10 +87,13 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // Enforce valid expect() usage
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-hooks.md
                     "vitest/no-hooks": "off",
+
                     // Disallow setup and teardown hooks
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-mocks-import.md
                     "vitest/no-mocks-import": "off",
+
                     "vitest/no-only-tests": isInEditor ? "off" : "error",
+
                     // Disallow importing from mocks directory
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-restricted-vi-methods.md
                     "vitest/no-restricted-vi-methods": "off",
@@ -98,6 +101,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // Disallow specific vi. methods
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md
                     "vitest/no-standalone-expect": "error",
+
                     // Disallow using expect outside of it or test blocks
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
                     "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],

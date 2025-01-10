@@ -439,6 +439,7 @@ export const createConfig = async (
         react: enableReact = hasPackageJsonAnyDependency(packageJson, [
             "react",
             "react-dom",
+            "eslint-plugin-react",
             "eslint-plugin-react-hooks",
             "eslint-plugin-react-refresh",
             "@eslint-react/eslint-plugin",

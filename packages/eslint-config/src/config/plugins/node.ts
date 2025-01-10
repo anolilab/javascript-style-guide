@@ -12,16 +12,20 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
     return [
         {
-            files,
-            name: "anolilab/node",
+            name: "anolilab/node/setup",
             plugins: {
                 n: pluginNode,
             },
+        },
+        {
+            files,
+            name: "anolilab/node/rules",
             rules: {
                 ...pluginNode.configs.recommended.rules,
 
                 // https://eslint.org/docs/rules/global-require
                 "global-require": "error",
+
                 // enforce return after a callback
                 "n/callback-return": "off",
 

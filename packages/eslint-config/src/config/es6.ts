@@ -343,15 +343,17 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
     return [
         {
             files,
-            name: "anolilab/es6/rules",
-            parserOptions: {
-                ecmaFeatures: {
-                    generators: false,
-                    objectLiteralDuplicateProperties: false,
+            languageOptions: {
+                parserOptions: {
+                    ecmaFeatures: {
+                        generators: false,
+                        objectLiteralDuplicateProperties: false,
+                    },
+                    ecmaVersion: 6,
+                    sourceType: "module",
                 },
-                ecmaVersion: 6,
-                sourceType: "module",
             },
+            name: "anolilab/es6/rules",
             rules: es6Rules,
         },
         // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler

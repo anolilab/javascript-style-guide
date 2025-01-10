@@ -51,7 +51,7 @@ const jsonc = async (
             rules: (jsoncPlugin.configs["recommended-with-json"] as Linter.Config).rules,
         },
         {
-            files: ["**/package.json"],
+            files: ["package.json", "**/package.json"],
             name: "anolilab/jsonc/package.json-rules",
             rules: {
                 "jsonc/sort-array-values": hasSortPackageJson

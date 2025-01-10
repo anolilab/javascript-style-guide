@@ -1,3 +1,11 @@
+/**
+ * This script is used to generate the globals used by vitest.
+ *
+ * A modified version of the original script from https://github.com/FRSOURCE/toolkit/blob/ac470422ba97837556c8a281e6ed4f73bcd0ba90/packages/globals-vitest
+ *
+ * MIT License
+ * Copyright (c) 2024 FRSOURCE - Let's shape your web
+ */
 import { writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";

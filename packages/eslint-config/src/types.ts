@@ -12,7 +12,6 @@ export type Awaitable<T> = Promise<T> | T;
 export interface OptionsComponentExtensions {
     /**
      * Additional extensions for components.
-     *
      * @example ['vue']
      * @default []
      */
@@ -35,7 +34,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing for formatting .astro:
      * - `prettier-plugin-astro`
-     *
      * @default false
      */
     astro?: boolean | (OptionsFiles & OptionsOverrides);
@@ -52,7 +50,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * The working directory for the config.
-     *
      * @default process.cwd()
      */
     cwd?: string;
@@ -64,7 +61,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * - `eslint-plugin-format`
      *
      * When set to `true`, it will enable all formatters.
-     *
      * @default false
      */
     formatters?: OptionsFormatters | boolean;
@@ -73,7 +69,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Enable gitignore support.
      *
      * Passing an object to configure the options.
-     *
      * @see https://github.com/antfu/eslint-config-flat-gitignore
      * @default true
      */
@@ -84,7 +79,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-html`
-     *
      * @default false
      */
     html?: boolean | (OptionsFiles & OptionsOverrides);
@@ -112,7 +106,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * Enable JSONC support.
-     *
      * @default true
      */
     jsonc?: boolean | (OptionsFiles & OptionsOverrides);
@@ -121,7 +114,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Enable JSX related rules.
      *
      * Currently only stylistic rules are included.
-     *
      * @default true
      */
     jsx?: boolean;
@@ -137,7 +129,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Including:
      * - `anolilab/top-level-function`
      * - `anolilab/if-newline`
-     *
      * @default false
      */
     lessOpinionated?: boolean;
@@ -147,7 +138,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-lodash`
-     *
      * @default false
      */
     lodash?: boolean | (OptionsFiles & OptionsOverrides);
@@ -156,7 +146,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Enable linting for **code snippets** in Markdown.
      *
      * For formatting Markdown content, enable also `formatters.markdown`.
-     *
      * @default true
      */
     markdown?: boolean | (OptionsFiles & OptionsOverrides);
@@ -178,7 +167,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * Provide overrides for rules for each integration.
-     *
      * @deprecated use `overrides` option in each integration key instead
      */
     overrides?: {
@@ -218,7 +206,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-playwright`
-     *
      * @default false
      */
     playwright?: boolean | (OptionsFiles & OptionsOverrides);
@@ -235,14 +222,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * - `@eslint-react/eslint-plugin`
      * - `eslint-plugin-react-hooks`
      * - `eslint-plugin-react-refresh`
-     *
      * @default false
      */
     react?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable regexp rules.
-     *
      * @see https://ota-meshi.github.io/eslint-plugin-regexp/
      * @default true
      */
@@ -263,14 +248,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-storybook`
-     *
      * @default false
      */
     storybook?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable stylistic rules.
-     *
      * @see https://eslint.style/
      * @default true
      */
@@ -281,7 +264,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-tailwindcss`
-     *
      * @default false
      */
     tailwindcss?: boolean | (OptionsFiles & OptionsOverrides);
@@ -291,7 +273,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `@tanstack/eslint-plugin-query`
-     *
      * @default false
      */
     tanstackQuery?: boolean | (OptionsFiles & OptionsOverrides);
@@ -301,7 +282,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `@tanstack/eslint-plugin-router`
-     *
      * @default false
      */
     tanstackRouter?: boolean | (OptionsFiles & OptionsOverrides);
@@ -311,14 +291,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-testing-library`
-     *
      * @default false
      */
     testingLibrary?: boolean | (OptionsFiles & OptionsOverrides & OptionsPackageJson);
 
     /**
      * Enable TOML support.
-     *
      * @default true
      */
     toml?: boolean | (OptionsFiles & OptionsOverrides);
@@ -328,7 +306,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-tsdoc`
-     *
      * @default false
      */
     tsdoc?: boolean | (OptionsFiles & OptionsOverrides);
@@ -337,14 +314,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Enable TypeScript support.
      *
      * Passing an object to enable TypeScript Language Server support.
-     *
      * @default auto-detect based on the dependencies
      */
     typescript?: OptionsTypescript | boolean;
 
     /**
      * Options for eslint-plugin-unicorn.
-     *
      * @default true
      */
     unicorn?: OptionsUnicorn | boolean;
@@ -354,7 +329,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `@unocss/eslint-plugin`
-     *
      * @default false
      */
     unocss?: OptionsUnoCSS | boolean;
@@ -366,14 +340,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * Enable vitest support.
-     *
      * @default true
      */
     vitest?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
      * Enable YAML support.
-     *
      * @default true
      */
     yaml?: boolean | (OptionsFiles & OptionsOverrides);
@@ -383,7 +355,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-zod`
-     *
      * @default false
      */
     zod?: boolean | (OptionsFiles & OptionsOverrides);
@@ -392,7 +363,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 export interface OptionsCwd {
     /**
      * The working directory for the config.
-     *
      * @default process.cwd()
      */
     cwd: string;
@@ -560,7 +530,6 @@ export interface OptionsTypeScriptWithTypes {
 export interface OptionsUnicorn {
     /**
      * Include all rules recommended by `eslint-plugin-unicorn`, instead of only ones picked by Anthony.
-     *
      * @default false
      */
     allRecommended?: boolean;
@@ -588,7 +557,6 @@ export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>
     /**
      * An object containing a name-value mapping of plugin names to plugin objects.
      * When `files` is specified, these plugins are only available to the matching files.
-     *
      * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -8,10 +8,7 @@ import {
     rm,
     writeFile,
 } from "node:fs/promises";
-import {
-    dirname,
-    join,
-} from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { execa } from "execa";
@@ -41,15 +38,18 @@ const copyFolderRecursive = async (from: string, to: string) => {
     }
 };
 
+// eslint-disable-next-line vitest/require-top-level-describe
 beforeAll(async () => {
     await rm(join(rootPath, "_fixtures"), { force: true, recursive: true });
 });
 
+// eslint-disable-next-line vitest/require-top-level-describe
 afterAll(async () => {
     await rm(join(rootPath, "_fixtures"), { force: true, recursive: true });
 });
 
 const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) => {
+    // eslint-disable-next-line vitest/prefer-expect-assertions,vitest/require-top-level-describe
     it.concurrent(
         // eslint-disable-next-line vitest/valid-title
         name,
@@ -64,12 +64,12 @@ const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlat
                 join(target, "eslint.config.js"),
                 `
 // @eslint-disable
-import { createConfig } from '@anolilab/eslint-config'
+import { createConfig } from "@anolilab/eslint-config";
 
 export default createConfig(
   ${JSON.stringify(configs)},
-  ...${JSON.stringify(items) ?? []},
-)
+  ...(${JSON.stringify(items) ?? []}),
+);
   `,
             );
 
@@ -105,6 +105,7 @@ export default createConfig(
     );
 };
 
+// eslint-disable-next-line vitest/require-hook
 runWithConfig("js", {
     typescript: false,
     // vue: false,

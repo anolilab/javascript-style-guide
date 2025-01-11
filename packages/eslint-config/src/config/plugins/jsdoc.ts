@@ -5,6 +5,7 @@ import type {
     OptionsPackageJson,
     OptionsSilentConsoleLogs,
     OptionsStylistic,
+    TypedFlatConfigItem,
 } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
@@ -27,9 +28,8 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsSilentCon
         console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     }
 
-    const rules = [
+    const rules: TypedFlatConfigItem[] = [
         {
-            files: getFilesGlobs("all"),
             name: "anolilab/jsdoc/setup",
             plugins: {
                 jsdoc: jsdocPlugin,
@@ -53,7 +53,7 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsSilentCon
 
     if (hasTypescript && !hasTsDocumentPlugin) {
         rules.push({
-            files,
+            files: getFilesGlobs("ts"),
             name: "anolilab/jsdoc/ts-rules",
             rules: {
                 ...jsdocPlugin.configs["flat/contents-typescript-error"].rules,

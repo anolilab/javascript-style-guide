@@ -97,7 +97,6 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
 
 /**
  * Construct an array of ESLint flat config items.
- *
  * @param {OptionsConfig & TypedFlatConfigItem} options
  *  The options for generating the ESLint configurations.
  * @param {Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs

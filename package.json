@@ -84,7 +84,7 @@
         "update:deps": "taze"
     },
     "dependencies": {
-        "@anolilab/multi-semantic-release": "^1.1.6",
+        "@anolilab/multi-semantic-release": "^1.1.11",
         "@babel/cli": "^7.26.4",
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
@@ -114,7 +114,7 @@
         "nx": "20.3.1",
         "postcss": "^8.4.49",
         "prettier": "^3.4.2",
-        "publint": "^0.3.1",
+        "publint": "^0.3.12",
         "read-pkg": "^9.0.1",
         "rimraf": "^6.0.1",
         "secretlint": "9.0.0",
@@ -126,15 +126,15 @@
         "typescript": "5.7.3",
         "vitest": "^2.1.8"
     },
-    "packageManager": "pnpm@9.15.0",
+    "packageManager": "pnpm@9.15.9",
     "engines": {
         "node": ">=18.* <=23.*"
     },
     "pnpm": {
         "overrides": {
-            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
-            "nanoid@<3.3.8": ">=3.3.8",
-            "chrono-node@<2.2.4": ">=2.2.4"
+            "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.6",
+            "nanoid@<3.3.8": ">=3.3.11",
+            "chrono-node@<2.2.4": ">=2.2.7"
         }
     },
     "anolilab": {

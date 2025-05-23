@@ -1,11 +1,23 @@
 import globals from "globals";
 
-import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsStylistic } from "../../types";
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsPackageJson,
+    OptionsStylistic,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic>("all", async (config, oFiles) => {
-    const { files = oFiles, overrides, packageJson, prettier, stylistic = true } = config;
+    const {
+        files = oFiles,
+        overrides,
+        packageJson,
+        prettier,
+        stylistic = true,
+    } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -62,16 +74,16 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "unicorn/empty-brace-spaces": "off",
-                          "unicorn/no-nested-ternary": "off",
-                          "unicorn/number-literal-case": "off",
-                          "unicorn/template-indent": "off",
-                      }
+                        "unicorn/empty-brace-spaces": "off",
+                        "unicorn/no-nested-ternary": "off",
+                        "unicorn/number-literal-case": "off",
+                        "unicorn/template-indent": "off",
+                    }
                     : {
-                          "unicorn/template-indent": ["error", { indent }],
-                      }),
+                        "unicorn/template-indent": ["error", { indent }],
+                    },
 
                 ...overrides,
             },

@@ -1,9 +1,19 @@
-import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic } from "../../types";
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsStylistic,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("html", async (config, oFiles) => {
-    const { files = oFiles, overrides, prettier, stylistic = true } = config;
+    const {
+        files = oFiles,
+        overrides,
+        prettier,
+        stylistic = true,
+    } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -22,14 +32,14 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 // @see https://github.com/yeonjuan/html-eslint/issues/67 bug in html-eslint
                 "spaced-comment": "off",
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "@html-eslint/element-newline": "off",
-                          "@html-eslint/indent": "off",
-                          "@html-eslint/no-extra-spacing-attrs": "off",
-                          "@html-eslint/quotes": "off",
-                      }
-                    : {}),
+                        "@html-eslint/element-newline": "off",
+                        "@html-eslint/indent": "off",
+                        "@html-eslint/no-extra-spacing-attrs": "off",
+                        "@html-eslint/quotes": "off",
+                    }
+                    : {},
 
                 ...overrides,
             },
@@ -37,7 +47,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             settings: {
                 "html/indent": `+${indent}`,
                 "html/report-bad-indent": "error",
-                ...(prettier ? { "html/report-bad-indent": "off" } : {}),
+                ...prettier ? { "html/report-bad-indent": "off" } : {},
             },
         },
     ];

@@ -16,7 +16,13 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & OptionsPackageJson & OptionsStylistic & OptionsTypeScriptWithTypes>(
     "all",
     async (config, oFiles) => {
-        const { files = oFiles, overrides, packageJson, stylistic, tsconfigPath } = config;
+        const {
+            files = oFiles,
+            overrides,
+            packageJson,
+            stylistic,
+            tsconfigPath,
+        } = config;
 
         const importPlugin = await interopDefault(import("eslint-plugin-import-x"));
 
@@ -66,21 +72,21 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                             checkTypeImports: tsconfigPath !== undefined,
                             ignorePackages: true,
                             pattern: {
-                                ...(packageJson.type === "module"
+                                ...packageJson.type === "module"
                                     ? {
-                                          cjs: "always",
-                                          js: "always",
-                                          json: "always",
-                                          jsx: "always",
-                                          mjs: "always",
-                                      }
+                                        cjs: "always",
+                                        js: "always",
+                                        json: "always",
+                                        jsx: "always",
+                                        mjs: "always",
+                                    }
                                     : {
-                                          cjs: "never",
-                                          js: "never",
-                                          json: "always",
-                                          jsx: "never",
-                                          mjs: "never",
-                                      }),
+                                        cjs: "never",
+                                        js: "never",
+                                        json: "always",
+                                        jsx: "never",
+                                        mjs: "never",
+                                    },
                             },
                         },
                     ],
@@ -118,11 +124,11 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Require a newline after the last import/require in a group
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
-                    ...(stylistic
+                    ...stylistic
                         ? {
-                              "import/newline-after-import": ["error", { count: 1 }],
-                          }
-                        : {}),
+                            "import/newline-after-import": ["error", { count: 1 }],
+                        }
+                        : {},
 
                     // Forbid import of modules using absolute paths
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md
@@ -373,36 +379,36 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                 },
                 settings: {
                     // Append 'ts' extensions to 'import/extensions' setting
-                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map((extension) => extension.replace("**/*", "")),
+                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map(extension => extension.replace("**/*", "")),
 
                     // Resolve type definition packages
                     "import/external-module-folders": ["node_modules", "node_modules/@types"],
 
                     // Apply special parsing for TypeScript files
                     "import/parsers": {
-                        "@typescript-eslint/parser": getFilesGlobs("ts").map((extension) => extension.replace("**/*", "")),
+                        "@typescript-eslint/parser": getFilesGlobs("ts").map(extension => extension.replace("**/*", "")),
                     },
 
-                    ...(tsconfigPath
+                    ...tsconfigPath
                         ? {
-                              // Append 'ts' extensions to 'import/resolver' setting
-                              "import/resolver": {
-                                  node: true,
-                                  typescript: {
-                                      // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                                      alwaysTryTypes: true,
-                                      project: tsconfigPath,
-                                  },
-                              },
-                          }
+                            // Append 'ts' extensions to 'import/resolver' setting
+                            "import/resolver": {
+                                node: true,
+                                typescript: {
+                                    // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                                    alwaysTryTypes: true,
+                                    project: tsconfigPath,
+                                },
+                            },
+                        }
                         : {
-                              "import/resolver": {
-                                  node: true,
-                                  // You will also need to install and configure the TypeScript resolver
-                                  // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-                                  typescript: true,
-                              },
-                          }),
+                            "import/resolver": {
+                                node: true,
+                                // You will also need to install and configure the TypeScript resolver
+                                // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+                                typescript: true,
+                            },
+                        },
                 },
             });
         }

@@ -6,12 +6,17 @@ import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
     OptionsFiles &
-        OptionsOverrides &
-        OptionsPackageJson & {
-            lessOpinionated?: boolean;
-        }
+    OptionsOverrides &
+    OptionsPackageJson & {
+        lessOpinionated?: boolean;
+    }
 >("all", async (config, oFiles) => {
-    const { files = oFiles, lessOpinionated = false, overrides, packageJson } = config;
+    const {
+        files = oFiles,
+        lessOpinionated = false,
+        overrides,
+        packageJson,
+    } = config;
 
     const antfuPlugin = await interopDefault(import("eslint-plugin-antfu"));
 
@@ -36,14 +41,14 @@ export default createConfig<
                 "antfu/prefer-inline-type-import": "off",
                 "antfu/top-level-function": "off",
 
-                ...(lessOpinionated
+                ...lessOpinionated
                     ? {
-                          curly: ["error", "all"],
-                      }
+                        curly: ["error", "all"],
+                    }
                     : {
-                          "antfu/curly": "error",
-                          "antfu/if-newline": "error",
-                      }),
+                        "antfu/curly": "error",
+                        "antfu/if-newline": "error",
+                    },
 
                 ...overrides,
             },

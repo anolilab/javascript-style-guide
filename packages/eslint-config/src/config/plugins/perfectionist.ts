@@ -12,7 +12,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
     if (hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-typescript-sort-keys"])) {
         // eslint-disable-next-line no-console
-        console.warn('\nPlease remove "eslint-plugin-typescript-sort-keys" from your package.json, it conflicts with "eslint-plugin-perfectionist".\n');
+        console.warn("\nPlease remove \"eslint-plugin-typescript-sort-keys\" from your package.json, it conflicts with \"eslint-plugin-perfectionist\".\n");
     }
 
     return [

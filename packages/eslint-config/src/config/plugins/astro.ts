@@ -1,4 +1,9 @@
-import type { OptionsFiles, OptionsOverrides, OptionsStylistic, TypedFlatConfigItem } from "../../types";
+import type {
+    OptionsFiles,
+    OptionsOverrides,
+    OptionsStylistic,
+    TypedFlatConfigItem,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -48,14 +53,14 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
                 "astro/semi": "off",
                 "astro/valid-compile": "error",
 
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "@stylistic/indent": "off",
-                          "@stylistic/jsx-closing-tag-location": "off",
-                          "@stylistic/jsx-one-expression-per-line": "off",
-                          "@stylistic/no-multiple-empty-lines": "off",
-                      }
-                    : {}),
+                        "@stylistic/indent": "off",
+                        "@stylistic/jsx-closing-tag-location": "off",
+                        "@stylistic/jsx-one-expression-per-line": "off",
+                        "@stylistic/no-multiple-empty-lines": "off",
+                    }
+                    : {},
 
                 ...overrides,
             },

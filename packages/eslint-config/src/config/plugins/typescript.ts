@@ -20,13 +20,13 @@ import { variablesRules } from "../variables";
 
 export default createConfig<
     OptionsComponentExtensions &
-        OptionsFiles &
-        OptionsHasPrettier &
-        OptionsIsInEditor &
-        OptionsOverrides &
-        OptionsStylistic &
-        OptionsTypeScriptParserOptions &
-        OptionsTypeScriptWithTypes
+    OptionsFiles &
+    OptionsHasPrettier &
+    OptionsIsInEditor &
+    OptionsOverrides &
+    OptionsStylistic &
+    OptionsTypeScriptParserOptions &
+    OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
@@ -55,22 +55,22 @@ export default createConfig<
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         return {
-            files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
-            ...(ignores ? { ignores } : {}),
+            files: [...pFiles, ...componentExtensions.map(extension => `**/*.${extension}`)],
+            ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: parserTs,
                 parserOptions: {
-                    extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
+                    extraFileExtensions: componentExtensions.map(extension => `.${extension}`),
                     sourceType: "module",
-                    ...(typeAware
+                    ...typeAware
                         ? {
-                              projectService: {
-                                  allowDefaultProject: ["./*.js"],
-                                  defaultProject: tsconfigPath,
-                              },
-                              tsconfigRootDir: process.cwd(),
-                          }
-                        : {}),
+                            projectService: {
+                                allowDefaultProject: ["./*.js"],
+                                defaultProject: tsconfigPath,
+                            },
+                            tsconfigRootDir: process.cwd(),
+                        }
+                        : {},
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...(parserOptions as any),
                 },
@@ -89,7 +89,7 @@ export default createConfig<
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
-        ...(isTypeAware ? [makeParser(false, files), makeParser(true, filesTypeAware, ignoresTypeAware)] : [makeParser(false, files)]),
+        ...isTypeAware ? [makeParser(false, files), makeParser(true, filesTypeAware, ignoresTypeAware)] : [makeParser(false, files)],
         ...(tseslint.configs.strict as TypedFlatConfigItem[]),
     ];
 
@@ -97,7 +97,7 @@ export default createConfig<
         rules.push(
             ...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]),
             {
-                files: [...filesTypeAware, ...componentExtensions.map((extension) => `**/*.${extension}`)],
+                files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
                 name: "anolilab/typescript/rules-type-aware",
                 rules: {
                     // Disallow type assertions that do not change the type of expression.
@@ -418,29 +418,29 @@ export default createConfig<
             ...overrides,
 
             // Disable rules that are handled by prettier
-            ...(prettier
+            ...prettier
                 ? {
-                      "@typescript-eslint/block-spacing": "off",
-                      "@typescript-eslint/brace-style": "off",
-                      "@typescript-eslint/comma-dangle": "off",
-                      "@typescript-eslint/comma-spacing": "off",
-                      "@typescript-eslint/func-call-spacing": "off",
-                      "@typescript-eslint/indent": "off",
-                      "@typescript-eslint/key-spacing": "off",
-                      "@typescript-eslint/keyword-spacing": "off",
-                      "@typescript-eslint/lines-around-comment": 0,
-                      "@typescript-eslint/member-delimiter-style": "off",
-                      "@typescript-eslint/no-extra-parens": "off",
-                      "@typescript-eslint/no-extra-semi": "off",
-                      "@typescript-eslint/object-curly-spacing": "off",
-                      "@typescript-eslint/quotes": 0,
-                      "@typescript-eslint/semi": "off",
-                      "@typescript-eslint/space-before-blocks": "off",
-                      "@typescript-eslint/space-before-function-paren": "off",
-                      "@typescript-eslint/space-infix-ops": "off",
-                      "@typescript-eslint/type-annotation-spacing": "off",
-                  }
-                : {}),
+                    "@typescript-eslint/block-spacing": "off",
+                    "@typescript-eslint/brace-style": "off",
+                    "@typescript-eslint/comma-dangle": "off",
+                    "@typescript-eslint/comma-spacing": "off",
+                    "@typescript-eslint/func-call-spacing": "off",
+                    "@typescript-eslint/indent": "off",
+                    "@typescript-eslint/key-spacing": "off",
+                    "@typescript-eslint/keyword-spacing": "off",
+                    "@typescript-eslint/lines-around-comment": 0,
+                    "@typescript-eslint/member-delimiter-style": "off",
+                    "@typescript-eslint/no-extra-parens": "off",
+                    "@typescript-eslint/no-extra-semi": "off",
+                    "@typescript-eslint/object-curly-spacing": "off",
+                    "@typescript-eslint/quotes": 0,
+                    "@typescript-eslint/semi": "off",
+                    "@typescript-eslint/space-before-blocks": "off",
+                    "@typescript-eslint/space-before-function-paren": "off",
+                    "@typescript-eslint/space-infix-ops": "off",
+                    "@typescript-eslint/type-annotation-spacing": "off",
+                }
+                : {},
         },
     });
 

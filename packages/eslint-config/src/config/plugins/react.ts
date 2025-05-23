@@ -26,13 +26,13 @@ const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@reac
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
     OptionsFiles &
-        OptionsHasPrettier &
-        OptionsOverrides &
-        OptionsPackageJson &
-        OptionsSilentConsoleLogs &
-        OptionsStylistic &
-        OptionsTypeScriptParserOptions &
-        OptionsTypeScriptWithTypes
+    OptionsHasPrettier &
+    OptionsOverrides &
+    OptionsPackageJson &
+    OptionsSilentConsoleLogs &
+    OptionsStylistic &
+    OptionsTypeScriptParserOptions &
+    OptionsTypeScriptWithTypes
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -216,24 +216,24 @@ export default createConfig<
                     {
                         allowConstantExport: isAllowConstantExport,
                         allowExportNames: [
-                            ...(isUsingNext
+                            ...isUsingNext
                                 ? [
-                                      "dynamic",
-                                      "dynamicParams",
-                                      "revalidate",
-                                      "fetchCache",
-                                      "runtime",
-                                      "preferredRegion",
-                                      "maxDuration",
-                                      "config",
-                                      "generateStaticParams",
-                                      "metadata",
-                                      "generateMetadata",
-                                      "viewport",
-                                      "generateViewport",
-                                  ]
-                                : []),
-                            ...(isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : []),
+                                    "dynamic",
+                                    "dynamicParams",
+                                    "revalidate",
+                                    "fetchCache",
+                                    "runtime",
+                                    "preferredRegion",
+                                    "maxDuration",
+                                    "config",
+                                    "generateStaticParams",
+                                    "metadata",
+                                    "generateMetadata",
+                                    "viewport",
+                                    "generateViewport",
+                                ]
+                                : [],
+                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : [],
                         ],
                     },
                 ],
@@ -981,25 +981,25 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "react/jsx-child-element-spacing": "off",
-                          "react/jsx-closing-bracket-location": "off",
-                          "react/jsx-closing-tag-location": "off",
-                          "react/jsx-curly-newline": "off",
-                          "react/jsx-curly-spacing": "off",
-                          "react/jsx-equals-spacing": "off",
-                          "react/jsx-first-prop-new-line": "off",
-                          "react/jsx-indent": "off",
-                          "react/jsx-indent-props": "off",
-                          "react/jsx-max-props-per-line": "off",
-                          "react/jsx-newline": "off",
-                          "react/jsx-one-expression-per-line": "off",
-                          "react/jsx-props-no-multi-spaces": "off",
-                          "react/jsx-tag-spacing": "off",
-                          "react/jsx-wrap-multilines": "off",
-                      }
-                    : {}),
+                        "react/jsx-child-element-spacing": "off",
+                        "react/jsx-closing-bracket-location": "off",
+                        "react/jsx-closing-tag-location": "off",
+                        "react/jsx-curly-newline": "off",
+                        "react/jsx-curly-spacing": "off",
+                        "react/jsx-equals-spacing": "off",
+                        "react/jsx-first-prop-new-line": "off",
+                        "react/jsx-indent": "off",
+                        "react/jsx-indent-props": "off",
+                        "react/jsx-max-props-per-line": "off",
+                        "react/jsx-newline": "off",
+                        "react/jsx-one-expression-per-line": "off",
+                        "react/jsx-props-no-multi-spaces": "off",
+                        "react/jsx-tag-spacing": "off",
+                        "react/jsx-wrap-multilines": "off",
+                    }
+                    : {},
 
                 // overrides
                 ...overrides,
@@ -1084,17 +1084,17 @@ export default createConfig<
                 "react/jsx-props-no-spreading": "off",
             },
         },
-        ...(isTypeAware
+        ...isTypeAware
             ? [
-                  {
-                      files: filesTypeAware,
-                      ignores: ignoresTypeAware,
-                      name: "anolilab/react/type-aware-rules",
-                      rules: {
-                          ...typeAwareRules,
-                      },
-                  },
-              ]
-            : []),
+                {
+                    files: filesTypeAware,
+                    ignores: ignoresTypeAware,
+                    name: "anolilab/react/type-aware-rules",
+                    rules: {
+                        ...typeAwareRules,
+                    },
+                },
+            ]
+            : [],
     ];
 });

@@ -438,8 +438,8 @@ export interface OptionsFormatters {
     slidev?:
         | boolean
         | {
-              files?: string[];
-          };
+            files?: string[];
+        };
 
     /**
      * Enable formatting support for SVG.

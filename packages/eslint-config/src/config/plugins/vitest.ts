@@ -1,4 +1,10 @@
-import type { OptionsFiles, OptionsHasPrettier, OptionsIsInEditor, OptionsOverrides, OptionsTypeScriptWithTypes } from "../../types";
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsIsInEditor,
+    OptionsOverrides,
+    OptionsTypeScriptWithTypes,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import vitestGlobals from "../../utils/vitest-globals";
@@ -10,7 +16,13 @@ let pluginTest: any;
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEditor & OptionsOverrides & OptionsTypeScriptWithTypes>(
     "vitest",
     async (config, oFiles) => {
-        const { files = oFiles, isInEditor = false, overrides, prettier, tsconfigPath } = config;
+        const {
+            files = oFiles,
+            isInEditor = false,
+            overrides,
+            prettier,
+            tsconfigPath,
+        } = config;
 
         const [vitestPlugin, noOnlyTestsPlugin] = await Promise.all([
             interopDefault(import("@vitest/eslint-plugin")),
@@ -36,16 +48,16 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             },
             {
                 files,
-                ...(tsconfigPath
+                ...tsconfigPath
                     ? {
-                          ...vitestPlugin.configs.env,
-                          settings: {
-                              vitest: {
-                                  typecheck: true,
-                              },
-                          },
-                      }
-                    : {}),
+                        ...vitestPlugin.configs.env,
+                        settings: {
+                            vitest: {
+                                typecheck: true,
+                            },
+                        },
+                    }
+                    : {},
                 languageOptions: {
                     globals: {
                         ...vitestGlobals,
@@ -96,18 +108,18 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
 
                     ...overrides,
 
-                    ...(prettier
+                    ...prettier
                         ? {
-                              "vitest/padding-around-after-all-blocks": "off",
-                              "vitest/padding-around-after-each-blocks": "off",
-                              "vitest/padding-around-all": "off",
-                              "vitest/padding-around-before-all-blocks": "off",
-                              "vitest/padding-around-before-each-blocks": "off",
-                              "vitest/padding-around-describe-blocks": "off",
-                              "vitest/padding-around-expect-blocks": "off",
-                              "vitest/padding-around-test-blocks": "off",
-                          }
-                        : {}),
+                            "vitest/padding-around-after-all-blocks": "off",
+                            "vitest/padding-around-after-each-blocks": "off",
+                            "vitest/padding-around-all": "off",
+                            "vitest/padding-around-before-all-blocks": "off",
+                            "vitest/padding-around-before-each-blocks": "off",
+                            "vitest/padding-around-describe-blocks": "off",
+                            "vitest/padding-around-expect-blocks": "off",
+                            "vitest/padding-around-test-blocks": "off",
+                        }
+                        : {},
                 },
             },
         ];

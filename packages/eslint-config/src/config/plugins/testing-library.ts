@@ -19,7 +19,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
             },
             rules: {
                 ...testingLibraryPlugin.configs["flat/dom"].rules,
-                ...(hasReact ? testingLibraryPlugin.configs["flat/react"].rules : {}),
+                ...hasReact ? testingLibraryPlugin.configs["flat/react"].rules : {},
 
                 ...overrides,
             },

@@ -54,6 +54,9 @@
         "packages/*"
     ],
     "scripts": {
+        "preinstall": "node verify-node-version.cjs",
+        "postinstall": "is-ci || husky || exit 0",
+        "lint": "pnpm run lint:prettier && pnpm run lint:eslint",
         "audit": "audit-ci --config ./audit-ci.jsonc",
         "build:affected:packages": "nx affected --target=build --exclude=*-bench,docs,storybook --nxBail",
         "build:affected:prod:packages": "nx affected --target=build:prod --exclude=*-bench,docs,storybook --nxBail",

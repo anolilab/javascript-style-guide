@@ -1,19 +1,9 @@
-import type {
-    OptionsFiles,
-    OptionsHasPrettier,
-    OptionsOverrides,
-    OptionsStylistic,
-} from "../../types";
+import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("yaml", async (options, oFiles) => {
-    const {
-        files = oFiles,
-        overrides = {},
-        prettier,
-        stylistic = true,
-    } = options;
+    const { files = oFiles, overrides = {}, prettier, stylistic = true } = options;
 
     const { indent = 4, quotes = "double" } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -41,57 +31,57 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
                 "yaml/vue-custom-block/no-parsing-error": "error",
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "yaml/block-mapping-question-indicator-newline": "error",
-                        "yaml/block-sequence-hyphen-indicator-newline": "error",
-                        "yaml/flow-mapping-curly-newline": "error",
-                        "yaml/flow-mapping-curly-spacing": "error",
-                        "yaml/flow-sequence-bracket-newline": "error",
-                        "yaml/flow-sequence-bracket-spacing": "error",
-                        "yaml/indent": [prettier ? "off" : "error", indent === "tab" ? 2 : indent],
-                        "yaml/key-spacing": "error",
-                        "yaml/no-tab-indent": "error",
-                        "yaml/quotes": ["error", { avoidEscape: true, prefer: quotes === "backtick" ? "single" : quotes }],
-                        "yaml/spaced-comment": "error",
-                    }
-                    : {},
+                          "yaml/block-mapping-question-indicator-newline": "error",
+                          "yaml/block-sequence-hyphen-indicator-newline": "error",
+                          "yaml/flow-mapping-curly-newline": "error",
+                          "yaml/flow-mapping-curly-spacing": "error",
+                          "yaml/flow-sequence-bracket-newline": "error",
+                          "yaml/flow-sequence-bracket-spacing": "error",
+                          "yaml/indent": [prettier ? "off" : "error", indent === "tab" ? 2 : indent],
+                          "yaml/key-spacing": "error",
+                          "yaml/no-tab-indent": "error",
+                          "yaml/quotes": ["error", { avoidEscape: true, prefer: quotes === "backtick" ? "single" : quotes }],
+                          "yaml/spaced-comment": "error",
+                      }
+                    : {}),
 
-                ...prettier ? pluginYaml.configs.prettier.rules : {},
+                ...(prettier ? pluginYaml.configs.prettier.rules : {}),
 
                 ...overrides,
             },
         },
         {
-            files: ['pnpm-workspace.yaml'],
-            name: 'anolilab/yaml/pnpm-workspace',
+            files: ["pnpm-workspace.yaml"],
+            name: "anolilab/yaml/pnpm-workspace",
             rules: {
-              'yaml/sort-keys': [
-                'error',
-                {
-                  order: [
-                    'packages',
-                    'overrides',
-                    'patchedDependencies',
-                    'hoistPattern',
-                    'catalog',
-                    'catalogs',
-      
-                    'allowedDeprecatedVersions',
-                    'allowNonAppliedPatches',
-                    'configDependencies',
-                    'ignoredBuiltDependencies',
-                    'ignoredOptionalDependencies',
-                    'neverBuiltDependencies',
-                    'onlyBuiltDependencies',
-                    'onlyBuiltDependenciesFile',
-                    'packageExtensions',
-                    'peerDependencyRules',
-                    'supportedArchitectures',
-                  ],
-                  pathPattern: '^$',
-                },
-              ],
+                "yaml/sort-keys": [
+                    "error",
+                    {
+                        order: [
+                            "packages",
+                            "overrides",
+                            "patchedDependencies",
+                            "hoistPattern",
+                            "catalog",
+                            "catalogs",
+
+                            "allowedDeprecatedVersions",
+                            "allowNonAppliedPatches",
+                            "configDependencies",
+                            "ignoredBuiltDependencies",
+                            "ignoredOptionalDependencies",
+                            "neverBuiltDependencies",
+                            "onlyBuiltDependencies",
+                            "onlyBuiltDependenciesFile",
+                            "packageExtensions",
+                            "peerDependencyRules",
+                            "supportedArchitectures",
+                        ],
+                        pathPattern: "^$",
+                    },
+                ],
             },
         },
     ];

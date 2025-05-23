@@ -131,6 +131,7 @@ The following test plugins are supported:
 
 - [eslint-plugin-ava](https://github.com/avajs/eslint-plugin-ava)
     - You need to install `@vitest/eslint-plugin` and `vitest` to use this plugin.
+
 ### List of used plugins
 
 - eslint-plugin-security

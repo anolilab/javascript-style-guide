@@ -35,7 +35,7 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             rules: markdown.configs.recommended[0].rules,
         },
         {
-            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExtensions.map(extension => `**/*.md/**/*.${extension}`)],
+            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExtensions.map((extension) => `**/*.md/**/*.${extension}`)],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {

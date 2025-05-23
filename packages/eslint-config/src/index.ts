@@ -49,15 +49,7 @@ import zod from "./config/plugins/zod";
 import style from "./config/style";
 import variables from "./config/variables";
 import type { RuleOptions } from "./typegen";
-import type {
-    Awaitable,
-    ConfigNames,
-    OptionsConfig,
-    OptionsFiles,
-    OptionsOverrides,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "./types";
+import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "./types";
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
 import isInEditorEnvironment from "./utils/is-in-editor-environment";
@@ -77,7 +69,7 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
     return {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(options.overrides as any)?.[key],
-        ..."overrides" in sub ? sub.overrides : {},
+        ...("overrides" in sub ? sub.overrides : {}),
     };
 };
 
@@ -112,7 +104,7 @@ export const createConfig = async (
 ): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
     if ("files" in options) {
         throw new Error(
-            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
+            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
         );
     }
 
@@ -529,7 +521,8 @@ export const createConfig = async (
 
         await ensurePackages(packageJson, packages, "devDependencies", {
             confirm: {
-                message: (list: string[]) => `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                message: (list: string[]) =>
+                    `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join('"\n"')}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
             },
         });
     }
@@ -562,7 +555,7 @@ export const createConfig = async (
     if (enableGitignore) {
         if (typeof enableGitignore === "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
                         strict: false,
@@ -571,7 +564,7 @@ export const createConfig = async (
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
                         ...enableGitignore,
@@ -912,7 +905,7 @@ export const createConfig = async (
                     svg: isPrettierPluginXmlInScope,
                     xml: isPrettierPluginXmlInScope,
 
-                    ...typeof options.formatters === "object" ? options.formatters : {},
+                    ...(typeof options.formatters === "object" ? options.formatters : {}),
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),

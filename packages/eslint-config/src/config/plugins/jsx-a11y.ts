@@ -32,9 +32,9 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
                     "error",
                     {
                         area: [],
-                        elements: ["img", "object", "area", "input[type=\"image\"]"],
+                        elements: ["img", "object", "area", 'input[type="image"]'],
                         img: [],
-                        "input[type=\"image\"]": [],
+                        'input[type="image"]': [],
                         object: [],
                     },
                 ],

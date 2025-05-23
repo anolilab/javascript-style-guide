@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
+import JS from "@eslint/js";
 import type { NormalizedPackageJson } from "@visulima/package";
-import JS from '@eslint/js'
 import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 
 import bestPractices from "../src/config/best-practices";
@@ -123,7 +123,7 @@ const configs = await combine(
     zod({}),
 );
 
-const configNames = configs.map(index => index.name).filter(Boolean) as string[];
+const configNames = configs.map((index) => index.name).filter(Boolean) as string[];
 
 let dts = await flatConfigsToRulesDTS(configs, {
     includeAugmentation: false,
@@ -131,7 +131,7 @@ let dts = await flatConfigsToRulesDTS(configs, {
 
 dts += `
 // Names of all the configs
-export type ConfigNames = ${configNames.map(index => `'${index}'`).join(" | ")}
+export type ConfigNames = ${configNames.map((index) => `'${index}'`).join(" | ")}
 `;
 
 await fs.writeFile("src/typegen.d.ts", dts);

@@ -1,22 +1,11 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import type {
-    OptionsFiles,
-    OptionsPackageJson,
-    OptionsSilentConsoleLogs,
-    OptionsStylistic,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsFiles, OptionsPackageJson, OptionsSilentConsoleLogs, OptionsStylistic, TypedFlatConfigItem } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsPackageJson & OptionsSilentConsoleLogs & OptionsStylistic>("js", async (config, oFiles) => {
-    const {
-        files = oFiles,
-        packageJson,
-        silent,
-        stylistic = true,
-    } = config;
+    const { files = oFiles, packageJson, silent, stylistic = true } = config;
 
     const jsdocPlugin = await interopDefault(import("eslint-plugin-jsdoc"));
 
@@ -41,12 +30,12 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsSilentCon
             rules: {
                 ...jsdocPlugin.configs["flat/recommended-error"].rules,
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
             },
         },
     ];
@@ -60,12 +49,12 @@ export default createConfig<OptionsFiles & OptionsPackageJson & OptionsSilentCon
                 ...jsdocPlugin.configs["flat/logical-typescript-error"].rules,
                 ...jsdocPlugin.configs["flat/stylistic-typescript-error"].rules,
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
             },
         });
     }

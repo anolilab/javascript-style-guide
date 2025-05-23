@@ -1,13 +1,5 @@
 import { existsSync } from "node:fs";
-import {
-    copyFile,
-    lstat,
-    mkdir,
-    readdir,
-    readFile,
-    rm,
-    writeFile,
-} from "node:fs/promises";
+import { copyFile, lstat, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -38,16 +30,16 @@ const copyFolderRecursive = async (from: string, to: string) => {
     }
 };
 
-const tempDirectoryPath = join(rootPath, "..", "tmp_fixtures");
+const temporaryDirectoryPath = join(rootPath, "..", "tmp_fixtures");
 
 // eslint-disable-next-line vitest/require-top-level-describe
 beforeAll(async () => {
-    await rm(tempDirectoryPath, { force: true, recursive: true });
+    await rm(temporaryDirectoryPath, { force: true, recursive: true });
 });
 
 // eslint-disable-next-line vitest/require-top-level-describe
 afterAll(async () => {
-    await rm(tempDirectoryPath, { force: true, recursive: true });
+    await rm(temporaryDirectoryPath, { force: true, recursive: true });
 });
 
 const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) => {
@@ -59,7 +51,7 @@ const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlat
             const from = join(fixturesPath, "input");
             const output = join(fixturesPath, "output", name);
 
-            const target = join(tempDirectoryPath, name);
+            const target = join(temporaryDirectoryPath, name);
 
             await copyFolderRecursive(from, target);
             await writeFile(

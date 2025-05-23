@@ -9,7 +9,7 @@ const mergePrettierOptions = (options: VendoredPrettierOptions, overrides: Vendo
     return {
         ...options,
         ...overrides,
-        plugins: [...overrides.plugins || [], ...options.plugins || []],
+        plugins: [...(overrides.plugins || []), ...(options.plugins || [])],
     };
 };
 
@@ -197,13 +197,13 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
                     "error",
                     formater === "prettier"
                         ? mergePrettierOptions(prettierOptions, {
-                            embeddedLanguageFormatting: "off",
-                            parser: "markdown",
-                        })
+                              embeddedLanguageFormatting: "off",
+                              parser: "markdown",
+                          })
                         : {
-                            ...dprintOptions,
-                            language: "markdown",
-                        },
+                              ...dprintOptions,
+                              language: "markdown",
+                          },
                 ],
             },
         });

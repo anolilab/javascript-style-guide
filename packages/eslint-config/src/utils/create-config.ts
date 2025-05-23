@@ -126,4 +126,7 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
     }
 };
 
-export const createConfig = <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) => async (options: O): Promise<TypedFlatConfigItem[]> => await rules(options, getFilesGlobs(type));
+export const createConfig =
+    <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) =>
+    async (options: O): Promise<TypedFlatConfigItem[]> =>
+        await rules(options, getFilesGlobs(type));

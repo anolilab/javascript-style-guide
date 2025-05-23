@@ -1,11 +1,6 @@
 import { configs } from "eslint-plugin-regexp";
 
-import type {
-    OptionsFiles,
-    OptionsOverrides,
-    OptionsRegExp,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsFiles, OptionsOverrides, OptionsRegExp, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
 
 export default createConfig<OptionsFiles & OptionsOverrides & OptionsRegExp>("all", async (config, oFiles) => {

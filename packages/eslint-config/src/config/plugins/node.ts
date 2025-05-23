@@ -88,13 +88,13 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
                 // https://eslint.org/docs/rules/no-path-concat
                 "no-path-concat": "error",
 
-                ...nodeVersion
+                ...(nodeVersion
                     ? {
-                        "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],
-                        "n/no-unsupported-features/es-syntax": ["error", { ignores: ["modules"], version: nodeVersion }],
-                        "n/no-unsupported-features/node-builtins": ["error", { version: nodeVersion }],
-                    }
-                    : {},
+                          "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],
+                          "n/no-unsupported-features/es-syntax": ["error", { ignores: ["modules"], version: nodeVersion }],
+                          "n/no-unsupported-features/node-builtins": ["error", { version: nodeVersion }],
+                      }
+                    : {}),
 
                 ...overrides,
             },

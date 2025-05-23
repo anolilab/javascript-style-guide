@@ -26,13 +26,13 @@ const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@reac
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
     OptionsFiles &
-    OptionsHasPrettier &
-    OptionsOverrides &
-    OptionsPackageJson &
-    OptionsSilentConsoleLogs &
-    OptionsStylistic &
-    OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes
+        OptionsHasPrettier &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsSilentConsoleLogs &
+        OptionsStylistic &
+        OptionsTypeScriptParserOptions &
+        OptionsTypeScriptWithTypes
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -216,24 +216,24 @@ export default createConfig<
                     {
                         allowConstantExport: isAllowConstantExport,
                         allowExportNames: [
-                            ...isUsingNext
+                            ...(isUsingNext
                                 ? [
-                                    "dynamic",
-                                    "dynamicParams",
-                                    "revalidate",
-                                    "fetchCache",
-                                    "runtime",
-                                    "preferredRegion",
-                                    "maxDuration",
-                                    "config",
-                                    "generateStaticParams",
-                                    "metadata",
-                                    "generateMetadata",
-                                    "viewport",
-                                    "generateViewport",
-                                ]
-                                : [],
-                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : [],
+                                      "dynamic",
+                                      "dynamicParams",
+                                      "revalidate",
+                                      "fetchCache",
+                                      "runtime",
+                                      "preferredRegion",
+                                      "maxDuration",
+                                      "config",
+                                      "generateStaticParams",
+                                      "metadata",
+                                      "generateMetadata",
+                                      "viewport",
+                                      "generateViewport",
+                                  ]
+                                : []),
+                            ...(isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : []),
                         ],
                     },
                 ],
@@ -256,6 +256,14 @@ export default createConfig<
 
                 // React-X Rules
                 // https://eslint-react.xyz/docs/rules
+
+                // Enforces explicit boolean values for boolean attributes
+                // https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean
+                "react-x/avoid-shorthand-boolean": "off",
+
+                // Enforces explicit <Fragment> components instead of the shorthand <> or </> syntax
+                // https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment
+                "react-x/avoid-shorthand-fragment": "off",
 
                 // Enforces that the key attribute is placed before the spread attribute in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-key-before-spread
@@ -476,14 +484,6 @@ export default createConfig<
                 // Enforces shorthand syntax for fragments
                 // https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment
                 "react-x/prefer-shorthand-fragment": "off",
-
-                // Enforces explicit boolean values for boolean attributes
-                // https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean
-                "react-x/avoid-shorthand-boolean": "off",
-
-                // Enforces explicit <Fragment> components instead of the shorthand <> or </> syntax
-                // https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment
-                "react-x/avoid-shorthand-fragment": "off",
 
                 // Prevent missing displayName in a React component definition
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
@@ -981,25 +981,25 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...prettier
+                ...(prettier
                     ? {
-                        "react/jsx-child-element-spacing": "off",
-                        "react/jsx-closing-bracket-location": "off",
-                        "react/jsx-closing-tag-location": "off",
-                        "react/jsx-curly-newline": "off",
-                        "react/jsx-curly-spacing": "off",
-                        "react/jsx-equals-spacing": "off",
-                        "react/jsx-first-prop-new-line": "off",
-                        "react/jsx-indent": "off",
-                        "react/jsx-indent-props": "off",
-                        "react/jsx-max-props-per-line": "off",
-                        "react/jsx-newline": "off",
-                        "react/jsx-one-expression-per-line": "off",
-                        "react/jsx-props-no-multi-spaces": "off",
-                        "react/jsx-tag-spacing": "off",
-                        "react/jsx-wrap-multilines": "off",
-                    }
-                    : {},
+                          "react/jsx-child-element-spacing": "off",
+                          "react/jsx-closing-bracket-location": "off",
+                          "react/jsx-closing-tag-location": "off",
+                          "react/jsx-curly-newline": "off",
+                          "react/jsx-curly-spacing": "off",
+                          "react/jsx-equals-spacing": "off",
+                          "react/jsx-first-prop-new-line": "off",
+                          "react/jsx-indent": "off",
+                          "react/jsx-indent-props": "off",
+                          "react/jsx-max-props-per-line": "off",
+                          "react/jsx-newline": "off",
+                          "react/jsx-one-expression-per-line": "off",
+                          "react/jsx-props-no-multi-spaces": "off",
+                          "react/jsx-tag-spacing": "off",
+                          "react/jsx-wrap-multilines": "off",
+                      }
+                    : {}),
 
                 // overrides
                 ...overrides,
@@ -1030,6 +1030,10 @@ export default createConfig<
             },
             name: "anolilab/react/jsx",
             rules: {
+                // Enforces consistent use of the JSX file extension.
+                // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
+                "react-x/naming-convention/filename-extension": ["error", "as-needed"],
+
                 // only .jsx files may have JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
                 "react/jsx-closing-tag-location": "error",
@@ -1037,10 +1041,6 @@ export default createConfig<
                 // Prevents common casing typos
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
                 "react/jsx-filename-extension": "off",
-
-                // Enforces consistent use of the JSX file extension.
-                // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
-                "react-x/naming-convention/filename-extension": ["error", "as-needed"],
 
                 // Validate closing tag location in JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
@@ -1084,17 +1084,17 @@ export default createConfig<
                 "react/jsx-props-no-spreading": "off",
             },
         },
-        ...isTypeAware
+        ...(isTypeAware
             ? [
-                {
-                    files: filesTypeAware,
-                    ignores: ignoresTypeAware,
-                    name: "anolilab/react/type-aware-rules",
-                    rules: {
-                        ...typeAwareRules,
-                    },
-                },
-            ]
-            : [],
+                  {
+                      files: filesTypeAware,
+                      ignores: ignoresTypeAware,
+                      name: "anolilab/react/type-aware-rules",
+                      rules: {
+                          ...typeAwareRules,
+                      },
+                  },
+              ]
+            : []),
     ];
 });

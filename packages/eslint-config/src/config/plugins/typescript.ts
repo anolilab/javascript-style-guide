@@ -1,43 +1,45 @@
+import type { Linter } from "eslint";
+
 import type {
     OptionsComponentExtensions,
     OptionsFiles,
     OptionsHasPrettier,
+    OptionsIsInEditor,
     OptionsOverrides,
     OptionsStylistic,
     OptionsTypeScriptParserOptions,
     OptionsTypeScriptWithTypes,
-    OptionsIsInEditor,
     TypedFlatConfigItem,
 } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import { bestPracticesRules } from "../best-practices";
-import { es6Rules as es6RulesFn } from "../es6";
+import { es6Rules as es6RulesFunction } from "../es6";
 import { styleRules } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
     OptionsComponentExtensions &
-    OptionsFiles &
-    OptionsHasPrettier &
-    OptionsOverrides &
-    OptionsStylistic &
-    OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes &
-    OptionsIsInEditor
+        OptionsFiles &
+        OptionsHasPrettier &
+        OptionsIsInEditor &
+        OptionsOverrides &
+        OptionsStylistic &
+        OptionsTypeScriptParserOptions &
+        OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
         files = oFiles,
+        isInEditor = false,
         overrides,
         overridesTypeAware,
         parserOptions,
         prettier,
         stylistic = true,
-        isInEditor = false
     } = config;
 
-    const es6Rules = es6RulesFn(isInEditor);
+    const es6Rules = es6RulesFunction(isInEditor);
 
     const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([
         interopDefault(import("@typescript-eslint/eslint-plugin")),
@@ -53,22 +55,22 @@ export default createConfig<
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         return {
-            files: [...pFiles, ...componentExtensions.map(extension => `**/*.${extension}`)],
-            ...ignores ? { ignores } : {},
+            files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
+            ...(ignores ? { ignores } : {}),
             languageOptions: {
                 parser: parserTs,
                 parserOptions: {
-                    extraFileExtensions: componentExtensions.map(extension => `.${extension}`),
+                    extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
-                    ...typeAware
+                    ...(typeAware
                         ? {
-                            projectService: {
-                                allowDefaultProject: ["./*.js"],
-                                defaultProject: tsconfigPath,
-                            },
-                            tsconfigRootDir: process.cwd(),
-                        }
-                        : {},
+                              projectService: {
+                                  allowDefaultProject: ["./*.js"],
+                                  defaultProject: tsconfigPath,
+                              },
+                              tsconfigRootDir: process.cwd(),
+                          }
+                        : {}),
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...(parserOptions as any),
                 },
@@ -87,7 +89,7 @@ export default createConfig<
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
-        ...isTypeAware ? [makeParser(false, files), makeParser(true, filesTypeAware, ignoresTypeAware)] : [makeParser(false, files)],
+        ...(isTypeAware ? [makeParser(false, files), makeParser(true, filesTypeAware, ignoresTypeAware)] : [makeParser(false, files)]),
         ...(tseslint.configs.strict as TypedFlatConfigItem[]),
     ];
 
@@ -95,7 +97,7 @@ export default createConfig<
         rules.push(
             ...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]),
             {
-                files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
+                files: [...filesTypeAware, ...componentExtensions.map((extension) => `**/*.${extension}`)],
                 name: "anolilab/typescript/rules-type-aware",
                 rules: {
                     // Disallow type assertions that do not change the type of expression.
@@ -168,9 +170,16 @@ export default createConfig<
                 },
             ],
 
-            // Enforce specifying generic type arguments on constructor name of a constructor call.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.md
-            "@typescript-eslint/consistent-generic-constructors": "error",
+            "@typescript-eslint/ban-ts-comment": [
+                "error",
+                {
+                    minimumDescriptionLength: 3,
+                    "ts-check": false,
+                    "ts-expect-error": "allow-with-description",
+                    "ts-ignore": "allow-with-description",
+                    "ts-nocheck": true,
+                },
+            ],
 
             // @TODO: Fix this rule
             // Some built-in types have aliases, while some types are considered dangerous or harmful.
@@ -189,13 +198,20 @@ export default createConfig<
             //     },
             // ],
 
+            // Enforce specifying generic type arguments on constructor name of a constructor call.
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.md
+            "@typescript-eslint/consistent-generic-constructors": "error",
+
             // Enforce consistent usage of type imports.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-type-imports.md
-            "@typescript-eslint/consistent-type-imports": ["error", {
-                disallowTypeAnnotations: false,
-                fixStyle: "separate-type-imports",
-                prefer: "type-imports",
-              }],
+            "@typescript-eslint/consistent-type-imports": [
+                "error",
+                {
+                    disallowTypeAnnotations: false,
+                    fixStyle: "separate-type-imports",
+                    prefer: "type-imports",
+                },
+            ],
 
             // Require explicit accessibility modifiers on class properties and methods.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
@@ -255,7 +271,7 @@ export default createConfig<
 
             // Replace 'no-array-constructor' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
-            "@typescript-eslint/no-array-constructor": styleRules["no-array-constructor"] ? (Array.isArray(styleRules["no-array-constructor"]) ? styleRules["no-array-constructor"][0] : styleRules["no-array-constructor"]) : "off",
+            "@typescript-eslint/no-array-constructor": styleRules["no-array-constructor"] as Linter.RuleEntry<[]>,
 
             // Disallow non-null assertion in locations that may be confusing.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.md
@@ -263,7 +279,7 @@ export default createConfig<
 
             // Replace 'no-dupe-class-members' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
-            "@typescript-eslint/no-dupe-class-members": es6Rules["no-dupe-class-members"] ? (Array.isArray(es6Rules["no-dupe-class-members"]) ? es6Rules["no-dupe-class-members"][0] : es6Rules["no-dupe-class-members"]) : "off",
+            "@typescript-eslint/no-dupe-class-members": es6Rules["no-dupe-class-members"] as Linter.RuleEntry<[]>,
 
             // Disallow duplicate enum member values.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.md
@@ -275,7 +291,7 @@ export default createConfig<
 
             // Replace 'no-empty-function' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
-            "@typescript-eslint/no-empty-function": bestPracticesRules["no-empty-function"] ? (Array.isArray(bestPracticesRules["no-empty-function"]) ? bestPracticesRules["no-empty-function"][0] : bestPracticesRules["no-empty-function"]) : "off",
+            "@typescript-eslint/no-empty-function": bestPracticesRules["no-empty-function"] as Linter.RuleEntry<[]>,
 
             // Disallow extra non-null assertions.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.md
@@ -290,11 +306,11 @@ export default createConfig<
 
             // Replace 'no-loop-func' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
-            "@typescript-eslint/no-loop-func": bestPracticesRules["no-loop-func"] ? (Array.isArray(bestPracticesRules["no-loop-func"]) ? bestPracticesRules["no-loop-func"][0] : bestPracticesRules["no-loop-func"]) : "off",
+            "@typescript-eslint/no-loop-func": bestPracticesRules["no-loop-func"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-magic-numbers' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
-            "@typescript-eslint/no-magic-numbers": bestPracticesRules["no-magic-numbers"] ? (Array.isArray(bestPracticesRules["no-magic-numbers"]) ? bestPracticesRules["no-magic-numbers"][0] : bestPracticesRules["no-magic-numbers"]) : "off",
+            "@typescript-eslint/no-magic-numbers": bestPracticesRules["no-magic-numbers"] as Linter.RuleEntry<[]>,
 
             // Enforce valid definition of new and constructor.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-misused-new.md
@@ -318,7 +334,7 @@ export default createConfig<
 
             // Replace 'no-redeclare' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
-            "@typescript-eslint/no-redeclare": bestPracticesRules["no-redeclare"] ? (Array.isArray(bestPracticesRules["no-redeclare"]) ? bestPracticesRules["no-redeclare"][0] : bestPracticesRules["no-redeclare"]) : "off",
+            "@typescript-eslint/no-redeclare": bestPracticesRules["no-redeclare"] as Linter.RuleEntry<[]>,
 
             // Disallow invocation of require().
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.md
@@ -326,7 +342,7 @@ export default createConfig<
 
             // Replace 'no-shadow' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
-            "@typescript-eslint/no-shadow": variablesRules["no-shadow"] ? (Array.isArray(variablesRules["no-shadow"]) ? variablesRules["no-shadow"][0] : variablesRules["no-shadow"]) : "off",
+            "@typescript-eslint/no-shadow": variablesRules["no-shadow"] as Linter.RuleEntry<[]>,
 
             // Disallow aliasing this.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-this-alias.md
@@ -342,19 +358,19 @@ export default createConfig<
 
             // Replace 'no-unused-expressions' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-            "@typescript-eslint/no-unused-expressions": bestPracticesRules["no-unused-expressions"] ? (Array.isArray(bestPracticesRules["no-unused-expressions"]) ? bestPracticesRules["no-unused-expressions"][0] : bestPracticesRules["no-unused-expressions"]) : "off",
+            "@typescript-eslint/no-unused-expressions": bestPracticesRules["no-unused-expressions"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-unused-vars' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-            "@typescript-eslint/no-unused-vars": variablesRules["no-unused-vars"] ? (Array.isArray(variablesRules["no-unused-vars"]) ? variablesRules["no-unused-vars"][0] : variablesRules["no-unused-vars"]) : "off",
+            "@typescript-eslint/no-unused-vars": variablesRules["no-unused-vars"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-use-before-define' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-            "@typescript-eslint/no-use-before-define": variablesRules["no-use-before-define"] ? (Array.isArray(variablesRules["no-use-before-define"]) ? variablesRules["no-use-before-define"][0] : variablesRules["no-use-before-define"]) : "off",
+            "@typescript-eslint/no-use-before-define": variablesRules["no-use-before-define"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-useless-constructor' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-            "@typescript-eslint/no-useless-constructor": es6Rules["no-useless-constructor"] ? (Array.isArray(es6Rules["no-useless-constructor"]) ? es6Rules["no-useless-constructor"][0] : es6Rules["no-useless-constructor"]) : "off",
+            "@typescript-eslint/no-useless-constructor": es6Rules["no-useless-constructor"] as Linter.RuleEntry<[]>,
 
             // Disallow empty exports that don't change anything in a module file.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.md
@@ -374,20 +390,18 @@ export default createConfig<
 
             // Disabled to use faster alternatives.
             "@typescript-eslint/prefer-string-starts-ends-with": "off",
-
             // Enforce using @ts-expect-error over @ts-ignore.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.md
             // DEPRECATED: in favor of ban-ts-comment
             "@typescript-eslint/prefer-ts-expect-error": "off",
-            "@typescript-eslint/ban-ts-comment": ["error", { "ts-expect-error": "allow-with-description", "ts-ignore": "allow-with-description", "ts-nocheck": true, "ts-check": false, minimumDescriptionLength: 3 }],
 
             // Replace 'no-return-await' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
-            "@typescript-eslint/return-await": bestPracticesRules["no-return-await"] ? (Array.isArray(bestPracticesRules["no-return-await"]) ? bestPracticesRules["no-return-await"][0] : bestPracticesRules["no-return-await"]) : "off",
+            "@typescript-eslint/return-await": bestPracticesRules["no-return-await"] as Linter.RuleEntry<[]>,
 
             // Replace 'semi' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
-            "@typescript-eslint/semi": styleRules["semi"] ? (Array.isArray(styleRules["semi"]) ? styleRules["semi"][0] : styleRules["semi"]) : "off",
+            "@typescript-eslint/semi": styleRules["semi"] as Linter.RuleEntry<[]>,
 
             // Enforce constituents of a type union/intersection to be sorted alphabetically.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/sort-type-constituents.md
@@ -395,38 +409,38 @@ export default createConfig<
 
             // Replace 'space-before-function-paren' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
-            "@typescript-eslint/space-before-function-paren": styleRules["space-before-function-paren"] ? (Array.isArray(styleRules["space-before-function-paren"]) ? styleRules["space-before-function-paren"][0] : styleRules["space-before-function-paren"]) : "off",
+            "@typescript-eslint/space-before-function-paren": styleRules["space-before-function-paren"] as Linter.RuleEntry<[]>,
 
             // Replace 'space-infix-ops' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.md
-            "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] ? (Array.isArray(styleRules["space-infix-ops"]) ? styleRules["space-infix-ops"][0] : styleRules["space-infix-ops"]) : "off",
+            "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
 
             ...overrides,
 
             // Disable rules that are handled by prettier
-            ...prettier
+            ...(prettier
                 ? {
-                    "@typescript-eslint/block-spacing": "off",
-                    "@typescript-eslint/brace-style": "off",
-                    "@typescript-eslint/comma-dangle": "off",
-                    "@typescript-eslint/comma-spacing": "off",
-                    "@typescript-eslint/func-call-spacing": "off",
-                    "@typescript-eslint/indent": "off",
-                    "@typescript-eslint/key-spacing": "off",
-                    "@typescript-eslint/keyword-spacing": "off",
-                    "@typescript-eslint/lines-around-comment": 0,
-                    "@typescript-eslint/member-delimiter-style": "off",
-                    "@typescript-eslint/no-extra-parens": "off",
-                    "@typescript-eslint/no-extra-semi": "off",
-                    "@typescript-eslint/object-curly-spacing": "off",
-                    "@typescript-eslint/quotes": 0,
-                    "@typescript-eslint/semi": "off",
-                    "@typescript-eslint/space-before-blocks": "off",
-                    "@typescript-eslint/space-before-function-paren": "off",
-                    "@typescript-eslint/space-infix-ops": "off",
-                    "@typescript-eslint/type-annotation-spacing": "off",
-                }
-                : {},
+                      "@typescript-eslint/block-spacing": "off",
+                      "@typescript-eslint/brace-style": "off",
+                      "@typescript-eslint/comma-dangle": "off",
+                      "@typescript-eslint/comma-spacing": "off",
+                      "@typescript-eslint/func-call-spacing": "off",
+                      "@typescript-eslint/indent": "off",
+                      "@typescript-eslint/key-spacing": "off",
+                      "@typescript-eslint/keyword-spacing": "off",
+                      "@typescript-eslint/lines-around-comment": 0,
+                      "@typescript-eslint/member-delimiter-style": "off",
+                      "@typescript-eslint/no-extra-parens": "off",
+                      "@typescript-eslint/no-extra-semi": "off",
+                      "@typescript-eslint/object-curly-spacing": "off",
+                      "@typescript-eslint/quotes": 0,
+                      "@typescript-eslint/semi": "off",
+                      "@typescript-eslint/space-before-blocks": "off",
+                      "@typescript-eslint/space-before-function-paren": "off",
+                      "@typescript-eslint/space-infix-ops": "off",
+                      "@typescript-eslint/type-annotation-spacing": "off",
+                  }
+                : {}),
         },
     });
 

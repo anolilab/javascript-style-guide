@@ -37,7 +37,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             files,
             name: "anolilab/unicorn/rules",
             rules: {
-                ...pluginUnicorn.configs["flat/recommended"].rules,
+                ...pluginUnicorn.configs.recommended.rules,
 
                 // Disabled because of eslint-plugin-regexp
                 "unicorn/better-regex": "off",
@@ -55,6 +55,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 ],
 
                 "unicorn/no-array-for-each": "off",
+
+                "unicorn/no-instanceof-builtins": "error",
 
                 // TODO: Temporarily disabled until it becomes more mature.
                 "unicorn/no-useless-undefined": "off",

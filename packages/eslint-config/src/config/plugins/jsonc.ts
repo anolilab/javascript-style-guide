@@ -255,6 +255,7 @@ const jsonc = async (
                             "useDefineForClassFields",
                             "emitDecoratorMetadata",
                             "experimentalDecorators",
+                            "libReplacement",
                             /* Modules */
                             "baseUrl",
                             "rootDir",
@@ -329,6 +330,7 @@ const jsonc = async (
                             "isolatedModules",
                             "preserveSymlinks",
                             "verbatimModuleSyntax",
+                            "erasableSyntaxOnly",
                             /* Completeness */
                             "skipDefaultLibCheck",
                             "skipLibCheck",

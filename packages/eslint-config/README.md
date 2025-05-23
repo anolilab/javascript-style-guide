@@ -251,6 +251,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 - [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
 - [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
+- [](https://github.com/antfu/eslint-config)
 
 ## License
 

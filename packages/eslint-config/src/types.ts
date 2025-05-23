@@ -548,7 +548,8 @@ export interface OptionsUnoCSS extends OptionsOverrides {
     strict?: boolean;
 }
 
-export type Rules = RuleOptions;
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface Rules extends RuleOptions {}
 
 export type StylisticConfig = Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi">;
 

@@ -38,14 +38,16 @@ const copyFolderRecursive = async (from: string, to: string) => {
     }
 };
 
+const tempDirectoryPath = join(rootPath, "..", "tmp_fixtures");
+
 // eslint-disable-next-line vitest/require-top-level-describe
 beforeAll(async () => {
-    await rm(join(rootPath, "_fixtures"), { force: true, recursive: true });
+    await rm(tempDirectoryPath, { force: true, recursive: true });
 });
 
 // eslint-disable-next-line vitest/require-top-level-describe
 afterAll(async () => {
-    await rm(join(rootPath, "_fixtures"), { force: true, recursive: true });
+    await rm(tempDirectoryPath, { force: true, recursive: true });
 });
 
 const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) => {
@@ -57,7 +59,7 @@ const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlat
             const from = join(fixturesPath, "input");
             const output = join(fixturesPath, "output", name);
 
-            const target = join(rootPath, "_fixtures", name);
+            const target = join(tempDirectoryPath, name);
 
             await copyFolderRecursive(from, target);
             await writeFile(
@@ -108,7 +110,7 @@ export default createConfig(
 // eslint-disable-next-line vitest/require-hook
 runWithConfig("js", {
     typescript: false,
-    // vue: false,
+    vitest: false,
 });
 // runWithConfig("all", {
 //     astro: true,

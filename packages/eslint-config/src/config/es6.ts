@@ -1,9 +1,9 @@
 import type { Linter } from "eslint";
 
-import type { OptionsFiles } from "../types";
+import type { OptionsFiles, OptionsIsInEditor } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
-export const es6Rules: Partial<Linter.RulesRecord> = {
+export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (isInEditor: boolean) => ({
     // enforces no braces where they can be omitted
     // https://eslint.org/docs/rules/arrow-body-style
     "arrow-body-style": [
@@ -257,7 +257,9 @@ export const es6Rules: Partial<Linter.RulesRecord> = {
     ],
 
     // suggest using of const declaration for variables that are never modified after declared
-    "prefer-const": [
+    "prefer-const": isInEditor
+    ? "off"
+    : [
         "error",
         {
             destructuring: "any",
@@ -335,10 +337,10 @@ export const es6Rules: Partial<Linter.RulesRecord> = {
     // enforce spacing around the * in yield* expressions
     // https://eslint.org/docs/rules/yield-star-spacing
     "yield-star-spacing": ["error", "after"],
-};
+});
 
-export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
-    const { files = oFiles } = config;
+export default createConfig<OptionsFiles & OptionsIsInEditor>("all", async (config, oFiles) => {
+    const { files = oFiles, isInEditor = false } = config;
 
     return [
         {
@@ -354,7 +356,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 },
             },
             name: "anolilab/es6/rules",
-            rules: es6Rules,
+            rules: es6Rules(isInEditor),
         },
         // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
         // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586

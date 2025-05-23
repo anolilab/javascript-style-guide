@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 import type { NormalizedPackageJson } from "@visulima/package";
-import { builtinRules } from "eslint/use-at-your-own-risk";
+import JS from '@eslint/js'
 import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 
 import bestPractices from "../src/config/best-practices";
@@ -54,7 +54,7 @@ const configs = await combine(
     {
         plugins: {
             "": {
-                rules: Object.fromEntries(builtinRules.entries()),
+                rules: JS.configs.all,
             },
         },
     },

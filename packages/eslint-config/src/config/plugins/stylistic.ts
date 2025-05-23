@@ -25,7 +25,6 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
     const pluginStylistic = await interopDefault(import("@stylistic/eslint-plugin"));
 
     const config = pluginStylistic.configs.customize({
-        flat: true,
         indent,
         jsx,
         pluginName: "@stylistic",
@@ -71,6 +70,8 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
 
                 // Replace 'func-call-spacing' rule with '@stylistic' version
                 "@stylistic/func-call-spacing": ["error", "never"],
+
+                "@stylistic/generator-star-spacing": ["error", { after: true, before: false }],
 
                 "@stylistic/indent": [
                     "error",
@@ -228,7 +229,9 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                 // require spaces around operators
                 "@stylistic/space-infix-ops": "error",
 
+
                 "@stylistic/type-annotation-spacing": "error",
+                "@stylistic/yield-star-spacing": ["error", { after: true, before: false }],
 
                 ...overrides,
 

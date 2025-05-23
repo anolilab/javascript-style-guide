@@ -9,7 +9,7 @@ _Look,_ code blocks are formatted *too!*
  *
  * @param x
  */
-function identity(x) {
+const identity = (x) => {
     if (foo) {
         console.log("bar");
     }

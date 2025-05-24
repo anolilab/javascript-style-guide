@@ -527,11 +527,13 @@ export const createConfig = async (
             }
         }
 
-        await ensurePackages(packageJson, packages, "devDependencies", {
-            confirm: {
-                message: (list: string[]) => `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
-            },
-        });
+        if (packages.length > 0) {
+            await ensurePackages(packageJson, packages, "devDependencies", {
+                confirm: {
+                    message: (list: string[]) => `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                },
+            });
+        }
     }
 
     let isInEditor = options.isInEditor;

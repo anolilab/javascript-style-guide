@@ -121,7 +121,7 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return ["**/*.yaml", "**/*.yml"];
         }
         default: {
-            throw new Error("Unknown type");
+            throw new Error(`Unknown file type: ${fileType}`);
         }
     }
 };

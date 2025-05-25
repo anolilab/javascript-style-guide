@@ -2,7 +2,7 @@ import { createConfig } from "./dist/index.mjs";
 
 export default createConfig(
     {
-        ignores: ["./eslint.config.js", "./src/typegen.d.ts", "./__fixtures__/**/*"],
+        ignores: ["./eslint.config.js", "./src/typegen.d.ts", "./src/utils/vitest-globals.ts", "./__fixtures__/**/*"],
         react: false,
         playwright: false,
         storybook: false,

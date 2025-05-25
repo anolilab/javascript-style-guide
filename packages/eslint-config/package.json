@@ -104,9 +104,9 @@
         "dist"
     ],
     "scripts": {
-        "build": "pnpm run build:typegen && pnpm run build:global-vitest && packem build --development",
+        "build": "pnpm run build:global-vitest && pnpm run build:typegen && packem build --development",
         "build:global-vitest": "tsx ./scripts/global-vitest.ts",
-        "build:prod": "pnpm run build:typegen && pnpm run build:global-vitest && packem build --production",
+        "build:prod": "pnpm run build:global-vitest && pnpm run build:typegen && packem build --production",
         "build:typegen": "tsx ./scripts/typegen.ts",
         "clean": "rimraf node_modules dist",
         "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",

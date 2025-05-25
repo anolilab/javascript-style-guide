@@ -37,7 +37,6 @@ const extract = (file: string) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ts.forEachChild(mNode, (vNode: any) => {
                         if (ts.isVariableDeclarationList(vNode)) {
-                            // eslint-disable-next-line no-restricted-syntax
                             for (const declaration of vNode.declarations) {
                                 const name = ts.getNameOfDeclaration(declaration);
 

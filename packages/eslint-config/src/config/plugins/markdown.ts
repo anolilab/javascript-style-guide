@@ -75,7 +75,12 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
                 "no-unused-vars": "off",
 
                 "unicode-bom": "off",
+
+                "unicorn/prefer-module": "off",
+                "unicorn/prefer-string-raw": "off",
+
                 "unused-imports/no-unused-imports": "off",
+
                 "unused-imports/no-unused-vars": "off",
 
                 ...overrides,

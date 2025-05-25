@@ -15,7 +15,7 @@ import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import { bestPracticesRules } from "../best-practices";
 import { es6Rules as es6RulesFunction } from "../es6";
-import { styleRules } from "../style";
+import { styleRules as styleRulesFunction } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
@@ -39,6 +39,7 @@ export default createConfig<
         stylistic = true,
     } = config;
 
+    const styleRules = styleRulesFunction(stylistic);
     const es6Rules = es6RulesFunction(isInEditor);
 
     const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([

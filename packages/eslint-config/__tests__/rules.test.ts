@@ -29,7 +29,6 @@ const copyFolderRecursive = async (from: string, to: string) => {
         recursive: true,
     });
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const element of files) {
         // eslint-disable-next-line unicorn/no-await-expression-member,no-await-in-loop
         await ((await lstat(join(from, element))).isFile()

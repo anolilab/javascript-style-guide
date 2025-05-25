@@ -67,7 +67,7 @@ export default createConfig<
     const isUsingNext = hasPackageJsonAnyDependency(packageJson, NextJsPackages);
     const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
 
-    const plugins = pluginReactX.configs.all.plugins;
+    const { plugins } = pluginReactX.configs.all;
 
     let reactVersion = packageJson?.["dependencies"]?.["react"] || packageJson?.["devDependencies"]?.["react"];
 

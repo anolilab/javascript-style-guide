@@ -7,6 +7,7 @@ import { FlatConfigComposer } from "eslint-flat-config-utils";
 
 import bestPractices from "./config/best-practices";
 import errors from "./config/errors";
+import es6 from "./config/es6";
 import ignores from "./config/ignores";
 import antfu from "./config/plugins/antfu";
 import astro from "./config/plugins/astro";
@@ -66,11 +67,9 @@ const flatConfigProperties = ["name", "languageOptions", "linterOptions", "proce
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
-export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => {
+export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> =>
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
-};
-
+    (typeof options[key] === "boolean" ? ({} as any) : options[key] || {});
 export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> => {
     const sub = resolveSubOptions(options, key);
 
@@ -120,15 +119,16 @@ export const createConfig = async (
     const packageJson = parsePackageJson(readFileSync(join(cwd, "package.json"), "utf8"));
 
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
-
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
+    const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
+
     const {
-        astro: enableAstro = false,
+        astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
         gitignore: enableGitignore = true,
         html: enableHtml = false,
-        jsx: enableJsx = true,
+        jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting"]) || hasReact,
         lodash: enableLodash = hasPackageJsonAnyDependency(packageJson, [
             "lodash",
             "underscore",
@@ -435,9 +435,7 @@ export const createConfig = async (
             "lodash.uniqueid",
         ]),
         playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
-        react: enableReact = hasPackageJsonAnyDependency(packageJson, [
-            "react",
-            "react-dom",
+        react: enableReact = hasReact || hasPackageJsonAnyDependency(packageJson, [
             "eslint-plugin-react",
             "eslint-plugin-react-hooks",
             "eslint-plugin-react-refresh",
@@ -536,7 +534,7 @@ export const createConfig = async (
         }
     }
 
-    let isInEditor = options.isInEditor;
+    let { isInEditor } = options;
 
     if (isInEditor === undefined || isInEditor === false) {
         isInEditor = isInEditorEnvironment();
@@ -564,7 +562,7 @@ export const createConfig = async (
     if (enableGitignore) {
         if (typeof enableGitignore === "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
                         strict: false,
@@ -573,7 +571,7 @@ export const createConfig = async (
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(r => [
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
                     r({
                         name: "anolilab/gitignore",
                         ...enableGitignore,
@@ -594,7 +592,12 @@ export const createConfig = async (
         }),
         bestPractices({}),
         errors({}),
-        style({}),
+        style({
+            stylistic: stylisticOptions,
+        }),
+        es6({
+            isInEditor,
+        }),
         variables({}),
         comments({
             files: getFiles(options, "comments"),
@@ -607,10 +610,12 @@ export const createConfig = async (
         }),
         jsdoc({
             files: getFiles(options, "jsdoc"),
-            // overrides: getFiles(options, "jsdoc"),
+            jsx: enableJsx,
+            overrides: getOverrides(options, "jsdoc"),
             packageJson,
             silent,
             stylistic: stylisticOptions,
+            typescript: enableTypeScript,
         }),
         imports({
             cwd,

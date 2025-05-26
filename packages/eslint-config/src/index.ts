@@ -451,6 +451,7 @@ export const createConfig = async (
             "eslint-plugin-react-refresh",
             "@eslint-react/eslint-plugin",
             "eslint-plugin-react-perf",
+            "eslint-plugin-react-you-might-not-need-an-effect",
         ]),
         reactCompiler: enableReactCompiler = hasReactCompiler,
         regexp: enableRegexp = true,
@@ -496,7 +497,7 @@ export const createConfig = async (
         }
 
         if (enableReact) {
-            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks", "eslint-plugin-react-perf");
+            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks", "eslint-plugin-react-perf", "eslint-plugin-react-you-might-not-need-an-effect");
         }
 
         if (enableReact && enableReactCompiler) {

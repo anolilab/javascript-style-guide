@@ -1,3 +1,9 @@
+/**
+ * A modified version of the original script from https://github.com/antfu/eslint-config/blob/main/scripts/typegen.ts
+ *
+ * MIT License
+ * Copyright (c) 2019-PRESENT Anthony Fu<https://github.com/antfu>
+ */
 import fs from "node:fs/promises";
 
 import JS from "@eslint/js";

@@ -12,9 +12,4 @@ export default defineConfig({
         },
     },
     transformer,
-    validation: {
-        packageJson: {
-            exports: false,
-        },
-    },
 });

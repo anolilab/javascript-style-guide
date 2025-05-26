@@ -1,3 +1,36 @@
+## @anolilab/stylelint-config [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.14...@anolilab/stylelint-config@7.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **styylelint-config:** changed post-install script to a bin command call
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **styylelint-config:** removed post-install script, updated dependencies, allowed node 23 and ([821fb74](https://github.com/anolilab/javascript-style-guide/commit/821fb743e7ee726673e55992982753b1337845b8))
+
+### Bug Fixes
+
+* **stylelint-config:** removed @anolilab/package-json-utils, using cwd of the command call ([244eeb7](https://github.com/anolilab/javascript-style-guide/commit/244eeb7dc41599bdf2a03fabd5ce33454866effa))
+* **stylelint-config:** updated stylelint-config-clean-order to v7 and dev deps ([531c48d](https://github.com/anolilab/javascript-style-guide/commit/531c48d00fc17f4b9e86d5cfc7af7d03cb6ca306))
+
+### Miscellaneous Chores
+
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* **stylelint-config:** updated dev dependencies ([1704a5d](https://github.com/anolilab/javascript-style-guide/commit/1704a5d12029246f8f0ddd6c2843e5c86fd489bc))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* update stylelint-config dependencies to latest versions ([9b0de0c](https://github.com/anolilab/javascript-style-guide/commit/9b0de0c07e830e3d6844e5bfa819296c1b06acea))
+* update stylelint-config to use CommonJS and ESM formats ([bd54894](https://github.com/anolilab/javascript-style-guide/commit/bd54894231d51185f5594905ed20474085952802))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 6.0.0
+
 ## @anolilab/stylelint-config [6.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@6.0.13...@anolilab/stylelint-config@6.0.14) (2023-12-22)
 
 

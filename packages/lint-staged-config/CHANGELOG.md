@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.0...@anolilab/lint-staged-config@3.0.1) (2025-05-26)
+
+### Miscellaneous Chores
+
+* add new linting scripts and update dependencies ([655a866](https://github.com/anolilab/javascript-style-guide/commit/655a86641903f157e4d8a4dc69d0f44448fa7cc9))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.1.1
+
 ## @anolilab/lint-staged-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.7...@anolilab/lint-staged-config@3.0.0) (2025-05-26)
 
 ### ⚠ BREAKING CHANGES

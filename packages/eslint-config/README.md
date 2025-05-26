@@ -578,7 +578,6 @@ You can import it alongside `createConfig`:
 ```javascript
 // eslint.config.js
 import { createConfig, getFilesGlobs } from "@anolilab/eslint-config";
-import globals from "globals";
 
 const baseConfig = createConfig();
 
@@ -590,26 +589,26 @@ const markdownFiles = getFilesGlobs("markdown");
 const htmlFiles = getFilesGlobs("html");
 
 export default [
-  ...baseConfig,
-  {
-    files: jsTsFiles,
-    // languageOptions, rules, etc., specific to JS and TS files
-    rules: {
-      // 'your-rule/for-js-ts': 'error',
-    }
-  },
-  {
-    files: markdownFiles,
+    ...baseConfig,
+    {
+        files: jsTsFiles,
+        // languageOptions, rules, etc., specific to JS and TS files
+        rules: {
+            // 'your-rule/for-js-ts': 'error',
+        }
+    },
+    {
+        files: markdownFiles,
     // languageOptions, rules, etc., specific to Markdown files
     // Often, you might use a specific processor or plugin for Markdown here
     // processor: markdownProcessor, // Fictional example
     // plugins: { markdownPlugin } // Fictional example
-  },
-  {
-    files: htmlFiles,
+    },
+    {
+        files: htmlFiles,
     // languageOptions, rules, etc., specific to HTML files
-  },
-  // ... other configurations
+    },
+    // ... other configurations
 ];
 ```
 

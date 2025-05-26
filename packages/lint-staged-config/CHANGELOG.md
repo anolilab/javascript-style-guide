@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.1...@anolilab/lint-staged-config@3.0.2) (2025-05-26)
+
+### Bug Fixes
+
+* **lint-staged-config:** update ESLint configuration and dependencies ([d94ff6d](https://github.com/anolilab/javascript-style-guide/commit/d94ff6d0a0453ae35e4cfc80c2f15f8e96f80683))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.1.2
+
 ## @anolilab/lint-staged-config [3.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.0...@anolilab/lint-staged-config@3.0.1) (2025-05-26)
 
 ### Miscellaneous Chores

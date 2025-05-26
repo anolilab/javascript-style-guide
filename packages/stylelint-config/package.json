@@ -183,6 +183,8 @@
         "build": "packem build --development",
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
+        "lint:attw": "attw --pack",
+        "lint:types": "tsc --noEmit",
         "test": "vitest --config ./vitest.config.ts",
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
@@ -198,6 +200,7 @@
     },
     "devDependencies": {
         "@anolilab/semantic-release-preset": "10.0.5",
+        "@arethetypeswrong/cli": "^0.17.4",
         "@visulima/packem": "^1.19.1",
         "esbuild": "^0.25.4",
         "postcss": "^8.5.3",

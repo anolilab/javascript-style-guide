@@ -132,6 +132,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@visulima/packem':
         specifier: 1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.4)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -181,6 +184,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@commitlint/cli':
         specifier: ^19.8.1
         version: 19.8.1(@types/node@22.15.21)(typescript@5.8.3)
@@ -356,9 +362,6 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0
     devDependencies:
-      '@anolilab/prettier-config':
-        specifier: 6.0.0
-        version: 6.0.0(prettier@3.5.3)
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
@@ -473,9 +476,6 @@ importers:
       execa:
         specifier: ^9.5.3
         version: 9.5.3
-      prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -531,12 +531,18 @@ importers:
         specifier: ^15.x || ^16.x
         version: 16.19.1(typescript@5.8.3)
     devDependencies:
+      '@anolilab/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@anolilab/semantic-release-pnpm':
         specifier: ^1.1.11
         version: 1.1.11(@types/node@22.15.21)(yaml@2.8.0)
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -579,6 +585,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.4)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -631,6 +640,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.4)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -725,6 +737,9 @@ importers:
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
+      '@arethetypeswrong/cli':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.4)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -771,13 +786,6 @@ packages:
     hasBin: true
     peerDependencies:
       semantic-release: ^20.0 || ^21.0 || >=22.0.3
-
-  '@anolilab/prettier-config@6.0.0':
-    resolution: {integrity: sha512-BlVa77/CxXv6zQKHDo7wyQM2bCjHm6hbGlVdFHhSyLFVK3XdG/VQYEjDg3fwZTjS6pqRTqh+z9eHjk49FPNE6g==}
-    engines: {node: '>=20.18.* <=24.*'}
-    hasBin: true
-    peerDependencies:
-      prettier: 3.x
 
   '@anolilab/rc@1.1.7':
     resolution: {integrity: sha512-+yfKiVsBByHr/t4003Wx2wQG8SWxrDk9HvIvu5OfWWHTNAhzTBc1+CKY+0/jrXaKfbYqrMXda79MgKXx2gNxRA==}
@@ -3148,7 +3156,7 @@ packages:
     resolution: {integrity: sha512-8IJ3CvwtSw/EFXqWFL8aCMu+YyYXG2WUSrQbViOZkWTKTVicVwZ/YiEZDSqD00kX+v/+W+OnxhNWoeVKorHygA==}
     peerDependencies:
       msw: ^2.4.9
-      vite: '>=5.4.17'
+      vite: '>=5.4.15'
     peerDependenciesMeta:
       msw:
         optional: true
@@ -9736,10 +9744,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
-
-  '@anolilab/prettier-config@6.0.0(prettier@3.5.3)':
-    dependencies:
-      prettier: 3.5.3
 
   '@anolilab/rc@1.1.7(yaml@2.8.0)':
     dependencies:

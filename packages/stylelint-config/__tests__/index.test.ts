@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import IndexESM from "../index.mjs";
+// @ts-expect-error - This is only used for testing
 import IndexCJS from "../index.cjs";
 
 const isWindows = process.platform === "win32";

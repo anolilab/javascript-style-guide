@@ -1,3 +1,11 @@
+## @anolilab/eslint-config [16.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.0...@anolilab/eslint-config@16.1.1) (2025-05-26)
+
+### Bug Fixes
+
+* **eslint-config:** fixed esm type export ([cbcf70c](https://github.com/anolilab/javascript-style-guide/commit/cbcf70cf502b7031c0963f2b1f44b83adb9cf2a9))
+* **eslint-config:** fixed style rules when prettier is not installed to use stylistic ([b744d87](https://github.com/anolilab/javascript-style-guide/commit/b744d87eae7278c8d76c1a27d8abca749062f6e7))
+* **eslint-config:** update type export and add linting for types ([8e169f6](https://github.com/anolilab/javascript-style-guide/commit/8e169f690e509d6dcae96ae5c690c78579583943))
+
 ## @anolilab/eslint-config [16.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.0.1...@anolilab/eslint-config@16.1.0) (2025-05-26)
 
 ### Features

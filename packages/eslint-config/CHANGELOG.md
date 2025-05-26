@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [16.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.0.1...@anolilab/eslint-config@16.1.0) (2025-05-26)
+
+### Features
+
+* **eslint-config:** enhance ESLint configuration with new plugins and utilities ([df11e7a](https://github.com/anolilab/javascript-style-guide/commit/df11e7a7d5aa943a275d020deedfee8a3723b2fd))
+
+### Bug Fixes
+
+* **eslint-config:** added missing eslint-plugin-react-you-might-not-need-an-effect ([5162c8f](https://github.com/anolilab/javascript-style-guide/commit/5162c8fc85f4535fd56f5f11e144adb4ac770ebf))
+
 ## @anolilab/eslint-config [16.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.0.0...@anolilab/eslint-config@16.0.1) (2025-05-26)
 
 ### Bug Fixes

@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.1...@anolilab/eslint-config@16.1.2) (2025-05-26)
+
+### Bug Fixes
+
+* **eslint-config:** add 'link' tag to definedTags in jsdoc configuration ([8e5483e](https://github.com/anolilab/javascript-style-guide/commit/8e5483e7755ffa1cfc1e885c90b71251fd64acb7))
+
 ## @anolilab/eslint-config [16.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.0...@anolilab/eslint-config@16.1.1) (2025-05-26)
 
 ### Bug Fixes

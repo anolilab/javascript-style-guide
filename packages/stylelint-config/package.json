@@ -54,14 +54,14 @@
                 "default": "./index.mjs"
             }
         },
-        "./a11y": {
+        "./best-practices": {
             "require": {
-                "types": "./dist/config/a11y.d.cts",
-                "default": "./dist/config/a11y.cjs"
+                "types": "./dist/config/best-practices.d.cts",
+                "default": "./dist/config/best-practices.cjs"
             },
             "import": {
-                "types": "./dist/config/a11y.d.mts",
-                "default": "./dist/config/a11y.mjs"
+                "types": "./dist/config/best-practices.d.mts",
+                "default": "./dist/config/best-practices.mjs"
             }
         },
         "./declaration-block-no-ignored-properties": {
@@ -72,6 +72,16 @@
             "import": {
                 "types": "./dist/config/declaration-block-no-ignored-properties.d.mts",
                 "default": "./dist/config/declaration-block-no-ignored-properties.mjs"
+            }
+        },
+        "./high-performance-animation": {
+            "require": {
+                "types": "./dist/config/high-performance-animation.d.cts",
+                "default": "./dist/config/high-performance-animation.cjs"
+            },
+            "import": {
+                "types": "./dist/config/high-performance-animation.d.mts",
+                "default": "./dist/config/high-performance-animation.mjs"
             }
         },
         "./no-unsupported-browser-features": {
@@ -131,11 +141,14 @@
     "types": "index.d.cts",
     "typesVersions": {
         ">=5.0": {
-            "a11y": [
-                "./dist/config/a11y.d.ts"
+            "best-practices": [
+                "./dist/config/best-practices.d.ts"
             ],
             "declaration-block-no-ignored-properties": [
                 "./dist/config/declaration-block-no-ignored-properties.d.ts"
+            ],
+            "high-performance-animation": [
+                "./dist/config/high-performance-animation.d.ts"
             ],
             "no-unsupported-browser-features": [
                 "./dist/config/no-unsupported-browser-features.d.ts"
@@ -174,7 +187,6 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "@ronilaukkarinen/stylelint-a11y": "^1.2.9",
         "browserslist-config-anolilab": "5.0.14",
         "stylelint-config-clean-order": "^7.0.0",
         "stylelint-config-standard": "^38.0.0",

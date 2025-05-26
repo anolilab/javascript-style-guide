@@ -1,14 +1,13 @@
 // eslint-disable-next-line no-var
 const config = [
-    "./dist/config/a11y.js",
-    "./dist/config/best-practices.js",
-    "./dist/config/declaration-block-no-ignored-properties.js",
-    "./dist/config/high-performance-animation.js",
-    "./dist/config/no-unsupported-browser-features.js",
-    "./dist/config/require-units.js",
-    "./dist/config/selector-no-empty.js",
-    "./dist/config/standard.js",
-    "./dist/config/tailwindcss.js",
+    "./dist/config/best-practices.cjs",
+    "./dist/config/declaration-block-no-ignored-properties.cjs",
+    "./dist/config/high-performance-animation.cjs",
+    "./dist/config/no-unsupported-browser-features.cjs",
+    "./dist/config/require-units.cjs",
+    "./dist/config/selector-no-empty.cjs",
+    "./dist/config/standard.cjs",
+    "./dist/config/tailwindcss.cjs",
 ];
 
 module.exports = {

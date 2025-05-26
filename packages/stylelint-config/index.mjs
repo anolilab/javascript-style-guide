@@ -1,7 +1,7 @@
-import { createRequire } from "node:module";
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 const cconfig = [
-    "./dist/config/a11y.mjs",
     "./dist/config/best-practices.mjs",
     "./dist/config/declaration-block-no-ignored-properties.mjs",
     "./dist/config/high-performance-animation.mjs",
@@ -12,12 +12,17 @@ const cconfig = [
     "./dist/config/tailwindcss.mjs",
 ];
 
-const resolvePath = async (path) => {
-    return await import.meta.resolve(path, import.meta.url);
+/**
+ * @param {string} specifier
+ * @returns {string}
+ */
+const resolvePath = (specifier) => {
+    const currentModuleDir = path.dirname(fileURLToPath(import.meta.url));
+    return path.resolve(currentModuleDir, specifier);
 };
 
 const config = {
-    extends: [...cconfig.map((element) => resolvePath(element)), "stylelint-config-clean-order"],
+    extends: [...cconfig.map(resolvePath), "stylelint-config-clean-order"],
 };
 
 export default config;

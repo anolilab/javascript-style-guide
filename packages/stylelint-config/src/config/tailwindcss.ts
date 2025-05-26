@@ -17,7 +17,6 @@ const config = {
                 ],
             },
         ],
-        "declaration-block-trailing-semicolon": null,
         "function-no-unknown": [
             true,
             {

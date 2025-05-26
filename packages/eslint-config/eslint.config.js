@@ -1,4 +1,4 @@
-import { createConfig } from "./dist/index.mjs";
+import { createConfig, getFilesGlobs } from "./dist/index.mjs";
 
 export default createConfig(
     {
@@ -31,11 +31,18 @@ export default createConfig(
         },
     },
     {
-        files: ["README.md"],
+        files: ["./README.md"],
         rules: {
             "import/no-commonjs": "off",
             "unicorn/prefer-module": "off",
             "jsdoc/check-tag-names": "off",
         },
     },
+    {
+        files: getFilesGlobs("markdown_inline_js_jsx"),
+        rules: {
+            "import/no-unresolved": "off",
+            "jsonc/no-comments": "off"
+        },
+    }
 );

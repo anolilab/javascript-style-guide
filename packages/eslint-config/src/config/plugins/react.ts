@@ -32,7 +32,8 @@ export default createConfig<
     OptionsSilentConsoleLogs &
     OptionsStylistic &
     OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes
+    OptionsTypeScriptWithTypes &
+    { reactCompiler?: boolean }
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -42,6 +43,7 @@ export default createConfig<
         overrides,
         packageJson,
         prettier,
+        reactCompiler,
         silent,
         stylistic = true,
         tsconfigPath,
@@ -55,11 +57,13 @@ export default createConfig<
         "react-x/no-leaked-conditional-rendering": "error",
     };
 
-    const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
+    const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerf, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
         interopDefault(import("@eslint-react/eslint-plugin")),
         interopDefault(import("eslint-plugin-react")),
         interopDefault(import("eslint-plugin-react-hooks")),
         interopDefault(import("eslint-plugin-react-refresh")),
+        interopDefault(import("eslint-plugin-react-perf")),
+        interopDefault(import("eslint-plugin-react-you-might-not-need-an-effect")),
     ] as const);
 
     const isAllowConstantExport = hasPackageJsonAnyDependency(packageJson, ReactRefreshAllowConstantExportPackages);
@@ -70,6 +74,7 @@ export default createConfig<
     const { plugins } = pluginReactX.configs.all;
 
     let reactVersion = packageJson?.["dependencies"]?.["react"] || packageJson?.["devDependencies"]?.["react"];
+    let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
         const parsedVersion = parse(reactVersion);
@@ -83,6 +88,10 @@ export default createConfig<
                     `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
                 );
             }
+        }
+
+        if (parsedVersion?.major && parsedVersion.major >= 19) {
+            hasReactCompiler = true;
         }
     }
 
@@ -103,6 +112,17 @@ export default createConfig<
         }
     }
 
+    hasReactCompiler = hasReactCompiler && reactCompiler !== false;
+
+    let pluginReactCompiler;
+
+    if (hasReactCompiler) {
+        // eslint-disable-next-line no-console
+        console.info(`\n@anolilab/eslint-config enabling react-compiler plugin\n`);
+
+        pluginReactCompiler = interopDefault(import("eslint-plugin-react-compiler"));
+    }
+
     return [
         {
             name: "anolilab/react/setup",
@@ -112,9 +132,12 @@ export default createConfig<
                 "react-hooks": pluginReactHooks,
                 "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
                 "react-naming-convention": plugins["@eslint-react/naming-convention"],
+                "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
                 "react-web-api": plugins["@eslint-react/web-api"],
                 "react-x": plugins["@eslint-react"],
+                "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
+                ...hasReactCompiler ? { "react-compiler": pluginReactCompiler } : {},
             },
         },
         {
@@ -981,6 +1004,12 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
+                ...hasReactCompiler ? { "react-compiler/react-compiler": "error" } : {},
+
+                ...pluginReactPerf?.configs?.flat?.recommended?.rules,
+
+                "react-you-might-not-need-an-effect/you-might-not-need-an-effect": "warn",
+
                 ...prettier
                     ? {
                         "react/jsx-child-element-spacing": "off",
@@ -1012,6 +1041,12 @@ export default createConfig<
                     "Object.freeze", // https://tc39.github.io/ecma262/#sec-object.freeze
                 ],
                 react: {
+                    // The default value is "detect". Automatic detection works by loading the entire React library
+                    // into the linter's process, which is inefficient. It is recommended to specify the version
+                    // explicity.
+                    version: reactVersion ?? "detect",
+                },
+                "react-x": {
                     // The default value is "detect". Automatic detection works by loading the entire React library
                     // into the linter's process, which is inefficient. It is recommended to specify the version
                     // explicity.

@@ -220,11 +220,25 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `@eslint-react/eslint-plugin`
+     * - `eslint-plugin-react`
      * - `eslint-plugin-react-hooks`
      * - `eslint-plugin-react-refresh`
+     * - `eslint-plugin-react-perf`
+     * - `eslint-plugin-react-you-might-not-need-an-effect`
      * @default false
+     * Enabled this option automatically when react is installed.
      */
     react?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
+     * Enable react-compiler rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-react-compiler`
+     * @default false
+     * Enabled this option automatically when react version is 19 or higher.
+     */
+    reactCompiler?: boolean;
 
     /**
      * Enable regexp rules.

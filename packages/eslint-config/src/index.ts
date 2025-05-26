@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { ensurePackages, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import type { Linter } from "eslint";
 import { FlatConfigComposer } from "eslint-flat-config-utils";
+import { parse } from "semver";
 
 import bestPractices from "./config/best-practices";
 import errors from "./config/errors";
@@ -65,6 +66,7 @@ import isInEditorEnvironment from "./utils/is-in-editor-environment";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
+export { getFilesGlobs } from "./utils/create-config";
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => (typeof options[key] === "boolean" ? {} : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
@@ -120,6 +122,16 @@ export const createConfig = async (
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
     const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
+    const reactVersion = packageJson?.["dependencies"]?.["react"] || packageJson?.["devDependencies"]?.["react"];
+    let hasReactCompiler = false;
+
+    if (reactVersion !== undefined) {
+        const parsedVersion = parse(reactVersion);
+
+        if (parsedVersion?.major && parsedVersion.major >= 19) {
+            hasReactCompiler = true;
+        }
+    }
 
     const {
         astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
@@ -438,7 +450,9 @@ export const createConfig = async (
             "eslint-plugin-react-hooks",
             "eslint-plugin-react-refresh",
             "@eslint-react/eslint-plugin",
+            "eslint-plugin-react-perf",
         ]),
+        reactCompiler: enableReactCompiler = hasReactCompiler,
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
@@ -482,7 +496,11 @@ export const createConfig = async (
         }
 
         if (enableReact) {
-            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks");
+            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks", "eslint-plugin-react-perf");
+        }
+
+        if (enableReact && enableReactCompiler) {
+            packages.push("eslint-plugin-react-compiler");
         }
 
         if (enableTestingLibrary) {
@@ -834,6 +852,7 @@ export const createConfig = async (
                 ...typescriptOptions,
                 overrides: getOverrides(options, "react"),
                 packageJson,
+                reactCompiler: enableReactCompiler,
                 silent,
                 tsconfigPath,
             }),

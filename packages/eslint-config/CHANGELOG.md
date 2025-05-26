@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.0.0...@anolilab/eslint-config@16.0.1) (2025-05-26)
+
+### Bug Fixes
+
+* **eslint-config:** fixed peerDependencies versions ([c0da1d3](https://github.com/anolilab/javascript-style-guide/commit/c0da1d3c61e86704060754c4b9fd0d0af7de683e))
+
 ## @anolilab/eslint-config [16.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@15.0.3...@anolilab/eslint-config@16.0.0) (2025-05-26)
 
 ### ⚠ BREAKING CHANGES

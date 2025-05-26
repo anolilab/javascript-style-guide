@@ -1,3 +1,26 @@
+## browserslist-config-anolilab [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.14...browserslist-config-anolilab@6.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **browserslist:** changed ssr from node 16 to 22
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **browserslist:** changed ssr from node 16 to 22, updated dev dependencies, allowed node 23 ([1bccf62](https://github.com/anolilab/javascript-style-guide/commit/1bccf629533f30efd19bc447814c7e38175c4af1))
+
+### Miscellaneous Chores
+
+* **browserslist-config-anolilab:** updated dev dependencies ([9a30cbf](https://github.com/anolilab/javascript-style-guide/commit/9a30cbf5d92c90dfb1f652ac9e62c39b1306e1a6))
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* update browserslist-config dependencies to latest versions ([d796cbf](https://github.com/anolilab/javascript-style-guide/commit/d796cbf141e7d52a4eaa3a3649dbad745953390e))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* updated dev dependencies ([89cb5c7](https://github.com/anolilab/javascript-style-guide/commit/89cb5c72b14fc27041783804f1098c2ecfc3cc33))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
 ## browserslist-config-anolilab [5.0.14](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@5.0.13...browserslist-config-anolilab@5.0.14) (2023-12-22)
 
 

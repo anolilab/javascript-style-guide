@@ -357,8 +357,8 @@ importers:
         version: 1.3.0
     devDependencies:
       '@anolilab/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier-config
+        specifier: 6.0.0
+        version: 6.0.0(prettier@3.5.3)
       '@anolilab/semantic-release-preset':
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
@@ -592,8 +592,8 @@ importers:
   packages/stylelint-config:
     dependencies:
       browserslist-config-anolilab:
-        specifier: 5.0.14
-        version: 5.0.14
+        specifier: 6.0.0
+        version: 6.0.0
       stylelint-config-clean-order:
         specifier: ^7.0.0
         version: 7.0.0(stylelint@16.19.1(typescript@5.8.3))
@@ -756,6 +756,13 @@ packages:
     hasBin: true
     peerDependencies:
       semantic-release: ^20.0 || ^21.0 || >=22.0.3
+
+  '@anolilab/prettier-config@6.0.0':
+    resolution: {integrity: sha512-BlVa77/CxXv6zQKHDo7wyQM2bCjHm6hbGlVdFHhSyLFVK3XdG/VQYEjDg3fwZTjS6pqRTqh+z9eHjk49FPNE6g==}
+    engines: {node: '>=20.18.* <=24.*'}
+    hasBin: true
+    peerDependencies:
+      prettier: 3.x
 
   '@anolilab/rc@1.1.7':
     resolution: {integrity: sha512-+yfKiVsBByHr/t4003Wx2wQG8SWxrDk9HvIvu5OfWWHTNAhzTBc1+CKY+0/jrXaKfbYqrMXda79MgKXx2gNxRA==}
@@ -3463,9 +3470,9 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  browserslist-config-anolilab@5.0.14:
-    resolution: {integrity: sha512-hdTr5BrjosrJRH3Z0PDqoVQJ63XJaXQXE8hT5uwJW+jWsyziq5DSlPbmM8TuoLJzCfOGsDkOg2RnY5JG7VGrkQ==}
-    engines: {node: '>=18.* <=21.*'}
+  browserslist-config-anolilab@6.0.0:
+    resolution: {integrity: sha512-4mwZJmN+ulsMomGbnn2eGbjVgQSjvUOUtcS4bnevfNd9hmicqOCPD3CdeEZT7tJbZQNIGbbwIK92utDSmbbXXg==}
+    engines: {node: '>=20.18.* <=24.*'}
 
   browserslist@4.24.4:
     resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
@@ -9598,6 +9605,10 @@ snapshots:
       - supports-color
       - typescript
 
+  '@anolilab/prettier-config@6.0.0(prettier@3.5.3)':
+    dependencies:
+      prettier: 3.5.3
+
   '@anolilab/rc@1.1.7(yaml@2.8.0)':
     dependencies:
       '@visulima/fs': 3.1.2(yaml@2.8.0)
@@ -13020,7 +13031,7 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  browserslist-config-anolilab@5.0.14: {}
+  browserslist-config-anolilab@6.0.0: {}
 
   browserslist@4.24.4:
     dependencies:

@@ -59,7 +59,7 @@ jobs:
             matrix:
                 os:
                     - "ubuntu-latest"
-                node_version: ["18", "20", "21", "22"]
+                node_version: ["22", "23", "24"]
                 # On the other platforms, we only test the lts node version
                 include:
                     - os: "macos-latest"
@@ -87,6 +87,10 @@ jobs:
                   # Pulls all commits (needed for NX)
                   fetch-depth: 0
 
+            - name: "Derive appropriate SHAs for base and head for `nx affected` commands"
+              id: "setSHAs"
+              uses: "nrwl/nx-set-shas@76907e7e5d3cd17ddb5e2b123389f054bffcdd03" # v4
+
             - name: "Setup resources and environment"
               id: "setup"
               uses: "anolilab/workflows/step/setup@main"
@@ -94,20 +98,31 @@ jobs:
                   node-version: "${{ matrix.node_version }}"
                   install-bun: false
 
+            # Temporary solution until Nx solve this https://github.com/nrwl/nx/issues/22259
+            - name: "Get changed files"
+              id: "files"
+              uses: "tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c" # v44.5.7
+              with:
+                  files_ignore_from_source_file: ".github/ignore-files-for-nx-affected.yml"
+                  base_sha: "${{ steps.setSHAs.outputs.base }}"
+                  separator: ","
+
             - name: "Build"
-              run: "pnpm run build:packages"
+              shell: "bash"
+              run: |
+                files="${{ steps.files.outputs.all_changed_files }}";
+                pnpm run build:affected:packages --files=${files//\\/\/}
 
-            - name: "Run test for browserslist-config-anolilab"
-              run: "pnpm run test:coverage:browserslist-config-anolilab"
+            - name: "Run tests"
+              shell: "bash"
+              run: |
+                files="${{ steps.files.outputs.all_changed_files }}";
 
-            - name: "Run test for stylelint-config"
-              run: "pnpm run test:coverage:stylelint-config"
-
-            - name: "Run stylelint config test"
-              run: "pnpm run test:stylelint"
-
-            - name: "Run babel config test"
-              run: "pnpm run test:babel"
+                if [[ ${{ matrix.os }} == "ubuntu-latest" && ${{ matrix.node_version }} == 22 ]]; then
+                    pnpm run test:affected:coverage --files=${files//\\/\/}
+                else
+                    pnpm run test:affected --files=${files//\\/\/}
+                fi
 
             - name: "Prepare nx cache"
               shell: "bash"

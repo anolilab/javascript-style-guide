@@ -1,19 +1,18 @@
-import type { Linter } from "eslint";
+import type { OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
-// @see https://github.com/storybookjs/eslint-plugin-storybook
-const config: Linter.Config = {
-    env: {
-        browser: true,
-        es6: true,
-        node: true,
-    },
-    overrides: [
-        {
-            extends: ["plugin:storybook/recommended"],
-            // For performance run storybook/recommended on test files, not regular code
-            files: ["**/*.stories.{ts,tsx,mdx}", ".storybook/**/*"],
-        },
-    ],
-};
+export default createConfig<OptionsOverrides>("storybook", async (config) => {
+    const { overrides } = config;
 
-export default config;
+    const storybookPlugin = await interopDefault(import("eslint-plugin-storybook"));
+
+    const options = [...storybookPlugin.configs["flat/recommended"]];
+
+    options[0].rules = {
+        ...options[0].rules,
+        ...overrides,
+    };
+
+    return options;
+});

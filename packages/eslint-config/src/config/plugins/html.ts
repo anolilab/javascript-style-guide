@@ -1,74 +1,54 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import type {
+    OptionsFiles,
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsStylistic,
+} from "../../types";
+import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
-import indent from "../../utils/indent";
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("html", async (config, oFiles) => {
+    const {
+        files = oFiles,
+        overrides,
+        prettier,
+        stylistic = true,
+    } = config;
 
-if (!global.hasAnolilabEsLintConfigPrettier && (hasDependency("prettier") || hasDevDependency("prettier"))) {
-    global.hasAnolilabEsLintConfigPrettier = true;
-}
+    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
-if (global.hasAnolilabEsLintConfigPrettier) {
-    global.anolilabEslintConfigHtmlPrettierRules = {
-        "@html-eslint/element-newline": "off",
-        "@html-eslint/indent": "off",
-        "@html-eslint/no-extra-spacing-attrs": "off",
-        "@html-eslint/quotes": "off",
-    };
+    const htmlPlugin = await interopDefault(import("eslint-plugin-html"));
 
-    global.anolilabEslintConfigHtmlPrettierSettings = {
-        "html/report-bad-indent": "off",
-    };
-}
-
-let settings: Linter.Config["settings"] = {};
-
-if (!global.hasAnolilabEsLintConfigPrettier) {
-    settings = {
-        "html/indent": `+${indent}`,
-    };
-}
-
-const config: Linter.Config = {
-    overrides: [
+    return [
         {
-            extends: ["plugin:@html-eslint/recommended"],
-            files: [
-                "**/*.erb",
-                "**/*.handlebars",
-                "**/*.hbs",
-                "**/*.htm",
-                "**/*.html",
-                "**/*.mustache",
-                "**/*.nunjucks",
-                "**/*.php",
-                "**/*.tag",
-                "**/*.twig",
-                "**/*.we",
-            ],
-            globals: {
-                sourceCode: true,
+            files,
+            name: "anolilab/html/setup",
+            plugins: {
+                html: htmlPlugin,
             },
-            env: {
-                browser: true,
-                node: false,
-            },
-            parser: "@html-eslint/parser",
-            plugins: ["html", "@html-eslint"],
             rules: {
                 "@html-eslint/indent": ["error", indent],
                 "capitalized-comments": "off",
                 // @see https://github.com/yeonjuan/html-eslint/issues/67 bug in html-eslint
                 "spaced-comment": "off",
 
-                ...global.anolilabEslintConfigHtmlPrettierRules,
+                ...prettier
+                    ? {
+                        "@html-eslint/element-newline": "off",
+                        "@html-eslint/indent": "off",
+                        "@html-eslint/no-extra-spacing-attrs": "off",
+                        "@html-eslint/quotes": "off",
+                    }
+                    : {},
+
+                ...overrides,
             },
+
             settings: {
+                "html/indent": `+${indent}`,
                 "html/report-bad-indent": "error",
-                ...settings,
-                ...global.anolilabEslintConfigHtmlPrettierSettings,
+                ...prettier ? { "html/report-bad-indent": "off" } : {},
             },
         },
-    ],
-};
-
-export default config;
+    ];
+});

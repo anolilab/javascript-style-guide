@@ -22,46 +22,34 @@
         "eslint-plugin-antfu",
         "eslint-plugin-compat",
         "eslint-plugin-es",
+        "eslint-plugin-es-x",
         "eslint-plugin-eslint-comments",
         "eslint-plugin-html",
         "eslint-plugin-i",
+        "@tanstack/eslint-plugin-router",
         "eslint-plugin-jsonc",
-        "eslint-plugin-markdown",
-        "eslint-plugin-mdx",
-        "eslint-plugin-no-loops",
+        "eslint-markdown",
         "eslint-plugin-no-secrets",
         "eslint-plugin-no-use-extend-native",
         "eslint-plugin-promise",
         "eslint-plugin-regexp",
-        "eslint-plugin-simple-import-sort",
         "eslint-plugin-sonarjs",
         "eslint-plugin-toml",
         "eslint-plugin-unicorn",
         "eslint-plugin-yml",
-        "eslint-plugin-array-func",
-        "eslint-plugin-ava",
-        "eslint-plugin-babel",
-        "eslint-plugin-cypress",
-        "eslint-plugin-jest",
-        "eslint-plugin-jest-async",
-        "eslint-plugin-jest-dom",
-        "eslint-plugin-jest-formatting",
         "eslint-plugin-playwright",
         "eslint-plugin-jsdoc",
         "eslint-plugin-jsx-a11y",
         "eslint-plugin-n",
         "eslint-plugin-no-unsanitized",
-        "eslint-plugin-prefer-object-spread",
         "eslint-plugin-react",
         "eslint-plugin-react-hooks",
-        "eslint-plugin-react-redux",
         "eslint-plugin-storybook",
         "eslint-plugin-tailwindcss",
         "eslint-plugin-testing-library",
         "eslint-plugin-tsdoc",
-        "eslint-plugin-etc",
-        "eslint-plugin-you-dont-need-lodash-underscore",
-        "eslint-plugin-you-dont-need-momentjs"
+        "eslint-plugin-no-for-of-array",
+        "eslint-plugin-you-dont-need-lodash-underscore"
     ],
     "homepage": "https://anolilab.com/nodejs/packages/eslint-config",
     "repository": {
@@ -84,206 +72,184 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
-    "type": "commonjs",
+    "sideEffects": false,
+    "type": "module",
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "require": "./dist/index.js"
-        },
-        "./typescript-type-checking": {
-            "types": "./dist/typescript-type-checking.d.ts",
-            "require": "./dist/typescript-type-checking.js"
-        },
-        "./globals": {
-            "types": "./dist/globals.d.ts",
-            "require": "./dist/globals.js"
-        },
-        "./define-config": {
-            "types": "./dist/define-config.d.ts",
-            "require": "./dist/define-config.js"
+            "import": {
+                "types": "./dist/index.d.tjs",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
         },
         "./package.json": "./package.json"
     },
-    "main": "dist/index.js",
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
-    "bin": {
-        "anolilab-eslint-config": "./bin/generate-eslint-cofig.js"
+    "typesVersions": {
+        ">=5.0": {
+            ".": [
+                "./dist/index.d.ts"
+            ]
+        }
     },
     "files": [
-        "bin/generate-eslint-cofig.js",
-        "dist",
-        "skip.js",
-        "globals.js",
-        "typescript-type-checking.js",
-        "README.md",
         "CHANGELOG.md",
-        "LICENSE.md"
+        "LICENSE.md",
+        "README.md",
+        "dist"
     ],
     "scripts": {
-        "build": "cross-env NODE_ENV=development tsup",
-        "build:prod": "cross-env NODE_ENV=production tsup",
+        "build": "pnpm run build:global-vitest && pnpm run build:typegen && packem build --development",
+        "build:global-vitest": "tsx ./scripts/global-vitest.ts",
+        "build:prod": "pnpm run build:global-vitest && pnpm run build:typegen && packem build --production",
+        "build:typegen": "tsx ./scripts/typegen.ts",
         "clean": "rimraf node_modules dist",
-        "postinstall": "node ./skip.js || node ./dist/postinstall.js",
-        "test": "vitest --config ./vitest.config.ts",
-        "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
+        "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",
+        "lint:attw": "attw --pack",
+        "lint:eslint": "eslint .",
+        "lint:eslint:fix": "eslint . --fix",
+        "lint:prettier": "prettier --config=.prettierrc.js --check .",
+        "lint:prettier:fix": "prettier --config=.prettierrc.js --write .",
+        "test": "vitest run || exit 0",
+        "test:coverage": "vitest run --coverage || exit 0",
+        "test:ui": "vitest --ui --coverage.enabled=true",
+        "test:watch": "vitest"
     },
     "dependencies": {
-        "@anolilab/package-json-utils": "3.0.9",
-        "@babel/eslint-parser": "^7.22.15",
-        "@babel/plugin-syntax-import-assertions": "^7.22.5",
-        "@eslint/js": "^8.52.0",
-        "@html-eslint/eslint-plugin": "^0.20.0",
-        "@html-eslint/parser": "^0.20.0",
-        "@jsenv/eslint-import-resolver": ">=8.0.4",
-        "@rushstack/eslint-patch": "^1.5.1",
-        "@rushstack/eslint-plugin-security": "^0.7.1",
-        "@typescript-eslint/eslint-plugin": ">=6.9.1",
-        "@typescript-eslint/parser": "^6.9.1",
+        "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
+        "@eslint/compat": "^1.2.9",
+        "@eslint/js": "^9.27.0",
+        "@eslint/markdown": "^6.4.0",
+        "@html-eslint/eslint-plugin": "^0.40.3",
+        "@html-eslint/parser": "^0.40.0",
+        "@stylistic/eslint-plugin": "^4.2.0",
+        "@stylistic/eslint-plugin-ts": "^4.2.0",
+        "@typescript-eslint/eslint-plugin": "^8.32.1",
+        "@typescript-eslint/parser": "^8.32.1",
+        "@visulima/package": "^3.5.4",
+        "@visulima/tsconfig": "^1.1.16",
+        "@vitest/eslint-plugin": "^1.2.0",
         "confusing-browser-globals": "^1.0.11",
-        "eslint-define-config": "^1.24.1",
+        "eslint-config-flat-gitignore": "^2.1.0",
+        "eslint-flat-config-utils": "^2.1.0",
         "eslint-import-resolver-node": "^0.3.9",
-        "eslint-import-resolver-typescript": "^3.6.1",
-        "eslint-plugin-antfu": "^1.0.1",
-        "eslint-plugin-compat": "^4.2.0",
-        "eslint-plugin-es-x": "^7.2.0",
-        "eslint-plugin-eslint-comments": "^3.2.0",
-        "eslint-plugin-html": "^7.1.0",
-        "eslint-plugin-i": "^2.29.0",
-        "eslint-plugin-jsonc": "^2.10.0",
-        "eslint-plugin-markdown": "^3.0.1",
-        "eslint-plugin-mdx": "^2.2.0",
-        "eslint-plugin-n": "^16.2.0",
-        "eslint-plugin-no-loops": "^0.3.0",
-        "eslint-plugin-no-only-tests": "^3.1.0",
-        "eslint-plugin-no-secrets": "^0.8.9",
-        "eslint-plugin-no-use-extend-native": "^0.5.0",
-        "eslint-plugin-perfectionist": "^2.2.0",
-        "eslint-plugin-promise": "^6.1.1",
-        "eslint-plugin-regexp": "^2.1.1",
-        "eslint-plugin-security": "^1.7.1",
-        "eslint-plugin-simple-import-sort": "^10.0.0",
-        "eslint-plugin-sonarjs": "^0.22.0",
-        "eslint-plugin-toml": "^0.6.0",
-        "eslint-plugin-unicorn": "^49.0.0",
-        "eslint-plugin-yml": "^1.10.0",
-        "find-up": "5.0.0",
-        "globals": "^13.23.0",
+        "eslint-import-resolver-typescript": "^4.3.5",
+        "eslint-merge-processors": "^2.0.0",
+        "eslint-plugin-antfu": "^3.1.1",
+        "eslint-plugin-compat": "^6.0.2",
+        "eslint-plugin-es-x": "^8.6.2",
+        "eslint-plugin-html": "^8.1.3",
+        "eslint-plugin-import-x": "^4.12.2",
+        "eslint-plugin-jsdoc": "^50.6.17",
+        "eslint-plugin-jsonc": "^2.20.1",
+        "eslint-plugin-n": "^17.18.0",
+        "eslint-plugin-no-for-of-array": "^0.1.0",
+        "eslint-plugin-no-only-tests": "^3.3.0",
+        "eslint-plugin-no-secrets": "^2.2.1",
+        "eslint-plugin-no-unsanitized": "^4.1.2",
+        "eslint-plugin-perfectionist": "^4.13.0",
+        "eslint-plugin-promise": "^7.2.1",
+        "eslint-plugin-regexp": "^2.7.0",
+        "eslint-plugin-security": "^3.0.1",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
+        "eslint-plugin-sonarjs": "^3.0.2",
+        "eslint-plugin-toml": "^0.12.0",
+        "eslint-plugin-unicorn": "^59.0.1",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "eslint-plugin-yml": "^1.18.0",
+        "globals": "^16.1.0",
         "jsonc-eslint-parser": "^2.4.0",
-        "read-pkg-up": "^7.0.1",
-        "semver": "^7.5.4",
-        "toml-eslint-parser": "^0.6.0",
-        "yaml-eslint-parser": "^1.2.2"
+        "parse-gitignore": "^2.0.0",
+        "semver": "^7.7.2",
+        "toml-eslint-parser": "^0.10.0",
+        "typescript-eslint": "^8.32.1",
+        "yaml-eslint-parser": "^1.3.0"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "8.0.3",
-        "@arthurgeron/eslint-plugin-react-usememo": "^2.2.1",
-        "@testing-library/dom": "^9.3.3",
-        "@total-typescript/ts-reset": "^0.5.1",
+        "@anolilab/prettier-config": "^5.0.14",
+        "@anolilab/semantic-release-preset": "10.0.5",
+        "@eslint-react/eslint-plugin": "^1.49.0",
+        "@eslint/config-inspector": "^1.0.2",
+        "@stylistic/eslint-plugin-migrate": "^4.2.0",
+        "@tanstack/eslint-plugin-query": "^5.74.7",
+        "@tanstack/eslint-plugin-router": "^1.115.0",
+        "@testing-library/dom": "^10.4.0",
+        "@total-typescript/ts-reset": "^0.6.1",
         "@types/confusing-browser-globals": "^1.0.3",
-        "@types/eslint": "^8.56.0",
-        "@types/semver": "^7.5.6",
-        "eslint": "^8.56.0",
-        "eslint-find-rules": "^4.1.0",
-        "eslint-plugin-babel": "^5.3.1",
-        "eslint-plugin-cypress": "^2.15.1",
-        "eslint-plugin-deprecation": "^2.0.0",
-        "eslint-plugin-editorconfig": "^4.0.3",
-        "eslint-plugin-etc": "^2.0.3",
-        "eslint-plugin-jest": "^27.6.0",
-        "eslint-plugin-jest-async": "^1.0.3",
-        "eslint-plugin-jest-dom": "^5.1.0",
-        "eslint-plugin-jest-formatting": "^3.1.0",
-        "eslint-plugin-jsdoc": "^46.9.1",
-        "eslint-plugin-jsx-a11y": "^6.8.0",
-        "eslint-plugin-no-unsanitized": "^4.0.2",
-        "eslint-plugin-prefer-object-spread": "^1.2.1",
-        "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-react-redux": "^4.1.0",
-        "eslint-plugin-ssr-friendly": "^1.3.0",
-        "eslint-plugin-storybook": "^0.6.15",
-        "eslint-plugin-tailwindcss": "^3.13.0",
-        "eslint-plugin-testing-library": "^6.2.0",
+        "@types/eslint": "^9.6.1",
+        "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+        "@types/eslint-plugin-tailwindcss": "^3.17.0",
+        "@types/semver": "^7.7.0",
+        "@unocss/eslint-plugin": "^66.1.2",
+        "@visulima/packem": "^1.19.1",
+        "astro-eslint-parser": "^1.2.2",
+        "esbuild": "^0.25.4",
+        "eslint": "^9.27.0",
+        "eslint-plugin-astro": "^1.3.1",
+        "eslint-plugin-format": "^1.0.1",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^5.2.0",
+        "eslint-plugin-react-refresh": "^0.4.20",
+        "eslint-plugin-storybook": "^0.12.0",
+        "eslint-plugin-tailwindcss": "^3.18.0",
+        "eslint-plugin-testing-library": "^7.2.1",
+        "eslint-plugin-tsdoc": "^0.4.0",
         "eslint-plugin-validate-jsx-nesting": "^0.1.1",
-        "eslint-plugin-vitest": "^0.3.18",
-        "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
-        "eslint-plugin-you-dont-need-momentjs": "^1.6.0",
+        "eslint-plugin-vitest": "^0.5.4",
+        "eslint-plugin-you-dont-need-lodash-underscore": "^6.14.0",
         "eslint-plugin-zod": "^1.4.0",
-        "jest": "^29.7.0",
-        "react": "^18.2.0",
-        "rimraf": "^5.0.5",
-        "semantic-release": "^22.0.12",
-        "tsup": "^8.0.1",
-        "type-fest": "^4.8.3",
-        "typescript": "^5.3.3",
-        "vitest": "^1.1.0"
+        "eslint-typegen": "^2.2.0",
+        "execa": "^9.5.3",
+        "prettier": "^3.5.3",
+        "react": "^19.1.0",
+        "rimraf": "^6.0.1",
+        "semantic-release": "^24.2.4",
+        "tinyglobby": "^0.2.13",
+        "tsx": "^4.19.4",
+        "type-fest": "^4.41.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.1.4"
     },
     "peerDependencies": {
-        "@arthurgeron/eslint-plugin-react-usememo": "^2.0.1",
         "@babel/core": "^7.22.20",
-        "@tanstack/eslint-plugin-query": "^4.34.1 || ^5.0.0",
-        "eslint": "^8.15.0",
-        "eslint-plugin-array-func": "^4.0.0",
-        "eslint-plugin-ava": "^14.0.0",
-        "eslint-plugin-babel": "^5.3.1",
-        "eslint-plugin-cypress": "^2.15.1",
-        "eslint-plugin-editorconfig": "^4.0.3",
-        "eslint-plugin-jest": "^27.4.0",
-        "eslint-plugin-jest-async": "^1.0.3",
-        "eslint-plugin-jest-dom": "^5.1.0",
-        "eslint-plugin-jest-formatting": "^3.1.0",
-        "eslint-plugin-jsdoc": "^46.8.2",
+        "@eslint-react/eslint-plugin": "^1.22.1",
+        "@tanstack/eslint-plugin-query": "^5.0.0",
+        "@tanstack/eslint-plugin-router": "^1.92.7",
+        "@unocss/eslint-plugin": "^0.65.3",
+        "astro-eslint-parser": "^1.1.0",
+        "eslint": "^9.10.0",
+        "eslint-plugin-astro": "^1.3.1",
+        "eslint-plugin-format": ">=0.1.0",
         "eslint-plugin-jsx-a11y": "^6.7.1",
-        "eslint-plugin-no-unsanitized": "^4.0.2",
         "eslint-plugin-playwright": "^0.16.0 || ^0.18.0",
-        "eslint-plugin-prefer-object-spread": "^1.2.1",
-        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react": "^7.37.3",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-react-redux": "^4.0.0",
-        "eslint-plugin-ssr-friendly": "^1.2.0",
+        "eslint-plugin-react-refresh": "^0.4.16",
         "eslint-plugin-storybook": "^0.6.14",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "eslint-plugin-testing-library": "^6.0.1",
         "eslint-plugin-tsdoc": "^0.2.17",
         "eslint-plugin-validate-jsx-nesting": "^0.1.1",
         "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
-        "eslint-plugin-you-dont-need-momentjs": "^1.6.0"
+        "eslint-plugin-zod": "^1.4.0"
     },
     "peerDependenciesMeta": {
-        "@arthurgeron/eslint-plugin-react-usememo": {
+        "@eslint-react/eslint-plugin": {
             "optional": true
         },
         "@tanstack/eslint-plugin-query": {
             "optional": true
         },
-        "eslint-plugin-array-func": {
+        "@tanstack/eslint-plugin-router": {
             "optional": true
         },
-        "eslint-plugin-ava": {
-            "optional": true
-        },
-        "eslint-plugin-babel": {
-            "optional": true
-        },
-        "eslint-plugin-cypress": {
-            "optional": true
-        },
-        "eslint-plugin-editorconfig": {
-            "optional": true
-        },
-        "eslint-plugin-jest": {
-            "optional": true
-        },
-        "eslint-plugin-jest-async": {
-            "optional": true
-        },
-        "eslint-plugin-jest-dom": {
-            "optional": true
-        },
-        "eslint-plugin-jest-formatting": {
-            "optional": true
-        },
-        "eslint-plugin-jsdoc": {
+        "@unocss/eslint-plugin": {
             "optional": true
         },
         "eslint-plugin-jsx-a11y": {
@@ -292,25 +258,13 @@
         "eslint-plugin-n": {
             "optional": true
         },
-        "eslint-plugin-no-unsanitized": {
-            "optional": true
-        },
         "eslint-plugin-playwright": {
-            "optional": true
-        },
-        "eslint-plugin-prefer-object-spread": {
             "optional": true
         },
         "eslint-plugin-react": {
             "optional": true
         },
         "eslint-plugin-react-hooks": {
-            "optional": true
-        },
-        "eslint-plugin-react-redux": {
-            "optional": true
-        },
-        "eslint-plugin-ssr-friendly": {
             "optional": true
         },
         "eslint-plugin-storybook": {
@@ -331,7 +285,7 @@
         "eslint-plugin-you-dont-need-lodash-underscore": {
             "optional": true
         },
-        "eslint-plugin-you-dont-need-momentjs": {
+        "eslint-plugin-zod": {
             "optional": true
         },
         "typescript": {
@@ -339,77 +293,10 @@
         }
     },
     "engines": {
-        "node": ">=18.* <=21.*"
+        "node": ">=18.* <=23.*"
     },
     "publishConfig": {
         "access": "public",
         "provenance": true
-    },
-    "sources": [
-        "src/config/best-practices.ts",
-        "src/config/errors.ts",
-        "src/config/es6.ts",
-        "src/config/plugins/antfu.ts",
-        "src/config/plugins/array-func.ts",
-        "src/config/plugins/ava.ts",
-        "src/config/plugins/babel.ts",
-        "src/config/plugins/compat.ts",
-        "src/config/plugins/cypress.ts",
-        "src/config/plugins/deprecation.ts",
-        "src/config/plugins/es.ts",
-        "src/config/plugins/eslint-comments.ts",
-        "src/config/plugins/etc.ts",
-        "src/config/plugins/editorconfig.ts",
-        "src/config/plugins/html.ts",
-        "src/config/plugins/import.ts",
-        "src/config/plugins/jest-async.ts",
-        "src/config/plugins/jest-dom.ts",
-        "src/config/plugins/jest-formatting.ts",
-        "src/config/plugins/jest.ts",
-        "src/config/plugins/jsdoc.ts",
-        "src/config/plugins/jsonc.ts",
-        "src/config/plugins/jsx-a11y.ts",
-        "src/config/plugins/markdown.ts",
-        "src/config/plugins/mdx.ts",
-        "src/config/plugins/no-extend-native.ts",
-        "src/config/plugins/no-loops.ts",
-        "src/config/plugins/no-only-tests.ts",
-        "src/config/plugins/no-secrets.ts",
-        "src/config/plugins/no-unsanitized.ts",
-        "src/config/plugins/node.ts",
-        "src/config/plugins/perfectionist.ts",
-        "src/config/plugins/playwright.ts",
-        "src/config/plugins/promise.ts",
-        "src/config/plugins/regexp.ts",
-        "src/config/plugins/react.ts",
-        "src/config/plugins/react-hooks.ts",
-        "src/config/plugins/react-redux.ts",
-        "src/config/plugins/react-usememo.ts",
-        "src/config/plugins/security.ts",
-        "src/config/plugins/simple-import-sort.ts",
-        "src/config/plugins/sonarjs.ts",
-        "src/config/plugins/ssr-friendly.ts",
-        "src/config/plugins/storybook.ts",
-        "src/config/plugins/tailwindcss.ts",
-        "src/config/plugins/tanstack-query.ts",
-        "src/config/plugins/testing-library-dom.ts",
-        "src/config/plugins/testing-library-react.ts",
-        "src/config/plugins/toml.ts",
-        "src/config/plugins/tsdoc.ts",
-        "src/config/plugins/typescript.ts",
-        "src/config/plugins/unicorn.ts",
-        "src/config/plugins/validate-jsx-nesting.ts",
-        "src/config/plugins/vitest.ts",
-        "src/config/plugins/yml.ts",
-        "src/config/plugins/you-dont-need-lodash-underscore.ts",
-        "src/config/plugins/you-dont-need-momentjs.ts",
-        "src/config/plugins/zod.ts",
-        "src/config/style.ts",
-        "src/config/variables.ts",
-        "src/globals.ts",
-        "src/index.ts",
-        "src/postinstall.ts",
-        "src/typescript-type-checking.ts",
-        "src/define-config.ts"
-    ]
+    }
 }

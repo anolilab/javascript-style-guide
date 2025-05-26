@@ -1,55 +1,60 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import { createConfigs } from "../../utils/create-config";
-import { consoleLog } from "../../utils/loggers";
-
-if (
-    !global.hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys &&
-    (hasDependency("eslint-plugin-typescript-sort-keys") || hasDevDependency("eslint-plugin-typescript-sort-keys"))
-) {
-    global.hasAnolilabEsLintConfigPerfectionistTypescriptSortKeys = true;
-
-    consoleLog('\nPlease remove "eslint-plugin-typescript-sort-keys" from your package.json, it conflicts with "eslint-plugin-perfectionist".\n');
-}
+import type { OptionsFiles, OptionsOverrides, OptionsPackageJson } from "../../types";
+import { createConfig, getFilesGlobs } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/azat-io/eslint-plugin-perfectionist
-const config: Linter.Config = createConfigs([
-    {
-        config: {
-            extends: ["plugin:perfectionist/recommended-natural"],
-            plugins: ["perfectionist"],
+export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides, packageJson } = config;
+
+    const pluginPerfectionist = await interopDefault(import("eslint-plugin-perfectionist"));
+
+    if (hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-typescript-sort-keys"])) {
+        // eslint-disable-next-line no-console
+        console.warn("\nPlease remove \"eslint-plugin-typescript-sort-keys\" from your package.json, it conflicts with \"eslint-plugin-perfectionist\".\n");
+    }
+
+    return [
+        {
+            name: "anolilab/perfectionist/setup",
+            plugins: {
+                perfectionist: pluginPerfectionist,
+            },
+        },
+        {
+            files,
+            name: "anolilab/perfectionist/rules",
             rules: {
+                ...pluginPerfectionist.configs["recommended-natural"].rules,
+
                 // Disabled because of sort-imports
                 "perfectionist/sort-imports": "off",
-                // Disabled because of @typescript-eslint/sort-type-constituents
-                "perfectionist/sort-union-types": "off",
+                // Disabled because of simple-import-sort/exports
+                "perfectionist/sort-named-exports": "off",
 
                 // Disabled because of simple-import-sort/imports
                 "perfectionist/sort-named-imports": "off",
-                // Disabled because of simple-import-sort/exports
-                "perfectionist/sort-named-exports": "off",
+                // Disabled because of @typescript-eslint/sort-type-constituents
+                "perfectionist/sort-union-types": "off",
+
+                ...overrides,
             },
         },
-        type: "all",
-    },
-    {
-        config: {
+        {
+            files: getFilesGlobs("ts"),
+            name: "anolilab/perfectionist/typescript",
             rules: {
                 // Disabled because of @typescript-eslint/member-ordering
                 "perfectionist/sort-classes": "off",
             },
         },
-        type: "typescript",
-    },
-    {
-        config: {
+        {
+            files: getFilesGlobs("postcss"),
+            name: "anolilab/perfectionist/postcss",
             rules: {
                 "perfectionist/sort-objects": "off",
             },
         },
-        type: "postcss",
-    },
-]);
-
-export default config;
+    ];
+});

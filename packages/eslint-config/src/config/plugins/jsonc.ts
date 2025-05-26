@@ -1,120 +1,368 @@
-import { env } from "node:process";
-
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
 import type { Linter } from "eslint";
 
-import anolilabEslintConfig from "../../utils/eslint-config";
-import { consoleLog } from "../../utils/loggers";
+import type {
+    OptionsHasPrettier,
+    OptionsOverrides,
+    OptionsPackageJson,
+    OptionsSilentConsoleLogs,
+    OptionsStylistic,
+    TypedFlatConfigItem,
+} from "../../types";
+import interopDefault from "../../utils/interop-default";
 
-const extendedPlugins: string[] = [];
+const jsonc = async (
+    config: OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsSilentConsoleLogs & OptionsStylistic,
+): Promise<TypedFlatConfigItem[]> => {
+    const {
+        overrides,
+        packageJson,
+        prettier,
+        silent,
+        stylistic = true,
+    } = config;
+    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
-if (hasDependency("prettier") || hasDevDependency("prettier")) {
-    extendedPlugins.push("plugin:jsonc/prettier");
-}
+    const jsoncPlugin = await interopDefault(import("eslint-plugin-jsonc"));
 
-if (!global.hasAnolilabEsLintConfigJsoncPackageJsonSort && (hasDependency("sort-package-json") || hasDevDependency("sort-package-json"))) {
-    global.hasAnolilabEsLintConfigJsoncPackageJsonSort = true;
+    const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, ["sort-package-json"]);
 
-    let showLog: boolean = env["DISABLE_INFO_ON_DISABLING_JSONC_SORT_KEYS_RULE"] !== "true";
-
-    if (showLog && anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] !== undefined) {
-        showLog = anolilabEslintConfig["info_on_disabling_jsonc_sort_keys_rule"] as boolean;
-    }
-
-    if (showLog) {
-        consoleLog(`\n@anolilab/eslint-config found "sort-package-json" package. \n
+    if (hasSortPackageJson && !silent) {
+        // eslint-disable-next-line no-console
+        console.info(`\n@anolilab/eslint-config found "sort-package-json" package. \n
     Following rules are disabled: jsonc/sort-keys for all package.json files. \n`);
     }
-}
 
-const config: Linter.Config = {
-    overrides: [
+    return [
+        ...jsoncPlugin.configs["flat/base"],
         {
-            extends: extendedPlugins,
-            files: ["**/*.json", "**/*.json5", "**/*.jsonc"],
-            parser: "jsonc-eslint-parser",
-        },
-        {
-            extends: ["plugin:jsonc/recommended-with-json5"],
             files: ["**/*.json5"],
+            name: "anolilab/jsonc/json5-rules",
+            rules: (jsoncPlugin.configs["recommended-with-json5"] as Linter.Config).rules,
         },
         {
-            extends: ["plugin:jsonc/recommended-with-jsonc"],
             files: ["**/*.jsonc"],
+            name: "anolilab/jsonc/jsonc-rules",
+            rules: (jsoncPlugin.configs["recommended-with-jsonc"] as Linter.Config).rules,
         },
         {
-            extends: ["plugin:jsonc/recommended-with-json"],
             files: ["**/*.json"],
+            name: "anolilab/jsonc/json-rules",
+            rules: (jsoncPlugin.configs["recommended-with-json"] as Linter.Config).rules,
         },
         {
-            extends: ["plugin:jsonc/recommended-with-json"],
-            files: ["package.json"],
+            files: ["package.json", "**/package.json"],
+            name: "anolilab/jsonc/package.json-rules",
             rules: {
-                // When the package "sort-package-json" is installed, we disable the rule "jsonc/sort-keys" because, the package "sort-package-json" is responsible for sorting the keys.
-                "jsonc/sort-keys": global.hasAnolilabEsLintConfigJsoncPackageJsonSort
+                "jsonc/sort-array-values": hasSortPackageJson
+                    ? "off"
+                    : [
+                        "error",
+                        {
+                            order: { type: "asc" },
+                            pathPattern: "^files$",
+                        },
+                    ],
+
+                // When the package "sort-package-json" is installed, we disable the rule "jsonc/sort-keys" because,
+                // the package "sort-package-json" is responsible for sorting the keys.
+                "jsonc/sort-keys": hasSortPackageJson
                     ? "off"
                     : [
                         "error",
                         {
                             order: [
-                                "publisher",
+                                "$schema",
                                 "name",
                                 "displayName",
-                                "type",
                                 "version",
                                 "private",
-                                "packageManager",
                                 "description",
-                                "author",
-                                "license",
-                                "funding",
-                                "homepage",
-                                "repository",
-                                "bugs",
-                                "keywords",
                                 "categories",
+                                "keywords",
+                                "homepage",
+                                "bugs",
+                                "repository",
+                                "funding",
+                                "license",
+                                "qna",
+                                "author",
+                                "maintainers",
+                                "contributors",
+                                "publisher",
                                 "sideEffects",
+                                "type",
+                                "imports",
                                 "exports",
                                 "main",
-                                "module",
-                                "unpkg",
+                                "svelte",
+                                "umd:main",
                                 "jsdelivr",
+                                "unpkg",
+                                "module",
+                                "source",
+                                "jsnext:main",
+                                "browser",
+                                "react-native",
                                 "types",
                                 "typesVersions",
+                                "typings",
+                                "style",
+                                "example",
+                                "examplestyle",
+                                "assets",
                                 "bin",
-                                "icon",
+                                "man",
+                                "directories",
                                 "files",
-                                "engines",
-                                "activationEvents",
-                                "contributes",
+                                "workspaces",
+                                "binary",
                                 "scripts",
-                                "peerDependencies",
-                                "peerDependenciesMeta",
-                                "dependencies",
-                                "optionalDependencies",
-                                "devDependencies",
-                                "pnpm",
-                                "overrides",
-                                "resolutions",
+                                "betterScripts",
+                                "contributes",
+                                "activationEvents",
                                 "husky",
                                 "simple-git-hooks",
+                                "pre-commit",
+                                "commitlint",
                                 "lint-staged",
+                                "nano-staged",
+                                "config",
+                                "nodemonConfig",
+                                "browserify",
+                                "babel",
+                                "browserslist",
+                                "xo",
+                                "prettier",
                                 "eslintConfig",
+                                "eslintIgnore",
+                                "npmpackagejsonlint",
+                                "release",
+                                "remarkConfig",
+                                "stylelint",
+                                "ava",
+                                "jest",
+                                "mocha",
+                                "nyc",
+                                "tap",
+                                "oclif",
+                                "resolutions",
+                                "dependencies",
+                                "devDependencies",
+                                "dependenciesMeta",
+                                "peerDependencies",
+                                "peerDependenciesMeta",
+                                "optionalDependencies",
+                                "bundledDependencies",
+                                "bundleDependencies",
+                                "extensionPack",
+                                "extensionDependencies",
+                                "flat",
+                                "packageManager",
+                                "engines",
+                                "engineStrict",
+                                "volta",
+                                "languageName",
+                                "os",
+                                "cpu",
+                                "preferGlobal",
+                                "publishConfig",
+                                "icon",
+                                "badges",
+                                "galleryBanner",
+                                "preview",
+                                "markdown",
+                                "pnpm",
                             ],
                             pathPattern: "^$",
                         },
                         {
                             order: { type: "asc" },
-                            pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
+                            pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
                         },
                         {
-                            order: ["types", "require", "import"],
+                            order: { type: "asc" },
+                            pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$",
+                        },
+                        {
+                            order: ["types", "import", "require", "default"],
                             pathPattern: "^exports.*$",
+                        },
+                        {
+                            order: [
+                                "applypatch-msg",
+                                "pre-applypatch",
+                                "post-applypatch",
+                                "pre-commit",
+                                "pre-merge-commit",
+                                "prepare-commit-msg",
+                                "commit-msg",
+                                "post-commit",
+                                "pre-rebase",
+                                "post-checkout",
+                                "post-merge",
+                                "pre-push",
+                                "pre-receive",
+                                "update",
+                                "post-receive",
+                                "post-update",
+                                "push-to-checkout",
+                                "pre-auto-gc",
+                                "post-rewrite",
+                                "sendemail-validate",
+                                "fsmonitor-watchman",
+                                "p4-pre-submit",
+                                "post-index-chang",
+                            ],
+                            pathPattern: "^(?:gitHooks|husky|simple-git-hooks)$",
+                        },
+                        {
+                            order: ["build", "preinstall", "install", "postinstall", "lint", { order: { type: "asc" } }],
+                            pathPattern: "^scripts$",
                         },
                     ],
             },
         },
-    ],
+        {
+            files: ["**/tsconfig.json", "**/tsconfig.*.json"],
+            name: "anolilab/jsonc/tsconfig-json",
+            rules: {
+                "jsonc/sort-keys": [
+                    "error",
+                    {
+                        order: ["extends", "compilerOptions", "references", "files", "include", "exclude"],
+                        pathPattern: "^$",
+                    },
+                    {
+                        order: [
+                            /* Projects */
+                            "incremental",
+                            "composite",
+                            "tsBuildInfoFile",
+                            "disableSourceOfProjectReferenceRedirect",
+                            "disableSolutionSearching",
+                            "disableReferencedProjectLoad",
+                            /* Language and Environment */
+                            "target",
+                            "jsx",
+                            "jsxFactory",
+                            "jsxFragmentFactory",
+                            "jsxImportSource",
+                            "lib",
+                            "moduleDetection",
+                            "noLib",
+                            "reactNamespace",
+                            "useDefineForClassFields",
+                            "emitDecoratorMetadata",
+                            "experimentalDecorators",
+                            "libReplacement",
+                            /* Modules */
+                            "baseUrl",
+                            "rootDir",
+                            "rootDirs",
+                            "customConditions",
+                            "module",
+                            "moduleResolution",
+                            "moduleSuffixes",
+                            "noResolve",
+                            "paths",
+                            "resolveJsonModule",
+                            "resolvePackageJsonExports",
+                            "resolvePackageJsonImports",
+                            "typeRoots",
+                            "types",
+                            "allowArbitraryExtensions",
+                            "allowImportingTsExtensions",
+                            "allowUmdGlobalAccess",
+                            /* JavaScript Support */
+                            "allowJs",
+                            "checkJs",
+                            "maxNodeModuleJsDepth",
+                            /* Type Checking */
+                            "strict",
+                            "strictBindCallApply",
+                            "strictFunctionTypes",
+                            "strictNullChecks",
+                            "strictPropertyInitialization",
+                            "allowUnreachableCode",
+                            "allowUnusedLabels",
+                            "alwaysStrict",
+                            "exactOptionalPropertyTypes",
+                            "noFallthroughCasesInSwitch",
+                            "noImplicitAny",
+                            "noImplicitOverride",
+                            "noImplicitReturns",
+                            "noImplicitThis",
+                            "noPropertyAccessFromIndexSignature",
+                            "noUncheckedIndexedAccess",
+                            "noUnusedLocals",
+                            "noUnusedParameters",
+                            "useUnknownInCatchVariables",
+                            /* Emit */
+                            "declaration",
+                            "declarationDir",
+                            "declarationMap",
+                            "downlevelIteration",
+                            "emitBOM",
+                            "emitDeclarationOnly",
+                            "importHelpers",
+                            "importsNotUsedAsValues",
+                            "inlineSourceMap",
+                            "inlineSources",
+                            "mapRoot",
+                            "newLine",
+                            "noEmit",
+                            "noEmitHelpers",
+                            "noEmitOnError",
+                            "outDir",
+                            "outFile",
+                            "preserveConstEnums",
+                            "preserveValueImports",
+                            "removeComments",
+                            "sourceMap",
+                            "sourceRoot",
+                            "stripInternal",
+                            /* Interop Constraints */
+                            "allowSyntheticDefaultImports",
+                            "esModuleInterop",
+                            "forceConsistentCasingInFileNames",
+                            "isolatedDeclarations",
+                            "isolatedModules",
+                            "preserveSymlinks",
+                            "verbatimModuleSyntax",
+                            "erasableSyntaxOnly",
+                            /* Completeness */
+                            "skipDefaultLibCheck",
+                            "skipLibCheck",
+                        ],
+                        pathPattern: "^compilerOptions$",
+                    },
+                ],
+            },
+        },
+        ...prettier ? jsoncPlugin.configs["flat/prettier"] : [],
+        {
+            files: ["**/*.json", "**/*.jsonc", "**/*.json5"],
+            rules: {
+                ...stylistic
+                    ? {
+                        "jsonc/array-bracket-spacing": ["error", "never"],
+                        "jsonc/comma-dangle": ["error", "never"],
+                        "jsonc/comma-style": ["error", "last"],
+                        "jsonc/indent": ["error", indent],
+                        "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
+                        "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
+                        "jsonc/object-curly-spacing": ["error", "always"],
+                        "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+                        "jsonc/quote-props": "error",
+                        "jsonc/quotes": "error",
+                    }
+                    : {},
+
+                ...overrides,
+            },
+        },
+    ];
 };
 
-export default config;
+export default jsonc;

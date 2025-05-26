@@ -1,19 +1,20 @@
-import type { Linter } from "eslint";
-
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
 // @see https://github.com/francoismassart/eslint-plugin-tailwindcss,
-const config: Linter.Config = createConfig(
-    "jsx_and_tsx",
-    {
-        extends: ["plugin:tailwindcss/recommended"],
-        plugins: ["tailwindcss"],
-    },
-    {
-        browser: true,
-        es6: true,
-        node: true,
-    },
-);
+export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
 
-export default config;
+    const validateJsxNestingPlugin = await interopDefault(import("eslint-plugin-tailwindcss"));
+
+    const options = [...validateJsxNestingPlugin.configs["flat/recommended"]];
+
+    options[1].files = files;
+    options[1].rules = {
+        ...options[1].rules,
+        ...overrides,
+    };
+
+    return options;
+});

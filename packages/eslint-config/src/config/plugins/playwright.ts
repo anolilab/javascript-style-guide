@@ -1,37 +1,22 @@
-import { hasDependency, hasDevDependency } from "@anolilab/package-json-utils";
-import type { Linter } from "eslint";
+import type { OptionsFiles, OptionsOverrides } from "../../types";
+import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
-if (
-    !global.hasAnolilabEsLintConfigPlaywrightJest &&
-    (hasDependency("jest") ||
-        hasDevDependency("jest") ||
-        hasDevDependency("eslint-plugin-jest") ||
-        hasDevDependency("eslint-plugin-jest") ||
-        hasDevDependency("@types/jest") ||
-        hasDevDependency("@types/jest"))
-) {
-    global.hasAnolilabEsLintConfigPlaywrightJest = true;
-}
+export default createConfig<OptionsFiles & OptionsOverrides>("e2e", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
 
-// @see https://github.com/playwright-community/eslint-plugin-playwright
-const config: Linter.Config = {
-    env: {
-        browser: true,
-        es6: true,
-        node: true,
-    },
-    overrides: [
+    const pluginPlaywright = await interopDefault(import("eslint-plugin-playwright"));
+
+    return [
         {
-            extends: [global.hasAnolilabEsLintConfigPlaywrightJest ? "plugin:playwright/jest-playwright" : "plugin:playwright/recommended"],
-            // To ensure best performance enable only on e2e test files
-            files: ["**/e2e/**/*.test.{js,ts}"],
+            files,
+            plugins: {
+                playwright: pluginPlaywright,
+            },
             rules: {
-                "@typescript-eslint/no-empty-function": "off",
-                "@typescript-eslint/no-non-null-assertion": "off",
-                "@typescript-eslint/no-object-literal-type-assertion": "off",
+                ...pluginPlaywright.configs["recommended"].rules,
+                ...overrides,
             },
         },
-    ],
-};
-
-export default config;
+    ];
+});

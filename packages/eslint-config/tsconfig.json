@@ -2,5 +2,8 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "Node 16",
     "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "moduleResolution": "Bundler"
+    },
     "include": ["./src/**/*", "*.d.ts", "./__tests__/**/*", "./vitest.config.ts"]
 }

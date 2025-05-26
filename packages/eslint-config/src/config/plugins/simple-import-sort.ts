@@ -1,17 +1,25 @@
-import type { Linter } from "eslint";
-
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
+import interopDefault from "../../utils/interop-default";
 
-const config: Linter.Config = createConfig("all", {
-    env: { es6: true },
-    parserOptions: {
-        sourceType: "module",
-    },
-    plugins: ["simple-import-sort"],
-    rules: {
-        "simple-import-sort/exports": "error",
-        "simple-import-sort/imports": "error",
-    },
+export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides } = config;
+
+    const pluginSimpleImportSort = await interopDefault(import("eslint-plugin-simple-import-sort"));
+
+    return [
+        {
+            files,
+            name: "anolilab/simple-import-sort",
+            plugins: {
+                "simple-import-sort": pluginSimpleImportSort,
+            },
+            rules: {
+                "simple-import-sort/exports": "error",
+                "simple-import-sort/imports": "error",
+
+                ...overrides,
+            },
+        },
+    ];
 });
-
-export default config;

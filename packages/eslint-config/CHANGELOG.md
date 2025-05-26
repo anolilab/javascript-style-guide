@@ -1,3 +1,29 @@
+## @anolilab/eslint-config [16.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@15.0.3...@anolilab/eslint-config@16.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* updated eslint from v8 to v9
+
+### Features
+
+* refactor eslint ([#884](https://github.com/anolilab/javascript-style-guide/issues/884)) ([4703162](https://github.com/anolilab/javascript-style-guide/commit/470316245f931998b61daef16a66b4880117c5fe))
+
+### Miscellaneous Chores
+
+* **eslint-config:** enhance eslint-config documentation and update typegen script ([191db2d](https://github.com/anolilab/javascript-style-guide/commit/191db2d48bc3a2b34ed827a8241b9962f23152c8))
+* **eslint-config:** update dependencies to latest versions ([2126b90](https://github.com/anolilab/javascript-style-guide/commit/2126b90cb05820fa36f344f59d9032c16f86a549))
+* update eslint-config dependencies for workspace compatibility ([84be11d](https://github.com/anolilab/javascript-style-guide/commit/84be11ddcc3aa0a5c243ab427076363ff778fc35))
+* update eslint-config dependencies to latest versions ([c5d267f](https://github.com/anolilab/javascript-style-guide/commit/c5d267fce1eb6d917d59fc83e2e7a996b887ae23))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 6.0.0
+
 ## @anolilab/eslint-config [15.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@15.0.2...@anolilab/eslint-config@15.0.3) (2023-12-22)
 
 

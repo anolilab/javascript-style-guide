@@ -1,3 +1,32 @@
+## @anolilab/lint-staged-config [3.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.7...@anolilab/lint-staged-config@3.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **lint-staged-config:** a new defineConfig func is used to configure, all group exports where removed.
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **lint-staged-config:** added support for nano-staged ([e58cae1](https://github.com/anolilab/javascript-style-guide/commit/e58cae1e8343e068a4112f05dc3fe013bd88b7ae))
+* **lint-staged-config:** create a new defineConfig func to configure lint-staged or nano-staged, with better dx then have the config inside package.json ([8d269ad](https://github.com/anolilab/javascript-style-guide/commit/8d269adfe55de1c0b41a6242b182f395f44735c8))
+
+### Bug Fixes
+
+* **lint-staged-config:** updated @visulima/fs and package and all dev deps ([fc53693](https://github.com/anolilab/javascript-style-guide/commit/fc5369341bbc30f2704d864adacdaa56c5ffdcca))
+* refactored post-install to a bin call, fixed wrong namings ([#847](https://github.com/anolilab/javascript-style-guide/issues/847)) ([37ec01e](https://github.com/anolilab/javascript-style-guide/commit/37ec01e583932f92728b494d2fba91e30c8a9f34))
+
+### Miscellaneous Chores
+
+* clean update after code changes ([c1ec624](https://github.com/anolilab/javascript-style-guide/commit/c1ec6245a20abfcf1e1d717e148464480f59262c))
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* update lint-staged-config dependencies for compatibility ([b6c656d](https://github.com/anolilab/javascript-style-guide/commit/b6c656d3d22f5cb358468c61c30ccc4bdc22b8ea))
+* update lint-staged-config dependencies to latest versions ([5b4e12f](https://github.com/anolilab/javascript-style-guide/commit/5b4e12f9f162ea30cb7757de55375bf53b9031c3))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
 ## @anolilab/lint-staged-config [2.1.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@2.1.6...@anolilab/lint-staged-config@2.1.7) (2023-12-22)
 
 

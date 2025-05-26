@@ -1,3 +1,31 @@
+## @anolilab/prettier-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.14...@anolilab/prettier-config@6.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **prettier-config:** changed post-install script to a bin command call, removed support for prettier v2
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **prettier-config:** removed post-install script, updated dev-dependencies, allowed node 23 ([d1866a0](https://github.com/anolilab/javascript-style-guide/commit/d1866a01bfd816d84f58a024f369af9d9aa1f386))
+
+### Bug Fixes
+
+* **prettier-config:** removed @anolilab/package-json-utils ([804c365](https://github.com/anolilab/javascript-style-guide/commit/804c36534afec53996e2a87c84b243245a4a9649))
+
+### Miscellaneous Chores
+
+* clean update after code changes ([c1ec624](https://github.com/anolilab/javascript-style-guide/commit/c1ec6245a20abfcf1e1d717e148464480f59262c))
+* **prettier-config:** updated dev dependencies ([18b59d1](https://github.com/anolilab/javascript-style-guide/commit/18b59d125945bcbfc9d233824b24b98722f11d15))
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* update prettier-config dependencies to latest versions ([ae0c554](https://github.com/anolilab/javascript-style-guide/commit/ae0c554c57416b606e72b6c28ed65cf9d056bc73))
+* updated dev dependencies ([89cb5c7](https://github.com/anolilab/javascript-style-guide/commit/89cb5c72b14fc27041783804f1098c2ecfc3cc33))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
 ## @anolilab/prettier-config [5.0.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@5.0.13...@anolilab/prettier-config@5.0.14) (2023-12-22)
 
 

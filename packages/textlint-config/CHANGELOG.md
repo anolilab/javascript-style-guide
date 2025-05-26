@@ -1,3 +1,27 @@
+## @anolilab/textlint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.16...@anolilab/textlint-config@9.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **textlint-config:** changed post-install script to a bin command call
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **textlint-config:** removed post-install script, updated dependencies, allowed node 23 ([6e5c48f](https://github.com/anolilab/javascript-style-guide/commit/6e5c48f3cb4775b2622fea0ee6f609c009200f3a))
+
+### Bug Fixes
+
+* **textlint-config:** removed @anolilab/package-json-utils, using cwd of the command call ([fccfef0](https://github.com/anolilab/javascript-style-guide/commit/fccfef0cf8d40d53159f997436e07931ba5f14bf))
+* **textlint-config:** removed check for ci ([f5a8ea5](https://github.com/anolilab/javascript-style-guide/commit/f5a8ea5201a06f4506c13238483028f0f6267c15))
+* **textlint-config:** updated textlint rule dependencies ([7c9ff23](https://github.com/anolilab/javascript-style-guide/commit/7c9ff2319bd633f4df2fc042a43be0dd38025553))
+* **textlint-config:** updated textlint-rule-apostrophe to v3, @textlint/ast-node-types and @textlint/types to v14.4.2 and all dev deps ([a536b62](https://github.com/anolilab/javascript-style-guide/commit/a536b62d6f5016a0b5956d3031d3ed66ce72c721))
+
+### Miscellaneous Chores
+
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* update textlint-config dependencies to latest versions ([f94e05c](https://github.com/anolilab/javascript-style-guide/commit/f94e05c221edc0e57ef71b1d0b4e9d2cc66c082a))
+
 ## @anolilab/textlint-config [8.0.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@8.0.15...@anolilab/textlint-config@8.0.16) (2023-12-22)
 
 

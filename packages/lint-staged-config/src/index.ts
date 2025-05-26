@@ -1,7 +1,7 @@
 import { findPackageManagerSync, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import { readFileSync } from "@visulima/fs";
 import { existsSync } from "node:fs";
-import type { Config } from "lint-staged";
+import type * as lintStaged from "lint-staged";
 
 import createEslintCommands from "./eslint/create-eslint-commands";
 import concatFiles from "./utils/concat-files";
@@ -33,7 +33,7 @@ export const defineConfig = (
         tests?: false;
         typescript?: false | TypescriptConfig;
     } = {},
-): Config => {
+): lintStaged.Configuration => {
     const config = {
         debug: false,
         eslint: {
@@ -49,7 +49,7 @@ export const defineConfig = (
         ...options,
     };
     const cwd = config.cwd || process.cwd();
-console.log(existsSync(`${cwd}/package.json`))
+
     if (!existsSync(`${cwd}/package.json`)) {
         throw new Error(`No package.json found in the current working directory: ${cwd}; Please adjust the "cwd" option.`);
     }
@@ -66,7 +66,7 @@ console.log(existsSync(`${cwd}/package.json`))
 
     const hasPrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
 
-    let loadedPlugins: Config = {};
+    let loadedPlugins: lintStaged.Configuration = {};
 
     if (config.eslint !== false && hasPackageJsonAnyDependency(packageJson, ["eslint"])) {
         if (!Array.isArray((config.eslint as EslintConfig).extensions) || ((config.eslint as EslintConfig).extensions as string[]).length === 0) {
@@ -99,12 +99,12 @@ console.log(existsSync(`${cwd}/package.json`))
                     ? [`${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`]
                     : []),
             ],
-            "**/*.mdx": (filenames) => [...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [])],
+            "**/*.mdx": (filenames: string[]) => [...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [])],
         };
     }
 
     if (config.secretlint !== false && hasPackageJsonAnyDependency(packageJson, ["secretlint"])) {
-        loadedPlugins["**/*"] = (filenames) => [`${packageManager} exec secretlint ${concatFiles(filenames)}`];
+        loadedPlugins["**/*"] = (filenames: string[]) => [`${packageManager} exec secretlint ${concatFiles(filenames)}`];
     }
 
     if (config.stylesheets !== false && hasPackageJsonAnyDependency(packageJson, ["stylelint"])) {
@@ -115,7 +115,7 @@ console.log(existsSync(`${cwd}/package.json`))
             throw new Error("The `extensions` option is required for the Stylesheets configuration.");
         }
 
-        loadedPlugins[`**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`] = (filenames) => [
+        loadedPlugins[`**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`] = (filenames: string[]) => [
             ...(hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : []),
             `${packageManager} exec stylelint --fix`,
         ];
@@ -129,7 +129,7 @@ console.log(existsSync(`${cwd}/package.json`))
             throw new Error("The `extensions` option is required for the TypeScript configuration.");
         }
 
-        loadedPlugins[`**/*.{${((config.typescript as TypescriptConfig).extensions as string[]).join(",")}}`] = (filenames: string[]) => {
+        loadedPlugins[`**/*.{${((config.typescript as TypescriptConfig).extensions as string[]).join(",")}}`] = (filenames: string[]): string[] => {
             const commands = new Set<string>();
 
             filenames.forEach((filePath) => {
@@ -185,10 +185,10 @@ console.log(existsSync(`${cwd}/package.json`))
     }
 
     if (hasPackageJsonAnyDependency(packageJson, ["ava"])) {
-        loadedPlugins["**/(test|tests|__tests__)/**/*.js"] = (filenames) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
-        loadedPlugins["**/*.(spec|test).js"] = (filenames) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
-        loadedPlugins["**/test.js"] = (filenames) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
-        loadedPlugins["**/test-*.js"] = (filenames) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
+        loadedPlugins["**/(test|tests|__tests__)/**/*.js"] = (filenames: string[]) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
+        loadedPlugins["**/*.(spec|test).js"] = (filenames: string[]) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
+        loadedPlugins["**/test.js"] = (filenames: string[]) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
+        loadedPlugins["**/test-*.js"] = (filenames: string[]) => [`${packageManager} exec ava ${concatFiles(filenames)}`];
     }
 
     return loadedPlugins;

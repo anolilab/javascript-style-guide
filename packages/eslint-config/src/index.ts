@@ -67,9 +67,7 @@ const flatConfigProperties = ["name", "languageOptions", "linterOptions", "proce
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
-export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (typeof options[key] === "boolean" ? ({} as any) : options[key] || {});
+export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => (typeof options[key] === "boolean" ? {} : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
 export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> => {
     const sub = resolveSubOptions(options, key);
 

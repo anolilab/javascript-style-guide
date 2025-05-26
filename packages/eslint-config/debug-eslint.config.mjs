@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
-import { createConfig } from "./dist";
+import { createConfig } from "./dist/index.mjs";
 
 export default createConfig({});

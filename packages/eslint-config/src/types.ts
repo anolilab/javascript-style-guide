@@ -127,8 +127,8 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * Disable some opinionated rules to Anolilab's preference.
      *
      * Including:
-     * - `anolilab/top-level-function`
-     * - `anolilab/if-newline`
+     * - `antfu/top-level-function`
+     * - `antfu/if-newline`
      * @default false
      */
     lessOpinionated?: boolean;

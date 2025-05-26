@@ -56,12 +56,12 @@ export default createConfig<
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         return {
-            files: [...pFiles, ...componentExtensions.map(extension => `**/*.${extension}`)],
+            files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
             ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: parserTs,
                 parserOptions: {
-                    extraFileExtensions: componentExtensions.map(extension => `.${extension}`),
+                    extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
                     ...typeAware
                         ? {
@@ -98,7 +98,7 @@ export default createConfig<
         rules.push(
             ...(tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]),
             {
-                files: [...filesTypeAware, ...componentExtensions.map(extension => `**/*.${extension}`)],
+                files: [...filesTypeAware, ...componentExtensions.map((extension) => `**/*.${extension}`)],
                 name: "anolilab/typescript/rules-type-aware",
                 rules: {
                     // Disallow type assertions that do not change the type of expression.

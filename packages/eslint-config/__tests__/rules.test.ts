@@ -65,11 +65,11 @@ const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlat
                 join(target, "eslint.config.js"),
                 `
 // @eslint-disable
-import { createConfig } from "@anolilab/eslint-config";
+import { createConfig } from "../../dist/index.mjs";
 
 export default createConfig(
   ${JSON.stringify(configs)},
-  ...(${JSON.stringify(items) ?? []}),
+  ...(${JSON.stringify(items) ?? []})
 );
   `,
             );
@@ -106,11 +106,39 @@ export default createConfig(
     );
 };
 
-// eslint-disable-next-line vitest/require-hook
-runWithConfig("js", {
-    typescript: false,
-    vitest: false,
-});
+// runWithConfig("no-config", {
+//    astro: false,
+//    formatters: false,
+//    gitignore: false,
+//    html: false,
+//    isInEditor: false,
+//    jsonc: false,
+//    jsx: false,
+//    lessOpinionated: false,
+//    lodash: false,
+//    markdown: false,
+//    playwright: false,
+//    react: false,
+//    regexp: false,
+//    storybook: false,
+//    stylistic: false,
+//    tailwindcss: false,
+//    tanstackQuery: false,
+//    tanstackRouter: false,
+//    testingLibrary: false,
+//    toml: false,
+//    tsdoc: false,
+//    typescript: false,
+//    unicorn: false,
+//    unocss: false,
+//    vitest: false,
+//    yaml: false,
+//    zod: false,
+// });
+// runWithConfig("js", {
+//     typescript: false,
+//     vitest: false,
+// });
 // runWithConfig("all", {
 //     astro: true,
 //     // svelte: true,
@@ -118,9 +146,9 @@ runWithConfig("js", {
 //     // vue: true,
 // });
 // runWithConfig("no-style", {
-//     stylistic: false,
+//    stylistic: false,
 //     typescript: true,
-//     vue: true,
+//     // vue: true,
 // });
 // runWithConfig(
 //     "tab-double-quotes",

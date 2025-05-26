@@ -314,7 +314,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Ensures that there are no useless path segments
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-useless-path-segments.md
-                    "import/no-useless-path-segments": ["error", { commonjs: true, noUselessIndex: true }],
+                    "import/no-useless-path-segments": ["error", { commonjs: true, noUselessIndex: false }],
 
                     // Forbid Webpack loader syntax in imports
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-webpack-loader-syntax.md
@@ -379,14 +379,14 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                 },
                 settings: {
                     // Append 'ts' extensions to 'import/extensions' setting
-                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map(extension => extension.replace("**/*", "")),
+                    "import/extensions": [...getFilesGlobs("js_and_ts"), ...getFilesGlobs("jsx_and_tsx")].map((extension) => extension.replace("**/*", "")),
 
                     // Resolve type definition packages
                     "import/external-module-folders": ["node_modules", "node_modules/@types"],
 
                     // Apply special parsing for TypeScript files
                     "import/parsers": {
-                        "@typescript-eslint/parser": getFilesGlobs("ts").map(extension => extension.replace("**/*", "")),
+                        "@typescript-eslint/parser": getFilesGlobs("ts").map((extension) => extension.replace("**/*", "")),
                     },
 
                     ...tsconfigPath

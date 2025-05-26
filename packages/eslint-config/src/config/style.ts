@@ -248,7 +248,7 @@ export const styleRules = (stylistic?: StylisticConfig | boolean): Partial<Linte
 
         // disallow use of the continue statement
         // https://eslint.org/docs/rules/no-continue
-        "no-continue": "error",
+        "no-continue": "off",
 
         // disallow comments inline after code
         "no-inline-comments": "off",

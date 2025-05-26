@@ -41,6 +41,10 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
             rules: {
                 ...config.rules,
 
+                // Disable arrow parens rule
+                // We are using the arrow-parens
+                "@stylistic/arrow-parens": "off",
+
                 // enforce spacing inside single-line blocks
                 "@stylistic/block-spacing": ["error", "always"],
 
@@ -230,6 +234,7 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                 "@stylistic/space-infix-ops": "error",
 
                 "@stylistic/type-annotation-spacing": "error",
+
                 "@stylistic/yield-star-spacing": ["error", { after: true, before: false }],
 
                 ...overrides,

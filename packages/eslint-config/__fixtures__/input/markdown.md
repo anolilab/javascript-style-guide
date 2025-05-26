@@ -5,15 +5,11 @@ _Look,_ code blocks are formatted *too!*
 
 ```js
 // This should be handled by ESLint instead of Prettier
-/**
- *
- * @param x
- */
-const identity = (x) => {
-    if (foo) {
-        console.log("bar");
-    }
-}
+function identity(x) {
+  if (foo) {
+    console.log('bar');
+  }
+  }
 ```
 
 ```css
@@ -31,6 +27,7 @@ Jane Roe|JFK|314
 + List
  + with a [link] (/to/somewhere)
 + and [another one]
+
 
   [another one]:  http://example.com 'Example title'
 

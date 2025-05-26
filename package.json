@@ -88,7 +88,7 @@
         "test:coverage:stylelint-config": "pnpm --filter \"stylelint-config\" run test:coverage",
         "test:eslint-config": "pnpm --filter \"eslint-config\" run test",
         "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
-        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.js ./packages/stylelint-config/__tests__/css/**/*.css",
+        "test:stylelint": "node scripts/isNotWindows || stylelint --formatter verbose --config packages/stylelint-config/index.mjs ./packages/stylelint-config/__tests__/css/**/*.css",
         "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test",
         "update:deps": "taze"
     },

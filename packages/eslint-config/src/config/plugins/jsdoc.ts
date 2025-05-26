@@ -38,7 +38,7 @@ export default createConfig<
         console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     }
 
-    const definedTags = ["remarks", "openapi"];
+    const definedTags = ["remarks", "openapi", "link"];
     const excludeTags = ["openapi"];
 
     const rules: TypedFlatConfigItem[] = [

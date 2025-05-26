@@ -13,12 +13,18 @@
         },
         "lint:eslint": {
             "dependsOn": ["default"],
-            "inputs": ["default", "{workspaceRoot}/.eslintrc.cjs", "{workspaceRoot}/.eslintrc.js"],
+            "inputs": [
+                "default",
+                "{workspaceRoot}/eslint.config.js"
+            ],
             "cache": true
         },
         "lint:eslint:fix": {
             "dependsOn": ["default"],
-            "inputs": ["default", "{workspaceRoot}/.eslintrc.cjs", "{workspaceRoot}/.eslintrc.js"],
+            "inputs": [
+                "default",
+                "{workspaceRoot}/eslint.config.js"
+            ],
             "cache": true
         },
         "lint:package-json": {
@@ -38,11 +44,19 @@
             "cache": true
         },
         "test": {
-            "dependsOn": ["default", "^default", "{projectRoot}/vitest.config.ts"],
+            "dependsOn": [
+                "default",
+                "^default",
+                "{projectRoot}/vitest.config.ts"
+            ],
             "cache": true
         },
         "test:coverage": {
-            "dependsOn": ["default", "^default", "{projectRoot}/vitest.config.ts"],
+            "dependsOn": [
+                "default",
+                "^default",
+                "{projectRoot}/vitest.config.ts"
+            ],
             "cache": true
         }
     },
@@ -52,15 +66,18 @@
         }
     },
     "namedInputs": {
-        "default": ["sharedGlobals", "{projectRoot}/**/*", "!{projectRoot}/**/*.md"],
+        "default": [
+            "sharedGlobals",
+            "{projectRoot}/**/*",
+            "!{projectRoot}/**/*.md"
+        ],
         "public": [
             "default",
             "{workspaceRoot}/dist",
             "!{workspaceRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
             "!{workspaceRoot}/vite.config.ts",
             "!{workspaceRoot}/vitest.config.ts",
-            "!{workspaceRoot}/.eslintrc.js",
-            "!{workspaceRoot}/.eslintrc.cjs",
+            "!{workspaceRoot}/eslint.config.js",
             "!{workspaceRoot}/.storybook/**/*",
             "!{workspaceRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)"
         ],
@@ -75,15 +92,10 @@
             "default",
             "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
             "!{projectRoot}/tsconfig.spec.json",
-            "!{projectRoot}/.eslintrc.json",
-            "!{projectRoot}/eslint.config.js",
-            "!{projectRoot}/eslint.config.cjs"
+            "!{projectRoot}/eslint.config.js"
         ]
     },
     "parallel": 5,
-    "affected": {
-        "defaultBase": "main"
-    },
     "defaultBase": "main",
     "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

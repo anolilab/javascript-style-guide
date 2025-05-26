@@ -620,7 +620,7 @@ The `getFilesGlobs` function accepts one of the following `FileType` strings:
 - `"astro_ts"`: TypeScript files within Astro components.
 - `"astro"`: Astro component files (`.astro`).
 - `"css"`: CSS files.
-- `"d.ts"`: TypeScript declaration files (`.d.ts`, `.d.cts`, `.d.mts`).
+- `"types"`: TypeScript declaration files (`.d.ts`, `.d.cts`, `.d.mts`).
 - `"e2e"`: End-to-end test files.
 - `"graphql"`: GraphQL files (`.gql`, `.graphql`).
 - `"html"`: Various HTML-like template files (`.html`, `.hbs`, `.erb`, etc.).

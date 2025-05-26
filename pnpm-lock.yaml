@@ -529,8 +529,8 @@ importers:
         version: 16.19.1(typescript@5.8.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 16.1.1
-        version: 16.1.1(0c05f2414f9e129fb1d4ffe62ba8a023)
+        specifier: 16.1.2
+        version: 16.1.2(0c05f2414f9e129fb1d4ffe62ba8a023)
       '@anolilab/semantic-release-pnpm':
         specifier: ^1.1.11
         version: 1.1.11(@types/node@22.15.21)(yaml@2.8.0)
@@ -779,8 +779,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anolilab/eslint-config@16.1.1':
-    resolution: {integrity: sha512-9ACLrDMHGxFMow0xVZ48SS26b8nFuBG57dNeLgF9hdUz+NdbTwJsVxEBGLrlRUkME+aJe6yUqBgxQ9e2W3svFg==}
+  '@anolilab/eslint-config@16.1.2':
+    resolution: {integrity: sha512-g7H8ozBAsIudQewJdWZn+YNbndhswVHiAB1be3+InXw+0mXj2lmx7YIp7Y0Rf6c+eMHuQiQ1IVygz7rIkVxk4g==}
     engines: {node: '>=20.18.* <=24.*'}
     peerDependencies:
       '@babel/core': ^7.22.20
@@ -921,10 +921,6 @@ packages:
 
   '@babel/core@7.26.0':
     resolution: {integrity: sha512-i1SLeK+DzNnQ3LL/CswPCa/E5u4lh1k6IAEphON8F+cXt0t9euTshDru0q7/IqMa1PMPz5RnHuHscF8/ZJsStg==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/generator@7.26.3':
-    resolution: {integrity: sha512-6FF/urZvD0sTeO7k6/B15pMLC4CHUv1426lzr3N01aHJTl046uCAh9LXW/fzeXXjPNCJ6iABW5XaWOsIZB93aQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/generator@7.27.1':
@@ -1089,10 +1085,6 @@ packages:
 
   '@babel/template@7.27.2':
     resolution: {integrity: sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/traverse@7.26.4':
-    resolution: {integrity: sha512-fH+b7Y4p3yqvApJALCPJcwb0/XaOSgtK4pzV6WVjPR5GLFQBRI7pfoX2V2iM48NXvX07NUxxm1Vw98YjqTcU5w==}
     engines: {node: '>=6.9.0'}
 
   '@babel/traverse@7.27.1':
@@ -9745,7 +9737,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.1.1(0c05f2414f9e129fb1d4ffe62ba8a023)':
+  '@anolilab/eslint-config@16.1.2(0c05f2414f9e129fb1d4ffe62ba8a023)':
     dependencies:
       '@babel/core': 7.26.0
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.27.0(jiti@2.4.2))
@@ -9965,13 +9957,13 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.26.3
+      '@babel/generator': 7.27.1
       '@babel/helper-compilation-targets': 7.25.9
       '@babel/helper-module-transforms': 7.26.0(@babel/core@7.26.0)
       '@babel/helpers': 7.27.1
       '@babel/parser': 7.27.2
       '@babel/template': 7.27.2
-      '@babel/traverse': 7.26.4
+      '@babel/traverse': 7.27.1
       '@babel/types': 7.27.1
       convert-source-map: 2.0.0
       debug: 4.4.1
@@ -9980,14 +9972,6 @@ snapshots:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/generator@7.26.3':
-    dependencies:
-      '@babel/parser': 7.27.2
-      '@babel/types': 7.27.1
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
-      jsesc: 3.1.0
 
   '@babel/generator@7.27.1':
     dependencies:
@@ -10031,7 +10015,7 @@ snapshots:
 
   '@babel/helper-module-imports@7.25.9':
     dependencies:
-      '@babel/traverse': 7.26.4
+      '@babel/traverse': 7.27.1
       '@babel/types': 7.27.1
     transitivePeerDependencies:
       - supports-color
@@ -10041,7 +10025,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-module-imports': 7.25.9
       '@babel/helper-validator-identifier': 7.27.1
-      '@babel/traverse': 7.26.4
+      '@babel/traverse': 7.27.1
     transitivePeerDependencies:
       - supports-color
 
@@ -10172,18 +10156,6 @@ snapshots:
       '@babel/code-frame': 7.27.1
       '@babel/parser': 7.27.2
       '@babel/types': 7.27.1
-
-  '@babel/traverse@7.26.4':
-    dependencies:
-      '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.26.3
-      '@babel/parser': 7.27.2
-      '@babel/template': 7.27.2
-      '@babel/types': 7.27.1
-      debug: 4.4.1
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
 
   '@babel/traverse@7.27.1':
     dependencies:
@@ -16679,9 +16651,9 @@ snapshots:
   jest-snapshot@28.1.3:
     dependencies:
       '@babel/core': 7.26.0
-      '@babel/generator': 7.26.3
+      '@babel/generator': 7.27.1
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.26.0)
-      '@babel/traverse': 7.26.4
+      '@babel/traverse': 7.27.1
       '@babel/types': 7.27.1
       '@jest/expect-utils': 28.1.3
       '@jest/transform': 28.1.3

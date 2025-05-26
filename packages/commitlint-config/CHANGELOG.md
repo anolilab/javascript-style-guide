@@ -1,3 +1,31 @@
+## @anolilab/commitlint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.3...@anolilab/commitlint-config@6.0.0) (2025-05-26)
+
+### ⚠ BREAKING CHANGES
+
+* **commitlint-config:** changed post-install script to a bin command call
+Signed-off-by: prisis <d.bannert@anolilab.de>
+
+### Features
+
+* **commitlint-config:** removed post-install script, updated dependencies, allowed node 23 ([35f4f31](https://github.com/anolilab/javascript-style-guide/commit/35f4f318cab3df9d76dd91e96f175dc9764b3b02))
+
+### Bug Fixes
+
+* **commitlint-config:** removed @anolilab/package-json-utils ([c4df0ab](https://github.com/anolilab/javascript-style-guide/commit/c4df0ab17cd3682dbd5f02b494e50744fd7d7d06))
+* **commitlint-config:** updated commitlint dependencies and dev dependencies ([7549010](https://github.com/anolilab/javascript-style-guide/commit/75490101685b03cf63bfdf6deac1bd7acf0b9405))
+
+### Miscellaneous Chores
+
+* **deps:** update commitlint monorepo to ^18.4.4 (patch) ([#812](https://github.com/anolilab/javascript-style-guide/issues/812)) ([c3a8140](https://github.com/anolilab/javascript-style-guide/commit/c3a8140da4a8b5b21453172c8a07bedc9c1f0b1f))
+* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* update commitlint-config dependencies to latest versions ([3ea318f](https://github.com/anolilab/javascript-style-guide/commit/3ea318ffa52ee17147213caba02944e9158fa3bd))
+* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* updated dev dependencies ([89cb5c7](https://github.com/anolilab/javascript-style-guide/commit/89cb5c72b14fc27041783804f1098c2ecfc3cc33))
+
+### Continuous Integration
+
+* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+
 ## @anolilab/commitlint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.2...@anolilab/commitlint-config@5.0.3) (2023-12-22)
 
 

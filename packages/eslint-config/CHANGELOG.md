@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.2...@anolilab/eslint-config@16.1.3) (2025-05-26)
+
+### Bug Fixes
+
+* **eslint-config:** update TypeScript declaration file type from "d.ts" to "types" ([3292434](https://github.com/anolilab/javascript-style-guide/commit/3292434f3f0600794844790b030b6d882696a123))
+
 ## @anolilab/eslint-config [16.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.1...@anolilab/eslint-config@16.1.2) (2025-05-26)
 
 ### Bug Fixes

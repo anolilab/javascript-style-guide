@@ -66,6 +66,30 @@ import isInEditorEnvironment from "./utils/is-in-editor-environment";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
+export type {
+    Awaitable,
+    ConfigNames,
+    OptionsComponentExtensions,
+    OptionsConfig,
+    OptionsCwd,
+    OptionsFiles,
+    OptionsFormatters,
+    OptionsHasPrettier,
+    OptionsIsInEditor,
+    OptionsOverrides,
+    OptionsPackageJson,
+    OptionsRegExp,
+    OptionsSilentConsoleLogs,
+    OptionsStylistic,
+    OptionsTypescript,
+    OptionsTypeScriptParserOptions,
+    OptionsTypeScriptWithTypes,
+    OptionsUnicorn,
+    OptionsUnoCSS,
+    Rules,
+    StylisticConfig,
+    TypedFlatConfigItem,
+} from "./types";
 export { getFilesGlobs } from "./utils/create-config";
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
@@ -445,14 +469,15 @@ export const createConfig = async (
             "lodash.uniqueid",
         ]),
         playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
-        react: enableReact = hasReact || hasPackageJsonAnyDependency(packageJson, [
-            "eslint-plugin-react",
-            "eslint-plugin-react-hooks",
-            "eslint-plugin-react-refresh",
-            "@eslint-react/eslint-plugin",
-            "eslint-plugin-react-perf",
-            "eslint-plugin-react-you-might-not-need-an-effect",
-        ]),
+        react: enableReact = hasReact
+            || hasPackageJsonAnyDependency(packageJson, [
+                "eslint-plugin-react",
+                "eslint-plugin-react-hooks",
+                "eslint-plugin-react-refresh",
+                "@eslint-react/eslint-plugin",
+                "eslint-plugin-react-perf",
+                "eslint-plugin-react-you-might-not-need-an-effect",
+            ]),
         reactCompiler: enableReactCompiler = hasReactCompiler,
         regexp: enableRegexp = true,
         silent = false,
@@ -497,7 +522,13 @@ export const createConfig = async (
         }
 
         if (enableReact) {
-            packages.push("eslint-plugin-react", "@eslint-react/eslint-plugin", "eslint-plugin-react-hooks", "eslint-plugin-react-perf", "eslint-plugin-react-you-might-not-need-an-effect");
+            packages.push(
+                "eslint-plugin-react",
+                "@eslint-react/eslint-plugin",
+                "eslint-plugin-react-hooks",
+                "eslint-plugin-react-perf",
+                "eslint-plugin-react-you-might-not-need-an-effect",
+            );
         }
 
         if (enableReact && enableReactCompiler) {
@@ -610,7 +641,7 @@ export const createConfig = async (
         bestPractices({}),
         errors({}),
         style({
-            stylistic: stylisticOptions,
+            prettier: enablePrettier,
         }),
         es6({
             isInEditor,
@@ -735,7 +766,6 @@ export const createConfig = async (
                 componentExts: componentExtensions,
                 overrides: getOverrides(options, "typescript"),
                 prettier: enablePrettier,
-                stylistic: stylisticOptions,
             }),
         );
     }

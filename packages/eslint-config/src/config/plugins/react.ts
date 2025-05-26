@@ -32,8 +32,7 @@ export default createConfig<
     OptionsSilentConsoleLogs &
     OptionsStylistic &
     OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes &
-    { reactCompiler?: boolean }
+    OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {

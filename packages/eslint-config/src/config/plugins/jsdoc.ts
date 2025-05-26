@@ -12,7 +12,13 @@ import type {
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson & OptionsSilentConsoleLogs & OptionsStylistic & { jsx?: boolean; typescript?: OptionsTypescript | boolean }>("js", async (config, oFiles) => {
+export default createConfig<
+    OptionsFiles &
+    OptionsOverrides &
+    OptionsPackageJson &
+    OptionsSilentConsoleLogs &
+    OptionsStylistic & { jsx?: boolean; typescript?: OptionsTypescript | boolean }
+>("js", async (config, oFiles) => {
     const {
         files = oFiles,
         jsx = false,
@@ -49,10 +55,13 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
                 ...jsdocPlugin.configs["flat/recommended-error"].rules,
 
                 "jsdoc/check-indentation": ["error", { excludeTags }],
-                "jsdoc/check-tag-names": ["error", {
-                    definedTags,
-                    jsxTags: jsx,
-                }],
+                "jsdoc/check-tag-names": [
+                    "error",
+                    {
+                        definedTags,
+                        jsxTags: jsx,
+                    },
+                ],
 
                 ...overrides,
 
@@ -76,10 +85,13 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
                 ...jsdocPlugin.configs["flat/stylistic-typescript-error"].rules,
 
                 "jsdoc/check-indentation": ["error", { excludeTags }],
-                "jsdoc/check-tag-names": ["error", {
-                    definedTags,
-                    jsxTags: jsx,
-                }],
+                "jsdoc/check-tag-names": [
+                    "error",
+                    {
+                        definedTags,
+                        jsxTags: jsx,
+                    },
+                ],
 
                 ...overrides,
 

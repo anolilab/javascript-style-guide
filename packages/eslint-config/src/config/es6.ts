@@ -5,8 +5,8 @@ import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (isInEditor: boolean) => {
     return {
-    // enforces no braces where they can be omitted
-    // https://eslint.org/docs/rules/arrow-body-style
+        // enforces no braces where they can be omitted
+        // https://eslint.org/docs/rules/arrow-body-style
         "arrow-body-style": [
             "error",
             "as-needed",
@@ -64,9 +64,9 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (i
         "no-restricted-exports": [
             "error",
             {
-            // default export while still blocking other "default" exports.
-            // The 'default' entry in restrictedNamedExports must also be removed.
-            // See https://github.com/airbnb/javascript/issues/2500 and https://github.com/eslint/eslint/pull/16785
+                // default export while still blocking other "default" exports.
+                // The 'default' entry in restrictedNamedExports must also be removed.
+                // See https://github.com/airbnb/javascript/issues/2500 and https://github.com/eslint/eslint/pull/16785
                 restrictDefaultExports: {
                     defaultFrom: false, // permits `export { default } from 'foo';` declarations
                     direct: false, // permits `export default` declarations
@@ -86,19 +86,23 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (i
             {
                 paths: [
                     {
-                        message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.isequal",
                     },
                     {
-                        message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.uniqueId",
                     },
                     {
-                        message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.mergewith",
                     },
                     {
-                        message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        message:
+                            "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                         name: "lodash.pick",
                     },
                     {

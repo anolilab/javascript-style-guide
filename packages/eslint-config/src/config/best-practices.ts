@@ -8,7 +8,7 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     "dot-notation": "off",
 
     // Require explicit return and argument types on exported functions' and classes' public class methods.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
+    // https://eslint.org/docs/latest/rules/rules/no-empty-function
     "no-empty-function": "off",
 
     // Disallow using to delete operator on computed key expressions.
@@ -16,20 +16,20 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     "no-implied-eval": "off",
 
     // Disallow extra non-null assertions.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
+    // https://eslint.org/docs/latest/rules/rules/no-loop-func
     "no-loop-func": "off",
 
     // Disallow void type outside of generic or return types.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
+    // https://eslint.org/docs/latest/rules/rules/no-magic-numbers
     "no-magic-numbers": "off",
 
     "no-new-func": "off",
 
     // Disallow non-null assertions after an optional chain expression.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
+    // https://eslint.org/docs/latest/rules/rules/no-redeclare
     "no-redeclare": "off",
     // Disallow non-null assertions using the ! postfix operator.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
+    // https://eslint.org/docs/latest/rules/rules/return-await
     "no-return-await": "off",
 
     // Disallow type assertions that do not change the type of expression.
@@ -37,7 +37,7 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     "no-throw-literal": "off",
 
     // Disallow calling a value with type any.
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+    // https://eslint.org/docs/latest/rules/rules/no-unused-expressions
     "no-unused-expressions": "off",
 
     // Disallow empty exports that don't change anything in a module file.

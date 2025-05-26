@@ -6,7 +6,6 @@ import type {
     OptionsHasPrettier,
     OptionsIsInEditor,
     OptionsOverrides,
-    OptionsStylistic,
     OptionsTypeScriptParserOptions,
     OptionsTypeScriptWithTypes,
     TypedFlatConfigItem,
@@ -24,7 +23,6 @@ export default createConfig<
     OptionsHasPrettier &
     OptionsIsInEditor &
     OptionsOverrides &
-    OptionsStylistic &
     OptionsTypeScriptParserOptions &
     OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
@@ -36,10 +34,9 @@ export default createConfig<
         overridesTypeAware,
         parserOptions,
         prettier,
-        stylistic = true,
     } = config;
 
-    const styleRules = styleRulesFunction(stylistic);
+    const styleRules = styleRulesFunction;
     const es6Rules = es6RulesFunction(isInEditor);
 
     const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([
@@ -50,7 +47,7 @@ export default createConfig<
     ] as const);
 
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
-    const ignoresTypeAware = config.ignoresTypeAware ?? [`**/*.md/**`, ...getFilesGlobs("astro")];
+    const ignoresTypeAware = config.ignoresTypeAware ?? [`**/*.mdx/**`, ...getFilesGlobs("astro")];
     const tsconfigPath = config?.tsconfigPath ?? undefined;
     const isTypeAware = tsconfigPath !== undefined;
 
@@ -102,35 +99,35 @@ export default createConfig<
                 name: "anolilab/typescript/rules-type-aware",
                 rules: {
                     // Disallow type assertions that do not change the type of expression.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.mdx
                     "@typescript-eslint/no-unnecessary-type-assertion": "error",
 
                     // Disallow calling a function with a value with type any.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-argument.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-argument.mdx
                     "@typescript-eslint/no-unsafe-argument": "error",
 
                     // Disallow assigning a value with type any to variables and properties.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-assignment.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-assignment.mdx
                     "@typescript-eslint/no-unsafe-assignment": "error",
 
                     // Disallow calling a value with type any.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-call.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-call.mdx
                     "@typescript-eslint/no-unsafe-call": "error",
 
                     // Disallow member access on a value with type any.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-member-access.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-member-access.mdx
                     "@typescript-eslint/no-unsafe-member-access": "error",
 
                     // Disallow returning a value with type any from a function.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-return.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-return.mdx
                     "@typescript-eslint/no-unsafe-return": "error",
 
                     // Enforce using the nullish coalescing operator instead of logical chaining.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.mdx
                     "@typescript-eslint/prefer-nullish-coalescing": "error",
 
                     // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-optional-chain.mdx
                     "@typescript-eslint/prefer-optional-chain": "error",
 
                     ...overridesTypeAware,
@@ -146,20 +143,12 @@ export default createConfig<
         );
     }
 
-    if (stylistic) {
-        rules.push(...(tseslint.configs.stylistic as TypedFlatConfigItem[]));
-
-        if (isTypeAware) {
-            rules.push(...(tseslint.configs.stylisticTypeCheckedOnly as TypedFlatConfigItem[]));
-        }
-    }
-
     rules.push({
         files,
         name: "anolilab/typescript/rules",
         rules: {
             // Require that function overload signatures be consecutive.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/adjacent-overload-signatures.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/adjacent-overload-signatures.mdx
             "@typescript-eslint/adjacent-overload-signatures": "error",
 
             // Requires using either T[] for arrays (array-type)
@@ -184,7 +173,7 @@ export default createConfig<
 
             // @TODO: Fix this rule
             // Some built-in types have aliases, while some types are considered dangerous or harmful.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.mdx
             // Enforces that types will not to be used
             // "@typescript-eslint/ban-types": [
             //     "error",
@@ -200,11 +189,11 @@ export default createConfig<
             // ],
 
             // Enforce specifying generic type arguments on constructor name of a constructor call.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-generic-constructors.mdx
             "@typescript-eslint/consistent-generic-constructors": "error",
 
             // Enforce consistent usage of type imports.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-type-imports.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/consistent-type-imports.mdx
             "@typescript-eslint/consistent-type-imports": [
                 "error",
                 {
@@ -215,11 +204,11 @@ export default createConfig<
             ],
 
             // Require explicit accessibility modifiers on class properties and methods.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/explicit-member-accessibility.mdx
             "@typescript-eslint/explicit-member-accessibility": "error",
 
             // Require explicit return and argument types on exported functions' and classes' public class methods.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.mdx
             "@typescript-eslint/explicit-module-boundary-types": "error",
 
             // Enforce a standard member declaration order. (member-ordering from TSLint)
@@ -245,7 +234,7 @@ export default createConfig<
             ],
 
             // Enforce using a particular method signature syntax.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/method-signature-style.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/method-signature-style.mdx
             "@typescript-eslint/method-signature-style": "error",
 
             // The `@typescript-eslint/naming-convention` rule allows `leadingUnderscore` and `trailingUnderscore` settings.
@@ -271,149 +260,149 @@ export default createConfig<
             ],
 
             // Replace 'no-array-constructor' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.mdx
             "@typescript-eslint/no-array-constructor": styleRules["no-array-constructor"] as Linter.RuleEntry<[]>,
 
             // Disallow non-null assertion in locations that may be confusing.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.mdx
             "@typescript-eslint/no-confusing-non-null-assertion": "error",
 
             // Replace 'no-dupe-class-members' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.mdx
             "@typescript-eslint/no-dupe-class-members": es6Rules["no-dupe-class-members"] as Linter.RuleEntry<[]>,
 
             // Disallow duplicate enum member values.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.mdx
             "@typescript-eslint/no-duplicate-enum-values": "error",
 
             // Disallow using to delete operator on computed key expressions.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-dynamic-delete.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-dynamic-delete.mdx
             "@typescript-eslint/no-dynamic-delete": "warn",
 
             // Replace 'no-empty-function' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.mdx
             "@typescript-eslint/no-empty-function": bestPracticesRules["no-empty-function"] as Linter.RuleEntry<[]>,
 
             // Disallow extra non-null assertions.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.mdx
             "@typescript-eslint/no-extra-non-null-assertion": "error",
 
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-import-type-side-effects.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-import-type-side-effects.mdx
             "@typescript-eslint/no-import-type-side-effects": "error",
 
             // Disallow void type outside of generic or return types.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-invalid-void-type.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-invalid-void-type.mdx
             "@typescript-eslint/no-invalid-void-type": "warn",
 
             // Replace 'no-loop-func' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.mdx
             "@typescript-eslint/no-loop-func": bestPracticesRules["no-loop-func"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-magic-numbers' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.mdx
             "@typescript-eslint/no-magic-numbers": bestPracticesRules["no-magic-numbers"] as Linter.RuleEntry<[]>,
 
             // Enforce valid definition of new and constructor.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-misused-new.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-misused-new.mdx
             "@typescript-eslint/no-misused-new": "error",
 
             // Disallow TypeScript namespaces.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-namespace.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-namespace.mdx
             "@typescript-eslint/no-namespace": "error",
 
             // Disallow non-null assertions in the left operand of a nullish coalescing operator.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-nullish-coalescing.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-nullish-coalescing.mdx
             "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "warn",
 
             // Disallow non-null assertions after an optional chain expression.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.mdx
             "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
 
             // Disallow non-null assertions using the ! postfix operator.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-non-null-assertion.mdx
             "@typescript-eslint/no-non-null-assertion": "error",
 
             // Replace 'no-redeclare' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.mdx
             "@typescript-eslint/no-redeclare": bestPracticesRules["no-redeclare"] as Linter.RuleEntry<[]>,
 
             // Disallow invocation of require().
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.mdx
             "@typescript-eslint/no-require-imports": "error",
 
             // Replace 'no-shadow' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.mdx
             "@typescript-eslint/no-shadow": variablesRules["no-shadow"] as Linter.RuleEntry<[]>,
 
             // Disallow aliasing this.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-this-alias.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-this-alias.mdx
             "@typescript-eslint/no-this-alias": "error",
 
             // Disallow unnecessary constraints on generic types.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-constraint.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unnecessary-type-constraint.mdx
             "@typescript-eslint/no-unnecessary-type-constraint": "error",
 
             // Disallow unsafe declaration merging.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-declaration-merging.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-declaration-merging.mdx
             "@typescript-eslint/no-unsafe-declaration-merging": "error",
 
             // Replace 'no-unused-expressions' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.mdx
             "@typescript-eslint/no-unused-expressions": bestPracticesRules["no-unused-expressions"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-unused-vars' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.mdx
             "@typescript-eslint/no-unused-vars": variablesRules["no-unused-vars"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-use-before-define' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.mdx
             "@typescript-eslint/no-use-before-define": variablesRules["no-use-before-define"] as Linter.RuleEntry<[]>,
 
             // Replace 'no-useless-constructor' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.mdx
             "@typescript-eslint/no-useless-constructor": es6Rules["no-useless-constructor"] as Linter.RuleEntry<[]>,
 
             // Disallow empty exports that don't change anything in a module file.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.mdx
             "@typescript-eslint/no-useless-empty-export": "error",
 
             // Enforce non-null assertions over explicit type casts. This rule is disabled by @typescript-eslint/no-non-null-assertion.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/non-nullable-type-assertion-style.mdx
             "@typescript-eslint/non-nullable-type-assertion-style": "off",
 
             // Require each enum member value to be explicitly initialized.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-enum-initializers.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-enum-initializers.mdx
             "@typescript-eslint/prefer-enum-initializers": "error",
 
             // Enforce using function types instead of interfaces with call signatures.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-function-type.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-function-type.mdx
             "@typescript-eslint/prefer-function-type": "error",
 
             // Disabled to use faster alternatives.
             "@typescript-eslint/prefer-string-starts-ends-with": "off",
             // Enforce using @ts-expect-error over @ts-ignore.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.mdx
             // DEPRECATED: in favor of ban-ts-comment
             "@typescript-eslint/prefer-ts-expect-error": "off",
 
             // Replace 'no-return-await' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.mdx
             "@typescript-eslint/return-await": bestPracticesRules["no-return-await"] as Linter.RuleEntry<[]>,
 
-            // Replace 'semi' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
-            "@typescript-eslint/semi": styleRules["semi"] as Linter.RuleEntry<[]>,
+            // Replaced by stylistic rules
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.mdx
+            "@typescript-eslint/semi": "off",
 
             // Enforce constituents of a type union/intersection to be sorted alphabetically.
-            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/sort-type-constituents.md
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/sort-type-constituents.mdx
             "@typescript-eslint/sort-type-constituents": "error",
 
-            // Replace 'space-before-function-paren' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
-            "@typescript-eslint/space-before-function-paren": styleRules["space-before-function-paren"] as Linter.RuleEntry<[]>,
+            // Replaced by stylistic rules
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.mdx
+            "@typescript-eslint/space-before-function-paren": "off",
 
             // Replace 'space-infix-ops' rule with '@typescript-eslint' version
-            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.md
+            // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.mdx
             "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
 
             ...overrides,

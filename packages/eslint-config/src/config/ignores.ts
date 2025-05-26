@@ -9,6 +9,7 @@ const ignores = async (userIgnores: string[] = []): Promise<TypedFlatConfigItem[
             "**/yarn.lock",
             "**/pnpm-lock.yaml",
             "**/bun.lockb",
+            "**/.npmignore",
 
             "**/output",
             "**/coverage",

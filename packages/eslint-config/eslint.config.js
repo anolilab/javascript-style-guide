@@ -42,7 +42,7 @@ export default createConfig(
         files: getFilesGlobs("markdown_inline_js_jsx"),
         rules: {
             "import/no-unresolved": "off",
-            "jsonc/no-comments": "off"
+            "jsonc/no-comments": "off",
         },
-    }
+    },
 );

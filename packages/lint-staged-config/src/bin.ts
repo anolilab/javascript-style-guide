@@ -1,12 +1,19 @@
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
 
-import { ensureDirSync, isAccessibleSync, readFile, writeFileSync } from "@visulima/fs";
-import { existsSync } from "node:fs";
-import { hasPackageJsonAnyDependency, type NormalizedPackageJson, parsePackageJson } from "@visulima/package";
+import {
+    ensureDirSync,
+    isAccessibleSync,
+    readFile,
+    writeFileSync,
+} from "@visulima/fs";
+import type { NormalizedPackageJson } from "@visulima/package";
+import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 
 const checkIfFileExists = (filename: string): boolean => {
     if (isAccessibleSync(filename)) {
+        // eslint-disable-next-line no-console
         console.warn(`⚠️ ${filename} already exists;`);
 
         return true;
@@ -21,7 +28,6 @@ const checkIfFileExists = (filename: string): boolean => {
 const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     const configFile = ".lintstagedrc";
 
-    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
         `${configFile}.js`,
@@ -35,6 +41,7 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
         "lint-staged.config.cjs",
     ]) {
         if (checkIfFileExists(join(cwd, filename))) {
+            // eslint-disable-next-line no-console
             console.warn(`⚠️  ${filename} already exists;`);
 
             return;
@@ -42,7 +49,7 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".lintstagedrc.js");
-    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
+    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -53,7 +60,6 @@ ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     const configFile = ".nano-staged";
 
-    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
         `${configFile}.js`,
@@ -67,6 +73,7 @@ const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
         ".nanostagedrc",
     ]) {
         if (checkIfFileExists(join(cwd, filename))) {
+            // eslint-disable-next-line no-console
             console.warn(`⚠️  ${filename} already exists;`);
 
             return;
@@ -74,7 +81,7 @@ const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".nano-staged.js");
-    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
+    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -85,11 +92,12 @@ ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 /**
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
-// eslint-disable-next-line sonarjs/cognitive-complexity
+
 const writeHuskyFiles = async (cwd: string, packageJson: NormalizedPackageJson, hasNanoStaged: boolean) => {
     const hasHusky = hasPackageJsonAnyDependency(packageJson, ["husky"]);
 
     if (!hasHusky) {
+        // eslint-disable-next-line no-console
         console.warn("⚠️ husky is not installed;");
 
         return;
@@ -211,11 +219,13 @@ echo --------------------------------------------
 (async () => {
     const cwd = process.cwd();
 
+    // eslint-disable-next-line no-console
     console.log("Configuring @anolilab/lint-staged-config", cwd, "\n");
 
     const packageJsonPath = join(cwd, "package.json");
 
     if (!existsSync(packageJsonPath)) {
+        // eslint-disable-next-line no-console
         console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
 
         exit(1);
@@ -236,10 +246,12 @@ echo --------------------------------------------
 
         await writeHuskyFiles(cwd, packageJson, hasNanoStaged);
 
+        // eslint-disable-next-line no-console
         console.log("Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Something went wrong:", error);
 
         exit(1);

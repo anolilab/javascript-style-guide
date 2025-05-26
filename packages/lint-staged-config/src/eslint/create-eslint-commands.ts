@@ -1,8 +1,10 @@
+import type { NormalizedPackageJson, PackageManager } from "@visulima/package";
+import { hasPackageJsonAnyDependency } from "@visulima/package";
+
+import type { EslintConfig } from "../types";
 import getNearestConfigPath from "../utils/get-nearest-config-path";
 import groupFilePathsByDirectoryName from "./group-file-paths-by-directory-name";
 import removeIgnoredFiles from "./remove-ignored-files";
-import { hasPackageJsonAnyDependency, type NormalizedPackageJson, type PackageManager } from "@visulima/package";
-import type { EslintConfig } from "../types";
 
 const configFile = ".eslintrc";
 
@@ -47,7 +49,7 @@ const createEslintArguments = (eslintConfig: EslintConfig, packageJson: Normaliz
         extraRules.push("eslint-comments/no-unused-disable:off");
     }
 
-    const rules = [...(eslintConfig.rules ?? []), ...extraRules].filter((rule) => rule.trim().length > 0);
+    const rules = [...eslintConfig.rules ?? [], ...extraRules].filter((rule) => rule.trim().length > 0);
 
     if (rules.length > 0) {
         eslintArguments.push(rules.map((rule) => `--rule "${rule}"`).join(" "));
@@ -55,7 +57,7 @@ const createEslintArguments = (eslintConfig: EslintConfig, packageJson: Normaliz
 
     // For lint-staged it's safer to not apply the fix command if it changes the AST
     // @see https://eslint.org/docs/user-guide/command-line-interface#--fix-type
-    const fixType = [...(eslintConfig["fix-type"] ?? ["layout"])].filter((type) => type.trim().length > 0);
+    const fixType = [...eslintConfig["fix-type"] ?? ["layout"]].filter((type) => type.trim().length > 0);
 
     if (fixType.length > 0) {
         eslintArguments.push(`--fix-type ${fixType.join(",")}`, "--fix");

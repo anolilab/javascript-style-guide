@@ -77,13 +77,13 @@ If you already have a `.lintstagedrc.js` or `.nano-staged.js`, then you can exte
 The content of the `.lintstagedrc.js` or `.nano-staged.js` should look like this:
 
 ```js
-const { defineConfig } = require("@anolilab/lint-staged-config");
-
-module.exports = defineConfig();
-
 // or
 
 import { defineConfig } from "@anolilab/lint-staged-config";
+
+const { defineConfig } = require("@anolilab/lint-staged-config");
+
+module.exports = defineConfig();
 
 export default defineConfig();
 ```
@@ -92,18 +92,18 @@ export default defineConfig();
 You can configure `@anolilab/lint-staged-config` options inside the `defineConfig` function.
 
 ```js
-const { defineConfig } = require("@anolilab/lint-staged-config");
-
-module.exports = defineConfig({
-  // Add your configuration here
-});
-
 // or
 
 import { defineConfig } from "@anolilab/lint-staged-config";
 
+const { defineConfig } = require("@anolilab/lint-staged-config");
+
+module.exports = defineConfig({
+    // Add your configuration here
+});
+
 export default defineConfig({
-  // Add your configuration here
+    // Add your configuration here
 });
 ```
 

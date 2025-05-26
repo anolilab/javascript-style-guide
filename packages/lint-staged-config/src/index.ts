@@ -1,21 +1,22 @@
-import { findPackageManagerSync, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
-import { readFileSync } from "@visulima/fs";
 import { existsSync } from "node:fs";
-import type * as lintStaged from "lint-staged";
+
+import { readFileSync } from "@visulima/fs";
+import { findPackageManagerSync, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
+import type { Configuration } from "lint-staged";
 
 import createEslintCommands from "./eslint/create-eslint-commands";
+import type { EslintConfig } from "./types";
 import concatFiles from "./utils/concat-files";
 import getNearestConfigPath from "./utils/get-nearest-config-path";
-import type { EslintConfig } from "./types";
 
-type TypescriptConfig = {
+interface StylesheetsConfig {
+    extensions?: string[];
+}
+
+interface TypescriptConfig {
     exclude?: string[];
     extensions?: string[];
-};
-
-type StylesheetsConfig = {
-    extensions?: string[];
-};
+}
 
 export const eslintExtensions = ["cjs", "js", "mjs", "cts", "ts", "mts", "yml", "yaml", "jsx", "tsx", "mdx", "toml", "json", "json5", "jsonc"];
 export const typescriptExtensions = ["cts", "ts", "mts", "tsx", "ctsx"];
@@ -23,28 +24,29 @@ export const stylesheetsExtensions = ["css", "scss", "sass", "less", "styl", "st
 
 export const defineConfig = (
     options: {
-        debug?: boolean;
         cwd?: string;
-        eslint?: false | EslintConfig;
+        debug?: boolean;
+        eslint?: EslintConfig | false;
         json?: false;
         markdown?: false;
         secretlint?: false;
-        stylesheets?: false | StylesheetsConfig;
+        stylesheets?: StylesheetsConfig | false;
         tests?: false;
-        typescript?: false | TypescriptConfig;
+        typescript?: TypescriptConfig | false;
     } = {},
-): lintStaged.Configuration => {
+    // eslint-disable-next-line sonarjs/cognitive-complexity
+): Configuration => {
     const config = {
         debug: false,
         eslint: {
             extensions: eslintExtensions,
         },
+        stylesheets: {
+            extensions: stylesheetsExtensions,
+        },
         typescript: {
             exclude: [],
             extensions: typescriptExtensions,
-        },
-        stylesheets: {
-            extensions: stylesheetsExtensions,
         },
         ...options,
     };
@@ -58,6 +60,7 @@ export const defineConfig = (
     const { packageManager } = findPackageManagerSync(cwd);
 
     if (config.debug) {
+        // eslint-disable-next-line no-console
         console.debug("Package manager found:", packageManager);
     }
 
@@ -66,7 +69,7 @@ export const defineConfig = (
 
     const hasPrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
 
-    let loadedPlugins: lintStaged.Configuration = {};
+    let loadedPlugins: Configuration = {};
 
     if (config.eslint !== false && hasPackageJsonAnyDependency(packageJson, ["eslint"])) {
         if (!Array.isArray((config.eslint as EslintConfig).extensions) || ((config.eslint as EslintConfig).extensions as string[]).length === 0) {
@@ -78,8 +81,8 @@ export const defineConfig = (
         }
 
         loadedPlugins[`**/*.{${((config.eslint as EslintConfig).extensions as string[]).join(",")}}`] = async (filenames: string[]) => [
-            ...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []),
-            ...(await createEslintCommands(packageManager, packageJson, config.eslint as EslintConfig, filenames)),
+            ...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [],
+            ...await createEslintCommands(packageManager, packageJson, config.eslint as EslintConfig, filenames),
         ];
     }
 
@@ -91,15 +94,15 @@ export const defineConfig = (
         loadedPlugins = {
             ...loadedPlugins,
             "**/*.md": (filenames: string[]) => [
-                ...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []),
-                ...(hasMarkdownCli
+                ...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [],
+                ...hasMarkdownCli
                     ? [`${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`]
-                    : []),
-                ...(hasMarkdownCli2
+                    : [],
+                ...hasMarkdownCli2
                     ? [`${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`]
-                    : []),
+                    : [],
             ],
-            "**/*.mdx": (filenames: string[]) => [...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [])],
+            "**/*.mdx": (filenames: string[]) => [...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []],
         };
     }
 
@@ -109,22 +112,22 @@ export const defineConfig = (
 
     if (config.stylesheets !== false && hasPackageJsonAnyDependency(packageJson, ["stylelint"])) {
         if (
-            !Array.isArray((config.stylesheets as StylesheetsConfig).extensions) ||
-            ((config.stylesheets as StylesheetsConfig).extensions as string[]).length === 0
+            !Array.isArray((config.stylesheets as StylesheetsConfig).extensions)
+            || ((config.stylesheets as StylesheetsConfig).extensions as string[]).length === 0
         ) {
             throw new Error("The `extensions` option is required for the Stylesheets configuration.");
         }
 
         loadedPlugins[`**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`] = (filenames: string[]) => [
-            ...(hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : []),
+            ...hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : [],
             `${packageManager} exec stylelint --fix`,
         ];
     }
 
     if (config.typescript !== false && hasPackageJsonAnyDependency(packageJson, ["typescript"])) {
         if (
-            !Array.isArray((config.typescript as TypescriptConfig).extensions) ||
-            ((config.typescript as TypescriptConfig).extensions as string[]).length === 0
+            !Array.isArray((config.typescript as TypescriptConfig).extensions)
+            || ((config.typescript as TypescriptConfig).extensions as string[]).length === 0
         ) {
             throw new Error("The `extensions` option is required for the TypeScript configuration.");
         }
@@ -133,7 +136,6 @@ export const defineConfig = (
             const commands = new Set<string>();
 
             filenames.forEach((filePath) => {
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                 if (typeof (config.typescript as TypescriptConfig)?.exclude === "object" && Array.isArray((config.typescript as TypescriptConfig).exclude)) {
                     let exclude = false;
 
@@ -143,9 +145,9 @@ export const defineConfig = (
                         }
                     });
 
-                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                     if (exclude) {
                         if (config.debug) {
+                            // eslint-disable-next-line no-console
                             console.info(`Skipping ${filePath} as it's excluded in the settings.`);
                         }
 
@@ -160,6 +162,7 @@ export const defineConfig = (
                     commands.add(`${packageManager} exec tsc --noEmit --project ${tsconfigPath}`);
                 } catch (error) {
                     if (config.debug) {
+                        // eslint-disable-next-line no-console
                         console.error(error);
                     }
                 }

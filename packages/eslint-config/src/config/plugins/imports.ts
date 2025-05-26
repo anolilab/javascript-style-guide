@@ -340,7 +340,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                 },
             },
             {
-                files: getFilesGlobs("d.ts"),
+                files: getFilesGlobs("types"),
                 name: "anolilab/imports/d.ts-rules",
                 rules: {
                     "import/no-duplicates": "off",

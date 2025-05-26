@@ -67,21 +67,21 @@
         "clean": "rimraf node_modules dist"
     },
     "dependencies": {
-        "@commitlint/config-conventional": "^19.6.0",
-        "@commitlint/core": "^19.6.1",
+        "@commitlint/config-conventional": "^19.8.1",
+        "@commitlint/core": "^19.8.1",
         "commitizen": "^4.3.1",
-        "conventional-changelog-conventionalcommits": "8.0.0",
+        "conventional-changelog-conventionalcommits": "9.0.0",
         "cz-conventional-changelog": "^3.3.0"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "9.0.3",
-        "@commitlint/cli": "^19.6.1",
-        "@visulima/packem": "^1.10.7",
-        "esbuild": "^0.24.2",
+        "@anolilab/semantic-release-preset": "10.0.5",
+        "@commitlint/cli": "^19.8.1",
+        "@visulima/packem": "^1.19.1",
+        "esbuild": "^0.25.4",
         "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.1",
-        "typescript": "^5.7.3",
-        "vitest": "^2.1.8"
+        "semantic-release": "^24.2.5",
+        "typescript": "^5.8.3",
+        "vitest": "^3.1.4"
     },
     "peerDependencies": {
         "@commitlint/cli": "^17.6.5 || ^18.x || ^19.x"

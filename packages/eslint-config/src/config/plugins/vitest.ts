@@ -106,6 +106,11 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
                     "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],
 
+                    // Disallow invalid test titles
+                    // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-title.md
+                    // This is currently buggy, see https://github.com/vitest-dev/eslint-plugin-vitest/issues/692
+                    "vitest/valid-title": "off",
+
                     ...overrides,
 
                     ...prettier

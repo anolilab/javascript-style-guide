@@ -354,6 +354,95 @@ lspconfig.eslint.setup({
 
 </details>
 
+### Using `getFilesGlobs` for Common File Types
+
+Your `@anolilab/eslint-config` package also exports a handy utility function `getFilesGlobs` that provides pre-defined glob patterns for common file types. This can simplify targeting specific sets of files in your ESLint configuration objects.
+
+You can import it alongside `createConfig`:
+
+```javascript
+// eslint.config.js
+import { createConfig, getFilesGlobs } from "@anolilab/eslint-config";
+
+const baseConfig = createConfig();
+
+// Get glob patterns for all JavaScript and TypeScript files
+const jsTsFiles = getFilesGlobs("js_and_ts");
+// Get glob patterns for Markdown files
+const markdownFiles = getFilesGlobs("markdown");
+// Get glob patterns for HTML related files
+const htmlFiles = getFilesGlobs("html");
+
+export default [
+    ...baseConfig,
+    {
+        files: jsTsFiles,
+        // languageOptions, rules, etc., specific to JS and TS files
+        rules: {
+            // 'your-rule/for-js-ts': 'error',
+        },
+    },
+    {
+        files: markdownFiles,
+        // languageOptions, rules, etc., specific to Markdown files
+        // Often, you might use a specific processor or plugin for Markdown here
+        // processor: markdownProcessor, // Fictional example
+        // plugins: { markdownPlugin } // Fictional example
+    },
+    {
+        files: htmlFiles,
+        // languageOptions, rules, etc., specific to HTML files
+    },
+    // ... other configurations
+];
+```
+
+### Type Aware Rules
+
+You can optionally enable the [type aware](https://typescript-eslint.io/linting/typed-linting/) rules by passing the options object to the `typescript` config:
+
+```js
+// eslint.config.js
+import antfu from "@antfu/eslint-config";
+
+export default antfu({
+    typescript: {
+        tsconfigPath: "tsconfig.json",
+    },
+});
+```
+
+### Utilities
+
+The `getFilesGlobs` function accepts one of the following `FileType` strings:
+
+- `"all"`: All JavaScript, TypeScript, and declaration files.
+- `"astro_ts"`: TypeScript files within Astro components.
+- `"astro"`: Astro component files (`.astro`).
+- `"css"`: CSS files.
+- `"types"`: TypeScript declaration files (`.d.ts`, `.d.cts`, `.d.mts`).
+- `"e2e"`: End-to-end test files.
+- `"graphql"`: GraphQL files (`.gql`, `.graphql`).
+- `"html"`: Various HTML-like template files (`.html`, `.hbs`, `.erb`, etc.).
+- `"js_and_ts"`: All JavaScript and TypeScript source files (excluding declarations).
+- `"js"`: JavaScript files (`.js`, `.mjs`, `.cjs`).
+- `"jsx_and_tsx"`: JSX and TSX files.
+- `"less"`: LESS files.
+- `"markdown_in_markdown"`: Markdown files embedded within other Markdown files.
+- `"markdown_inline_js_jsx"`: JS/JSX code blocks within Markdown.
+- `"markdown"`: Markdown files (`.md`, `.mkdn`, etc.).
+- `"postcss"`: PostCSS configuration files.
+- `"scss"`: SCSS files.
+- `"storybook"`: Storybook story files.
+- `"svg"`: SVG files.
+- `"toml"`: TOML files.
+- `"ts"`: All TypeScript files including declarations and TSX (`.ts`, `.tsx`, `.d.ts`, etc.).
+- `"vitest"`: Vitest test files.
+- `"xml"`: XML files.
+- `"yaml"`: YAML files (`.yaml`, `.yml`).
+
+Using `getFilesGlobs` can make your configuration more readable and maintainable by abstracting away the specific glob patterns.
+
 ## Plugins
 
 Our configuration integrates a wide array of ESLint plugins to cover various aspects of code quality, language support, security, and specific libraries/frameworks. Many of these are enabled automatically when relevant dependencies are detected in your project.
@@ -570,77 +659,3 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 [license-url]: LICENSE.md "license"
 [npm-image]: https://img.shields.io/npm/v/@anolilab/eslint-config/latest.svg?style=for-the-badge&logo=npm
 [npm-url]: https://www.npmjs.com/package/@anolilab/eslint-config/v/latest "npm"
-
-### Using `getFilesGlobs` for Common File Types
-
-Your `@anolilab/eslint-config` package also exports a handy utility function `getFilesGlobs` that provides pre-defined glob patterns for common file types. This can simplify targeting specific sets of files in your ESLint configuration objects.
-
-You can import it alongside `createConfig`:
-
-```javascript
-// eslint.config.js
-import { createConfig, getFilesGlobs } from "@anolilab/eslint-config";
-
-const baseConfig = createConfig();
-
-// Get glob patterns for all JavaScript and TypeScript files
-const jsTsFiles = getFilesGlobs("js_and_ts");
-// Get glob patterns for Markdown files
-const markdownFiles = getFilesGlobs("markdown");
-// Get glob patterns for HTML related files
-const htmlFiles = getFilesGlobs("html");
-
-export default [
-    ...baseConfig,
-    {
-        files: jsTsFiles,
-        // languageOptions, rules, etc., specific to JS and TS files
-        rules: {
-            // 'your-rule/for-js-ts': 'error',
-        },
-    },
-    {
-        files: markdownFiles,
-        // languageOptions, rules, etc., specific to Markdown files
-        // Often, you might use a specific processor or plugin for Markdown here
-        // processor: markdownProcessor, // Fictional example
-        // plugins: { markdownPlugin } // Fictional example
-    },
-    {
-        files: htmlFiles,
-        // languageOptions, rules, etc., specific to HTML files
-    },
-    // ... other configurations
-];
-```
-
-The `getFilesGlobs` function accepts one of the following `FileType` strings:
-
-- `"all"`: All JavaScript, TypeScript, and declaration files.
-- `"astro_ts"`: TypeScript files within Astro components.
-- `"astro"`: Astro component files (`.astro`).
-- `"css"`: CSS files.
-- `"types"`: TypeScript declaration files (`.d.ts`, `.d.cts`, `.d.mts`).
-- `"e2e"`: End-to-end test files.
-- `"graphql"`: GraphQL files (`.gql`, `.graphql`).
-- `"html"`: Various HTML-like template files (`.html`, `.hbs`, `.erb`, etc.).
-- `"js_and_ts"`: All JavaScript and TypeScript source files (excluding declarations).
-- `"js"`: JavaScript files (`.js`, `.mjs`, `.cjs`).
-- `"jsx_and_tsx"`: JSX and TSX files.
-- `"less"`: LESS files.
-- `"markdown_in_markdown"`: Markdown files embedded within other Markdown files.
-- `"markdown_inline_js_jsx"`: JS/JSX code blocks within Markdown.
-- `"markdown"`: Markdown files (`.md`, `.mkdn`, etc.).
-- `"postcss"`: PostCSS configuration files.
-- `"scss"`: SCSS files.
-- `"storybook"`: Storybook story files.
-- `"svg"`: SVG files.
-- `"toml"`: TOML files.
-- `"ts"`: All TypeScript files including declarations and TSX (`.ts`, `.tsx`, `.d.ts`, etc.).
-- `"vitest"`: Vitest test files.
-- `"xml"`: XML files.
-- `"yaml"`: YAML files (`.yaml`, `.yml`).
-
-Using `getFilesGlobs` can make your configuration more readable and maintainable by abstracting away the specific glob patterns.
-
-### Type-Aware Linting

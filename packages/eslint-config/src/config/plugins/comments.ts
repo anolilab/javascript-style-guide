@@ -10,6 +10,10 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
     return [
         {
             files,
+            linterOptions: {
+                reportUnusedDisableDirectives: "error",
+                reportUnusedInlineConfigs: "error",
+            },
             name: "anolilab/eslint-comments/rules",
             plugins: {
                 "eslint-comments": pluginComments,

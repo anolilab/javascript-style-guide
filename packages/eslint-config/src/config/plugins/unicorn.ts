@@ -54,6 +54,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     },
                 ],
 
+                "unicorn/no-abusive-eslint-disable": "error",
+
                 "unicorn/no-array-for-each": "off",
 
                 "unicorn/no-instanceof-builtins": "error",

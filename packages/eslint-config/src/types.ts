@@ -49,6 +49,12 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
     compat?: OptionsFiles;
 
     /**
+     * Enable CSS support.
+     * @default false
+     */
+    css?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * The working directory for the config.
      * @default process.cwd()
      */

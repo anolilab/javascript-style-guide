@@ -14,6 +14,7 @@ import antfu from "./config/plugins/antfu";
 import astro from "./config/plugins/astro";
 import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
+import css from "./config/plugins/css";
 import formatters from "./config/plugins/formatters";
 import html from "./config/plugins/html";
 import imports from "./config/plugins/imports";
@@ -160,6 +161,7 @@ export const createConfig = async (
     const {
         astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
+        css: enableCss = false,
         gitignore: enableGitignore = true,
         html: enableHtml = false,
         jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting"]) || hasReact,
@@ -513,6 +515,10 @@ export const createConfig = async (
             packages.push("@tanstack/eslint-plugin-router");
         }
 
+        if (enableCss || enableTailwindCss) {
+            packages.push("@eslint/css");
+        }
+
         if (enableTailwindCss) {
             packages.push("eslint-plugin-tailwindcss");
         }
@@ -818,6 +824,16 @@ export const createConfig = async (
         configs.push(
             storybook({
                 overrides: getOverrides(options, "storybook"),
+            }),
+        );
+    }
+
+    if (enableCss || enableTailwindCss) {
+        configs.push(
+            css({
+                files: getFiles(options, "css"),
+                overrides: getOverrides(options, "css"),
+                tailwind: enableTailwindCss !== false,
             }),
         );
     }

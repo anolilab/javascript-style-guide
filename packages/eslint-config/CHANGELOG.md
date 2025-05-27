@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.2...@anolilab/eslint-config@16.2.3) (2025-05-27)
+
+### Bug Fixes
+
+* **eslint-config:** disabled the buggy `vitest/valid-title` rule in the Vitest plugin configuration. ([eb38510](https://github.com/anolilab/javascript-style-guide/commit/eb38510aa4baa5dc6f89f7dcf7b1b8e272656fc9))
+
 ## @anolilab/eslint-config [16.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.1...@anolilab/eslint-config@16.2.2) (2025-05-27)
 
 ### Bug Fixes

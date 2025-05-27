@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [16.2.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.1...@anolilab/eslint-config@16.2.2) (2025-05-27)
+
+### Bug Fixes
+
+* **eslint-config:** add missing optional ESLint plugins to peerDependenciesMeta ([d6a0714](https://github.com/anolilab/javascript-style-guide/commit/d6a0714006f4ed47cb1adf490b2034f92c4f529e))
+* **eslint-config:** disable additional perfectionist sorting rules in ESLint configuration ([f290fc3](https://github.com/anolilab/javascript-style-guide/commit/f290fc3f638beae20802ea0e14d83e8d59a5f644))
+
 ## @anolilab/eslint-config [16.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.0...@anolilab/eslint-config@16.2.1) (2025-05-27)
 
 ### Bug Fixes

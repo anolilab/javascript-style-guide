@@ -532,8 +532,8 @@ importers:
         version: 16.19.1(typescript@5.8.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 16.1.3
-        version: 16.1.3(0c05f2414f9e129fb1d4ffe62ba8a023)
+        specifier: 16.2.0
+        version: 16.2.0(d429147df7e1b25bc0adb9218cc570cf)
       '@anolilab/semantic-release-pnpm':
         specifier: ^1.1.11
         version: 1.1.11(@types/node@22.15.21)(yaml@2.8.0)
@@ -782,12 +782,13 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anolilab/eslint-config@16.1.3':
-    resolution: {integrity: sha512-xGakZ8EsYQBXNDVmt8+ufD4IZbG+mDRKJj2W5Xd8kAUhZA2P0qS9ooeaGIXzyBdCA0rWSnA5XPGlvPzNO574rQ==}
+  '@anolilab/eslint-config@16.2.0':
+    resolution: {integrity: sha512-yTwzTpJYfct5hO4/lNjdow+aaelpz8axLkyeqREfZ3uLMRAUH9yc2BE9l1htYlCLIRROJkTzo9ur3WcrnpmSnQ==}
     engines: {node: '>=20.18.* <=24.*'}
     peerDependencies:
       '@babel/core': ^7.22.20
       '@eslint-react/eslint-plugin': ^1.22.1
+      '@eslint/css': ^0.8.1
       '@tanstack/eslint-plugin-query': ^5.0.0
       '@tanstack/eslint-plugin-router': ^1.92.7
       '@unocss/eslint-plugin': ^66.1.2
@@ -9751,11 +9752,12 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.1.3(0c05f2414f9e129fb1d4ffe62ba8a023)':
+  '@anolilab/eslint-config@16.2.0(d429147df7e1b25bc0adb9218cc570cf)':
     dependencies:
       '@babel/core': 7.26.0
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.27.0(jiti@2.4.2))
       '@eslint/compat': 1.2.9(eslint@9.27.0(jiti@2.4.2))
+      '@eslint/css': 0.8.1
       '@eslint/js': 9.27.0
       '@eslint/markdown': 6.4.0
       '@html-eslint/eslint-plugin': 0.41.0(eslint@9.27.0(jiti@2.4.2))

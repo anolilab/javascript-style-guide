@@ -30,11 +30,14 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
                 // Disabled because of sort-imports
                 "perfectionist/sort-imports": "off",
+                // Disabled because of import/exports-last
+                "perfectionist/sort-modules": "off",
+
                 // Disabled because of simple-import-sort/exports
                 "perfectionist/sort-named-exports": "off",
-
                 // Disabled because of simple-import-sort/imports
                 "perfectionist/sort-named-imports": "off",
+
                 // Disabled because of @typescript-eslint/sort-type-constituents
                 "perfectionist/sort-union-types": "off",
 

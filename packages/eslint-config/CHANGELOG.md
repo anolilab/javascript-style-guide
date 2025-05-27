@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.0...@anolilab/eslint-config@16.2.1) (2025-05-27)
+
+### Bug Fixes
+
+* **eslint-config:** Enhanced ESLint comments plugin configuration to report unused directives and inline configs as errors. ([27ef2c6](https://github.com/anolilab/javascript-style-guide/commit/27ef2c60836d4379c3fede8ce41ba49c146c7a61))
+
 ## @anolilab/eslint-config [16.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.3...@anolilab/eslint-config@16.2.0) (2025-05-27)
 
 ### Features

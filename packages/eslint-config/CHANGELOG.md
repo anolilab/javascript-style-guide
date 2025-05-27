@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.3...@anolilab/eslint-config@16.2.0) (2025-05-27)
+
+### Features
+
+* **eslint-config:** add support for @eslint/css ([da3b47e](https://github.com/anolilab/javascript-style-guide/commit/da3b47e126e3e734a2fd85f8e427fe2dd698ca04))
+
 ## @anolilab/eslint-config [16.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.1.2...@anolilab/eslint-config@16.1.3) (2025-05-26)
 
 ### Bug Fixes

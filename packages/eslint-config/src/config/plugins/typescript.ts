@@ -395,7 +395,8 @@ export default createConfig<
 
             // Enforce constituents of a type union/intersection to be sorted alphabetically.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/sort-type-constituents.mdx
-            "@typescript-eslint/sort-type-constituents": "error",
+            // Disabled to avoid conflicts with perfectionist/sort-intersection-types
+            "@typescript-eslint/sort-type-constituents": "off",
 
             // Replaced by stylistic rules
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.mdx

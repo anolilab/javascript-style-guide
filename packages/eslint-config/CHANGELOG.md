@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.3...@anolilab/eslint-config@16.2.4) (2025-05-28)
+
+### Bug Fixes
+
+* **eslint-config:** disable `@typescript-eslint/sort-type-constituents` rule to prevent conflicts with perfectionist sorting ([9670a3a](https://github.com/anolilab/javascript-style-guide/commit/9670a3a790ecd929d84a5ff1d013deeabf0516be))
+
 ## @anolilab/eslint-config [16.2.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.2...@anolilab/eslint-config@16.2.3) (2025-05-27)
 
 ### Bug Fixes

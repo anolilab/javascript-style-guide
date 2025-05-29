@@ -5,23 +5,23 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  chrono-node@<2.2.4: '>=2.2.4'
-  cross-spawn@>=7.0.0 <7.0.5: '>=7.0.5'
-  nanoid@<3.3.8: '>=3.3.8'
-  '@octokit/request-error@>=6.0.0 <6.1.7': '>=6.1.7'
-  '@octokit/endpoint@>=10.0.0 <10.1.3': '>=10.1.3'
-  esbuild@<=0.24.2: '>=0.25.0'
-  vitest@>=2.0.0 <2.1.9: '>=2.1.9'
-  vite@>=5.0.0 <=5.4.11: '>=5.4.12'
-  '@octokit/request@>=9.0.0-beta.1 <9.2.1': '>=9.2.1'
-  '@octokit/plugin-paginate-rest@>=9.3.0-beta.1 <11.4.1': '>=11.4.1'
-  vite@>=5.0.0 <5.4.15: '>=5.4.15'
-  vite@>=5.0.0 <5.4.16: '>=5.4.16'
-  vite@>=5.0.0 <5.4.18: '>=5.4.18'
-  '@babel/runtime@<7.26.10': '>=7.26.10'
   '@babel/helpers@<7.26.10': '>=7.26.10'
+  '@babel/runtime@<7.26.10': '>=7.26.10'
+  '@octokit/endpoint@>=10.0.0 <10.1.3': '>=10.1.3'
+  '@octokit/plugin-paginate-rest@>=9.3.0-beta.1 <11.4.1': '>=11.4.1'
+  '@octokit/request@>=9.0.0-beta.1 <9.2.1': '>=9.2.1'
+  '@octokit/request-error@>=6.0.0 <6.1.7': '>=6.1.7'
+  chrono-node@<2.2.4: '>=2.8.1'
+  cross-spawn@>=7.0.0 <7.0.5: '>=7.0.5'
+  esbuild@<=0.24.2: '>=0.25.0'
+  nanoid@<3.3.8: '>=3.3.8'
   vite@>=5.0.0 <=5.4.18: '>=5.4.19'
+  vite@>=5.0.0 <=5.4.11: '>=5.4.12'
+  vite@>=5.0.0 <5.4.18: '>=5.4.18'
   vite@>=5.0.0 <5.4.17: '>=5.4.17'
+  vite@>=5.0.0 <5.4.16: '>=5.4.16'
+  vite@>=5.0.0 <5.4.15: '>=5.4.15'
+  vitest@>=2.0.0 <2.1.9: '>=2.1.9'
 
 importers:
 
@@ -133,8 +133,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@visulima/packem':
         specifier: 1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.5)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -185,8 +185,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@commitlint/cli':
         specifier: ^19.8.1
         version: 19.8.1(@types/node@22.15.21)(typescript@5.8.3)
@@ -541,8 +541,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -589,8 +589,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.5)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -644,8 +644,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.5)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -741,8 +741,8 @@ importers:
         specifier: 10.0.5
         version: 10.0.5(@anolilab/semantic-release-pnpm@1.1.11(@types/node@22.15.21)(yaml@2.8.0))(@semantic-release/npm@12.0.1(semantic-release@24.2.5(typescript@5.8.3)))(semantic-release@24.2.5(typescript@5.8.3))(yaml@2.8.0)
       '@arethetypeswrong/cli':
-        specifier: ^0.17.4
-        version: 0.17.4
+        specifier: ^0.18.1
+        version: 0.18.1
       '@visulima/packem':
         specifier: ^1.19.1
         version: 1.19.1(@types/node@22.15.21)(esbuild@0.25.5)(postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(yaml@2.8.0))(postcss-value-parser@4.2.0)(postcss@8.5.3)(sucrase@3.35.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -913,19 +913,10 @@ packages:
     resolution: {integrity: sha512-60vepv88RwcJtSHrD6MjIL6Ta3SOYbgfnkHb+ppAVK+o9mXprRtulx7VlRl3lN3bbvysAfCS7WMVfhUYemB0IQ==}
     engines: {node: '>= 16'}
 
-  '@arethetypeswrong/cli@0.17.4':
-    resolution: {integrity: sha512-AeiKxtf67XD/NdOqXgBOE5TZWH3EOCt+0GkbUpekOzngc+Q/cRZ5azjWyMxISxxfp0EItgm5NoSld9p7BAA5xQ==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   '@arethetypeswrong/cli@0.18.1':
     resolution: {integrity: sha512-SS1Z5gRSvbP4tl98KlNygSUp3Yfenktt782MQKEbYm6GFPowztnnvdEUhQGm2uVDIH4YkU6av+n8Lm6OEOigqA==}
     engines: {node: '>=20'}
     hasBin: true
-
-  '@arethetypeswrong/core@0.17.4':
-    resolution: {integrity: sha512-Izvir8iIoU+X4SKtDAa5kpb+9cpifclzsbA8x/AZY0k0gIfXYQ1fa1B6Epfe6vNA2YfDX8VtrZFgvnXB6aPEoQ==}
-    engines: {node: '>=18'}
 
   '@arethetypeswrong/core@0.18.1':
     resolution: {integrity: sha512-uUw47cLgB6zYOpAxFp94NG/J9ev0wcOC+UOmTCFEWtbDEn4vpR0ScoPxD7LCGcPczOd7bDJSJL/gMSz3BknYcw==}
@@ -3805,8 +3796,8 @@ packages:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
 
-  chrono-node@2.7.7:
-    resolution: {integrity: sha512-p3S7gotuTPu5oqhRL2p1fLwQXGgdQaRTtWR3e8Di9P1Pa9mzkK5DWR5AWBieMUh2ZdOnPgrK+zCrbbtyuA+D/Q==}
+  chrono-node@2.8.1:
+    resolution: {integrity: sha512-GrqzXzYH+MFmOJErGyWkgjnfOwcOKOdDFCKxhx7pXzdRRwfQehrhbOsO+ZpaKdF1VoXEvsuSHv49aflUfj7N8w==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   ci-info@3.9.0:
@@ -9972,16 +9963,6 @@ snapshots:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.0
 
-  '@arethetypeswrong/cli@0.17.4':
-    dependencies:
-      '@arethetypeswrong/core': 0.17.4
-      chalk: 4.1.2
-      cli-table3: 0.6.5
-      commander: 10.0.1
-      marked: 9.1.6
-      marked-terminal: 7.3.0(marked@9.1.6)
-      semver: 7.7.2
-
   '@arethetypeswrong/cli@0.18.1':
     dependencies:
       '@arethetypeswrong/core': 0.18.1
@@ -9991,17 +9972,6 @@ snapshots:
       marked: 9.1.6
       marked-terminal: 7.3.0(marked@9.1.6)
       semver: 7.7.2
-
-  '@arethetypeswrong/core@0.17.4':
-    dependencies:
-      '@andrewbranch/untar.js': 1.0.3
-      '@loaderkit/resolve': 1.0.4
-      cjs-module-lexer: 1.2.3
-      fflate: 0.8.2
-      lru-cache: 10.4.3
-      semver: 7.7.2
-      typescript: 5.6.1-rc
-      validate-npm-package-name: 5.0.1
 
   '@arethetypeswrong/core@0.18.1':
     dependencies:
@@ -13574,7 +13544,7 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
 
-  chrono-node@2.7.7:
+  chrono-node@2.8.1:
     dependencies:
       dayjs: 1.11.10
 
@@ -20266,7 +20236,7 @@ snapshots:
 
   textlint-rule-date-weekday-mismatch@1.1.0:
     dependencies:
-      chrono-node: 2.7.7
+      chrono-node: 2.8.1
       moment: 2.30.1
       textlint-tester: 12.6.1
     transitivePeerDependencies:

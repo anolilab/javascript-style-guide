@@ -561,6 +561,10 @@ export const createConfig = async (
             packages.push("eslint-plugin-format");
         }
 
+        if (enablePlaywright) {
+            packages.push("playwright-eslint-plugin");
+        }
+
         if (enableAstro) {
             packages.push("eslint-plugin-astro", "astro-eslint-parser", "@typescript-eslint/parser");
 

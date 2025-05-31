@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.4...@anolilab/eslint-config@16.2.5) (2025-05-30)
+
+### Bug Fixes
+
+* **eslint-config:** add support for Playwright ESLint plugin ([c3e3c77](https://github.com/anolilab/javascript-style-guide/commit/c3e3c77577f866168275abd9a5db74499c1d8772))
+
 ## @anolilab/eslint-config [16.2.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.3...@anolilab/eslint-config@16.2.4) (2025-05-28)
 
 ### Bug Fixes

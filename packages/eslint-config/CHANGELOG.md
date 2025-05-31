@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [16.2.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.5...@anolilab/eslint-config@16.2.6) (2025-05-31)
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/eslint-plugin-query to ^5.0.5 ([#890](https://github.com/anolilab/javascript-style-guide/issues/890)) ([8c6ef6d](https://github.com/anolilab/javascript-style-guide/commit/8c6ef6daa24ba12a65346983c4747a93afee0f49))
+* **deps:** update minor updates (minor) ([#896](https://github.com/anolilab/javascript-style-guide/issues/896)) ([d5132c8](https://github.com/anolilab/javascript-style-guide/commit/d5132c8e59df185331772917e8216c78a97e47be))
+
 ## @anolilab/eslint-config [16.2.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.4...@anolilab/eslint-config@16.2.5) (2025-05-30)
 
 ### Bug Fixes

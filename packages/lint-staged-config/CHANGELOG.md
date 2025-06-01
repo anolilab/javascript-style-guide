@@ -1,3 +1,15 @@
+## @anolilab/lint-staged-config [3.0.13](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.12...@anolilab/lint-staged-config@3.0.13) (2025-06-01)
+
+### Bug Fixes
+
+* enhance packem configuration with isolated declaration transformer and cjsInterop ([fb759fc](https://github.com/anolilab/javascript-style-guide/commit/fb759fc1246adb01d2f5d7a1b254eb036a86ec13))
+* **lint-staged-config:** update dependencies in lint-staged-config ([4ae9f4b](https://github.com/anolilab/javascript-style-guide/commit/4ae9f4bf6867a0ea90960b65a60e2a78d1fe186e))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.2.9
+
 ## @anolilab/lint-staged-config [3.0.12](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.11...@anolilab/lint-staged-config@3.0.12) (2025-06-01)
 
 

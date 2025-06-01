@@ -158,6 +158,18 @@ export const createConfig = async (
         }
     }
 
+    let hasTailwindCssV3 = false;
+
+    const tailwindCssVersion = packageJson?.["dependencies"]?.["tailwindcss"] || packageJson?.["devDependencies"]?.["tailwindcss"];
+
+    if (tailwindCssVersion) {
+        const parsedVersion = parse(tailwindCssVersion);
+
+        if (parsedVersion?.major && parsedVersion.major <= 3) {
+            hasTailwindCssV3 = true;
+        }
+    }
+
     const {
         astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
@@ -484,7 +496,7 @@ export const createConfig = async (
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
-        tailwindcss: enableTailwindCss = hasPackageJsonAnyDependency(packageJson, ["tailwindcss", "@tailwindcss/forms", "@tailwindcss/typography", "@tailwindcss/postcss", "eslint-plugin-tailwindcss"]),
+        tailwindcss: enableTailwindCss = hasTailwindCssV3,
         tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
         tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-router"]),
         testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),

@@ -1,3 +1,14 @@
+## @anolilab/stylelint-config [7.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.1...@anolilab/stylelint-config@7.0.2) (2025-06-01)
+
+### Miscellaneous Chores
+
+* updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 6.0.2
+
 ## @anolilab/stylelint-config [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.0...@anolilab/stylelint-config@7.0.1) (2025-05-31)
 
 ### Bug Fixes

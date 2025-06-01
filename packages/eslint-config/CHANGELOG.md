@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.6...@anolilab/eslint-config@16.2.7) (2025-06-01)
+
+### Bug Fixes
+
+* **eslint-config:** enhance CSS and Tailwind CSS support in ESLint config ([7d8205f](https://github.com/anolilab/javascript-style-guide/commit/7d8205f51a24f093a279ebf6441ec4ba80460bc4))
+
 ## @anolilab/eslint-config [16.2.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.5...@anolilab/eslint-config@16.2.6) (2025-05-31)
 
 ### Bug Fixes

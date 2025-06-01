@@ -10,17 +10,17 @@ import concatFiles from "./utils/concat-files";
 import getNearestConfigPath from "./utils/get-nearest-config-path";
 
 interface StylesheetsConfig {
-    extensions?: string[];
+    extensions?: (typeof stylesheetsExtensions)[number][];
 }
 
 interface TypescriptConfig {
     exclude?: string[];
-    extensions?: string[];
+    extensions?: (typeof typescriptExtensions)[number][];
 }
 
-export const eslintExtensions = ["cjs", "js", "mjs", "cts", "ts", "mts", "yml", "yaml", "jsx", "tsx", "mdx", "toml", "json", "json5", "jsonc"];
-export const typescriptExtensions = ["cts", "ts", "mts", "tsx", "ctsx"];
-export const stylesheetsExtensions = ["css", "scss", "sass", "less", "styl", "stylus", "pcss", "postcss", "sss"];
+export const eslintExtensions = ["cjs", "js", "mjs", "cts", "ts", "mts", "yml", "yaml", "jsx", "tsx", "mdx", "toml", "json", "json5", "jsonc"] as const;
+export const typescriptExtensions = ["cts", "ts", "mts", "tsx", "ctsx"] as const;
+export const stylesheetsExtensions = ["css", "scss", "sass", "less", "styl", "stylus", "pcss", "postcss", "sss"] as const;
 
 export const defineConfig = (
     options: {

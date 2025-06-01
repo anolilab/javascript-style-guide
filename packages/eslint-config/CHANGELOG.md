@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [16.2.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.8...@anolilab/eslint-config@16.2.9) (2025-06-01)
+
+### Bug Fixes
+
+* enhance packem configuration with isolated declaration transformer and cjsInterop ([fb759fc](https://github.com/anolilab/javascript-style-guide/commit/fb759fc1246adb01d2f5d7a1b254eb036a86ec13))
+* **eslint-config:** update dependencies and improve ESLint configuration ([c6163fa](https://github.com/anolilab/javascript-style-guide/commit/c6163fac21255cb20eeaedce634e2ec21af6f963))
+
 ## @anolilab/eslint-config [16.2.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.7...@anolilab/eslint-config@16.2.8) (2025-06-01)
 
 ### Bug Fixes

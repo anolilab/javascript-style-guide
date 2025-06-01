@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [16.2.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.7...@anolilab/eslint-config@16.2.8) (2025-06-01)
+
+### Bug Fixes
+
+* **eslint-config:** improve Tailwind CSS version detection in ESLint config ([112704e](https://github.com/anolilab/javascript-style-guide/commit/112704efe2af8f8995ffe1cf1335cd63819f74b5))
+* **eslint-config:** remove unused CSS plugin configuration ([2582bb4](https://github.com/anolilab/javascript-style-guide/commit/2582bb458d4d53e7ae473972911801d0754ea8b7))
+
 ## @anolilab/eslint-config [16.2.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.6...@anolilab/eslint-config@16.2.7) (2025-06-01)
 
 ### Bug Fixes

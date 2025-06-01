@@ -161,7 +161,7 @@ export const createConfig = async (
     const {
         astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
-        css: enableCss = false,
+        css: enableCss = hasPackageJsonAnyDependency(packageJson, ["postcss", "cssnano"]),
         gitignore: enableGitignore = true,
         html: enableHtml = false,
         jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting"]) || hasReact,
@@ -484,7 +484,7 @@ export const createConfig = async (
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
-        tailwindcss: enableTailwindCss = false,
+        tailwindcss: enableTailwindCss = hasPackageJsonAnyDependency(packageJson, ["tailwindcss", "@tailwindcss/forms", "@tailwindcss/typography", "@tailwindcss/postcss", "eslint-plugin-tailwindcss"]),
         tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
         tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-router"]),
         testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),

@@ -15,8 +15,6 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
         plugins: {
             css: cssPlugin,
         },
-    }, {
-        name: "anolilab/css/css",
         rules: {
             "css/no-duplicate-imports": "error",
             "css/no-empty-blocks": "error",

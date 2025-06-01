@@ -77,10 +77,9 @@ Create `eslint.config.mjs` in your project root:
 
 ```js
 // eslint.config.mjs
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 
-export default createConfig() as PromiseFlatConfigComposer;
+export default createConfig();
 ```
 
 <details>
@@ -92,7 +91,6 @@ If you still use some configs from the legacy eslintrc format, you can use the [
 
 ```js
 // eslint.config.mjs
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -112,7 +110,7 @@ export default createConfig(
     }),
 
     // Other flat configs...
-) as PromiseFlatConfigComposer;
+);
 ```
 
 > Note that `.eslintignore` no longer works in Flat config.
@@ -123,9 +121,9 @@ Or you can configure each integration individually, for example:
 
 ```js
 // eslint.config.js
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 
+/** @type {import("@anolilab/eslint-config").PromiseFlatConfigComposer} */
 export default createConfig({
     // Enable stylistic formatting rules
     // stylistic: true,
@@ -149,7 +147,7 @@ export default createConfig({
     vue: true,
 
     yaml: false,
-}) as PromiseFlatConfigComposer;
+});
 ```
 
 ### Add script for package.json
@@ -169,7 +167,6 @@ The factory function also accepts any number of arbitrary custom config override
 
 ```js
 // eslint.config.js
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 
 export default createConfig(
@@ -186,16 +183,16 @@ export default createConfig(
     {
         rules: {},
     },
-) as PromiseFlatConfigComposer;
+);
 ```
 
 We also provided the `overrides` options in each integration to make it easier:
 
 ```js
 // eslint.config.js
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 
+/** @type {import("@anolilab/eslint-config").PromiseFlatConfigComposer} */
 export default createConfig({
     typescript: {
         overrides: {
@@ -207,7 +204,7 @@ export default createConfig({
             // ...
         },
     },
-}) as PromiseFlatConfigComposer;
+});
 ```
 
 ## IDE Support (auto fix on save)
@@ -407,14 +404,14 @@ You can optionally enable the [type aware](https://typescript-eslint.io/linting/
 
 ```js
 // eslint.config.js
-import type { PromiseFlatConfigComposer } from "@anolilab/eslint-config";
 import { createConfig } from "@anolilab/eslint-config";
 
+/** @type {import("@anolilab/eslint-config").PromiseFlatConfigComposer} */
 export default createConfig({
     typescript: {
         tsconfigPath: "tsconfig.json",
     },
-}) as PromiseFlatConfigComposer;
+});
 ```
 
 ### Utilities

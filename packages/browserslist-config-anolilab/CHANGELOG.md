@@ -1,3 +1,13 @@
+## browserslist-config-anolilab [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.1...browserslist-config-anolilab@6.0.2) (2025-06-01)
+
+### Bug Fixes
+
+* enhance packem configuration with isolated declaration transformer and cjsInterop ([fb759fc](https://github.com/anolilab/javascript-style-guide/commit/fb759fc1246adb01d2f5d7a1b254eb036a86ec13))
+
+### Miscellaneous Chores
+
+* updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
+
 ## browserslist-config-anolilab [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.0...browserslist-config-anolilab@6.0.1) (2025-05-31)
 
 ### Bug Fixes

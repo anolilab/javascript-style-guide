@@ -60,7 +60,7 @@
         "build:packages": "nx run-many --target=build --parallel --projects=tag:type:package",
         "build:packages:prod": "nx run-many --target=build:prod --parallel --projects=tag:type:package",
         "clean": "nx run-many --target=clean && rimraf node_modules",
-        "preinstall": "node verify-node-version.cjs",
+        "preinstall": "node -e \"if(process.env.CI == 'true') {console.info('Skipping preinstall...')} else {process.exit(1)}\" || (node verify-node-version.js && npm -y exec only-allow pnpm)",
         "postinstall": "is-ci || husky || exit 0",
         "lint": "pnpm run lint:prettier && pnpm run lint:eslint",
         "lint:affected:attw": "nx affected --target=lint:attw --parallel --exclude=*-bench,docs,storybook --nxBail",

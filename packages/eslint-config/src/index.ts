@@ -94,7 +94,25 @@ export type {
 export { getFilesGlobs } from "./utils/create-config";
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
+/**
+ * Resolves sub-options from the main configuration object.
+ * If the option for the given key is a boolean, it returns an empty object;
+ * otherwise, it returns the sub-options object or an empty object if undefined.
+ * @param {OptionsConfig} options The main configuration object.
+ * @param {K} key The key of the sub-options to resolve.
+ * @returns {ResolvedOptions<OptionsConfig[K]>} The resolved sub-options.
+ * @template K
+ */
 export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => (typeof options[key] === "boolean" ? {} : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
+
+/**
+ * Retrieves override rules for a specific configuration key.
+ * It merges global overrides with sub-option overrides.
+ * @param {OptionsConfig} options The main configuration object.
+ * @param {K} key The key of the configuration to get overrides for.
+ * @returns {Partial<Linter.RulesRecord & RuleOptions>} The merged override rules.
+ * @template K
+ */
 export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> => {
     const sub = resolveSubOptions(options, key);
 
@@ -105,6 +123,13 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
     };
 };
 
+/**
+ * Retrieves file globs for a specific configuration key from sub-options.
+ * @param {OptionsConfig} options The main configuration object.
+ * @param {K} key The key of the configuration to get file globs for.
+ * @returns {string[] | undefined} An array of file globs, or undefined if not specified.
+ * @template K
+ */
 export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): string[] | undefined => {
     const sub = resolveSubOptions(options, key);
 
@@ -120,20 +145,25 @@ export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, 
 };
 
 /**
+ * Type alias for a Promise that resolves to a FlatConfigComposer instance.
+ */
+export type PromiseFlatConfigComposer = Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>>;
+
+/**
  * Construct an array of ESLint flat config items.
  * @param {OptionsConfig & TypedFlatConfigItem} options
  *  The options for generating the ESLint configurations.
  * @param {Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
  *  The user configurations to be merged with the generated configurations.
- * @returns {Promise<TypedFlatConfigItem[]>}
- *  The merged ESLint configurations.
+ * @returns {PromiseFlatConfigComposer}
+ *  A promise that resolves to the merged ESLint configurations composer.
  */
 export const createConfig = async (
     options: Omit<TypedFlatConfigItem, "files"> & OptionsConfig = {},
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...userConfigs: Awaitable<FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]>[]
     // eslint-disable-next-line sonarjs/cognitive-complexity
-): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> => {
+): PromiseFlatConfigComposer => {
     if ("files" in options) {
         throw new Error(
             "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
@@ -509,7 +539,7 @@ export const createConfig = async (
     } = options;
 
     if (isCwdInScope) {
-        const packages = [];
+        let packages = [];
 
         if (enableZod) {
             packages.push("eslint-plugin-zod");
@@ -594,6 +624,8 @@ export const createConfig = async (
                 packages.push("@prettier/plugin-xml");
             }
         }
+
+        packages = packages.filter(Boolean) as string[];
 
         if (packages.length > 0) {
             await ensurePackages(packageJson, packages, "devDependencies", {

@@ -8,6 +8,7 @@ import fs from "node:fs/promises";
 
 import JS from "@eslint/js";
 import type { NormalizedPackageJson } from "@visulima/package";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 
 import bestPractices from "../src/config/best-practices";

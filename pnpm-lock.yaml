@@ -12,9 +12,9 @@ overrides:
   '@octokit/request@>=9.0.0-beta.1 <9.2.1': '>=9.2.1'
   '@octokit/request-error@>=6.0.0 <6.1.7': '>=6.1.7'
   chrono-node@<2.2.4: '>=2.8.1'
-  cross-spawn@>=7.0.0 <7.0.5: '>=7.0.5'
-  esbuild@<=0.24.2: '>=0.25.0'
-  nanoid@<3.3.8: '>=3.3.8'
+  cross-spawn@>=7.0.0 <7.0.5: '>=7.0.6'
+  esbuild@<=0.24.2: '>=0.25.5'
+  nanoid@<3.3.8: '>=3.3.11'
   vite@>=5.0.0 <=5.4.18: '>=5.4.19'
   vite@>=5.0.0 <=5.4.11: '>=5.4.12'
   vite@>=5.0.0 <5.4.18: '>=5.4.18'
@@ -3169,7 +3169,7 @@ packages:
       '@ckeditor/typedoc-plugins': '*'
       '@swc/core': '>=1.11.29'
       cssnano: '>=7.0.6'
-      esbuild: '>=0.25.0'
+      esbuild: '>=0.25.5'
       icss-utils: '>=5.1.0'
       less: '>=4.2.0'
       lightningcss: '>=1.27.0'
@@ -3768,7 +3768,7 @@ packages:
     resolution: {integrity: sha512-3WrrOuZiyaaZPWiEt4G3+IffISVC9HYlWueJEBWED4ZH4aIAC2PnkdnuRrR94M+w6yGWn4AglWtJtBI8YqvgoA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
-      esbuild: '>=0.25.0'
+      esbuild: '>=0.25.5'
 
   bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
@@ -4595,7 +4595,7 @@ packages:
   esbuild-register@3.6.0:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
     peerDependencies:
-      esbuild: '>=0.25.0'
+      esbuild: '>=0.25.5'
 
   esbuild@0.25.5:
     resolution: {integrity: sha512-P8OtKZRv/5J5hhz0cUAdu/cLuPIKXpQl1R9pZtvmHWQvrAUVd0UNIPT4IB4W3rNOqVO0rlqHmCIbSwxh/c9yUQ==}

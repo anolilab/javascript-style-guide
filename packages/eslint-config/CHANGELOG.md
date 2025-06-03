@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [16.2.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.9...@anolilab/eslint-config@16.2.10) (2025-06-02)
+
+### Bug Fixes
+
+* **eslint-config:** added missing eslint-plugin-react-refresh package to install ([714a011](https://github.com/anolilab/javascript-style-guide/commit/714a011f6b4fd50ef236fa2dcab1172d76fe2ab5))
+
+### Code Refactoring
+
+* **eslint-config:** remove type imports and simplify config exports in README.md ([d50eab8](https://github.com/anolilab/javascript-style-guide/commit/d50eab887dbd9586254689e7dc43694247f6522e))
+
 ## @anolilab/eslint-config [16.2.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.8...@anolilab/eslint-config@16.2.9) (2025-06-01)
 
 ### Bug Fixes

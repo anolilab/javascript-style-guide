@@ -572,8 +572,9 @@ export const createConfig = async (
         if (enableReact) {
             packages.push(
                 "eslint-plugin-react",
-                "@eslint-react/eslint-plugin",
                 "eslint-plugin-react-hooks",
+                "eslint-plugin-react-refresh",
+                "@eslint-react/eslint-plugin",
                 "eslint-plugin-react-perf",
                 "eslint-plugin-react-you-might-not-need-an-effect",
             );

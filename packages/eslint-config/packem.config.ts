@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from "@visulima/packem/config";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import transformer from "@visulima/packem/transformer/esbuild";
 
 export default defineConfig({

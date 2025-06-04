@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.12](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.11...@anolilab/eslint-config@16.2.12) (2025-06-04)
+
+### Bug Fixes
+
+* **eslint-config:** update react compiler configuration and improve logging messages ([251b2f5](https://github.com/anolilab/javascript-style-guide/commit/251b2f5b79d01e9b81c0bca00c1fc2e3247b18b0))
+
 ## @anolilab/eslint-config [16.2.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.10...@anolilab/eslint-config@16.2.11) (2025-06-04)
 
 ### Bug Fixes

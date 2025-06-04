@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [3.0.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.15...@anolilab/lint-staged-config@3.0.16) (2025-06-04)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.2.12
+
 ## @anolilab/lint-staged-config [3.0.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.14...@anolilab/lint-staged-config@3.0.15) (2025-06-04)
 
 

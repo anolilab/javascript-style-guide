@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.11](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.10...@anolilab/eslint-config@16.2.11) (2025-06-04)
+
+### Bug Fixes
+
+* **eslint-config:** fixed loading of react compiler rule ([a62617e](https://github.com/anolilab/javascript-style-guide/commit/a62617e78db84b6ca04f355d056b50a0516206a2))
+
 ## @anolilab/eslint-config [16.2.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.9...@anolilab/eslint-config@16.2.10) (2025-06-02)
 
 ### Bug Fixes

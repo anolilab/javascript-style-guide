@@ -1,5 +1,6 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
+import type { Rule } from "eslint";
 import { parse } from "semver";
 
 import type {
@@ -22,6 +23,21 @@ const ReactRefreshAllowConstantExportPackages = ["vite"];
 const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
 const NextJsPackages = ["next"];
 const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@react-router/serve", "@react-router/dev"];
+
+type PluginReactCompiler = {
+    recommended: {
+        plugins: {
+            "react-compiler": {
+                rules: {
+                    "react-compiler": Rule.RuleModule;
+                };
+            };
+        };
+        rules: {
+            "react-compiler/react-compiler": "error";
+        };
+    };
+};
 
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
@@ -113,13 +129,13 @@ export default createConfig<
 
     hasReactCompiler = hasReactCompiler && reactCompiler !== false;
 
-    let pluginReactCompiler;
+    let pluginReactCompiler: PluginReactCompiler | undefined;
 
     if (hasReactCompiler) {
         // eslint-disable-next-line no-console
         console.info(`\n@anolilab/eslint-config enabling react-compiler plugin\n`);
 
-        pluginReactCompiler = interopDefault(import("eslint-plugin-react-compiler"));
+        pluginReactCompiler = await interopDefault(import("eslint-plugin-react-compiler")) as unknown as PluginReactCompiler;
     }
 
     return [
@@ -136,7 +152,7 @@ export default createConfig<
                 "react-web-api": plugins["@eslint-react/web-api"],
                 "react-x": plugins["@eslint-react"],
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler ? { "react-compiler": pluginReactCompiler } : {},
+                ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.recommended.plugins : {},
             },
         },
         {
@@ -1003,7 +1019,7 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...hasReactCompiler ? { "react-compiler/react-compiler": "error" } : {},
+                ...hasReactCompiler && pluginReactCompiler ? { "react-compiler/react-compiler": "error" } : {},
 
                 ...pluginReactPerf?.configs?.flat?.recommended?.rules,
 

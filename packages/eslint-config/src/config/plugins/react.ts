@@ -25,16 +25,18 @@ const NextJsPackages = ["next"];
 const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@react-router/serve", "@react-router/dev"];
 
 type PluginReactCompiler = {
-    recommended: {
-        plugins: {
-            "react-compiler": {
-                rules: {
-                    "react-compiler": Rule.RuleModule;
+    configs: {
+        recommended: {
+            plugins: {
+                "react-compiler": {
+                    rules: {
+                        "react-compiler": Rule.RuleModule;
+                    };
                 };
             };
-        };
-        rules: {
-            "react-compiler/react-compiler": "error";
+            rules: {
+                "react-compiler/react-compiler": "error";
+            };
         };
     };
 };
@@ -69,6 +71,8 @@ export default createConfig<
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
     const typeAwareRules: TypedFlatConfigItem["rules"] = {
+        // Prevents problematic leaked values from being rendered
+        // https://eslint-react.xyz/docs/rules/no-leaked-conditional-rendering
         "react-x/no-leaked-conditional-rendering": "error",
     };
 
@@ -120,7 +124,7 @@ export default createConfig<
 
             if (!silent) {
                 // eslint-disable-next-line no-console
-                console.info(`\n@anolilab/eslint-config found react jsx-runtime. \n
+                console.info(`@anolilab/eslint-config found react jsx-runtime. \n
   Following rules are disabled: "react/jsx-uses-react" and "react/react-in-jsx-scope".
   If you dont use the new react jsx-runtime in you project, please enable it manually.\n`);
             }
@@ -133,7 +137,7 @@ export default createConfig<
 
     if (hasReactCompiler) {
         // eslint-disable-next-line no-console
-        console.info(`\n@anolilab/eslint-config enabling react-compiler plugin\n`);
+        console.info(`@anolilab/eslint-config enabling react-compiler plugin\n`);
 
         pluginReactCompiler = await interopDefault(import("eslint-plugin-react-compiler")) as unknown as PluginReactCompiler;
     }
@@ -152,7 +156,7 @@ export default createConfig<
                 "react-web-api": plugins["@eslint-react/web-api"],
                 "react-x": plugins["@eslint-react"],
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.recommended.plugins : {},
+                ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.configs.recommended.plugins : {},
             },
         },
         {
@@ -410,10 +414,6 @@ export default createConfig<
                 // Prevents key from not being explicitly specified (e.g. spreading key from objects)
                 // https://eslint-react.xyz/docs/rules/no-implicit-key
                 "react-x/no-implicit-key": "error",
-
-                // Prevents problematic leaked values from being rendered
-                // https://eslint-react.xyz/docs/rules/no-leaked-conditional-rendering
-                "react-x/no-leaked-conditional-rendering": "error",
 
                 // Enforces that all components have a displayName which can be used in devtools
                 // https://eslint-react.xyz/docs/rules/no-missing-component-display-name

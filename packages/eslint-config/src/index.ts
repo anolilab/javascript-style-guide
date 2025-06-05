@@ -605,7 +605,7 @@ export const createConfig = async (
         }
 
         if (enablePlaywright) {
-            packages.push("playwright-eslint-plugin");
+            packages.push("eslint-plugin-playwright");
         }
 
         if (enableAstro) {

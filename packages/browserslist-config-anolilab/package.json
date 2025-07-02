@@ -36,8 +36,8 @@
     "exports": {
         ".": {
             "types": "./dist/index.d.cts",
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.mjs"
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
         },
         "./package.json": "./package.json"
     },
@@ -67,17 +67,17 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "10.0.5",
-        "@arethetypeswrong/cli": "^0.18.1",
-        "@visulima/packem": "1.19.4",
-        "browserslist": "4.25.0",
-        "caniuse-lite": "^1.0.30001720",
+        "@anolilab/semantic-release-preset": "11.0.0",
+        "@arethetypeswrong/cli": "^0.18.2",
+        "@visulima/packem": "1.28.2",
+        "browserslist": "4.25.1",
+        "caniuse-lite": "^1.0.30001726",
         "cross-env": "^7.0.3",
         "esbuild": "^0.25.5",
         "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.5",
+        "semantic-release": "^24.2.6",
         "typescript": "^5.8.3",
-        "vitest": "^3.1.4"
+        "vitest": "^3.2.4"
     },
     "engines": {
         "node": ">=20.18.* <=24.*"

@@ -1,3 +1,9 @@
+## @anolilab/stylelint-config [7.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.2...@anolilab/stylelint-config@7.0.3) (2025-07-02)
+
+### Bug Fixes
+
+* **deps:** update package.json exports and add validation rules ([11b9783](https://github.com/anolilab/javascript-style-guide/commit/11b9783b16bd54d9672bfa3229e2f7b635ad0c85))
+
 ## @anolilab/stylelint-config [7.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.1...@anolilab/stylelint-config@7.0.2) (2025-06-01)
 
 ### Miscellaneous Chores

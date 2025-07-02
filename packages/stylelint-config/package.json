@@ -45,93 +45,93 @@
     "type": "module",
     "exports": {
         ".": {
-            "require": {
-                "types": "./index.d.cts",
-                "default": "./index.cjs"
-            },
             "import": {
                 "types": "./index.d.mts",
                 "default": "./index.mjs"
+            },
+            "require": {
+                "types": "./index.d.cts",
+                "default": "./index.cjs"
             }
         },
         "./best-practices": {
-            "require": {
-                "types": "./dist/config/best-practices.d.cts",
-                "default": "./dist/config/best-practices.cjs"
-            },
             "import": {
                 "types": "./dist/config/best-practices.d.mts",
                 "default": "./dist/config/best-practices.mjs"
+            },
+            "require": {
+                "types": "./dist/config/best-practices.d.cts",
+                "default": "./dist/config/best-practices.cjs"
             }
         },
         "./declaration-block-no-ignored-properties": {
-            "require": {
-                "types": "./dist/config/declaration-block-no-ignored-properties.d.cts",
-                "default": "./dist/config/declaration-block-no-ignored-properties.cjs"
-            },
             "import": {
                 "types": "./dist/config/declaration-block-no-ignored-properties.d.mts",
                 "default": "./dist/config/declaration-block-no-ignored-properties.mjs"
+            },
+            "require": {
+                "types": "./dist/config/declaration-block-no-ignored-properties.d.cts",
+                "default": "./dist/config/declaration-block-no-ignored-properties.cjs"
             }
         },
         "./high-performance-animation": {
-            "require": {
-                "types": "./dist/config/high-performance-animation.d.cts",
-                "default": "./dist/config/high-performance-animation.cjs"
-            },
             "import": {
                 "types": "./dist/config/high-performance-animation.d.mts",
                 "default": "./dist/config/high-performance-animation.mjs"
+            },
+            "require": {
+                "types": "./dist/config/high-performance-animation.d.cts",
+                "default": "./dist/config/high-performance-animation.cjs"
             }
         },
         "./no-unsupported-browser-features": {
-            "require": {
-                "types": "./dist/config/no-unsupported-browser-features.d.cts",
-                "default": "./dist/config/no-unsupported-browser-features.cjs"
-            },
             "import": {
                 "types": "./dist/config/no-unsupported-browser-features.d.mts",
                 "default": "./dist/config/no-unsupported-browser-features.mjs"
+            },
+            "require": {
+                "types": "./dist/config/no-unsupported-browser-features.d.cts",
+                "default": "./dist/config/no-unsupported-browser-features.cjs"
             }
         },
         "./require-units": {
-            "require": {
-                "types": "./dist/config/require-units.d.cts",
-                "default": "./dist/config/require-units.cjs"
-            },
             "import": {
                 "types": "./dist/config/require-units.d.mts",
                 "default": "./dist/config/require-units.mjs"
+            },
+            "require": {
+                "types": "./dist/config/require-units.d.cts",
+                "default": "./dist/config/require-units.cjs"
             }
         },
         "./selector-no-empty": {
-            "require": {
-                "types": "./dist/config/selector-no-empty.d.cts",
-                "default": "./dist/config/selector-no-empty.cjs"
-            },
             "import": {
                 "types": "./dist/config/selector-no-empty.d.mts",
                 "default": "./dist/config/selector-no-empty.mjs"
+            },
+            "require": {
+                "types": "./dist/config/selector-no-empty.d.cts",
+                "default": "./dist/config/selector-no-empty.cjs"
             }
         },
         "./standard": {
-            "require": {
-                "types": "./dist/config/standard.d.cts",
-                "default": "./dist/config/standard.cjs"
-            },
             "import": {
                 "types": "./dist/config/standard.d.mts",
                 "default": "./dist/config/standard.mjs"
+            },
+            "require": {
+                "types": "./dist/config/standard.d.cts",
+                "default": "./dist/config/standard.cjs"
             }
         },
         "./tailwindcss": {
-            "require": {
-                "types": "./dist/config/tailwindcss.d.cts",
-                "default": "./dist/config/tailwindcss.cjs"
-            },
             "import": {
                 "types": "./dist/config/tailwindcss.d.mts",
                 "default": "./dist/config/tailwindcss.mjs"
+            },
+            "require": {
+                "types": "./dist/config/tailwindcss.d.cts",
+                "default": "./dist/config/tailwindcss.cjs"
             }
         },
         "./package.json": "./package.json"
@@ -199,16 +199,16 @@
         "stylelint-selector-no-empty": "^1.0.9"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "10.0.5",
-        "@arethetypeswrong/cli": "^0.18.1",
-        "@visulima/packem": "^1.19.4",
+        "@anolilab/semantic-release-preset": "11.0.0",
+        "@arethetypeswrong/cli": "^0.18.2",
+        "@visulima/packem": "^1.28.2",
         "esbuild": "^0.25.5",
-        "postcss": "^8.5.4",
+        "postcss": "^8.5.6",
         "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.5",
-        "stylelint": "16.20.0",
+        "semantic-release": "^24.2.6",
+        "stylelint": "16.21.0",
         "typescript": "^5.8.3",
-        "vitest": "^3.1.4"
+        "vitest": "^3.2.4"
     },
     "peerDependencies": {
         "postcss": "^8.4.18",

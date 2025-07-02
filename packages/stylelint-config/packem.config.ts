@@ -13,4 +13,19 @@ export default defineConfig({
         },
     },
     transformer,
+    validation: {
+        dependencies: {
+            unused: {
+                exclude: [
+                    "stylelint-config-clean-order",
+                    "stylelint-config-standard",
+                    "stylelint-declaration-block-no-ignored-properties",
+                    "stylelint-high-performance-animation",
+                    "stylelint-no-unsupported-browser-features",
+                    "stylelint-require-units",
+                    "stylelint-selector-no-empty"
+                ],
+            },
+        },
+    },
 });

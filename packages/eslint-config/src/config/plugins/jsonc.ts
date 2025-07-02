@@ -353,7 +353,7 @@ const jsonc = async (
                         "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
                         "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
                         "jsonc/object-curly-spacing": ["error", "always"],
-                        "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+                        "jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
                         "jsonc/quote-props": "error",
                         "jsonc/quotes": "error",
                     }

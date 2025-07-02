@@ -275,7 +275,7 @@ export default createConfig<
                                     "generateViewport",
                                 ]
                                 : [],
-                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action"] : [],
+                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"] : [],
                         ],
                     },
                 ],

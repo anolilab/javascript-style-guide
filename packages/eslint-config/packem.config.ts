@@ -14,5 +14,23 @@ export default defineConfig({
             writeToPackageJson: true,
         },
     },
+    validation: {
+        dependencies: {
+            unused: {
+                exclude: [
+                    "@html-eslint/eslint-plugin",
+                    "@html-eslint/parser",
+                    "@stylistic/eslint-plugin-ts",
+                    "eslint-import-resolver-node",
+                    "eslint-import-resolver-typescript",
+                    "eslint-plugin-es-x",
+                    "eslint-plugin-security",
+                    "eslint-plugin-unused-imports",
+                    "jsonc-eslint-parser",
+                    "parse-gitignore"
+                ],
+            },
+        },
+    },
     transformer,
 });

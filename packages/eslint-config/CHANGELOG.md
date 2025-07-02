@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [16.2.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.13...@anolilab/eslint-config@16.2.14) (2025-07-02)
+
+### Bug Fixes
+
+* **deps:** remove outdated @babel/core dependency from eslint-config ([bf6cefd](https://github.com/anolilab/javascript-style-guide/commit/bf6cefd36cca7f4c5e3a2cddb03c1f91fe06d3b7))
+* **deps:** update dependencies and enhance ESLint configuration ([a17e0be](https://github.com/anolilab/javascript-style-guide/commit/a17e0be046fa99478bddb28328a915658eeb4f7c))
+* **deps:** update dependency @tanstack/eslint-plugin-query to ^5.81.2 ([#900](https://github.com/anolilab/javascript-style-guide/issues/900)) ([a828f96](https://github.com/anolilab/javascript-style-guide/commit/a828f961fa068500d15fcb0762478aeb471ce8a9))
+* **deps:** update dependency @tanstack/eslint-plugin-router to ^1.121.21 ([#902](https://github.com/anolilab/javascript-style-guide/issues/902)) ([7892ad4](https://github.com/anolilab/javascript-style-guide/commit/7892ad4845af133e45c4e87f0631a4b6832beafb))
+* **deps:** update dependency @unocss/eslint-plugin to ^66.1.4 ([#903](https://github.com/anolilab/javascript-style-guide/issues/903)) ([ea2086f](https://github.com/anolilab/javascript-style-guide/commit/ea2086f963a973605ec5b49fe3f92af374ad5fd0))
+
 ## @anolilab/eslint-config [16.2.13](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.12...@anolilab/eslint-config@16.2.13) (2025-06-05)
 
 ### Bug Fixes

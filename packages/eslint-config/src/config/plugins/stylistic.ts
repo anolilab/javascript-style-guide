@@ -73,7 +73,7 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                 "@stylistic/comma-spacing": ["error", { after: true, before: false }],
 
                 // Replace 'func-call-spacing' rule with '@stylistic' version
-                "@stylistic/func-call-spacing": ["error", "never"],
+                "@stylistic/function-call-spacing": ["error", "never"],
 
                 "@stylistic/generator-star-spacing": ["error", { after: true, before: false }],
 
@@ -254,9 +254,8 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                         "@stylistic/computed-property-spacing": "off",
                         "@stylistic/dot-location": "off",
                         "@stylistic/eol-last": "off",
-                        "@stylistic/func-call-spacing": "off",
-                        "@stylistic/function-call-argument-newline": "off",
                         "@stylistic/function-call-spacing": "off",
+                        "@stylistic/function-call-argument-newline": "off",
                         "@stylistic/function-paren-newline": "off",
                         "@stylistic/generator-star-spacing": "off",
                         "@stylistic/implicit-arrow-linebreak": "off",
@@ -275,9 +274,8 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                         "@stylistic/js/computed-property-spacing": "off",
                         "@stylistic/js/dot-location": "off",
                         "@stylistic/js/eol-last": "off",
-                        "@stylistic/js/func-call-spacing": "off",
-                        "@stylistic/js/function-call-argument-newline": "off",
                         "@stylistic/js/function-call-spacing": "off",
+                        "@stylistic/js/function-call-argument-newline": "off",
                         "@stylistic/js/function-paren-newline": "off",
                         "@stylistic/js/generator-star-spacing": "off",
                         "@stylistic/js/implicit-arrow-linebreak": "off",
@@ -399,7 +397,6 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
                         "@stylistic/ts/brace-style": "off",
                         "@stylistic/ts/comma-dangle": "off",
                         "@stylistic/ts/comma-spacing": "off",
-                        "@stylistic/ts/func-call-spacing": "off",
                         "@stylistic/ts/function-call-spacing": "off",
                         "@stylistic/ts/indent": "off",
                         "@stylistic/ts/key-spacing": "off",

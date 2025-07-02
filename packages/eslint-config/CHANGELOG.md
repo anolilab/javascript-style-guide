@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.14...@anolilab/eslint-config@16.2.15) (2025-07-02)
+
+### Bug Fixes
+
+* **eslint-config:** rename func-call-spacing rule to function-call-spacing for consistency ([99bf680](https://github.com/anolilab/javascript-style-guide/commit/99bf680bb9830b869ad2498c80622694a2dda7ae))
+
 ## @anolilab/eslint-config [16.2.14](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.13...@anolilab/eslint-config@16.2.14) (2025-07-02)
 
 ### Bug Fixes

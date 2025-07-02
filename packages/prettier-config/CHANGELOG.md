@@ -1,3 +1,13 @@
+## @anolilab/prettier-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.1...@anolilab/prettier-config@6.0.2) (2025-07-02)
+
+### Bug Fixes
+
+* **deps:** update prettier-config exports and dependencies ([1c7d93f](https://github.com/anolilab/javascript-style-guide/commit/1c7d93ff9bf817d7b51113c9de50dc5e2d4bc577))
+
+### Miscellaneous Chores
+
+* updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
+
 ## @anolilab/prettier-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.0...@anolilab/prettier-config@6.0.1) (2025-05-31)
 
 ### Bug Fixes

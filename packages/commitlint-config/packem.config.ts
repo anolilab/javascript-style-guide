@@ -12,5 +12,18 @@ export default defineConfig({
             writeToPackageJson: true,
         },
     },
+    validation: {
+        dependencies: {
+            unused: {
+                exclude: [
+                    "@commitlint/config-conventional",
+                    "@commitlint/core",
+                    "commitizen",
+                    "conventional-changelog-conventionalcommits",
+                    "cz-conventional-changelog"
+                ],
+            },
+        },
+    },
     transformer,
 });

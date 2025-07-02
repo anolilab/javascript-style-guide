@@ -529,7 +529,7 @@ chore: add naming convention rule
 docs: remove unused playground
 test: validate @see contents
 ci: allow breaking change commits
-build: add node v18 support
+build: add node v20 support
 infra: rework bug-report template
 revert: add more arabic names dataset (#362)
 
@@ -541,7 +541,7 @@ chore(<package_name>): add naming convention rule
 docs(<package_name>): remove unused playground
 test(<package_name>): validate @see contents
 ci(<package_name>): allow breaking change commits
-build(<package_name>): add node v18 support
+build(<package_name>): add node v20 support
 infra(<package_name>): rework bug-report template
 revert(<package_name>): add more arabic names dataset (#362)
 

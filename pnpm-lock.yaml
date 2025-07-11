@@ -513,7 +513,7 @@ importers:
         specifier: ^3.5.8
         version: 3.5.8(@types/node@24.0.13)(yaml@2.8.0)
       jest:
-        specifier: ^27.x || ^28.x
+        specifier: ^27.x || ^28.x || ^30.0.0
         version: 28.1.3(@types/node@24.0.13)(ts-node@10.9.1(@types/node@24.0.13)(typescript@5.8.3))
       nano-staged:
         specifier: ^0.8
@@ -12715,23 +12715,23 @@ snapshots:
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.4
 
   '@types/babel__generator@7.6.7':
     dependencies:
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
 
   '@types/babel__template@7.4.4':
     dependencies:
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
 
   '@types/babel__traverse@7.20.4':
     dependencies:
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
 
   '@types/chai@5.2.2':
     dependencies:
@@ -13705,14 +13705,14 @@ snapshots:
   babel-plugin-jest-hoist@28.1.3:
     dependencies:
       '@babel/template': 7.27.2
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
       '@types/babel__core': 7.20.5
       '@types/babel__traverse': 7.20.4
 
   babel-plugin-jest-hoist@29.6.3:
     dependencies:
       '@babel/template': 7.27.2
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
       '@types/babel__core': 7.20.5
       '@types/babel__traverse': 7.20.4
     optional: true
@@ -17326,7 +17326,7 @@ snapshots:
       '@babel/generator': 7.27.1
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.26.0)
       '@babel/traverse': 7.27.1
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
       '@jest/expect-utils': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
@@ -17354,7 +17354,7 @@ snapshots:
       '@babel/generator': 7.27.1
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.26.0)
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.0
       '@jest/expect-utils': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3

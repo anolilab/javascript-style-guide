@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.19](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.18...@anolilab/eslint-config@16.2.19) (2025-07-11)
+
+### Bug Fixes
+
+* update eslint-config to support TypeScript features and improve configuration ([a9b9882](https://github.com/anolilab/javascript-style-guide/commit/a9b98828fe21f76e578f26b7566792867ef5669e))
+
 ## @anolilab/eslint-config [16.2.18](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.17...@anolilab/eslint-config@16.2.18) (2025-07-11)
 
 ### Bug Fixes

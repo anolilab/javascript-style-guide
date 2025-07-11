@@ -1,6 +1,7 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
+import globals from "globals";
 import { parse } from "semver";
 
 import type {
@@ -43,14 +44,14 @@ type PluginReactCompiler = {
 
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
-    OptionsFiles &
-    OptionsHasPrettier &
-    OptionsOverrides &
-    OptionsPackageJson &
-    OptionsSilentConsoleLogs &
-    OptionsStylistic &
-    OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
+    OptionsFiles
+    & OptionsHasPrettier
+    & OptionsOverrides
+    & OptionsPackageJson
+    & OptionsSilentConsoleLogs
+    & OptionsStylistic
+    & OptionsTypeScriptParserOptions
+    & OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -162,6 +163,9 @@ export default createConfig<
         {
             files,
             languageOptions: {
+                globals: {
+                    ...globals.browser,
+                },
                 parserOptions: {
                     ecmaFeatures: {
                         jsx: true,
@@ -1023,7 +1027,9 @@ export default createConfig<
 
                 ...pluginReactPerf?.configs?.flat?.recommended?.rules,
 
-                "react-you-might-not-need-an-effect/you-might-not-need-an-effect": "warn",
+                ...pluginReactYouMightNotNeedAnEffect?.configs?.recommended?.rules,
+
+                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.rules : {},
 
                 ...prettier
                     ? {
@@ -1077,6 +1083,7 @@ export default createConfig<
                         jsx: true,
                     },
                 },
+                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.languageOptions?.parserOptions : {},
             },
             name: "anolilab/react/jsx",
             rules: {

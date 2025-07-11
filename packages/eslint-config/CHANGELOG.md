@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [16.2.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.15...@anolilab/eslint-config@16.2.16) (2025-07-11)
+
+### Bug Fixes
+
+* update package versions in eslint-config ([49b1479](https://github.com/anolilab/javascript-style-guide/commit/49b147995103f528c6a8cc7bf9b9b0b0115c6267))
+
+### Miscellaneous Chores
+
+* update package versions in pnpm-lock.yaml and eslint-config ([bb4992b](https://github.com/anolilab/javascript-style-guide/commit/bb4992bbdbf6c9705963c7627f600ef3e1931bc4))
+
 ## @anolilab/eslint-config [16.2.15](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.14...@anolilab/eslint-config@16.2.15) (2025-07-02)
 
 ### Bug Fixes

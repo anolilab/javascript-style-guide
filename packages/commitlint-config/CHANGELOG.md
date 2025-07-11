@@ -1,3 +1,14 @@
+## @anolilab/commitlint-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.1...@anolilab/commitlint-config@6.0.2) (2025-07-11)
+
+### Bug Fixes
+
+* update package versions in commitlint-config ([ffbf2c7](https://github.com/anolilab/javascript-style-guide/commit/ffbf2c7c56161bab28de69c499887c486d34c177))
+
+### Miscellaneous Chores
+
+* **deps:** enhance package.json exports and add validation rules ([abd7693](https://github.com/anolilab/javascript-style-guide/commit/abd76936ff0c22be7936c5cecfaa13658c435b6d))
+* updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
+
 ## @anolilab/commitlint-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.0...@anolilab/commitlint-config@6.0.1) (2025-05-31)
 
 ### Bug Fixes

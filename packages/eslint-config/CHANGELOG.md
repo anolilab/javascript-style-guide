@@ -1,3 +1,14 @@
+## @anolilab/eslint-config [16.2.18](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.17...@anolilab/eslint-config@16.2.18) (2025-07-11)
+
+### Bug Fixes
+
+* **deps:** update dependency @unocss/eslint-plugin to ^66.3.3 ([#908](https://github.com/anolilab/javascript-style-guide/issues/908)) ([20063bf](https://github.com/anolilab/javascript-style-guide/commit/20063bf1835abd5c80d8f9dc10a8e0dfe7e5353e))
+* **deps:** update minor updates (minor) ([#909](https://github.com/anolilab/javascript-style-guide/issues/909)) ([6065419](https://github.com/anolilab/javascript-style-guide/commit/6065419a8cbb81937669349634f22285cace77aa))
+
+### Miscellaneous Chores
+
+* update @eslint/css to version 0.10.0 and @anolilab/eslint-config to version 16.2.17 in pnpm-lock.yaml and package.json ([322f64b](https://github.com/anolilab/javascript-style-guide/commit/322f64b3c5eec1dfb0e3837927e3a21e749f7f00))
+
 ## @anolilab/eslint-config [16.2.17](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.16...@anolilab/eslint-config@16.2.17) (2025-07-11)
 
 ### Bug Fixes

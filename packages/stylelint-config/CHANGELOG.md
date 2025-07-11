@@ -1,3 +1,13 @@
+## @anolilab/stylelint-config [7.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.3...@anolilab/stylelint-config@7.0.4) (2025-07-11)
+
+### Bug Fixes
+
+* **deps:** update dependency postcss to ^8.4.49 ([#897](https://github.com/anolilab/javascript-style-guide/issues/897)) ([5f5896a](https://github.com/anolilab/javascript-style-guide/commit/5f5896a844c8e46416818b7c5db2b37265150430))
+
+### Miscellaneous Chores
+
+* update dependencies and package versions across multiple packages ([6499209](https://github.com/anolilab/javascript-style-guide/commit/64992094883c3305626a09ec586226292ba88e85))
+
 ## @anolilab/stylelint-config [7.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.2...@anolilab/stylelint-config@7.0.3) (2025-07-02)
 
 ### Bug Fixes

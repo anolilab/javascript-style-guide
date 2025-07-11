@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.17](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.16...@anolilab/eslint-config@16.2.17) (2025-07-11)
+
+### Bug Fixes
+
+* **react:** add support for JSX runtime in ESLint configuration ([445cd8b](https://github.com/anolilab/javascript-style-guide/commit/445cd8b700596aa237c94efdfc04274d22d97c09))
+
 ## @anolilab/eslint-config [16.2.16](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.15...@anolilab/eslint-config@16.2.16) (2025-07-11)
 
 ### Bug Fixes

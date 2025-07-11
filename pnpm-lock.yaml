@@ -375,8 +375,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(eslint@9.30.1(jiti@2.4.2))
       '@eslint/css':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.10.0
+        version: 0.10.0
       '@stylistic/eslint-plugin-migrate':
         specifier: ^4.4.1
         version: 4.4.1(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3)
@@ -532,8 +532,8 @@ importers:
         version: 16.21.1(typescript@5.8.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 16.2.16
-        version: 16.2.16(c46ae9123c351b2230ce286b150354f8)
+        specifier: 16.2.17
+        version: 16.2.17(c46ae9123c351b2230ce286b150354f8)
       '@anolilab/semantic-release-pnpm':
         specifier: ^2.0.2
         version: 2.0.2(@types/node@24.0.13)(yaml@2.8.0)
@@ -781,8 +781,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anolilab/eslint-config@16.2.16':
-    resolution: {integrity: sha512-dfTgx6dqysu4mCyGm9ploqdrZp3Rk8PgP2i/fjnVO1CE9LkXc9GTe5+LnlNyAu6sEIqQgUk2ZM4OYmyMBdH7YA==}
+  '@anolilab/eslint-config@16.2.17':
+    resolution: {integrity: sha512-2HWUiNOrZtRS+Xe5ZA/oJpagl7osKg1ZkuCYnc7c5lqhjy+Lse07wGUmIidl1BkJ1n9fwlhXYhr/BVR9hEtdAA==}
     engines: {node: '>=20.18.* <=24.*'}
     peerDependencies:
       '@eslint-react/eslint-plugin': ^1.50.0
@@ -1500,12 +1500,12 @@ packages:
     resolution: {integrity: sha512-5DIsBME23tUQD5zHD+T38lC2DG4jB8x8JRa+yDncLne2TIZA0VuCpcSazOX1EC+sM/q8w24qeevXfmfsIxAeqA==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
-  '@eslint/css@0.8.1':
-    resolution: {integrity: sha512-674JJD1q8sDlJORLep+gGnm3VRCQo/qLmKQgCIf2LnUK/tHf96StWjLX2IF3yyp3yeU9npZ6ixySMr2G256eiQ==}
+  '@eslint/css@0.10.0':
+    resolution: {integrity: sha512-pHoYRWS08oeU0qVez1pZCcbqHzoJnM5VMtrxH2nWDJ0ukq9DkwWV1BTY+PWK+eWBbndN9W0O9WjJTyAHsDoPOg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/css@0.9.0':
-    resolution: {integrity: sha512-fq8hYnjipdzVDSU/bXqv7qlvdjDA27Nq7DhQXzlPElLlVon3lnKovIM/6HaUrq1bz7EPgRobr+vOhpeM6z0X4w==}
+  '@eslint/css@0.8.1':
+    resolution: {integrity: sha512-674JJD1q8sDlJORLep+gGnm3VRCQo/qLmKQgCIf2LnUK/tHf96StWjLX2IF3yyp3yeU9npZ6ixySMr2G256eiQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.3.1':
@@ -10114,7 +10114,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.2.16(c46ae9123c351b2230ce286b150354f8)':
+  '@anolilab/eslint-config@16.2.17(c46ae9123c351b2230ce286b150354f8)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.30.1(jiti@2.4.2))
       '@eslint/compat': 1.3.1(eslint@9.30.1(jiti@2.4.2))
@@ -10971,18 +10971,18 @@ snapshots:
       mdn-data: 2.21.0
       source-map-js: 1.2.1
 
+  '@eslint/css@0.10.0':
+    dependencies:
+      '@eslint/core': 0.14.0
+      '@eslint/css-tree': 3.6.1
+      '@eslint/plugin-kit': 0.3.1
+
   '@eslint/css@0.8.1':
     dependencies:
       '@eslint/core': 0.14.0
       '@eslint/css-tree': 3.6.1
       '@eslint/plugin-kit': 0.3.1
     optional: true
-
-  '@eslint/css@0.9.0':
-    dependencies:
-      '@eslint/core': 0.14.0
-      '@eslint/css-tree': 3.6.1
-      '@eslint/plugin-kit': 0.3.1
 
   '@eslint/eslintrc@3.3.1':
     dependencies:

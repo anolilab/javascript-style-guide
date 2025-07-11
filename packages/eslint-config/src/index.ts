@@ -177,7 +177,7 @@ export const createConfig = async (
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
     const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
-    const reactVersion = packageJson?.["dependencies"]?.["react"] || packageJson?.["devDependencies"]?.["react"];
+    const reactVersion = packageJson?.["dependencies"]?.["react"] ?? packageJson?.["devDependencies"]?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
@@ -190,7 +190,7 @@ export const createConfig = async (
 
     let hasTailwindCssV3 = false;
 
-    const tailwindCssVersion = packageJson?.["dependencies"]?.["tailwindcss"] || packageJson?.["devDependencies"]?.["tailwindcss"];
+    const tailwindCssVersion = packageJson?.["dependencies"]?.["tailwindcss"] ?? packageJson?.["devDependencies"]?.["tailwindcss"];
 
     if (tailwindCssVersion) {
         const parsedVersion = parse(tailwindCssVersion);
@@ -609,7 +609,7 @@ export const createConfig = async (
         }
 
         if (enableAstro) {
-            packages.push("eslint-plugin-astro", "astro-eslint-parser", "@typescript-eslint/parser");
+            packages.push("eslint-plugin-astro", "astro-eslint-parser");
 
             if (typeof options.formatters === "object" && options.formatters.astro) {
                 packages.push("prettier-plugin-astro");
@@ -626,7 +626,7 @@ export const createConfig = async (
             }
         }
 
-        packages = packages.filter(Boolean) as string[];
+        packages = packages.filter(Boolean);
 
         if (packages.length > 0) {
             await ensurePackages(packageJson, packages, "devDependencies", {
@@ -639,7 +639,7 @@ export const createConfig = async (
 
     let { isInEditor } = options;
 
-    if (isInEditor === undefined || isInEditor === false) {
+    if (isInEditor === undefined || !isInEditor) {
         isInEditor = isInEditorEnvironment();
 
         if (isInEditor) {
@@ -1042,14 +1042,14 @@ export const createConfig = async (
     // User can optionally pass a flat config item to the first argument
     // We pick the known keys as ESLint would do schema validation
     // eslint-disable-next-line unicorn/no-array-reduce
-    const fusedConfig = flatConfigProperties.reduce((accumulator, key) => {
+    const fusedConfig = flatConfigProperties.reduce<TypedFlatConfigItem>((accumulator, key) => {
         if (key in options) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             accumulator[key] = options[key] as any;
         }
 
         return accumulator;
-    }, {} as TypedFlatConfigItem);
+    }, {});
 
     if (Object.keys(fusedConfig).length > 0) {
         configs.push([fusedConfig]);

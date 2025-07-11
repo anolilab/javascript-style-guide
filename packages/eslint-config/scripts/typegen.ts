@@ -130,7 +130,7 @@ const configs = await combine(
     zod({}),
 );
 
-const configNames = configs.map((index) => index.name).filter(Boolean) as string[];
+const configNames = configs.map((index) => index.name).filter(Boolean);
 
 let dts = await flatConfigsToRulesDTS(configs, {
     includeAugmentation: false,

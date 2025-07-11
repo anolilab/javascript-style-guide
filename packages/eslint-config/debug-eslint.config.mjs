@@ -1,3 +1,8 @@
 import { createConfig } from "./dist/index.mjs";
 
-export default createConfig({});
+export default createConfig({
+    typescript: {
+        tsconfigPath: "./tsconfig.json",
+        isTypeAware: true,
+    },
+});

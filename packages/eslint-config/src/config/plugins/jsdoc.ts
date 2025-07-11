@@ -13,11 +13,11 @@ import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles &
-    OptionsOverrides &
-    OptionsPackageJson &
-    OptionsSilentConsoleLogs &
-    OptionsStylistic & { jsx?: boolean; typescript?: OptionsTypescript | boolean }
+    OptionsFiles
+    & OptionsOverrides
+    & OptionsPackageJson
+    & OptionsSilentConsoleLogs
+    & OptionsStylistic & { jsx?: boolean; typescript?: OptionsTypescript | boolean }
 >("js", async (config, oFiles) => {
     const {
         files = oFiles,

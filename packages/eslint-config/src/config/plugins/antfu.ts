@@ -5,9 +5,9 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles &
-    OptionsOverrides &
-    OptionsPackageJson & {
+    OptionsFiles
+    & OptionsOverrides
+    & OptionsPackageJson & {
         lessOpinionated?: boolean;
     }
 >("all", async (config, oFiles) => {

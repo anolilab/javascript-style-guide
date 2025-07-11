@@ -513,7 +513,7 @@ export interface OptionsStylistic {
     stylistic?: StylisticConfig | boolean;
 }
 
-export type OptionsTypescript = (OptionsOverrides & OptionsTypeScriptParserOptions) | (OptionsOverrides & OptionsTypeScriptWithTypes);
+export type OptionsTypescript = (OptionsOverrides & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes);
 
 export interface OptionsTypeScriptParserOptions {
     /**
@@ -535,6 +535,13 @@ export interface OptionsTypeScriptParserOptions {
 }
 
 export interface OptionsTypeScriptWithTypes {
+    /**
+     * When this options is true, type aware rules will be enabled.
+     * @see https://typescript-eslint.io/linting/typed-linting/
+     * @default true
+     */
+    isTypeAware?: boolean;
+
     /**
      * Override type aware rules.
      */

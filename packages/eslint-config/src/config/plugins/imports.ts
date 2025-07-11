@@ -1,4 +1,3 @@
-import tsParser from "@typescript-eslint/parser";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 
 import type {
@@ -25,6 +24,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
         } = config;
 
         const importPlugin = await interopDefault(import("eslint-plugin-import-x"));
+        const tsParser = await interopDefault(import("@typescript-eslint/parser"));
 
         const rules: TypedFlatConfigItem[] = [
             {
@@ -349,7 +349,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
         ];
 
         if (hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"])) {
-            rules.push(importPlugin.flatConfigs.react);
+            rules.push(importPlugin.flatConfigs.react as TypedFlatConfigItem);
         }
 
         if (hasPackageJsonAnyDependency(packageJson, ["typescript"])) {

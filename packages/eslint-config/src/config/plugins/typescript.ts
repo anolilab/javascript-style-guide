@@ -18,13 +18,13 @@ import { styleRules as styleRulesFunction } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
-    OptionsComponentExtensions &
-    OptionsFiles &
-    OptionsHasPrettier &
-    OptionsIsInEditor &
-    OptionsOverrides &
-    OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes
+    OptionsComponentExtensions
+    & OptionsFiles
+    & OptionsHasPrettier
+    & OptionsIsInEditor
+    & OptionsOverrides
+    & OptionsTypeScriptParserOptions
+    & OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
@@ -47,9 +47,11 @@ export default createConfig<
     ] as const);
 
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
-    const ignoresTypeAware = config.ignoresTypeAware ?? [`**/*.mdx/**`, ...getFilesGlobs("astro")];
-    const tsconfigPath = config?.tsconfigPath ?? undefined;
-    const isTypeAware = tsconfigPath !== undefined;
+    const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
+    const { tsconfigPath } = config;
+    let { isTypeAware = true } = config;
+
+    isTypeAware = isTypeAware && tsconfigPath !== undefined;
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         return {
@@ -57,15 +59,13 @@ export default createConfig<
             ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: parserTs,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 parserOptions: {
                     extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
                     ...typeAware
                         ? {
-                            projectService: {
-                                allowDefaultProject: ["./*.js"],
-                                defaultProject: tsconfigPath,
-                            },
+                            projectService: true,
                             tsconfigRootDir: process.cwd(),
                         }
                         : {},

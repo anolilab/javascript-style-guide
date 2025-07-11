@@ -138,19 +138,6 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
                 ],
 
                 // require HTML elements to have a "lang" prop
-                // deprecated: replaced by `label-has-associated-control` rule
-                "jsx-a11y/label-has-for": [
-                    "off",
-                    {
-                        allowChildren: false,
-                        components: [],
-                        required: {
-                            every: ["nesting", "id"],
-                        },
-                    },
-                ],
-
-                // require HTML element's lang prop to be valid
                 // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/lang.md
                 "jsx-a11y/lang": "error",
 

@@ -179,7 +179,7 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
 
         let GLOB_SLIDEV: string[] = [];
 
-        if (typeof options.slidev === "boolean" && options.slidev === true) {
+        if (typeof options.slidev === "boolean" && options.slidev) {
             GLOB_SLIDEV = ["**/slides.md"];
         } else if (typeof options.slidev === "object" && options.slidev.files) {
             GLOB_SLIDEV = options.slidev.files;

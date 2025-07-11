@@ -57,7 +57,6 @@ export default createConfig<
     const {
         files = oFiles,
         filesTypeAware = getFilesGlobs("ts"),
-        ignoresTypeAware = [`**/*.md/**`, ...getFilesGlobs("astro")],
         overrides,
         packageJson,
         prettier,
@@ -66,8 +65,10 @@ export default createConfig<
         stylistic = true,
         tsconfigPath,
     } = config;
+    const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
+    let { isTypeAware = true } = config;
 
-    const isTypeAware = tsconfigPath !== undefined;
+    isTypeAware = isTypeAware && tsconfigPath !== undefined;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 

@@ -1029,6 +1029,8 @@ export default createConfig<
 
                 ...pluginReactYouMightNotNeedAnEffect?.configs?.recommended?.rules,
 
+                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.rules : {},
+
                 ...prettier
                     ? {
                         "react/jsx-child-element-spacing": "off",
@@ -1081,6 +1083,7 @@ export default createConfig<
                         jsx: true,
                     },
                 },
+                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.languageOptions?.parserOptions : {},
             },
             name: "anolilab/react/jsx",
             rules: {

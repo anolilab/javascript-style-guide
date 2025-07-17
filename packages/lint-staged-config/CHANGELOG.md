@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.24](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.23...@anolilab/lint-staged-config@3.0.24) (2025-07-17)
+
+### Miscellaneous Chores
+
+* **deps:** update dependency secretlint to v10 ([#915](https://github.com/anolilab/javascript-style-guide/issues/915)) ([be57a5e](https://github.com/anolilab/javascript-style-guide/commit/be57a5ef6440e39b16905e80da8aed629e761d45))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.2.20
+
 ## @anolilab/lint-staged-config [3.0.23](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.22...@anolilab/lint-staged-config@3.0.23) (2025-07-11)
 
 

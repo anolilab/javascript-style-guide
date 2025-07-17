@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.20](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.19...@anolilab/eslint-config@16.2.20) (2025-07-17)
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/eslint-plugin-router to ^1.125.0 ([#916](https://github.com/anolilab/javascript-style-guide/issues/916)) ([4a3616b](https://github.com/anolilab/javascript-style-guide/commit/4a3616b944d3f9b91cd3daf21d0accff89684557))
+
 ## @anolilab/eslint-config [16.2.19](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.18...@anolilab/eslint-config@16.2.19) (2025-07-11)
 
 ### Bug Fixes

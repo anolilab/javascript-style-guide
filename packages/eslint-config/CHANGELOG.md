@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.21](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.20...@anolilab/eslint-config@16.2.21) (2025-07-18)
+
+### Bug Fixes
+
+* Adjusted import/no-cycle rule to 'off' for performance reasons. ([8a053c7](https://github.com/anolilab/javascript-style-guide/commit/8a053c76f2c9c8e5cbcf0ff4169d49bcea16764a))
+
 ## @anolilab/eslint-config [16.2.20](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.19...@anolilab/eslint-config@16.2.20) (2025-07-17)
 
 ### Bug Fixes

@@ -159,7 +159,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Forbid cyclical dependencies between modules
                     // https://medium.com/@steven-lemon182/are-typescript-barrel-files-an-anti-pattern-72a713004250
-                    "import/no-cycle": ["error", { maxDepth: "∞" }],
+                    "import/no-cycle": "off", // This rule is slow, the bundler will detect cycles
 
                     // forbid default exports. this is a terrible rule, do not use it.
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-default-export.md

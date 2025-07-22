@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.22](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.21...@anolilab/eslint-config@16.2.22) (2025-07-22)
+
+### Bug Fixes
+
+* refactored code in react and typescript plugin configurations for improved readability. ([1c2870d](https://github.com/anolilab/javascript-style-guide/commit/1c2870d11e376cf72aaa22e776a1281e282383a1))
+
 ## @anolilab/eslint-config [16.2.21](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.20...@anolilab/eslint-config@16.2.21) (2025-07-18)
 
 ### Bug Fixes

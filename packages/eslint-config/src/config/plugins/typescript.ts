@@ -39,9 +39,7 @@ export default createConfig<
     const styleRules = styleRulesFunction;
     const es6Rules = es6RulesFunction(isInEditor);
 
-    const [pluginTs, parserTs, tseslint, noForOfArrayPlugin] = await Promise.all([
-        interopDefault(import("@typescript-eslint/eslint-plugin")),
-        interopDefault(import("@typescript-eslint/parser")),
+    const [tseslint, noForOfArrayPlugin] = await Promise.all([
         interopDefault(import("typescript-eslint")),
         interopDefault(import("eslint-plugin-no-for-of-array")),
     ] as const);
@@ -58,7 +56,7 @@ export default createConfig<
             files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
             ...ignores ? { ignores } : {},
             languageOptions: {
-                parser: parserTs,
+                parser: tseslint.parser,
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 parserOptions: {
                     extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
@@ -82,7 +80,7 @@ export default createConfig<
             // Install the plugins without globs, so they can be configured separately.
             name: "anolilab/typescript/setup",
             plugins: {
-                "@typescript-eslint": pluginTs,
+                "@typescript-eslint": tseslint.plugin,
                 "no-for-of-array": noForOfArrayPlugin,
             },
         },

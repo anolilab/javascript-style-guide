@@ -1,3 +1,14 @@
+## @anolilab/stylelint-config [7.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.4...@anolilab/stylelint-config@7.0.5) (2025-08-04)
+
+### Bug Fixes
+
+* update stylelint and semantic-release dependencies ([2676651](https://github.com/anolilab/javascript-style-guide/commit/2676651243e70976f8107b3e5d13e8edae11bdae))
+
+### Miscellaneous Chores
+
+* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+
 ## @anolilab/stylelint-config [7.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.3...@anolilab/stylelint-config@7.0.4) (2025-07-11)
 
 ### Bug Fixes

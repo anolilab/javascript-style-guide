@@ -1,3 +1,14 @@
+## @anolilab/textlint-config [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.3...@anolilab/textlint-config@9.0.4) (2025-08-04)
+
+### Bug Fixes
+
+* update textlint and typescript dependencies ([db78f4f](https://github.com/anolilab/javascript-style-guide/commit/db78f4f4f7040213725f2e171eff6e37235431bf))
+
+### Miscellaneous Chores
+
+* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+
 ## @anolilab/textlint-config [9.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.2...@anolilab/textlint-config@9.0.3) (2025-07-11)
 
 ### Bug Fixes

@@ -7,10 +7,10 @@ export default defineConfig({
         license: {
             path: "./LICENSE.md",
         },
-        node10Compatibility: {
-            typeScriptVersion: ">=5.0",
-            writeToPackageJson: true,
-        },
+    },
+    node10Compatibility: {
+        typeScriptVersion: ">=5.0",
+        writeToPackageJson: true,
     },
     transformer,
     validation: {
@@ -23,7 +23,8 @@ export default defineConfig({
                     "stylelint-high-performance-animation",
                     "stylelint-no-unsupported-browser-features",
                     "stylelint-require-units",
-                    "stylelint-selector-no-empty"
+                    "stylelint-selector-no-empty",
+                    "browserslist-config-anolilab",
                 ],
             },
         },

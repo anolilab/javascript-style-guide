@@ -1,3 +1,15 @@
+## @anolilab/prettier-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.3...@anolilab/prettier-config@6.0.4) (2025-09-05)
+
+### Bug Fixes
+
+* update prettier-config package.json and packem.config.ts ([9ea3346](https://github.com/anolilab/javascript-style-guide/commit/9ea3346f920a1373ec403702f9c14b8b9ee241ba))
+
+### Miscellaneous Chores
+
+* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* update dependencies and versions across packages ([edf84af](https://github.com/anolilab/javascript-style-guide/commit/edf84af6f9ff9a290c4e3705f3466068777e9992))
+* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+
 ## @anolilab/prettier-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.2...@anolilab/prettier-config@6.0.3) (2025-07-11)
 
 ### Bug Fixes

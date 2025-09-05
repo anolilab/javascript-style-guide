@@ -1,3 +1,6 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import type { Linter } from "eslint";
 
 import type {
@@ -53,19 +56,21 @@ export default createConfig<
     isTypeAware = isTypeAware && tsconfigPath !== undefined;
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
+        const thisDirectory = dirname(fileURLToPath(import.meta.url));
+
         return {
             files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
             ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: tseslint.parser,
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
                 parserOptions: {
                     extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
                     ...typeAware
                         ? {
                             projectService: true,
-                            tsconfigRootDir: import.meta.dirname,
+                            tsconfigRootDir: thisDirectory,
                         }
                         : {},
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any

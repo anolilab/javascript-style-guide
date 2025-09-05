@@ -5,14 +5,14 @@ import transformer from "@visulima/packem/transformer/esbuild";
 export default defineConfig({
     cjsInterop: true,
     isolatedDeclarationTransformer,
+    node10Compatibility: {
+        typeScriptVersion: ">=5.0",
+        writeToPackageJson: true,
+    },
     rollup: {
         license: {
             path: "./LICENSE.md",
         },
-    },
-    node10Compatibility: {
-        typeScriptVersion: ">=5.0",
-        writeToPackageJson: true,
     },
     transformer,
 });

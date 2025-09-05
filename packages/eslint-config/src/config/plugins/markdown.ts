@@ -8,7 +8,12 @@ import parserPlain from "../../utils/parser-plain";
 export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsOverrides>("markdown", async (config, oFiles) => {
     const { componentExts: componentExtensions = [], files = oFiles, overrides } = config;
 
-    const markdown = await interopDefault(import("@eslint/markdown"));
+    const [tseslint, markdown] = await Promise.all([
+        interopDefault(import("typescript-eslint")),
+        interopDefault(import("@eslint/markdown")),
+    ] as const);
+
+    const disableTypeChecked = tseslint.configs.disableTypeChecked.rules;
 
     return [
         {
@@ -35,7 +40,7 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             rules: markdown.configs.recommended[0].rules,
         },
         {
-            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", ...componentExtensions.map((extension) => `**/*.md/**/*.${extension}`)],
+            files: ["**/*.md", "**/*.md/**/*.?([cm])[jt]s?(x)", "**/*.md/**/*.json", ...componentExtensions.map((extension) => `**/*.md/**/*.${extension}`)],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {
@@ -43,36 +48,32 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
                     },
                 },
             },
-            name: "anolilab/markdown/disables",
+            name: "anolilab/markdown/disabled",
             rules: {
                 "@stylistic/comma-dangle": "off",
                 "@stylistic/eol-last": "off",
                 "@stylistic/prefer-global/process": "off",
-
-                "@typescript-eslint/consistent-type-imports": "off",
-                "@typescript-eslint/explicit-function-return-type": "off",
-                "@typescript-eslint/no-namespace": "off",
-                "@typescript-eslint/no-redeclare": "off",
-                "@typescript-eslint/no-require-imports": "off",
-                "@typescript-eslint/no-unused-expressions": "off",
-                "@typescript-eslint/no-unused-vars": "off",
-                "@typescript-eslint/no-use-before-define": "off",
 
                 "antfu/no-top-level-await": "off",
 
                 "import/newline-after-import": "off",
 
                 "no-alert": "off",
+
                 "no-console": "off",
                 "no-labels": "off",
                 "no-lone-blocks": "off",
                 "no-restricted-syntax": "off",
                 "no-undef": "off",
-
                 "no-unused-expressions": "off",
 
                 "no-unused-labels": "off",
+
                 "no-unused-vars": "off",
+
+                ...disableTypeChecked,
+
+                "no-for-of-array/no-for-of-array": "off",
 
                 "unicode-bom": "off",
 

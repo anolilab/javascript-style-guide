@@ -185,6 +185,14 @@ const jsonc = async (
                             pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$",
                         },
                         {
+                            order: { type: "asc" },
+                            pathPattern: String.raw`^workspaces\.catalog$`,
+                        },
+                        {
+                            order: { type: "asc" },
+                            pathPattern: String.raw`^workspaces\.catalogs\.[^.]+$`,
+                        },
+                        {
                             order: ["types", "import", "require", "default"],
                             pathPattern: "^exports.*$",
                         },

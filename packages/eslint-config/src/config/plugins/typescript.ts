@@ -45,8 +45,9 @@ export default createConfig<
     ] as const);
 
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
-    const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
+    const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("markdown_inline_js_jsx"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
     const { tsconfigPath } = config;
+
     let { isTypeAware = true } = config;
 
     isTypeAware = isTypeAware && tsconfigPath !== undefined;
@@ -64,7 +65,7 @@ export default createConfig<
                     ...typeAware
                         ? {
                             projectService: true,
-                            tsconfigRootDir: process.cwd(),
+                            tsconfigRootDir: import.meta.dirname,
                         }
                         : {},
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any

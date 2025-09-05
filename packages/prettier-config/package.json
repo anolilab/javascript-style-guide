@@ -57,7 +57,7 @@
         }
     },
     "bin": {
-        "prettier-config:install": "./dist/bin.mjs"
+        "prettier-config:install": "./dist/bin.js"
     },
     "files": [
         "dist",
@@ -75,8 +75,8 @@
     "devDependencies": {
         "@anolilab/semantic-release-preset": "11.0.3",
         "@arethetypeswrong/cli": "^0.18.2",
-        "@visulima/packem": "^1.28.2",
-        "esbuild": "^0.25.8",
+        "@visulima/packem": "2.0.0-alpha.18",
+        "esbuild": "^0.25.9",
         "prettier": "^3.6.2",
         "rimraf": "^6.0.1",
         "semantic-release": "^24.2.7",

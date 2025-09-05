@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.2.25](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.24...@anolilab/eslint-config@16.2.25) (2025-09-05)
+
+### Bug Fixes
+
+* update eslint configuration and dependencies ([207d52e](https://github.com/anolilab/javascript-style-guide/commit/207d52e6f9c9b84ed4226e215b954c61c4b5db54))
+
 ## @anolilab/eslint-config [16.2.24](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.23...@anolilab/eslint-config@16.2.24) (2025-09-05)
 
 ### Bug Fixes

@@ -1,3 +1,15 @@
+## @anolilab/commitlint-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.2...@anolilab/commitlint-config@6.0.3) (2025-09-05)
+
+### Bug Fixes
+
+* update commitlint-config package.json and packem.config.ts ([f755ccc](https://github.com/anolilab/javascript-style-guide/commit/f755ccc6d397d2499dbbb28163702429639409c2))
+
+### Miscellaneous Chores
+
+* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* update dependencies and versions across packages ([edf84af](https://github.com/anolilab/javascript-style-guide/commit/edf84af6f9ff9a290c4e3705f3466068777e9992))
+* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+
 ## @anolilab/commitlint-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.1...@anolilab/commitlint-config@6.0.2) (2025-07-11)
 
 ### Bug Fixes

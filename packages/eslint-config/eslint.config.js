@@ -26,6 +26,24 @@ export default createConfig(
         files: ["**/*.ts"],
         rules: {
             "no-secrets/no-secrets": "off",
+            "@typescript-eslint/require-await": "off",
+            "@typescript-eslint/no-unsafe-assignment": "off",
+            "@typescript-eslint/no-unsafe-argument": "off",
+            "@typescript-eslint/restrict-template-expressions": "off",
+        },
+    },
+    {
+        files: ["__fixtures__/**"],
+        rules: {
+            "@unocss/order-attributify": "off",
+            "@unocss/order": "off",
+        },
+    },
+    {
+        files: ["**/*"],
+        rules: {
+            "@unocss/order-attributify": "off",
+            "@unocss/order": "off",
         },
     },
     {

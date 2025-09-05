@@ -101,7 +101,6 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return ["**/*.yaml", "**/*.yml"];
         }
         default: {
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             throw new Error(`Unknown file type: ${fileType}`);
         }
     }

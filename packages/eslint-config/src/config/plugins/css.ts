@@ -6,7 +6,11 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
     const { files = oFiles, overrides, tailwind } = config;
 
     const cssPlugin = await interopDefault(import("@eslint/css"));
-    const cssSyntax = await interopDefault(import("@eslint/css/syntax"));
+    let tailwindCustomSyntax;
+
+    if (tailwind) {
+        tailwindCustomSyntax = await interopDefault(import("tailwind-csstree"));
+    }
 
     return [{
         files,
@@ -16,6 +20,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
             css: cssPlugin,
         },
         rules: {
+            "@stylistic/indent": "off",
             "css/no-duplicate-imports": "error",
             "css/no-empty-blocks": "error",
             "css/no-important": "error",
@@ -23,14 +28,16 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
             "css/no-invalid-properties": "error",
             "css/use-baseline": "warn",
             "css/use-layers": "error",
+            // Disable JS-core rule for CSS language to avoid parser mismatch errors
+            "no-irregular-whitespace": "off",
 
             ...overrides,
         },
 
-        ...tailwind
+        ...tailwind && tailwindCustomSyntax
             ? {
                 languageOptions: {
-                    customSyntax: cssSyntax.tailwindSyntax,
+                    customSyntax: tailwindCustomSyntax.tailwind4,
                     tolerant: true,
                 },
             }

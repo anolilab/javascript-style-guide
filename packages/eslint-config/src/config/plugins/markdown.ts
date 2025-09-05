@@ -29,7 +29,7 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             // `eslint-plugin-markdown` only creates virtual files for code blocks,
             // but not the markdown file itself. We use `eslint-merge-processors` to
             // add a pass-through processor for the markdown file itself.
-            processor: mergeProcessors([markdown.processors?.markdown, processorPassThrough]),
+            processor: mergeProcessors([markdown.processors.markdown, processorPassThrough]),
         },
         {
             files,
@@ -53,13 +53,16 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
                 "@stylistic/comma-dangle": "off",
                 "@stylistic/eol-last": "off",
                 "@stylistic/prefer-global/process": "off",
+                "@stylistic/quote-props": "off",
+                "@stylistic/semi": "off",
+
+                "@typescript-eslint/no-unused-expressions": "off",
 
                 "antfu/no-top-level-await": "off",
 
                 "import/newline-after-import": "off",
 
                 "no-alert": "off",
-
                 "no-console": "off",
                 "no-labels": "off",
                 "no-lone-blocks": "off",

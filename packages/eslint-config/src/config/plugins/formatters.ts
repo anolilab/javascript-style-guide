@@ -9,7 +9,7 @@ const mergePrettierOptions = (options: VendoredPrettierOptions, overrides: Vendo
     return {
         ...options,
         ...overrides,
-        plugins: [...overrides.plugins || [], ...options.plugins || []],
+        plugins: [...overrides.plugins ?? [], ...options.plugins ?? []],
     };
 };
 
@@ -34,7 +34,7 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
             trailingComma: "all",
             useTabs: indent === "tab",
         } satisfies VendoredPrettierOptions,
-        options.prettierOptions || {},
+        options.prettierOptions ?? {},
     );
 
     const prettierXmlOptions: VendoredPrettierOptions = {

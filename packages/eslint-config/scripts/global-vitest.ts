@@ -34,14 +34,15 @@ const extract = (file: string) => {
         if (ts.isModuleDeclaration(node)) {
             ts.forEachChild(node.body as ModuleBody, (mNode) => {
                 if (ts.isVariableStatement(mNode)) {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    ts.forEachChild(mNode, (vNode: any) => {
+                    ts.forEachChild(mNode, (vNode) => {
                         if (ts.isVariableDeclarationList(vNode)) {
                             for (const declaration of vNode.declarations) {
                                 const name = ts.getNameOfDeclaration(declaration);
 
-                                if (name && "escapedText" in name) {
-                                    globals.push(name.escapedText as string);
+                                const escaped = (name as unknown as { escapedText?: unknown }).escapedText;
+
+                                if (typeof escaped === "string") {
+                                    globals.push(escaped);
                                 }
                             }
                         }

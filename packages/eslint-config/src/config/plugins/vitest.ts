@@ -30,12 +30,12 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             interopDefault(import("eslint-plugin-no-only-tests")),
         ] as const);
 
-        pluginTest = pluginTest || {
+        pluginTest = pluginTest ?? {
             ...vitestPlugin,
             rules: {
                 ...vitestPlugin.rules,
                 // extend `test/no-only-tests` rule
-                ...noOnlyTestsPlugin.rules,
+                ...noOnlyTestsPlugin?.rules,
             },
         };
 

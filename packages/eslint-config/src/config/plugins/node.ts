@@ -8,7 +8,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
     const pluginNode = await interopDefault(import("eslint-plugin-n"));
 
-    const nodeVersion = packageJson?.engines?.["node"];
+    const nodeVersion = packageJson.engines?.["node"];
 
     return [
         {

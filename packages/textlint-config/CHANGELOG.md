@@ -1,3 +1,9 @@
+## @anolilab/textlint-config [9.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.4...@anolilab/textlint-config@9.0.5) (2025-09-05)
+
+### Bug Fixes
+
+* update textlint-config package.json and packem.config.ts ([44676d5](https://github.com/anolilab/javascript-style-guide/commit/44676d537983f5af53807639ec3aa5c80246de19))
+
 ## @anolilab/textlint-config [9.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.3...@anolilab/textlint-config@9.0.4) (2025-08-04)
 
 ### Bug Fixes

@@ -1,3 +1,18 @@
+## browserslist-config-anolilab [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.2...browserslist-config-anolilab@6.0.3) (2025-09-05)
+
+### Bug Fixes
+
+* update @visulima/packem to version 2.0.0-alpha.18 and refactor packem.config.ts ([a70decf](https://github.com/anolilab/javascript-style-guide/commit/a70decf9e8baa71968c1c561a08ee65089914211))
+* update dependencies in browserslist-config-anolilab ([786fce9](https://github.com/anolilab/javascript-style-guide/commit/786fce95b0abbaa85a179671fe8bbcdac9f80774))
+
+### Miscellaneous Chores
+
+* **deps:** update package.json dependencies and exports order ([be1796b](https://github.com/anolilab/javascript-style-guide/commit/be1796b4c8e02fa1d6981c3cca0b06497ad52666))
+* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* update dependencies and package versions across multiple packages ([6499209](https://github.com/anolilab/javascript-style-guide/commit/64992094883c3305626a09ec586226292ba88e85))
+* update dependencies and versions across packages ([edf84af](https://github.com/anolilab/javascript-style-guide/commit/edf84af6f9ff9a290c4e3705f3466068777e9992))
+* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+
 ## browserslist-config-anolilab [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.1...browserslist-config-anolilab@6.0.2) (2025-06-01)
 
 ### Bug Fixes

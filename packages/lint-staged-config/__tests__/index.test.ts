@@ -8,6 +8,7 @@ import {
 
 import { defineConfig, eslintExtensions } from "../src";
 
+// eslint-disable-next-line vitest/hoisted-apis-on-top
 const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock } = vi.hoisted(() => {
     return {
         // eslint-disable-next-line vitest/require-mock-type-parameters
@@ -36,7 +37,6 @@ vi.mock("node:fs", async () => {
     };
 });
 
-// eslint-disable-next-line vitest/valid-title
 describe(defineConfig, () => {
     beforeEach(() => {
         vi.resetAllMocks();

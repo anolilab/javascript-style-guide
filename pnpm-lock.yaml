@@ -5,8 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@babel/helpers@<7.26.10': '>=7.27.6'
-  '@babel/runtime@<7.26.10': '>=7.27.6'
+  '@babel/helpers@<7.26.10': '>=7.28.4'
+  '@babel/runtime@<7.26.10': '>=7.28.4'
+  '@eslint/plugin-kit@<0.3.3': '>=0.3.3'
   '@octokit/endpoint@>=10.0.0 <10.1.3': '>=10.1.4'
   '@octokit/plugin-paginate-rest@>=9.3.0-beta.1 <11.4.1': '>=11.6.0'
   '@octokit/request@>=9.0.0-beta.1 <9.2.1': '>=9.2.4'
@@ -14,7 +15,9 @@ overrides:
   chrono-node@<2.2.4: '>=2.8.3'
   cross-spawn@>=7.0.0 <7.0.5: '>=7.0.6'
   esbuild@<=0.24.2: '>=0.25.6'
+  form-data@>=4.0.0 <4.0.4: '>=4.0.4'
   nanoid@<3.3.8: '>=3.3.11'
+  tmp@<=0.2.3: '>=0.2.4'
   vite@>=5.0.0 <=5.4.18: '>=5.4.19'
   vite@>=5.0.0 <=5.4.11: '>=5.4.12'
   vite@>=5.0.0 <5.4.18: '>=5.4.18'
@@ -22,9 +25,6 @@ overrides:
   vite@>=5.0.0 <5.4.16: '>=5.4.16'
   vite@>=5.0.0 <5.4.15: '>=5.4.15'
   vitest@>=2.0.0 <2.1.9: '>=2.1.9'
-  '@eslint/plugin-kit@<0.3.3': '>=0.3.3'
-  form-data@>=4.0.0 <4.0.4: '>=4.0.4'
-  tmp@<=0.2.3: '>=0.2.4'
 
 importers:
 
@@ -1018,8 +1018,8 @@ packages:
     resolution: {integrity: sha512-e/zv1co8pp55dNdEcCynfj9X7nyUKUXoUEwfXqaZt0omVOmDe9oOTdKStH4GmAw6zxMFs50ZayuMfHDKlO7Tfw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helpers@7.27.6':
-    resolution: {integrity: sha512-muE8Tt8M22638HU31A3CgfSUciwz1fhATfoVai05aPXGor//CdWDCbnlY1yvBPo07njuVOCNGCSp/GTt12lIug==}
+  '@babel/helpers@7.28.4':
+    resolution: {integrity: sha512-HFN59MmQXGHVyYadKLVumYsA9dBFun/ldYxipEjzA4196jpLZd8UjEEBLkbEkvfYreDqJhZxYAWFPtrfhNpj4w==}
     engines: {node: '>=6.9.0'}
 
   '@babel/parser@7.28.3':
@@ -1101,8 +1101,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime@7.27.6':
-    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
+  '@babel/runtime@7.28.4':
+    resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -10250,7 +10250,7 @@ snapshots:
       '@babel/generator': 7.27.1
       '@babel/helper-compilation-targets': 7.25.9
       '@babel/helper-module-transforms': 7.26.0(@babel/core@7.26.0)
-      '@babel/helpers': 7.27.6
+      '@babel/helpers': 7.28.4
       '@babel/parser': 7.28.3
       '@babel/template': 7.27.2
       '@babel/traverse': 7.27.1
@@ -10347,7 +10347,7 @@ snapshots:
 
   '@babel/helper-validator-option@7.25.9': {}
 
-  '@babel/helpers@7.27.6':
+  '@babel/helpers@7.28.4':
     dependencies:
       '@babel/template': 7.27.2
       '@babel/types': 7.28.4
@@ -10429,7 +10429,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-plugin-utils': 7.26.5
 
-  '@babel/runtime@7.27.6': {}
+  '@babel/runtime@7.28.4': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -12097,7 +12097,7 @@ snapshots:
   '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.4
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       dom-accessibility-api: 0.5.16

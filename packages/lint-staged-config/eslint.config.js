@@ -5,6 +5,7 @@ export default createConfig({
 }, {
     files: ["./README.md"],
     rules: {
+        "@typescript-eslint/no-require-imports": "off",
         "import/no-commonjs": "off",
         "jsdoc/check-tag-names": "off",
         "unicorn/prefer-module": "off",

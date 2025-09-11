@@ -189,6 +189,7 @@ export const createConfig = async (
     }
 
     let hasTailwindCssV3 = false;
+    let hasTailwindCssV4 = false;
 
     const tailwindCssVersion = packageJson?.["dependencies"]?.["tailwindcss"] ?? packageJson?.["devDependencies"]?.["tailwindcss"];
 
@@ -197,6 +198,10 @@ export const createConfig = async (
 
         if (parsedVersion?.major && parsedVersion.major <= 3) {
             hasTailwindCssV3 = true;
+        }
+
+        if (parsedVersion?.major && parsedVersion.major >= 4) {
+            hasTailwindCssV4 = true;
         }
     }
 
@@ -526,7 +531,7 @@ export const createConfig = async (
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
-        tailwindcss: enableTailwindCss = hasTailwindCssV3,
+        tailwindcss: enableTailwindCss = hasTailwindCssV3 || hasTailwindCssV4,
         tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
         tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-router"]),
         testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),
@@ -559,9 +564,13 @@ export const createConfig = async (
 
         if (enableCss || enableTailwindCss) {
             packages.push("@eslint/css");
+
+            if ((enableTailwindCss && hasTailwindCssV4) || enableTailwindCss === "v4") {
+                packages.push("tailwind-csstree");
+            }
         }
 
-        if (enableTailwindCss) {
+        if ((enableTailwindCss && hasTailwindCssV3) || enableTailwindCss === "v3") {
             packages.push("eslint-plugin-tailwindcss");
         }
 
@@ -887,7 +896,7 @@ export const createConfig = async (
         );
     }
 
-    if (enableTailwindCss) {
+    if ((enableTailwindCss && hasTailwindCssV3) || enableTailwindCss === "v3") {
         configs.push(
             tailwindcss({
                 overrides: getOverrides(options, "tailwindcss"),

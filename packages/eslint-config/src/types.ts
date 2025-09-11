@@ -284,9 +284,14 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-tailwindcss`
+     *
+     * When set to `true`, it will enable Tailwind CSS v3 or v4 support.
+     * When set to `"v4"`, it will enable Tailwind CSS v4 support.
+     * When set to `{ version: "v3" }`, it will enable Tailwind CSS v3 support.
+     * When set to `{ version: "v4" }`, it will enable Tailwind CSS v4 support.
      * @default false
      */
-    tailwindcss?: boolean | (OptionsFiles & OptionsOverrides);
+    tailwindcss?: boolean | "v3" | "v4" | (OptionsFiles & OptionsOverrides & { version?: "v3" | "v4" });
 
     /**
      * Enable tanstack rules.

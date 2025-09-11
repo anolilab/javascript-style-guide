@@ -44,7 +44,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
         {
             files: getFilesGlobs("js"),
             languageOptions: {
-                ecmaVersion: 2020,
+                ecmaVersion: "latest",
             },
             name: "anolilab/sonarjs/js-rules",
             rules: {

@@ -1,3 +1,14 @@
+## @anolilab/eslint-config [16.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.26...@anolilab/eslint-config@16.3.0) (2025-09-11)
+
+### Features
+
+* enhance ESLint configuration with new plugins and updates ([a8cac9b](https://github.com/anolilab/javascript-style-guide/commit/a8cac9b2e210bd9137d769e34dc9c189dcb58cea))
+
+### Bug Fixes
+
+* simplify type definitions and improve ESLint configurations ([7d1705b](https://github.com/anolilab/javascript-style-guide/commit/7d1705b080589b33ce1a49a6e8aa55416e1bba9f))
+* use ecmaVersion 'latest' per eslint's docs recommendation ([b2d345a](https://github.com/anolilab/javascript-style-guide/commit/b2d345a2a60ec5887d56f561860215a95d85ffb6))
+
 ## @anolilab/eslint-config [16.2.26](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.25...@anolilab/eslint-config@16.2.26) (2025-09-11)
 
 ### Bug Fixes

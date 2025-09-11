@@ -16,7 +16,7 @@ export default defineConfig({
     validation: {
         dependencies: {
             unused: {
-                exclude: ["type-fest"],
+                exclude: ["type-fest", "shell-quote"],
             },
         },
     },

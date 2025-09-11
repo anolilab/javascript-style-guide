@@ -109,16 +109,14 @@ export const resolveSubOptions = <K extends keyof OptionsConfig>(options: Option
  * Retrieves override rules for a specific configuration key.
  * It merges global overrides with sub-option overrides.
  * @param {OptionsConfig} options The main configuration object.
- * @param {K} key The key of the configuration to get overrides for.
+ * @param {keyof OptionsConfig} key The key of the configuration to get overrides for.
  * @returns {Partial<Linter.RulesRecord & RuleOptions>} The merged override rules.
- * @template K
  */
-export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> => {
+export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): Partial<Linter.RulesRecord & RuleOptions> => {
     const sub = resolveSubOptions(options, key);
 
     return {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ...(options.overrides as any)?.[key],
+
         ..."overrides" in sub ? sub.overrides : {},
     };
 };
@@ -126,11 +124,10 @@ export const getOverrides = <K extends keyof OptionsConfig>(options: OptionsConf
 /**
  * Retrieves file globs for a specific configuration key from sub-options.
  * @param {OptionsConfig} options The main configuration object.
- * @param {K} key The key of the configuration to get file globs for.
+ * @param {keyof OptionsConfig} key The key of the configuration to get file globs for.
  * @returns {string[] | undefined} An array of file globs, or undefined if not specified.
- * @template K
  */
-export const getFiles = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): string[] | undefined => {
+export const getFiles = (options: OptionsConfig, key: keyof OptionsConfig): string[] | undefined => {
     const sub = resolveSubOptions(options, key);
 
     if ("files" in sub) {
@@ -177,7 +174,7 @@ export const createConfig = async (
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
     const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
-    const reactVersion = packageJson?.["dependencies"]?.["react"] ?? packageJson?.["devDependencies"]?.["react"];
+    const reactVersion = packageJson["dependencies"]?.["react"] ?? packageJson["devDependencies"]?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
@@ -191,7 +188,7 @@ export const createConfig = async (
     let hasTailwindCssV3 = false;
     let hasTailwindCssV4 = false;
 
-    const tailwindCssVersion = packageJson?.["dependencies"]?.["tailwindcss"] ?? packageJson?.["devDependencies"]?.["tailwindcss"];
+    const tailwindCssVersion = packageJson["dependencies"]?.["tailwindcss"] ?? packageJson["devDependencies"]?.["tailwindcss"];
 
     if (tailwindCssVersion) {
         const parsedVersion = parse(tailwindCssVersion);
@@ -626,11 +623,11 @@ export const createConfig = async (
         }
 
         if (typeof options.formatters === "object") {
-            if (options.formatters?.markdown && options.formatters?.slidev) {
+            if (options.formatters.markdown && options.formatters.slidev) {
                 packages.push("prettier-plugin-slidev");
             }
 
-            if (options.formatters?.xml || options.formatters?.svg) {
+            if (options.formatters.xml || options.formatters.svg) {
                 packages.push("@prettier/plugin-xml");
             }
         }

@@ -172,37 +172,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
     noUnsanitized?: OptionsOverrides;
 
     /**
-     * Provide overrides for rules for each integration.
-     * @deprecated use `overrides` option in each integration key instead
-     */
-    overrides?: {
-        html?: TypedFlatConfigItem["rules"];
-        javascript?: TypedFlatConfigItem["rules"];
-        jsonc?: TypedFlatConfigItem["rules"];
-        "jsx-a11y"?: TypedFlatConfigItem["rules"];
-        lodash?: TypedFlatConfigItem["rules"];
-        markdown?: TypedFlatConfigItem["rules"];
-        node?: TypedFlatConfigItem["rules"];
-        noSecrets?: TypedFlatConfigItem["rules"];
-        noUnsanitized?: TypedFlatConfigItem["rules"];
-        perfectionist?: TypedFlatConfigItem["rules"];
-        playwright?: TypedFlatConfigItem["rules"];
-        promise?: TypedFlatConfigItem["rules"];
-        react?: TypedFlatConfigItem["rules"];
-        simpleImportSort?: TypedFlatConfigItem["rules"];
-        sonarjs?: TypedFlatConfigItem["rules"];
-        storybook?: TypedFlatConfigItem["rules"];
-        stylistic?: TypedFlatConfigItem["rules"];
-        svelte?: TypedFlatConfigItem["rules"];
-        test?: TypedFlatConfigItem["rules"];
-        toml?: TypedFlatConfigItem["rules"];
-        typescript?: TypedFlatConfigItem["rules"];
-        unocss?: TypedFlatConfigItem["rules"];
-        validateJsxNesting?: TypedFlatConfigItem["rules"];
-        yaml?: TypedFlatConfigItem["rules"];
-    };
-
-    /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
     perfectionist?: OptionsFiles & OptionsOverrides;

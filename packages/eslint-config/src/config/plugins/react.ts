@@ -121,7 +121,7 @@ export default createConfig<
     if (tsconfigPath !== undefined) {
         const tsConfig = readTsConfig(tsconfigPath);
 
-        if (tsConfig?.compilerOptions !== undefined && (tsConfig?.compilerOptions.jsx === "react-jsx" || tsConfig?.compilerOptions.jsx === "react-jsxdev")) {
+        if (tsConfig.compilerOptions !== undefined && (tsConfig.compilerOptions.jsx === "react-jsx" || tsConfig.compilerOptions.jsx === "react-jsxdev")) {
             hasJsxRuntime = true;
 
             if (!silent) {
@@ -1026,11 +1026,13 @@ export default createConfig<
 
                 ...hasReactCompiler && pluginReactCompiler ? { "react-compiler/react-compiler": "error" } : {},
 
-                ...pluginReactPerf?.configs?.flat?.recommended?.rules,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                ...pluginReactPerf.configs.flat.recommended.rules,
 
-                ...pluginReactYouMightNotNeedAnEffect?.configs?.recommended?.rules,
+                ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.rules : {},
+                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                ...hasJsxRuntime ? pluginReact?.configs.flat?.["jsx-runtime"]?.rules : {},
 
                 ...prettier
                     ? {
@@ -1084,7 +1086,7 @@ export default createConfig<
                         jsx: true,
                     },
                 },
-                ...hasJsxRuntime ? pluginReact?.configs?.flat?.["jsx-runtime"]?.languageOptions?.parserOptions : {},
+                ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"].languageOptions.parserOptions : {},
             },
             name: "anolilab/react/jsx",
             rules: {

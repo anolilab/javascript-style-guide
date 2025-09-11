@@ -94,7 +94,7 @@ export default createConfig<
             plugins: {
                 "@typescript-eslint": tseslint.plugin,
                 "no-for-of-array": noForOfArrayPlugin,
-                ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin?.configs.recommended.plugins : {},
+                ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin.configs.recommended.plugins : {},
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
@@ -417,7 +417,7 @@ export default createConfig<
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.mdx
             "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
 
-            ...erasableSyntaxOnlyPlugin?.configs.recommended.rules,
+            ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin.configs.recommended.rules : {},
 
             ...overrides,
 

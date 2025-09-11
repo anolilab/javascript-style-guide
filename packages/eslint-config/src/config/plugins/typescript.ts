@@ -47,6 +47,12 @@ export default createConfig<
         interopDefault(import("eslint-plugin-no-for-of-array")),
     ] as const);
 
+    let erasableSyntaxOnlyPlugin;
+
+    if (parserOptions?.erasableSyntaxOnly) {
+        erasableSyntaxOnlyPlugin = await interopDefault(import("eslint-plugin-erasable-syntax-only"));
+    }
+
     const filesTypeAware = config.filesTypeAware ?? getFilesGlobs("ts");
     const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("markdown_inline_js_jsx"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
     const { tsconfigPath } = config;
@@ -88,6 +94,7 @@ export default createConfig<
             plugins: {
                 "@typescript-eslint": tseslint.plugin,
                 "no-for-of-array": noForOfArrayPlugin,
+                ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin?.configs.recommended.plugins : {},
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
@@ -409,6 +416,8 @@ export default createConfig<
             // Replace 'space-infix-ops' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.mdx
             "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
+
+            ...erasableSyntaxOnlyPlugin?.configs.recommended.rules,
 
             ...overrides,
 

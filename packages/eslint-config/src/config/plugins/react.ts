@@ -94,7 +94,7 @@ export default createConfig<
 
     const { plugins } = pluginReactX.configs.all;
 
-    let reactVersion = packageJson?.["dependencies"]?.["react"] ?? packageJson?.["devDependencies"]?.["react"];
+    let reactVersion = packageJson.dependencies?.["react"] ?? packageJson.devDependencies?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {

@@ -536,7 +536,7 @@ export interface OptionsTypeScriptParserOptions {
     /**
      * Additional parser options for TypeScript.
      */
-    parserOptions?: Partial<ParserOptions>;
+    parserOptions?: Partial<ParserOptions & { erasableSyntaxOnly?: boolean }>;
 }
 
 export interface OptionsTypeScriptWithTypes {

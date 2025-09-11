@@ -2,13 +2,15 @@ import { createConfig, getFilesGlobs } from "@anolilab/eslint-config";
 
 export default createConfig({
     ignores: ["**/__fixtures__", "packem.config.ts"],
+    rules: {
+        "@typescript-eslint/no-require-imports": "off",
+    },
 }, {
     files: ["./README.md"],
     rules: {
         "@typescript-eslint/no-require-imports": "off",
         "import/no-commonjs": "off",
         "jsdoc/check-tag-names": "off",
-        "unicorn/prefer-module": "off",
     },
 }, {
     files: getFilesGlobs("markdown_inline_js_jsx"),

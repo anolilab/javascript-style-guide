@@ -172,37 +172,6 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
     noUnsanitized?: OptionsOverrides;
 
     /**
-     * Provide overrides for rules for each integration.
-     * @deprecated use `overrides` option in each integration key instead
-     */
-    overrides?: {
-        html?: TypedFlatConfigItem["rules"];
-        javascript?: TypedFlatConfigItem["rules"];
-        jsonc?: TypedFlatConfigItem["rules"];
-        "jsx-a11y"?: TypedFlatConfigItem["rules"];
-        lodash?: TypedFlatConfigItem["rules"];
-        markdown?: TypedFlatConfigItem["rules"];
-        node?: TypedFlatConfigItem["rules"];
-        noSecrets?: TypedFlatConfigItem["rules"];
-        noUnsanitized?: TypedFlatConfigItem["rules"];
-        perfectionist?: TypedFlatConfigItem["rules"];
-        playwright?: TypedFlatConfigItem["rules"];
-        promise?: TypedFlatConfigItem["rules"];
-        react?: TypedFlatConfigItem["rules"];
-        simpleImportSort?: TypedFlatConfigItem["rules"];
-        sonarjs?: TypedFlatConfigItem["rules"];
-        storybook?: TypedFlatConfigItem["rules"];
-        stylistic?: TypedFlatConfigItem["rules"];
-        svelte?: TypedFlatConfigItem["rules"];
-        test?: TypedFlatConfigItem["rules"];
-        toml?: TypedFlatConfigItem["rules"];
-        typescript?: TypedFlatConfigItem["rules"];
-        unocss?: TypedFlatConfigItem["rules"];
-        validateJsxNesting?: TypedFlatConfigItem["rules"];
-        yaml?: TypedFlatConfigItem["rules"];
-    };
-
-    /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
     perfectionist?: OptionsFiles & OptionsOverrides;
@@ -284,9 +253,14 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      *
      * Requires installing:
      * - `eslint-plugin-tailwindcss`
+     *
+     * When set to `true`, it will enable Tailwind CSS v3 or v4 support.
+     * When set to `"v4"`, it will enable Tailwind CSS v4 support.
+     * When set to `{ version: "v3" }`, it will enable Tailwind CSS v3 support.
+     * When set to `{ version: "v4" }`, it will enable Tailwind CSS v4 support.
      * @default false
      */
-    tailwindcss?: boolean | (OptionsFiles & OptionsOverrides);
+    tailwindcss?: boolean | "v3" | "v4" | (OptionsFiles & OptionsOverrides & { version?: "v3" | "v4" });
 
     /**
      * Enable tanstack rules.
@@ -531,7 +505,7 @@ export interface OptionsTypeScriptParserOptions {
     /**
      * Additional parser options for TypeScript.
      */
-    parserOptions?: Partial<ParserOptions>;
+    parserOptions?: Partial<ParserOptions & { erasableSyntaxOnly?: boolean }>;
 }
 
 export interface OptionsTypeScriptWithTypes {

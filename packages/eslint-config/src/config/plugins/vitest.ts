@@ -35,7 +35,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             rules: {
                 ...vitestPlugin.rules,
                 // extend `test/no-only-tests` rule
-                ...noOnlyTestsPlugin?.rules,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                ...noOnlyTestsPlugin.rules,
             },
         };
 

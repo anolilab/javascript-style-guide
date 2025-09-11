@@ -1,3 +1,14 @@
 packages:
-    - "packages/**"
-    - "!packages/eslint-config/__fixtures__/**"
+  - packages/**
+  - '!packages/eslint-config/__fixtures__/**'
+
+onlyBuiltDependencies:
+  - esbuild
+  - nx
+  - oxc-resolver
+  - rs-module-lexer
+  - unrs-resolver
+
+overrides:
+  chrono-node@<2.2.4: '>=2.2.4'
+  tmp@<=0.2.3: '>=0.2.4'

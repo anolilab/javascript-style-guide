@@ -37,7 +37,7 @@ export type ExternalParserName = "astro" | "slidev";
 //
 // It comes from this issue: microsoft/TypeScript#29729:
 //   https://github.com/microsoft/TypeScript/issues/29729#issuecomment-700527227
-export type LiteralUnion<T extends U, U = string> = T | (Pick<U, never> & { _?: never | undefined });
+export type LiteralUnion<T extends U, U = string> = T | (Pick<U, never> & { _?: never });
 
 export type VendoredPrettierOptions = Partial<VendoredPrettierOptionsRequired>;
 
@@ -79,7 +79,7 @@ export interface VendoredPrettierOptionsRequired {
      * Provide ability to support new languages to prettier.
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    plugins: (any | string)[];
+    plugins: any[];
     /**
      * Specify the line length that the printer will wrap on.
      * @default 120
@@ -159,6 +159,6 @@ export interface VendoredPrettierOptionsRequired {
 }
 
 export type VendoredPrettierRuleOptions = VendoredPrettierOptions & {
-    [k: string]: unknown | undefined;
+    [k: string]: unknown;
     parser?: BuiltInParserName | ExternalParserName;
 };

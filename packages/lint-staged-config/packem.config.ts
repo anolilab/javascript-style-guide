@@ -1,10 +1,8 @@
 import { defineConfig } from "@visulima/packem/config";
-import isolatedDeclarationTransformer from "@visulima/packem/dts/isolated/transformer/typescript";
 import transformer from "@visulima/packem/transformer/esbuild";
 
 export default defineConfig({
     cjsInterop: true,
-    isolatedDeclarationTransformer,
     rollup: {
         license: {
             path: "./LICENSE.md",
@@ -15,4 +13,11 @@ export default defineConfig({
         writeToPackageJson: true,
     },
     transformer,
+    validation: {
+        dependencies: {
+            unused: {
+                exclude: ["type-fest", "shell-quote"],
+            },
+        },
+    },
 });

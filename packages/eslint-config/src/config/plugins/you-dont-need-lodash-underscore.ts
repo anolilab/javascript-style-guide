@@ -16,7 +16,8 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 "you-dont-need-lodash-underscore": fixupPluginRules(pluginYouDontNeedLodashUnderscore),
             },
             rules: {
-                ...pluginYouDontNeedLodashUnderscore.configs["all"].rules,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                ...pluginYouDontNeedLodashUnderscore.configs.all.rules,
                 ...overrides,
             },
         },

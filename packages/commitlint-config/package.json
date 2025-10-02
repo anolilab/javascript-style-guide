@@ -28,6 +28,7 @@
         "name": "Daniel Bannert",
         "email": "d.bannert@anolilab.de"
     },
+    "sideEffects": false,
     "type": "module",
     "exports": {
         ".": {
@@ -55,7 +56,6 @@
     "bin": {
         "commitlint-config:install": "./dist/bin.js"
     },
-    "sideEffects": false,
     "files": [
         "dist",
         "README.md",
@@ -79,6 +79,7 @@
         "cz-conventional-changelog": "catalog:prod"
     },
     "devDependencies": {
+        "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
         "@commitlint/cli": "catalog:lint",

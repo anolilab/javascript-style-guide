@@ -7,7 +7,10 @@ const config = {
      * due to @semantic-release/git putting release notes in the commit body
      * https://github.com/semantic-release/git/issues/331
      */
-    ignores: [(commitMessage: string): boolean => automaticCommitPattern.test(commitMessage)],
+    ignores: [
+        (commitMessage: string): boolean =>
+            automaticCommitPattern.test(commitMessage),
+    ],
     rules: {
         "body-leading-blank": [1, "always"],
         "body-max-line-length": [2, "always", 100],
@@ -15,7 +18,11 @@ const config = {
         "footer-max-line-length": [2, "always", 100],
         "header-max-length": [2, "always", 100],
         "scope-case": [2, "always", "lower-case"],
-        "subject-case": [2, "never", ["sentence-case", "start-case", "pascal-case", "upper-case"]],
+        "subject-case": [
+            2,
+            "never",
+            ["sentence-case", "start-case", "pascal-case", "upper-case"],
+        ],
         "subject-empty": [2, "never"],
         "subject-full-stop": [2, "never", "."],
         "type-case": [2, "always", "lower-case"],
@@ -23,7 +30,22 @@ const config = {
         "type-enum": [
             2,
             "always",
-            ["build", "chore", "ci", "deps", "docs", "feat", "fix", "perf", "refactor", "revert", "security", "style", "test", "translation"],
+            [
+                "build",
+                "chore",
+                "ci",
+                "deps",
+                "docs",
+                "feat",
+                "fix",
+                "perf",
+                "refactor",
+                "revert",
+                "security",
+                "style",
+                "test",
+                "translation",
+            ],
         ],
     },
 };

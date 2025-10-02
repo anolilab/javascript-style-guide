@@ -55,6 +55,7 @@
     "bin": {
         "commitlint-config:install": "./dist/bin.js"
     },
+    "sideEffects": false,
     "files": [
         "dist",
         "README.md",
@@ -66,25 +67,28 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit"
     },
     "dependencies": {
-        "@commitlint/config-conventional": "^19.8.1",
-        "@commitlint/core": "^19.8.1",
-        "commitizen": "^4.3.1",
-        "conventional-changelog-conventionalcommits": "9.1.0",
-        "cz-conventional-changelog": "^3.3.0"
+        "@commitlint/config-conventional": "catalog:lint",
+        "@commitlint/core": "catalog:lint",
+        "commitizen": "catalog:cli",
+        "conventional-changelog-conventionalcommits": "catalog:prod",
+        "cz-conventional-changelog": "catalog:prod"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "11.0.3",
-        "@arethetypeswrong/cli": "^0.18.2",
-        "@commitlint/cli": "^19.8.1",
-        "@visulima/packem": "2.0.0-alpha.19",
-        "esbuild": "^0.25.9",
-        "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.8",
-        "typescript": "^5.9.2",
-        "vitest": "^3.2.4"
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@commitlint/cli": "catalog:lint",
+        "@visulima/packem": "catalog:dev",
+        "esbuild": "catalog:build",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
         "@commitlint/cli": "^17.6.5 || ^18.x || ^19.x"

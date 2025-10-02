@@ -88,7 +88,9 @@ const writeCzrc = async (cwd: string) => {
     const packageJsonPath = join(cwd, "package.json");
 
     if (!existsSync(packageJsonPath)) {
-        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+        console.error(
+            "No package.json found in the current directory. You need to run this command in a directory with a package.json file.",
+        );
 
         process.exit(1);
     }

@@ -1,3 +1,9 @@
+## @anolilab/textlint-config [9.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.6...@anolilab/textlint-config@9.0.7) (2025-10-02)
+
+### Bug Fixes
+
+* update textlint-config to use pnpm preset ([21a44d8](https://github.com/anolilab/javascript-style-guide/commit/21a44d8269ebb5a889a5170b6d10911cd16723d8))
+
 ## @anolilab/textlint-config [9.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@9.0.5...@anolilab/textlint-config@9.0.6) (2025-10-02)
 
 ### Bug Fixes

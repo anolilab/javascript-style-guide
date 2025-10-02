@@ -62,22 +62,25 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",
         "test": "vitest --config ./vitest.config.ts",
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "11.0.3",
-        "@arethetypeswrong/cli": "^0.18.2",
-        "@visulima/packem": "2.0.0-alpha.19",
-        "browserslist": "4.25.4",
-        "caniuse-lite": "^1.0.30001741",
-        "cross-env": "^10.0.0",
-        "esbuild": "^0.25.9",
-        "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.8",
-        "typescript": "^5.9.2",
-        "vitest": "^3.2.4"
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@visulima/packem": "catalog:dev",
+        "browserslist": "catalog:network",
+        "caniuse-lite": "catalog:utils",
+        "cross-env": "catalog:node",
+        "esbuild": "catalog:build",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
     },
     "engines": {
         "node": ">=20.18.* <=24.*"

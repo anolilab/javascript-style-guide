@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.3.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.1...@anolilab/eslint-config@16.3.2) (2025-10-02)
+
+### Bug Fixes
+
+* update eslint-config to use pnpm preset ([60c7d0d](https://github.com/anolilab/javascript-style-guide/commit/60c7d0da251c548f35155465355582ea0a96d281))
+
 ## @anolilab/eslint-config [16.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.0...@anolilab/eslint-config@16.3.1) (2025-10-02)
 
 ### Bug Fixes

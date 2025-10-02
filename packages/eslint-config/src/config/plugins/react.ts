@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
@@ -54,14 +55,14 @@ type PluginReactCompiler = {
 
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
-    OptionsFiles &
-        OptionsHasPrettier &
-        OptionsOverrides &
-        OptionsPackageJson &
-        OptionsSilentConsoleLogs &
-        OptionsStylistic &
-        OptionsTypeScriptParserOptions &
-        OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
+    OptionsFiles
+    & OptionsHasPrettier
+    & OptionsOverrides
+    & OptionsPackageJson
+    & OptionsSilentConsoleLogs
+    & OptionsStylistic
+    & OptionsTypeScriptParserOptions
+    & OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -82,7 +83,7 @@ export default createConfig<
         ...getFilesGlobs("jsx"),
         "**/*.json",
         "**/*.jsonc",
-        ...(config.ignoresTypeAware ?? []),
+        ...config.ignoresTypeAware ?? [],
     ];
     let { isTypeAware = true } = config;
 
@@ -133,9 +134,9 @@ export default createConfig<
 
     const { plugins } = pluginReactX.configs.all;
 
-    let reactVersion =
-        packageJson.dependencies?.["react"] ??
-        packageJson.devDependencies?.["react"];
+    let reactVersion
+        = packageJson.dependencies?.["react"]
+            ?? packageJson.devDependencies?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
@@ -163,9 +164,9 @@ export default createConfig<
         const tsConfig = readTsConfig(tsconfigPath);
 
         if (
-            tsConfig.compilerOptions !== undefined &&
-            (tsConfig.compilerOptions.jsx === "react-jsx" ||
-                tsConfig.compilerOptions.jsx === "react-jsxdev")
+            tsConfig.compilerOptions !== undefined
+            && (tsConfig.compilerOptions.jsx === "react-jsx"
+                || tsConfig.compilerOptions.jsx === "react-jsxdev")
         ) {
             hasJsxRuntime = true;
 
@@ -209,9 +210,9 @@ export default createConfig<
                 "react-x": plugins["@eslint-react"],
                 "react-you-might-not-need-an-effect":
                     pluginReactYouMightNotNeedAnEffect,
-                ...(hasReactCompiler && pluginReactCompiler
+                ...hasReactCompiler && pluginReactCompiler
                     ? pluginReactCompiler.configs.recommended.plugins
-                    : {}),
+                    : {},
             },
         },
         {
@@ -320,36 +321,36 @@ export default createConfig<
                     {
                         allowConstantExport: isAllowConstantExport,
                         allowExportNames: [
-                            ...(isUsingNext
+                            ...isUsingNext
                                 ? [
-                                      "dynamic",
-                                      "dynamicParams",
-                                      "revalidate",
-                                      "fetchCache",
-                                      "runtime",
-                                      "preferredRegion",
-                                      "maxDuration",
-                                      "config",
-                                      "generateStaticParams",
-                                      "metadata",
-                                      "generateMetadata",
-                                      "viewport",
-                                      "generateViewport",
-                                  ]
-                                : []),
-                            ...(isUsingRemix || isUsingReactRouter
+                                    "dynamic",
+                                    "dynamicParams",
+                                    "revalidate",
+                                    "fetchCache",
+                                    "runtime",
+                                    "preferredRegion",
+                                    "maxDuration",
+                                    "config",
+                                    "generateStaticParams",
+                                    "metadata",
+                                    "generateMetadata",
+                                    "viewport",
+                                    "generateViewport",
+                                ]
+                                : [],
+                            ...isUsingRemix || isUsingReactRouter
                                 ? [
-                                      "meta",
-                                      "links",
-                                      "headers",
-                                      "loader",
-                                      "action",
-                                      "clientLoader",
-                                      "clientAction",
-                                      "handle",
-                                      "shouldRevalidate",
-                                  ]
-                                : []),
+                                    "meta",
+                                    "links",
+                                    "headers",
+                                    "loader",
+                                    "action",
+                                    "clientLoader",
+                                    "clientAction",
+                                    "handle",
+                                    "shouldRevalidate",
+                                ]
+                                : [],
                         ],
                     },
                 ],
@@ -1128,39 +1129,38 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...(hasReactCompiler && pluginReactCompiler
+                ...hasReactCompiler && pluginReactCompiler
                     ? { "react-compiler/react-compiler": "error" }
-                    : {}),
+                    : {},
 
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 ...pluginReactPerf.configs.flat.recommended.rules,
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                ...(hasJsxRuntime
+                ...hasJsxRuntime
                     ? pluginReact?.configs.flat?.["jsx-runtime"]?.rules
-                    : {}),
+                    : {},
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "react/jsx-child-element-spacing": "off",
-                          "react/jsx-closing-bracket-location": "off",
-                          "react/jsx-closing-tag-location": "off",
-                          "react/jsx-curly-newline": "off",
-                          "react/jsx-curly-spacing": "off",
-                          "react/jsx-equals-spacing": "off",
-                          "react/jsx-first-prop-new-line": "off",
-                          "react/jsx-indent": "off",
-                          "react/jsx-indent-props": "off",
-                          "react/jsx-max-props-per-line": "off",
-                          "react/jsx-newline": "off",
-                          "react/jsx-one-expression-per-line": "off",
-                          "react/jsx-props-no-multi-spaces": "off",
-                          "react/jsx-tag-spacing": "off",
-                          "react/jsx-wrap-multilines": "off",
-                      }
-                    : {}),
+                        "react/jsx-child-element-spacing": "off",
+                        "react/jsx-closing-bracket-location": "off",
+                        "react/jsx-closing-tag-location": "off",
+                        "react/jsx-curly-newline": "off",
+                        "react/jsx-curly-spacing": "off",
+                        "react/jsx-equals-spacing": "off",
+                        "react/jsx-first-prop-new-line": "off",
+                        "react/jsx-indent": "off",
+                        "react/jsx-indent-props": "off",
+                        "react/jsx-max-props-per-line": "off",
+                        "react/jsx-newline": "off",
+                        "react/jsx-one-expression-per-line": "off",
+                        "react/jsx-props-no-multi-spaces": "off",
+                        "react/jsx-tag-spacing": "off",
+                        "react/jsx-wrap-multilines": "off",
+                    }
+                    : {},
 
                 // overrides
                 ...overrides,
@@ -1194,10 +1194,10 @@ export default createConfig<
                         jsx: true,
                     },
                 },
-                ...(hasJsxRuntime
+                ...hasJsxRuntime
                     ? pluginReact.configs.flat["jsx-runtime"].languageOptions
-                          .parserOptions
-                    : {}),
+                        .parserOptions
+                    : {},
             },
             name: "anolilab/react/jsx",
             rules: {
@@ -1258,17 +1258,17 @@ export default createConfig<
                 "react/jsx-props-no-spreading": "off",
             },
         },
-        ...(isTypeAware
+        ...isTypeAware
             ? [
-                  {
-                      files: filesTypeAware,
-                      ignores: ignoresTypeAware,
-                      name: "anolilab/react/type-aware-rules",
-                      rules: {
-                          ...typeAwareRules,
-                      },
-                  },
-              ]
-            : []),
+                {
+                    files: filesTypeAware,
+                    ignores: ignoresTypeAware,
+                    name: "anolilab/react/type-aware-rules",
+                    rules: {
+                        ...typeAwareRules,
+                    },
+                },
+            ]
+            : [],
     ];
 });

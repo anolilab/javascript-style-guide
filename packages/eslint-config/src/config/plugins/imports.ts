@@ -13,12 +13,12 @@ import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsCwd &
-        OptionsFiles &
-        OptionsOverrides &
-        OptionsPackageJson &
-        OptionsStylistic &
-        OptionsTypeScriptWithTypes
+    OptionsCwd
+    & OptionsFiles
+    & OptionsOverrides
+    & OptionsPackageJson
+    & OptionsStylistic
+    & OptionsTypeScriptWithTypes
 >("all", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -80,21 +80,21 @@ export default createConfig<
                         checkTypeImports: tsconfigPath !== undefined,
                         ignorePackages: true,
                         pattern: {
-                            ...(packageJson.type === "module"
+                            ...packageJson.type === "module"
                                 ? {
-                                      cjs: "always",
-                                      js: "always",
-                                      json: "always",
-                                      jsx: "always",
-                                      mjs: "always",
-                                  }
+                                    cjs: "always",
+                                    js: "always",
+                                    json: "always",
+                                    jsx: "always",
+                                    mjs: "always",
+                                }
                                 : {
-                                      cjs: "never",
-                                      js: "never",
-                                      json: "always",
-                                      jsx: "never",
-                                      mjs: "never",
-                                  }),
+                                    cjs: "never",
+                                    js: "never",
+                                    json: "always",
+                                    jsx: "never",
+                                    mjs: "never",
+                                },
                         },
                     },
                 ],
@@ -132,14 +132,14 @@ export default createConfig<
 
                 // Require a newline after the last import/require in a group
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
-                ...(stylistic
+                ...stylistic
                     ? {
-                          "import/newline-after-import": [
-                              "error",
-                              { count: 1 },
-                          ],
-                      }
-                    : {}),
+                        "import/newline-after-import": [
+                            "error",
+                            { count: 1 },
+                        ],
+                    }
+                    : {},
 
                 // Forbid import of modules using absolute paths
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md
@@ -417,26 +417,26 @@ export default createConfig<
                     ),
                 },
 
-                ...(tsconfigPath
+                ...tsconfigPath
                     ? {
-                          // Append 'ts' extensions to 'import/resolver' setting
-                          "import/resolver": {
-                              node: true,
-                              typescript: {
-                                  // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                                  alwaysTryTypes: true,
-                                  project: tsconfigPath,
-                              },
-                          },
-                      }
+                        // Append 'ts' extensions to 'import/resolver' setting
+                        "import/resolver": {
+                            node: true,
+                            typescript: {
+                                // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                                alwaysTryTypes: true,
+                                project: tsconfigPath,
+                            },
+                        },
+                    }
                     : {
-                          "import/resolver": {
-                              node: true,
-                              // You will also need to install and configure the TypeScript resolver
-                              // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-                              typescript: true,
-                          },
-                      }),
+                        "import/resolver": {
+                            node: true,
+                            // You will also need to install and configure the TypeScript resolver
+                            // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+                            typescript: true,
+                        },
+                    },
             },
         });
     }

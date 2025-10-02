@@ -23,9 +23,9 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
                     promise: promisesPlugin,
                 },
                 rules: {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                     ...(fixupPluginRules(
-                        promisesPlugin.configs["flat/recommended"].rules,
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                        promisesPlugin?.configs["flat/recommended"].rules,
                     ) as Rules),
 
                     "promise/prefer-await-to-callbacks": "off",

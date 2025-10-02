@@ -11,11 +11,11 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles &
-        OptionsHasPrettier &
-        OptionsOverrides &
-        OptionsPackageJson &
-        OptionsStylistic
+    OptionsFiles
+    & OptionsHasPrettier
+    & OptionsOverrides
+    & OptionsPackageJson
+    & OptionsStylistic
 >("all", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -85,16 +85,16 @@ export default createConfig<
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "unicorn/empty-brace-spaces": "off",
-                          "unicorn/no-nested-ternary": "off",
-                          "unicorn/number-literal-case": "off",
-                          "unicorn/template-indent": "off",
-                      }
+                        "unicorn/empty-brace-spaces": "off",
+                        "unicorn/no-nested-ternary": "off",
+                        "unicorn/number-literal-case": "off",
+                        "unicorn/template-indent": "off",
+                    }
                     : {
-                          "unicorn/template-indent": ["error", { indent }],
-                      }),
+                        "unicorn/template-indent": ["error", { indent }],
+                    },
 
                 ...overrides,
             },

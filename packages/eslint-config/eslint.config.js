@@ -9,6 +9,7 @@ export default createConfig(
             "./src/utils/vitest-globals.ts",
             "./__fixtures__/**/*",
             "./__tests__/**/*",
+            ".prettierrc.cjs",
         ],
         react: false,
         playwright: false,

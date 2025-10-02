@@ -31,9 +31,9 @@ export default createConfig<
             },
             rules: {
                 ...testingLibraryPlugin.configs["flat/dom"].rules,
-                ...(hasReact
+                ...hasReact
                     ? testingLibraryPlugin.configs["flat/react"].rules
-                    : {}),
+                    : {},
 
                 ...overrides,
             },

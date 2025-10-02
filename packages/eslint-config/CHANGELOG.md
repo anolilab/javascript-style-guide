@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.3.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.2...@anolilab/eslint-config@16.3.3) (2025-10-02)
+
+### Bug Fixes
+
+* fixed pnpm catalog resolving, update dependencies and ESLint configuration ([12bc209](https://github.com/anolilab/javascript-style-guide/commit/12bc2099213538574c9f6c4f99aaf424d1b6d269))
+
 ## @anolilab/eslint-config [16.3.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.1...@anolilab/eslint-config@16.3.2) (2025-10-02)
 
 ### Bug Fixes

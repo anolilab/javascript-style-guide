@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [16.3.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.0...@anolilab/eslint-config@16.3.1) (2025-10-02)
+
+### Bug Fixes
+
+* enhance ESLint and Prettier configurations for improved code quality ([37848ce](https://github.com/anolilab/javascript-style-guide/commit/37848ceef972b9dc0cff0dc85e577c855eed3a75))
+* update eslint-plugin-playwright version for compatibility ([ad4c15b](https://github.com/anolilab/javascript-style-guide/commit/ad4c15bc8784dba33b6f9f98936e31c5942c6023))
+
 ## @anolilab/eslint-config [16.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.2.26...@anolilab/eslint-config@16.3.0) (2025-09-11)
 
 ### Features

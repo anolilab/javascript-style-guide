@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.34](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.33...@anolilab/lint-staged-config@3.0.34) (2025-10-02)
+
+### Bug Fixes
+
+* updated @visulima/package version ([f0dd764](https://github.com/anolilab/javascript-style-guide/commit/f0dd7640406288022419fe1b8f74a0487ab963c0))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.3.3
+
 ## @anolilab/lint-staged-config [3.0.33](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.32...@anolilab/lint-staged-config@3.0.33) (2025-10-02)
 
 ### Bug Fixes

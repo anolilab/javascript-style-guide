@@ -15,9 +15,10 @@ import isWindows from "./is-windows";
  * @param filenames
  * @returns Return concatenated and escaped filenames
  */
-const concatFiles = (filenames: string[]): string => filenames
-    .map((filename) => `"${isWindows ? filename : quote([filename])}"`)
-    .join(" ")
-    .replaceAll("/@", "/@");
+const concatFiles = (filenames: string[]): string =>
+    filenames
+        .map((filename) => `"${isWindows ? filename : quote([filename])}"`)
+        .join(" ")
+        .replaceAll("/@", "/@");
 
 export default concatFiles;

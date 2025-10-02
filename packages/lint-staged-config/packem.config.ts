@@ -13,11 +13,4 @@ export default defineConfig({
         writeToPackageJson: true,
     },
     transformer,
-    validation: {
-        dependencies: {
-            unused: {
-                exclude: ["type-fest", "shell-quote"],
-            },
-        },
-    },
 });

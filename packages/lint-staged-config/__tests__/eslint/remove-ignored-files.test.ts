@@ -15,10 +15,13 @@ describe("remove-ignored-files", () => {
         expect.assertions(1);
 
         const files = ["file1", "file2", "file3"];
-        const result = await removeIgnoredFiles(files, new ESLint({
-            cwd: join(fixturePath, "not-ignored-files"),
-            overrideConfigFile: "eslint.config.js",
-        }));
+        const result = await removeIgnoredFiles(
+            files,
+            new ESLint({
+                cwd: join(fixturePath, "not-ignored-files"),
+                overrideConfigFile: "eslint.config.js",
+            }),
+        );
 
         expect(result).toHaveLength(0);
     });
@@ -28,10 +31,13 @@ describe("remove-ignored-files", () => {
 
         const files = ["ignoredFile", "file1.js", "file2.js"];
 
-        const result = await removeIgnoredFiles(files, new ESLint({
-            cwd: join(fixturePath, "ignored-files"),
-            overrideConfigFile: "eslint.config.js",
-        }));
+        const result = await removeIgnoredFiles(
+            files,
+            new ESLint({
+                cwd: join(fixturePath, "ignored-files"),
+                overrideConfigFile: "eslint.config.js",
+            }),
+        );
 
         expect(result).toHaveLength(2);
     });

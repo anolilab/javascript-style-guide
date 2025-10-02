@@ -9,7 +9,10 @@ import {
     writeFileSync,
 } from "@visulima/fs";
 import type { NormalizedPackageJson } from "@visulima/package";
-import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
+import {
+    hasPackageJsonAnyDependency,
+    parsePackageJson,
+} from "@visulima/package";
 
 const checkIfFileExists = (filename: string): boolean => {
     if (isAccessibleSync(filename)) {
@@ -49,7 +52,7 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".lintstagedrc.js");
-    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -81,7 +84,7 @@ const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".nano-staged.js");
-    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -93,7 +96,11 @@ ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
 
-const writeHuskyFiles = async (cwd: string, packageJson: NormalizedPackageJson, hasNanoStaged: boolean) => {
+const writeHuskyFiles = async (
+    cwd: string,
+    packageJson: NormalizedPackageJson,
+    hasNanoStaged: boolean,
+) => {
     const hasHusky = hasPackageJsonAnyDependency(packageJson, ["husky"]);
 
     if (!hasHusky) {
@@ -162,7 +169,10 @@ echo --------------------------------------------
         );
     }
 
-    const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
+    const prepareCommitMessagePath = join(
+        huskyFolderPath,
+        "prepare-commit-msg",
+    );
     const hasCz = hasPackageJsonAnyDependency(packageJson, ["commitizen"]);
 
     if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
@@ -226,16 +236,22 @@ echo --------------------------------------------
 
     if (!existsSync(packageJsonPath)) {
         // eslint-disable-next-line no-console
-        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+        console.error(
+            "No package.json found in the current directory. You need to run this command in a directory with a package.json file.",
+        );
 
         exit(1);
     }
 
-    const packageJson = parsePackageJson(await readFile(packageJsonPath));
+    const packageJson = await parsePackageJson(await readFile(packageJsonPath));
     const isTypeModule = packageJson.type === "module";
 
-    const hasLintStaged = hasPackageJsonAnyDependency(packageJson, ["lint-staged"]);
-    const hasNanoStaged = hasPackageJsonAnyDependency(packageJson, ["nano-staged"]);
+    const hasLintStaged = hasPackageJsonAnyDependency(packageJson, [
+        "lint-staged",
+    ]);
+    const hasNanoStaged = hasPackageJsonAnyDependency(packageJson, [
+        "nano-staged",
+    ]);
 
     try {
         if (hasLintStaged) {

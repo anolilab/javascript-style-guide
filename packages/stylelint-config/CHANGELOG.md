@@ -1,3 +1,14 @@
+## @anolilab/stylelint-config [7.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.7...@anolilab/stylelint-config@7.0.8) (2025-10-02)
+
+### Bug Fixes
+
+* update stylelint-config to use pnpm preset ([17bc554](https://github.com/anolilab/javascript-style-guide/commit/17bc5541a9f24c95aed25da0c6a2b5dca05e740b))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 6.0.5
+
 ## @anolilab/stylelint-config [7.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.6...@anolilab/stylelint-config@7.0.7) (2025-10-02)
 
 ### Bug Fixes

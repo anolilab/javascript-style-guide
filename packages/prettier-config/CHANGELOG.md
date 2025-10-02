@@ -1,3 +1,14 @@
+## @anolilab/prettier-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.4...@anolilab/prettier-config@6.0.5) (2025-10-02)
+
+### Bug Fixes
+
+* add Prettier configuration and update package scripts ([9805886](https://github.com/anolilab/javascript-style-guide/commit/98058869399e5e7d84c36b61ae80316d61c5bc2a))
+
+### Miscellaneous Chores
+
+* **deps:** update package dependencies to latest versions ([028b723](https://github.com/anolilab/javascript-style-guide/commit/028b7237222bfddb4f4ce43a1247f5a3ed9f2c68))
+* update @visulima/packem to version 2.0.0-alpha.19 and add eslint-plugin-erasable-syntax-only@0.3.1\n\n- Updated all instances of @visulima/packem to the latest alpha version.\n- Added new dependency eslint-plugin-erasable-syntax-only for enhanced linting capabilities.\n- Updated devDependencies in various package.json files to ensure consistency across configurations. ([0d62091](https://github.com/anolilab/javascript-style-guide/commit/0d620916bbabb0d64266136978c0b038844e3bc7))
+
 ## @anolilab/prettier-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.3...@anolilab/prettier-config@6.0.4) (2025-09-05)
 
 ### Bug Fixes

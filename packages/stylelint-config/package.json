@@ -184,34 +184,37 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",
         "test": "vitest --config ./vitest.config.ts",
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "6.0.3",
-        "stylelint-config-clean-order": "^7.0.0",
-        "stylelint-config-standard": "^39.0.0",
-        "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-        "stylelint-high-performance-animation": "^1.11.0",
-        "stylelint-no-unsupported-browser-features": "^8.0.4",
-        "stylelint-require-units": "^2.0.0",
-        "stylelint-selector-no-empty": "^1.0.9"
+        "browserslist-config-anolilab": "catalog:network",
+        "stylelint-config-clean-order": "catalog:lint",
+        "stylelint-config-standard": "catalog:lint",
+        "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
+        "stylelint-high-performance-animation": "catalog:lint",
+        "stylelint-no-unsupported-browser-features": "catalog:lint",
+        "stylelint-require-units": "catalog:lint",
+        "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "11.0.3",
-        "@arethetypeswrong/cli": "^0.18.2",
-        "@visulima/packem": "2.0.0-alpha.19",
-        "esbuild": "^0.25.9",
-        "postcss": "^8.5.6",
-        "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.8",
-        "stylelint": "16.24.0",
-        "typescript": "^5.9.2",
-        "vitest": "^3.2.4"
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@visulima/packem": "catalog:dev",
+        "esbuild": "catalog:build",
+        "postcss": "catalog:style",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "stylelint": "catalog:lint",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "postcss": "^8.4.49",
+        "postcss": "catalog:style",
         "stylelint": "^15.11.0 || 16.x"
     },
     "engines": {

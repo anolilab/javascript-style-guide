@@ -17,14 +17,38 @@ describe("stylelint", () => {
 
         expect(IndexESM.extends.length > 0).toBeTruthy();
         expect(IndexESM.extends).toStrictEqual([
-            `${distributionFolderPath}/config/best-practices.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/high-performance-animation.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/no-unsupported-browser-features.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/require-units.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/selector-no-empty.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/standard.mjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/tailwindcss.mjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/best-practices.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/high-performance-animation.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/no-unsupported-browser-features.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/require-units.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/selector-no-empty.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/standard.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/tailwindcss.mjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
             "stylelint-config-clean-order",
         ]);
     });
@@ -39,14 +63,38 @@ describe("stylelint", () => {
 
         expect(IndexCJS.extends.length > 0).toBeTruthy();
         expect(IndexCJS.extends).toStrictEqual([
-            `${distributionFolderPath}/config/best-practices.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/high-performance-animation.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/no-unsupported-browser-features.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/require-units.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/selector-no-empty.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/standard.cjs`.replaceAll("/", pathReplaceValue),
-            `${distributionFolderPath}/config/tailwindcss.cjs`.replaceAll("/", pathReplaceValue),
+            `${distributionFolderPath}/config/best-practices.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/declaration-block-no-ignored-properties.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/high-performance-animation.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/no-unsupported-browser-features.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/require-units.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/selector-no-empty.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/standard.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
+            `${distributionFolderPath}/config/tailwindcss.cjs`.replaceAll(
+                "/",
+                pathReplaceValue,
+            ),
             "stylelint-config-clean-order",
         ]);
     });

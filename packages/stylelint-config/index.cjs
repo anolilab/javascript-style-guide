@@ -11,5 +11,8 @@ const config = [
 ];
 
 module.exports = {
-    extends: [...config.map((element) => require.resolve(element)), "stylelint-config-clean-order"],
+    extends: [
+        ...config.map((element) => require.resolve(element)),
+        "stylelint-config-clean-order",
+    ],
 };

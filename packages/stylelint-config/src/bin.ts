@@ -10,7 +10,16 @@ const file = ".stylelintrc";
  */
 const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
     // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
-    for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
+    for (const filename of [
+        file,
+        `${file}.js`,
+        `${file}.cjs`,
+        `${file}.json`,
+        `${file}.yaml`,
+        `${file}.yml`,
+        `stylelint.config.js`,
+        `stylelint.config.cjs`,
+    ]) {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(cwd, filename))) {
             console.warn(
@@ -63,7 +72,9 @@ dist/**
     const packageJsonPath = join(cwd, "package.json");
 
     if (!existsSync(packageJsonPath)) {
-        console.error("😬  No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+        console.error(
+            "😬  No package.json found in the current directory. You need to run this command in a directory with a package.json file.",
+        );
 
         exit(1);
     }

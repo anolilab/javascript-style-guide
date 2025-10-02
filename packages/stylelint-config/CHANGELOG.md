@@ -1,3 +1,19 @@
+## @anolilab/stylelint-config [7.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.6...@anolilab/stylelint-config@7.0.7) (2025-10-02)
+
+### Bug Fixes
+
+* add Prettier configuration and improve code formatting ([944ac53](https://github.com/anolilab/javascript-style-guide/commit/944ac539e849b952538e536bbe5cc6a992fb1212))
+
+### Miscellaneous Chores
+
+* **deps:** update package dependencies to latest versions ([028b723](https://github.com/anolilab/javascript-style-guide/commit/028b7237222bfddb4f4ce43a1247f5a3ed9f2c68))
+* update @visulima/packem to version 2.0.0-alpha.19 and add eslint-plugin-erasable-syntax-only@0.3.1\n\n- Updated all instances of @visulima/packem to the latest alpha version.\n- Added new dependency eslint-plugin-erasable-syntax-only for enhanced linting capabilities.\n- Updated devDependencies in various package.json files to ensure consistency across configurations. ([0d62091](https://github.com/anolilab/javascript-style-guide/commit/0d620916bbabb0d64266136978c0b038844e3bc7))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 6.0.4
+
 ## @anolilab/stylelint-config [7.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@7.0.5...@anolilab/stylelint-config@7.0.6) (2025-09-05)
 
 ### Bug Fixes

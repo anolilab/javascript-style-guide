@@ -191,7 +191,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "6.0.4",
+        "browserslist-config-anolilab": "catalog:network",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
@@ -201,6 +201,7 @@
         "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
+        "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
         "@visulima/packem": "catalog:dev",

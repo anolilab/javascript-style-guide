@@ -116,8 +116,8 @@ catalogs:
       specifier: ^66.5.2
       version: 66.5.2
     '@vitest/eslint-plugin':
-      specifier: ^1.3.13
-      version: 1.3.13
+      specifier: ^1.3.15
+      version: 1.3.15
     astro-eslint-parser:
       specifier: ^1.2.2
       version: 1.2.2
@@ -406,8 +406,8 @@ catalogs:
       specifier: 3.1.9
       version: 3.1.9
     '@visulima/package':
-      specifier: ^4.0.1
-      version: 4.0.1
+      specifier: ^4.0.2
+      version: 4.0.2
     audit-ci:
       specifier: ^7.1.0
       version: 7.1.0
@@ -509,9 +509,9 @@ catalogs:
       version: 7.7.2
 
 overrides:
-  axios@<1.12.0: '>=1.12.0'
-  chrono-node@<2.2.4: '>=2.2.4'
-  tmp@<=0.2.3: '>=0.2.4'
+  axios@<1.12.0: '>=1.12.2'
+  chrono-node@<2.2.4: '>=2.9.0'
+  tmp@<=0.2.3: '>=0.2.5'
 
 importers:
 
@@ -745,13 +745,13 @@ importers:
         version: 8.45.0
       '@visulima/package':
         specifier: catalog:prod
-        version: 4.0.1(@types/node@24.6.2)
+        version: 4.0.2(@types/node@24.6.2)
       '@visulima/tsconfig':
         specifier: catalog:tsc
         version: 1.2.0(yaml@2.8.1)
       '@vitest/eslint-plugin':
         specifier: catalog:lint
-        version: 1.3.13(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))
+        version: 1.3.15(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))
       confusing-browser-globals:
         specifier: catalog:network
         version: 1.0.11
@@ -1022,7 +1022,7 @@ importers:
         version: 3.1.9(yaml@2.8.1)
       '@visulima/package':
         specifier: catalog:prod
-        version: 4.0.1(@types/node@24.6.2)
+        version: 4.0.2(@types/node@24.6.2)
       jest:
         specifier: ^27.x || ^28.x
         version: 28.1.3(@types/node@24.6.2)(ts-node@10.9.1(@types/node@24.6.2)(typescript@5.9.3))
@@ -3692,8 +3692,8 @@ packages:
     engines: {node: '>=20.19 <=24.*'}
     os: [darwin, linux, win32]
 
-  '@visulima/package@4.0.1':
-    resolution: {integrity: sha512-aX3kSCVk+DL+yJrNWySxS9fEMCMEy7J8/ZA1bxQi3/ZEyl13kg+xMmcmX9KUba7Rmjw2feWeOQJD7IRAdsPH0Q==}
+  '@visulima/package@4.0.2':
+    resolution: {integrity: sha512-BLeO94f9GbGZ7Jkb/pb6Aur/7+MCkgCjFS46DkHjfO1Dlf634eJXDSHW5MmykJtImKH1NV2LYn6EZp22A05TWg==}
     engines: {node: '>=20.19 <=24.*'}
     os: [darwin, linux, win32]
 
@@ -3927,8 +3927,8 @@ packages:
       '@vitest/browser':
         optional: true
 
-  '@vitest/eslint-plugin@1.3.13':
-    resolution: {integrity: sha512-QfzXd1+lCY3dIqPHOZlagA2bJYoWC5yAU3adv8Gks0rHAL6FpyXKYBiyMCuU6mRrbKUMphGqwDQobinOvYgJig==}
+  '@vitest/eslint-plugin@1.3.15':
+    resolution: {integrity: sha512-U9NGRhN4QrIsxRl4LITQ/deLD5Hv6MC8KrLx+exFX1ri41naX2EaBJAJdbtAyjGnQnBGaXpC6kNFmQac7Ogm2w==}
     peerDependencies:
       eslint: '>= 8.57.0'
       typescript: '>= 5.0.0'
@@ -4596,8 +4596,8 @@ packages:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
 
-  chrono-node@2.8.4:
-    resolution: {integrity: sha512-F+Rq88qF3H2dwjnFrl3TZrn5v4ZO57XxeQ+AhuL1C685So1hdUV/hT/q8Ja5UbmPYEZfx8VrxFDa72Dgldcxpg==}
+  chrono-node@2.9.0:
+    resolution: {integrity: sha512-glI4YY2Jy6JII5l3d5FN6rcrIbKSQqKPhWsIRYPK2IK8Mm4Q1ZZFdYIaDqglUNf7gNwG+kWIzTn0omzzE0VkvQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   ci-info@3.9.0:
@@ -4951,9 +4951,6 @@ packages:
   data-view-byte-offset@1.0.0:
     resolution: {integrity: sha512-t/Ygsytq+R995EJ5PZlD4Cu56sWa8InXySaViRzw9apusqsOO2bQP+SbYzAhR0pFKoB+43lYy8rWban9JSuXnA==}
     engines: {node: '>= 0.4'}
-
-  dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -10579,9 +10576,9 @@ snapshots:
       '@stylistic/eslint-plugin-ts': 4.4.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.45.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@typescript-eslint/types': 8.45.0
-      '@visulima/package': 4.0.1(@types/node@24.6.2)
+      '@visulima/package': 4.0.2(@types/node@24.6.2)
       '@visulima/tsconfig': 1.2.0(yaml@2.8.1)
-      '@vitest/eslint-plugin': 1.3.13(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))
+      '@vitest/eslint-plugin': 1.3.15(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))
       confusing-browser-globals: 1.0.11
       eslint: 9.36.0(jiti@2.6.0)
       eslint-config-flat-gitignore: 2.1.0(eslint@9.36.0(jiti@2.6.0))
@@ -13438,7 +13435,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@visulima/package@4.0.1(@types/node@24.6.2)':
+  '@visulima/package@4.0.2(@types/node@24.6.2)':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@inquirer/confirm': 5.1.18(@types/node@24.6.2)
@@ -13637,7 +13634,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.3.13(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))':
+  '@vitest/eslint-plugin@1.3.15(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.0)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.45.0
       '@typescript-eslint/utils': 8.45.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
@@ -14371,9 +14368,7 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
 
-  chrono-node@2.8.4:
-    dependencies:
-      dayjs: 1.11.10
+  chrono-node@2.9.0: {}
 
   ci-info@3.9.0: {}
 
@@ -14725,8 +14720,6 @@ snapshots:
       call-bind: 1.0.8
       es-errors: 1.3.0
       is-data-view: 1.0.2
-
-  dayjs@1.11.10: {}
 
   debug@3.2.7:
     dependencies:
@@ -20829,7 +20822,7 @@ snapshots:
 
   textlint-rule-date-weekday-mismatch@1.1.1:
     dependencies:
-      chrono-node: 2.8.4
+      chrono-node: 2.9.0
       moment: 2.30.1
       textlint-tester: 12.6.1
     transitivePeerDependencies:

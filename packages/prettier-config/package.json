@@ -70,21 +70,23 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit"
     },
     "devDependencies": {
-        "@anolilab/semantic-release-preset": "11.0.3",
-        "@arethetypeswrong/cli": "^0.18.2",
-        "@visulima/packem": "2.0.0-alpha.19",
-        "esbuild": "^0.25.9",
-        "prettier": "^3.6.2",
-        "rimraf": "^6.0.1",
-        "semantic-release": "^24.2.8",
-        "typescript": "^5.9.2",
-        "vitest": "^3.2.4"
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@visulima/packem": "catalog:dev",
+        "esbuild": "catalog:build",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "prettier": "3.6.2"
+        "prettier": "catalog:lint"
     },
     "engines": {
         "node": ">=20.18.* <=24.*"

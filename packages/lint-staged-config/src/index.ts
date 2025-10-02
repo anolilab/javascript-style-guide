@@ -1,6 +1,5 @@
 import { existsSync } from "node:fs";
 
-import { readFileSync } from "@visulima/fs";
 import {
     findPackageManagerSync,
     hasPackageJsonAnyDependency,
@@ -95,7 +94,7 @@ export const defineConfig = (
     }
 
     const packageJson = parsePackageJsonSync(
-        readFileSync(`${cwd}/package.json`),
+        `${cwd}/package.json`,
         {
             resolveCatalogs: true,
         },

@@ -5,7 +5,6 @@ import { exit } from "node:process";
 import {
     ensureDirSync,
     isAccessibleSync,
-    readFile,
     writeFileSync,
 } from "@visulima/fs";
 import type { NormalizedPackageJson } from "@visulima/package";
@@ -243,7 +242,7 @@ echo --------------------------------------------
         exit(1);
     }
 
-    const packageJson = await parsePackageJson(await readFile(packageJsonPath));
+    const packageJson = await parsePackageJson(packageJsonPath);
     const isTypeModule = packageJson.type === "module";
 
     const hasLintStaged = hasPackageJsonAnyDependency(packageJson, [

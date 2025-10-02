@@ -144,7 +144,10 @@ export const errorsRules: Partial<Linter.RulesRecord> = {
 
     // Disallow useless backreferences in regular expressions
     // https://eslint.org/docs/rules/no-unsafe-optional-chaining
-    "no-unsafe-optional-chaining": ["error", { disallowArithmeticOperators: true }],
+    "no-unsafe-optional-chaining": [
+        "error",
+        { disallowArithmeticOperators: true },
+    ],
 
     // disallow negation of the left operand of an in expression
     // https://eslint.org/docs/rules/no-useless-backreference

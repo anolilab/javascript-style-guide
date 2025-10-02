@@ -37,9 +37,12 @@ const extract = (file: string) => {
                     ts.forEachChild(mNode, (vNode) => {
                         if (ts.isVariableDeclarationList(vNode)) {
                             for (const declaration of vNode.declarations) {
-                                const name = ts.getNameOfDeclaration(declaration);
+                                const name =
+                                    ts.getNameOfDeclaration(declaration);
 
-                                const escaped = (name as unknown as { escapedText?: unknown }).escapedText;
+                                const escaped = (
+                                    name as unknown as { escapedText?: unknown }
+                                ).escapedText;
 
                                 if (typeof escaped === "string") {
                                     globals.push(escaped);
@@ -87,7 +90,10 @@ const moduleContent = `/**
 export default /** @type {const} */ (${JSON.stringify(globals, undefined, 4)});
 `;
 
-writeFileSync(join(rootPath, "..", "src", "utils", "vitest-globals.ts"), moduleContent);
+writeFileSync(
+    join(rootPath, "..", "src", "utils", "vitest-globals.ts"),
+    moduleContent,
+);
 
 // eslint-disable-next-line no-console
 console.log("Finished generation with result:\n", moduleContent);

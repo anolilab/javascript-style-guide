@@ -1,15 +1,19 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import type { OptionsFiles, OptionsOverrides, OptionsPackageJson } from "../../types";
+import type {
+    OptionsFiles,
+    OptionsOverrides,
+    OptionsPackageJson,
+} from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles
-    & OptionsOverrides
-    & OptionsPackageJson & {
-        lessOpinionated?: boolean;
-    }
+    OptionsFiles &
+        OptionsOverrides &
+        OptionsPackageJson & {
+            lessOpinionated?: boolean;
+        }
 >("all", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -36,19 +40,24 @@ export default createConfig<
 
                 "antfu/no-import-dist": "error",
                 "antfu/no-import-node-modules-by-path": "error",
-                "antfu/no-ts-export-equal": hasPackageJsonAnyDependency(packageJson, ["typescript"]) ? "error" : "off",
+                "antfu/no-ts-export-equal": hasPackageJsonAnyDependency(
+                    packageJson,
+                    ["typescript"],
+                )
+                    ? "error"
+                    : "off",
 
                 "antfu/prefer-inline-type-import": "off",
                 "antfu/top-level-function": "off",
 
-                ...lessOpinionated
+                ...(lessOpinionated
                     ? {
-                        curly: ["error", "all"],
-                    }
+                          curly: ["error", "all"],
+                      }
                     : {
-                        "antfu/curly": "error",
-                        "antfu/if-newline": "error",
-                    },
+                          "antfu/curly": "error",
+                          "antfu/if-newline": "error",
+                      }),
 
                 ...overrides,
             },

@@ -7,7 +7,9 @@ import type {
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("yaml", async (options, oFiles) => {
+export default createConfig<
+    OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic
+>("yaml", async (options, oFiles) => {
     const {
         files = oFiles,
         overrides = {},
@@ -15,9 +17,13 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
         stylistic = true,
     } = options;
 
-    const { indent = 4, quotes = "double" } = typeof stylistic === "boolean" ? {} : stylistic;
+    const { indent = 4, quotes = "double" } =
+        typeof stylistic === "boolean" ? {} : stylistic;
 
-    const [pluginYaml, parserYaml] = await Promise.all([interopDefault(import("eslint-plugin-yml")), interopDefault(import("yaml-eslint-parser"))] as const);
+    const [pluginYaml, parserYaml] = await Promise.all([
+        interopDefault(import("eslint-plugin-yml")),
+        interopDefault(import("yaml-eslint-parser")),
+    ] as const);
 
     return [
         {
@@ -41,23 +47,35 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
                 "yaml/vue-custom-block/no-parsing-error": "error",
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "yaml/block-mapping-question-indicator-newline": "error",
-                        "yaml/block-sequence-hyphen-indicator-newline": "error",
-                        "yaml/flow-mapping-curly-newline": "error",
-                        "yaml/flow-mapping-curly-spacing": "error",
-                        "yaml/flow-sequence-bracket-newline": "error",
-                        "yaml/flow-sequence-bracket-spacing": "error",
-                        "yaml/indent": [prettier ? "off" : "error", indent === "tab" ? 2 : indent],
-                        "yaml/key-spacing": "error",
-                        "yaml/no-tab-indent": "error",
-                        "yaml/quotes": ["error", { avoidEscape: true, prefer: quotes === "backtick" ? "single" : quotes }],
-                        "yaml/spaced-comment": "error",
-                    }
-                    : {},
+                          "yaml/block-mapping-question-indicator-newline":
+                              "error",
+                          "yaml/block-sequence-hyphen-indicator-newline":
+                              "error",
+                          "yaml/flow-mapping-curly-newline": "error",
+                          "yaml/flow-mapping-curly-spacing": "error",
+                          "yaml/flow-sequence-bracket-newline": "error",
+                          "yaml/flow-sequence-bracket-spacing": "error",
+                          "yaml/indent": [
+                              prettier ? "off" : "error",
+                              indent === "tab" ? 2 : indent,
+                          ],
+                          "yaml/key-spacing": "error",
+                          "yaml/no-tab-indent": "error",
+                          "yaml/quotes": [
+                              "error",
+                              {
+                                  avoidEscape: true,
+                                  prefer:
+                                      quotes === "backtick" ? "single" : quotes,
+                              },
+                          ],
+                          "yaml/spaced-comment": "error",
+                      }
+                    : {}),
 
-                ...prettier ? pluginYaml.configs.prettier.rules : {},
+                ...(prettier ? pluginYaml.configs.prettier.rules : {}),
 
                 ...overrides,
             },

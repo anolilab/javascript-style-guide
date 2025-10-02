@@ -2,7 +2,14 @@ import { createConfig, getFilesGlobs } from "./dist/index.mjs";
 
 export default createConfig(
     {
-        ignores: ["./eslint.config.js", "./debug-eslint.config.mjs", "./src/typegen.d.ts", "./src/utils/vitest-globals.ts", "./__fixtures__/**/*", "./__tests__/**/*"],
+        ignores: [
+            "./eslint.config.js",
+            "./debug-eslint.config.mjs",
+            "./src/typegen.d.ts",
+            "./src/utils/vitest-globals.ts",
+            "./__fixtures__/**/*",
+            "./__tests__/**/*",
+        ],
         react: false,
         playwright: false,
         storybook: false,

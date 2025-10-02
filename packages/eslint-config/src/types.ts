@@ -20,7 +20,9 @@ export interface OptionsComponentExtensions {
 
 export type { ConfigNames } from "./typegen";
 
-export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilentConsoleLogs {
+export interface OptionsConfig
+    extends OptionsComponentExtensions,
+        OptionsSilentConsoleLogs {
     /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
@@ -260,7 +262,11 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * When set to `{ version: "v4" }`, it will enable Tailwind CSS v4 support.
      * @default false
      */
-    tailwindcss?: boolean | "v3" | "v4" | (OptionsFiles & OptionsOverrides & { version?: "v3" | "v4" });
+    tailwindcss?:
+        | boolean
+        | "v3"
+        | "v4"
+        | (OptionsFiles & OptionsOverrides & { version?: "v3" | "v4" });
 
     /**
      * Enable tanstack rules.
@@ -287,7 +293,9 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
      * - `eslint-plugin-testing-library`
      * @default false
      */
-    testingLibrary?: boolean | (OptionsFiles & OptionsOverrides & OptionsPackageJson);
+    testingLibrary?:
+        | boolean
+        | (OptionsFiles & OptionsOverrides & OptionsPackageJson);
 
     /**
      * Enable TOML support.
@@ -432,8 +440,8 @@ export interface OptionsFormatters {
     slidev?:
         | boolean
         | {
-            files?: string[];
-        };
+              files?: string[];
+          };
 
     /**
      * Enable formatting support for SVG.
@@ -487,7 +495,9 @@ export interface OptionsStylistic {
     stylistic?: StylisticConfig | boolean;
 }
 
-export type OptionsTypescript = OptionsOverrides & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes;
+export type OptionsTypescript = OptionsOverrides &
+    OptionsTypeScriptParserOptions &
+    OptionsTypeScriptWithTypes;
 
 export interface OptionsTypeScriptParserOptions {
     /**
@@ -550,9 +560,13 @@ export interface OptionsUnoCSS extends OptionsOverrides {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Rules = Record<string, Linter.RuleEntry<any> | undefined> & RuleOptions;
+export type Rules = Record<string, Linter.RuleEntry<any> | undefined> &
+    RuleOptions;
 
-export type StylisticConfig = Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi">;
+export type StylisticConfig = Pick<
+    StylisticCustomizeOptions,
+    "indent" | "jsx" | "quotes" | "semi"
+>;
 
 /**
  * An updated version of ESLint's `Linter.Config`, which provides autocompletion

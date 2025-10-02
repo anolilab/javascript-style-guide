@@ -1,5 +1,13 @@
 import { existsSync } from "node:fs";
-import { copyFile, lstat, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import {
+    copyFile,
+    lstat,
+    mkdir,
+    readdir,
+    readFile,
+    rm,
+    writeFile,
+} from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -41,7 +49,11 @@ afterAll(async () => {
     await rm(temporaryDirectoryPath, { force: true, recursive: true });
 });
 
-const runWithConfig = (name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) => {
+const runWithConfig = (
+    name: string,
+    configs: OptionsConfig,
+    ...items: TypedFlatConfigItem[]
+) => {
     // eslint-disable-next-line vitest/prefer-expect-assertions,vitest/require-top-level-describe
     it.concurrent(
         // eslint-disable-next-line vitest/valid-title
@@ -90,7 +102,9 @@ export default createConfig(
                         return;
                     }
 
-                    await expect.soft(content).toMatchFileSnapshot(join(output, file));
+                    await expect
+                        .soft(content)
+                        .toMatchFileSnapshot(join(output, file));
                 }),
             );
         },

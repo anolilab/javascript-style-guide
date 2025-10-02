@@ -13,11 +13,14 @@ import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsSilentConsoleLogs
-    & OptionsStylistic & { jsx?: boolean; typescript?: OptionsTypescript | boolean }
+    OptionsFiles &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsSilentConsoleLogs &
+        OptionsStylistic & {
+            jsx?: boolean;
+            typescript?: OptionsTypescript | boolean;
+        }
 >("js", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -31,11 +34,15 @@ export default createConfig<
 
     const jsdocPlugin = await interopDefault(import("eslint-plugin-jsdoc"));
 
-    const hasTsDocumentPlugin = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-tsdoc"]);
+    const hasTsDocumentPlugin = hasPackageJsonAnyDependency(packageJson, [
+        "eslint-plugin-tsdoc",
+    ]);
 
     if (hasTsDocumentPlugin && !silent) {
         // eslint-disable-next-line no-console
-        console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
+        console.info(
+            "\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.",
+        );
     }
 
     const definedTags = ["remarks", "openapi", "link"];
@@ -65,12 +72,12 @@ export default createConfig<
 
                 ...overrides,
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
             },
         },
     ];
@@ -95,12 +102,12 @@ export default createConfig<
 
                 ...overrides,
 
-                ...stylistic
+                ...(stylistic
                     ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                          "jsdoc/check-alignment": "warn",
+                          "jsdoc/multiline-blocks": "warn",
+                      }
+                    : {}),
             },
         });
     }

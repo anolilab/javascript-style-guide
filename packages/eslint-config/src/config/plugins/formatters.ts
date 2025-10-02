@@ -1,22 +1,41 @@
-import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from "../../types";
+import type {
+    OptionsFormatters,
+    StylisticConfig,
+    TypedFlatConfigItem,
+} from "../../types";
 import { getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
-import type { VendoredPrettierOptions, VendoredPrettierRuleOptions } from "../../vender/prettier-types";
+import type {
+    VendoredPrettierOptions,
+    VendoredPrettierRuleOptions,
+} from "../../vender/prettier-types";
 import { StylisticConfigDefaults } from "./stylistic";
 
-const mergePrettierOptions = (options: VendoredPrettierOptions, overrides: VendoredPrettierRuleOptions = {}): VendoredPrettierRuleOptions => {
+const mergePrettierOptions = (
+    options: VendoredPrettierOptions,
+    overrides: VendoredPrettierRuleOptions = {},
+): VendoredPrettierRuleOptions => {
     return {
         ...options,
         ...overrides,
-        plugins: [...overrides.plugins ?? [], ...options.plugins ?? []],
+        plugins: [...(overrides.plugins ?? []), ...(options.plugins ?? [])],
     };
 };
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
-const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig): Promise<TypedFlatConfigItem[]> => {
-    if (options.slidev && options.markdown !== true && options.markdown !== "prettier") {
-        throw new Error("`slidev` option only works when `markdown` is enabled with `prettier`");
+const formatters = async (
+    options: OptionsFormatters,
+    stylistic: StylisticConfig,
+): Promise<TypedFlatConfigItem[]> => {
+    if (
+        options.slidev &&
+        options.markdown !== true &&
+        options.markdown !== "prettier"
+    ) {
+        throw new Error(
+            "`slidev` option only works when `markdown` is enabled with `prettier`",
+        );
     }
 
     const { indent, quotes, semi } = {
@@ -175,7 +194,8 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
     }
 
     if (options.markdown) {
-        const formater = options.markdown === true ? "prettier" : options.markdown;
+        const formater =
+            options.markdown === true ? "prettier" : options.markdown;
 
         let GLOB_SLIDEV: string[] = [];
 
@@ -197,13 +217,13 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
                     "error",
                     formater === "prettier"
                         ? mergePrettierOptions(prettierOptions, {
-                            embeddedLanguageFormatting: "off",
-                            parser: "markdown",
-                        })
+                              embeddedLanguageFormatting: "off",
+                              parser: "markdown",
+                          })
                         : {
-                            ...dprintOptions,
-                            language: "markdown",
-                        },
+                              ...dprintOptions,
+                              language: "markdown",
+                          },
                 ],
             },
         });
@@ -248,7 +268,10 @@ const formatters = async (options: OptionsFormatters, stylistic: StylisticConfig
                 },
             },
             {
-                files: [...getFilesGlobs("astro"), ...getFilesGlobs("astro_ts")],
+                files: [
+                    ...getFilesGlobs("astro"),
+                    ...getFilesGlobs("astro_ts"),
+                ],
                 name: "anolilab/formatter/astro/disables",
                 rules: {
                     "@stylistic/arrow-parens": "off",

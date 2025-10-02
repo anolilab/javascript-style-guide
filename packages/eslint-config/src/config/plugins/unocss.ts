@@ -1,7 +1,9 @@
 import type { OptionsUnoCSS, TypedFlatConfigItem } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
-const unocss = async (options: OptionsUnoCSS): Promise<TypedFlatConfigItem[]> => {
+const unocss = async (
+    options: OptionsUnoCSS,
+): Promise<TypedFlatConfigItem[]> => {
     const { attributify = true, strict = false } = options;
 
     const pluginUnoCSS = await interopDefault(import("@unocss/eslint-plugin"));
@@ -14,16 +16,16 @@ const unocss = async (options: OptionsUnoCSS): Promise<TypedFlatConfigItem[]> =>
             },
             rules: {
                 "unocss/order": "warn",
-                ...attributify
+                ...(attributify
                     ? {
-                        "unocss/order-attributify": "warn",
-                    }
-                    : {},
-                ...strict
+                          "unocss/order-attributify": "warn",
+                      }
+                    : {}),
+                ...(strict
                     ? {
-                        "unocss/blocklist": "error",
-                    }
-                    : {},
+                          "unocss/blocklist": "error",
+                      }
+                    : {}),
             },
         },
     ];

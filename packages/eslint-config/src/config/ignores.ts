@@ -1,6 +1,8 @@
 import type { TypedFlatConfigItem } from "../types";
 
-const ignores = async (userIgnores: string[] = []): Promise<TypedFlatConfigItem[]> => [
+const ignores = async (
+    userIgnores: string[] = [],
+): Promise<TypedFlatConfigItem[]> => [
     {
         ignores: [
             "**/node_modules",

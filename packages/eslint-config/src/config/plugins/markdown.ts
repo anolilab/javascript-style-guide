@@ -1,12 +1,22 @@
 import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 
-import type { OptionsComponentExtensions, OptionsFiles, OptionsOverrides } from "../../types";
+import type {
+    OptionsComponentExtensions,
+    OptionsFiles,
+    OptionsOverrides,
+} from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
 
-export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsOverrides>("markdown", async (config, oFiles) => {
-    const { componentExts: componentExtensions = [], files = oFiles, overrides } = config;
+export default createConfig<
+    OptionsComponentExtensions & OptionsFiles & OptionsOverrides
+>("markdown", async (config, oFiles) => {
+    const {
+        componentExts: componentExtensions = [],
+        files = oFiles,
+        overrides,
+    } = config;
 
     const [tseslint, markdown] = await Promise.all([
         interopDefault(import("typescript-eslint")),
@@ -29,7 +39,10 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             // `eslint-plugin-markdown` only creates virtual files for code blocks,
             // but not the markdown file itself. We use `eslint-merge-processors` to
             // add a pass-through processor for the markdown file itself.
-            processor: mergeProcessors([markdown.processors.markdown, processorPassThrough]),
+            processor: mergeProcessors([
+                markdown.processors.markdown,
+                processorPassThrough,
+            ]),
         },
         {
             files,
@@ -40,7 +53,14 @@ export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsO
             rules: markdown.configs.recommended[0].rules,
         },
         {
-            files: ["**/*.md", "**/*.md/**/*.?([cm])[jt]s?(x)", "**/*.md/**/*.json", ...componentExtensions.map((extension) => `**/*.md/**/*.${extension}`)],
+            files: [
+                "**/*.md",
+                "**/*.md/**/*.?([cm])[jt]s?(x)",
+                "**/*.md/**/*.json",
+                ...componentExtensions.map(
+                    (extension) => `**/*.md/**/*.${extension}`,
+                ),
+            ],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {

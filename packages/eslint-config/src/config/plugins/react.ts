@@ -21,9 +21,19 @@ import { noUnderscoreDangle } from "../style";
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = ["vite"];
-const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
+const RemixPackages = [
+    "@remix-run/node",
+    "@remix-run/react",
+    "@remix-run/serve",
+    "@remix-run/dev",
+];
 const NextJsPackages = ["next"];
-const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@react-router/serve", "@react-router/dev"];
+const ReactRouterPackages = [
+    "@react-router/node",
+    "@react-router/react",
+    "@react-router/serve",
+    "@react-router/dev",
+];
 
 type PluginReactCompiler = {
     configs: {
@@ -44,14 +54,14 @@ type PluginReactCompiler = {
 
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
-    OptionsFiles
-    & OptionsHasPrettier
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsSilentConsoleLogs
-    & OptionsStylistic
-    & OptionsTypeScriptParserOptions
-    & OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
+    OptionsFiles &
+        OptionsHasPrettier &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsSilentConsoleLogs &
+        OptionsStylistic &
+        OptionsTypeScriptParserOptions &
+        OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -65,7 +75,15 @@ export default createConfig<
         stylistic = true,
         tsconfigPath,
     } = config;
-    const ignoresTypeAware = [...getFilesGlobs("astro"), ...getFilesGlobs("markdown"), ...getFilesGlobs("js"), ...getFilesGlobs("jsx"), "**/*.json", "**/*.jsonc", ...config.ignoresTypeAware ?? []];
+    const ignoresTypeAware = [
+        ...getFilesGlobs("astro"),
+        ...getFilesGlobs("markdown"),
+        ...getFilesGlobs("js"),
+        ...getFilesGlobs("jsx"),
+        "**/*.json",
+        "**/*.jsonc",
+        ...(config.ignoresTypeAware ?? []),
+    ];
     let { isTypeAware = true } = config;
 
     isTypeAware = isTypeAware && tsconfigPath !== undefined;
@@ -78,23 +96,46 @@ export default createConfig<
         "react-x/no-leaked-conditional-rendering": "error",
     };
 
-    const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerf, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
+    const [
+        pluginReactX,
+        pluginReact,
+        pluginReactHooks,
+        pluginReactRefresh,
+        pluginReactPerf,
+        pluginReactYouMightNotNeedAnEffect,
+    ] = await Promise.all([
         interopDefault(import("@eslint-react/eslint-plugin")),
         interopDefault(import("eslint-plugin-react")),
         interopDefault(import("eslint-plugin-react-hooks")),
         interopDefault(import("eslint-plugin-react-refresh")),
         interopDefault(import("eslint-plugin-react-perf")),
-        interopDefault(import("eslint-plugin-react-you-might-not-need-an-effect")),
+        interopDefault(
+            import("eslint-plugin-react-you-might-not-need-an-effect"),
+        ),
     ] as const);
 
-    const isAllowConstantExport = hasPackageJsonAnyDependency(packageJson, ReactRefreshAllowConstantExportPackages);
-    const isUsingRemix = hasPackageJsonAnyDependency(packageJson, RemixPackages);
-    const isUsingNext = hasPackageJsonAnyDependency(packageJson, NextJsPackages);
-    const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
+    const isAllowConstantExport = hasPackageJsonAnyDependency(
+        packageJson,
+        ReactRefreshAllowConstantExportPackages,
+    );
+    const isUsingRemix = hasPackageJsonAnyDependency(
+        packageJson,
+        RemixPackages,
+    );
+    const isUsingNext = hasPackageJsonAnyDependency(
+        packageJson,
+        NextJsPackages,
+    );
+    const isUsingReactRouter = hasPackageJsonAnyDependency(
+        packageJson,
+        ReactRouterPackages,
+    );
 
     const { plugins } = pluginReactX.configs.all;
 
-    let reactVersion = packageJson.dependencies?.["react"] ?? packageJson.devDependencies?.["react"];
+    let reactVersion =
+        packageJson.dependencies?.["react"] ??
+        packageJson.devDependencies?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
@@ -121,7 +162,11 @@ export default createConfig<
     if (tsconfigPath !== undefined) {
         const tsConfig = readTsConfig(tsconfigPath);
 
-        if (tsConfig.compilerOptions !== undefined && (tsConfig.compilerOptions.jsx === "react-jsx" || tsConfig.compilerOptions.jsx === "react-jsxdev")) {
+        if (
+            tsConfig.compilerOptions !== undefined &&
+            (tsConfig.compilerOptions.jsx === "react-jsx" ||
+                tsConfig.compilerOptions.jsx === "react-jsxdev")
+        ) {
             hasJsxRuntime = true;
 
             if (!silent) {
@@ -139,9 +184,13 @@ export default createConfig<
 
     if (hasReactCompiler) {
         // eslint-disable-next-line no-console
-        console.info(`@anolilab/eslint-config enabling react-compiler plugin\n`);
+        console.info(
+            `@anolilab/eslint-config enabling react-compiler plugin\n`,
+        );
 
-        pluginReactCompiler = await interopDefault(import("eslint-plugin-react-compiler")) as unknown as PluginReactCompiler;
+        pluginReactCompiler = (await interopDefault(
+            import("eslint-plugin-react-compiler"),
+        )) as unknown as PluginReactCompiler;
     }
 
     return [
@@ -152,13 +201,17 @@ export default createConfig<
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
                 "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
-                "react-naming-convention": plugins["@eslint-react/naming-convention"],
+                "react-naming-convention":
+                    plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
                 "react-web-api": plugins["@eslint-react/web-api"],
                 "react-x": plugins["@eslint-react"],
-                "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.configs.recommended.plugins : {},
+                "react-you-might-not-need-an-effect":
+                    pluginReactYouMightNotNeedAnEffect,
+                ...(hasReactCompiler && pluginReactCompiler
+                    ? pluginReactCompiler.configs.recommended.plugins
+                    : {}),
             },
         },
         {
@@ -209,7 +262,10 @@ export default createConfig<
                     {
                         ...noUnderscoreDangle,
 
-                        allow: [...noUnderscoreDangle.allow, "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"],
+                        allow: [
+                            ...noUnderscoreDangle.allow,
+                            "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+                        ],
                     },
                 ],
 
@@ -231,7 +287,8 @@ export default createConfig<
 
                 // Prefer lazy initialization for useState
                 // https://eslint-react.xyz/docs/rules/prefer-use-state-lazy-initialization
-                "react-hooks-extra/prefer-use-state-lazy-initialization": "error",
+                "react-hooks-extra/prefer-use-state-lazy-initialization":
+                    "error",
 
                 // Enforce Rules of Hooks
                 // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
@@ -263,24 +320,36 @@ export default createConfig<
                     {
                         allowConstantExport: isAllowConstantExport,
                         allowExportNames: [
-                            ...isUsingNext
+                            ...(isUsingNext
                                 ? [
-                                    "dynamic",
-                                    "dynamicParams",
-                                    "revalidate",
-                                    "fetchCache",
-                                    "runtime",
-                                    "preferredRegion",
-                                    "maxDuration",
-                                    "config",
-                                    "generateStaticParams",
-                                    "metadata",
-                                    "generateMetadata",
-                                    "viewport",
-                                    "generateViewport",
-                                ]
-                                : [],
-                            ...isUsingRemix || isUsingReactRouter ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"] : [],
+                                      "dynamic",
+                                      "dynamicParams",
+                                      "revalidate",
+                                      "fetchCache",
+                                      "runtime",
+                                      "preferredRegion",
+                                      "maxDuration",
+                                      "config",
+                                      "generateStaticParams",
+                                      "metadata",
+                                      "generateMetadata",
+                                      "viewport",
+                                      "generateViewport",
+                                  ]
+                                : []),
+                            ...(isUsingRemix || isUsingReactRouter
+                                ? [
+                                      "meta",
+                                      "links",
+                                      "headers",
+                                      "loader",
+                                      "action",
+                                      "clientLoader",
+                                      "clientAction",
+                                      "handle",
+                                      "shouldRevalidate",
+                                  ]
+                                : []),
                         ],
                     },
                 ],
@@ -552,7 +621,10 @@ export default createConfig<
 
                 // Forbid certain props on DOM Nodes
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/default-props-match-prop-types.md
-                "react/default-props-match-prop-types": ["error", { allowRequiredDefaults: false }],
+                "react/default-props-match-prop-types": [
+                    "error",
+                    { allowRequiredDefaults: false },
+                ],
 
                 // Enforce boolean attributes notation in JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
@@ -576,7 +648,10 @@ export default createConfig<
 
                 // Validate JSX has key prop when in array or iterator
                 // but it's only critical if you're stripping propTypes in production.
-                "react/forbid-foreign-prop-types": ["error", { allowInPropTypes: true }],
+                "react/forbid-foreign-prop-types": [
+                    "error",
+                    { allowInPropTypes: true },
+                ],
 
                 // Limit maximum of props on a single line in JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
@@ -613,7 +688,10 @@ export default createConfig<
 
                 // Enforce PascalCase for user-defined JSX components
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
-                "react/jsx-curly-brace-presence": ["error", { children: "never", props: "never" }],
+                "react/jsx-curly-brace-presence": [
+                    "error",
+                    { children: "never", props: "never" },
+                ],
 
                 // Enforce propTypes declarations alphabetical sorting
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
@@ -627,7 +705,11 @@ export default createConfig<
 
                 // Enforce props alphabetical sorting
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-                "react/jsx-curly-spacing": ["error", "never", { allowMultiline: true }],
+                "react/jsx-curly-spacing": [
+                    "error",
+                    "never",
+                    { allowMultiline: true },
+                ],
 
                 // Prevent React to be incorrectly marked as unused
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
@@ -635,7 +717,10 @@ export default createConfig<
 
                 // Prevent variables used in JSX to be incorrectly marked as unused
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-                "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+                "react/jsx-first-prop-new-line": [
+                    "error",
+                    "multiline-multiprop",
+                ],
 
                 // Prevent usage of dangerous JSX properties
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
@@ -653,7 +738,11 @@ export default createConfig<
 
                 // Prevent usage of setState in componentWillUpdate
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-                "react/jsx-indent": ["error", indent, { checkAttributes: true, indentLogicalExpressions: true }],
+                "react/jsx-indent": [
+                    "error",
+                    indent,
+                    { checkAttributes: true, indentLogicalExpressions: true },
+                ],
 
                 // Prevent direct mutation of this.state
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
@@ -669,7 +758,10 @@ export default createConfig<
 
                 // Prevent usage of setState
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-                "react/jsx-max-props-per-line": ["error", { maximum: 1, when: "multiline" }],
+                "react/jsx-max-props-per-line": [
+                    "error",
+                    { maximum: 1, when: "multiline" },
+                ],
 
                 // Prevent using string references
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
@@ -718,7 +810,10 @@ export default createConfig<
 
                 // Prevent extra closing tags for components without children
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-no-target-blank.md
-                "react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
+                "react/jsx-no-target-blank": [
+                    "error",
+                    { enforceDynamicLinks: "always" },
+                ],
 
                 // Enforce defaultProps declarations alphabetical sorting
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
@@ -730,7 +825,10 @@ export default createConfig<
 
                 // Require that the first prop in a JSX element be on a new line when the element is multiline
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
-                "react/jsx-one-expression-per-line": ["error", { allow: "single-child" }],
+                "react/jsx-one-expression-per-line": [
+                    "error",
+                    { allow: "single-child" },
+                ],
 
                 // Enforce spacing around jsx equals signs
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
@@ -910,7 +1008,10 @@ export default createConfig<
 
                 // Disallow multiple spaces between inline JSX props
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-                "react/prefer-stateless-function": ["error", { ignorePureComponents: true }],
+                "react/prefer-stateless-function": [
+                    "error",
+                    { ignorePureComponents: true },
+                ],
 
                 // Prevent usage of UNSAFE_ methods
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
@@ -1015,7 +1116,10 @@ export default createConfig<
                 "react/state-in-constructor": ["error", "never"],
 
                 // Enforce a specific function type for function components
-                "react/static-property-placement": ["error", "static public field"],
+                "react/static-property-placement": [
+                    "error",
+                    "static public field",
+                ],
                 // Enforce a new line after jsx elements and expressions
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
                 "react/style-prop-object": "error",
@@ -1024,7 +1128,9 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...hasReactCompiler && pluginReactCompiler ? { "react-compiler/react-compiler": "error" } : {},
+                ...(hasReactCompiler && pluginReactCompiler
+                    ? { "react-compiler/react-compiler": "error" }
+                    : {}),
 
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 ...pluginReactPerf.configs.flat.recommended.rules,
@@ -1032,27 +1138,29 @@ export default createConfig<
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
                 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                ...hasJsxRuntime ? pluginReact?.configs.flat?.["jsx-runtime"]?.rules : {},
+                ...(hasJsxRuntime
+                    ? pluginReact?.configs.flat?.["jsx-runtime"]?.rules
+                    : {}),
 
-                ...prettier
+                ...(prettier
                     ? {
-                        "react/jsx-child-element-spacing": "off",
-                        "react/jsx-closing-bracket-location": "off",
-                        "react/jsx-closing-tag-location": "off",
-                        "react/jsx-curly-newline": "off",
-                        "react/jsx-curly-spacing": "off",
-                        "react/jsx-equals-spacing": "off",
-                        "react/jsx-first-prop-new-line": "off",
-                        "react/jsx-indent": "off",
-                        "react/jsx-indent-props": "off",
-                        "react/jsx-max-props-per-line": "off",
-                        "react/jsx-newline": "off",
-                        "react/jsx-one-expression-per-line": "off",
-                        "react/jsx-props-no-multi-spaces": "off",
-                        "react/jsx-tag-spacing": "off",
-                        "react/jsx-wrap-multilines": "off",
-                    }
-                    : {},
+                          "react/jsx-child-element-spacing": "off",
+                          "react/jsx-closing-bracket-location": "off",
+                          "react/jsx-closing-tag-location": "off",
+                          "react/jsx-curly-newline": "off",
+                          "react/jsx-curly-spacing": "off",
+                          "react/jsx-equals-spacing": "off",
+                          "react/jsx-first-prop-new-line": "off",
+                          "react/jsx-indent": "off",
+                          "react/jsx-indent-props": "off",
+                          "react/jsx-max-props-per-line": "off",
+                          "react/jsx-newline": "off",
+                          "react/jsx-one-expression-per-line": "off",
+                          "react/jsx-props-no-multi-spaces": "off",
+                          "react/jsx-tag-spacing": "off",
+                          "react/jsx-wrap-multilines": "off",
+                      }
+                    : {}),
 
                 // overrides
                 ...overrides,
@@ -1086,13 +1194,19 @@ export default createConfig<
                         jsx: true,
                     },
                 },
-                ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"].languageOptions.parserOptions : {},
+                ...(hasJsxRuntime
+                    ? pluginReact.configs.flat["jsx-runtime"].languageOptions
+                          .parserOptions
+                    : {}),
             },
             name: "anolilab/react/jsx",
             rules: {
                 // Enforces consistent use of the JSX file extension.
                 // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
-                "react-x/naming-convention/filename-extension": ["error", "as-needed"],
+                "react-x/naming-convention/filename-extension": [
+                    "error",
+                    "as-needed",
+                ],
 
                 // only .jsx files may have JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
@@ -1144,17 +1258,17 @@ export default createConfig<
                 "react/jsx-props-no-spreading": "off",
             },
         },
-        ...isTypeAware
+        ...(isTypeAware
             ? [
-                {
-                    files: filesTypeAware,
-                    ignores: ignoresTypeAware,
-                    name: "anolilab/react/type-aware-rules",
-                    rules: {
-                        ...typeAwareRules,
-                    },
-                },
-            ]
-            : [],
+                  {
+                      files: filesTypeAware,
+                      ignores: ignoresTypeAware,
+                      name: "anolilab/react/type-aware-rules",
+                      rules: {
+                          ...typeAwareRules,
+                      },
+                  },
+              ]
+            : []),
     ];
 });

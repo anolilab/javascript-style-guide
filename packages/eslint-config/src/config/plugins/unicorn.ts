@@ -10,7 +10,13 @@ import type {
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic>("all", async (config, oFiles) => {
+export default createConfig<
+    OptionsFiles &
+        OptionsHasPrettier &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsStylistic
+>("all", async (config, oFiles) => {
     const {
         files = oFiles,
         overrides,
@@ -50,7 +56,9 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     "error",
                     {
                         case: "kebabCase",
-                        ignore: [/(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u],
+                        ignore: [
+                            /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u,
+                        ],
                     },
                 ],
 
@@ -69,23 +77,24 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 // It will be disabled in the next version of eslint-plugin-unicorn.
                 "unicorn/prefer-json-parse-buffer": "off",
 
-                "unicorn/prefer-module": packageJson.type === "module" ? "error" : "off",
+                "unicorn/prefer-module":
+                    packageJson.type === "module" ? "error" : "off",
 
                 "unicorn/prefer-node-protocol": "error",
 
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
-                ...prettier
+                ...(prettier
                     ? {
-                        "unicorn/empty-brace-spaces": "off",
-                        "unicorn/no-nested-ternary": "off",
-                        "unicorn/number-literal-case": "off",
-                        "unicorn/template-indent": "off",
-                    }
+                          "unicorn/empty-brace-spaces": "off",
+                          "unicorn/no-nested-ternary": "off",
+                          "unicorn/number-literal-case": "off",
+                          "unicorn/template-indent": "off",
+                      }
                     : {
-                        "unicorn/template-indent": ["error", { indent }],
-                    },
+                          "unicorn/template-indent": ["error", { indent }],
+                      }),
 
                 ...overrides,
             },

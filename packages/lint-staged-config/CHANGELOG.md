@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.33](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.32...@anolilab/lint-staged-config@3.0.33) (2025-10-02)
+
+### Bug Fixes
+
+* update lint-staged-config for improved ESLint and Prettier integration ([58e603d](https://github.com/anolilab/javascript-style-guide/commit/58e603dae84cb8e86dc5a66110cbe7a606b3c6fb))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.3.2
+
 ## @anolilab/lint-staged-config [3.0.32](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.31...@anolilab/lint-staged-config@3.0.32) (2025-10-02)
 
 ### Bug Fixes

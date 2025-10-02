@@ -178,7 +178,6 @@ const stylistic = async (
                     "all",
                     {
                         conditionalAssign: true,
-                        enforceForArrowConditionals: false,
                         ignoreJSX: "all", // delegate to eslint-plugin-react
                         nestedBinaryExpressions: false,
                         returnAssign: false,

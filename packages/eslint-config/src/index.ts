@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -200,7 +199,7 @@ export const createConfig = async (
 
     const cwd = options.cwd ?? process.cwd();
     const packageJson = await parsePackageJson(
-        readFileSync(join(cwd, "package.json"), "utf8"),
+        join(cwd, "package.json"),
         {
             resolveCatalogs: true,
         },

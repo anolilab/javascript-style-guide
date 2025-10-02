@@ -95,6 +95,14 @@ export default createConfig<
         // Prevents problematic leaked values from being rendered
         // https://eslint-react.xyz/docs/rules/no-leaked-conditional-rendering
         "react-x/no-leaked-conditional-rendering": "error",
+
+        // Disallow unused props
+        // https://eslint-react.xyz/docs/rules/no-unused-props
+        "react-x/no-unused-props": "error",
+
+        // Enforces read-only props in components
+        // https://eslint-react.xyz/docs/rules/prefer-read-only-props
+        "react-x/prefer-read-only-props": "error",
     };
 
     const [
@@ -230,6 +238,7 @@ export default createConfig<
             name: "anolilab/react/rules",
             // https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules
             rules: {
+                ...pluginReactX.configs["disable-conflict-eslint-plugin-react"]?.rules,
                 "class-methods-use-this": [
                     "error",
                     {
@@ -273,23 +282,6 @@ export default createConfig<
                 // Disallow direct calls to the set function of useState in useEffect
                 // https://eslint-react.xyz/docs/rules/no-direct-set-state-in-use-effect
                 "react-hooks-extra/no-direct-set-state-in-use-effect": "error",
-
-                // Disallow unnecessary usage of useCallback
-                // https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback
-                "react-hooks-extra/no-unnecessary-use-callback": "error",
-
-                // Disallow unnecessary usage of useMemo
-                // https://eslint-react.xyz/docs/rules/react-hooks-extra/no-unnecessary-use-memo
-                "react-hooks-extra/no-unnecessary-use-memo": "error",
-
-                // Enforces that a function with the use prefix should use at least one hook inside of it
-                // https://eslint-react.xyz/docs/rules/no-unnecessary-use-prefix
-                "react-hooks-extra/no-unnecessary-use-prefix": "error",
-
-                // Prefer lazy initialization for useState
-                // https://eslint-react.xyz/docs/rules/prefer-use-state-lazy-initialization
-                "react-hooks-extra/prefer-use-state-lazy-initialization":
-                    "error",
 
                 // Enforce Rules of Hooks
                 // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
@@ -374,14 +366,6 @@ export default createConfig<
                 // React-X Rules
                 // https://eslint-react.xyz/docs/rules
 
-                // Enforces explicit boolean values for boolean attributes
-                // https://eslint-react.xyz/docs/rules/avoid-shorthand-boolean
-                "react-x/avoid-shorthand-boolean": "off",
-
-                // Enforces explicit <Fragment> components instead of the shorthand <> or </> syntax
-                // https://eslint-react.xyz/docs/rules/avoid-shorthand-fragment
-                "react-x/avoid-shorthand-fragment": "off",
-
                 // Enforces that the key attribute is placed before the spread attribute in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-key-before-spread
                 "react-x/jsx-key-before-spread": "error",
@@ -393,6 +377,14 @@ export default createConfig<
                 // Disallow undefined variables in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-no-undef
                 "react-x/jsx-no-undef": "off",
+
+                // Enforces a consistent style for boolean attributes
+                // https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
+                "react-x/jsx-shorthand-boolean": "error",
+
+                // Enforces a consistent style for React Fragments
+                // https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
+                "react-x/jsx-shorthand-fragment": "error",
 
                 // Marks React variables as used when JSX is used
                 // https://eslint-react.xyz/docs/rules/jsx-uses-react
@@ -441,14 +433,6 @@ export default createConfig<
                 // Disallow cloneElement
                 // https://eslint-react.xyz/docs/rules/no-clone-element
                 "react-x/no-clone-element": "error",
-
-                // Prevents comments from being inserted as text nodes
-                // https://eslint-react.xyz/docs/rules/no-comment-textnodes
-                "react-x/no-comment-textnodes": "error",
-
-                // Disallow complex conditional rendering in JSX expressions
-                // https://eslint-react.xyz/docs/rules/no-complex-conditional-rendering
-                "react-x/no-complex-conditional-rendering": "off",
 
                 // Replaces usages of componentWillMount with UNSAFE_componentWillMount
                 // https://eslint-react.xyz/docs/rules/no-component-will-mount
@@ -538,6 +522,14 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-string-refs
                 "react-x/no-string-refs": "error",
 
+                // Disallow unnecessary usage of useCallback
+                // https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback
+                "react-x/no-unnecessary-use-callback": "error",
+
+                // Disallow unnecessary usage of useMemo
+                // https://eslint-react.xyz/docs/rules/react-hooks-extra/no-unnecessary-use-memo
+                "react-x/no-unnecessary-use-memo": "error",
+
                 // Warns the usage of UNSAFE_componentWillMount in class components
                 // https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount
                 "react-x/no-unsafe-component-will-mount": "error",
@@ -582,21 +574,9 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment
                 "react-x/prefer-destructuring-assignment": "off",
 
-                // Enforces React is imported via a namespace import
-                // https://eslint-react.xyz/docs/rules/prefer-react-namespace-import
-                "react-x/prefer-react-namespace-import": "off",
-
                 // Enforces read-only props in components
                 // https://eslint-react.xyz/docs/rules/prefer-read-only-props
                 "react-x/prefer-read-only-props": "off",
-
-                // Enforces shorthand syntax for boolean attributes
-                // https://eslint-react.xyz/docs/rules/prefer-shorthand-boolean
-                "react-x/prefer-shorthand-boolean": "off",
-
-                // Enforces shorthand syntax for fragments
-                // https://eslint-react.xyz/docs/rules/prefer-shorthand-fragment
-                "react-x/prefer-shorthand-fragment": "off",
 
                 // Prevent missing displayName in a React component definition
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md

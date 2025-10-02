@@ -1,3 +1,9 @@
+## browserslist-config-anolilab [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.4...browserslist-config-anolilab@6.0.5) (2025-10-02)
+
+### Bug Fixes
+
+* update browserslist-config-anolilab to use pnpm preset ([29ad399](https://github.com/anolilab/javascript-style-guide/commit/29ad399e389ded9563946a7ef512f471ddaf7126))
+
 ## browserslist-config-anolilab [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.3...browserslist-config-anolilab@6.0.4) (2025-10-02)
 
 ### Bug Fixes

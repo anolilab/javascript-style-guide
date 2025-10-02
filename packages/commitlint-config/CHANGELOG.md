@@ -1,3 +1,9 @@
+## @anolilab/commitlint-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.4...@anolilab/commitlint-config@6.0.5) (2025-10-02)
+
+### Bug Fixes
+
+* update commitlint-config to use pnpm preset and add sideEffects flag ([b07ec8d](https://github.com/anolilab/javascript-style-guide/commit/b07ec8db738fde1e12944a9b0cc4e2363f1b4139))
+
 ## @anolilab/commitlint-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.3...@anolilab/commitlint-config@6.0.4) (2025-10-02)
 
 ### Bug Fixes

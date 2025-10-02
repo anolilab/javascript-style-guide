@@ -2,6 +2,17 @@ packages:
   - packages/**
   - '!packages/eslint-config/__fixtures__/**'
 
+onlyBuiltDependencies:
+  - esbuild
+  - nx
+  - oxc-resolver
+  - rs-module-lexer
+  - unrs-resolver
+
+overrides:
+  axios@<1.12.0: '>=1.12.0'
+  chrono-node@<2.2.4: '>=2.2.4'
+  tmp@<=0.2.3: '>=0.2.4'
 catalogs:
   build:
     esbuild: ^0.25.10
@@ -131,7 +142,7 @@ catalogs:
     nx: 21.6.3
   network:
     browserslist: 4.26.3
-    browserslist-config-anolilab: 6.0.3
+    browserslist-config-anolilab: 6.0.4
     confusing-browser-globals: ^1.0.11
   node:
     cross-env: ^10.1.0
@@ -183,15 +194,3 @@ catalogs:
   utils:
     caniuse-lite: ^1.0.30001746
     semver: ^7.7.2
-
-onlyBuiltDependencies:
-  - esbuild
-  - nx
-  - oxc-resolver
-  - rs-module-lexer
-  - unrs-resolver
-
-overrides:
-  axios@<1.12.0: '>=1.12.0'
-  chrono-node@<2.2.4: '>=2.2.4'
-  tmp@<=0.2.3: '>=0.2.4'

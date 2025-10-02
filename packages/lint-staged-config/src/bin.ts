@@ -52,7 +52,7 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".lintstagedrc.js");
-    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
+    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -84,7 +84,7 @@ const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".nano-staged.js");
-    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
+    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;

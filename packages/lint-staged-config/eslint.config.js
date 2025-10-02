@@ -2,7 +2,7 @@ import { createConfig, getFilesGlobs } from "@anolilab/eslint-config";
 
 export default createConfig(
     {
-        ignores: ["**/__fixtures__", "packem.config.ts"],
+        ignores: ["**/__fixtures__", "packem.config.ts", ".prettierrc.cjs"],
         rules: {
             "@typescript-eslint/no-require-imports": "off",
         },

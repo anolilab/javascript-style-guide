@@ -188,8 +188,8 @@ catalogs:
       specifier: ^4.1.4
       version: 4.1.4
     eslint-plugin-perfectionist:
-      specifier: ^4.15.0
-      version: 4.15.0
+      specifier: ^4.15.1
+      version: 4.15.1
     eslint-plugin-playwright:
       specifier: 2.2.2
       version: 2.2.2
@@ -203,8 +203,8 @@ catalogs:
       specifier: ^19.1.0-rc.2
       version: 19.1.0-rc.2
     eslint-plugin-react-hooks:
-      specifier: ^6.1.0
-      version: 6.1.0
+      specifier: ^6.1.1
+      version: 6.1.1
     eslint-plugin-react-perf:
       specifier: ^3.3.3
       version: 3.3.3
@@ -212,8 +212,8 @@ catalogs:
       specifier: ^0.4.23
       version: 0.4.23
     eslint-plugin-react-you-might-not-need-an-effect:
-      specifier: ^0.5.5
-      version: 0.5.5
+      specifier: ^0.5.6
+      version: 0.5.6
     eslint-plugin-regexp:
       specifier: ^2.10.0
       version: 2.10.0
@@ -811,7 +811,7 @@ importers:
         version: 4.1.4(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-perfectionist:
         specifier: catalog:lint
-        version: 4.15.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
+        version: 4.15.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       eslint-plugin-promise:
         specifier: catalog:lint
         version: 7.2.1(eslint@9.36.0(jiti@2.6.0))
@@ -944,7 +944,7 @@ importers:
         version: 19.1.0-rc.2(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-hooks:
         specifier: catalog:lint
-        version: 6.1.0(eslint@9.36.0(jiti@2.6.0))
+        version: 6.1.1(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-perf:
         specifier: catalog:lint
         version: 3.3.3(eslint@9.36.0(jiti@2.6.0))
@@ -953,7 +953,7 @@ importers:
         version: 0.4.23(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-you-might-not-need-an-effect:
         specifier: catalog:lint
-        version: 0.5.5(eslint@9.36.0(jiti@2.6.0))
+        version: 0.5.6(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-storybook:
         specifier: catalog:lint
         version: 9.1.10(eslint@9.36.0(jiti@2.6.0))(storybook@9.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2))(typescript@5.9.3)
@@ -1044,7 +1044,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 16.3.3
-        version: 16.3.3(a763187e85c9ca040e92931b34796704)
+        version: 16.3.3(cc0f664311c1b2d961970cfc939e6f20)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
         version: 2.0.4(@types/node@24.6.2)(yaml@2.8.1)
@@ -5542,6 +5542,12 @@ packages:
     peerDependencies:
       eslint: '>=8.45.0'
 
+  eslint-plugin-perfectionist@4.15.1:
+    resolution: {integrity: sha512-MHF0cBoOG0XyBf7G0EAFCuJJu4I18wy0zAoT1OHfx2o6EOx1EFTIzr2HGeuZa1kDcusoX0xJ9V7oZmaeFd773Q==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      eslint: '>=8.45.0'
+
   eslint-plugin-playwright@2.2.2:
     resolution: {integrity: sha512-j0jKpndIPOXRRP9uMkwb9l/nSmModOU3452nrFdgFJoEv/435J1onk8+aITzjDW8DfypxgmVaDMdmVIa6F7I0w==}
     engines: {node: '>=16.6.0'}
@@ -5581,8 +5587,8 @@ packages:
       eslint: ^9.36.0
       typescript: ^5.9.3
 
-  eslint-plugin-react-hooks@6.1.0:
-    resolution: {integrity: sha512-72mucw/WLzEqGvL2vwE6fWR6geO6UbmDjz3eAb3pezxTpFzgbfyUeFKzmZKr9LhwUWMXfTVh1g0rKEJoyKNdoA==}
+  eslint-plugin-react-hooks@6.1.1:
+    resolution: {integrity: sha512-St9EKZzOAQF704nt2oJvAKZHjhrpg25ClQoaAlHmPZuajFldVLqRDW4VBNAS01NzeiQF0m0qhG1ZA807K6aVaQ==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -5619,8 +5625,8 @@ packages:
       eslint: ^9.36.0
       typescript: ^5.9.3
 
-  eslint-plugin-react-you-might-not-need-an-effect@0.5.5:
-    resolution: {integrity: sha512-Zmsqf7hk/fC5ThgEZTsNz9nHTJ+GFD2/lp/ESSL6oMwQdTlIduTm7xbu8iCZ902aH7HsGTKNw+vi+GVQ6RA8JQ==}
+  eslint-plugin-react-you-might-not-need-an-effect@0.5.6:
+    resolution: {integrity: sha512-WZe5XlnsqempwyyLOrVMJWnA9yHC6TxibCwQyz4o9NfGKOh9svoydld10sFfaLVIOi+yO8G7BfYuOmZ6DCRuTw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -10564,7 +10570,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.3.3(a763187e85c9ca040e92931b34796704)':
+  '@anolilab/eslint-config@16.3.3(cc0f664311c1b2d961970cfc939e6f20)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.36.0(jiti@2.6.0))
       '@eslint/compat': 1.4.0(eslint@9.36.0(jiti@2.6.0))
@@ -10629,10 +10635,10 @@ snapshots:
       eslint-plugin-playwright: 2.2.2(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react: 7.37.5(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-compiler: 19.1.0-rc.2(eslint@9.36.0(jiti@2.6.0))
-      eslint-plugin-react-hooks: 6.1.0(eslint@9.36.0(jiti@2.6.0))
+      eslint-plugin-react-hooks: 6.1.1(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-perf: 3.3.3(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-react-refresh: 0.4.23(eslint@9.36.0(jiti@2.6.0))
-      eslint-plugin-react-you-might-not-need-an-effect: 0.5.5(eslint@9.36.0(jiti@2.6.0))
+      eslint-plugin-react-you-might-not-need-an-effect: 0.5.6(eslint@9.36.0(jiti@2.6.0))
       eslint-plugin-storybook: 9.1.10(eslint@9.36.0(jiti@2.6.0))(storybook@9.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2))(typescript@5.9.3)
       eslint-plugin-tailwindcss: 3.18.2(tailwindcss@3.3.5(ts-node@10.9.1(@types/node@24.6.2)(typescript@5.9.3)))
       eslint-plugin-testing-library: 7.11.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
@@ -15423,6 +15429,16 @@ snapshots:
       - supports-color
       - typescript
 
+  eslint-plugin-perfectionist@4.15.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3):
+    dependencies:
+      '@typescript-eslint/types': 8.45.0
+      '@typescript-eslint/utils': 8.45.0(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
+      eslint: 9.36.0(jiti@2.6.0)
+      natural-orderby: 5.0.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   eslint-plugin-playwright@2.2.2(eslint@9.36.0(jiti@2.6.0)):
     dependencies:
       eslint: 9.36.0(jiti@2.6.0)
@@ -15502,15 +15518,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-react-hooks@6.1.0(eslint@9.36.0(jiti@2.6.0)):
+  eslint-plugin-react-hooks@6.1.1(eslint@9.36.0(jiti@2.6.0)):
     dependencies:
       '@babel/core': 7.26.0
       '@babel/parser': 7.28.4
-      '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.26.0)
       eslint: 9.36.0(jiti@2.6.0)
-      hermes-parser: 0.25.1
-      zod: 3.25.76
-      zod-validation-error: 3.4.1(zod@3.25.76)
+      zod: 4.1.11
+      zod-validation-error: 3.4.1(zod@4.1.11)
     transitivePeerDependencies:
       - supports-color
 
@@ -15581,7 +15595,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-react-you-might-not-need-an-effect@0.5.5(eslint@9.36.0(jiti@2.6.0)):
+  eslint-plugin-react-you-might-not-need-an-effect@0.5.6(eslint@9.36.0(jiti@2.6.0)):
     dependencies:
       eslint: 9.36.0(jiti@2.6.0)
       eslint-utils: 3.0.0(eslint@9.36.0(jiti@2.6.0))
@@ -21841,6 +21855,10 @@ snapshots:
   zod-validation-error@3.4.1(zod@3.25.76):
     dependencies:
       zod: 3.25.76
+
+  zod-validation-error@3.4.1(zod@4.1.11):
+    dependencies:
+      zod: 4.1.11
 
   zod@3.25.76: {}
 

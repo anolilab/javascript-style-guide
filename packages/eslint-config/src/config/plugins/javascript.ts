@@ -20,19 +20,19 @@ export default createConfig<OptionsPackageJson>("js", async (config) => {
                     document: "readonly",
                     navigator: "readonly",
                     window: "readonly",
-                    ...packageJson.type === "module"
+                    ...(packageJson.type === "module"
                         ? {
-                            __dirname: "off",
-                            __filename: "off",
-                            exports: "off",
-                            require: "off",
-                        }
+                              __dirname: "off",
+                              __filename: "off",
+                              exports: "off",
+                              require: "off",
+                          }
                         : {
-                            __dirname: true,
-                            __filename: true,
-                            exports: true,
-                            require: true,
-                        },
+                              __dirname: true,
+                              __filename: true,
+                              exports: true,
+                              require: true,
+                          }),
                 },
                 parserOptions: {
                     ecmaFeatures: {

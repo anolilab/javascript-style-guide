@@ -25,7 +25,7 @@ export default createConfig<
     ) {
         // eslint-disable-next-line no-console
         console.warn(
-            "\nPlease remove \"eslint-plugin-typescript-sort-keys\" from your package.json, it conflicts with \"eslint-plugin-perfectionist\".\n",
+            '\nPlease remove "eslint-plugin-typescript-sort-keys" from your package.json, it conflicts with "eslint-plugin-perfectionist".\n',
         );
     }
 

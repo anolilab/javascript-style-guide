@@ -37,14 +37,14 @@ export default createConfig<
                 ...overrides,
             },
 
-            ...tailwind && tailwindCustomSyntax
+            ...(tailwind && tailwindCustomSyntax
                 ? {
-                    languageOptions: {
-                        customSyntax: tailwindCustomSyntax.tailwind4,
-                        tolerant: true,
-                    },
-                }
-                : {},
+                      languageOptions: {
+                          customSyntax: tailwindCustomSyntax.tailwind4,
+                          tolerant: true,
+                      },
+                  }
+                : {}),
         },
     ];
 });

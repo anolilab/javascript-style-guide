@@ -111,7 +111,7 @@
         "clean": "rimraf node_modules dist",
         "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",
         "lint:attw": "attw --pack",
-        "lint:eslint": "eslint .",
+        "lint:eslint": "eslint . --cache --concurrency auto",
         "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",

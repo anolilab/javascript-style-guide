@@ -16,16 +16,16 @@ const unocss = async (
             },
             rules: {
                 "unocss/order": "warn",
-                ...attributify
+                ...(attributify
                     ? {
-                        "unocss/order-attributify": "warn",
-                    }
-                    : {},
-                ...strict
+                          "unocss/order-attributify": "warn",
+                      }
+                    : {}),
+                ...(strict
                     ? {
-                        "unocss/blocklist": "error",
-                    }
-                    : {},
+                          "unocss/blocklist": "error",
+                      }
+                    : {}),
             },
         },
     ];

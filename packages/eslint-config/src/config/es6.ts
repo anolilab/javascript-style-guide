@@ -127,7 +127,7 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
                     },
                     {
                         message:
-                            "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
+                            'Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try "qs" as a package',
                         name: "querystring",
                     },
                     {
@@ -141,7 +141,7 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
                     },
                     {
                         message:
-                            "Please use \"@faker-js/faker\" as a replacement",
+                            'Please use "@faker-js/faker" as a replacement',
                         name: "faker",
                     },
                     {
@@ -164,23 +164,23 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
                         name: "rimraf",
                     },
                     {
-                        message: "just use \"\".padStart() and \"\".padEnd()",
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "pad-left",
                     },
                     {
-                        message: "just use \"\".padStart() and \"\".padEnd()",
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "pad-right",
                     },
                     {
-                        message: "just use \"\".padStart() and \"\".padEnd()",
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "left-pad",
                     },
                     {
-                        message: "just use \"\".padStart() and \"\".padEnd()",
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "right-pad",
                     },
                     {
-                        message: "just use \"\".padStart() and \"\".padEnd()",
+                        message: 'just use "".padStart() and "".padEnd()',
                         name: "pad",
                     },
                     {
@@ -273,12 +273,12 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
         "prefer-const": isInEditor
             ? "off"
             : [
-                "error",
-                {
-                    destructuring: "any",
-                    ignoreReadBeforeAssign: true,
-                },
-            ],
+                  "error",
+                  {
+                      destructuring: "any",
+                      ignoreReadBeforeAssign: true,
+                  },
+              ],
 
         // Prefer destructuring from arrays and objects
         // https://eslint.org/docs/rules/prefer-destructuring

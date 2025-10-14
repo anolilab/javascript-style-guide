@@ -29,9 +29,9 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
                     toml: pluginToml,
                 },
                 rules: {
-                    ...stylistic
+                    ...(stylistic
                         ? { "@stylistic/spaced-comment": "off" }
-                        : {},
+                        : {}),
 
                     "toml/comma-style": "error",
                     "toml/keys-order": "error",
@@ -43,24 +43,24 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
 
                     "toml/vue-custom-block/no-parsing-error": "error",
 
-                    ...stylistic
+                    ...(stylistic
                         ? {
-                            "toml/array-bracket-newline": "error",
-                            "toml/array-bracket-spacing": "error",
-                            "toml/array-element-newline": "error",
-                            "toml/indent": [
-                                "error",
-                                indent === "tab" ? 2 : indent,
-                            ],
-                            "toml/inline-table-curly-spacing": "error",
-                            "toml/key-spacing": "error",
-                            "toml/padding-line-between-pairs": "error",
-                            "toml/padding-line-between-tables": "error",
-                            "toml/quoted-keys": "error",
-                            "toml/spaced-comment": "error",
-                            "toml/table-bracket-spacing": "error",
-                        }
-                        : {},
+                              "toml/array-bracket-newline": "error",
+                              "toml/array-bracket-spacing": "error",
+                              "toml/array-element-newline": "error",
+                              "toml/indent": [
+                                  "error",
+                                  indent === "tab" ? 2 : indent,
+                              ],
+                              "toml/inline-table-curly-spacing": "error",
+                              "toml/key-spacing": "error",
+                              "toml/padding-line-between-pairs": "error",
+                              "toml/padding-line-between-tables": "error",
+                              "toml/quoted-keys": "error",
+                              "toml/spaced-comment": "error",
+                              "toml/table-bracket-spacing": "error",
+                          }
+                        : {}),
 
                     ...overrides,
                 },

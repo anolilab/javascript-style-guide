@@ -2,8 +2,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { defineConfig, eslintExtensions } from "../src";
 
-const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock }
-    = vi.hoisted(() => {
+const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock } =
+    vi.hoisted(() => {
         return {
             // eslint-disable-next-line vitest/require-mock-type-parameters
             existsSyncMock: vi.fn(),

@@ -136,7 +136,7 @@ export const getOverrides = (
     const sub = resolveSubOptions(options, key);
 
     return {
-        ..."overrides" in sub ? sub.overrides : {},
+        ...("overrides" in sub ? sub.overrides : {}),
     };
 };
 
@@ -193,17 +193,14 @@ export const createConfig = async (
 ): PromiseFlatConfigComposer => {
     if ("files" in options) {
         throw new Error(
-            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
+            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
         );
     }
 
     const cwd = options.cwd ?? process.cwd();
-    const packageJson = await parsePackageJson(
-        join(cwd, "package.json"),
-        {
-            resolveCatalogs: true,
-        },
-    );
+    const packageJson = await parsePackageJson(join(cwd, "package.json"), {
+        resolveCatalogs: true,
+    });
 
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, [
         "prettier",
@@ -216,9 +213,9 @@ export const createConfig = async (
         "react",
         "react-dom",
     ]);
-    const reactVersion
-        = packageJson["dependencies"]?.["react"]
-            ?? packageJson["devDependencies"]?.["react"];
+    const reactVersion =
+        packageJson["dependencies"]?.["react"] ??
+        packageJson["devDependencies"]?.["react"];
     let hasReactCompiler = false;
 
     if (reactVersion !== undefined) {
@@ -232,9 +229,9 @@ export const createConfig = async (
     let hasTailwindCssV3 = false;
     let hasTailwindCssV4 = false;
 
-    const tailwindCssVersion
-        = packageJson["dependencies"]?.["tailwindcss"]
-            ?? packageJson["devDependencies"]?.["tailwindcss"];
+    const tailwindCssVersion =
+        packageJson["dependencies"]?.["tailwindcss"] ??
+        packageJson["devDependencies"]?.["tailwindcss"];
 
     if (tailwindCssVersion) {
         const parsedVersion = parse(tailwindCssVersion);
@@ -572,8 +569,8 @@ export const createConfig = async (
             packageJson,
             ["playwright", "eslint-plugin-playwright"],
         ),
-        react: enableReact = hasReact
-            || hasPackageJsonAnyDependency(packageJson, [
+        react: enableReact = hasReact ||
+            hasPackageJsonAnyDependency(packageJson, [
                 "eslint-plugin-react",
                 "eslint-plugin-react-hooks",
                 "eslint-plugin-react-refresh",
@@ -637,16 +634,16 @@ export const createConfig = async (
             packages.push("@eslint/css");
 
             if (
-                (enableTailwindCss && hasTailwindCssV4)
-                || enableTailwindCss === "v4"
+                (enableTailwindCss && hasTailwindCssV4) ||
+                enableTailwindCss === "v4"
             ) {
                 packages.push("tailwind-csstree");
             }
         }
 
         if (
-            (enableTailwindCss && hasTailwindCssV3)
-            || enableTailwindCss === "v3"
+            (enableTailwindCss && hasTailwindCssV3) ||
+            enableTailwindCss === "v3"
         ) {
             packages.push("eslint-plugin-tailwindcss");
         }
@@ -701,8 +698,8 @@ export const createConfig = async (
             packages.push("eslint-plugin-astro", "astro-eslint-parser");
 
             if (
-                typeof options.formatters === "object"
-                && options.formatters.astro
+                typeof options.formatters === "object" &&
+                options.formatters.astro
             ) {
                 packages.push("prettier-plugin-astro");
             }
@@ -724,7 +721,7 @@ export const createConfig = async (
             await ensurePackages(packageJson, packages, "devDependencies", {
                 confirm: {
                     message: (list: string[]) =>
-                        `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                        `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join('"\n"')}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
                 },
             });
         }
@@ -786,8 +783,8 @@ export const createConfig = async (
     }
 
     const typescriptOptions = resolveSubOptions(options, "typescript");
-    const tsconfigPath
-        = "tsconfigPath" in typescriptOptions
+    const tsconfigPath =
+        "tsconfigPath" in typescriptOptions
             ? typescriptOptions.tsconfigPath
             : undefined;
 
@@ -1145,9 +1142,9 @@ export const createConfig = async (
                     svg: isPrettierPluginXmlInScope,
                     xml: isPrettierPluginXmlInScope,
 
-                    ...typeof options.formatters === "object"
+                    ...(typeof options.formatters === "object"
                         ? options.formatters
-                        : {},
+                        : {}),
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),

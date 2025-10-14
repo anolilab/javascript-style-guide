@@ -2,11 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
 
-import {
-    ensureDirSync,
-    isAccessibleSync,
-    writeFileSync,
-} from "@visulima/fs";
+import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 import type { NormalizedPackageJson } from "@visulima/package";
 import {
     hasPackageJsonAnyDependency,
@@ -51,7 +47,7 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".lintstagedrc.js");
-    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;
@@ -83,7 +79,7 @@ const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
     }
 
     const filePath = join(cwd, ".nano-staged.js");
-    const content = `${isTypeModule ? "import { defineConfig } from \"@anolilab/lint-staged-config\"" : "const { defineConfig } = require(\"@anolilab/lint-staged-config\")"};
+    const content = `${isTypeModule ? 'import { defineConfig } from "@anolilab/lint-staged-config"' : 'const { defineConfig } = require("@anolilab/lint-staged-config")'};
 
 ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
 `;

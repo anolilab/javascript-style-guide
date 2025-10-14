@@ -19,7 +19,7 @@ const mergePrettierOptions = (
     return {
         ...options,
         ...overrides,
-        plugins: [...overrides.plugins ?? [], ...options.plugins ?? []],
+        plugins: [...(overrides.plugins ?? []), ...(options.plugins ?? [])],
     };
 };
 
@@ -29,9 +29,9 @@ const formatters = async (
     // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Promise<TypedFlatConfigItem[]> => {
     if (
-        options.slidev
-        && options.markdown !== true
-        && options.markdown !== "prettier"
+        options.slidev &&
+        options.markdown !== true &&
+        options.markdown !== "prettier"
     ) {
         throw new Error(
             "`slidev` option only works when `markdown` is enabled with `prettier`",
@@ -194,8 +194,8 @@ const formatters = async (
     }
 
     if (options.markdown) {
-        const formater
-            = options.markdown === true ? "prettier" : options.markdown;
+        const formater =
+            options.markdown === true ? "prettier" : options.markdown;
 
         let GLOB_SLIDEV: string[] = [];
 
@@ -217,13 +217,13 @@ const formatters = async (
                     "error",
                     formater === "prettier"
                         ? mergePrettierOptions(prettierOptions, {
-                            embeddedLanguageFormatting: "off",
-                            parser: "markdown",
-                        })
+                              embeddedLanguageFormatting: "off",
+                              parser: "markdown",
+                          })
                         : {
-                            ...dprintOptions,
-                            language: "markdown",
-                        },
+                              ...dprintOptions,
+                              language: "markdown",
+                          },
                 ],
             },
         });

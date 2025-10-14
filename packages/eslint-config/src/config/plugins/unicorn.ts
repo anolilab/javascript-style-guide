@@ -11,11 +11,11 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles
-    & OptionsHasPrettier
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsStylistic
+    OptionsFiles &
+        OptionsHasPrettier &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsStylistic
 >("all", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -86,41 +86,44 @@ export default createConfig<
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
                 // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/898fcb4/docs/rules/prevent-abbreviations.md
-                "unicorn/prevent-abbreviations": ["error", {
-                    allowList: {
-                        // for-loop index
-                        i: true,
-                        j: true,
+                "unicorn/prevent-abbreviations": [
+                    "error",
+                    {
+                        allowList: {
+                            // for-loop index
+                            i: true,
+                            j: true,
+                        },
+                        replacements: {
+                            args: false,
+                            dev: false,
+                            dist: false,
+                            env: false,
+                            // Common abbreviation (e.g. URLSearchParams)
+                            params: false,
+
+                            pkg: false,
+                            // Vue.js
+                            prop: false,
+
+                            props: false,
+                            ref: false,
+                            src: false,
+                            utils: false,
+                        },
                     },
-                    replacements: {
-                        args: false,
-                        dev: false,
-                        dist: false,
-                        env: false,
-                        // Common abbreviation (e.g. URLSearchParams)
-                        params: false,
+                ],
 
-                        pkg: false,
-                        // Vue.js
-                        prop: false,
-
-                        props: false,
-                        ref: false,
-                        src: false,
-                        utils: false,
-                    },
-                }],
-
-                ...prettier
+                ...(prettier
                     ? {
-                        "unicorn/empty-brace-spaces": "off",
-                        "unicorn/no-nested-ternary": "off",
-                        "unicorn/number-literal-case": "off",
-                        "unicorn/template-indent": "off",
-                    }
+                          "unicorn/empty-brace-spaces": "off",
+                          "unicorn/no-nested-ternary": "off",
+                          "unicorn/number-literal-case": "off",
+                          "unicorn/template-indent": "off",
+                      }
                     : {
-                        "unicorn/template-indent": ["error", { indent }],
-                    },
+                          "unicorn/template-indent": ["error", { indent }],
+                      }),
 
                 ...overrides,
             },

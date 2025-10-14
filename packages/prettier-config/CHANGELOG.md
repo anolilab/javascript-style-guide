@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-* update prettier-config to use pnpm preset ([185d89b](https://github.com/anolilab/javascript-style-guide/commit/185d89b5bf01223ff931d0b9417f54a715880b39))
+- update prettier-config to use pnpm preset ([185d89b](https://github.com/anolilab/javascript-style-guide/commit/185d89b5bf01223ff931d0b9417f54a715880b39))
 
 ## @anolilab/prettier-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.4...@anolilab/prettier-config@6.0.5) (2025-10-02)
 

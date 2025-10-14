@@ -15,8 +15,8 @@ const createEslintArguments = (
     const eslintArguments: string[] = [];
 
     if (
-        eslintConfig["max-warnings"] !== undefined
-        && Number.isNaN(eslintConfig["max-warnings"])
+        eslintConfig["max-warnings"] !== undefined &&
+        Number.isNaN(eslintConfig["max-warnings"])
     ) {
         eslintArguments.push(`--max-warnings=${eslintConfig["max-warnings"]}`);
     } else if (eslintConfig["max-warnings"] !== false) {
@@ -59,7 +59,7 @@ const createEslintArguments = (
         extraRules.push("eslint-comments/no-unused-disable:off");
     }
 
-    const rules = [...eslintConfig.rules ?? [], ...extraRules].filter(
+    const rules = [...(eslintConfig.rules ?? []), ...extraRules].filter(
         (rule) => rule.trim().length > 0,
     );
 
@@ -69,7 +69,7 @@ const createEslintArguments = (
 
     // For lint-staged it's safer to not apply the fix command if it changes the AST
     // @see https://eslint.org/docs/user-guide/command-line-interface#--fix-type
-    const fixType = [...eslintConfig["fix-type"] ?? ["layout"]].filter(
+    const fixType = [...(eslintConfig["fix-type"] ?? ["layout"])].filter(
         (type) => type.trim().length > 0,
     );
 

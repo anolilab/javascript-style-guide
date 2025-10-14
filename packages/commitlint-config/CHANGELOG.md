@@ -1,3 +1,9 @@
+## @anolilab/commitlint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.5...@anolilab/commitlint-config@6.0.6) (2025-10-14)
+
+### Bug Fixes
+
+* update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
+
 ## @anolilab/commitlint-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.4...@anolilab/commitlint-config@6.0.5) (2025-10-02)
 
 ### Bug Fixes

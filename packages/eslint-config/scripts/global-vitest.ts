@@ -12,7 +12,6 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import type { ModuleBody, SourceFile } from "typescript";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import ts from "typescript";
 
 const rootPath = dirname(fileURLToPath(import.meta.url));

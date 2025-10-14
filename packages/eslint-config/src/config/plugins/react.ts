@@ -207,14 +207,19 @@ export default createConfig<
             name: "anolilab/react/setup",
             plugins: {
                 react: pluginReact,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
                 "react-naming-convention":
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                     plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 "react-web-api": plugins["@eslint-react/web-api"],
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 "react-x": plugins["@eslint-react"],
                 "react-you-might-not-need-an-effect":
                     pluginReactYouMightNotNeedAnEffect,

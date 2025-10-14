@@ -377,6 +377,15 @@ const jsonc = async (
                 ],
             },
         },
+        // Renovate supports JSONC without trailing commas
+        {
+            files: ["**/renovate.json"],
+            rules: {
+                ...jsoncPlugin.configs["recommended-with-jsonc"].rules,
+                "jsonc/comma-dangle": ["error", "never"],
+                "jsonc/no-comments": "off",
+            },
+        },
         ...prettier ? jsoncPlugin.configs["flat/prettier"] : [],
         {
             files: ["**/*.json", "**/*.jsonc", "**/*.json5"],

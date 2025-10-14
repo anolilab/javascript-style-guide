@@ -85,6 +85,32 @@ export default createConfig<
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
+                // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/898fcb4/docs/rules/prevent-abbreviations.md
+                "unicorn/prevent-abbreviations": ["error", {
+                    allowList: {
+                        // for-loop index
+                        i: true,
+                        j: true,
+                    },
+                    replacements: {
+                        args: false,
+                        dev: false,
+                        dist: false,
+                        env: false,
+                        // Common abbreviation (e.g. URLSearchParams)
+                        params: false,
+
+                        pkg: false,
+                        // Vue.js
+                        prop: false,
+
+                        props: false,
+                        ref: false,
+                        src: false,
+                        utils: false,
+                    },
+                }],
+
                 ...prettier
                     ? {
                         "unicorn/empty-brace-spaces": "off",

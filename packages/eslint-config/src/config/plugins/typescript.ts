@@ -333,6 +333,14 @@ export default createConfig<
                 "no-empty-function"
             ] as Linter.RuleEntry<[]>,
 
+            "@typescript-eslint/no-explicit-any": ["error", {
+                fixToUnknown: false,
+
+                // No other way to type a function that takes any number of arguments
+                // This should be used in generics where we're narrowing the type with any
+                ignoreRestArgs: true,
+            }],
+
             // Disallow extra non-null assertions.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.mdx
             "@typescript-eslint/no-extra-non-null-assertion": "error",
@@ -413,9 +421,22 @@ export default createConfig<
 
             // Replace 'no-unused-vars' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.mdx
-            "@typescript-eslint/no-unused-vars": variablesRules[
-                "no-unused-vars"
-            ] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-unused-vars": [
+                "error",
+                {
+                    args: "after-used",
+                    argsIgnorePattern: "^_",
+                    caughtErrorsIgnorePattern: "^_",
+                    ignoreRestSiblings: true,
+
+                    /**
+                     * TypeScript ignores any variables that are prefixed with _
+                     * https://github.com/microsoft/TypeScript/pull/9464
+                     */
+                    vars: "all",
+                    varsIgnorePattern: "^_",
+                },
+            ],
 
             // Replace 'no-use-before-define' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.mdx
@@ -444,9 +465,9 @@ export default createConfig<
             // Enforce using function types instead of interfaces with call signatures.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-function-type.mdx
             "@typescript-eslint/prefer-function-type": "error",
-
             // Disabled to use faster alternatives.
             "@typescript-eslint/prefer-string-starts-ends-with": "off",
+
             // Enforce using @ts-expect-error over @ts-ignore.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.mdx
             // DEPRECATED: in favor of ban-ts-comment

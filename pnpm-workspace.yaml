@@ -17,7 +17,7 @@ catalogs:
   build:
     esbuild: ^0.25.10
   cli:
-    '@anolilab/multi-semantic-release': ^2.0.5
+    '@anolilab/multi-semantic-release': ^2.0.6
     '@anolilab/semantic-release-pnpm': ^2.0.4
     '@anolilab/semantic-release-preset': 11.0.4
     commitizen: ^4.3.1
@@ -25,8 +25,8 @@ catalogs:
     taze: ^19.7.0
   dev:
     '@arethetypeswrong/cli': ^0.18.2
-    '@visulima/packem': 2.0.0-alpha.23
-    type-fest: ^5.0.1
+    '@visulima/packem': 2.0.0-alpha.30
+    type-fest: ^5.1.0
   frontend:
     react: ^19.2.0
   lint:
@@ -35,15 +35,15 @@ catalogs:
     '@commitlint/config-conventional': ^20.0.0
     '@commitlint/core': ^20.1.0
     '@eslint-community/eslint-plugin-eslint-comments': ^4.5.0
-    '@eslint-react/eslint-plugin': ^2.0.5
+    '@eslint-react/eslint-plugin': ^2.2.2
     '@eslint/compat': ^1.4.0
     '@eslint/config-inspector': ^1.3.0
-    '@eslint/css': ^0.11.1
-    '@eslint/js': ^9.36.0
-    '@eslint/markdown': ^7.3.0
+    '@eslint/css': ^0.13.0
+    '@eslint/js': ^9.37.0
+    '@eslint/markdown': ^7.4.0
     '@html-eslint/eslint-plugin': ^0.47.0
     '@html-eslint/parser': ^0.47.0
-    '@secretlint/secretlint-rule-preset-recommend': ^11.2.4
+    '@secretlint/secretlint-rule-preset-recommend': ^11.2.5
     '@stylistic/eslint-plugin': ^5.4.0
     '@stylistic/eslint-plugin-migrate': ^4.4.1
     '@stylistic/eslint-plugin-ts': ^4.4.1
@@ -52,10 +52,10 @@ catalogs:
     '@textlint-rule/textlint-rule-no-invalid-control-character': ^3.0.0
     '@textlint-rule/textlint-rule-no-unmatched-pair': ^2.0.4
     '@textlint-rule/textlint-rule-preset-google': ^0.1.2
-    '@textlint/ast-node-types': ^15.2.2
-    '@textlint/types': ^15.2.2
-    '@unocss/eslint-plugin': ^66.5.2
-    '@vitest/eslint-plugin': ^1.3.15
+    '@textlint/ast-node-types': ^15.2.3
+    '@textlint/types': ^15.2.3
+    '@unocss/eslint-plugin': ^66.5.3
+    '@vitest/eslint-plugin': ^1.3.20
     astro-eslint-parser: ^1.2.2
     eslint: ^9.36.0
     eslint-config-flat-gitignore: ^2.1.0
@@ -67,59 +67,59 @@ catalogs:
     eslint-plugin-astro: ^1.3.1
     eslint-plugin-compat: ^6.0.2
     eslint-plugin-erasable-syntax-only: ^0.3.1
-    eslint-plugin-es-x: ^9.1.0
+    eslint-plugin-es-x: ^9.1.1
     eslint-plugin-format: ^1.0.2
     eslint-plugin-html: ^8.1.3
     eslint-plugin-import-x: ^4.16.1
-    eslint-plugin-jsdoc: ^60.7.1
-    eslint-plugin-jsonc: ^2.20.1
+    eslint-plugin-jsdoc: ^61.1.2
+    eslint-plugin-jsonc: ^2.21.0
     eslint-plugin-jsx-a11y: ^6.10.2
     eslint-plugin-n: ^17.23.1
     eslint-plugin-no-for-of-array: ^0.1.0
     eslint-plugin-no-only-tests: ^3.3.0
     eslint-plugin-no-secrets: ^2.2.1
     eslint-plugin-no-unsanitized: ^4.1.4
-    eslint-plugin-perfectionist: ^4.15.0
+    eslint-plugin-perfectionist: ^4.15.1
     eslint-plugin-playwright: 2.2.2
     eslint-plugin-promise: ^7.2.1
     eslint-plugin-react: ^7.37.5
     eslint-plugin-react-compiler: ^19.1.0-rc.2
-    eslint-plugin-react-hooks: ^6.1.0
+    eslint-plugin-react-hooks: ^7.0.0
     eslint-plugin-react-perf: ^3.3.3
     eslint-plugin-react-refresh: ^0.4.23
-    eslint-plugin-react-you-might-not-need-an-effect: ^0.5.5
+    eslint-plugin-react-you-might-not-need-an-effect: ^0.5.6
     eslint-plugin-regexp: ^2.10.0
     eslint-plugin-security: ^3.0.1
     eslint-plugin-simple-import-sort: ^12.1.1
     eslint-plugin-sonarjs: ^3.0.5
     eslint-plugin-storybook: ^9.1.10
     eslint-plugin-tailwindcss: ^3.18.2
-    eslint-plugin-testing-library: ^7.11.0
+    eslint-plugin-testing-library: ^7.13.3
     eslint-plugin-toml: ^0.12.0
     eslint-plugin-tsdoc: ^0.4.0
     eslint-plugin-unicorn: ^61.0.2
     eslint-plugin-unused-imports: ^4.2.0
     eslint-plugin-validate-jsx-nesting: ^0.1.1
     eslint-plugin-vitest: ^0.5.4
-    eslint-plugin-yml: ^1.18.0
+    eslint-plugin-yml: ^1.19.0
     eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
     eslint-plugin-zod: ^1.4.0
     eslint-typegen: ^2.3.0
     husky: ^9.1.7
     jsonc-eslint-parser: ^2.4.1
-    lint-staged: ^16.2.3
+    lint-staged: ^16.2.4
     prettier: ^3.6.2
-    publint: ^0.3.13
+    publint: ^0.3.14
     secretlint: 11.2.4
-    stylelint: ^16.24.0
+    stylelint: ^16.25.0
     stylelint-config-clean-order: ^7.0.0
-    stylelint-config-standard: ^39.0.0
+    stylelint-config-standard: ^39.0.1
     stylelint-declaration-block-no-ignored-properties: ^2.8.0
     stylelint-high-performance-animation: ^1.11.0
-    stylelint-no-unsupported-browser-features: ^8.0.4
+    stylelint-no-unsupported-browser-features: ^8.0.5
     stylelint-require-units: ^2.0.0
     stylelint-selector-no-empty: ^1.0.9
-    textlint: ^15.2.2
+    textlint: ^15.2.3
     textlint-filter-rule-comments: ^1.2.2
     textlint-rule-abbr-within-parentheses: ^1.0.2
     textlint-rule-alex: ^5.0.0
@@ -136,7 +136,7 @@ catalogs:
     textlint-rule-terminology: ^5.2.16
     textlint-rule-write-good: ^2.0.0
     toml-eslint-parser: ^0.10.0
-    typescript-eslint: ^8.45.0
+    typescript-eslint: ^8.46.1
     yaml-eslint-parser: ^1.3.0
   monorepo:
     nx: 21.6.3
@@ -164,7 +164,7 @@ catalogs:
     parse-gitignore: ^2.0.0
     shell-quote: ^1.8.3
     sort-package-json: ^3.4.0
-    type-fest: ^5.0.1
+    type-fest: ^5.1.0
     write-good: ^1.0.8
   script:
     tsx: ^4.20.6
@@ -184,13 +184,13 @@ catalogs:
   types:
     '@types/confusing-browser-globals': ^1.0.3
     '@types/eslint': ^9.6.1
-    '@types/eslint-plugin-jsx-a11y': ^6.10.0
+    '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/eslint-plugin-tailwindcss': ^3.17.0
     '@types/node': 24.6.2
     '@types/semver': ^7.7.1
     '@types/shell-quote': ^1.7.5
-    '@typescript-eslint/parser': ^8.45.0
-    '@typescript-eslint/types': ^8.45.0
+    '@typescript-eslint/parser': ^8.46.1
+    '@typescript-eslint/types': ^8.46.1
   utils:
-    caniuse-lite: ^1.0.30001746
-    semver: ^7.7.2
+    caniuse-lite: ^1.0.30001750
+    semver: ^7.7.3

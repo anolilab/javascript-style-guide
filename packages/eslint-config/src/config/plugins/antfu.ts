@@ -9,11 +9,11 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles &
-        OptionsOverrides &
-        OptionsPackageJson & {
-            lessOpinionated?: boolean;
-        }
+    OptionsFiles
+    & OptionsOverrides
+    & OptionsPackageJson & {
+        lessOpinionated?: boolean;
+    }
 >("all", async (config, oFiles) => {
     const {
         files = oFiles,
@@ -50,14 +50,14 @@ export default createConfig<
                 "antfu/prefer-inline-type-import": "off",
                 "antfu/top-level-function": "off",
 
-                ...(lessOpinionated
+                ...lessOpinionated
                     ? {
-                          curly: ["error", "all"],
-                      }
+                        curly: ["error", "all"],
+                    }
                     : {
-                          "antfu/curly": "error",
-                          "antfu/if-newline": "error",
-                      }),
+                        "antfu/curly": "error",
+                        "antfu/if-newline": "error",
+                    },
 
                 ...overrides,
             },

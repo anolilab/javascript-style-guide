@@ -29,14 +29,14 @@ export default createConfig<
                 // @see https://github.com/yeonjuan/html-eslint/issues/67 bug in html-eslint
                 "spaced-comment": "off",
 
-                ...(prettier
+                ...prettier
                     ? {
-                          "@html-eslint/element-newline": "off",
-                          "@html-eslint/indent": "off",
-                          "@html-eslint/no-extra-spacing-attrs": "off",
-                          "@html-eslint/quotes": "off",
-                      }
-                    : {}),
+                        "@html-eslint/element-newline": "off",
+                        "@html-eslint/indent": "off",
+                        "@html-eslint/no-extra-spacing-attrs": "off",
+                        "@html-eslint/quotes": "off",
+                    }
+                    : {},
 
                 ...overrides,
             },
@@ -44,7 +44,7 @@ export default createConfig<
             settings: {
                 "html/indent": `+${indent}`,
                 "html/report-bad-indent": "error",
-                ...(prettier ? { "html/report-bad-indent": "off" } : {}),
+                ...prettier ? { "html/report-bad-indent": "off" } : {},
             },
         },
     ];

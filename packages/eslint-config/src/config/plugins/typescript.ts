@@ -21,13 +21,13 @@ import { styleRules as styleRulesFunction } from "../style";
 import { variablesRules } from "../variables";
 
 export default createConfig<
-    OptionsComponentExtensions &
-        OptionsFiles &
-        OptionsHasPrettier &
-        OptionsIsInEditor &
-        OptionsOverrides &
-        OptionsTypeScriptParserOptions &
-        OptionsTypeScriptWithTypes
+    OptionsComponentExtensions
+    & OptionsFiles
+    & OptionsHasPrettier
+    & OptionsIsInEditor
+    & OptionsOverrides
+    & OptionsTypeScriptParserOptions
+    & OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
@@ -64,7 +64,7 @@ export default createConfig<
         ...getFilesGlobs("jsx"),
         "**/*.json",
         "**/*.jsonc",
-        ...(config.ignoresTypeAware ?? []),
+        ...config.ignoresTypeAware ?? [],
     ];
     const { tsconfigPath } = config;
 
@@ -84,7 +84,7 @@ export default createConfig<
                 ...pFiles,
                 ...componentExtensions.map((extension) => `**/*.${extension}`),
             ],
-            ...(ignores ? { ignores } : {}),
+            ...ignores ? { ignores } : {},
             languageOptions: {
                 parser: tseslint.parser,
 
@@ -93,12 +93,12 @@ export default createConfig<
                         (extension) => `.${extension}`,
                     ),
                     sourceType: "module",
-                    ...(typeAware
+                    ...typeAware
                         ? {
-                              projectService: true,
-                              tsconfigRootDir: thisDirectory,
-                          }
-                        : {}),
+                            projectService: true,
+                            tsconfigRootDir: thisDirectory,
+                        }
+                        : {},
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...(parserOptions as any),
                 },
@@ -114,18 +114,18 @@ export default createConfig<
             plugins: {
                 "@typescript-eslint": tseslint.plugin,
                 "no-for-of-array": noForOfArrayPlugin,
-                ...(erasableSyntaxOnlyPlugin
+                ...erasableSyntaxOnlyPlugin
                     ? erasableSyntaxOnlyPlugin.configs.recommended.plugins
-                    : {}),
+                    : {},
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
-        ...(isTypeAware
+        ...isTypeAware
             ? [
-                  makeParser(false, files),
-                  makeParser(true, filesTypeAware, ignoresTypeAware),
-              ]
-            : [makeParser(false, files)]),
+                makeParser(false, files),
+                makeParser(true, filesTypeAware, ignoresTypeAware),
+            ]
+            : [makeParser(false, files)],
         ...(tseslint.configs.strict as TypedFlatConfigItem[]),
     ];
 
@@ -501,36 +501,36 @@ export default createConfig<
                 "space-infix-ops"
             ] as Linter.RuleEntry<[]>,
 
-            ...(erasableSyntaxOnlyPlugin
+            ...erasableSyntaxOnlyPlugin
                 ? erasableSyntaxOnlyPlugin.configs.recommended.rules
-                : {}),
+                : {},
 
             ...overrides,
 
             // Disable rules that are handled by prettier
-            ...(prettier
+            ...prettier
                 ? {
-                      "@typescript-eslint/block-spacing": "off",
-                      "@typescript-eslint/brace-style": "off",
-                      "@typescript-eslint/comma-dangle": "off",
-                      "@typescript-eslint/comma-spacing": "off",
-                      "@typescript-eslint/func-call-spacing": "off",
-                      "@typescript-eslint/indent": "off",
-                      "@typescript-eslint/key-spacing": "off",
-                      "@typescript-eslint/keyword-spacing": "off",
-                      "@typescript-eslint/lines-around-comment": 0,
-                      "@typescript-eslint/member-delimiter-style": "off",
-                      "@typescript-eslint/no-extra-parens": "off",
-                      "@typescript-eslint/no-extra-semi": "off",
-                      "@typescript-eslint/object-curly-spacing": "off",
-                      "@typescript-eslint/quotes": 0,
-                      "@typescript-eslint/semi": "off",
-                      "@typescript-eslint/space-before-blocks": "off",
-                      "@typescript-eslint/space-before-function-paren": "off",
-                      "@typescript-eslint/space-infix-ops": "off",
-                      "@typescript-eslint/type-annotation-spacing": "off",
-                  }
-                : {}),
+                    "@typescript-eslint/block-spacing": "off",
+                    "@typescript-eslint/brace-style": "off",
+                    "@typescript-eslint/comma-dangle": "off",
+                    "@typescript-eslint/comma-spacing": "off",
+                    "@typescript-eslint/func-call-spacing": "off",
+                    "@typescript-eslint/indent": "off",
+                    "@typescript-eslint/key-spacing": "off",
+                    "@typescript-eslint/keyword-spacing": "off",
+                    "@typescript-eslint/lines-around-comment": 0,
+                    "@typescript-eslint/member-delimiter-style": "off",
+                    "@typescript-eslint/no-extra-parens": "off",
+                    "@typescript-eslint/no-extra-semi": "off",
+                    "@typescript-eslint/object-curly-spacing": "off",
+                    "@typescript-eslint/quotes": 0,
+                    "@typescript-eslint/semi": "off",
+                    "@typescript-eslint/space-before-blocks": "off",
+                    "@typescript-eslint/space-before-function-paren": "off",
+                    "@typescript-eslint/space-infix-ops": "off",
+                    "@typescript-eslint/type-annotation-spacing": "off",
+                }
+                : {},
         },
     });
 

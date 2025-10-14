@@ -1,31 +1,31 @@
 import type { TypedFlatConfigItem } from "../types";
 
-type FileType =
-    | "all"
-    | "astro_ts"
-    | "astro"
-    | "css"
-    | "e2e"
-    | "graphql"
-    | "html"
-    | "js_and_ts"
-    | "js"
-    | "jsx"
-    | "jsx_and_tsx"
-    | "less"
-    | "markdown_in_markdown"
-    | "markdown_inline_js_jsx"
-    | "markdown"
-    | "postcss"
-    | "scss"
-    | "storybook"
-    | "svg"
-    | "toml"
-    | "ts"
-    | "types"
-    | "vitest"
-    | "xml"
-    | "yaml";
+type FileType
+    = | "all"
+        | "astro_ts"
+        | "astro"
+        | "css"
+        | "e2e"
+        | "graphql"
+        | "html"
+        | "js_and_ts"
+        | "js"
+        | "jsx"
+        | "jsx_and_tsx"
+        | "less"
+        | "markdown_in_markdown"
+        | "markdown_inline_js_jsx"
+        | "markdown"
+        | "postcss"
+        | "scss"
+        | "storybook"
+        | "svg"
+        | "toml"
+        | "ts"
+        | "types"
+        | "vitest"
+        | "xml"
+        | "yaml";
 
 // @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#new-file-extensions
 const dtsGlobal = ["**/*.d.ts", "**/*.d.cts", "**/*.d.mts"];
@@ -149,13 +149,13 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
     }
 };
 
-export const createConfig =
-    <O>(
+export const createConfig
+    = <O>(
         type: FileType,
         rules: (
             options: O,
             files: string[],
         ) => Promise<Omit<TypedFlatConfigItem, "files">[]>,
     ) =>
-    async (options: O): Promise<TypedFlatConfigItem[]> =>
-        await rules(options, getFilesGlobs(type));
+        async (options: O): Promise<TypedFlatConfigItem[]> =>
+            await rules(options, getFilesGlobs(type));

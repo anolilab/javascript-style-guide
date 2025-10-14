@@ -22,7 +22,7 @@ export type { ConfigNames } from "./typegen";
 
 export interface OptionsConfig
     extends OptionsComponentExtensions,
-        OptionsSilentConsoleLogs {
+    OptionsSilentConsoleLogs {
     /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
@@ -440,8 +440,8 @@ export interface OptionsFormatters {
     slidev?:
         | boolean
         | {
-              files?: string[];
-          };
+            files?: string[];
+        };
 
     /**
      * Enable formatting support for SVG.
@@ -495,9 +495,9 @@ export interface OptionsStylistic {
     stylistic?: StylisticConfig | boolean;
 }
 
-export type OptionsTypescript = OptionsOverrides &
-    OptionsTypeScriptParserOptions &
-    OptionsTypeScriptWithTypes;
+export type OptionsTypescript = OptionsOverrides
+    & OptionsTypeScriptParserOptions
+    & OptionsTypeScriptWithTypes;
 
 export interface OptionsTypeScriptParserOptions {
     /**
@@ -560,8 +560,8 @@ export interface OptionsUnoCSS extends OptionsOverrides {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Rules = Record<string, Linter.RuleEntry<any> | undefined> &
-    RuleOptions;
+export type Rules = Record<string, Linter.RuleEntry<any> | undefined>
+    & RuleOptions;
 
 export type StylisticConfig = Pick<
     StylisticCustomizeOptions,

@@ -36,8 +36,8 @@ const extract = (file: string) => {
                     ts.forEachChild(mNode, (vNode) => {
                         if (ts.isVariableDeclarationList(vNode)) {
                             for (const declaration of vNode.declarations) {
-                                const name =
-                                    ts.getNameOfDeclaration(declaration);
+                                const name
+                                    = ts.getNameOfDeclaration(declaration);
 
                                 const escaped = (
                                     name as unknown as { escapedText?: unknown }

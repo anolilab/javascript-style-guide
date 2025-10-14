@@ -2,8 +2,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { defineConfig, eslintExtensions } from "../src";
 
-const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock } =
-    vi.hoisted(() => {
+const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock }
+    = vi.hoisted(() => {
         return {
             // eslint-disable-next-line vitest/require-mock-type-parameters
             existsSyncMock: vi.fn(),
@@ -14,7 +14,7 @@ const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock } =
         };
     });
 
-vi.mock("@visulima/package", async (importOriginal) => {
+vi.mock(import("@visulima/package"), async (importOriginal) => {
     const original = await importOriginal();
 
     return {
@@ -25,7 +25,7 @@ vi.mock("@visulima/package", async (importOriginal) => {
     };
 });
 
-vi.mock("node:fs", async () => {
+vi.mock(import("node:fs"), async () => {
     return {
         existsSync: existsSyncMock,
     };

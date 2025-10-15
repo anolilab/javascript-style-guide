@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.4.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.1...@anolilab/eslint-config@16.4.2) (2025-10-15)
+
+### Bug Fixes
+
+* add unicorn/import-style rule to ESLint configuration ([da45755](https://github.com/anolilab/javascript-style-guide/commit/da457555e11573a7ba611ad09872e5eadbd8d2c4))
+
 ## @anolilab/eslint-config [16.4.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.0...@anolilab/eslint-config@16.4.1) (2025-10-15)
 
 ### Bug Fixes

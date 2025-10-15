@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.0.37](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.36...@anolilab/lint-staged-config@3.0.37) (2025-10-15)
+
+### Miscellaneous Chores
+
+* **deps:** update dependency jest to v29 ([#943](https://github.com/anolilab/javascript-style-guide/issues/943)) ([06a2a5e](https://github.com/anolilab/javascript-style-guide/commit/06a2a5e705d5323ddb190684d8a6dffba61fdad8))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.4.2
+
 ## @anolilab/lint-staged-config [3.0.36](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.35...@anolilab/lint-staged-config@3.0.36) (2025-10-15)
 
 

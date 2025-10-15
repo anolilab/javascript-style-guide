@@ -158,7 +158,7 @@ For example:
 {
     "scripts": {
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
+        "lint:fix": "eslint . --cache --concurrency auto --fix"
     }
 }
 ```

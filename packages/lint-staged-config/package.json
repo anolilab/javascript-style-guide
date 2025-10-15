@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/lint-staged-config",
-    "version": "3.0.34",
+    "version": "3.0.36",
     "description": "Shareable Lint-Staged Config for any project.",
     "keywords": [
         "anolilab",
@@ -65,7 +65,7 @@
         }
     },
     "bin": {
-        "lint-stage-config:install": "./dist/bin.js"
+        "lint-stage-config:install": "./dist/bin.mjs"
     },
     "files": [
         "CHANGELOG.md",
@@ -78,8 +78,8 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
-        "lint:eslint": "eslint .",
-        "lint:eslint:fix": "eslint . --fix",
+        "lint:eslint": "eslint . --cache --concurrency auto",
+        "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",
@@ -93,7 +93,7 @@
         "type-fest": "catalog:prod"
     },
     "devDependencies": {
-        "@anolilab/eslint-config": "16.3.3",
+        "@anolilab/eslint-config": "16.4.1",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

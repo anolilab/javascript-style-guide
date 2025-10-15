@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/eslint-config",
-    "version": "16.3.3",
+    "version": "16.4.1",
     "description": "ESLint shareable config for the Anolilab JavaScript style guide.",
     "keywords": [
         "anolilab",
@@ -111,8 +111,8 @@
         "clean": "rimraf node_modules dist",
         "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",
         "lint:attw": "attw --pack",
-        "lint:eslint": "eslint .",
-        "lint:eslint:fix": "eslint . --fix",
+        "lint:eslint": "eslint . --cache --concurrency auto",
+        "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",

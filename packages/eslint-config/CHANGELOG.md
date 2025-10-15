@@ -1,3 +1,23 @@
+## @anolilab/eslint-config [16.4.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.0...@anolilab/eslint-config@16.4.1) (2025-10-15)
+
+### Bug Fixes
+
+* removed TERM_PROGRAM check for vscode ([1070d11](https://github.com/anolilab/javascript-style-guide/commit/1070d119c332b63c7536e027e24f96fea669e737))
+
+## @anolilab/eslint-config [16.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.3...@anolilab/eslint-config@16.4.0) (2025-10-14)
+
+### Features
+
+* enhance ESLint configuration with new rules and ignores ([3e1cb7b](https://github.com/anolilab/javascript-style-guide/commit/3e1cb7be01cf3377243cdebf6241bc25acc86754))
+
+### Miscellaneous Chores
+
+* update ESLint configuration and dependencies ([52058a1](https://github.com/anolilab/javascript-style-guide/commit/52058a1f290734801dfd7d98743db2d351687541))
+
+### Code Refactoring
+
+* improve ESLint and Prettier configurations ([db30fca](https://github.com/anolilab/javascript-style-guide/commit/db30fcafac696fe1b103293dc6f4a6dd0d72f51a))
+
 ## @anolilab/eslint-config [16.3.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.2...@anolilab/eslint-config@16.3.3) (2025-10-02)
 
 ### Bug Fixes

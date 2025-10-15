@@ -1,8 +1,18 @@
+## @anolilab/prettier-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.6...@anolilab/prettier-config@6.0.7) (2025-10-14)
+
+### Bug Fixes
+
+* update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
+
+### Code Refactoring
+
+* improve ESLint and Prettier configurations ([db30fca](https://github.com/anolilab/javascript-style-guide/commit/db30fcafac696fe1b103293dc6f4a6dd0d72f51a))
+
 ## @anolilab/prettier-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.5...@anolilab/prettier-config@6.0.6) (2025-10-02)
 
 ### Bug Fixes
 
-* update prettier-config to use pnpm preset ([185d89b](https://github.com/anolilab/javascript-style-guide/commit/185d89b5bf01223ff931d0b9417f54a715880b39))
+- update prettier-config to use pnpm preset ([185d89b](https://github.com/anolilab/javascript-style-guide/commit/185d89b5bf01223ff931d0b9417f54a715880b39))
 
 ## @anolilab/prettier-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.4...@anolilab/prettier-config@6.0.5) (2025-10-02)
 

@@ -1,4 +1,5 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
+import { readTsConfig } from "@visulima/tsconfig";
 
 import type {
     OptionsCwd,
@@ -30,6 +31,16 @@ export default createConfig<
 
     const importPlugin = await interopDefault(import("eslint-plugin-import-x"));
     const tsParser = await interopDefault(import("@typescript-eslint/parser"));
+
+    let hasRewriteExtensions = false;
+
+    if (tsconfigPath !== undefined) {
+        const tsConfig = readTsConfig(tsconfigPath);
+
+        // Check if rewriteRelativeImportExtensions is enabled
+        hasRewriteExtensions
+            = tsConfig.compilerOptions?.rewriteRelativeImportExtensions === true;
+    }
 
     const rules: TypedFlatConfigItem[] = [
         {
@@ -73,31 +84,45 @@ export default createConfig<
 
                 // Ensure consistent use of file extension within the import path
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
-                "import/extensions": [
-                    "error",
-                    "ignorePackages",
-                    {
-                        checkTypeImports: tsconfigPath !== undefined,
-                        ignorePackages: true,
-                        pattern: {
-                            ...packageJson.type === "module"
-                                ? {
-                                    cjs: "always",
-                                    js: "always",
-                                    json: "always",
-                                    jsx: "always",
-                                    mjs: "always",
-                                }
-                                : {
-                                    cjs: "never",
-                                    js: "never",
-                                    json: "always",
-                                    jsx: "never",
-                                    mjs: "never",
-                                },
+                // When rewriteRelativeImportExtensions is enabled, allow .ts extensions
+                // since TypeScript will rewrite them to .js at compile time
+                "import/extensions": hasRewriteExtensions
+                    ? "off"
+                    : [
+                        "error",
+                        "ignorePackages",
+                        {
+                            checkTypeImports: tsconfigPath !== undefined,
+                            // Always require a file extension except from packages
+                            // https://github.com/Microsoft/TypeScript/issues/27481
+                            ignorePackages: true,
+                            pattern: {
+                                ...packageJson.type === "module"
+                                    ? {
+                                        cjs: "always",
+                                        cts: "never",
+                                        js: "always",
+                                        json: "always",
+                                        jsx: "always",
+                                        mjs: "always",
+                                        mts: "never",
+                                        ts: "never",
+                                        tsx: "never",
+                                    }
+                                    : {
+                                        cjs: "never",
+                                        cts: "never",
+                                        js: "never",
+                                        json: "always",
+                                        jsx: "never",
+                                        mjs: "never",
+                                        mts: "never",
+                                        ts: "never",
+                                        tsx: "never",
+                                    },
+                            },
                         },
-                    },
-                ],
+                    ],
 
                 // disallow non-import statements appearing before import statements
                 // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md
@@ -206,18 +231,15 @@ export default createConfig<
                             "test/**", // tape, common npm pattern
                             "tests/**", // also common npm pattern
                             "spec/**", // mocha, rspec-like pattern
+                            "**/scripts/**",
                             "**/fixture/**", // jest pattern
                             "**/__mocks__/**", // jest pattern
-                            "test.{js,jsx}", // repos with a single test file
-                            "test-*.{js,jsx}", // repos with multiple top-level test files
-                            "**/*{.,_}{test,spec}.{js,jsx}", // tests where the extension or filename suffix denotes that it is a test
-                            "**/jest.config.cjs", // jest config
+                            "**/examples/**",
+                            "**/__{tests,mocks}__/**", // jest pattern
+                            "test.{js,jsx,ts,tsx}", // repos with a single test file
+                            "test-*.{js,jsx,ts,tsx}", // repos with multiple top-level test files
+                            "**/*{.,_}{test,spec}.{js,jsx,ts,tsx}", // tests where the extension or filename suffix denotes that it is a test
                             "**/jest.setup.js", // jest setup
-                            "**/vue.config.cjs", // vue-cli config
-                            "**/webpack.config.cjs", // webpack config
-                            "**/webpack.config.*.js", // webpack config
-                            "**/rollup.config.cjs", // rollup config
-                            "**/rollup.config.*.js", // rollup config
                             "**/gulpfile.js", // gulp config
                             "**/gulpfile.*.js", // gulp config
                             "**/Gruntfile{,.js}", // grunt config
@@ -227,15 +249,11 @@ export default createConfig<
                             "**/.eslintrc.js", // eslint config
                             "**/.eslintrc.cjs", // eslint config
                             "**/.eslintrc.mjs", // eslint config
-                            "**/eslint.config.js", // eslint flat config
-                            "**/eslint.config.mjs", // eslint flat config
-                            "**/eslint.config.cjs", // eslint flat config
-                            "**/vite.config.js", // vite config
-                            "**/vite.config.ts", // vite config
-                            "**/vitest.config.js", // vitest config
-                            "**/vitest.config.ts", // vitest config
+                            "**/*.config.{js,cjs,mjs,ts,cts,mts}", // any config (eg. jest, webpack, rollup, postcss, vue)
+                            "**/.*.js", // invisible config files
                             "**/__tests__/**/*.?(c|m)[jt]s?(x)", // vitest config test include
                             "**/?(*.){test,spec}.?(c|m)[jt]s?(x)", // vitest config test include
+                            "README.md",
                         ],
                         optionalDependencies: false,
                     },

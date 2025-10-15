@@ -198,12 +198,9 @@ export const createConfig = async (
     }
 
     const cwd = options.cwd ?? process.cwd();
-    const packageJson = await parsePackageJson(
-        join(cwd, "package.json"),
-        {
-            resolveCatalogs: true,
-        },
-    );
+    const packageJson = await parsePackageJson(join(cwd, "package.json"), {
+        resolveCatalogs: true,
+    });
 
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, [
         "prettier",

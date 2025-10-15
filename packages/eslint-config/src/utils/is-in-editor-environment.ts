@@ -9,10 +9,6 @@ const isInEditorEnvironment = (): boolean => {
         return false;
     }
 
-    if (process.env["TERM_PROGRAM"] === "vscode") {
-        return true;
-    }
-
     return !!(
         process.env["VSCODE_PID"]
         ?? process.env["VSCODE_CWD"]

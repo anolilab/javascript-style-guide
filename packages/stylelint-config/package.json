@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/stylelint-config",
-    "version": "7.0.8",
+    "version": "7.0.9",
     "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
         "css",
@@ -168,7 +168,7 @@
         }
     },
     "bin": {
-        "stylelint-config:install": "./dist/bin.js"
+        "stylelint-config:install": "./dist/bin.mjs"
     },
     "files": [
         "dist",
@@ -191,7 +191,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "6.0.5",
+        "browserslist-config-anolilab": "6.0.6",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",

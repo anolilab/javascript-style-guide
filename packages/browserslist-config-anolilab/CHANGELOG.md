@@ -1,3 +1,13 @@
+## browserslist-config-anolilab [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.5...browserslist-config-anolilab@6.0.6) (2025-10-14)
+
+### Bug Fixes
+
+* update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
+
+### Code Refactoring
+
+* remove isolatedDeclarationTransformer from browserslist-config-anolilab configuration ([9bac090](https://github.com/anolilab/javascript-style-guide/commit/9bac090854ae699438b2ae164ffa7a540cacbf4a))
+
 ## browserslist-config-anolilab [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.4...browserslist-config-anolilab@6.0.5) (2025-10-02)
 
 ### Bug Fixes

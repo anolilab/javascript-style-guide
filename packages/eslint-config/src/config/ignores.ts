@@ -40,6 +40,35 @@ const ignores = async (
             "**/auto-import?(s).d.ts",
             "**/components.d.ts",
 
+            "{tmp,temp}/**",
+            "**/*.min.js",
+            "**/dist/**",
+            "**/node_modules/**",
+            "**/vendor/**",
+            "**/.cache/**",
+
+            // Ignore VitePress cache
+            "**/.vitepress",
+
+            // Ignore AI assistant documentation files
+            "**/CLAUDE.md",
+            "**/.claude",
+            "**/AI.md",
+            "**/AGENT.md",
+            "**/PROMPT.md",
+            "**/PROMPTING.md",
+
+            // Cursor IDE
+            "**/.cursorrules",
+            "**/.cursorignore",
+            "**/.cursormem.json",
+            "**/.cursorhistory",
+
+            // GitHub Copilot
+            "**/copilot.json",
+            "**/copilot.config.json",
+            "**/copilot.md",
+
             ...userIgnores,
         ],
         name: "anolilab/ignores",

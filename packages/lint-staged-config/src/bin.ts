@@ -2,11 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { exit } from "node:process";
 
-import {
-    ensureDirSync,
-    isAccessibleSync,
-    writeFileSync,
-} from "@visulima/fs";
+import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 import type { NormalizedPackageJson } from "@visulima/package";
 import {
     hasPackageJsonAnyDependency,

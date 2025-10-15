@@ -93,12 +93,9 @@ export const defineConfig = (
         );
     }
 
-    const packageJson = parsePackageJsonSync(
-        `${cwd}/package.json`,
-        {
-            resolveCatalogs: true,
-        },
-    );
+    const packageJson = parsePackageJsonSync(`${cwd}/package.json`, {
+        resolveCatalogs: true,
+    });
     const { packageManager } = findPackageManagerSync(cwd);
 
     if (config.debug) {

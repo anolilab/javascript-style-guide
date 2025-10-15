@@ -12,5 +12,6 @@ export default defineConfig({
             path: "./LICENSE.md",
         },
     },
+    runtime: "node",
     transformer,
 });

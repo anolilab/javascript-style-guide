@@ -62,6 +62,26 @@ export default createConfig<
                     },
                 ],
 
+                "unicorn/import-style": [
+                    "error",
+                    {
+                        styles: {
+                            "node:path": {
+                                named: true,
+                            },
+                            "node:util": {
+                                named: true,
+                            },
+                            path: {
+                                named: true,
+                            },
+                            util: {
+                                named: true,
+                            },
+                        },
+                    },
+                ],
+
                 "unicorn/no-abusive-eslint-disable": "error",
 
                 "unicorn/no-array-for-each": "off",

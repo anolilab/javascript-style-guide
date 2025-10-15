@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.4.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.0...@anolilab/eslint-config@16.4.1) (2025-10-15)
+
+### Bug Fixes
+
+* removed TERM_PROGRAM check for vscode ([1070d11](https://github.com/anolilab/javascript-style-guide/commit/1070d119c332b63c7536e027e24f96fea669e737))
+
 ## @anolilab/eslint-config [16.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.3.3...@anolilab/eslint-config@16.4.0) (2025-10-14)
 
 ### Features

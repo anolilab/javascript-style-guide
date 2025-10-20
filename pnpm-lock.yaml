@@ -92,8 +92,8 @@ catalogs:
       specifier: ^4.4.1
       version: 4.4.1
     '@tanstack/eslint-plugin-query':
-      specifier: ^5.91.1
-      version: 5.91.1
+      specifier: ^5.91.2
+      version: 5.91.2
     '@tanstack/eslint-plugin-router':
       specifier: ^1.132.31
       version: 1.132.31
@@ -884,7 +884,7 @@ importers:
         version: 4.4.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@tanstack/eslint-plugin-query':
         specifier: catalog:lint
-        version: 5.91.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
+        version: 5.91.2(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@tanstack/eslint-plugin-router':
         specifier: catalog:lint
         version: 1.132.31(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
@@ -1044,7 +1044,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 16.4.2
-        version: 16.4.2(7b899ac2a29601aae93c87d6cafcbc3b)
+        version: 16.4.2(b326c70f9fb61f40e9b6310480695b2b)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
         version: 2.0.4(@types/node@24.6.2)(yaml@2.8.1)
@@ -3077,8 +3077,8 @@ packages:
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
 
-  '@tanstack/eslint-plugin-query@5.91.1':
-    resolution: {integrity: sha512-qbOAm0p7RCEVW5ZyJrqu2sed8hq6YbVqZmfG+C5IZSVOd9GL4XgK8XvF9QsEbaqUzxQrIjw4EEWnYlaYYNd42A==}
+  '@tanstack/eslint-plugin-query@5.91.2':
+    resolution: {integrity: sha512-UPeWKl/Acu1IuuHJlsN+eITUHqAaa9/04geHHPedY8siVarSaWprY0SVMKrkpKfk5ehRT7+/MZ5QwWuEtkWrFw==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
@@ -10684,7 +10684,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.4.2(7b899ac2a29601aae93c87d6cafcbc3b)':
+  '@anolilab/eslint-config@16.4.2(b326c70f9fb61f40e9b6310480695b2b)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.36.0(jiti@2.6.0))
       '@eslint/compat': 1.4.0(eslint@9.36.0(jiti@2.6.0))
@@ -10739,7 +10739,7 @@ snapshots:
     optionalDependencies:
       '@eslint-react/eslint-plugin': 2.2.2(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@eslint/css': 0.13.0
-      '@tanstack/eslint-plugin-query': 5.91.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
+      '@tanstack/eslint-plugin-query': 5.91.2(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@tanstack/eslint-plugin-router': 1.132.31(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       '@unocss/eslint-plugin': 66.5.4(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       astro-eslint-parser: 1.2.2
@@ -12723,7 +12723,7 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tanstack/eslint-plugin-query@5.91.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-query@5.91.2(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.46.1(eslint@9.36.0(jiti@2.6.0))(typescript@5.9.3)
       eslint: 9.36.0(jiti@2.6.0)

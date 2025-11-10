@@ -2,11 +2,11 @@
 
 ### Bug Fixes
 
-* update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
+- update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
 
 ### Code Refactoring
 
-* improve ESLint and Prettier configurations ([db30fca](https://github.com/anolilab/javascript-style-guide/commit/db30fcafac696fe1b103293dc6f4a6dd0d72f51a))
+- improve ESLint and Prettier configurations ([db30fca](https://github.com/anolilab/javascript-style-guide/commit/db30fcafac696fe1b103293dc6f4a6dd0d72f51a))
 
 ## @anolilab/prettier-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.5...@anolilab/prettier-config@6.0.6) (2025-10-02)
 

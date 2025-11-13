@@ -88,6 +88,9 @@ export default createConfig<
 
                 "unicorn/no-instanceof-builtins": "error",
 
+                // Disabled because of the use of sonarjs/no-nested-conditional
+                "unicorn/no-nested-ternary": "off",
+
                 // TODO: Temporarily disabled until it becomes more mature.
                 "unicorn/no-useless-undefined": "off",
 
@@ -137,7 +140,8 @@ export default createConfig<
                 ...prettier
                     ? {
                         "unicorn/empty-brace-spaces": "off",
-                        "unicorn/no-nested-ternary": "off",
+                        // Its disabled
+                        // "unicorn/no-nested-ternary": "off",
                         "unicorn/number-literal-case": "off",
                         "unicorn/template-indent": "off",
                     }

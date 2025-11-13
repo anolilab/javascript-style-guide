@@ -230,7 +230,7 @@ Add the following settings to your `.vscode/settings.json`:
         "source.organizeImports": "never"
     },
 
-    // Silent the stylistic rules in you IDE, but still auto fix them
+    // Silent the stylistic rules in your IDE, but still auto fix them
     "eslint.rules.customizations": [
         { "rule": "style/*", "severity": "off", "fixable": true },
         { "rule": "format/*", "severity": "off", "fixable": true },
@@ -324,7 +324,7 @@ lspconfig.eslint.setup(
       "postcss"
     },
     settings = {
-      -- Silent the stylistic rules in you IDE, but still auto fix them
+      -- Silent the stylistic rules in your IDE, but still auto fix them
       rulesCustomizations = customizations,
     },
   }

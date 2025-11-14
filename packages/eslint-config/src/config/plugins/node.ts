@@ -1,3 +1,5 @@
+import { minVersion } from "semver";
+
 import type {
     OptionsFiles,
     OptionsOverrides,
@@ -14,7 +16,10 @@ export default createConfig<
 
     const pluginNode = await interopDefault(import("eslint-plugin-n"));
 
-    const nodeVersion = packageJson.engines?.["node"];
+    const nodeVersionRange = packageJson.engines?.["node"];
+    const nodeVersion = nodeVersionRange
+        ? minVersion(nodeVersionRange)?.version
+        : undefined;
 
     return [
         {

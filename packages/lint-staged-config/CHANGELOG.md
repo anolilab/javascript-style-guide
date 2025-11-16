@@ -1,3 +1,20 @@
+## @anolilab/lint-staged-config [3.0.38](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.37...@anolilab/lint-staged-config@3.0.38) (2025-11-16)
+
+### Bug Fixes
+
+* **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
+* **deps:** update package versions and configurations ([e5b9cb5](https://github.com/anolilab/javascript-style-guide/commit/e5b9cb5195c4a9a4a481e9eb967fc5a0f92e1add))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency secretlint to v11 ([#944](https://github.com/anolilab/javascript-style-guide/issues/944)) ([85af8ce](https://github.com/anolilab/javascript-style-guide/commit/85af8ce69fd7ca592d57c11db4b7168598c139d9))
+* **deps:** update dependency vitest to v4 ([#964](https://github.com/anolilab/javascript-style-guide/issues/964)) ([68f27e2](https://github.com/anolilab/javascript-style-guide/commit/68f27e27c172be51bde47f0b59fc1f16d8bd85d0))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 16.4.3
+
 ## @anolilab/lint-staged-config [3.0.37](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.36...@anolilab/lint-staged-config@3.0.37) (2025-10-15)
 
 ### Miscellaneous Chores

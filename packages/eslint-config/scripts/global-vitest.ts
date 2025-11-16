@@ -59,6 +59,7 @@ const extract = (file: string) => {
 
 const require = createRequire(import.meta.url);
 const packagePath = require.resolve("vitest/package.json");
+const vitestDirectory = dirname(packagePath);
 
 const {
     default: { version: vitestVersion },
@@ -70,7 +71,7 @@ if (!vitestVersion) {
     showMessageAndExit("Vitest version cannot be read.");
 }
 
-const globalsPath = require.resolve("vitest/globals.d.ts");
+const globalsPath = join(vitestDirectory, "globals.d.ts");
 
 const globalsArray = extract(globalsPath);
 const globals: Record<string, boolean> = {};

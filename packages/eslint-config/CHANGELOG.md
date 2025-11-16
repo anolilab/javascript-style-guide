@@ -1,3 +1,14 @@
+## @anolilab/eslint-config [16.4.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.2...@anolilab/eslint-config@16.4.3) (2025-11-16)
+
+### Bug Fixes
+
+* **deps:** update eslint (minor) ([#959](https://github.com/anolilab/javascript-style-guide/issues/959)) ([a3df8b5](https://github.com/anolilab/javascript-style-guide/commit/a3df8b5b0cad5d4b46fb2fe80157fa589685d108))
+* **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
+* **deps:** update package versions and configurations ([c0a4bbf](https://github.com/anolilab/javascript-style-guide/commit/c0a4bbf2809fce97461ff663e351c56e8037dc20))
+* **deps:** update package versions and configurations ([e5b9cb5](https://github.com/anolilab/javascript-style-guide/commit/e5b9cb5195c4a9a4a481e9eb967fc5a0f92e1add))
+* **eslint:** disable unicorn/no-nested-ternary rule due to sonarjs conflict ([ebb5ed3](https://github.com/anolilab/javascript-style-guide/commit/ebb5ed3d42c551e7037d1175b9fcc739239dbd81))
+* **eslint:** resolve globals path for Vitest by using the correct directory ([a30ce47](https://github.com/anolilab/javascript-style-guide/commit/a30ce476d3ccdddf098db1489e39a8eff836d039))
+
 ## @anolilab/eslint-config [16.4.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.1...@anolilab/eslint-config@16.4.2) (2025-10-15)
 
 ### Bug Fixes

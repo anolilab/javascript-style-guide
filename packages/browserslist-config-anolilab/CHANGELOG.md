@@ -1,3 +1,9 @@
+## browserslist-config-anolilab [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.6...browserslist-config-anolilab@6.0.7) (2025-11-16)
+
+### Bug Fixes
+
+* **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
+
 ## browserslist-config-anolilab [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.5...browserslist-config-anolilab@6.0.6) (2025-10-14)
 
 ### Bug Fixes

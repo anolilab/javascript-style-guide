@@ -1,3 +1,13 @@
+## @anolilab/commitlint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.6...@anolilab/commitlint-config@6.0.7) (2025-11-16)
+
+### Bug Fixes
+
+* **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency @commitlint/cli to v20 ([#942](https://github.com/anolilab/javascript-style-guide/issues/942)) ([cfa0bbf](https://github.com/anolilab/javascript-style-guide/commit/cfa0bbfe45e6f0052c4b2ce8c6b5cd4ec3c1d4b4))
+
 ## @anolilab/commitlint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.5...@anolilab/commitlint-config@6.0.6) (2025-10-14)
 
 ### Bug Fixes

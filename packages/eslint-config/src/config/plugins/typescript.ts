@@ -424,22 +424,8 @@ export default createConfig<
 
             // Replace 'no-unused-vars' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.mdx
-            "@typescript-eslint/no-unused-vars": [
-                "error",
-                {
-                    args: "after-used",
-                    argsIgnorePattern: "^_",
-                    caughtErrorsIgnorePattern: "^_",
-                    ignoreRestSiblings: true,
-
-                    /**
-                     * TypeScript ignores any variables that are prefixed with _
-                     * https://github.com/microsoft/TypeScript/pull/9464
-                     */
-                    vars: "all",
-                    varsIgnorePattern: "^_",
-                },
-            ],
+            // Disabled in favor of unused-imports plugin
+            "@typescript-eslint/no-unused-vars": "off",
 
             // Replace 'no-use-before-define' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.mdx

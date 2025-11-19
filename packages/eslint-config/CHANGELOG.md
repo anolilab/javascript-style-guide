@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [16.4.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.3...@anolilab/eslint-config@16.4.4) (2025-11-19)
+
+### Bug Fixes
+
+* **eslint:** integrate unused-imports plugin and disable no-unused-vars rules ([1969831](https://github.com/anolilab/javascript-style-guide/commit/196983121a0dce1950bd016b879c556c0d0b6bb8))
+
 ## @anolilab/eslint-config [16.4.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.2...@anolilab/eslint-config@16.4.3) (2025-11-16)
 
 ### Bug Fixes

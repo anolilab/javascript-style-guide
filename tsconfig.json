@@ -3,38 +3,36 @@
     "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node16/tsconfig"],
     "display": "Node 16",
     "compilerOptions": {
-        "baseUrl": ".",
+        "incremental": true,
+        "tsBuildInfoFile": ".tsbuildinfo",
         "target": "es2021",
+        "baseUrl": ".",
         "module": "ESNext",
         "moduleResolution": "Bundler",
-
-        "noEmit": true,
-        "declaration": true,
+        "resolveJsonModule": true,
         "allowJs": true,
-
-        "alwaysStrict": true,
-        "strictNullChecks": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
-        "stripInternal": true,
+        "strictNullChecks": true,
 
         "strictPropertyInitialization": true,
 
+        "alwaysStrict": true,
+
+        "exactOptionalPropertyTypes": false,
         "noImplicitThis": true,
-        "useUnknownInCatchVariables": true,
-
-        "isolatedModules": true,
-        "verbatimModuleSyntax": true,
-        "resolveJsonModule": true,
-        "inlineSources": false,
-
-        "removeComments": true,
-        "incremental": true,
-        "tsBuildInfoFile": ".tsbuildinfo",
 
         "noPropertyAccessFromIndexSignature": true,
+        "useUnknownInCatchVariables": true,
 
-        "exactOptionalPropertyTypes": false
+        "declaration": true,
+        "inlineSources": false,
+        "noEmit": true,
+
+        "removeComments": true,
+        "stripInternal": true,
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true
     },
     "exclude": [
         "dist",

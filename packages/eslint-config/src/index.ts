@@ -47,6 +47,7 @@ import tsdoc from "./config/plugins/tsdoc";
 import typescript from "./config/plugins/typescript";
 import unicorn from "./config/plugins/unicorn";
 import unocss from "./config/plugins/unocss";
+import unusedImports from "./config/plugins/unused-imports";
 import validateJsxNesting from "./config/plugins/validate-jsx-nesting";
 import vitest from "./config/plugins/vitest";
 import yaml from "./config/plugins/yml";
@@ -803,6 +804,10 @@ export const createConfig = async (
             isInEditor,
         }),
         variables({}),
+        unusedImports({
+            files: getFiles(options, "unusedImports"),
+            isInEditor,
+        }),
         comments({
             files: getFiles(options, "comments"),
             overrides: getOverrides(options, "comments"),

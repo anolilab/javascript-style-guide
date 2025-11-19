@@ -57,11 +57,8 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
     // https://eslint.org/docs/rules/no-undefined
     "no-undefined": "off",
 
-    // disallow declaration of variables that are not used in the code
-    "no-unused-vars": [
-        "error",
-        { args: "after-used", ignoreRestSiblings: true, vars: "all" },
-    ],
+    // Disabled in favor of unused-imports plugin
+    "no-unused-vars": "off",
 
     // disallow use of variables before they are defined
     "no-use-before-define": [

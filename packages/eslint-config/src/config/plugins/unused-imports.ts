@@ -3,7 +3,7 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<OptionsFiles & OptionsIsInEditor>(
-    "js",
+    "all",
     async (config, oFiles) => {
         const { files = oFiles, isInEditor } = config;
 
@@ -19,15 +19,16 @@ export default createConfig<OptionsFiles & OptionsIsInEditor>(
                     "unused-imports": pluginUnusedImports,
                 },
                 rules: {
+                    "@typescript-eslint/no-unused-vars": "off",
+                    "no-unused-vars": "off",
                     "unused-imports/no-unused-imports": isInEditor
                         ? "off"
                         : "error",
                     "unused-imports/no-unused-vars": [
-                        "error",
+                        isInEditor ? "warn" : "error",
                         {
                             args: "after-used",
                             argsIgnorePattern: "^_",
-                            ignoreRestSiblings: true,
                             vars: "all",
                             varsIgnorePattern: "^_",
                         },

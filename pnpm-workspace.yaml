@@ -8,7 +8,7 @@ catalogs:
   cli:
     '@anolilab/multi-semantic-release': ^2.0.9
     '@anolilab/semantic-release-pnpm': ^2.0.5
-    '@anolilab/semantic-release-preset': 11.0.4
+    '@anolilab/semantic-release-preset': 11.0.5
     commitizen: ^4.3.1
     semantic-release: ^25.0.2
     taze: ^19.9.0
@@ -33,7 +33,7 @@ catalogs:
     '@html-eslint/eslint-plugin': ^0.48.0
     '@html-eslint/parser': ^0.48.0
     '@secretlint/secretlint-rule-preset-recommend': ^11.2.5
-    '@stylistic/eslint-plugin': ^5.5.0
+    '@stylistic/eslint-plugin': ^5.6.0
     '@stylistic/eslint-plugin-migrate': ^4.4.1
     '@stylistic/eslint-plugin-ts': ^4.4.1
     '@tanstack/eslint-plugin-query': ^5.91.2
@@ -41,10 +41,10 @@ catalogs:
     '@textlint-rule/textlint-rule-no-invalid-control-character': ^3.0.0
     '@textlint-rule/textlint-rule-no-unmatched-pair': ^2.0.4
     '@textlint-rule/textlint-rule-preset-google': ^0.1.2
-    '@textlint/ast-node-types': ^15.3.0
-    '@textlint/types': ^15.3.0
+    '@textlint/ast-node-types': ^15.4.0
+    '@textlint/types': ^15.4.0
     '@unocss/eslint-plugin': ^66.5.6
-    '@vitest/eslint-plugin': ^1.4.2
+    '@vitest/eslint-plugin': ^1.4.3
     astro-eslint-parser: ^1.2.2
     eslint: ^9.39.1
     eslint-config-flat-gitignore: ^2.1.0
@@ -81,7 +81,7 @@ catalogs:
     eslint-plugin-security: ^3.0.1
     eslint-plugin-simple-import-sort: ^12.1.1
     eslint-plugin-sonarjs: ^3.0.5
-    eslint-plugin-storybook: ^10.0.7
+    eslint-plugin-storybook: ^10.0.8
     eslint-plugin-tailwindcss: ^3.18.2
     eslint-plugin-testing-library: ^7.13.4
     eslint-plugin-toml: ^0.12.0
@@ -107,7 +107,7 @@ catalogs:
     stylelint-no-unsupported-browser-features: ^8.0.5
     stylelint-require-units: ^2.0.0
     stylelint-selector-no-empty: ^1.0.9
-    textlint: ^15.3.0
+    textlint: ^15.4.0
     textlint-filter-rule-comments: ^1.2.2
     textlint-rule-abbr-within-parentheses: ^1.0.2
     textlint-rule-alex: ^5.0.0
@@ -124,12 +124,12 @@ catalogs:
     textlint-rule-terminology: ^5.2.16
     textlint-rule-write-good: ^2.0.0
     toml-eslint-parser: ^0.10.0
-    typescript-eslint: ^8.46.4
+    typescript-eslint: ^8.47.0
     yaml-eslint-parser: ^1.3.0
   monorepo:
     nx: 22.0.3
   network:
-    browserslist: 4.26.3
+    browserslist: 4.28.0
     browserslist-config-anolilab: 6.0.6
     confusing-browser-globals: ^1.0.11
   node:
@@ -141,7 +141,7 @@ catalogs:
     rimraf: ^6.1.0
     tinyglobby: ^0.2.15
   peer:
-    nano-staged: ^0.8
+    nano-staged: ^0.9.0
   prod:
     '@visulima/fs': 4.0.5
     '@visulima/package': ^4.1.6
@@ -161,11 +161,11 @@ catalogs:
     tailwind-csstree: 0.1.4
   test:
     '@testing-library/dom': ^10.4.1
-    '@vitest/coverage-v8': ^4.0.9
-    vitest: ^4.0.9
+    '@vitest/coverage-v8': ^4.0.10
+    vitest: ^4.0.10
   tsc:
     '@total-typescript/ts-reset': ^0.6.1
-    '@tsconfig/node16': ^16.1.7
+    '@tsconfig/node16': ^16.1.8
     '@tsconfig/strictest': ^2.0.8
     '@visulima/tsconfig': ^2.1.2
     typescript: ^5.9.3
@@ -177,8 +177,8 @@ catalogs:
     '@types/node': 24.6.2
     '@types/semver': ^7.7.1
     '@types/shell-quote': ^1.7.5
-    '@typescript-eslint/parser': ^8.46.4
-    '@typescript-eslint/types': ^8.46.4
+    '@typescript-eslint/parser': ^8.47.0
+    '@typescript-eslint/types': ^8.47.0
   utils:
     caniuse-lite: ^1.0.30001755
     semver: ^7.7.3
@@ -193,6 +193,8 @@ onlyBuiltDependencies:
 overrides:
   axios@<1.12.0: '>=1.13.2'
   chrono-node@<2.2.4: '>=2.9.0'
+  glob@>=10.3.7 <10.5.0: '>=10.5.0'
+  glob@>=11.0.0 <11.1.0: '>=11.1.0'
   js-yaml@<4.1.1: '>=4.1.1'
   tmp@<=0.2.3: '>=0.2.5'
   vite@>=7.1.0 <=7.1.10: '>=7.2.2'

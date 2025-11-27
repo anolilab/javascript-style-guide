@@ -95,8 +95,8 @@ catalogs:
       specifier: ^5.91.2
       version: 5.91.2
     '@tanstack/eslint-plugin-router':
-      specifier: ^1.133.19
-      version: 1.133.19
+      specifier: ^1.139.0
+      version: 1.139.0
     '@textlint-rule/textlint-rule-no-invalid-control-character':
       specifier: ^3.0.0
       version: 3.0.0
@@ -888,7 +888,7 @@ importers:
         version: 5.91.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@tanstack/eslint-plugin-router':
         specifier: catalog:lint
-        version: 1.133.19(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+        version: 1.139.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@testing-library/dom':
         specifier: catalog:test
         version: 10.4.1
@@ -1042,7 +1042,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 16.4.4
-        version: 16.4.4(173d5c9b0ea1c2f22812a087bda96e13)
+        version: 16.4.4(cf221b3c071d2447a0e8dc3611cdfbd3)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
         version: 2.0.5(@types/node@24.10.1)(yaml@2.8.1)
@@ -3237,8 +3237,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  '@tanstack/eslint-plugin-router@1.133.19':
-    resolution: {integrity: sha512-sRiOZkTdrZOkLIh/pFlYcJvtzFE7vXv8m+r5ENUNex5MJ5GNSfp8Pc5bUJvAQWxTPNDZmu3uDZgth+o8wQ7ttQ==}
+  '@tanstack/eslint-plugin-router@1.139.0':
+    resolution: {integrity: sha512-1lNmOtQF6VzDiGYulpYpdX/K8odTjmU5QJ3Mj/U05NDyzXj4aBBBo8y13PnnafOpsKm9sKar5xtMSjOnFCur3A==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
@@ -10969,7 +10969,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.4.4(173d5c9b0ea1c2f22812a087bda96e13)':
+  '@anolilab/eslint-config@16.4.4(cf221b3c071d2447a0e8dc3611cdfbd3)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.39.1(jiti@2.6.1))
       '@eslint/compat': 2.0.0(eslint@9.39.1(jiti@2.6.1))
@@ -11025,7 +11025,7 @@ snapshots:
       '@eslint-react/eslint-plugin': 2.3.5(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@eslint/css': 0.14.1
       '@tanstack/eslint-plugin-query': 5.91.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@tanstack/eslint-plugin-router': 1.133.19(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@tanstack/eslint-plugin-router': 1.139.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@unocss/eslint-plugin': 66.5.6(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       astro-eslint-parser: 1.2.2
       eslint-plugin-astro: 1.5.0(eslint@9.39.1(jiti@2.6.1))
@@ -13070,7 +13070,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@tanstack/eslint-plugin-router@1.133.19(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-router@1.139.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.47.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.1(jiti@2.6.1)

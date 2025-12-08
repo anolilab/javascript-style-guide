@@ -113,8 +113,8 @@ catalogs:
       specifier: ^15.4.0
       version: 15.4.0
     '@unocss/eslint-plugin':
-      specifier: ^66.5.6
-      version: 66.5.6
+      specifier: ^66.5.10
+      version: 66.5.10
     '@vitest/eslint-plugin':
       specifier: ^1.4.3
       version: 1.4.3
@@ -912,7 +912,7 @@ importers:
         version: 7.7.1
       '@unocss/eslint-plugin':
         specifier: catalog:lint
-        version: 66.5.6(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+        version: 66.5.10(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@visulima/packem':
         specifier: catalog:dev
         version: 2.0.0-alpha.36(@arethetypeswrong/core@0.18.2)(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)(@csstools/postcss-slow-plugins@2.0.0(postcss@8.5.6))(@types/node@24.10.1)(@visulima/css-style-inject@1.0.0-alpha.9)(esbuild@0.27.0)(github-slugger@2.0.0)(lightningcss@1.30.2)(package-manager-detector@1.5.0)(postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.6)(tsx@4.20.6)(yaml@2.8.1))(postcss-value-parser@4.2.0)(postcss@8.5.6)(sucrase@3.35.0)(typescript@5.9.3)(yaml@2.8.1)
@@ -1042,7 +1042,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 16.4.4
-        version: 16.4.4(173d5c9b0ea1c2f22812a087bda96e13)
+        version: 16.4.4(3c35711fb3c8a509c2e9f8f2226ff22b)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
         version: 2.0.5(@types/node@24.10.1)(yaml@2.8.1)
@@ -3679,19 +3679,19 @@ packages:
     resolution: {integrity: sha512-SIV3/6eftCy1bNzCQoPmbWsRLujS8t5iDIZ4spZOBHqrM+yfX2ogg8Tt3PDTAVKw3sSCiUgg30uOAvK2r9zGjQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@unocss/config@66.5.6':
-    resolution: {integrity: sha512-awJSz9i1W6KpviNT+0l+xqHouW9naWg/ksiu/Dkko1QHo8a3RCJwZ/W6MBBOjQqbFNPPcD7f+6ffTMm+jXHsaw==}
+  '@unocss/config@66.5.10':
+    resolution: {integrity: sha512-udBhfMe+2MU70ZdjnRLnwLQ+0EHYJ4f5JjjvHsfmQ0If4KeYmSStWBuX+/LHNQidhl487JiwW1lBDQ8pKHmbiw==}
     engines: {node: '>=14'}
 
-  '@unocss/core@66.5.6':
-    resolution: {integrity: sha512-9hmpPXLi41YFTPexi7cT57PRWCgwtGLa1QHlPvRgx2kqjYicy7zEDylIY2ObwQien75VCDOcGpmQ/5XdZ473Rg==}
+  '@unocss/core@66.5.10':
+    resolution: {integrity: sha512-SEmPE4pWNn9VcCvZqovPwFGuG/j69W3zh+x1Ky4z/I2pnyoB0Y0lBmq22KVu/dwExe+ZKKTQpxa0j5rbE27rDQ==}
 
-  '@unocss/eslint-plugin@66.5.6':
-    resolution: {integrity: sha512-+muBcp6cerCUu2p3XfYsxZipc53Mj0AimNPb2P7a+DCBAYZMeJr9NGFyN05+tGy8VlwoIE61Qu1NI4uNyJKaxw==}
+  '@unocss/eslint-plugin@66.5.10':
+    resolution: {integrity: sha512-Fzvl5ISMoGnALo9tqI15nNNWZza2ICqmzyujQCyzsxDZEVZzajNvt8wACVHoEz+dUZykjMPJqqdmX5ZijcPZ1w==}
     engines: {node: '>=14'}
 
-  '@unocss/rule-utils@66.5.6':
-    resolution: {integrity: sha512-HzFlKDIaX/yPnNx7rn24Yi23RkVqwGiE1n9qVNJnEUZTE9IHx32P7eLfIUKOLU58tcMVslsLZDnt/DpJCs6RCw==}
+  '@unocss/rule-utils@66.5.10':
+    resolution: {integrity: sha512-497GPWZpArNG25cto0Yq3/Yw+i0x7/N/ySq1HHeE3lB43sdmCv6+m6QEv14I/9/e5WJhQOmrY5LmHZYXC7xxMw==}
     engines: {node: '>=14'}
 
   '@unrs/resolver-binding-android-arm-eabi@1.9.2':
@@ -10969,7 +10969,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@16.4.4(173d5c9b0ea1c2f22812a087bda96e13)':
+  '@anolilab/eslint-config@16.4.4(3c35711fb3c8a509c2e9f8f2226ff22b)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.5.0(eslint@9.39.1(jiti@2.6.1))
       '@eslint/compat': 2.0.0(eslint@9.39.1(jiti@2.6.1))
@@ -11026,7 +11026,7 @@ snapshots:
       '@eslint/css': 0.14.1
       '@tanstack/eslint-plugin-query': 5.91.2(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@tanstack/eslint-plugin-router': 1.133.19(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@unocss/eslint-plugin': 66.5.6(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+      '@unocss/eslint-plugin': 66.5.10(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       astro-eslint-parser: 1.2.2
       eslint-plugin-astro: 1.5.0(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-format: 1.0.2(eslint@9.39.1(jiti@2.6.1))
@@ -13746,19 +13746,19 @@ snapshots:
       '@typescript-eslint/types': 8.47.0
       eslint-visitor-keys: 4.2.1
 
-  '@unocss/config@66.5.6':
+  '@unocss/config@66.5.10':
     dependencies:
-      '@unocss/core': 66.5.6
+      '@unocss/core': 66.5.10
       unconfig: 7.4.1
 
-  '@unocss/core@66.5.6': {}
+  '@unocss/core@66.5.10': {}
 
-  '@unocss/eslint-plugin@66.5.6(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
+  '@unocss/eslint-plugin@66.5.10(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.47.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      '@unocss/config': 66.5.6
-      '@unocss/core': 66.5.6
-      '@unocss/rule-utils': 66.5.6
+      '@unocss/config': 66.5.10
+      '@unocss/core': 66.5.10
+      '@unocss/rule-utils': 66.5.10
       magic-string: 0.30.21
       synckit: 0.11.11
     transitivePeerDependencies:
@@ -13766,9 +13766,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@unocss/rule-utils@66.5.6':
+  '@unocss/rule-utils@66.5.10':
     dependencies:
-      '@unocss/core': 66.5.6
+      '@unocss/core': 66.5.10
       magic-string: 0.30.21
 
   '@unrs/resolver-binding-android-arm-eabi@1.9.2':

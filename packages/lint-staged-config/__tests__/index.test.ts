@@ -59,7 +59,7 @@ describe(defineConfig, () => {
 
         expect(() => {
             defineConfig({ cwd: testCwd });
-        }).toThrow(
+        }).toThrowError(
             `No package.json found in the current working directory: ${testCwd}; Please adjust the "cwd" option.`,
         );
     });
@@ -79,7 +79,7 @@ describe(defineConfig, () => {
                     extensions: [],
                 },
             });
-        }).toThrow(
+        }).toThrowError(
             "The `extensions` option is required for the ESLint configuration.",
         );
     });

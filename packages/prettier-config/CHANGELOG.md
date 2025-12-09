@@ -2,8 +2,8 @@
 
 ### Bug Fixes
 
-* **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
-* **deps:** update package versions and configurations ([e5b9cb5](https://github.com/anolilab/javascript-style-guide/commit/e5b9cb5195c4a9a4a481e9eb967fc5a0f92e1add))
+- **deps:** update node engine compatibility and upgrade dependencies ([1a0d0e1](https://github.com/anolilab/javascript-style-guide/commit/1a0d0e16d48dd2fb67017cdf3f21988d6adf1cdc))
+- **deps:** update package versions and configurations ([e5b9cb5](https://github.com/anolilab/javascript-style-guide/commit/e5b9cb5195c4a9a4a481e9eb967fc5a0f92e1add))
 
 ## @anolilab/prettier-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.6...@anolilab/prettier-config@6.0.7) (2025-10-14)
 

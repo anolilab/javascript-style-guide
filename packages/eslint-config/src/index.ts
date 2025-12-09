@@ -31,6 +31,7 @@ import noUnsanitized from "./config/plugins/no-unsanitized";
 import node from "./config/plugins/node";
 import perfectionist from "./config/plugins/perfectionist";
 import playwright from "./config/plugins/playwright";
+import pnpm from "./config/plugins/pnpm";
 import promise from "./config/plugins/promise";
 import react from "./config/plugins/react";
 import regexp from "./config/plugins/regexp";
@@ -202,6 +203,8 @@ export const createConfig = async (
     const packageJson = await parsePackageJson(join(cwd, "package.json"), {
         resolveCatalogs: true,
     });
+
+    const hasPnpm = packageJson.packageManager?.startsWith("pnpm");
 
     const enablePrettier = hasPackageJsonAnyDependency(packageJson, [
         "prettier",
@@ -570,6 +573,7 @@ export const createConfig = async (
             packageJson,
             ["playwright", "eslint-plugin-playwright"],
         ),
+        pnpm: enablePnpm = hasPnpm,
         react: enableReact = hasReact
             || hasPackageJsonAnyDependency(packageJson, [
                 "eslint-plugin-react",
@@ -807,6 +811,7 @@ export const createConfig = async (
         unusedImports({
             files: getFiles(options, "unusedImports"),
             isInEditor,
+            overrides: getOverrides(options, "unusedImports"),
         }),
         comments({
             files: getFiles(options, "comments"),
@@ -1121,6 +1126,15 @@ export const createConfig = async (
                 overrides: getOverrides(options, "yaml"),
                 prettier: enablePrettier,
                 stylistic: stylisticOptions,
+            }),
+        );
+    }
+
+    if (enablePnpm) {
+        configs.push(
+            pnpm({
+                isInEditor,
+                overrides: getOverrides(options, "pnpm"),
             }),
         );
     }

@@ -21,8 +21,7 @@ export interface OptionsComponentExtensions {
 export type { ConfigNames } from "./typegen";
 
 export interface OptionsConfig
-    extends OptionsComponentExtensions,
-    OptionsSilentConsoleLogs {
+    extends OptionsComponentExtensions, OptionsSilentConsoleLogs {
     /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
@@ -188,6 +187,12 @@ export interface OptionsConfig
     playwright?: boolean | (OptionsFiles & OptionsOverrides);
 
     /**
+     * Enable pnpm support.
+     * @default true
+     */
+    pnpm?: boolean | OptionsOverrides;
+
+    /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
     promise?: OptionsFiles & OptionsOverrides;
@@ -334,6 +339,11 @@ export interface OptionsConfig
      * @default false
      */
     unocss?: OptionsUnoCSS | boolean;
+
+    /**
+     * Override the `files` option to provide custom globs or disable some rules.
+     */
+    unusedImports?: OptionsFiles & OptionsOverrides;
 
     /**
      * Override the `files` option to provide custom globs or disable some rules.

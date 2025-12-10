@@ -1,12 +1,24 @@
+<!-- START_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<a href="https://github.com/anolilab/semantic-release" align="center">
+
+  <img src="__assets__/package-og.svg" alt="lint-staged-config" />
+
+</a>
+
+<h3 align="center">Shareable Lint-Staged Config for any project.</h3>
+
+<!-- END_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<br />
+
 <div align="center">
 
-<h1>Shareable Lint-Staged Config</h1>
-
-Package that contains shareable configuration for [lint-staged][lint-staged] / [nano-staged][nano-staged] — a popular tool for running linters on staged Git files.
-
-And optionally for [husky](https://github.com/typicode/husky) — a popular choice for configuring git hooks.
-
-[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
+[![typescript-image][typescript-badge]][typescript-url]
+[![mit licence][license-badge]][license]
+[![npm downloads][npm-downloads-badge]][npm-downloads]
+[![Chat][chat-badge]][chat]
+[![PRs Welcome][prs-welcome-badge]][prs-welcome]
 
 </div>
 
@@ -36,39 +48,21 @@ Say goodbye to complex configurations and enjoy a smoother development experienc
 
 ## Install
 
-```bash
-npm install --dev-save @anolilab/lint-staged-config nano-staged
-// or
-npm install --dev-save @anolilab/lint-staged-config lint-staged
-
-Optional:
-
-npm install --dev-save husky is-ci
+```sh
+npm install @anolilab/lint-staged-config
 ```
 
 ```sh
-yarn add -D @anolilab/lint-staged-config nano-staged
-// or
-yarn add -D @anolilab/lint-staged-config lint-staged
-
-Optional:
-
-yarn add -D husky is-ci
+yarn add @anolilab/lint-staged-config
 ```
 
 ```sh
-pnpm add -D @anolilab/lint-staged-config nano-staged
-// or
-pnpm add -D @anolilab/lint-staged-config lint-staged
-
-Optional:
-
-pnpm add -D husky is-ci
+pnpm add @anolilab/lint-staged-config
 ```
 
 ## Usage
 
-If you don’t have a `.lintstagedrc.js` or `.nano-staged.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
+If you don't have a `.lintstagedrc.js` or `.nano-staged.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
 
 If you already have a `.lintstagedrc.js` or `.nano-staged.js`, then you can extend the `.lintstagedrc.js` or `.nano-staged.js`, with `@anolilab/lint-staged-config`.
 
@@ -87,6 +81,7 @@ module.exports = defineConfig();
 
 export default defineConfig();
 ```
+
 ### Config
 
 You can configure `@anolilab/lint-staged-config` options inside the `defineConfig` function.
@@ -178,35 +173,46 @@ Our package includes a `lint-stage-config:install` command to add the `pre-commi
 
 If `commitzen` is installed, the `prepare-commit-msg` hook with predefined content will be added to your `.husky` folder.
 
+## Related
+
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track
-[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
-post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
 
-Contributing
-------------
+Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
-If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+## Contributing
+
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guidelines.
 
 > **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
-Credits
--------------
+## Credits
 
-- [Daniel Bannert](https://github.com/prisis)
-- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+-   [Daniel Bannert](https://github.com/prisis)
 
-License
--------------
+-   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
 
-The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+## Made with ❤️ at Anolilab
 
-[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
-[typescript-url]: "typescript"
-[license-image]: https://img.shields.io/npm/l/@anolilab/lint-staged-config?color=blueviolet&style=for-the-badge
-[license-url]: LICENSE.md "license"
-[npm-image]: https://img.shields.io/npm/v/@anolilab/lint-staged-config/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@anolilab/lint-staged-config/v/latest "npm"
+This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+
+## License
+
+The anolilab lint-staged-config is open-sourced software licensed under the [MIT][license-url]
+
+<!-- badges -->
+
+[license-badge]: https://img.shields.io/npm/l/@anolilab/lint-staged-config?style=for-the-badge
+[license]: https://github.com/anolilab/javascript-style-guide/blob/main/LICENSE
+[npm-downloads-badge]: https://img.shields.io/npm/dm/@anolilab/lint-staged-config?style=for-the-badge
+[npm-downloads]: https://www.npmjs.com/package/@anolilab/lint-staged-config
+[prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
+[prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
+[chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
+[chat]: https://discord.gg/4VuvwWGaaB
+[typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: https://www.typescriptlang.org/
+[license-url]: https://opensource.org/licenses/MIT
 [lint-staged]: https://github.com/okonet/lint-staged
 [nano-staged]: https://github.com/usmanyunusov/nano-staged

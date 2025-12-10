@@ -1,8 +1,24 @@
+<!-- START_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<a href="https://github.com/anolilab/semantic-release" align="center">
+
+  <img src="__assets__/package-og.svg" alt="eslint-config" />
+
+</a>
+
+<h3 align="center">ESLint shareable config for the Anolilab JavaScript style guide.</h3>
+
+<!-- END_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<br />
+
 <div align="center">
 
-<h1>Shareable ESLint config</h1>
-
-[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
+[![typescript-image][typescript-badge]][typescript-url]
+[![mit licence][license-badge]][license]
+[![npm downloads][npm-downloads-badge]][npm-downloads]
+[![Chat][chat-badge]][chat]
+[![PRs Welcome][prs-welcome-badge]][prs-welcome]
 
 </div>
 
@@ -17,6 +33,20 @@
 </div>
 
 ---
+
+## Install
+
+```sh
+npm install @anolilab/eslint-config
+```
+
+```sh
+yarn add @anolilab/eslint-config
+```
+
+```sh
+pnpm add @anolilab/eslint-config
+```
 
 ## Purpose
 
@@ -50,22 +80,6 @@ Our package serves as a valuable resource for JavaScript/Typescript-based projec
 - Automatically enables relevant rules based on the [engines](https://docs.npmjs.com/files/package.json#engines) field in your `package.json`.
 - Easily configure stylistic preferences like indent and semicolon without deep diving into rule configurations.
 - Works alongside Prettier: Our configuration disables ESLint rules that would conflict with Prettier, allowing ESLint to focus on code quality and Prettier on formatting if you choose to use both. However, many stylistic rules are included and can be enforced by ESLint directly.
-
-## Install
-
-To install this config, run the following command.
-
-```bash
-npm install --save-dev eslint @anolilab/eslint-config
-```
-
-```sh
-pnpm add -D eslint @anolilab/eslint-config
-```
-
-```sh
-yarn add -D eslint @anolilab/eslint-config
-```
 
 ## Usage
 
@@ -630,34 +644,49 @@ Don't you remember how ESLint defeated JSHint and became the most popular JS cod
 
 Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It will not force you to use our config.
 
+## Related
+
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track
-[Node.js' release schedule](https://nodejs.org/en/about/releases/). Here's [a
-post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+
+Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
-If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guidelines.
 
 > **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
 ## Credits
 
-- [Daniel Bannert](https://github.com/prisis)
-- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
-- Inspired by and thankful for the work in configurations like:
-    - [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
-    - [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
-    - [@antfu/eslint-config](https://github.com/antfu/eslint-config) (for its modern approach and clear documentation)
+-   [Daniel Bannert](https://github.com/prisis)
+
+-   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+
+-   Inspired by and thankful for the work in configurations like:
+    -   [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+    -   [eslint-config-canonical](https://github.com/gajus/eslint-config-canonical)
+    -   [@antfu/eslint-config](https://github.com/antfu/eslint-config) (for its modern approach and clear documentation)
+
+## Made with ❤️ at Anolilab
+
+This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
 
 ## License
 
-The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+The anolilab eslint-config is open-sourced software licensed under the [MIT][license-url]
 
-[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
-[typescript-url]: "typescript"
-[license-image]: https://img.shields.io/npm/l/@anolilab/eslint-config?color=blueviolet&style=for-the-badge
-[license-url]: LICENSE.md "license"
-[npm-image]: https://img.shields.io/npm/v/@anolilab/eslint-config/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@anolilab/eslint-config/v/latest "npm"
+<!-- badges -->
+
+[license-badge]: https://img.shields.io/npm/l/@anolilab/eslint-config?style=for-the-badge
+[license]: https://github.com/anolilab/javascript-style-guide/blob/main/LICENSE
+[npm-downloads-badge]: https://img.shields.io/npm/dm/@anolilab/eslint-config?style=for-the-badge
+[npm-downloads]: https://www.npmjs.com/package/@anolilab/eslint-config
+[prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
+[prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
+[chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
+[chat]: https://discord.gg/4VuvwWGaaB
+[typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: https://www.typescriptlang.org/
+[license-url]: https://opensource.org/licenses/MIT

@@ -1,9 +1,24 @@
+<!-- START_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<a href="https://github.com/anolilab/semantic-release" align="center">
+
+  <img src="__assets__/package-og.svg" alt="textlint-config" />
+
+</a>
+
+<h3 align="center">Anolilab Coding Standard for text linting.</h3>
+
+<!-- END_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<br />
+
 <div align="center">
-<h1>Text-lint Config</h1>
 
-Shareable configuration for [textlint](https://github.com/textlint/textlint) — a tool for linting and fixing text written in natural language.
-
-[![npm-image]][npm-url] [![license-image]][license-url]
+[![typescript-image][typescript-badge]][typescript-url]
+[![mit licence][license-badge]][license]
+[![npm downloads][npm-downloads-badge]][npm-downloads]
+[![Chat][chat-badge]][chat]
+[![PRs Welcome][prs-welcome-badge]][prs-welcome]
 
 </div>
 
@@ -21,21 +36,21 @@ Shareable configuration for [textlint](https://github.com/textlint/textlint) —
 
 ## Install
 
-```bash
-npm install --dev-save @anolilab/textlint-config textlint
+```sh
+npm install @anolilab/textlint-config
 ```
 
 ```sh
-yarn add -D @anolilab/textlint-config textlint
+yarn add @anolilab/textlint-config
 ```
 
 ```sh
-pnpm add -D @anolilab/textlint-config textlint
+pnpm add @anolilab/textlint-config
 ```
 
 ## Usage
 
-If you don’t have a `.textlintrc` or the other supported file names and `.textlintignore`, we can create the file for you after installing `@anolilab/textlint-config`, call `pnpm textlint-config:install`.
+If you don't have a `.textlintrc` or the other supported file names and `.textlintignore`, we can create the file for you after installing `@anolilab/textlint-config`, call `pnpm textlint-config:install`.
 
 > Note: If the script detects an existing `.textlintrc` or `.textlintignore` file, it will not overwrite it.
 
@@ -77,7 +92,7 @@ If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with
             "terms": [
                 // Abbreviations
                 "API",
-                ["API['’]?s", "APIs"],
+                ["API['']?s", "APIs"],
                 "Ajax",
                 "CLI",
                 "CSS",
@@ -90,7 +105,7 @@ If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with
                 ["^HTTPS", "HTTPS"],
                 "SSO",
                 ["^XHR(s?)", "XHR$1"],
-                ["^XHR['’]?s", "XHRs"],
+                ["^XHR['']?s", "XHRs"],
                 "Xvfb",
                 "YAML",
 
@@ -180,28 +195,44 @@ If you already have a `.textlintrc`, then you can extend the `.textlintrc`, with
 }
 ```
 
+## Related
+
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track
-[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
-post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+
+Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
-If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guidelines.
 
 > **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
 ## Credits
 
 -   [Daniel Bannert](https://github.com/prisis)
+
 -   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+
+## Made with ❤️ at Anolilab
+
+This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
 
 ## License
 
-The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+The anolilab textlint-config is open-sourced software licensed under the [MIT][license-url]
 
-[license-image]: https://img.shields.io/npm/l/@anolilab/textlint-config?color=blueviolet&style=for-the-badge
-[license-url]: LICENSE.md "license"
-[npm-image]: https://img.shields.io/npm/v/@anolilab/textlint-config/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@anolilab/textlint-config/v/latest "npm"
+<!-- badges -->
+
+[license-badge]: https://img.shields.io/npm/l/@anolilab/textlint-config?style=for-the-badge
+[license]: https://github.com/anolilab/javascript-style-guide/blob/main/LICENSE
+[npm-downloads-badge]: https://img.shields.io/npm/dm/@anolilab/textlint-config?style=for-the-badge
+[npm-downloads]: https://www.npmjs.com/package/@anolilab/textlint-config
+[prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
+[prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
+[chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
+[chat]: https://discord.gg/4VuvwWGaaB
+[typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: https://www.typescriptlang.org/
+[license-url]: https://opensource.org/licenses/MIT

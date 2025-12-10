@@ -2,8 +2,8 @@
 
 ### Miscellaneous Chores
 
-* remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
-* update package dependencies and configurations ([94cb27e](https://github.com/anolilab/javascript-style-guide/commit/94cb27ed8989ba2c052bc6f61cd349ea9a3486d2))
+- remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
+- update package dependencies and configurations ([94cb27e](https://github.com/anolilab/javascript-style-guide/commit/94cb27ed8989ba2c052bc6f61cd349ea9a3486d2))
 
 ## @anolilab/prettier-config [6.0.8](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@6.0.7...@anolilab/prettier-config@6.0.8) (2025-11-16)
 

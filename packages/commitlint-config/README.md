@@ -1,9 +1,24 @@
+<!-- START_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<a href="https://github.com/anolilab/semantic-release" align="center">
+
+  <img src="__assets__/package-og.svg" alt="commitlint-config" />
+
+</a>
+
+<h3 align="center">Anolilab´s shareable coding standard config for commitlint.</h3>
+
+<!-- END_PACKAGE_OG_IMAGE_PLACEHOLDER -->
+
+<br />
+
 <div align="center">
-<h1>Shareable Commitlint Configuration</h1>
 
-A shareable commitlint configuration for enforcing consistent commit messages in your projects.
-
-[![npm-image]][npm-url] [![license-image]][license-url]
+[![typescript-image][typescript-badge]][typescript-url]
+[![mit licence][license-badge]][license]
+[![npm downloads][npm-downloads-badge]][npm-downloads]
+[![Chat][chat-badge]][chat]
+[![PRs Welcome][prs-welcome-badge]][prs-welcome]
 
 </div>
 
@@ -19,52 +34,43 @@ A shareable commitlint configuration for enforcing consistent commit messages in
 
 ---
 
-## Purpose
-
-- Ensure a cohesive structure for all commits in your project with a comprehensive set of rules.
-- Consistency in commit messages plays a pivotal role in fostering effective project collaboration, enhancing maintainability, and preserving project history.
-- By leveraging commitlint configuration, you can effortlessly enforce a standardized structure for all commits in your project.
-- This valuable tool facilitates better comprehension of the changes made and the reasoning behind them, enabling seamless understanding for your entire team.
-- This configuration also includes a semantic-release configuration, which enables automated GitHub/NPM releases based on your commit messages.
-
 ## Install
 
-```bash
-npm install --dev-save @commitlint/cli @anolilab/commitlint-config
+```sh
+npm install @anolilab/commitlint-config
 ```
 
 ```sh
-yarn add -D @commitlint/cli @anolilab/commitlint-config
+yarn add @anolilab/commitlint-config
 ```
 
 ```sh
-pnpm add -D @commitlint/cli @anolilab/commitlint-config
+pnpm add @anolilab/commitlint-config
 ```
 
 ## Usage
 
-If you don’t have a `commitlint.config.js` or the other supported names, we can create the file for you after installing `@anolilab/commitlint-config`, call `pnpm commitlint-config:install`.
+If you don't have a `commitlint.config.js` or the other supported names, we can create the file for you after installing `@anolilab/commitlint-config`, call `pnpm commitlint-config:install`.
 
 > Alternatively the configuration can be defined in a `commitlint.config.js`, `.commitlintrc.js`, `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yml` file
 
 If you already have a `commitlint.config.js`, then you can extend the `commitlint.config.js`, with `@anolilab/commitlint-config`.
 
-> Note: If the script detects an existing `commitlint.config.js` file, it will not overwrite it.
-
 ```js
 module.exports = {
-    extends: ['@anolilab/commitlint-config'],
+    extends: ["@anolilab/commitlint-config"],
     rules: {
         // overwrite rules here
         // or extend rules
     },
 };
 ```
+
 or
 
 ```js
 export default {
-    extends: ['@anolilab/commitlint-config'],
+    extends: ["@anolilab/commitlint-config"],
     rules: {
         // overwrite rules here
         // or extend rules
@@ -245,46 +251,51 @@ fi
 > This command allows the user to use their terminal to interact with Commitizen during the hook.
 >
 > Why `exec < /dev/tty?` By default, git hooks are not interactive.
-
+>
 > Note: If you are using `zsh` you may need to use `exec < /dev/tty?` instead of `exec < /dev/tty`.
-
+>
 > Note: For pnpm users, replace `npx` with `pnpx` in the above command.
 
 Congratulations! Your repo is Commitizen friendly. Time to flaunt it!
 
+## Related
+
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track
-[Node.js’ release schedule](https://nodejs.org/en/about/releases/). Here’s [a
-post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
 
-Contributing
-------------
+Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
-If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guild.
+## Contributing
+
+If you would like to help take a look at the [list of issues](https://github.com/anolilab/javascript-style-guide/issues) and check our [Contributing](.github/CONTRIBUTING.md) guidelines.
 
 > **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
-Credits
--------------
+## Credits
 
-- [Daniel Bannert](https://github.com/prisis)
-- [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
+-   [Daniel Bannert](https://github.com/prisis)
 
-License
--------------
+-   [All Contributors](https://github.com/anolilab/javascript-style-guide/graphs/contributors)
 
-The anolilab javascript-style-guide is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
+## Made with ❤️ at Anolilab
 
-[1]: https://github.com/semantic-release/commit-analyzer
-[2]: https://github.com/semantic-release/release-notes-generator
-[3]: https://github.com/semantic-release/changelog
-[4]: https://github.com/semantic-release/github
-[5]: https://github.com/semantic-release/exec
-[6]: https://github.com/semantic-release/git
-[7]: https://github.com/semantic-release/npm
+This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
 
-[license-image]: https://img.shields.io/npm/l/@anolilab/semantic-release-preset?color=blueviolet&style=for-the-badge
-[license-url]: LICENSE.md "license"
-[npm-image]: https://img.shields.io/npm/v/@anolilab/semantic-release-preset/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://www.npmjs.com/package/@anolilab/semantic-release-preset/v/latest "npm"
+## License
+
+The anolilab commitlint-config is open-sourced software licensed under the [MIT][license-url]
+
+<!-- badges -->
+
+[license-badge]: https://img.shields.io/npm/l/@anolilab/commitlint-config?style=for-the-badge
+[license]: https://github.com/anolilab/javascript-style-guide/blob/main/LICENSE
+[npm-downloads-badge]: https://img.shields.io/npm/dm/@anolilab/commitlint-config?style=for-the-badge
+[npm-downloads]: https://www.npmjs.com/package/@anolilab/commitlint-config
+[prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
+[prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
+[chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
+[chat]: https://discord.gg/4VuvwWGaaB
+[typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: https://www.typescriptlang.org/
+[license-url]: https://opensource.org/licenses/MIT

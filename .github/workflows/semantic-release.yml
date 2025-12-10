@@ -42,13 +42,13 @@ jobs:
                   wait-interval: 60 # seconds
                   running-workflow-name: "Semantic Release" # wait for all other checks to complete
                   allowed-conclusions: "success,skipped,neutral" # all other checks must pass, being skipped or cancelled is not sufficient
-                  ignore-checks: "lock-closed / lock-closed, Socket Security: Pull Request Alerts"
+                  ignore-checks: "lock-closed / lock-closed, Socket Security: Pull Request Alerts, Dependabot"
 
             - name: "Git checkout"
-              uses: "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8" # v5.0.0
+              uses: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3" # v6.0.0
               with:
                   fetch-depth: 0
-                  persist-credentials: false
+                  token: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
@@ -58,7 +58,7 @@ jobs:
               id: "setup"
               uses: "anolilab/workflows/step/setup@main"
               with:
-                  node-version: "20.x"
+                  node-version: "22.x"
                   cache-prefix: "semantic-release"
 
             - name: "Build Production"

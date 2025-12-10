@@ -1,3 +1,17 @@
+## @anolilab/eslint-config [17.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.4...@anolilab/eslint-config@17.0.0) (2025-12-10)
+
+### Features
+
+* update dependencies and enhance eslint-config ([3f4d002](https://github.com/anolilab/javascript-style-guide/commit/3f4d002474a2100ee3bb81201e1906a897a43805))
+
+### Bug Fixes
+
+* add @visulima/fs dependency and enhance eslint-config ([d151179](https://github.com/anolilab/javascript-style-guide/commit/d1511795cf1a966f487242fdf681b3f9175fb458))
+
+### Miscellaneous Chores
+
+* remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
+
 ## @anolilab/eslint-config [16.4.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.3...@anolilab/eslint-config@16.4.4) (2025-11-19)
 
 ### Bug Fixes

@@ -28,10 +28,8 @@ const detectCatalogUsage = async (): Promise<boolean> => {
 export default createConfig<
     OptionsFiles & OptionsIsInEditor & OptionsOverrides & { catalogs?: boolean }
 >("all", async (options) => {
-    const {
-        catalogs = await detectCatalogUsage(),
-        isInEditor = false,
-    } = options;
+    const { catalogs = await detectCatalogUsage(), isInEditor = false }
+        = options;
 
     const [parserYaml, pluginPnpm, jsoncParser] = await Promise.all([
         interopDefault(import("yaml-eslint-parser")),

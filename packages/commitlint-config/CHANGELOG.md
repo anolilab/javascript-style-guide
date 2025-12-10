@@ -1,3 +1,9 @@
+## @anolilab/commitlint-config [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.7...@anolilab/commitlint-config@7.0.0) (2025-12-10)
+
+### Miscellaneous Chores
+
+* remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
+
 ## @anolilab/commitlint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.6...@anolilab/commitlint-config@6.0.7) (2025-11-16)
 
 ### Bug Fixes

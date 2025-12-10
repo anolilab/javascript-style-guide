@@ -5,6 +5,7 @@ export default createConfig({
     unocss: false,
     ignores: [
         "eslint.config.js",
+        ".prettierrc.cjs",
         "scripts/**",
         "packages/eslint-config/__fixtures__/**",
         "packages/eslint-config/README.md",

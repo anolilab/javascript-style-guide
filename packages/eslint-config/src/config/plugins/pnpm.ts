@@ -1,3 +1,6 @@
+import { findUp } from "@visulima/fs";
+import { readYaml } from "@visulima/fs/yaml";
+
 import type {
     OptionsFiles,
     OptionsIsInEditor,
@@ -6,10 +9,29 @@ import type {
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
+const detectCatalogUsage = async (): Promise<boolean> => {
+    const workspaceFile = await findUp("pnpm-workspace.yaml");
+
+    if (!workspaceFile) {
+        return false;
+    }
+
+    try {
+        const yaml = await readYaml(workspaceFile);
+
+        return "catalog" in yaml || "catalogs" in yaml;
+    } catch {
+        return false;
+    }
+};
+
 export default createConfig<
-    OptionsFiles & OptionsIsInEditor & OptionsOverrides
+    OptionsFiles & OptionsIsInEditor & OptionsOverrides & { catalogs?: boolean }
 >("all", async (options) => {
-    const { isInEditor = false } = options;
+    const {
+        catalogs = await detectCatalogUsage(),
+        isInEditor = false,
+    } = options;
 
     const [parserYaml, pluginPnpm, jsoncParser] = await Promise.all([
         interopDefault(import("yaml-eslint-parser")),
@@ -28,10 +50,14 @@ export default createConfig<
                 pnpm: pluginPnpm,
             },
             rules: {
-                "pnpm/json-enforce-catalog": [
-                    "error",
-                    { autofix: !isInEditor },
-                ],
+                ...catalogs
+                    ? {
+                        "pnpm/json-enforce-catalog": [
+                            "error",
+                            { autofix: !isInEditor },
+                        ],
+                    }
+                    : {},
                 "pnpm/json-prefer-workspace-settings": [
                     "error",
                     { autofix: !isInEditor },

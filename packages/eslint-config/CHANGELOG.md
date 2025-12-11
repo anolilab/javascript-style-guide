@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [17.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.0...@anolilab/eslint-config@17.0.1) (2025-12-11)
+
+### Bug Fixes
+
+* update sonarjs rules in ESLint configuration ([54f0b7a](https://github.com/anolilab/javascript-style-guide/commit/54f0b7ac7b11b3e5b3dc094e0e7cf56bbb19c785))
+
+### Miscellaneous Chores
+
+* update configuration and scripts ([5d6a44f](https://github.com/anolilab/javascript-style-guide/commit/5d6a44f99568b5f67939dfc52047fa742fd2bf58))
+
 ## @anolilab/eslint-config [17.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@16.4.4...@anolilab/eslint-config@17.0.0) (2025-12-10)
 
 ### Features

@@ -190,7 +190,7 @@ export interface OptionsConfig
      * Enable pnpm support.
      * @default true
      */
-    pnpm?: boolean | OptionsOverrides;
+    pnpm?: boolean | (OptionsOverrides & OptionsPnpm);
 
     /**
      * Override the `files` option to provide custom globs or disable some rules.
@@ -480,6 +480,9 @@ export interface OptionsOverrides {
     overrides?: TypedFlatConfigItem["rules"];
 }
 
+export interface OptionsPnpm {
+    catalogs?: boolean;
+}
 export interface OptionsPackageJson {
     /**
      * The package.json object

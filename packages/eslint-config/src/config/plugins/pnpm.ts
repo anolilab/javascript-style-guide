@@ -5,6 +5,7 @@ import type {
     OptionsFiles,
     OptionsIsInEditor,
     OptionsOverrides,
+    OptionsPnpm,
 } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
@@ -26,7 +27,7 @@ const detectCatalogUsage = async (): Promise<boolean> => {
 };
 
 export default createConfig<
-    OptionsFiles & OptionsIsInEditor & OptionsOverrides & { catalogs?: boolean }
+    OptionsFiles & OptionsIsInEditor & OptionsOverrides & OptionsPnpm
 >("all", async (options) => {
     const { catalogs = await detectCatalogUsage(), isInEditor = false }
         = options;

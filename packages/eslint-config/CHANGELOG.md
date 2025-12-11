@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [17.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.1...@anolilab/eslint-config@17.0.2) (2025-12-11)
+
+### Bug Fixes
+
+* enhance pnpm support in ESLint configuration ([fba4049](https://github.com/anolilab/javascript-style-guide/commit/fba404919a8516e3abfb79c86d3d118ac039eedf))
+
 ## @anolilab/eslint-config [17.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.0...@anolilab/eslint-config@17.0.1) (2025-12-11)
 
 ### Bug Fixes

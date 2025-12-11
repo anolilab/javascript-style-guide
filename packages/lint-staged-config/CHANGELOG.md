@@ -1,3 +1,10 @@
+## @anolilab/lint-staged-config [3.0.41](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.40...@anolilab/lint-staged-config@3.0.41) (2025-12-11)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 17.0.2
+
 ## @anolilab/lint-staged-config [3.0.40](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.39...@anolilab/lint-staged-config@3.0.40) (2025-12-11)
 
 ### Miscellaneous Chores

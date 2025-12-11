@@ -1,3 +1,16 @@
+## @anolilab/lint-staged-config [3.0.40](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.39...@anolilab/lint-staged-config@3.0.40) (2025-12-11)
+
+### Miscellaneous Chores
+
+* remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
+* update configuration and scripts ([5d6a44f](https://github.com/anolilab/javascript-style-guide/commit/5d6a44f99568b5f67939dfc52047fa742fd2bf58))
+* update package dependencies and configurations ([94cb27e](https://github.com/anolilab/javascript-style-guide/commit/94cb27ed8989ba2c052bc6f61cd349ea9a3486d2))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 17.0.1
+
 ## @anolilab/lint-staged-config [3.0.39](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.38...@anolilab/lint-staged-config@3.0.39) (2025-11-19)
 
 

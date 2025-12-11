@@ -54,6 +54,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
                 rules: {
                     "sonarjs/no-all-duplicated-branches": "off",
                     "sonarjs/no-duplicate-string": "off",
+                    "sonarjs/public-static-readonly": "off",
                 },
             },
         ];

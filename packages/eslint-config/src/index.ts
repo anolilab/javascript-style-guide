@@ -1147,8 +1147,10 @@ export const createConfig = async (
     if (enablePnpm) {
         configs.push(
             pnpm({
-                ...resolveSubOptions(options, "pnpm"),
                 isInEditor,
+                json: options.jsonc !== false,
+                yaml: options.yaml !== false,
+                ...resolveSubOptions(options, "pnpm"),
                 overrides: getOverrides(options, "pnpm"),
             }),
         );

@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [3.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.41...@anolilab/lint-staged-config@3.1.0) (2025-12-15)
+
+### Features
+
+* enhance React support in ESLint configuration ([2b02625](https://github.com/anolilab/javascript-style-guide/commit/2b0262556513822ac2c7ac0ad9fd10235df2a484))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 17.1.0
+
 ## @anolilab/lint-staged-config [3.0.41](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.0.40...@anolilab/lint-staged-config@3.0.41) (2025-12-11)
 
 

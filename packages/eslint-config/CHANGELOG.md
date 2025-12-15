@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [17.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.2...@anolilab/eslint-config@17.1.0) (2025-12-15)
+
+### Features
+
+* enhance React support in ESLint configuration ([2b02625](https://github.com/anolilab/javascript-style-guide/commit/2b0262556513822ac2c7ac0ad9fd10235df2a484))
+
+### Bug Fixes
+
+* update dependencies in pnpm-lock and pnpm-workspace files ([e6bba9a](https://github.com/anolilab/javascript-style-guide/commit/e6bba9ae9de9e4173470a95a875b1e0d89a36388))
+
 ## @anolilab/eslint-config [17.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.1...@anolilab/eslint-config@17.0.2) (2025-12-11)
 
 ### Bug Fixes

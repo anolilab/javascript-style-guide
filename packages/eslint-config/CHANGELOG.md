@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [17.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.1.0...@anolilab/eslint-config@17.2.0) (2025-12-15)
+
+### Features
+
+* enhance pnpm configuration options in ESLint setup ([bfb96bb](https://github.com/anolilab/javascript-style-guide/commit/bfb96bb88e61696c96b8f3376c89efcb0dcb2212))
+
+### Code Refactoring
+
+* simplify OptionsConfig interface for React support ([1b41b62](https://github.com/anolilab/javascript-style-guide/commit/1b41b62a364fb4dcb579dbf5ee7e2abf22527224))
+
 ## @anolilab/eslint-config [17.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.0.2...@anolilab/eslint-config@17.1.0) (2025-12-15)
 
 ### Features

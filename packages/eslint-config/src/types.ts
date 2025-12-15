@@ -210,7 +210,25 @@ export interface OptionsConfig
      * @default false
      * Enabled this option automatically when react is installed.
      */
-    react?: boolean | (OptionsFiles & OptionsOverrides);
+    react?:
+        | boolean
+        | (OptionsFiles
+            & OptionsOverrides & {
+                /**
+                   * Enable react-compiler rules.
+                   *
+                   * Requires installing:
+                   * - `eslint-plugin-react-compiler`
+                   * @default false
+                   * Enabled automatically when react-compiler-runtime is installed.
+                   */
+                compiler?: boolean;
+                /**
+                   * React version to use (e.g., "18.2.0", "19.0.0").
+                   * If not specified, will be detected from package.json.
+                   */
+                version?: string;
+            });
 
     /**
      * Enable react-compiler rules.
@@ -218,7 +236,8 @@ export interface OptionsConfig
      * Requires installing:
      * - `eslint-plugin-react-compiler`
      * @default false
-     * Enabled this option automatically when react version is 19 or higher.
+     * Enabled automatically when react-compiler-runtime is installed.
+     * @deprecated Use `react.compiler` instead.
      */
     reactCompiler?: boolean;
 
@@ -549,6 +568,24 @@ export interface OptionsTypeScriptWithTypes {
      * @see https://typescript-eslint.io/linting/typed-linting/
      */
     tsconfigPath?: string;
+}
+
+export interface OptionsReact {
+    /**
+     * Enable react-compiler rules.
+     *
+     * Requires installing:
+     * - `eslint-plugin-react-compiler`
+     * @default false
+     * Enabled automatically when react-compiler-runtime is installed.
+     */
+    reactCompiler?: boolean;
+
+    /**
+     * React version to use (e.g., "18.2.0", "19.0.0").
+     * If not specified, will be detected from package.json.
+     */
+    reactVersion?: string;
 }
 
 export interface OptionsUnicorn {

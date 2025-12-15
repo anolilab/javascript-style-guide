@@ -10,6 +10,7 @@ import type {
     OptionsHasPrettier,
     OptionsOverrides,
     OptionsPackageJson,
+    OptionsReact,
     OptionsSilentConsoleLogs,
     OptionsStylistic,
     OptionsTypeScriptParserOptions,
@@ -59,10 +60,11 @@ export default createConfig<
     & OptionsHasPrettier
     & OptionsOverrides
     & OptionsPackageJson
+    & OptionsReact
     & OptionsSilentConsoleLogs
     & OptionsStylistic
     & OptionsTypeScriptParserOptions
-    & OptionsTypeScriptWithTypes & { reactCompiler?: boolean }
+    & OptionsTypeScriptWithTypes
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -72,6 +74,7 @@ export default createConfig<
         packageJson,
         prettier,
         reactCompiler,
+        reactVersion: reactVersionFromOptions,
         silent,
         stylistic = true,
         tsconfigPath,
@@ -142,29 +145,36 @@ export default createConfig<
 
     const { plugins } = pluginReactX.configs.all;
 
-    let reactVersion
-        = packageJson.dependencies?.["react"]
+    // Use provided version or detect from package.json
+    const reactVersionRaw
+        = reactVersionFromOptions
+            ?? packageJson.dependencies?.["react"]
             ?? packageJson.devDependencies?.["react"];
-    let hasReactCompiler = false;
+    let reactVersion: string | undefined;
 
-    if (reactVersion !== undefined) {
-        const parsedVersion = parse(reactVersion);
+    if (reactVersionRaw !== undefined) {
+        const parsedVersion = parse(reactVersionRaw);
 
         if (parsedVersion !== null) {
             reactVersion = `${parsedVersion.major}.${parsedVersion.minor}`;
 
             if (!silent) {
+                const source = reactVersionFromOptions
+                    ? "configured option"
+                    : "package.json";
+
                 // eslint-disable-next-line no-console
                 console.info(
-                    `\n@anolilab/eslint-config found the version ${reactVersion} of react in your dependencies, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
+                    `\n@anolilab/eslint-config using React version ${reactVersion} from ${source}, this version ${reactVersion} will be used to setup the "eslint-plugin-react"\n`,
                 );
             }
         }
-
-        if (parsedVersion?.major && parsedVersion.major >= 19) {
-            hasReactCompiler = true;
-        }
     }
+
+    // Auto-detect compiler if not explicitly set by checking for react-compiler-runtime
+    let hasReactCompiler = hasPackageJsonAnyDependency(packageJson, [
+        "react-compiler-runtime",
+    ]);
 
     let hasJsxRuntime = false;
 
@@ -187,7 +197,8 @@ export default createConfig<
         }
     }
 
-    hasReactCompiler = hasReactCompiler && reactCompiler !== false;
+    // Use explicit compiler option if provided, otherwise use auto-detected value
+    hasReactCompiler = reactCompiler ?? hasReactCompiler;
 
     let pluginReactCompiler: PluginReactCompiler | undefined;
 

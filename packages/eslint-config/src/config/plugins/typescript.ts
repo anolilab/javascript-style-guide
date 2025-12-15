@@ -313,6 +313,9 @@ export default createConfig<
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.mdx
             "@typescript-eslint/no-confusing-non-null-assertion": "error",
 
+            // Disable because of sonarjs/no-deprecated
+            "@typescript-eslint/no-deprecated": "off",
+
             // Replace 'no-dupe-class-members' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.mdx
             "@typescript-eslint/no-dupe-class-members": es6Rules[
@@ -450,10 +453,10 @@ export default createConfig<
             // Require each enum member value to be explicitly initialized.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-enum-initializers.mdx
             "@typescript-eslint/prefer-enum-initializers": "error",
-
             // Enforce using function types instead of interfaces with call signatures.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-function-type.mdx
             "@typescript-eslint/prefer-function-type": "error",
+
             // Disabled to use faster alternatives.
             "@typescript-eslint/prefer-string-starts-ends-with": "off",
 

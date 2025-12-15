@@ -92,6 +92,7 @@ export type {
     OptionsIsInEditor,
     OptionsOverrides,
     OptionsPackageJson,
+    OptionsReact,
     OptionsRegExp,
     OptionsSilentConsoleLogs,
     OptionsStylistic,
@@ -217,18 +218,12 @@ export const createConfig = async (
         "react",
         "react-dom",
     ]);
-    const reactVersion
+    const detectedReactVersion
         = packageJson["dependencies"]?.["react"]
             ?? packageJson["devDependencies"]?.["react"];
-    let hasReactCompiler = false;
-
-    if (reactVersion !== undefined) {
-        const parsedVersion = parse(reactVersion);
-
-        if (parsedVersion?.major && parsedVersion.major >= 19) {
-            hasReactCompiler = true;
-        }
-    }
+    const detectedHasReactCompiler = hasPackageJsonAnyDependency(packageJson, [
+        "react-compiler-runtime",
+    ]);
 
     let hasTailwindCssV3 = false;
     let hasTailwindCssV4 = false;
@@ -583,7 +578,8 @@ export const createConfig = async (
                 "eslint-plugin-react-perf",
                 "eslint-plugin-react-you-might-not-need-an-effect",
             ]),
-        reactCompiler: enableReactCompiler = hasReactCompiler,
+        // eslint-disable-next-line sonarjs/deprecation, @typescript-eslint/no-deprecated
+        reactCompiler: enableReactCompilerOption,
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, [
@@ -615,6 +611,23 @@ export const createConfig = async (
         ]),
         zod: enableZod = hasPackageJsonAnyDependency(packageJson, ["zod"]),
     } = options;
+
+    // Extract React options
+    const reactOptions = resolveSubOptions(options, "react");
+    const reactVersionFromOptions
+        = "version" in reactOptions ? reactOptions.version : undefined;
+    const reactCompilerFromOptions
+        = "compiler" in reactOptions ? reactOptions.compiler : undefined;
+
+    // Determine final React version (use option if provided, otherwise detected)
+    const finalReactVersion = reactVersionFromOptions ?? detectedReactVersion;
+
+    // Determine final React compiler setting
+    // Priority: react.compiler > reactCompiler option > auto-detected
+    const finalReactCompiler: boolean
+        = enableReactCompilerOption
+            ?? reactCompilerFromOptions
+            ?? detectedHasReactCompiler;
 
     if (isCwdInScope) {
         let packages = [];
@@ -668,7 +681,7 @@ export const createConfig = async (
             );
         }
 
-        if (enableReact && enableReactCompiler) {
+        if (enableReact && finalReactCompiler) {
             packages.push("eslint-plugin-react-compiler");
         }
 
@@ -1061,7 +1074,8 @@ export const createConfig = async (
                 ...typescriptOptions,
                 overrides: getOverrides(options, "react"),
                 packageJson,
-                reactCompiler: enableReactCompiler,
+                reactCompiler: finalReactCompiler,
+                reactVersion: finalReactVersion,
                 silent,
                 tsconfigPath,
             }),

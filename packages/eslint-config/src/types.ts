@@ -212,23 +212,7 @@ export interface OptionsConfig
      */
     react?:
         | boolean
-        | (OptionsFiles
-            & OptionsOverrides & {
-                /**
-                   * Enable react-compiler rules.
-                   *
-                   * Requires installing:
-                   * - `eslint-plugin-react-compiler`
-                   * @default false
-                   * Enabled automatically when react-compiler-runtime is installed.
-                   */
-                compiler?: boolean;
-                /**
-                   * React version to use (e.g., "18.2.0", "19.0.0").
-                   * If not specified, will be detected from package.json.
-                   */
-                version?: string;
-            });
+        | (OptionsFiles & OptionsOverrides & OptionsReact);
 
     /**
      * Enable react-compiler rules.

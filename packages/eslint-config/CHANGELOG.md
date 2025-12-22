@@ -1,3 +1,14 @@
+## @anolilab/eslint-config [18.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.2.0...@anolilab/eslint-config@18.0.0) (2025-12-22)
+
+### Bug Fixes
+
+* **pnpm:** add ignore for @types/vscode in json-enforce-catalog ([4240bbd](https://github.com/anolilab/javascript-style-guide/commit/4240bbdb9ae14293948a4051e638b0fd7eeb22e7))
+* update package versions and configurations ([ad6cb2c](https://github.com/anolilab/javascript-style-guide/commit/ad6cb2c90ed4049ea8f136c583c0db1e477b20e7))
+
+### Styles
+
+* update package configurations and dependencies ([98475c5](https://github.com/anolilab/javascript-style-guide/commit/98475c5e5e7bc5d832ef10d3d723f75340223347))
+
 ## @anolilab/eslint-config [17.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@17.1.0...@anolilab/eslint-config@17.2.0) (2025-12-15)
 
 ### Features

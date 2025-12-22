@@ -8,6 +8,8 @@
         "GHSA-67hx-6x53-jw92|. > babel-plugin-transform-es2015-modules-commonjs",
         // Current a fix is not possible, see https://github.com/istanbuljs/test-exclude/pull/63
         "GHSA-v6h2-p8h4-qcjw|@vitest/coverage-v8>test-exclude>minimatch>brace-expansion",
-        "GHSA-v6h2-p8h4-qcjw|commitizen>glob>minimatch>brace-expansion"
+        "GHSA-v6h2-p8h4-qcjw|commitizen>glob>minimatch>brace-expansion",
+        // eslint-plugin-storybook depends on storybook, but storybook is not in the catalog
+        "GHSA-8452-54wp-rmv6|packages__eslint-config>eslint-plugin-storybook>storybook"
     ]
 }

@@ -64,7 +64,10 @@ export default createConfig<
                     ? {
                         "pnpm/json-enforce-catalog": [
                             "error",
-                            { autofix: !isInEditor },
+                            {
+                                autofix: !isInEditor,
+                                ignores: ["@types/vscode"],
+                            },
                         ],
                     }
                     : {},

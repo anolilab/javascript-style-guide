@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [4.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.1.1...@anolilab/lint-staged-config@4.0.0) (2025-12-22)
+
+### Styles
+
+* update package configurations and dependencies ([98475c5](https://github.com/anolilab/javascript-style-guide/commit/98475c5e5e7bc5d832ef10d3d723f75340223347))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 18.0.0
+
 ## @anolilab/lint-staged-config [3.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@3.1.0...@anolilab/lint-staged-config@3.1.1) (2025-12-15)
 
 

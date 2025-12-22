@@ -1,229 +1,228 @@
 {
-  "name": "@anolilab/stylelint-config",
-  "version": "7.0.10",
-  "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
-  "keywords": [
-    "css",
-    "lint",
-    "sass",
-    "scss",
-    "style",
-    "stylelint",
-    "stylelint-config",
-    "anolilab",
-    "stylelint-a11y",
-    "stylelint-config-clean-order",
-    "stylelint-config-standard",
-    "stylelint-declaration-block-no-ignored-properties",
-    "stylelint-high-performance-animation",
-    "stylelint-no-unsupported-browser-features",
-    "stylelint-require-units",
-    "stylelint-selector-no-empty"
-  ],
-  "homepage": "https://anolilab.com/nodejs/packages/stylelint-config",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anolilab/javascript-style-guide.git",
-    "directory": "packages/stylelint-config"
-  },
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/prisis"
+    "name": "@anolilab/stylelint-config",
+    "version": "7.0.10",
+    "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
+    "keywords": [
+        "css",
+        "lint",
+        "sass",
+        "scss",
+        "style",
+        "stylelint",
+        "stylelint-config",
+        "anolilab",
+        "stylelint-a11y",
+        "stylelint-config-clean-order",
+        "stylelint-config-standard",
+        "stylelint-declaration-block-no-ignored-properties",
+        "stylelint-high-performance-animation",
+        "stylelint-no-unsupported-browser-features",
+        "stylelint-require-units",
+        "stylelint-selector-no-empty"
+    ],
+    "homepage": "https://anolilab.com/nodejs/packages/stylelint-config",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anolilab/javascript-style-guide.git",
+        "directory": "packages/stylelint-config"
     },
-    {
-      "type": "consulting",
-      "url": "https://anolilab.com/support"
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/prisis"
+        },
+        {
+            "type": "consulting",
+            "url": "https://anolilab.com/support"
+        }
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Daniel Bannert",
+        "email": "d.bannert@anolilab.de"
+    },
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./index.d.mts",
+                "default": "./index.mjs"
+            },
+            "require": {
+                "types": "./index.d.cts",
+                "default": "./index.cjs"
+            }
+        },
+        "./best-practices": {
+            "import": {
+                "types": "./dist/config/best-practices.d.mts",
+                "default": "./dist/config/best-practices.mjs"
+            },
+            "require": {
+                "types": "./dist/config/best-practices.d.cts",
+                "default": "./dist/config/best-practices.cjs"
+            }
+        },
+        "./declaration-block-no-ignored-properties": {
+            "import": {
+                "types": "./dist/config/declaration-block-no-ignored-properties.d.mts",
+                "default": "./dist/config/declaration-block-no-ignored-properties.mjs"
+            },
+            "require": {
+                "types": "./dist/config/declaration-block-no-ignored-properties.d.cts",
+                "default": "./dist/config/declaration-block-no-ignored-properties.cjs"
+            }
+        },
+        "./high-performance-animation": {
+            "import": {
+                "types": "./dist/config/high-performance-animation.d.mts",
+                "default": "./dist/config/high-performance-animation.mjs"
+            },
+            "require": {
+                "types": "./dist/config/high-performance-animation.d.cts",
+                "default": "./dist/config/high-performance-animation.cjs"
+            }
+        },
+        "./no-unsupported-browser-features": {
+            "import": {
+                "types": "./dist/config/no-unsupported-browser-features.d.mts",
+                "default": "./dist/config/no-unsupported-browser-features.mjs"
+            },
+            "require": {
+                "types": "./dist/config/no-unsupported-browser-features.d.cts",
+                "default": "./dist/config/no-unsupported-browser-features.cjs"
+            }
+        },
+        "./require-units": {
+            "import": {
+                "types": "./dist/config/require-units.d.mts",
+                "default": "./dist/config/require-units.mjs"
+            },
+            "require": {
+                "types": "./dist/config/require-units.d.cts",
+                "default": "./dist/config/require-units.cjs"
+            }
+        },
+        "./selector-no-empty": {
+            "import": {
+                "types": "./dist/config/selector-no-empty.d.mts",
+                "default": "./dist/config/selector-no-empty.mjs"
+            },
+            "require": {
+                "types": "./dist/config/selector-no-empty.d.cts",
+                "default": "./dist/config/selector-no-empty.cjs"
+            }
+        },
+        "./standard": {
+            "import": {
+                "types": "./dist/config/standard.d.mts",
+                "default": "./dist/config/standard.mjs"
+            },
+            "require": {
+                "types": "./dist/config/standard.d.cts",
+                "default": "./dist/config/standard.cjs"
+            }
+        },
+        "./tailwindcss": {
+            "import": {
+                "types": "./dist/config/tailwindcss.d.mts",
+                "default": "./dist/config/tailwindcss.mjs"
+            },
+            "require": {
+                "types": "./dist/config/tailwindcss.d.cts",
+                "default": "./dist/config/tailwindcss.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "index.cjs",
+    "module": "index.mjs",
+    "types": "index.d.cts",
+    "typesVersions": {
+        ">=5.0": {
+            "best-practices": [
+                "./dist/config/best-practices.d.ts"
+            ],
+            "declaration-block-no-ignored-properties": [
+                "./dist/config/declaration-block-no-ignored-properties.d.ts"
+            ],
+            "high-performance-animation": [
+                "./dist/config/high-performance-animation.d.ts"
+            ],
+            "no-unsupported-browser-features": [
+                "./dist/config/no-unsupported-browser-features.d.ts"
+            ],
+            "require-units": [
+                "./dist/config/require-units.d.ts"
+            ],
+            "selector-no-empty": [
+                "./dist/config/selector-no-empty.d.ts"
+            ],
+            "standard": [
+                "./dist/config/standard.d.ts"
+            ],
+            "tailwindcss": [
+                "./dist/config/tailwindcss.d.ts"
+            ]
+        }
+    },
+    "bin": {
+        "stylelint-config:install": "./dist/bin.mjs"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md",
+        "index.d.ts",
+        "index.cjs",
+        "index.mjs"
+    ],
+    "scripts": {
+        "build": "packem build --development",
+        "build:prod": "packem build --production",
+        "clean": "rimraf node_modules dist",
+        "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
+        "lint:types": "tsc --noEmit",
+        "test": "vitest --config ./vitest.config.ts",
+        "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
+    },
+    "dependencies": {
+        "browserslist-config-anolilab": "catalog:network",
+        "stylelint-config-clean-order": "catalog:lint",
+        "stylelint-config-standard": "catalog:lint",
+        "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
+        "stylelint-high-performance-animation": "catalog:lint",
+        "stylelint-no-unsupported-browser-features": "catalog:lint",
+        "stylelint-require-units": "catalog:lint",
+        "stylelint-selector-no-empty": "catalog:lint"
+    },
+    "devDependencies": {
+        "@anolilab/semantic-release-pnpm": "catalog:cli",
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@visulima/packem": "catalog:dev",
+        "esbuild": "catalog:build",
+        "postcss": "catalog:style",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "stylelint": "catalog:lint",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
+    },
+    "peerDependencies": {
+        "postcss": "catalog:style",
+        "stylelint": "^15.11.0 || 16.x"
+    },
+    "engines": {
+        "node": ">=20.18.* <=25.*"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
     }
-  ],
-  "license": "MIT",
-  "author": {
-    "name": "Daniel Bannert",
-    "email": "d.bannert@anolilab.de"
-  },
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./index.d.mts",
-        "default": "./index.mjs"
-      },
-      "require": {
-        "types": "./index.d.cts",
-        "default": "./index.cjs"
-      }
-    },
-    "./best-practices": {
-      "import": {
-        "types": "./dist/config/best-practices.d.mts",
-        "default": "./dist/config/best-practices.mjs"
-      },
-      "require": {
-        "types": "./dist/config/best-practices.d.cts",
-        "default": "./dist/config/best-practices.cjs"
-      }
-    },
-    "./declaration-block-no-ignored-properties": {
-      "import": {
-        "types": "./dist/config/declaration-block-no-ignored-properties.d.mts",
-        "default": "./dist/config/declaration-block-no-ignored-properties.mjs"
-      },
-      "require": {
-        "types": "./dist/config/declaration-block-no-ignored-properties.d.cts",
-        "default": "./dist/config/declaration-block-no-ignored-properties.cjs"
-      }
-    },
-    "./high-performance-animation": {
-      "import": {
-        "types": "./dist/config/high-performance-animation.d.mts",
-        "default": "./dist/config/high-performance-animation.mjs"
-      },
-      "require": {
-        "types": "./dist/config/high-performance-animation.d.cts",
-        "default": "./dist/config/high-performance-animation.cjs"
-      }
-    },
-    "./no-unsupported-browser-features": {
-      "import": {
-        "types": "./dist/config/no-unsupported-browser-features.d.mts",
-        "default": "./dist/config/no-unsupported-browser-features.mjs"
-      },
-      "require": {
-        "types": "./dist/config/no-unsupported-browser-features.d.cts",
-        "default": "./dist/config/no-unsupported-browser-features.cjs"
-      }
-    },
-    "./require-units": {
-      "import": {
-        "types": "./dist/config/require-units.d.mts",
-        "default": "./dist/config/require-units.mjs"
-      },
-      "require": {
-        "types": "./dist/config/require-units.d.cts",
-        "default": "./dist/config/require-units.cjs"
-      }
-    },
-    "./selector-no-empty": {
-      "import": {
-        "types": "./dist/config/selector-no-empty.d.mts",
-        "default": "./dist/config/selector-no-empty.mjs"
-      },
-      "require": {
-        "types": "./dist/config/selector-no-empty.d.cts",
-        "default": "./dist/config/selector-no-empty.cjs"
-      }
-    },
-    "./standard": {
-      "import": {
-        "types": "./dist/config/standard.d.mts",
-        "default": "./dist/config/standard.mjs"
-      },
-      "require": {
-        "types": "./dist/config/standard.d.cts",
-        "default": "./dist/config/standard.cjs"
-      }
-    },
-    "./tailwindcss": {
-      "import": {
-        "types": "./dist/config/tailwindcss.d.mts",
-        "default": "./dist/config/tailwindcss.mjs"
-      },
-      "require": {
-        "types": "./dist/config/tailwindcss.d.cts",
-        "default": "./dist/config/tailwindcss.cjs"
-      }
-    },
-    "./package.json": "./package.json"
-  },
-  "main": "index.cjs",
-  "module": "index.mjs",
-  "types": "index.d.cts",
-  "typesVersions": {
-    ">=5.0": {
-      "best-practices": [
-        "./dist/config/best-practices.d.ts"
-      ],
-      "declaration-block-no-ignored-properties": [
-        "./dist/config/declaration-block-no-ignored-properties.d.ts"
-      ],
-      "high-performance-animation": [
-        "./dist/config/high-performance-animation.d.ts"
-      ],
-      "no-unsupported-browser-features": [
-        "./dist/config/no-unsupported-browser-features.d.ts"
-      ],
-      "require-units": [
-        "./dist/config/require-units.d.ts"
-      ],
-      "selector-no-empty": [
-        "./dist/config/selector-no-empty.d.ts"
-      ],
-      "standard": [
-        "./dist/config/standard.d.ts"
-      ],
-      "tailwindcss": [
-        "./dist/config/tailwindcss.d.ts"
-      ]
-    }
-  },
-  "bin": {
-    "stylelint-config:install": "./dist/bin.mjs"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE.md",
-    "index.d.ts",
-    "index.cjs",
-    "index.mjs"
-  ],
-  "scripts": {
-    "build": "packem build --development",
-    "build:prod": "packem build --production",
-    "clean": "rimraf node_modules dist",
-    "lint:attw": "attw --pack",
-    "lint:prettier": "prettier .",
-    "lint:prettier:fix": "prettier --write .",
-    "lint:types": "tsc --noEmit",
-    "test": "vitest --config ./vitest.config.ts",
-    "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
-  },
-  "dependencies": {
-    "browserslist-config-anolilab": "catalog:network",
-    "stylelint-config-clean-order": "catalog:lint",
-    "stylelint-config-standard": "catalog:lint",
-    "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
-    "stylelint-high-performance-animation": "catalog:lint",
-    "stylelint-no-unsupported-browser-features": "catalog:lint",
-    "stylelint-require-units": "catalog:lint",
-    "stylelint-selector-no-empty": "catalog:lint"
-  },
-  "devDependencies": {
-    "@anolilab/semantic-release-pnpm": "catalog:cli",
-    "@anolilab/semantic-release-preset": "catalog:cli",
-    "@arethetypeswrong/cli": "catalog:dev",
-    "@visulima/packem": "catalog:dev",
-    "esbuild": "catalog:build",
-    "postcss": "catalog:style",
-    "prettier": "catalog:lint",
-    "rimraf": "catalog:node",
-    "semantic-release": "catalog:cli",
-    "stylelint": "catalog:lint",
-    "typescript": "catalog:tsc",
-    "vitest": "catalog:test"
-  },
-  "peerDependencies": {
-    "postcss": "catalog:style",
-    "stylelint": "^15.11.0 || 16.x"
-  },
-  "engines": {
-    "node": ">=20.18.* <=25.*"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "optionalDependencies": {}
 }

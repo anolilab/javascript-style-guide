@@ -578,7 +578,7 @@ export const createConfig = async (
                 "eslint-plugin-react-perf",
                 "eslint-plugin-react-you-might-not-need-an-effect",
             ]),
-        // eslint-disable-next-line sonarjs/deprecation, @typescript-eslint/no-deprecated
+        // eslint-disable-next-line sonarjs/deprecation
         reactCompiler: enableReactCompilerOption,
         regexp: enableRegexp = true,
         silent = false,

@@ -210,9 +210,7 @@ export interface OptionsConfig
      * @default false
      * Enabled this option automatically when react is installed.
      */
-    react?:
-        | boolean
-        | (OptionsFiles & OptionsOverrides & OptionsReact);
+    react?: boolean | (OptionsFiles & OptionsOverrides & OptionsReact);
 
     /**
      * Enable react-compiler rules.

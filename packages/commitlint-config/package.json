@@ -1,105 +1,104 @@
 {
-  "name": "@anolilab/commitlint-config",
-  "version": "7.0.0",
-  "description": "Anolilab´s shareable coding standard config for commitlint.",
-  "keywords": [
-    "anolilab",
-    "commitlint",
-    "commitlint-config"
-  ],
-  "homepage": "https://anolilab.com/nodejs/packages/commitlint-config",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anolilab/javascript-style-guide.git",
-    "directory": "packages/commitlint-config"
-  },
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/prisis"
+    "name": "@anolilab/commitlint-config",
+    "version": "7.0.0",
+    "description": "Anolilab´s shareable coding standard config for commitlint.",
+    "keywords": [
+        "anolilab",
+        "commitlint",
+        "commitlint-config"
+    ],
+    "homepage": "https://anolilab.com/nodejs/packages/commitlint-config",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anolilab/javascript-style-guide.git",
+        "directory": "packages/commitlint-config"
     },
-    {
-      "type": "consulting",
-      "url": "https://anolilab.com/support"
-    }
-  ],
-  "license": "MIT",
-  "author": {
-    "name": "Daniel Bannert",
-    "email": "d.bannert@anolilab.de"
-  },
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/prisis"
+        },
+        {
+            "type": "consulting",
+            "url": "https://anolilab.com/support"
+        }
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Daniel Bannert",
+        "email": "d.bannert@anolilab.de"
     },
-    "./package.json": "./package.json"
-  },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "typesVersions": {
-    ">=5.0": {
-      ".": [
-        "./dist/index.d.ts"
-      ]
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.mts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typesVersions": {
+        ">=5.0": {
+            ".": [
+                "./dist/index.d.ts"
+            ]
+        }
+    },
+    "bin": {
+        "commitlint-config:install": "./dist/bin.mjs"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE.md"
+    ],
+    "scripts": {
+        "build": "packem build --development",
+        "build:prod": "packem build --production",
+        "clean": "rimraf node_modules dist",
+        "lint:attw": "attw --pack",
+        "lint:prettier": "prettier .",
+        "lint:prettier:fix": "prettier --write .",
+        "lint:types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@commitlint/config-conventional": "catalog:lint",
+        "@commitlint/core": "catalog:lint",
+        "commitizen": "catalog:cli",
+        "conventional-changelog-conventionalcommits": "catalog:prod",
+        "cz-conventional-changelog": "catalog:prod"
+    },
+    "devDependencies": {
+        "@anolilab/semantic-release-pnpm": "catalog:cli",
+        "@anolilab/semantic-release-preset": "catalog:cli",
+        "@arethetypeswrong/cli": "catalog:dev",
+        "@commitlint/cli": "catalog:lint",
+        "@visulima/packem": "catalog:dev",
+        "esbuild": "catalog:build",
+        "prettier": "catalog:lint",
+        "rimraf": "catalog:node",
+        "semantic-release": "catalog:cli",
+        "typescript": "catalog:tsc",
+        "vitest": "catalog:test"
+    },
+    "peerDependencies": {
+        "@commitlint/cli": "^17.6.5 || ^18.x || ^19.x || ^20.0.0"
+    },
+    "engines": {
+        "node": ">=20.18.* <=25.*"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
     }
-  },
-  "bin": {
-    "commitlint-config:install": "./dist/bin.mjs"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE.md"
-  ],
-  "scripts": {
-    "build": "packem build --development",
-    "build:prod": "packem build --production",
-    "clean": "rimraf node_modules dist",
-    "lint:attw": "attw --pack",
-    "lint:prettier": "prettier .",
-    "lint:prettier:fix": "prettier --write .",
-    "lint:types": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@commitlint/config-conventional": "catalog:lint",
-    "@commitlint/core": "catalog:lint",
-    "commitizen": "catalog:cli",
-    "conventional-changelog-conventionalcommits": "catalog:prod",
-    "cz-conventional-changelog": "catalog:prod"
-  },
-  "devDependencies": {
-    "@anolilab/semantic-release-pnpm": "catalog:cli",
-    "@anolilab/semantic-release-preset": "catalog:cli",
-    "@arethetypeswrong/cli": "catalog:dev",
-    "@commitlint/cli": "catalog:lint",
-    "@visulima/packem": "catalog:dev",
-    "esbuild": "catalog:build",
-    "prettier": "catalog:lint",
-    "rimraf": "catalog:node",
-    "semantic-release": "catalog:cli",
-    "typescript": "catalog:tsc",
-    "vitest": "catalog:test"
-  },
-  "peerDependencies": {
-    "@commitlint/cli": "^17.6.5 || ^18.x || ^19.x || ^20.0.0"
-  },
-  "engines": {
-    "node": ">=20.18.* <=25.*"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "optionalDependencies": {}
 }

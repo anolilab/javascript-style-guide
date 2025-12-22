@@ -30,52 +30,51 @@ const detectCatalogUsage = async (): Promise<boolean> => {
 export default createConfig<
     OptionsFiles & OptionsIsInEditor & OptionsOverrides & OptionsPnpm
 >("all", async (options) => {
-    const { catalogs = await detectCatalogUsage(), isInEditor = false, json = true, sort = true, yaml = true }
-        = options;
+    const {
+        catalogs = await detectCatalogUsage(),
+        isInEditor = false,
+        json = true,
+        sort = true,
+        yaml = true,
+    } = options;
 
-    const [yamlParser, pluginYaml, pluginPnpm, jsoncParser] = await Promise.all([
-        interopDefault(import("yaml-eslint-parser")),
-        interopDefault(import("eslint-plugin-yml")),
-        interopDefault(import("eslint-plugin-pnpm")),
-        interopDefault(import("jsonc-eslint-parser")),
-    ] as const);
+    const [yamlParser, pluginYaml, pluginPnpm, jsoncParser] = await Promise.all(
+        [
+            interopDefault(import("yaml-eslint-parser")),
+            interopDefault(import("eslint-plugin-yml")),
+            interopDefault(import("eslint-plugin-pnpm")),
+            interopDefault(import("jsonc-eslint-parser")),
+        ] as const,
+    );
 
     const configs: TypedFlatConfigItem[] = [];
 
     if (json) {
-        configs.push(
-            {
-                files: [
-                    "package.json",
-                    "**/package.json",
-                ],
-                languageOptions: {
-                    parser: jsoncParser,
-                },
-                name: "antfu/pnpm/package-json",
-                plugins: {
-                    pnpm: pluginPnpm,
-                },
-                rules: {
-                    ...catalogs
-                        ? {
-                            "pnpm/json-enforce-catalog": [
-                                "error",
-                                { autofix: !isInEditor },
-                            ],
-                        }
-                        : {},
-                    "pnpm/json-prefer-workspace-settings": [
-                        "error",
-                        { autofix: !isInEditor },
-                    ],
-                    "pnpm/json-valid-catalog": [
-                        "error",
-                        { autofix: !isInEditor },
-                    ],
-                },
+        configs.push({
+            files: ["package.json", "**/package.json"],
+            languageOptions: {
+                parser: jsoncParser,
             },
-        );
+            name: "antfu/pnpm/package-json",
+            plugins: {
+                pnpm: pluginPnpm,
+            },
+            rules: {
+                ...catalogs
+                    ? {
+                        "pnpm/json-enforce-catalog": [
+                            "error",
+                            { autofix: !isInEditor },
+                        ],
+                    }
+                    : {},
+                "pnpm/json-prefer-workspace-settings": [
+                    "error",
+                    { autofix: !isInEditor },
+                ],
+                "pnpm/json-valid-catalog": ["error", { autofix: !isInEditor }],
+            },
+        });
     }
 
     if (yaml) {
@@ -89,13 +88,16 @@ export default createConfig<
                 pnpm: pluginPnpm,
             },
             rules: {
-                "pnpm/yaml-enforce-settings": ["error", {
-                    settings: {
-                        catalogMode: "prefer",
-                        shellEmulator: true,
-                        trustPolicy: "no-downgrade",
+                "pnpm/yaml-enforce-settings": [
+                    "error",
+                    {
+                        settings: {
+                            catalogMode: "prefer",
+                            shellEmulator: true,
+                            trustPolicy: "no-downgrade",
+                        },
                     },
-                }],
+                ],
                 "pnpm/yaml-no-duplicate-catalog-item": "error",
                 "pnpm/yaml-no-unused-catalog-item": "error",
             },

@@ -1,116 +1,117 @@
 {
-    "name": "@anolilab/textlint-config",
-    "version": "10.0.0",
-    "description": "Anolilab Coding Standard for text linting.",
-    "keywords": [
-        "anolilab",
-        "lint",
-        "text",
-        "textlint",
-        "write-good",
-        "@textlint-rule/textlint-rule-no-invalid-control-character",
-        "@textlint-rule/textlint-rule-no-unmatched-pair",
-        "@textlint-rule/textlint-rule-preset-google",
-        "textlint-filter-rule-comments",
-        "textlint-rule-abbr-within-parentheses",
-        "textlint-rule-alex",
-        "textlint-rule-apostrophe",
-        "textlint-rule-common-misspellings",
-        "textlint-rule-date-weekday-mismatch",
-        "textlint-rule-diacritics",
-        "textlint-rule-en-capitalization",
-        "textlint-rule-footnote-order",
-        "textlint-rule-helper",
-        "textlint-rule-no-dead-link",
-        "textlint-rule-no-empty-section",
-        "textlint-rule-no-todo",
-        "textlint-rule-terminology",
-        "textlint-rule-write-good"
-    ],
-    "homepage": "https://anolilab.com/nodejs/packages/textlint-config",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/anolilab/javascript-style-guide.git",
-        "directory": "packages/textlint-config"
+  "name": "@anolilab/textlint-config",
+  "version": "10.0.0",
+  "description": "Anolilab Coding Standard for text linting.",
+  "keywords": [
+    "anolilab",
+    "lint",
+    "text",
+    "textlint",
+    "write-good",
+    "@textlint-rule/textlint-rule-no-invalid-control-character",
+    "@textlint-rule/textlint-rule-no-unmatched-pair",
+    "@textlint-rule/textlint-rule-preset-google",
+    "textlint-filter-rule-comments",
+    "textlint-rule-abbr-within-parentheses",
+    "textlint-rule-alex",
+    "textlint-rule-apostrophe",
+    "textlint-rule-common-misspellings",
+    "textlint-rule-date-weekday-mismatch",
+    "textlint-rule-diacritics",
+    "textlint-rule-en-capitalization",
+    "textlint-rule-footnote-order",
+    "textlint-rule-helper",
+    "textlint-rule-no-dead-link",
+    "textlint-rule-no-empty-section",
+    "textlint-rule-no-todo",
+    "textlint-rule-terminology",
+    "textlint-rule-write-good"
+  ],
+  "homepage": "https://anolilab.com/nodejs/packages/textlint-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anolilab/javascript-style-guide.git",
+    "directory": "packages/textlint-config"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/prisis"
     },
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/prisis"
-        },
-        {
-            "type": "consulting",
-            "url": "https://anolilab.com/support"
-        }
-    ],
-    "license": "MIT",
-    "author": {
-        "name": "Daniel Bannert",
-        "email": "d.bannert@anolilab.de"
-    },
-    "type": "module",
-    "bin": {
-        "textlint-config:install": "./dist/bin.mjs"
-    },
-    "files": [
-        "dist",
-        "README.md",
-        "CHANGELOG.md",
-        "LICENSE.md"
-    ],
-    "scripts": {
-        "build": "packem build --development",
-        "build:prod": "packem build --production",
-        "clean": "rimraf node_modules dist",
-        "lint:attw": "attw --pack",
-        "lint:prettier": "prettier .",
-        "lint:prettier:fix": "prettier --write .",
-        "lint:types": "tsc --noEmit"
-    },
-    "dependencies": {
-        "@textlint-rule/textlint-rule-no-invalid-control-character": "catalog:lint",
-        "@textlint-rule/textlint-rule-no-unmatched-pair": "catalog:lint",
-        "@textlint-rule/textlint-rule-preset-google": "catalog:lint",
-        "@textlint/ast-node-types": "catalog:lint",
-        "@textlint/types": "catalog:lint",
-        "textlint-filter-rule-comments": "catalog:lint",
-        "textlint-rule-abbr-within-parentheses": "catalog:lint",
-        "textlint-rule-alex": "catalog:lint",
-        "textlint-rule-apostrophe": "catalog:lint",
-        "textlint-rule-common-misspellings": "catalog:lint",
-        "textlint-rule-date-weekday-mismatch": "catalog:lint",
-        "textlint-rule-diacritics": "catalog:lint",
-        "textlint-rule-en-capitalization": "catalog:lint",
-        "textlint-rule-footnote-order": "catalog:lint",
-        "textlint-rule-helper": "catalog:lint",
-        "textlint-rule-no-dead-link": "catalog:lint",
-        "textlint-rule-no-empty-section": "catalog:lint",
-        "textlint-rule-no-todo": "catalog:lint",
-        "textlint-rule-terminology": "catalog:lint",
-        "textlint-rule-write-good": "catalog:lint",
-        "write-good": "catalog:prod"
-    },
-    "devDependencies": {
-        "@anolilab/semantic-release-pnpm": "catalog:cli",
-        "@anolilab/semantic-release-preset": "catalog:cli",
-        "@arethetypeswrong/cli": "catalog:dev",
-        "@visulima/packem": "catalog:dev",
-        "esbuild": "catalog:build",
-        "prettier": "catalog:lint",
-        "rimraf": "catalog:node",
-        "semantic-release": "catalog:cli",
-        "textlint": "catalog:lint",
-        "typescript": "catalog:tsc",
-        "vitest": "catalog:test"
-    },
-    "peerDependencies": {
-        "textlint": "catalog:lint"
-    },
-    "engines": {
-        "node": ">=20.18.* <=25.*"
-    },
-    "publishConfig": {
-        "access": "public",
-        "provenance": true
+    {
+      "type": "consulting",
+      "url": "https://anolilab.com/support"
     }
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Bannert",
+    "email": "d.bannert@anolilab.de"
+  },
+  "type": "module",
+  "bin": {
+    "textlint-config:install": "./dist/bin.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "packem build --development",
+    "build:prod": "packem build --production",
+    "clean": "rimraf node_modules dist",
+    "lint:attw": "attw --pack",
+    "lint:prettier": "prettier .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@textlint-rule/textlint-rule-no-invalid-control-character": "catalog:lint",
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "catalog:lint",
+    "@textlint-rule/textlint-rule-preset-google": "catalog:lint",
+    "@textlint/ast-node-types": "catalog:lint",
+    "@textlint/types": "catalog:lint",
+    "textlint-filter-rule-comments": "catalog:lint",
+    "textlint-rule-abbr-within-parentheses": "catalog:lint",
+    "textlint-rule-alex": "catalog:lint",
+    "textlint-rule-apostrophe": "catalog:lint",
+    "textlint-rule-common-misspellings": "catalog:lint",
+    "textlint-rule-date-weekday-mismatch": "catalog:lint",
+    "textlint-rule-diacritics": "catalog:lint",
+    "textlint-rule-en-capitalization": "catalog:lint",
+    "textlint-rule-footnote-order": "catalog:lint",
+    "textlint-rule-helper": "catalog:lint",
+    "textlint-rule-no-dead-link": "catalog:lint",
+    "textlint-rule-no-empty-section": "catalog:lint",
+    "textlint-rule-no-todo": "catalog:lint",
+    "textlint-rule-terminology": "catalog:lint",
+    "textlint-rule-write-good": "catalog:lint",
+    "write-good": "catalog:prod"
+  },
+  "devDependencies": {
+    "@anolilab/semantic-release-pnpm": "catalog:cli",
+    "@anolilab/semantic-release-preset": "catalog:cli",
+    "@arethetypeswrong/cli": "catalog:dev",
+    "@visulima/packem": "catalog:dev",
+    "esbuild": "catalog:build",
+    "prettier": "catalog:lint",
+    "rimraf": "catalog:node",
+    "semantic-release": "catalog:cli",
+    "textlint": "catalog:lint",
+    "typescript": "catalog:tsc",
+    "vitest": "catalog:test"
+  },
+  "peerDependencies": {
+    "textlint": "catalog:lint"
+  },
+  "engines": {
+    "node": ">=20.18.* <=25.*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "optionalDependencies": {}
 }

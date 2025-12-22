@@ -22,6 +22,13 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
                     ...overrides,
                 },
             },
+            {
+                files: "**/routes/**/*.{ts,tsx}",
+                rules: {
+                    // Tanstack Router uses a custom sort order for objects
+                    "perfectionist/sort-objects": "off",
+                },
+            },
         ];
     },
 );

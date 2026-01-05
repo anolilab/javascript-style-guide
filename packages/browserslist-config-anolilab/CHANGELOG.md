@@ -1,3 +1,9 @@
+## browserslist-config-anolilab [7.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@7.0.0...browserslist-config-anolilab@7.0.1) (2026-01-05)
+
+### Bug Fixes
+
+* update package versions and configurations ([6a83bb6](https://github.com/anolilab/javascript-style-guide/commit/6a83bb692298f0f037c4af6e5830865cb0a6d847))
+
 ## browserslist-config-anolilab [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@6.0.7...browserslist-config-anolilab@7.0.0) (2025-12-22)
 
 ### Bug Fixes

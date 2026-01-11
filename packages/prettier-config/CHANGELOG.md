@@ -1,3 +1,13 @@
+## @anolilab/prettier-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@8.0.1...@anolilab/prettier-config@9.0.0) (2026-01-11)
+
+### Bug Fixes
+
+* update package versions and configurations ([d4c690d](https://github.com/anolilab/javascript-style-guide/commit/d4c690d6132fb7c1734a299f64fbc1020190a300))
+
+### Miscellaneous Chores
+
+* update package versions and configurations ([daf1e9a](https://github.com/anolilab/javascript-style-guide/commit/daf1e9af81c2ea12d07d9c8d804b2431d953e229))
+
 ## @anolilab/prettier-config [8.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@8.0.0...@anolilab/prettier-config@8.0.1) (2026-01-05)
 
 ### Bug Fixes

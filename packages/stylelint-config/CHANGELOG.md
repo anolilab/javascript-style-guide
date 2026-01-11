@@ -1,3 +1,14 @@
+## @anolilab/stylelint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@8.0.1...@anolilab/stylelint-config@9.0.0) (2026-01-11)
+
+### Bug Fixes
+
+* update package versions and configurations ([d4c690d](https://github.com/anolilab/javascript-style-guide/commit/d4c690d6132fb7c1734a299f64fbc1020190a300))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 8.0.0
+
 ## @anolilab/stylelint-config [8.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@8.0.0...@anolilab/stylelint-config@8.0.1) (2026-01-05)
 
 ### Bug Fixes

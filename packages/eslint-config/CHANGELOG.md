@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [20.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@19.0.0...@anolilab/eslint-config@20.0.0) (2026-01-11)
+
+### Bug Fixes
+
+* update eslint-config to use ES module and add e18e specific rules ([e0b1a3d](https://github.com/anolilab/javascript-style-guide/commit/e0b1a3d630fb6d78149f6363654c0517edcbcb8f))
+
+### Miscellaneous Chores
+
+* update eslint-config to include e18e plugin and adjust dependencies ([180fa82](https://github.com/anolilab/javascript-style-guide/commit/180fa825b39c36503589bc77561b98b769f7addd))
+
 ## @anolilab/eslint-config [19.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@18.0.0...@anolilab/eslint-config@19.0.0) (2026-01-05)
 
 ### Bug Fixes

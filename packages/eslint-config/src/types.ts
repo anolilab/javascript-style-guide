@@ -62,6 +62,12 @@ export interface OptionsConfig
     cwd?: string;
 
     /**
+     * Enable e18e rules.
+     * @default true
+     */
+    e18e?: boolean | (OptionsFiles & OptionsOverrides);
+
+    /**
      * Use external formatters to format files.
      *
      * Requires installing:

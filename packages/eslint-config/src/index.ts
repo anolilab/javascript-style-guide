@@ -18,6 +18,7 @@ import astro from "./config/plugins/astro";
 import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
 import css from "./config/plugins/css";
+import e18e from "./config/plugins/e18e";
 import formatters from "./config/plugins/formatters";
 import html from "./config/plugins/html";
 import imports from "./config/plugins/imports";
@@ -253,6 +254,7 @@ export const createConfig = async (
             "postcss",
             "cssnano",
         ]),
+        e18e: enableE18e = true,
         gitignore: enableGitignore = true,
         html: enableHtml = false,
         jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, [
@@ -882,6 +884,15 @@ export const createConfig = async (
             packageJson,
         }),
     );
+
+    if (enableE18e) {
+        configs.push(
+            e18e({
+                files: getFiles(options, "e18e"),
+                overrides: getOverrides(options, "e18e"),
+            }),
+        );
+    }
 
     if (packageJson["browserlist"] !== undefined) {
         configs.push(

@@ -18,6 +18,7 @@ import astro from "./config/plugins/astro";
 import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
 import css from "./config/plugins/css";
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import e18e from "./config/plugins/e18e";
 import formatters from "./config/plugins/formatters";
 import html from "./config/plugins/html";
@@ -254,6 +255,7 @@ export const createConfig = async (
             "postcss",
             "cssnano",
         ]),
+        // eslint-disable-next-line unicorn/prevent-abbreviations
         e18e: enableE18e = true,
         gitignore: enableGitignore = true,
         html: enableHtml = false,

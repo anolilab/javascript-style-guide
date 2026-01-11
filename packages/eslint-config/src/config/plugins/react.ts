@@ -117,6 +117,7 @@ export default createConfig<
         pluginReactYouMightNotNeedAnEffect,
     ] = await Promise.all([
         interopDefault(import("@eslint-react/eslint-plugin")),
+        // eslint-disable-next-line e18e/ban-dependencies
         interopDefault(import("eslint-plugin-react")),
         interopDefault(import("eslint-plugin-react-hooks")),
         interopDefault(import("eslint-plugin-react-refresh")),

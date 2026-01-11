@@ -42,7 +42,8 @@ export default createConfig<
             },
 
             settings: {
-                "html/indent": `+${indent}`,
+                // eslint-disable-next-line @typescript-eslint/no-base-to-string
+                "html/indent": `+${indent.toString()}`,
                 "html/report-bad-indent": "error",
                 ...prettier ? { "html/report-bad-indent": "off" } : {},
             },

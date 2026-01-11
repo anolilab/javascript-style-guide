@@ -1,4 +1,4 @@
-import { createConfig, getFilesGlobs } from "./dist/index.mjs";
+import { createConfig, getFilesGlobs } from "./dist/index.js";
 
 export default createConfig(
     {
@@ -73,6 +73,12 @@ export default createConfig(
         rules: {
             "import/no-unresolved": "off",
             "jsonc/no-comments": "off",
+        },
+    },
+    {
+        files: ["**/e18e.ts"],
+        rules: {
+            "unicorn/prevent-abbreviations": "off",
         },
     },
 );

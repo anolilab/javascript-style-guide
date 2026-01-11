@@ -1,5 +1,3 @@
-import { fixupPluginRules } from "@eslint/compat";
-
 import type { OptionsFiles, OptionsOverrides, Rules } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
@@ -10,9 +8,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
     async (config, oFiles) => {
         const { files = oFiles, overrides } = config;
 
-        const e18ePlugin = await interopDefault(
-            import("@e18e/eslint-plugin"),
-        );
+        const e18ePlugin = await interopDefault(import("@e18e/eslint-plugin"));
 
         return [
             {
@@ -22,10 +18,16 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
                     e18e: e18ePlugin,
                 },
                 rules: {
-                    ...(fixupPluginRules(
-                        // @ts-expect-error - plugin may not have proper types
-                        e18ePlugin?.configs?.recommended?.rules,
-                    ) as Rules),
+                    ...(e18ePlugin.configs?.["recommended"] as { rules: Rules }).rules,
+
+                    // Conflicts with e18e/prefer-nullish-coalescing
+                    "@typescript-eslint/prefer-nullish-coalescing": "off",
+
+                    // Conflicts with e18e/prefer-exponentiation-operator
+                    "prefer-exponentiation-operator": "off",
+
+                    // Conflicts with e18e/prefer-spread-syntax
+                    "prefer-spread": "off",
 
                     ...overrides,
                 },

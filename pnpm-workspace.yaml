@@ -1,16 +1,15 @@
 packages:
-  - packages/**
-  - '!packages/eslint-config/__fixtures__/**'
-
+  - "packages/**"
+  - "!packages/eslint-config/__fixtures__/**"
 catalog:
-  '@anolilab/multi-semantic-release': ^3.2.2
+  '@anolilab/multi-semantic-release': 4.0.0
   '@commitlint/cli': 20.3.1
   '@commitlint/config-conventional': 20.3.1
   '@commitlint/core': 20.3.1
   '@secretlint/secretlint-rule-preset-recommend': ^11.2.5
   '@tsconfig/node16': ^16.1.8
   '@tsconfig/strictest': ^2.0.8
-  '@types/node': 25.0.3
+  '@types/node': 25.0.6
   '@vitest/coverage-v8': 4.0.16
   audit-ci: ^7.1.0
   commitizen: ^4.3.1
@@ -36,16 +35,15 @@ catalog:
   textlint: ^15.5.0
   typescript: ^5.9.3
   vitest: 4.0.16
-
 catalogMode: prefer
 
 catalogs:
   build:
     esbuild: 0.27.2
   cli:
-    '@anolilab/multi-semantic-release': ^3.2.2
-    '@anolilab/semantic-release-pnpm': ^3.2.2
-    '@anolilab/semantic-release-preset': 12.1.2
+    '@anolilab/multi-semantic-release': 4.0.0
+    '@anolilab/semantic-release-pnpm': 4.0.0
+    '@anolilab/semantic-release-preset': 13.0.0
     commitizen: ^4.3.1
     semantic-release: ^25.0.2
     taze: ^19.9.2
@@ -55,14 +53,14 @@ catalogs:
   frontend:
     react: ^19.2.3
   lint:
-    '@anolilab/eslint-config': 18.0.0
-    '@commitlint/cli': 20.3.0
-    '@commitlint/config-conventional': 20.3.0
-    '@commitlint/core': 20.3.0
+    '@anolilab/eslint-config': 19.0.0
+    '@commitlint/cli': 20.3.1
+    '@commitlint/config-conventional': 20.3.1
+    '@commitlint/core': 20.3.1
     '@e18e/eslint-plugin': ^0.1.3
     '@eslint-community/eslint-plugin-eslint-comments': ^4.5.0
-    '@eslint-react/eslint-plugin': 2.5.1
-    '@eslint/compat': ^2.0.0
+    '@eslint-react/eslint-plugin': 2.5.4
+    '@eslint/compat': 2.0.1
     '@eslint/config-inspector': ^1.4.2
     '@eslint/css': ^0.14.1
     '@eslint/js': ^9.39.2
@@ -70,7 +68,7 @@ catalogs:
     '@html-eslint/eslint-plugin': 0.52.1
     '@html-eslint/parser': 0.52.0
     '@secretlint/secretlint-rule-preset-recommend': ^11.2.5
-    '@stylistic/eslint-plugin': ^5.6.1
+    '@stylistic/eslint-plugin': 5.7.0
     '@stylistic/eslint-plugin-migrate': ^4.4.1
     '@stylistic/eslint-plugin-ts': ^4.4.1
     '@tanstack/eslint-plugin-query': ^5.91.2
@@ -81,7 +79,7 @@ catalogs:
     '@textlint/ast-node-types': ^15.5.0
     '@textlint/types': ^15.5.0
     '@unocss/eslint-plugin': 66.5.12
-    '@vitest/eslint-plugin': 1.6.5
+    '@vitest/eslint-plugin': 1.6.6
     astro-eslint-parser: ^1.2.2
     eslint: ^9.39.2
     eslint-config-flat-gitignore: ^2.1.0
@@ -89,16 +87,16 @@ catalogs:
     eslint-import-resolver-node: ^0.3.9
     eslint-import-resolver-typescript: ^4.4.4
     eslint-merge-processors: ^2.0.0
-    eslint-plugin-antfu: ^3.1.1
+    eslint-plugin-antfu: 3.1.3
     eslint-plugin-astro: ^1.5.0
     eslint-plugin-compat: ^6.0.2
-    eslint-plugin-depend: ^0.4.0
+    eslint-plugin-depend: 0.12.0
     eslint-plugin-erasable-syntax-only: ^0.4.0
     eslint-plugin-es-x: ^9.3.0
-    eslint-plugin-format: ^1.1.0
+    eslint-plugin-format: 1.2.0
     eslint-plugin-html: ^8.1.3
     eslint-plugin-import-x: ^4.16.1
-    eslint-plugin-jsdoc: ^61.5.0
+    eslint-plugin-jsdoc: 61.7.1
     eslint-plugin-jsonc: ^2.21.0
     eslint-plugin-jsx-a11y: ^6.10.2
     eslint-plugin-n: ^17.23.1
@@ -107,7 +105,7 @@ catalogs:
     eslint-plugin-no-secrets: ^2.2.1
     eslint-plugin-no-unsanitized: ^4.1.4
     eslint-plugin-perfectionist: ^4.15.1
-    eslint-plugin-playwright: 2.4.0
+    eslint-plugin-playwright: 2.4.1
     eslint-plugin-pnpm: ^1.4.3
     eslint-plugin-promise: ^7.2.1
     eslint-plugin-react: ^7.37.5
@@ -115,7 +113,7 @@ catalogs:
     eslint-plugin-react-hooks: ^7.0.1
     eslint-plugin-react-perf: ^3.3.3
     eslint-plugin-react-refresh: 0.4.26
-    eslint-plugin-react-you-might-not-need-an-effect: 0.8.3
+    eslint-plugin-react-you-might-not-need-an-effect: 0.8.5
     eslint-plugin-regexp: ^2.10.0
     eslint-plugin-security: ^3.0.1
     eslint-plugin-simple-import-sort: ^12.1.1
@@ -123,7 +121,7 @@ catalogs:
     eslint-plugin-storybook: 10.1.11
     eslint-plugin-tailwindcss: ^3.18.2
     eslint-plugin-testing-library: 7.15.4
-    eslint-plugin-toml: ^0.12.0
+    eslint-plugin-toml: 0.13.1
     eslint-plugin-tsdoc: ^0.5.0
     eslint-plugin-unicorn: ^62.0.0
     eslint-plugin-unused-imports: ^4.3.0
@@ -162,14 +160,14 @@ catalogs:
     textlint-rule-no-todo: ^2.0.1
     textlint-rule-terminology: ^5.2.16
     textlint-rule-write-good: ^2.0.0
-    toml-eslint-parser: ^0.10.1
-    typescript-eslint: 8.51.0
+    toml-eslint-parser: 1.0.0
+    typescript-eslint: 8.52.0
     yaml-eslint-parser: ^1.3.2
   monorepo:
     nx: 22.3.3
   network:
     browserslist: 4.28.1
-    browserslist-config-anolilab: 7.0.0
+    browserslist-config-anolilab: 7.0.1
     confusing-browser-globals: ^1.0.11
   node:
     cross-env: ^10.1.0
@@ -213,15 +211,14 @@ catalogs:
     '@types/eslint': ^9.6.1
     '@types/eslint-plugin-jsx-a11y': ^6.10.1
     '@types/eslint-plugin-tailwindcss': ^3.17.0
-    '@types/node': 24.10.4
+    '@types/node': 25.0.6
     '@types/semver': ^7.7.1
     '@types/shell-quote': ^1.7.5
-    '@typescript-eslint/parser': 8.51.0
-    '@typescript-eslint/types': 8.51.0
+    '@typescript-eslint/parser': 8.52.0
+    '@typescript-eslint/types': 8.52.0
   utils:
-    caniuse-lite: 1.0.30001762
+    caniuse-lite: 1.0.30001764
     semver: ^7.7.3
-
 onlyBuiltDependencies:
   - esbuild
   - nx

@@ -5,6 +5,7 @@ import {
     hasPackageJsonAnyDependency,
     parsePackageJsonSync,
 } from "@visulima/package";
+// eslint-disable-next-line e18e/ban-dependencies
 import type { Configuration } from "lint-staged";
 
 import createEslintCommands from "./eslint/create-eslint-commands";
@@ -115,13 +116,13 @@ export const defineConfig = (
     let loadedPlugins: Configuration = {};
 
     if (
-        config.eslint !== false &&
-        hasPackageJsonAnyDependency(packageJson, ["eslint"])
+        config.eslint !== false
+        && hasPackageJsonAnyDependency(packageJson, ["eslint"])
     ) {
         if (
-            !Array.isArray((config.eslint as EslintConfig).extensions) ||
-            ((config.eslint as EslintConfig).extensions as string[]).length ===
-                0
+            !Array.isArray((config.eslint as EslintConfig).extensions)
+            || ((config.eslint as EslintConfig).extensions as string[]).length
+            === 0
         ) {
             throw new Error(
                 "The `extensions` option is required for the ESLint configuration.",
@@ -135,23 +136,23 @@ export const defineConfig = (
         loadedPlugins[
             `**/*.{${((config.eslint as EslintConfig).extensions as string[]).join(",")}}`
         ] = async (filenames: string[]) => [
-            ...(hasPrettier
+            ...hasPrettier
                 ? [
-                      `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
-                  ]
-                : []),
-            ...(await createEslintCommands(
+                    `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
+                ]
+                : [],
+            ...await createEslintCommands(
                 packageManager,
                 packageJson,
                 config.eslint as EslintConfig,
                 filenames,
-            )),
+            ),
         ];
     }
 
     if (
-        config.json !== false &&
-        hasPackageJsonAnyDependency(packageJson, ["sort-package-json"])
+        config.json !== false
+        && hasPackageJsonAnyDependency(packageJson, ["sort-package-json"])
     ) {
         loadedPlugins["**/package.json"] = (filenames: string[]) => [
             `${packageManager} exec sort-package-json ${concatFiles(filenames)}`,
@@ -162,35 +163,35 @@ export const defineConfig = (
         loadedPlugins = {
             ...loadedPlugins,
             "**/*.md": (filenames: string[]) => [
-                ...(hasPrettier
+                ...hasPrettier
                     ? [
-                          `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
-                      ]
-                    : []),
-                ...(hasMarkdownCli
+                        `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
+                    ]
+                    : [],
+                ...hasMarkdownCli
                     ? [
-                          `${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`,
-                      ]
-                    : []),
-                ...(hasMarkdownCli2
+                        `${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`,
+                    ]
+                    : [],
+                ...hasMarkdownCli2
                     ? [
-                          `${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`,
-                      ]
-                    : []),
+                        `${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`,
+                    ]
+                    : [],
             ],
             "**/*.mdx": (filenames: string[]) => [
-                ...(hasPrettier
+                ...hasPrettier
                     ? [
-                          `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
-                      ]
-                    : []),
+                        `${packageManager} exec prettier --write ${concatFiles(filenames)}`,
+                    ]
+                    : [],
             ],
         };
     }
 
     if (
-        config.secretlint !== false &&
-        hasPackageJsonAnyDependency(packageJson, ["secretlint"])
+        config.secretlint !== false
+        && hasPackageJsonAnyDependency(packageJson, ["secretlint"])
     ) {
         loadedPlugins["**/*"] = (filenames: string[]) => [
             `${packageManager} exec secretlint ${concatFiles(filenames)}`,
@@ -198,14 +199,14 @@ export const defineConfig = (
     }
 
     if (
-        config.stylesheets !== false &&
-        hasPackageJsonAnyDependency(packageJson, ["stylelint"])
+        config.stylesheets !== false
+        && hasPackageJsonAnyDependency(packageJson, ["stylelint"])
     ) {
         if (
             !Array.isArray(
                 (config.stylesheets as StylesheetsConfig).extensions,
-            ) ||
-            ((config.stylesheets as StylesheetsConfig).extensions as string[])
+            )
+            || ((config.stylesheets as StylesheetsConfig).extensions as string[])
                 .length === 0
         ) {
             throw new Error(
@@ -216,24 +217,24 @@ export const defineConfig = (
         loadedPlugins[
             `**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`
         ] = (filenames: string[]) => [
-            ...(hasPrettier
+            ...hasPrettier
                 ? [
-                      `${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`,
-                  ]
-                : []),
+                    `${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`,
+                ]
+                : [],
             `${packageManager} exec stylelint --fix`,
         ];
     }
 
     if (
-        config.typescript !== false &&
-        hasPackageJsonAnyDependency(packageJson, ["typescript"])
+        config.typescript !== false
+        && hasPackageJsonAnyDependency(packageJson, ["typescript"])
     ) {
         if (
             !Array.isArray(
                 (config.typescript as TypescriptConfig).extensions,
-            ) ||
-            ((config.typescript as TypescriptConfig).extensions as string[])
+            )
+            || ((config.typescript as TypescriptConfig).extensions as string[])
                 .length === 0
         ) {
             throw new Error(
@@ -248,9 +249,9 @@ export const defineConfig = (
 
             filenames.forEach((filePath) => {
                 if (
-                    typeof (config.typescript as TypescriptConfig)?.exclude ===
-                        "object" &&
-                    Array.isArray(
+                    typeof (config.typescript as TypescriptConfig)?.exclude
+                    === "object"
+                    && Array.isArray(
                         (config.typescript as TypescriptConfig).exclude,
                     )
                 ) {

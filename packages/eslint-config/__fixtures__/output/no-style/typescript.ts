@@ -1,18 +1,17 @@
 // Define a TypeScript interface
 interface Person {
-    name: string;
     age: number;
+    name: string;
 }
 
 // Create an array of objects with the defined interface
 const people: Person[] = [
-    { name: "Alice", age: 30 },
-    { name: "Bob", age: 25 },
-    { name: "Charlie", age: 35 },
+    { age: 30, name: "Alice" },
+    { age: 25, name: "Bob" },
+    { age: 35, name: "Charlie" },
 ];
 
-// eslint-disable-next-line no-console
-const log = console.log;
+const { log } = console;
 
 // Use a for...of loop to iterate over the array
 for (const person of people) {
@@ -20,8 +19,8 @@ for (const person of people) {
 }
 
 // Define a generic function
-function identity<T>(arg: T): T {
-    return arg;
+function identity<T>(argument: T): T {
+    return argument;
 }
 
 // Use the generic function with type inference
@@ -73,11 +72,9 @@ class Dog extends Animal {
 const dog = new Dog("Buddy");
 dog.bark();
 
-const fn = (): string => {
-    return `hello${1}`;
-};
+const function_ = (): string => `hello${1}`;
 
-log(car1, car2, favoriteFruit, numericValue, fn());
+log(car1, car2, favoriteFruit, numericValue, function_());
 
 // Generator
 export function* generator1() {

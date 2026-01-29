@@ -4,8 +4,9 @@ export function Component1() {
 
 export function jsx2() {
     const props = { a: 1, b: 2 };
+
     return (
-        <a foo="bar" bar="foo">
+        <a bar={`foo`} foo="bar">
             <div {...props} a={1} b="2">
                 Inline Text
             </div>
@@ -13,12 +14,10 @@ export function jsx2() {
             <div>
                 Mixed
                 <div>Foo</div>
-                Text
-                <b> Bar</b>
+                Text<b> Bar</b>
             </div>
             <p>
-                foo
-                <i>bar</i>
+                foo<i>bar</i>
                 <b>baz</b>
             </p>
         </a>

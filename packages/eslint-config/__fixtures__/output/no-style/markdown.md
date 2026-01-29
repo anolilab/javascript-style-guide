@@ -10,10 +10,10 @@ _Look,_ code blocks are formatted *too!*
  * @param x
  */
 function identity(x) {
-    if (foo) {
-        console.log("bar");
-    }
-}
+  if (foo) {
+    console.log('bar');
+  }
+  }
 ```
 
 ```css
@@ -31,6 +31,7 @@ Jane Roe|JFK|314
 + List
  + with a [link] (/to/somewhere)
 + and [another one]
+
 
   [another one]:  http://example.com 'Example title'
 

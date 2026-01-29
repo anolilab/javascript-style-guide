@@ -110,6 +110,7 @@ export default createConfig<
     const rules: TypedFlatConfigItem[] = [
         {
             // Install the plugins without globs, so they can be configured separately.
+            files,
             name: "anolilab/typescript/setup",
             plugins: {
                 "@typescript-eslint": tseslint.plugin,
@@ -130,9 +131,19 @@ export default createConfig<
     ];
 
     if (isTypeAware) {
+        // Apply strictTypeCheckedOnly rules only to type-aware files
+        const strictTypeCheckedConfigs = (
+            tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]
+        ).map((flatConfig) => {
+            return {
+                ...flatConfig,
+                files: filesTypeAware,
+                ignores: ignoresTypeAware,
+            };
+        });
+
         rules.push(
-            ...(tseslint.configs
-                .strictTypeCheckedOnly as TypedFlatConfigItem[]),
+            ...strictTypeCheckedConfigs,
             {
                 files: [
                     ...filesTypeAware,
@@ -178,7 +189,8 @@ export default createConfig<
                 },
             },
             {
-                files: getFilesGlobs("all"),
+                files: filesTypeAware,
+                ignores: ignoresTypeAware,
                 name: "anolilab/typescript/no-for-of-array/rules",
                 rules: {
                     "no-for-of-array/no-for-of-array": "error",

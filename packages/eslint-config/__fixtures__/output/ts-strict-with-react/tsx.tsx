@@ -1,11 +1,10 @@
-export function Component1() {
-    return <div />;
-}
+export const Component1 = () => <div />;
 
 export function jsx2() {
     const props = { a: 1, b: 2 };
+
     return (
-        <a foo="bar" bar="foo">
+        <a bar="foo" foo="bar">
             <div {...props} a={1} b="2">
                 Inline Text
             </div>

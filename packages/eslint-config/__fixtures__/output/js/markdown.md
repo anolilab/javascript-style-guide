@@ -5,10 +5,14 @@ _Look,_ code blocks are formatted *too!*
 
 ```js
 // This should be handled by ESLint instead of Prettier
+/**
+ *
+ * @param x
+ */
 function identity(x) {
-  if (foo) {
-    console.log('bar')
-  }
+    if (foo) {
+        console.log("bar");
+    }
 }
 ```
 

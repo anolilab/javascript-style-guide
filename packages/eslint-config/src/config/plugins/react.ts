@@ -54,6 +54,14 @@ type PluginReactCompiler = {
     };
 };
 
+type PluginReactUnhookify = {
+    rules: {
+        "remove-memo": Rule.RuleModule;
+        "remove-use-callback": Rule.RuleModule;
+        "remove-use-memo": Rule.RuleModule;
+    };
+};
+
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
     OptionsFiles
@@ -74,6 +82,7 @@ export default createConfig<
         packageJson,
         prettier,
         reactCompiler,
+        reactUnhookify,
         reactVersion: reactVersionFromOptions,
         silent,
         stylistic = true,
@@ -214,6 +223,21 @@ export default createConfig<
         )) as unknown as PluginReactCompiler;
     }
 
+    // Enable react-unhookify if explicitly enabled
+    const hasReactUnhookify = reactUnhookify ?? false;
+    let pluginReactUnhookify: PluginReactUnhookify | undefined;
+
+    if (hasReactUnhookify) {
+        // eslint-disable-next-line no-console
+        console.info(
+            `@anolilab/eslint-config enabling react-unhookify plugin\n`,
+        );
+
+        pluginReactUnhookify = (await interopDefault(
+            import("@ospm/eslint-plugin-react-unhookify"),
+        )) as unknown as PluginReactUnhookify;
+    }
+
     return [
         {
             name: "anolilab/react/setup",
@@ -237,6 +261,9 @@ export default createConfig<
                     pluginReactYouMightNotNeedAnEffect,
                 ...hasReactCompiler && pluginReactCompiler
                     ? pluginReactCompiler.configs.recommended.plugins
+                    : {},
+                ...hasReactUnhookify && pluginReactUnhookify
+                    ? { "react-unhookify": pluginReactUnhookify }
                     : {},
             },
         },
@@ -1148,6 +1175,24 @@ export default createConfig<
                     }
                     : {},
 
+                // React Unhookify rules for removing unnecessary memoization hooks
+                // when using React Compiler
+                ...hasReactUnhookify && pluginReactUnhookify
+                    ? {
+                        // Removes React.memo HOC
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-memo": "error",
+
+                        // Removes useCallback calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-callback": "error",
+
+                        // Removes useMemo calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-memo": "error",
+                    }
+                    : {},
+
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 ...pluginReactPerf.configs.flat.recommended.rules,
 
@@ -1208,17 +1253,18 @@ export default createConfig<
                     ecmaFeatures: {
                         jsx: true,
                     },
+                    ...hasJsxRuntime
+                        ? pluginReact.configs.flat?.["jsx-runtime"]
+                            ?.languageOptions
+                            ?.parserOptions
+                        : {},
                 },
-                ...hasJsxRuntime
-                    ? pluginReact.configs.flat["jsx-runtime"].languageOptions
-                        .parserOptions
-                    : {},
             },
             name: "anolilab/react/jsx",
             rules: {
                 // Enforces consistent use of the JSX file extension.
                 // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
-                "react-x/naming-convention/filename-extension": [
+                "react-naming-convention/filename-extension": [
                     "error",
                     "as-needed",
                 ],

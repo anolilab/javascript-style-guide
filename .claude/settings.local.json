@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(pnpm --filter @anolilab/eslint-config run test)",
+      "Bash(pnpm eslint:*)",
+      "Bash(pnpm --filter @anolilab/eslint-config run build:*)",
+      "Bash(npx eslint:*)",
+      "Bash(echo:*)",
+      "Bash(pnpm --filter @anolilab/eslint-config run test:*)",
+      "Bash(npx vitest:*)",
+      "Bash(/bin/bash -c 'cd /home/prisis/WebstormProjects/anolilab/javascript-style-guide && pwd')",
+      "Bash(/bin/bash -c:*)",
+      "Bash(pnpm exec vitest:*)",
+      "Bash(/bin/ls:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm run build:typegen:*)",
+      "Bash(pnpm run build:global-vitest:*)",
+      "Bash(packem build:*)",
+      "Bash(fish -c \"cd /home/prisis/WebstormProjects/anolilab/javascript-style-guide/packages/eslint-config && pnpm run build\")",
+      "Bash(pnpm --filter \"@anolilab/eslint-config\" test:*)",
+      "Bash(pnpm vitest:*)",
+      "Bash(pnpm --filter \"@anolilab/eslint-config\" build:*)"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import { createConfig } from "./packages/eslint-config/dist/index.mjs";
+import { createConfig } from "./packages/eslint-config/dist/index.js";
 
 export default createConfig({
     zod: true,

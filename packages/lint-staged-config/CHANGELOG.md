@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [5.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@5.0.0...@anolilab/lint-staged-config@5.1.0) (2026-01-29)
+
+### Code Refactoring
+
+* improve code formatting and readability across multiple files ([ee7da3d](https://github.com/anolilab/javascript-style-guide/commit/ee7da3dca10603f3faebb0d9ac9bd5c18f6ce063))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 21.0.0
+
 ## @anolilab/lint-staged-config [5.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@4.0.1...@anolilab/lint-staged-config@5.0.0) (2026-01-11)
 
 ### Bug Fixes

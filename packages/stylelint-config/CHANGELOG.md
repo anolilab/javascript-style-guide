@@ -1,3 +1,5 @@
+## @anolilab/stylelint-config [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@9.0.0...@anolilab/stylelint-config@10.0.0) (2026-01-29)
+
 ## @anolilab/stylelint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@8.0.1...@anolilab/stylelint-config@9.0.0) (2026-01-11)
 
 ### Bug Fixes

@@ -1,3 +1,5 @@
+## @anolilab/textlint-config [12.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.0.0...@anolilab/textlint-config@12.1.0) (2026-01-29)
+
 ## @anolilab/textlint-config [12.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@11.1.0...@anolilab/textlint-config@12.0.0) (2026-01-11)
 
 ### Bug Fixes

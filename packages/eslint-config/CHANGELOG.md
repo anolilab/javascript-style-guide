@@ -1,3 +1,17 @@
+## @anolilab/eslint-config [21.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@20.0.0...@anolilab/eslint-config@21.0.0) (2026-01-29)
+
+### Features
+
+* **eslint-config:** add support for react-unhookify plugin and update configurations ([d8b3b1a](https://github.com/anolilab/javascript-style-guide/commit/d8b3b1ac400a6927756a78b75dc50f03e88e828e))
+
+### Bug Fixes
+
+* **eslint-config:** fix react naming convention rule and typescript plugin files restriction ([0956f3d](https://github.com/anolilab/javascript-style-guide/commit/0956f3d4e57687972c69a7176809cd3767e2dae8))
+
+### Code Refactoring
+
+* improve code formatting and consistency in JavaScript and JSX files ([8b47d89](https://github.com/anolilab/javascript-style-guide/commit/8b47d8985070ef71677174615d9694c39e952c13))
+
 ## @anolilab/eslint-config [20.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@19.0.0...@anolilab/eslint-config@20.0.0) (2026-01-11)
 
 ### Bug Fixes

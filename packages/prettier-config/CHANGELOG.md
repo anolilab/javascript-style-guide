@@ -1,3 +1,5 @@
+## @anolilab/prettier-config [9.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@9.0.0...@anolilab/prettier-config@9.1.0) (2026-01-29)
+
 ## @anolilab/prettier-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@8.0.1...@anolilab/prettier-config@9.0.0) (2026-01-11)
 
 ### Bug Fixes

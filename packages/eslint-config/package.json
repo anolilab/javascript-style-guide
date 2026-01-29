@@ -103,8 +103,8 @@
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",
-        "test": "vitest run || exit 0",
-        "test:coverage": "vitest run --coverage || exit 0",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
         "test:ui": "vitest --ui --coverage.enabled=true",
         "test:watch": "vitest"
     },
@@ -194,6 +194,7 @@
         "eslint-plugin-react-perf": "catalog:lint",
         "eslint-plugin-react-refresh": "catalog:lint",
         "eslint-plugin-react-you-might-not-need-an-effect": "catalog:lint",
+        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "eslint-plugin-storybook": "catalog:lint",
         "eslint-plugin-tailwindcss": "catalog:lint",
         "eslint-plugin-testing-library": "catalog:lint",
@@ -232,6 +233,7 @@
         "eslint-plugin-react-perf": "catalog:lint",
         "eslint-plugin-react-refresh": "catalog:lint",
         "eslint-plugin-react-you-might-not-need-an-effect": "catalog:lint",
+        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "eslint-plugin-storybook": "catalog:lint",
         "eslint-plugin-tailwindcss": "catalog:lint",
         "eslint-plugin-testing-library": "catalog:lint",
@@ -293,6 +295,9 @@
         "eslint-plugin-react-you-might-not-need-an-effect": {
             "optional": true
         },
+        "@ospm/eslint-plugin-react-unhookify": {
+            "optional": true
+        },
         "eslint-plugin-storybook": {
             "optional": true
         },
@@ -327,5 +332,6 @@
     "publishConfig": {
         "access": "public",
         "provenance": true
-    }
+    },
+    "optionalDependencies": {}
 }

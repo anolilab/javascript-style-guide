@@ -11,13 +11,13 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
 
         return [
             {
+
+                ...zodPlugin.configs.recommended,
                 files,
-                plugins: {
-                    zod: zodPlugin,
-                },
+                name: "anolilab/zod/rules",
                 rules: {
-                    "zod/prefer-enum": "error",
-                    "zod/require-strict": "error",
+
+                    ...zodPlugin.configs.recommended.rules,
                     ...overrides,
                 },
             },

@@ -593,6 +593,18 @@ export interface OptionsReact {
     reactCompiler?: boolean;
 
     /**
+     * Enable react-unhookify rules for removing useMemo, useCallback, and React.memo.
+     *
+     * This plugin is useful when using React Compiler which makes these hooks unnecessary.
+     *
+     * Requires installing:
+     * - `@ospm/eslint-plugin-react-unhookify`
+     * @default false
+     * @see https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+     */
+    reactUnhookify?: boolean;
+
+    /**
      * React version to use (e.g., "18.2.0", "19.0.0").
      * If not specified, will be detected from package.json.
      */

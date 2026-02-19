@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable no-secrets/no-secrets */
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
@@ -104,6 +104,10 @@ export default createConfig<
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
     const typeAwareRules: TypedFlatConfigItem["rules"] = {
+        // Prevents key from not being explicitly specified (e.g. spreading key from objects)
+        // https://eslint-react.xyz/docs/rules/no-implicit-key
+        "react-x/no-implicit-key": "error",
+
         // Prevents problematic leaked values from being rendered
         // https://eslint-react.xyz/docs/rules/no-leaked-conditional-rendering
         "react-x/no-leaked-conditional-rendering": "error",
@@ -243,19 +247,18 @@ export default createConfig<
             name: "anolilab/react/setup",
             plugins: {
                 react: pluginReact,
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
                 "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
                 "react-naming-convention":
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                     plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
                 "react-web-api": plugins["@eslint-react/web-api"],
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
                 "react-x": plugins["@eslint-react"],
                 "react-you-might-not-need-an-effect":
                     pluginReactYouMightNotNeedAnEffect,
@@ -517,7 +520,8 @@ export default createConfig<
 
                 // Prevents key from not being explicitly specified (e.g. spreading key from objects)
                 // https://eslint-react.xyz/docs/rules/no-implicit-key
-                "react-x/no-implicit-key": "error",
+                // Requires type information - enabled in type-aware rules
+                "react-x/no-implicit-key": "off",
 
                 // Enforces that all components have a displayName which can be used in devtools
                 // https://eslint-react.xyz/docs/rules/no-missing-component-display-name
@@ -1193,7 +1197,6 @@ export default createConfig<
                     }
                     : {},
 
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 ...pluginReactPerf.configs.flat.recommended.rules,
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,

@@ -114,9 +114,9 @@ export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
  * Resolves sub-options from the main configuration object.
  * If the option for the given key is a boolean, it returns an empty object;
  * otherwise, it returns the sub-options object or an empty object if undefined.
- * @param {OptionsConfig} options The main configuration object.
- * @param {K} key The key of the sub-options to resolve.
- * @returns {ResolvedOptions<OptionsConfig[K]>} The resolved sub-options.
+ * @param options The main configuration object.
+ * @param key The key of the sub-options to resolve.
+ * @returns The resolved sub-options.
  * @template K
  */
 export const resolveSubOptions = <K extends keyof OptionsConfig>(
@@ -130,9 +130,9 @@ export const resolveSubOptions = <K extends keyof OptionsConfig>(
 /**
  * Retrieves override rules for a specific configuration key.
  * It merges global overrides with sub-option overrides.
- * @param {OptionsConfig} options The main configuration object.
- * @param {keyof OptionsConfig} key The key of the configuration to get overrides for.
- * @returns {Partial<Linter.RulesRecord & RuleOptions>} The merged override rules.
+ * @param options The main configuration object.
+ * @param key The key of the configuration to get overrides for.
+ * @returns The merged override rules.
  */
 export const getOverrides = (
     options: OptionsConfig,
@@ -147,9 +147,9 @@ export const getOverrides = (
 
 /**
  * Retrieves file globs for a specific configuration key from sub-options.
- * @param {OptionsConfig} options The main configuration object.
- * @param {keyof OptionsConfig} key The key of the configuration to get file globs for.
- * @returns {string[] | undefined} An array of file globs, or undefined if not specified.
+ * @param options The main configuration object.
+ * @param key The key of the configuration to get file globs for.
+ * @returns An array of file globs, or undefined if not specified.
  */
 export const getFiles = (
     options: OptionsConfig,
@@ -177,12 +177,12 @@ export type PromiseFlatConfigComposer = Promise<
 
 /**
  * Construct an array of ESLint flat config items.
- * @param {OptionsConfig & TypedFlatConfigItem} options
- *  The options for generating the ESLint configurations.
- * @param {Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
- *  The user configurations to be merged with the generated configurations.
- * @returns {PromiseFlatConfigComposer}
- *  A promise that resolves to the merged ESLint configurations composer.
+ * @param options
+ * The options for generating the ESLint configurations.
+ * @param userConfigs
+ * The user configurations to be merged with the generated configurations.
+ * @returns
+ * A promise that resolves to the merged ESLint configurations composer.
  */
 export const createConfig = async (
     options: Omit<TypedFlatConfigItem, "files"> & OptionsConfig = {},
@@ -582,7 +582,7 @@ export const createConfig = async (
                 "eslint-plugin-react-perf",
                 "eslint-plugin-react-you-might-not-need-an-effect",
             ]),
-        // eslint-disable-next-line sonarjs/deprecation
+
         reactCompiler: enableReactCompilerOption,
         regexp: enableRegexp = true,
         silent = false,
@@ -812,7 +812,7 @@ export const createConfig = async (
 
     // Base configs
     configs.push(
-        ignores(options.ignores),
+        ignores(options.ignores, !enableTypeScript),
         javascript({
             packageJson,
         }),
@@ -1140,6 +1140,7 @@ export const createConfig = async (
         configs.push(
             markdown({
                 componentExts: componentExtensions,
+                ...resolveSubOptions(options, "markdown"),
                 files: getFiles(options, "markdown"),
                 overrides: getOverrides(options, "markdown"),
             }),

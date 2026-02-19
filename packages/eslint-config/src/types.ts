@@ -13,7 +13,6 @@ export interface OptionsComponentExtensions {
     /**
      * Additional extensions for components.
      * @example ['vue']
-     * @default []
      */
     componentExts?: string[];
 }
@@ -161,7 +160,7 @@ export interface OptionsConfig
      * For formatting Markdown content, enable also `formatters.markdown`.
      * @default true
      */
-    markdown?: boolean | (OptionsFiles & OptionsOverrides);
+    markdown?: boolean | (OptionsFiles & OptionsMarkdown & OptionsOverrides);
 
     /**
      * Override the `files` option to provide custom globs or disable some rules.
@@ -483,6 +482,19 @@ export interface OptionsIsInEditor {
     isInEditor?: boolean;
 }
 
+export interface OptionsMarkdown {
+    /**
+     * Enable GitHub Flavored Markdown support.
+     * @default true
+     */
+    gfm?: boolean;
+
+    /**
+     * Override rules for markdown files (not for code blocks inside markdown).
+     */
+    overridesMarkdown?: TypedFlatConfigItem["rules"];
+}
+
 export interface OptionsOverrides {
     overrides?: TypedFlatConfigItem["rules"];
 }
@@ -501,14 +513,12 @@ export interface OptionsPnpm {
 
     /**
      * Sort entries in pnpm-workspace.yaml
-     *
      * @default false
      */
     sort?: boolean;
 
     /**
      * Enable linting for pnpm-workspace.yaml, will install the yaml parser
-     *
      * @default true
      */
     yaml?: boolean;
@@ -625,6 +635,7 @@ export interface OptionsUnoCSS extends OptionsOverrides {
      * @default true
      */
     attributify?: boolean;
+
     /**
      * Enable strict mode by throwing errors about blocklisted classes.
      * @default false
@@ -650,7 +661,6 @@ export type TypedFlatConfigItem = Omit<Linter.Config, "plugins" | "rules"> & {
     /**
      * An object containing a name-value mapping of plugin names to plugin objects.
      * When `files` is specified, these plugins are only available to the matching files.
-     *
      * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

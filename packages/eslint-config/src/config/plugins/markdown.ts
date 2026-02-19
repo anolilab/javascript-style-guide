@@ -3,19 +3,24 @@ import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 import type {
     OptionsComponentExtensions,
     OptionsFiles,
+    OptionsMarkdown,
     OptionsOverrides,
 } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
-import parserPlain from "../../utils/parser-plain";
 
 export default createConfig<
-    OptionsComponentExtensions & OptionsFiles & OptionsOverrides
+    OptionsComponentExtensions
+    & OptionsFiles
+    & OptionsMarkdown
+    & OptionsOverrides
 >("markdown", async (config, oFiles) => {
     const {
         componentExts: componentExtensions = [],
         files = oFiles,
+        gfm = true,
         overrides,
+        overridesMarkdown,
     } = config;
 
     const [tseslint, markdown] = await Promise.all([
@@ -46,15 +51,39 @@ export default createConfig<
         },
         {
             files,
-            languageOptions: {
-                parser: parserPlain,
-            },
+            language: gfm ? "markdown/gfm" : "markdown/commonmark",
             name: "anolilab/markdown/parser",
-            rules: markdown.configs.recommended[0].rules,
+        },
+        {
+            files,
+            name: "anolilab/markdown/rules",
+            rules: {
+                ...markdown.configs.recommended[0]?.rules,
+                // https://github.com/eslint/markdown/issues/294
+                "markdown/no-missing-label-refs": "off",
+
+                ...overridesMarkdown,
+            },
+        },
+        {
+            files,
+            name: "anolilab/markdown/disables/markdown",
+            rules: {
+                "@stylistic/indent": "off",
+
+                "no-irregular-whitespace": "off",
+                "perfectionist/sort-exports": "off",
+
+                "perfectionist/sort-imports": "off",
+                "regexp/no-legacy-features": "off",
+                "regexp/no-missing-g-flag": "off",
+                "regexp/no-useless-dollar-replacements": "off",
+
+                "regexp/no-useless-flag": "off",
+            },
         },
         {
             files: [
-                "**/*.md",
                 "**/*.md/**/*.?([cm])[jt]s?(x)",
                 "**/*.md/**/*.json",
                 ...componentExtensions.map(
@@ -68,7 +97,7 @@ export default createConfig<
                     },
                 },
             },
-            name: "anolilab/markdown/disabled",
+            name: "anolilab/markdown/disables/code",
             rules: {
                 "@stylistic/comma-dangle": "off",
                 "@stylistic/eol-last": "off",
@@ -89,9 +118,7 @@ export default createConfig<
                 "no-restricted-syntax": "off",
                 "no-undef": "off",
                 "no-unused-expressions": "off",
-
                 "no-unused-labels": "off",
-
                 "no-unused-vars": "off",
 
                 ...disableTypeChecked,
@@ -104,7 +131,6 @@ export default createConfig<
                 "unicorn/prefer-string-raw": "off",
 
                 "unused-imports/no-unused-imports": "off",
-
                 "unused-imports/no-unused-vars": "off",
 
                 ...overrides,

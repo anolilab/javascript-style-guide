@@ -1,246 +1,213 @@
-packages:
-  - packages/**
-  - '!packages/eslint-config/__fixtures__/**'
-
-catalog:
-  '@anolilab/multi-semantic-release': 4.1.0
-  '@commitlint/cli': 20.3.1
-  '@commitlint/config-conventional': 20.3.1
-  '@commitlint/core': 20.3.1
-  '@secretlint/secretlint-rule-preset-recommend': 11.3.1
-  '@tsconfig/node16': ^16.1.8
-  '@tsconfig/strictest': ^2.0.8
-  '@types/node': 25.1.0
-  '@vitest/coverage-v8': 4.0.18
-  audit-ci: ^7.1.0
-  commitizen: ^4.3.1
-  conventional-changelog-conventionalcommits: 9.1.0
-  cross-env: ^10.1.0
-  cz-conventional-changelog: ^3.3.0
-  eslint: ^9.39.2
-  husky: ^9.1.7
-  is-ci: ^4.1.0
-  lint-staged: ^16.2.7
-  nx: 22.4.2
-  pkg-pr-new: ^0.0.62
-  postcss: ^8.5.6
-  prettier: 3.8.1
-  publint: 0.3.17
-  read-pkg: ^10.0.0
-  rimraf: ^6.1.2
-  secretlint: 11.3.1
-  semantic-release: ^25.0.2
-  sort-package-json: 3.6.1
-  stylelint: 17.0.0
-  taze: ^19.9.2
-  textlint: 15.5.1
-  typescript: ^5.9.3
-  vitest: 4.0.18
-
 catalogMode: prefer
-
-catalogs:
-  build:
-    esbuild: 0.27.2
-  cli:
-    '@anolilab/multi-semantic-release': 4.1.0
-    '@anolilab/semantic-release-pnpm': 4.1.0
-    '@anolilab/semantic-release-preset': 13.1.0
-    commitizen: ^4.3.1
-    semantic-release: ^25.0.2
-    taze: ^19.9.2
-  dev:
-    '@arethetypeswrong/cli': ^0.18.2
-    '@visulima/packem': 2.0.0-alpha.36
-  frontend:
-    react: 19.2.4
-  lint:
-    '@anolilab/eslint-config': 20.0.0
-    '@commitlint/cli': 20.3.1
-    '@commitlint/config-conventional': 20.3.1
-    '@commitlint/core': 20.3.1
-    '@e18e/eslint-plugin': 0.1.4
-    '@eslint-community/eslint-plugin-eslint-comments': 4.6.0
-    '@eslint-react/eslint-plugin': 2.7.4
-    '@eslint/compat': 2.0.1
-    '@eslint/config-inspector': ^1.4.2
-    '@eslint/css': ^0.14.1
-    '@eslint/js': ^9.39.2
-    '@eslint/markdown': ^7.5.1
-    '@html-eslint/eslint-plugin': 0.54.0
-    '@html-eslint/parser': 0.54.0
-    '@ospm/eslint-plugin-react-unhookify': ^1.0.2
-    '@secretlint/secretlint-rule-preset-recommend': 11.3.1
-    '@stylistic/eslint-plugin': 5.7.1
-    '@stylistic/eslint-plugin-migrate': ^4.4.1
-    '@stylistic/eslint-plugin-ts': ^4.4.1
-    '@tanstack/eslint-plugin-query': 5.91.3
-    '@tanstack/eslint-plugin-router': 1.155.0
-    '@textlint-rule/textlint-rule-no-invalid-control-character': ^3.0.0
-    '@textlint-rule/textlint-rule-no-unmatched-pair': ^2.0.4
-    '@textlint-rule/textlint-rule-preset-google': ^0.1.2
-    '@textlint/ast-node-types': 15.5.1
-    '@textlint/types': 15.5.1
-    '@unocss/eslint-plugin': 66.6.0
-    '@vitest/eslint-plugin': 1.6.6
-    astro-eslint-parser: ^1.2.2
-    eslint: ^9.39.2
-    eslint-config-flat-gitignore: ^2.1.0
-    eslint-flat-config-utils: ^2.1.4
-    eslint-import-resolver-node: ^0.3.9
-    eslint-import-resolver-typescript: ^4.4.4
-    eslint-merge-processors: ^2.0.0
-    eslint-plugin-antfu: 3.1.3
-    eslint-plugin-astro: ^1.5.0
-    eslint-plugin-compat: 6.1.0
-    eslint-plugin-depend: 0.12.0
-    eslint-plugin-erasable-syntax-only: ^0.4.0
-    eslint-plugin-es-x: ^9.3.0
-    eslint-plugin-format: 1.3.1
-    eslint-plugin-html: 8.1.4
-    eslint-plugin-import-x: ^4.16.1
-    eslint-plugin-jsdoc: 61.7.1
-    eslint-plugin-jsonc: ^2.21.0
-    eslint-plugin-jsx-a11y: ^6.10.2
-    eslint-plugin-n: 17.23.2
-    eslint-plugin-no-for-of-array: ^0.1.0
-    eslint-plugin-no-only-tests: ^3.3.0
-    eslint-plugin-no-secrets: ^2.2.1
-    eslint-plugin-no-unsanitized: ^4.1.4
-    eslint-plugin-perfectionist: ^4.15.1
-    eslint-plugin-playwright: 2.5.1
-    eslint-plugin-pnpm: 1.5.0
-    eslint-plugin-promise: ^7.2.1
-    eslint-plugin-react: ^7.37.5
-    eslint-plugin-react-compiler: ^19.1.0-rc.2
-    eslint-plugin-react-hooks: ^7.0.1
-    eslint-plugin-react-perf: ^3.3.3
-    eslint-plugin-react-refresh: 0.4.26
-    eslint-plugin-react-you-might-not-need-an-effect: 0.8.5
-    eslint-plugin-regexp: ^2.10.0
-    eslint-plugin-security: ^3.0.1
-    eslint-plugin-simple-import-sort: ^12.1.1
-    eslint-plugin-sonarjs: 3.0.6
-    eslint-plugin-storybook: 10.2.1
-    eslint-plugin-tailwindcss: ^3.18.2
-    eslint-plugin-testing-library: 7.15.4
-    eslint-plugin-toml: 0.13.1
-    eslint-plugin-tsdoc: ^0.5.0
-    eslint-plugin-unicorn: ^62.0.0
-    eslint-plugin-unused-imports: ^4.3.0
-    eslint-plugin-validate-jsx-nesting: ^0.1.1
-    eslint-plugin-yml: ^1.19.1
-    eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
-    eslint-plugin-zod: 3.0.2
-    eslint-typegen: ^2.3.0
-    husky: ^9.1.7
-    jsonc-eslint-parser: ^2.4.2
-    lint-staged: ^16.2.7
-    prettier: 3.8.1
-    publint: 0.3.17
-    secretlint: 11.3.1
-    stylelint: 17.0.0
-    stylelint-config-clean-order: ^8.0.0
-    stylelint-config-standard: 40.0.0
-    stylelint-declaration-block-no-ignored-properties: 3.0.0
-    stylelint-high-performance-animation: 2.0.0
-    stylelint-no-unsupported-browser-features: ^8.0.5
-    stylelint-require-units: ^2.0.0
-    stylelint-selector-no-empty: ^1.0.9
-    textlint: 15.5.1
-    textlint-filter-rule-comments: 1.3.0
-    textlint-rule-abbr-within-parentheses: ^1.0.2
-    textlint-rule-alex: ^5.0.0
-    textlint-rule-apostrophe: ^3.0.0
-    textlint-rule-common-misspellings: ^1.0.1
-    textlint-rule-date-weekday-mismatch: ^1.1.1
-    textlint-rule-diacritics: ^2.1.4
-    textlint-rule-en-capitalization: ^2.0.3
-    textlint-rule-footnote-order: ^1.0.3
-    textlint-rule-helper: ^2.5.0
-    textlint-rule-no-dead-link: 6.2.0
-    textlint-rule-no-empty-section: ^1.1.0
-    textlint-rule-no-todo: ^2.0.1
-    textlint-rule-terminology: ^5.2.16
-    textlint-rule-write-good: ^2.0.0
-    toml-eslint-parser: 1.0.3
-    typescript-eslint: 8.54.0
-    yaml-eslint-parser: 2.0.0
-  monorepo:
-    nx: 22.4.2
-  network:
-    browserslist: 4.28.1
-    browserslist-config-anolilab: 8.0.0
-    confusing-browser-globals: ^1.0.11
-  node:
-    cross-env: ^10.1.0
-    execa: ^9.6.1
-    globals: 17.2.0
-    pkg-pr-new: ^0.0.62
-    read-pkg: ^10.0.0
-    rimraf: ^6.1.2
-    tinyglobby: ^0.2.15
-  peer:
-    nano-staged: ^0.9.0
-  prod:
-    '@visulima/fs': 4.1.0
-    '@visulima/package': ^4.1.7
-    audit-ci: ^7.1.0
-    conventional-changelog-conventionalcommits: 9.1.0
-    cz-conventional-changelog: ^3.3.0
-    is-ci: ^4.1.0
-    parse-gitignore: ^2.0.0
-    shell-quote: ^1.8.3
-    sort-package-json: 3.6.1
-    type-fest: 5.4.2
-    write-good: ^1.0.8
-  script:
-    tsx: ^4.21.0
-  style:
-    postcss: ^8.5.6
-    tailwind-csstree: 0.1.4
-  test:
-    '@testing-library/dom': ^10.4.1
-    '@vitest/coverage-v8': 4.0.18
-    vitest: 4.0.18
-  tsc:
-    '@total-typescript/ts-reset': ^0.6.1
-    '@tsconfig/node16': ^16.1.8
-    '@tsconfig/strictest': ^2.0.8
-    '@visulima/tsconfig': ^2.1.3
-    typescript: ^5.9.3
-  types:
-    '@types/confusing-browser-globals': ^1.0.3
-    '@types/eslint': ^9.6.1
-    '@types/eslint-plugin-jsx-a11y': ^6.10.1
-    '@types/eslint-plugin-tailwindcss': ^3.17.0
-    '@types/node': 25.1.0
-    '@types/semver': ^7.7.1
-    '@types/shell-quote': ^1.7.5
-    '@typescript-eslint/parser': 8.54.0
-    '@typescript-eslint/types': 8.54.0
-  utils:
-    caniuse-lite: 1.0.30001766
-    semver: ^7.7.3
-
-onlyBuiltDependencies:
-  - esbuild
-  - nx
-  - oxc-resolver
-  - rs-module-lexer
-  - unrs-resolver
-
-overrides:
-  chrono-node@<2.2.4: '>=2.2.4'
-  hono@<4.11.4: '>=4.11.4'
-  hono@<4.11.7: '>=4.11.7'
-  lodash@>=4.0.0 <=4.17.22: '>=4.17.23'
-  storybook@>=9.0.0 <9.1.17: '>=9.1.17'
-  tmp@<=0.2.3: '>=0.2.4'
-  undici@<6.23.0: '>=6.23.0'
 
 shellEmulator: true
 
 trustPolicy: no-downgrade
+
+packages:
+    - packages/**
+    - "!packages/eslint-config/__fixtures__/**"
+
+overrides:
+    "@modelcontextprotocol/sdk@>=1.10.0 <=1.25.3": ">=1.26.0"
+    ajv@>=8.0.0 <8.18.0: ">=8.18.0"
+    axios@>=1.0.0 <=1.13.4: ">=1.13.5"
+    chrono-node@<2.2.4: ">=2.2.4"
+    hono@<4.11.4: ">=4.11.4"
+    hono@<4.11.7: ">=4.11.7"
+    lodash@>=4.0.0 <=4.17.22: ">=4.17.23"
+    minimatch@<10.2.1: ">=10.2.1"
+    qs@>=6.7.0 <=6.14.1: ">=6.14.2"
+    storybook@>=9.0.0 <9.1.17: ">=9.1.17"
+    tmp@<=0.2.3: ">=0.2.4"
+    undici@<6.23.0: ">=6.23.0"
+
+catalogs:
+    build:
+        esbuild: 0.27.3
+    cli:
+        "@anolilab/multi-semantic-release": 4.1.1
+        "@anolilab/semantic-release-pnpm": 5.0.0
+        "@anolilab/semantic-release-preset": 13.1.1
+        commitizen: ^4.3.1
+        semantic-release: 25.0.3
+        taze: ^19.9.2
+    dev:
+        "@arethetypeswrong/cli": ^0.18.2
+        "@visulima/packem": 2.0.0-alpha.36
+    frontend:
+        react: 19.2.4
+    lint:
+        "@commitlint/cli": 20.4.1
+        "@commitlint/config-conventional": 20.4.1
+        "@commitlint/core": 20.4.1
+        "@e18e/eslint-plugin": 0.2.0
+        "@eslint-community/eslint-plugin-eslint-comments": 4.6.0
+        "@eslint-react/eslint-plugin": 2.13.0
+        "@eslint/compat": 2.0.2
+        "@eslint/config-inspector": ^1.4.2
+        "@eslint/css": ^0.14.1
+        "@eslint/js": 10.0.1
+        "@eslint/markdown": ^7.5.1
+        "@html-eslint/eslint-plugin": 0.55.0
+        "@html-eslint/parser": 0.55.0
+        "@ospm/eslint-plugin-react-unhookify": ^1.0.2
+        "@secretlint/secretlint-rule-preset-recommend": 11.3.1
+        "@stylistic/eslint-plugin": 5.8.0
+        "@stylistic/eslint-plugin-migrate": ^4.4.1
+        "@stylistic/eslint-plugin-ts": ^4.4.1
+        "@tanstack/eslint-plugin-query": 5.91.4
+        "@tanstack/eslint-plugin-router": 1.155.0
+        "@textlint-rule/textlint-rule-no-invalid-control-character": ^3.0.0
+        "@textlint-rule/textlint-rule-no-unmatched-pair": ^2.0.4
+        "@textlint-rule/textlint-rule-preset-google": ^0.1.2
+        "@textlint/ast-node-types": 15.5.1
+        "@textlint/types": 15.5.1
+        "@unocss/eslint-plugin": 66.6.0
+        "@vitest/eslint-plugin": 1.6.9
+        astro-eslint-parser: 1.3.0
+        eslint: ^9.39.2
+        eslint-config-flat-gitignore: ^2.1.0
+        eslint-flat-config-utils: ^2.1.4
+        eslint-import-resolver-node: ^0.3.9
+        eslint-import-resolver-typescript: ^4.4.4
+        eslint-merge-processors: ^2.0.0
+        eslint-plugin-antfu: 3.2.2
+        eslint-plugin-astro: 1.6.0
+        eslint-plugin-compat: 6.2.0
+        eslint-plugin-erasable-syntax-only: ^0.4.0
+        eslint-plugin-es-x: 9.4.0
+        eslint-plugin-format: 1.4.0
+        eslint-plugin-html: 8.1.4
+        eslint-plugin-import-x: ^4.16.1
+        eslint-plugin-jsdoc: 61.7.1
+        eslint-plugin-jsonc: 2.21.1
+        eslint-plugin-jsx-a11y: ^6.10.2
+        eslint-plugin-n: 17.24.0
+        eslint-plugin-no-for-of-array: ^0.1.0
+        eslint-plugin-no-only-tests: ^3.3.0
+        eslint-plugin-no-secrets: 2.2.2
+        eslint-plugin-no-unsanitized: ^4.1.4
+        eslint-plugin-perfectionist: ^4.15.1
+        eslint-plugin-playwright: 2.7.0
+        eslint-plugin-pnpm: 1.5.0
+        eslint-plugin-promise: ^7.2.1
+        eslint-plugin-react: ^7.37.5
+        eslint-plugin-react-compiler: ^19.1.0-rc.2
+        eslint-plugin-react-hooks: ^7.0.1
+        eslint-plugin-react-perf: ^3.3.3
+        eslint-plugin-react-refresh: 0.5.0
+        eslint-plugin-react-you-might-not-need-an-effect: 0.9.1
+        eslint-plugin-regexp: ^2.10.0
+        eslint-plugin-security: ^3.0.1
+        eslint-plugin-simple-import-sort: ^12.1.1
+        eslint-plugin-sonarjs: 3.0.7
+        eslint-plugin-storybook: 10.2.10
+        eslint-plugin-tailwindcss: ^3.18.2
+        eslint-plugin-testing-library: 7.16.0
+        eslint-plugin-toml: 0.13.1
+        eslint-plugin-tsdoc: ^0.5.0
+        eslint-plugin-unicorn: ^62.0.0
+        eslint-plugin-unused-imports: 4.4.1
+        eslint-plugin-validate-jsx-nesting: ^0.1.1
+        eslint-plugin-yml: ^1.19.1
+        eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
+        eslint-plugin-zod: 3.1.0
+        eslint-typegen: ^2.3.0
+        husky: ^9.1.7
+        jsonc-eslint-parser: 3.0.0
+        lint-staged: ^16.2.7
+        prettier: 3.8.1
+        publint: 0.3.17
+        secretlint: 11.3.1
+        stylelint: 17.3.0
+        stylelint-config-clean-order: 8.0.1
+        stylelint-config-standard: 40.0.0
+        stylelint-declaration-block-no-ignored-properties: 3.0.0
+        stylelint-high-performance-animation: 2.0.0
+        stylelint-no-unsupported-browser-features: 8.1.1
+        stylelint-require-units: ^2.0.0
+        stylelint-selector-no-empty: ^1.0.9
+        textlint: 15.5.1
+        textlint-filter-rule-comments: 1.3.0
+        textlint-rule-abbr-within-parentheses: ^1.0.2
+        textlint-rule-alex: ^5.0.0
+        textlint-rule-apostrophe: ^3.0.0
+        textlint-rule-common-misspellings: ^1.0.1
+        textlint-rule-date-weekday-mismatch: ^1.1.1
+        textlint-rule-diacritics: ^2.1.4
+        textlint-rule-en-capitalization: ^2.0.3
+        textlint-rule-footnote-order: ^1.0.3
+        textlint-rule-helper: ^2.5.0
+        textlint-rule-no-dead-link: 6.2.1
+        textlint-rule-no-empty-section: ^1.1.0
+        textlint-rule-no-todo: ^2.0.1
+        textlint-rule-terminology: ^5.2.16
+        textlint-rule-write-good: ^2.0.0
+        toml-eslint-parser: 1.0.3
+        typescript-eslint: 8.56.0
+        yaml-eslint-parser: 2.0.0
+    monorepo:
+        nx: 22.5.1
+    network:
+        browserslist: 4.28.1
+        confusing-browser-globals: ^1.0.11
+    node:
+        cross-env: ^10.1.0
+        execa: ^9.6.1
+        globals: 17.3.0
+        pkg-pr-new: 0.0.63
+        read-pkg: 10.1.0
+        rimraf: 6.1.3
+        tinyglobby: ^0.2.15
+    peer:
+        nano-staged: ^0.9.0
+    prod:
+        "@visulima/fs": 4.1.0
+        "@visulima/package": ^4.1.7
+        audit-ci: ^7.1.0
+        conventional-changelog-conventionalcommits: 9.1.0
+        cz-conventional-changelog: ^3.3.0
+        is-ci: ^4.1.0
+        parse-gitignore: ^2.0.0
+        shell-quote: ^1.8.3
+        sort-package-json: 3.6.1
+        type-fest: 5.4.4
+        write-good: ^1.0.8
+    script:
+        tsx: ^4.21.0
+    style:
+        postcss: ^8.5.6
+        tailwind-csstree: 0.1.4
+    test:
+        "@testing-library/dom": ^10.4.1
+        "@vitest/coverage-v8": 4.0.18
+        vitest: 4.0.18
+    tsc:
+        "@total-typescript/ts-reset": ^0.6.1
+        "@tsconfig/node16": ^16.1.8
+        "@tsconfig/strictest": ^2.0.8
+        "@visulima/tsconfig": ^2.1.3
+        typescript: ^5.9.3
+    types:
+        "@types/confusing-browser-globals": ^1.0.3
+        "@types/eslint": ^9.6.1
+        "@types/eslint-plugin-jsx-a11y": ^6.10.1
+        "@types/eslint-plugin-tailwindcss": ^3.17.0
+        "@types/node": 25.3.0
+        "@types/semver": ^7.7.1
+        "@types/shell-quote": ^1.7.5
+        "@typescript-eslint/parser": 8.56.0
+        "@typescript-eslint/types": 8.56.0
+    utils:
+        caniuse-lite: 1.0.30001770
+        semver: 7.7.4
+
+onlyBuiltDependencies:
+    - esbuild
+    - nx
+    - oxc-resolver
+    - rs-module-lexer
+    - unrs-resolver
 
 trustPolicyIgnoreAfter: 1440

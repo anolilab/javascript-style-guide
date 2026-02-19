@@ -31,8 +31,9 @@ export default createConfig<
                 "css/no-invalid-properties": "error",
                 "css/use-baseline": "warn",
                 "css/use-layers": "error",
-                // Disable JS-core rule for CSS language to avoid parser mismatch errors
+                // Disable JS-core rules for CSS language to avoid parser mismatch errors
                 "no-irregular-whitespace": "off",
+                "no-useless-assignment": "off",
 
                 ...overrides,
             },

@@ -39,8 +39,7 @@ export default createConfig<
         rules: {
             ...vitestPlugin.rules,
             // extend `test/no-only-tests` rule
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            ...noOnlyTestsPlugin.rules,
+            ...(noOnlyTestsPlugin as { rules: Record<string, unknown> }).rules,
         },
     };
 
@@ -108,7 +107,11 @@ export default createConfig<
 
                 // Disallow specific vi. methods
                 // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/no-standalone-expect.md
-                "vitest/no-standalone-expect": "error",
+                // Note: explicit options required to avoid TypeError in @vitest/eslint-plugin when options[0] is undefined
+                "vitest/no-standalone-expect": [
+                    "error",
+                    { additionalTestBlockFunctions: [] },
+                ],
 
                 // Disallow using expect outside of it or test blocks
                 // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md

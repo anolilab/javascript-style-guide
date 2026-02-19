@@ -10,6 +10,9 @@ import type {
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
+const FILENAME_IGNORE_PATTERN
+    = /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u;
+
 export default createConfig<
     OptionsFiles
     & OptionsHasPrettier
@@ -56,9 +59,7 @@ export default createConfig<
                     "error",
                     {
                         case: "kebabCase",
-                        ignore: [
-                            /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u,
-                        ],
+                        ignore: [FILENAME_IGNORE_PATTERN],
                     },
                 ],
 

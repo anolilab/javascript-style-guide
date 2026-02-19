@@ -1,5 +1,5 @@
 export function HelloWorld({
-    greeted = "\"World\"",
+    greeted = '"World"',
     greeting = "hello",
     onMouseOver,
     silent = false,
@@ -20,14 +20,14 @@ export function HelloWorld({
             title={`You are visitor number ${number_}`}
         >
             <strong>
-                {greeting.slice(0, 1).toUpperCase()
-                    + greeting.slice(1).toLowerCase()}
+                {greeting.slice(0, 1).toUpperCase() +
+                    greeting.slice(1).toLowerCase()}
             </strong>
-            {greeting.endsWith(",")
-                ? " "
-                : (
+            {greeting.endsWith(",") ? (
+                " "
+            ) : (
                 <span style={{ color: "\grey" }}>", "</span>
-                )}
+            )}
             <em>{greeted}</em>
             {silent ? "." : "!"}
         </div>

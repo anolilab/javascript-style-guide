@@ -109,7 +109,7 @@ The default configuration, automatically adds the following linting and formatti
 - [ESLint](https://eslint.org)
 - [Prettier](https://prettier.io)
 - [StyleLint](https://stylelint.io)
-- [SecretLint]()
+- [SecretLint](https://github.com/secretlint/secretlint)
 - [CommitLint](https://commitlint.js.org)
 - [Vitest](https://vitest.dev) or [Jest](https://jestjs.io) or [AVA](https://github.com/avajs/ava)
 - [TypeScript](https://www.typescriptlang.org)

@@ -105,16 +105,20 @@ export default createConfig<
                 "@stylistic/quote-props": "off",
                 "@stylistic/semi": "off",
 
+                "@typescript-eslint/no-require-imports": "off",
                 "@typescript-eslint/no-unused-expressions": "off",
 
                 "antfu/no-top-level-await": "off",
 
                 "import/newline-after-import": "off",
+                "import/no-commonjs": "off",
 
                 "no-alert": "off",
                 "no-console": "off",
+                "no-import-assign": "off",
                 "no-labels": "off",
                 "no-lone-blocks": "off",
+                "no-redeclare": "off",
                 "no-restricted-syntax": "off",
                 "no-undef": "off",
                 "no-unused-expressions": "off",

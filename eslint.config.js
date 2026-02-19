@@ -6,9 +6,10 @@ export default createConfig({
     ignores: [
         "eslint.config.js",
         ".prettierrc.cjs",
+        "audit-ci.jsonc",
         "scripts/**",
         "packages/eslint-config/__fixtures__/**",
         "packages/eslint-config/README.md",
-        "packages/eslint-config/src/vender/**"
-    ]
+        "packages/eslint-config/src/vender/**",
+    ],
 });

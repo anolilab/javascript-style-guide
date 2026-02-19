@@ -66,7 +66,11 @@ setTimeout(() => {
     log("This code runs after a delay of 2 seconds.");
 }, 2000);
 
-let a; let b; let c; let d; let foo;
+let a;
+let b;
+let c;
+let d;
+let foo;
 
 if (a || b || c || d || (d && b)) {
     foo();

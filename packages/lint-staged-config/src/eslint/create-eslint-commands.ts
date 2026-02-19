@@ -95,6 +95,10 @@ const createEslintCommands = async (
     const eslintArguments = createEslintArguments(eslintConfig, packageJson);
 
     if (eslintConfig.config) {
+        if (filteredFiles.length === 0) {
+            return [];
+        }
+
         eslintArguments.push(`--config ${eslintConfig.config}`);
 
         return [

@@ -157,7 +157,9 @@ export default createConfig<
         ReactRouterPackages,
     );
 
-    const { plugins } = pluginReactX.configs.all;
+    const { plugins } = pluginReactX.configs.all as {
+        plugins: Record<string, unknown>;
+    };
 
     // Use provided version or detect from package.json
     const reactVersionRaw
@@ -286,7 +288,7 @@ export default createConfig<
             // https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules
             rules: {
                 ...pluginReactX.configs["disable-conflict-eslint-plugin-react"]
-                    ?.rules,
+                    .rules,
                 "class-methods-use-this": [
                     "error",
                     {
@@ -1197,12 +1199,20 @@ export default createConfig<
                     }
                     : {},
 
-                ...pluginReactPerf.configs.flat.recommended.rules,
+                ...(
+                    pluginReactPerf as {
+                        configs: {
+                            flat: {
+                                recommended: { rules: Record<string, unknown> };
+                            };
+                        };
+                    }
+                ).configs.flat.recommended.rules,
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
                 ...hasJsxRuntime
-                    ? pluginReact?.configs.flat?.["jsx-runtime"]?.rules
+                    ? pluginReact.configs.flat["jsx-runtime"].rules
                     : {},
 
                 ...prettier
@@ -1257,9 +1267,9 @@ export default createConfig<
                         jsx: true,
                     },
                     ...hasJsxRuntime
-                        ? pluginReact.configs.flat?.["jsx-runtime"]
-                            ?.languageOptions
-                            ?.parserOptions
+                        ? pluginReact.configs.flat["jsx-runtime"]
+                            .languageOptions
+                            .parserOptions
                         : {},
                 },
             },

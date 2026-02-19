@@ -11,12 +11,10 @@ export default createConfig<OptionsFiles & OptionsOverrides>(
 
         return [
             {
-
                 ...zodPlugin.configs.recommended,
                 files,
                 name: "anolilab/zod/rules",
                 rules: {
-
                     ...zodPlugin.configs.recommended.rules,
                     ...overrides,
                 },

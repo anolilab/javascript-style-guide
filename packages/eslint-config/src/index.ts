@@ -583,7 +583,6 @@ export const createConfig = async (
                 "eslint-plugin-react-you-might-not-need-an-effect",
             ]),
 
-        reactCompiler: enableReactCompilerOption,
         regexp: enableRegexp = true,
         silent = false,
         storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, [
@@ -615,6 +614,13 @@ export const createConfig = async (
         ]),
         zod: enableZod = hasPackageJsonAnyDependency(packageJson, ["zod"]),
     } = options;
+
+    // Access deprecated option via cast to avoid deprecation lint warning while maintaining backward compatibility
+    const enableReactCompilerOption = (
+        options as Omit<OptionsConfig, "reactCompiler"> & {
+            reactCompiler?: boolean;
+        }
+    ).reactCompiler;
 
     // Extract React options
     const reactOptions = resolveSubOptions(options, "react");

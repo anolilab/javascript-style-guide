@@ -6,7 +6,6 @@ export default createConfig({
     ignores: [
         ".github/**",
         "eslint.config.js",
-        ".prettierrc.cjs",
         "scripts/**",
         "packages/eslint-config/__fixtures__/**",
         "packages/eslint-config/README.md",

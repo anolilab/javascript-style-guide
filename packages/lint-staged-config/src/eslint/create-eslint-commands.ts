@@ -8,16 +8,10 @@ import removeIgnoredFiles from "./remove-ignored-files";
 
 const configFile = ".eslintrc";
 
-const createEslintArguments = (
-    eslintConfig: EslintConfig,
-    packageJson: NormalizedPackageJson,
-): string[] => {
+const createEslintArguments = (eslintConfig: EslintConfig, packageJson: NormalizedPackageJson): string[] => {
     const eslintArguments: string[] = [];
 
-    if (
-        eslintConfig["max-warnings"] !== undefined
-        && Number.isNaN(eslintConfig["max-warnings"])
-    ) {
+    if (eslintConfig["max-warnings"] !== undefined && Number.isNaN(eslintConfig["max-warnings"])) {
         eslintArguments.push(`--max-warnings=${eslintConfig["max-warnings"]}`);
     } else if (eslintConfig["max-warnings"] !== false) {
         eslintArguments.push("--max-warnings=0");
@@ -25,9 +19,7 @@ const createEslintArguments = (
 
     const extraRules = [];
 
-    if (
-        hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-react-hooks"])
-    ) {
+    if (hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-react-hooks"])) {
         // react-hooks/eslint and react in general is very strict about exhaustively
         // declaring the dependencies when using the useEffect, useCallback... hooks.
         //
@@ -51,17 +43,13 @@ const createEslintArguments = (
     }
 
     if (
-        hasPackageJsonAnyDependency(packageJson, [
-            "eslint-plugin-eslint-comments",
-        ])
+        hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-eslint-comments"])
         // isPackageAvailable("eslint-plugin-eslint-comments")
     ) {
         extraRules.push("eslint-comments/no-unused-disable:off");
     }
 
-    const rules = [...eslintConfig.rules ?? [], ...extraRules].filter(
-        (rule) => rule.trim().length > 0,
-    );
+    const rules = [...eslintConfig.rules ?? [], ...extraRules].filter((rule) => rule.trim().length > 0);
 
     if (rules.length > 0) {
         eslintArguments.push(rules.map((rule) => `--rule "${rule}"`).join(" "));
@@ -69,9 +57,7 @@ const createEslintArguments = (
 
     // For lint-staged it's safer to not apply the fix command if it changes the AST
     // @see https://eslint.org/docs/user-guide/command-line-interface#--fix-type
-    const fixType = [...eslintConfig["fix-type"] ?? ["layout"]].filter(
-        (type) => type.trim().length > 0,
-    );
+    const fixType = [...eslintConfig["fix-type"] ?? ["layout"]].filter((type) => type.trim().length > 0);
 
     if (fixType.length > 0) {
         eslintArguments.push(`--fix-type ${fixType.join(",")}`, "--fix");
@@ -88,7 +74,7 @@ const createEslintCommands = async (
     packageManager: PackageManager,
     packageJson: NormalizedPackageJson,
     eslintConfig: EslintConfig,
-    filenames: string[],
+    filenames: ReadonlyArray<string>,
 ): Promise<string[]> => {
     const filteredFiles = await removeIgnoredFiles(filenames);
 
@@ -101,9 +87,7 @@ const createEslintCommands = async (
 
         eslintArguments.push(`--config ${eslintConfig.config}`);
 
-        return [
-            `${packageManager} exec eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`,
-        ];
+        return [`${packageManager} exec eslint ${eslintArguments.join(" ")} ${filteredFiles.join(" ")}`];
     }
 
     const groupedFilesNames = groupFilePathsByDirectoryName(filteredFiles);
@@ -112,14 +96,7 @@ const createEslintCommands = async (
     Object.values(groupedFilesNames).forEach((filePaths) => {
         let config: string | undefined;
 
-        [
-            configFile,
-            `${configFile}.js`,
-            `${configFile}.cjs`,
-            `${configFile}.json`,
-            `${configFile}.yaml`,
-            `${configFile}.yml`,
-        ].forEach((configName) => {
+        [configFile, `${configFile}.js`, `${configFile}.cjs`, `${configFile}.json`, `${configFile}.yaml`, `${configFile}.yml`].forEach((configName) => {
             if (config) {
                 return;
             }
@@ -136,9 +113,7 @@ const createEslintCommands = async (
         });
 
         if (config) {
-            eslintCommands.push(
-                `${packageManager} exec eslint ${eslintArguments.join(" ")} --config ${config} ${filePaths.join(" ")}`,
-            );
+            eslintCommands.push(`${packageManager} exec eslint ${eslintArguments.join(" ")} --config ${config} ${filePaths.join(" ")}`);
         }
     });
 

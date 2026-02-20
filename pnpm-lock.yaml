@@ -41,14 +41,14 @@ catalogs:
       version: 19.2.4
   lint:
     '@commitlint/cli':
-      specifier: 20.4.1
-      version: 20.4.1
+      specifier: 20.4.2
+      version: 20.4.2
     '@commitlint/config-conventional':
-      specifier: 20.4.1
-      version: 20.4.1
+      specifier: 20.4.2
+      version: 20.4.2
     '@commitlint/core':
-      specifier: 20.4.1
-      version: 20.4.1
+      specifier: 20.4.2
+      version: 20.4.2
     '@e18e/eslint-plugin':
       specifier: 0.2.0
       version: 0.2.0
@@ -86,8 +86,8 @@ catalogs:
       specifier: 11.3.1
       version: 11.3.1
     '@stylistic/eslint-plugin':
-      specifier: 5.8.0
-      version: 5.8.0
+      specifier: 5.9.0
+      version: 5.9.0
     '@stylistic/eslint-plugin-migrate':
       specifier: ^4.4.1
       version: 4.4.1
@@ -98,8 +98,8 @@ catalogs:
       specifier: 5.91.4
       version: 5.91.4
     '@tanstack/eslint-plugin-router':
-      specifier: 1.155.0
-      version: 1.155.0
+      specifier: 1.161.2
+      version: 1.161.2
     '@textlint-rule/textlint-rule-no-invalid-control-character':
       specifier: ^3.0.0
       version: 3.0.0
@@ -128,8 +128,8 @@ catalogs:
       specifier: ^9.39.2
       version: 9.39.2
     eslint-config-flat-gitignore:
-      specifier: ^2.1.0
-      version: 2.1.0
+      specifier: 2.2.1
+      version: 2.2.1
     eslint-flat-config-utils:
       specifier: ^2.1.4
       version: 2.1.4
@@ -155,8 +155,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.0
     eslint-plugin-es-x:
-      specifier: 9.4.0
-      version: 9.4.0
+      specifier: 9.4.1
+      version: 9.4.1
     eslint-plugin-format:
       specifier: 1.4.0
       version: 1.4.0
@@ -188,8 +188,8 @@ catalogs:
       specifier: 2.2.2
       version: 2.2.2
     eslint-plugin-no-unsanitized:
-      specifier: ^4.1.4
-      version: 4.1.4
+      specifier: 4.1.5
+      version: 4.1.5
     eslint-plugin-perfectionist:
       specifier: ^4.15.1
       version: 4.15.1
@@ -266,14 +266,14 @@ catalogs:
       specifier: 3.1.0
       version: 3.1.0
     eslint-typegen:
-      specifier: ^2.3.0
-      version: 2.3.0
+      specifier: 2.3.1
+      version: 2.3.1
     husky:
       specifier: ^9.1.7
       version: 9.1.7
     jsonc-eslint-parser:
-      specifier: 3.0.0
-      version: 3.0.0
+      specifier: 3.1.0
+      version: 3.1.0
     lint-staged:
       specifier: ^16.2.7
       version: 16.2.7
@@ -534,13 +534,13 @@ importers:
         version: 4.1.1(semantic-release@25.0.3(typescript@5.9.3))(typescript@5.9.3)
       '@commitlint/cli':
         specifier: catalog:lint
-        version: 20.4.1(@types/node@25.3.0)(typescript@5.9.3)
+        version: 20.4.2(@types/node@25.3.0)(typescript@5.9.3)
       '@commitlint/config-conventional':
         specifier: catalog:lint
-        version: 20.4.1
+        version: 20.4.2
       '@commitlint/core':
         specifier: catalog:lint
-        version: 20.4.1(@types/node@25.3.0)(typescript@5.9.3)
+        version: 20.4.2(@types/node@25.3.0)(typescript@5.9.3)
       '@secretlint/secretlint-rule-preset-recommend':
         specifier: catalog:lint
         version: 11.3.1
@@ -675,10 +675,10 @@ importers:
     dependencies:
       '@commitlint/config-conventional':
         specifier: catalog:lint
-        version: 20.4.1
+        version: 20.4.2
       '@commitlint/core':
         specifier: catalog:lint
-        version: 20.4.1(@types/node@25.3.0)(typescript@5.9.3)
+        version: 20.4.2(@types/node@25.3.0)(typescript@5.9.3)
       commitizen:
         specifier: catalog:cli
         version: 4.3.1(@types/node@25.3.0)(typescript@5.9.3)
@@ -700,7 +700,7 @@ importers:
         version: 0.18.2
       '@commitlint/cli':
         specifier: catalog:lint
-        version: 20.4.1(@types/node@25.3.0)(typescript@5.9.3)
+        version: 20.4.2(@types/node@25.3.0)(typescript@5.9.3)
       '@visulima/packem':
         specifier: catalog:dev
         version: 2.0.0-alpha.36(@arethetypeswrong/core@0.18.2)(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@2.0.0(postcss@8.5.6))(@types/node@25.3.0)(@visulima/css-style-inject@1.0.0-alpha.9)(esbuild@0.27.3)(github-slugger@2.0.0)(lightningcss@1.30.2)(package-manager-detector@1.6.0)(postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(yaml@2.8.2))(postcss-value-parser@4.2.0)(postcss@8.5.6)(sucrase@3.35.1)(typescript@5.9.3)(yaml@2.8.2)
@@ -748,7 +748,7 @@ importers:
         version: 0.55.0(jiti@2.6.1)
       '@stylistic/eslint-plugin':
         specifier: catalog:lint
-        version: 5.8.0(eslint@9.39.2(jiti@2.6.1))
+        version: 5.9.0(eslint@9.39.2(jiti@2.6.1))
       '@stylistic/eslint-plugin-ts':
         specifier: catalog:lint
         version: 4.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -775,7 +775,7 @@ importers:
         version: 1.0.11
       eslint-config-flat-gitignore:
         specifier: catalog:lint
-        version: 2.1.0(eslint@9.39.2(jiti@2.6.1))
+        version: 2.2.1(eslint@9.39.2(jiti@2.6.1))
       eslint-flat-config-utils:
         specifier: catalog:lint
         version: 2.1.4
@@ -799,7 +799,7 @@ importers:
         version: 0.4.0(@typescript-eslint/parser@8.56.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-es-x:
         specifier: catalog:lint
-        version: 9.4.0(eslint@9.39.2(jiti@2.6.1))
+        version: 9.4.1(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-html:
         specifier: catalog:lint
         version: 8.1.4
@@ -826,7 +826,7 @@ importers:
         version: 2.2.2(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-no-unsanitized:
         specifier: catalog:lint
-        version: 4.1.4(eslint@9.39.2(jiti@2.6.1))
+        version: 4.1.5(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-perfectionist:
         specifier: catalog:lint
         version: 4.15.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -865,7 +865,7 @@ importers:
         version: 17.3.0
       jsonc-eslint-parser:
         specifier: catalog:lint
-        version: 3.0.0
+        version: 3.1.0
       parse-gitignore:
         specifier: catalog:prod
         version: 2.0.0
@@ -911,7 +911,7 @@ importers:
         version: 5.91.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@tanstack/eslint-plugin-router':
         specifier: catalog:lint
-        version: 1.155.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        version: 1.161.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@testing-library/dom':
         specifier: catalog:test
         version: 10.4.1
@@ -1001,7 +1001,7 @@ importers:
         version: 3.1.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(zod@4.3.5)
       eslint-typegen:
         specifier: catalog:lint
-        version: 2.3.0(eslint@9.39.2(jiti@2.6.1))
+        version: 2.3.1(eslint@9.39.2(jiti@2.6.1))
       execa:
         specifier: catalog:node
         version: 9.6.1
@@ -1623,21 +1623,21 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
 
-  '@commitlint/cli@20.4.1':
-    resolution: {integrity: sha512-uuFKKpc7OtQM+6SRqT+a4kV818o1pS+uvv/gsRhyX7g4x495jg+Q7P0+O9VNGyLXBYP0syksS7gMRDJKcekr6A==}
+  '@commitlint/cli@20.4.2':
+    resolution: {integrity: sha512-YjYSX2yj/WsVoxh9mNiymfFS2ADbg2EK4+1WAsMuckwKMCqJ5PDG0CJU/8GvmHWcv4VRB2V02KqSiecRksWqZQ==}
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.4.1':
-    resolution: {integrity: sha512-0YUvIeBtpi86XriqrR+TCULVFiyYTIOEPjK7tTRMxjcBm1qlzb+kz7IF2WxL6Fq5DaundG8VO37BNgMkMTBwqA==}
+  '@commitlint/config-conventional@20.4.2':
+    resolution: {integrity: sha512-rwkTF55q7Q+6dpSKUmJoScV0f3EpDlWKw2UPzklkLS4o5krMN1tPWAVOgHRtyUTMneIapLeQwaCjn44Td6OzBQ==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@20.4.0':
     resolution: {integrity: sha512-zShmKTF+sqyNOfAE0vKcqnpvVpG0YX8F9G/ZIQHI2CoKyK+PSdladXMSns400aZ5/QZs+0fN75B//3Q5CHw++w==}
     engines: {node: '>=v18'}
 
-  '@commitlint/core@20.4.1':
-    resolution: {integrity: sha512-mQeoOfTaPGRcmUL34euxBuOBk6f7LhYhqq5V0oEhCy7w/qygyPTTQjR/NjV/uYEBsBhJE3dViQ/wXFPmzgRjIA==}
+  '@commitlint/core@20.4.2':
+    resolution: {integrity: sha512-B4WdNNf6aHdrROnlEptFxZbhip2nFPtS2wl2kOY+snrNA3h9P1Qo/9RbusBnribF7XbTaS/RKksNJq1K2lrUGg==}
     engines: {node: '>=v18'}
 
   '@commitlint/ensure@20.4.1':
@@ -2180,15 +2180,6 @@ packages:
 
   '@eslint-stylistic/metadata@4.4.1':
     resolution: {integrity: sha512-ZDpYZSB5dTzWyrBRTUWz202jxdMtgEz9ymbzyAiy70d7fe53JauGvRWl21LvC5HyWYKqpGS/9kbNhOKv4fkrfw==}
-
-  '@eslint/compat@1.4.1':
-    resolution: {integrity: sha512-cfO82V9zxxGBxcQDr1lfaYB7wykTa0b00mGa36FrJl7iTFd0Z2cHfEYuxcBRP/iNijCsWsEkA+jzT8hGYmv33w==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      eslint: ^8.40 || 9
-    peerDependenciesMeta:
-      eslint:
-        optional: true
 
   '@eslint/compat@2.0.2':
     resolution: {integrity: sha512-pR1DoD0h3HfF675QZx0xsyrsU8q70Z/plx7880NOhS02NuWLgBCOMDL787nUeQ7EWLkxv3bPQJaarjcPQb2Dwg==}
@@ -3255,11 +3246,11 @@ packages:
     peerDependencies:
       eslint: '>=9.0.0'
 
-  '@stylistic/eslint-plugin@5.8.0':
-    resolution: {integrity: sha512-WNPVF/FfBAjyi3OA7gok8swRiImNLKI4dmV3iK/GC/0xSJR7eCzBFsw9hLZVgb1+MYNLy7aDsjohxN1hA/FIfQ==}
+  '@stylistic/eslint-plugin@5.9.0':
+    resolution: {integrity: sha512-FqqSkvDMYJReydrMhlugc71M76yLLQWNfmGq+SIlLa7N3kHp8Qq8i2PyWrVNAfjOyOIY+xv9XaaYwvVW7vroMA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: '>=9.0.0'
+      eslint: ^9.0.0 || ^10.0.0
 
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
@@ -3274,10 +3265,10 @@ packages:
       typescript:
         optional: true
 
-  '@tanstack/eslint-plugin-router@1.155.0':
-    resolution: {integrity: sha512-Qq6uYYtcu1aMzFImEIz0Azcd9iCAbpkA3SBAGjwavFEyptafwnmtANKrjTqq09ej/CNTrTjEQBH72yvbqqTMqw==}
+  '@tanstack/eslint-plugin-router@1.161.2':
+    resolution: {integrity: sha512-YgQGpz3csD5CYhj350xtiGCtYQ/B0UPrmQ/ER1NIjsprsKGruQKX+iHyciIVOCpZbjDqjAcKzBi9GgVL4YbHvQ==}
     peerDependencies:
-      eslint: ^8.57.0 || ^9.0.0
+      eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
 
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
@@ -5651,10 +5642,10 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-config-flat-gitignore@2.1.0:
-    resolution: {integrity: sha512-cJzNJ7L+psWp5mXM7jBX+fjHtBvvh06RBlcweMhKD8jWqQw0G78hOW5tpVALGHGFPsBV+ot2H+pdDGJy6CV8pA==}
+  eslint-config-flat-gitignore@2.2.1:
+    resolution: {integrity: sha512-wA5EqN0era7/7Gt5Botlsfin/UNY0etJSEeBgbUlFLFrBi47rAN//+39fI7fpYcl8RENutlFtvp/zRa/M/pZNg==}
     peerDependencies:
-      eslint: ^9.5.0
+      eslint: ^9.5.0 || ^10.0.0
 
   eslint-flat-config-utils@2.1.4:
     resolution: {integrity: sha512-bEnmU5gqzS+4O+id9vrbP43vByjF+8KOs+QuuV4OlqAuXmnRW2zfI/Rza1fQvdihQ5h4DUo0NqFAiViD4mSrzQ==}
@@ -5763,8 +5754,8 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-plugin-es-x@9.4.0:
-    resolution: {integrity: sha512-PNgXKJgswWriyX4ElA4MR2FIUgjw1GSEIdcR/KFeYUxe4C38qnfBXo86r1q14KdBjYRz9pY3ZDIYNYh3zjTq6g==}
+  eslint-plugin-es-x@9.4.1:
+    resolution: {integrity: sha512-jq29Z2uobTuijXRNU0QVPtxkxn+SET2QwjxX97vTM3Eqbrufjp54l+kIAc1dPDR2lYHsE/hBjVZ0qC077eOq/w==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       eslint: '>=9.29.0'
@@ -5842,10 +5833,10 @@ packages:
     peerDependencies:
       eslint: '>=5'
 
-  eslint-plugin-no-unsanitized@4.1.4:
-    resolution: {integrity: sha512-cjAoZoq3J+5KJuycYYOWrc0/OpZ7pl2Z3ypfFq4GtaAgheg+L7YGxUo2YS3avIvo/dYU5/zR2hXu3v81M9NxhQ==}
+  eslint-plugin-no-unsanitized@4.1.5:
+    resolution: {integrity: sha512-MSB4hXPVFQrI8weqzs6gzl7reP2k/qSjtCoL2vUMSDejIIq9YL1ZKvq5/ORBXab/PvfBBrWO2jWviYpL+4Ghfg==}
     peerDependencies:
-      eslint: ^8 || ^9
+      eslint: ^9 || ^10
 
   eslint-plugin-perfectionist@4.15.1:
     resolution: {integrity: sha512-MHF0cBoOG0XyBf7G0EAFCuJJu4I18wy0zAoT1OHfx2o6EOx1EFTIzr2HGeuZa1kDcusoX0xJ9V7oZmaeFd773Q==}
@@ -6044,10 +6035,10 @@ packages:
     peerDependencies:
       eslint: '>=8'
 
-  eslint-typegen@2.3.0:
-    resolution: {integrity: sha512-azYgAvhlz1AyTpeLfVSKcrNJInuIsRrcUrOcHmEl8T9oMKesePVUPrF8gRgE6azV8CAlFzxJDTyaXAAbA/BYiA==}
+  eslint-typegen@2.3.1:
+    resolution: {integrity: sha512-zVdh8rThBvv2o5T/K524Fr5iy1Jo0q09rHL7y7FbOhgMB177T2gw+shxfC4ChCEqdq6/y6LJA4j8Fbr/Xls9aw==}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^9.0.0 || ^10.0.0
 
   eslint-visitor-keys@3.4.3:
     resolution: {integrity: sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==}
@@ -7470,8 +7461,8 @@ packages:
     resolution: {integrity: sha512-1e4qoRgnn448pRuMvKGsFFymUCquZV0mpGgOyIKNgD3JVDTsVJyRBGH/Fm0tBb8WsWGgmB1mDe6/yJMQM37DUA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  jsonc-eslint-parser@3.0.0:
-    resolution: {integrity: sha512-LqaIdUCuMcNRjlusHwscrnCsF8wzmRWM/VoTqKwn6agerfJ0LCTOnUJmbiZirc02+b1n+pl+FJfVXDOLDa12+Q==}
+  jsonc-eslint-parser@3.1.0:
+    resolution: {integrity: sha512-75EA7EWZExL/j+MDKQrRbdzcRI2HOkRlmUw8fZJc1ioqFEOvBsq7Rt+A6yCxOt9w/TYNpkt52gC6nm/g5tFIng==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   jsonc-parser@3.2.0:
@@ -11454,7 +11445,7 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@commitlint/cli@20.4.1(@types/node@25.3.0)(typescript@5.9.3)':
+  '@commitlint/cli@20.4.2(@types/node@25.3.0)(typescript@5.9.3)':
     dependencies:
       '@commitlint/format': 20.4.0
       '@commitlint/lint': 20.4.2
@@ -11467,7 +11458,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/config-conventional@20.4.1':
+  '@commitlint/config-conventional@20.4.2':
     dependencies:
       '@commitlint/types': 20.4.0
       conventional-changelog-conventionalcommits: 9.1.0
@@ -11477,7 +11468,7 @@ snapshots:
       '@commitlint/types': 20.4.0
       ajv: 8.18.0
 
-  '@commitlint/core@20.4.1(@types/node@25.3.0)(typescript@5.9.3)':
+  '@commitlint/core@20.4.2(@types/node@25.3.0)(typescript@5.9.3)':
     dependencies:
       '@commitlint/format': 20.4.0
       '@commitlint/lint': 20.4.2
@@ -11906,12 +11897,6 @@ snapshots:
       - supports-color
 
   '@eslint-stylistic/metadata@4.4.1': {}
-
-  '@eslint/compat@1.4.1(eslint@9.39.2(jiti@2.6.1))':
-    dependencies:
-      '@eslint/core': 0.17.0
-    optionalDependencies:
-      eslint: 9.39.2(jiti@2.6.1)
 
   '@eslint/compat@2.0.2(eslint@9.39.2(jiti@2.6.1))':
     dependencies:
@@ -13085,7 +13070,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@stylistic/eslint-plugin@5.8.0(eslint@9.39.2(jiti@2.6.1))':
+  '@stylistic/eslint-plugin@5.9.0(eslint@9.39.2(jiti@2.6.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.6.1))
       '@typescript-eslint/types': 8.56.0
@@ -13108,7 +13093,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/eslint-plugin-router@1.155.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-router@1.161.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.56.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
@@ -15714,9 +15699,9 @@ snapshots:
       eslint: 9.39.2(jiti@2.6.1)
       semver: 7.7.4
 
-  eslint-config-flat-gitignore@2.1.0(eslint@9.39.2(jiti@2.6.1)):
+  eslint-config-flat-gitignore@2.2.1(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
-      '@eslint/compat': 1.4.1(eslint@9.39.2(jiti@2.6.1))
+      '@eslint/compat': 2.0.2(eslint@9.39.2(jiti@2.6.1))
       eslint: 9.39.2(jiti@2.6.1)
 
   eslint-flat-config-utils@2.1.4:
@@ -15836,7 +15821,7 @@ snapshots:
       eslint: 9.39.2(jiti@2.6.1)
       eslint-compat-utils: 0.5.1(eslint@9.39.2(jiti@2.6.1))
 
-  eslint-plugin-es-x@9.4.0(eslint@9.39.2(jiti@2.6.1)):
+  eslint-plugin-es-x@9.4.1(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.6.1))
       '@eslint-community/regexpp': 4.12.2
@@ -15989,7 +15974,7 @@ snapshots:
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
 
-  eslint-plugin-no-unsanitized@4.1.4(eslint@9.39.2(jiti@2.6.1)):
+  eslint-plugin-no-unsanitized@4.1.5(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
 
@@ -16331,7 +16316,7 @@ snapshots:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(jiti@2.6.1))
       eslint: 9.39.2(jiti@2.6.1)
 
-  eslint-typegen@2.3.0(eslint@9.39.2(jiti@2.6.1)):
+  eslint-typegen@2.3.1(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       eslint: 9.39.2(jiti@2.6.1)
       json-schema-to-typescript-lite: 15.0.0
@@ -18050,7 +18035,7 @@ snapshots:
       espree: 9.6.1
       semver: 7.7.4
 
-  jsonc-eslint-parser@3.0.0:
+  jsonc-eslint-parser@3.1.0:
     dependencies:
       acorn: 8.15.0
       eslint-visitor-keys: 5.0.0

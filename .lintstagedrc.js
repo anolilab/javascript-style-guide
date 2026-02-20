@@ -2,7 +2,7 @@
 import {
     defineConfig,
     eslintExtensions,
-} from "./packages/lint-staged-config/dist/index.mjs";
+} from "./packages/lint-staged-config/dist/index.js";
 /* eslint-enable antfu/no-import-dist, import/no-relative-packages */
 
 export default defineConfig({

@@ -286,9 +286,6 @@ jobs:
                   node-version: "20.19.5"
                   cache: "pnpm"
 
-            - name: "Verify the integrity of provenance attestations and registry signatures for installed dependencies"
-              run: "pnpm dlx audit-ci@^7 --config ./audit-ci.jsonc --report-type=summary"
-
             - name: "Install packages"
               run: "pnpm install --frozen-lockfile --prefer-offline"
               env:

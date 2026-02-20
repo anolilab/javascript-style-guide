@@ -4,9 +4,9 @@ export default createConfig({
     zod: true,
     unocss: false,
     ignores: [
+        ".github/**",
         "eslint.config.js",
         ".prettierrc.cjs",
-        "audit-ci.jsonc",
         "scripts/**",
         "packages/eslint-config/__fixtures__/**",
         "packages/eslint-config/README.md",

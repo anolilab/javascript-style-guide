@@ -43,7 +43,7 @@ export default createConfig<
                 "yaml/no-empty-key": "error",
                 "yaml/no-empty-sequence-entry": "error",
                 "yaml/no-irregular-whitespace": "error",
-                "yaml/plain-scalar": "error",
+                "yaml/plain-scalar": ["error", "never"],
 
                 "yaml/vue-custom-block/no-parsing-error": "error",
 

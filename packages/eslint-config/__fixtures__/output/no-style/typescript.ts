@@ -11,7 +11,8 @@ const people: Person[] = [
     { age: 35, name: "Charlie" },
 ];
 
-const { log } = console;
+ 
+const {log} = console;
 
 // Use a for...of loop to iterate over the array
 for (const person of people) {

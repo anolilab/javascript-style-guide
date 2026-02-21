@@ -22,13 +22,11 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
     "no-restricted-globals": [
         "error",
         {
-            message:
-                "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
+            message: "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
             name: "isFinite",
         },
         {
-            message:
-                "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
+            message: "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
             name: "isNaN",
         },
         ...confusingBrowserGlobals.map((g) => {
@@ -61,10 +59,7 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
     "no-unused-vars": "off",
 
     // disallow use of variables before they are defined
-    "no-use-before-define": [
-        "error",
-        { classes: true, functions: true, variables: true },
-    ],
+    "no-use-before-define": ["error", { classes: true, functions: true, variables: true }],
 };
 
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {

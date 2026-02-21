@@ -67,6 +67,8 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:eslint": "eslint . --cache --concurrency auto",
+        "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit"
@@ -79,12 +81,15 @@
         "cz-conventional-changelog": "catalog:prod"
     },
     "devDependencies": {
+        "@anolilab/eslint-config": "workspace:*",
+        "@anolilab/prettier-config": "workspace:*",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
         "@commitlint/cli": "catalog:lint",
         "@visulima/packem": "catalog:dev",
         "esbuild": "catalog:build",
+        "eslint": "catalog:lint",
         "prettier": "catalog:lint",
         "rimraf": "catalog:node",
         "semantic-release": "catalog:cli",

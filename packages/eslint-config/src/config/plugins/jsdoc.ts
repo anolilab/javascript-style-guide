@@ -22,27 +22,15 @@ export default createConfig<
         typescript?: OptionsTypescript | boolean;
     }
 >("js", async (config, oFiles) => {
-    const {
-        files = oFiles,
-        jsx = false,
-        overrides = {},
-        packageJson,
-        silent,
-        stylistic = true,
-        typescript,
-    } = config;
+    const { files = oFiles, jsx = false, overrides = {}, packageJson, silent, stylistic = true, typescript } = config;
 
     const jsdocPlugin = await interopDefault(import("eslint-plugin-jsdoc"));
 
-    const hasTsDocumentPlugin = hasPackageJsonAnyDependency(packageJson, [
-        "eslint-plugin-tsdoc",
-    ]);
+    const hasTsDocumentPlugin = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-tsdoc"]);
 
     if (hasTsDocumentPlugin && !silent) {
         // eslint-disable-next-line no-console
-        console.info(
-            "\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.",
-        );
+        console.info("\nFound eslint-plugin-tsdoc as dependency, disabling the jsdoc rules for *.ts and *.tsx files.");
     }
 
     const definedTags = ["remarks", "openapi", "link"];

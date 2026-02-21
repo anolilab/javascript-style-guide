@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-var
+/* eslint-disable import/no-commonjs */
 const config = [
     "./dist/config/best-practices.cjs",
     "./dist/config/declaration-block-no-ignored-properties.cjs",
@@ -11,8 +11,5 @@ const config = [
 ];
 
 module.exports = {
-    extends: [
-        ...config.map((element) => require.resolve(element)),
-        "stylelint-config-clean-order",
-    ],
+    extends: [...config.map((element) => require.resolve(element)), "stylelint-config-clean-order"],
 };

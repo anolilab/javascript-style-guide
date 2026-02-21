@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { writeFile, readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { exit } from "node:process";
 
@@ -11,7 +11,6 @@ const configFile = ".prettierrc";
  * Writes .prettierrc.${m|c}js if it doesn't exist. Warns if it exists.
  */
 const writePrettierRc = async (cwd: string, isTypeModule: boolean) => {
-    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
     for (const filename of [
         configFile,
         `${configFile}.js`,
@@ -26,8 +25,8 @@ const writePrettierRc = async (cwd: string, isTypeModule: boolean) => {
         "prettier.config.mjs",
         "prettier.config.cjs",
     ]) {
-        // eslint-disable-next-line security/detect-non-literal-fs-filename
         if (existsSync(join(cwd, filename))) {
+            // eslint-disable-next-line no-console
             console.warn(`⚠️  ${filename} already exists;
 Make sure that it includes the following for @anolilab/prettier-config to work as it should:
 ${JSON.stringify(content, undefined, 4)}\n`);
@@ -40,7 +39,7 @@ ${JSON.stringify(content, undefined, 4)}\n`);
 
     await writeFile(
         prettierPath,
-        `${isTypeModule ? 'import config from "@anolilab/prettier-config";' : 'var config = require("@anolilab/prettier-config");'}
+        `${isTypeModule ? "import config from \"@anolilab/prettier-config\";" : "var config = require(\"@anolilab/prettier-config\");"}
 
 ${isTypeModule ? "export default" : "module.exports ="} {
     ...config,
@@ -56,8 +55,8 @@ ${isTypeModule ? "export default" : "module.exports ="} {
 const writePrettierIgnore = async (cwd: string) => {
     const prettierPath = join(cwd, ".prettierignore");
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (existsSync(prettierPath)) {
+        // eslint-disable-next-line no-console
         console.warn("⚠️  .prettierignore already exists");
 
         return;
@@ -77,26 +76,27 @@ const writePrettierIgnore = async (cwd: string) => {
     const packageJsonPath = join(cwd, "package.json");
 
     if (!existsSync(packageJsonPath)) {
-        console.error(
-            "No package.json found in the current directory. You need to run this command in a directory with a package.json file.",
-        );
+        // eslint-disable-next-line no-console
+        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
 
         exit(1);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf-8"));
+    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
 
+    // eslint-disable-next-line no-console
     console.log("Configuring @anolilab/prettier-config", cwd, "\n");
 
     try {
         await writePrettierRc(cwd, packageJson.type === "module");
         await writePrettierIgnore(cwd);
 
+        // eslint-disable-next-line no-console
         console.log("Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Something went wrong:", error);
 
         exit(1);

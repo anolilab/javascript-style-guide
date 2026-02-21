@@ -1,37 +1,18 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import type { Linter } from "eslint";
 
-import type {
-    OptionsHasPrettier,
-    OptionsOverrides,
-    OptionsPackageJson,
-    OptionsSilentConsoleLogs,
-    OptionsStylistic,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsSilentConsoleLogs, OptionsStylistic, TypedFlatConfigItem } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
 const jsonc = async (
-    config: OptionsHasPrettier
-        & OptionsOverrides
-        & OptionsPackageJson
-        & OptionsSilentConsoleLogs
-        & OptionsStylistic,
+    config: OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsSilentConsoleLogs & OptionsStylistic,
 ): Promise<TypedFlatConfigItem[]> => {
-    const {
-        overrides,
-        packageJson,
-        prettier,
-        silent,
-        stylistic = true,
-    } = config;
+    const { overrides, packageJson, prettier, silent, stylistic = true } = config;
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
     const jsoncPlugin = await interopDefault(import("eslint-plugin-jsonc"));
 
-    const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, [
-        "sort-package-json",
-    ]);
+    const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, ["sort-package-json"]);
 
     if (hasSortPackageJson && !silent) {
         // eslint-disable-next-line no-console
@@ -44,23 +25,17 @@ const jsonc = async (
         {
             files: ["**/*.json5"],
             name: "anolilab/jsonc/json5-rules",
-            rules: (
-                jsoncPlugin.configs["recommended-with-json5"] as Linter.Config
-            ).rules,
+            rules: (jsoncPlugin.configs["recommended-with-json5"] as Linter.Config).rules,
         },
         {
             files: ["**/*.jsonc"],
             name: "anolilab/jsonc/jsonc-rules",
-            rules: (
-                jsoncPlugin.configs["recommended-with-jsonc"] as Linter.Config
-            ).rules,
+            rules: (jsoncPlugin.configs["recommended-with-jsonc"] as Linter.Config).rules,
         },
         {
             files: ["**/*.json"],
             name: "anolilab/jsonc/json-rules",
-            rules: (
-                jsoncPlugin.configs["recommended-with-json"] as Linter.Config
-            ).rules,
+            rules: (jsoncPlugin.configs["recommended-with-json"] as Linter.Config).rules,
         },
         {
             files: ["package.json", "**/package.json"],
@@ -190,13 +165,11 @@ const jsonc = async (
                         },
                         {
                             order: { type: "asc" },
-                            pathPattern:
-                                  "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
+                            pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
                         },
                         {
                             order: { type: "asc" },
-                            pathPattern:
-                                  "^(?:resolutions|overrides|pnpm.overrides)$",
+                            pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$",
                         },
                         {
                             order: { type: "asc" },
@@ -236,18 +209,10 @@ const jsonc = async (
                                 "p4-pre-submit",
                                 "post-index-chang",
                             ],
-                            pathPattern:
-                                  "^(?:gitHooks|husky|simple-git-hooks)$",
+                            pathPattern: "^(?:gitHooks|husky|simple-git-hooks)$",
                         },
                         {
-                            order: [
-                                "build",
-                                "preinstall",
-                                "install",
-                                "postinstall",
-                                "lint",
-                                { order: { type: "asc" } },
-                            ],
+                            order: ["build", "preinstall", "install", "postinstall", "lint", { order: { type: "asc" } }],
                             pathPattern: "^scripts$",
                         },
                     ],
@@ -260,14 +225,7 @@ const jsonc = async (
                 "jsonc/sort-keys": [
                     "error",
                     {
-                        order: [
-                            "extends",
-                            "compilerOptions",
-                            "references",
-                            "files",
-                            "include",
-                            "exclude",
-                        ],
+                        order: ["extends", "compilerOptions", "references", "files", "include", "exclude"],
                         pathPattern: "^$",
                     },
                     {
@@ -396,19 +354,10 @@ const jsonc = async (
                         "jsonc/comma-dangle": ["error", "never"],
                         "jsonc/comma-style": ["error", "last"],
                         "jsonc/indent": ["error", indent],
-                        "jsonc/key-spacing": [
-                            "error",
-                            { afterColon: true, beforeColon: false },
-                        ],
-                        "jsonc/object-curly-newline": [
-                            "error",
-                            { consistent: true, multiline: true },
-                        ],
+                        "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
+                        "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
                         "jsonc/object-curly-spacing": ["error", "always"],
-                        "jsonc/object-property-newline": [
-                            "error",
-                            { allowAllPropertiesOnSameLine: true },
-                        ],
+                        "jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
                         "jsonc/quote-props": "error",
                         "jsonc/quotes": "error",
                     }

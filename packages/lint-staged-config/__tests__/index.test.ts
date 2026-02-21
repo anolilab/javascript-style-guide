@@ -2,26 +2,24 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { defineConfig, eslintExtensions } from "../src";
 
-const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonMock }
-    = vi.hoisted(() => {
-        return {
-            // eslint-disable-next-line vitest/require-mock-type-parameters
-            existsSyncMock: vi.fn(),
-            // eslint-disable-next-line vitest/require-mock-type-parameters
-            findPackageManagerSyncMock: vi.fn(),
-            // eslint-disable-next-line vitest/require-mock-type-parameters
-            parsePackageJsonMock: vi.fn(),
-        };
-    });
+const { existsSyncMock, findPackageManagerSyncMock, parsePackageJsonSyncMock } = vi.hoisted(() => {
+    return {
+        // eslint-disable-next-line vitest/require-mock-type-parameters
+        existsSyncMock: vi.fn(),
+        // eslint-disable-next-line vitest/require-mock-type-parameters
+        findPackageManagerSyncMock: vi.fn(),
+        // eslint-disable-next-line vitest/require-mock-type-parameters
+        parsePackageJsonSyncMock: vi.fn(),
+    };
+});
 
 vi.mock(import("@visulima/package"), async (importOriginal) => {
     const original = await importOriginal();
 
     return {
-        // @ts-expect-error - mock
         ...original,
         findPackageManagerSync: findPackageManagerSyncMock,
-        parsePackageJson: parsePackageJsonMock,
+        parsePackageJsonSync: parsePackageJsonSyncMock,
     };
 });
 
@@ -40,7 +38,7 @@ describe(defineConfig, () => {
         expect.assertions(1);
 
         existsSyncMock.mockReturnValue(true);
-        parsePackageJsonMock.mockReturnValue({
+        parsePackageJsonSyncMock.mockReturnValue({
             dependencies: { eslint: "1.0.0" },
         });
         findPackageManagerSyncMock.mockReturnValue({ packageManager: "npm" });
@@ -59,16 +57,14 @@ describe(defineConfig, () => {
 
         expect(() => {
             defineConfig({ cwd: testCwd });
-        }).toThrowError(
-            `No package.json found in the current working directory: ${testCwd}; Please adjust the "cwd" option.`,
-        );
+        }).toThrowError(`No package.json found in the current working directory: ${testCwd}; Please adjust the "cwd" option.`);
     });
 
     it("should throw error when eslint extensions array is empty", () => {
         expect.assertions(1);
 
         existsSyncMock.mockReturnValue(true);
-        parsePackageJsonMock.mockReturnValue({
+        parsePackageJsonSyncMock.mockReturnValue({
             dependencies: { eslint: "1.0.0" },
         });
         findPackageManagerSyncMock.mockReturnValue({ packageManager: "npm" });
@@ -79,8 +75,6 @@ describe(defineConfig, () => {
                     extensions: [],
                 },
             });
-        }).toThrowError(
-            "The `extensions` option is required for the ESLint configuration.",
-        );
+        }).toThrowError("The `extensions` option is required for the ESLint configuration.");
     });
 });

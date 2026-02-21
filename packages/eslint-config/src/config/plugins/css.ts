@@ -2,9 +2,7 @@ import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<
-    OptionsFiles & OptionsOverrides & { tailwind?: boolean }
->("css", async (config, oFiles) => {
+export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boolean }>("css", async (config, oFiles) => {
     const { files = oFiles, overrides, tailwind } = config;
 
     const cssPlugin = await interopDefault(import("@eslint/css"));

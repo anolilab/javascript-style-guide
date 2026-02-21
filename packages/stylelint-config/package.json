@@ -184,6 +184,8 @@
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
         "lint:attw": "attw --pack",
+        "lint:eslint": "eslint . --cache --concurrency auto",
+        "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
         "lint:prettier:fix": "prettier --write .",
         "lint:types": "tsc --noEmit",
@@ -191,7 +193,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "8.0.0",
+        "browserslist-config-anolilab": "catalog:network",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
@@ -201,11 +203,14 @@
         "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
+        "@anolilab/eslint-config": "workspace:*",
+        "@anolilab/prettier-config": "workspace:*",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
         "@visulima/packem": "catalog:dev",
         "esbuild": "catalog:build",
+        "eslint": "catalog:lint",
         "postcss": "catalog:style",
         "prettier": "catalog:lint",
         "rimraf": "catalog:node",

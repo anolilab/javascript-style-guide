@@ -54,7 +54,6 @@
         "packages/*"
     ],
     "scripts": {
-        "audit": "audit-ci --config ./audit-ci.jsonc",
         "build:affected:packages": "nx affected --target=build --exclude=*-bench,docs,storybook --nxBail",
         "build:affected:prod:packages": "nx affected --target=build:prod --exclude=*-bench,docs,storybook --nxBail",
         "build:packages": "nx run-many --target=build --parallel --projects=tag:type:package",
@@ -84,7 +83,7 @@
         "sort-package-json": "sort-package-json packages/**/package.json apps/**/package.json ./package.json examples/**/package.json",
         "test:affected": "nx affected --target=test --parallel --exclude=*-bench,docs,storybook --nxBail",
         "test:affected:coverage": "nx affected --target=test:coverage --parallel --exclude=*-bench,docs,storybook --nxBail",
-        "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,stylelint-config,eslint-config && pnpm test:stylelint",
+        "test:all": "nx run-many --target=test:coverage --projects=browserslist-config-anolilab,stylelint-config,eslint-config,lint-staged-config && pnpm test:stylelint",
         "test:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test",
         "test:coverage:browserslist-config-anolilab": "pnpm --filter \"browserslist-config-anolilab\" run test:coverage",
         "test:coverage:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test:coverage",
@@ -97,6 +96,7 @@
     },
     "dependencies": {
         "@anolilab/multi-semantic-release": "catalog:cli",
+        "@anolilab/prettier-config": "workspace:*",
         "@commitlint/cli": "catalog:lint",
         "@commitlint/config-conventional": "catalog:lint",
         "@commitlint/core": "catalog:lint",
@@ -105,7 +105,6 @@
         "@tsconfig/strictest": "catalog:tsc",
         "@types/node": "catalog:types",
         "@vitest/coverage-v8": "catalog:test",
-        "audit-ci": "catalog:prod",
         "commitizen": "catalog:cli",
         "conventional-changelog-conventionalcommits": "catalog:prod",
         "cross-env": "catalog:node",
@@ -130,7 +129,7 @@
         "typescript": "catalog:tsc",
         "vitest": "catalog:test"
     },
-    "packageManager": "pnpm@10.30.0",
+    "packageManager": "pnpm@10.30.1",
     "engines": {
         "node": ">=20.18.* <=25.*"
     }

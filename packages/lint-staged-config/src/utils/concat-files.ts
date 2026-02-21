@@ -15,7 +15,7 @@ import isWindows from "./is-windows";
  * @param filenames
  * @returns Return concatenated and escaped filenames
  */
-const concatFiles = (filenames: string[]): string =>
+const concatFiles = (filenames: ReadonlyArray<string>): string =>
     filenames
         .map((filename) => `"${isWindows ? filename : quote([filename])}"`)
         .join(" ")

@@ -43,29 +43,15 @@
     "type": "module",
     "exports": {
         ".": {
-            "import": {
-                "types": "./dist/index.d.mts",
-                "default": "./dist/index.mjs"
-            },
-            "require": {
-                "types": "./dist/index.d.cts",
-                "default": "./dist/index.cjs"
-            }
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         },
         "./package.json": "./package.json"
     },
-    "main": "dist/index.cjs",
-    "module": "dist/index.mjs",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
-    "typesVersions": {
-        ">=5.0": {
-            ".": [
-                "./dist/index.d.ts"
-            ]
-        }
-    },
     "bin": {
-        "lint-stage-config:install": "./dist/bin.mjs"
+        "lint-stage-config:install": "./dist/bin.js"
     },
     "files": [
         "CHANGELOG.md",
@@ -94,6 +80,7 @@
     },
     "devDependencies": {
         "@anolilab/eslint-config": "workspace:*",
+        "@anolilab/prettier-config": "workspace:*",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
@@ -113,14 +100,14 @@
     },
     "peerDependencies": {
         "eslint": "catalog:lint",
-        "husky": "^8.x || ^9.x",
-        "jest": "^27.x || ^28.x || ^29.0.0",
-        "lint-staged": "^13.x || ^14.x|| ^15.x || ^16.x",
+        "husky": "^9.x",
+        "jest": "^29.0.0",
+        "lint-staged": "^16.x",
         "nano-staged": "catalog:peer",
         "prettier": "catalog:lint",
-        "secretlint": "^7.x || ^8.x || ^10.0.0 || ^11.0.0",
-        "stylelint": "^15.x || ^16.x",
-        "vitest": "^1.x || ^2.x || ^3.x || ^4.0.0"
+        "secretlint": "^11.0.0",
+        "stylelint": "^16.x || ^17.x",
+        "vitest": "^3.x || ^4.x"
     },
     "peerDependenciesMeta": {
         "eslint": {
@@ -148,6 +135,7 @@
             "optional": true
         }
     },
+    "optionalDependencies": {},
     "engines": {
         "node": ">=20.18.* <=25.*"
     },

@@ -1,10 +1,6 @@
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 
-import type {
-    OptionsFiles,
-    OptionsOverrides,
-    OptionsPackageJson,
-} from "../../types";
+import type { OptionsFiles, OptionsOverrides, OptionsPackageJson } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -15,12 +11,7 @@ export default createConfig<
         lessOpinionated?: boolean;
     }
 >("all", async (config, oFiles) => {
-    const {
-        files = oFiles,
-        lessOpinionated = false,
-        overrides,
-        packageJson,
-    } = config;
+    const { files = oFiles, lessOpinionated = false, overrides, packageJson } = config;
 
     const antfuPlugin = await interopDefault(import("eslint-plugin-antfu"));
 
@@ -40,12 +31,7 @@ export default createConfig<
 
                 "antfu/no-import-dist": "error",
                 "antfu/no-import-node-modules-by-path": "error",
-                "antfu/no-ts-export-equal": hasPackageJsonAnyDependency(
-                    packageJson,
-                    ["typescript"],
-                )
-                    ? "error"
-                    : "off",
+                "antfu/no-ts-export-equal": hasPackageJsonAnyDependency(packageJson, ["typescript"]) ? "error" : "off",
 
                 "antfu/prefer-inline-type-import": "off",
                 "antfu/top-level-function": "off",

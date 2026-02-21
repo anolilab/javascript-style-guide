@@ -163,12 +163,14 @@
         "yaml-eslint-parser": "catalog:lint"
     },
     "devDependencies": {
+        "@anolilab/prettier-config": "workspace:*",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
         "@eslint-react/eslint-plugin": "catalog:lint",
         "@eslint/config-inspector": "catalog:lint",
         "@eslint/css": "catalog:lint",
+        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "@stylistic/eslint-plugin-migrate": "catalog:lint",
         "@tanstack/eslint-plugin-query": "catalog:lint",
         "@tanstack/eslint-plugin-router": "catalog:lint",
@@ -194,7 +196,6 @@
         "eslint-plugin-react-perf": "catalog:lint",
         "eslint-plugin-react-refresh": "catalog:lint",
         "eslint-plugin-react-you-might-not-need-an-effect": "catalog:lint",
-        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "eslint-plugin-storybook": "catalog:lint",
         "eslint-plugin-tailwindcss": "catalog:lint",
         "eslint-plugin-testing-library": "catalog:lint",
@@ -208,6 +209,7 @@
         "react": "catalog:frontend",
         "rimraf": "catalog:node",
         "semantic-release": "catalog:cli",
+        "storybook": "catalog:lint",
         "tailwind-csstree": "catalog:style",
         "tinyglobby": "catalog:node",
         "tsx": "catalog:script",
@@ -218,6 +220,7 @@
     "peerDependencies": {
         "@eslint-react/eslint-plugin": "catalog:lint",
         "@eslint/css": "catalog:lint",
+        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "@tanstack/eslint-plugin-query": "catalog:lint",
         "@tanstack/eslint-plugin-router": "catalog:lint",
         "@unocss/eslint-plugin": "catalog:lint",
@@ -233,7 +236,6 @@
         "eslint-plugin-react-perf": "catalog:lint",
         "eslint-plugin-react-refresh": "catalog:lint",
         "eslint-plugin-react-you-might-not-need-an-effect": "catalog:lint",
-        "@ospm/eslint-plugin-react-unhookify": "catalog:lint",
         "eslint-plugin-storybook": "catalog:lint",
         "eslint-plugin-tailwindcss": "catalog:lint",
         "eslint-plugin-testing-library": "catalog:lint",
@@ -248,6 +250,9 @@
             "optional": true
         },
         "@eslint/css": {
+            "optional": true
+        },
+        "@ospm/eslint-plugin-react-unhookify": {
             "optional": true
         },
         "@tanstack/eslint-plugin-query": {
@@ -295,9 +300,6 @@
         "eslint-plugin-react-you-might-not-need-an-effect": {
             "optional": true
         },
-        "@ospm/eslint-plugin-react-unhookify": {
-            "optional": true
-        },
         "eslint-plugin-storybook": {
             "optional": true
         },
@@ -326,12 +328,12 @@
             "optional": true
         }
     },
+    "optionalDependencies": {},
     "engines": {
         "node": ">=20.18.* <=25.*"
     },
     "publishConfig": {
         "access": "public",
         "provenance": true
-    },
-    "optionalDependencies": {}
+    }
 }

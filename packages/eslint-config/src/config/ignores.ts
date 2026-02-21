@@ -1,10 +1,7 @@
 import type { TypedFlatConfigItem } from "../types";
 import { getFilesGlobs } from "../utils/create-config";
 
-export const ignores = async (
-    userIgnores: string[] | ((originals: string[]) => string[]) = [],
-    ignoreTypeScript = false,
-): Promise<TypedFlatConfigItem[]> => {
+export const ignores = async (userIgnores: string[] | ((originals: string[]) => string[]) = [], ignoreTypeScript = false): Promise<TypedFlatConfigItem[]> => {
     let patterns = [
         "**/node_modules",
         "**/dist",
@@ -75,10 +72,7 @@ export const ignores = async (
         patterns.push(...getFilesGlobs("ts"));
     }
 
-    patterns
-        = typeof userIgnores === "function"
-            ? userIgnores(patterns)
-            : [...patterns, ...userIgnores];
+    patterns = typeof userIgnores === "function" ? userIgnores(patterns) : [...patterns, ...userIgnores];
 
     return [
         {

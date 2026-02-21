@@ -18,9 +18,7 @@ const getNearestPackageRootPath = (cwd?: string): AbsolutePath => {
         return packageDirectoryPath as AbsolutePath;
     }
 
-    throw new Error(
-        `Cannot determine the nearest root of the package for the file: ${cwd}!`,
-    );
+    throw new Error(`Cannot determine the nearest root of the package for the file: ${cwd}!`);
 };
 
 const joinPaths = <T extends ReadonlyArray<string>>(paths: T): Join<T, "/"> => {
@@ -33,13 +31,7 @@ const joinPaths = <T extends ReadonlyArray<string>>(paths: T): Join<T, "/"> => {
     throw new TypeError(`Joined path did not return an absolute path.`);
 };
 
-const getNearestConfigPath = <
-    N extends string = string,
-    A extends AbsolutePath = AbsolutePath,
->(
-    fileName: N,
-    cwd?: A,
-): ConfigPath<A, N> => {
+const getNearestConfigPath = <N extends string = string, A extends AbsolutePath = AbsolutePath>(fileName: N, cwd?: A): ConfigPath<A, N> => {
     const packageRootPath = getNearestPackageRootPath(cwd);
     const configPath = joinPaths<[A, N]>([packageRootPath as A, fileName]);
 

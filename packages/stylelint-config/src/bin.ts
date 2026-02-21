@@ -9,21 +9,11 @@ const file = ".stylelintrc";
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
-    // eslint-disable-next-line no-restricted-syntax,no-loops/no-loops
-    for (const filename of [
-        file,
-        `${file}.js`,
-        `${file}.cjs`,
-        `${file}.json`,
-        `${file}.yaml`,
-        `${file}.yml`,
-        `stylelint.config.js`,
-        `stylelint.config.cjs`,
-    ]) {
-        // eslint-disable-next-line security/detect-non-literal-fs-filename
+    for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
         if (existsSync(join(cwd, filename))) {
+            // eslint-disable-next-line no-console
             console.warn(
-                '⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.',
+                "⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.",
             );
 
             return;
@@ -39,7 +29,7 @@ const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
 
 `;
 
-    await writeFile(stylelintPath, content, "utf-8");
+    await writeFile(stylelintPath, content, "utf8");
 };
 
 /**
@@ -57,12 +47,12 @@ node_modules/**
 dist/**
 
 `;
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
+
     if (existsSync(stylelintIgnorePath)) {
         return;
     }
 
-    await writeFile(stylelintIgnorePath, content, "utf-8");
+    await writeFile(stylelintIgnorePath, content, "utf8");
 };
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
@@ -72,28 +62,29 @@ dist/**
     const packageJsonPath = join(cwd, "package.json");
 
     if (!existsSync(packageJsonPath)) {
-        console.error(
-            "😬  No package.json found in the current directory. You need to run this command in a directory with a package.json file.",
-        );
+        // eslint-disable-next-line no-console
+        console.error("😬  No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
 
         exit(1);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf-8"));
+    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
 
+    // eslint-disable-next-line no-console
     console.log("Configuring @anolilab/stylelint-config", cwd, "\n");
 
     try {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         await writeStylelintRc(cwd, packageJson?.type === "module");
         await writeStylelintIgnore(cwd);
 
+        // eslint-disable-next-line no-console
         console.log("😎  Everything went well, have fun!");
 
         exit(0);
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.log("😬  something went wrong:");
+        // eslint-disable-next-line no-console
         console.error(error);
 
         exit(1);

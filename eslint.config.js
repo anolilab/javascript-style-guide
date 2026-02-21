@@ -7,6 +7,8 @@ export default createConfig(
         ignores: [
             ".github/**",
             "eslint.config.js",
+            "labeler-config.yml",
+            "pnpm-workspace.yaml",
             "scripts/**",
             "packages/eslint-config/__fixtures__/**",
             "packages/eslint-config/README.md",
@@ -34,6 +36,12 @@ export default createConfig(
         files: ["**/e18e.ts"],
         rules: {
             "unicorn/prevent-abbreviations": "off",
+        },
+    },
+    {
+        files: ["**/no-unsupported-browser-features.ts"],
+        rules: {
+            "sonarjs/file-name-differ-from-class": "off",
         },
     },
 );

@@ -1,3 +1,26 @@
+## @anolilab/eslint-config [22.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@21.0.0...@anolilab/eslint-config@22.0.0) (2026-02-21)
+
+### Features
+
+* **eslint-config:** extend markdown config and fix react/no-implicit-key rule placement ([a0261f6](https://github.com/anolilab/javascript-style-guide/commit/a0261f63674523f8475cba1d15925a772e0e1064))
+
+### Bug Fixes
+
+* **eslint-config:** require quoted scalars in yaml files ([af0f247](https://github.com/anolilab/javascript-style-guide/commit/af0f247438d003963c9dca1126df21781f252546))
+* resolve pre-commit hook failures and lint errors across packages ([a4707c3](https://github.com/anolilab/javascript-style-guide/commit/a4707c38941c7adb55a7a606f9689caa9c8f7962))
+
+### Miscellaneous Chores
+
+* **eslint-config:** add ESLint config, migrate to ESM prettier, update fixtures ([b57d64a](https://github.com/anolilab/javascript-style-guide/commit/b57d64a5080356878ff6bb524d0bc0648d74858c))
+* **eslint-config:** simplify .prettierignore and update fixture outputs ([7f376ae](https://github.com/anolilab/javascript-style-guide/commit/7f376aef4137ea2511e9033826491495b5e80b2c))
+* fix storybook security vulnerability by pinning to 9.1.19 ([ba99baa](https://github.com/anolilab/javascript-style-guide/commit/ba99baa5c193e617243ccf29f9643f116eff5a29))
+* update dependencies, pnpm version, and CI workflow ([0515997](https://github.com/anolilab/javascript-style-guide/commit/05159977a4c56860b2500b8a54b2fe9b6bb4b0d6))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 9.1.1
+
 ## @anolilab/eslint-config [21.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@20.0.0...@anolilab/eslint-config@21.0.0) (2026-01-29)
 
 ### Features

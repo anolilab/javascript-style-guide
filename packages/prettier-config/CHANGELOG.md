@@ -1,3 +1,14 @@
+## @anolilab/prettier-config [9.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@9.1.0...@anolilab/prettier-config@9.1.1) (2026-02-21)
+
+### Bug Fixes
+
+* resolve pre-commit hook failures and lint errors across packages ([a4707c3](https://github.com/anolilab/javascript-style-guide/commit/a4707c38941c7adb55a7a606f9689caa9c8f7962))
+
+### Miscellaneous Chores
+
+* **prettier-config:** add .prettierignore ([b07d6c3](https://github.com/anolilab/javascript-style-guide/commit/b07d6c39480f2bd612585492db1166f5b4013ff8))
+* **prettier-config:** migrate to ESM prettier config and fix bin.ts ([970de06](https://github.com/anolilab/javascript-style-guide/commit/970de062cf51a62726e55d24db3080e85ef6cffb))
+
 ## @anolilab/prettier-config [9.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@9.0.0...@anolilab/prettier-config@9.1.0) (2026-01-29)
 
 ## @anolilab/prettier-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@8.0.1...@anolilab/prettier-config@9.0.0) (2026-01-11)

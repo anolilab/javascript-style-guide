@@ -1,16 +1,9 @@
-import type {
-    OptionsHasPrettier,
-    OptionsOverrides,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsHasPrettier, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "../../types";
 import interopDefault from "../../utils/interop-default";
 
 const specialRule = 0;
 
-const stylistic = async (
-    options: OptionsHasPrettier & OptionsOverrides & StylisticConfig,
-): Promise<TypedFlatConfigItem[]> => {
+const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & StylisticConfig): Promise<TypedFlatConfigItem[]> => {
     const {
         indent,
         jsx,
@@ -24,9 +17,7 @@ const stylistic = async (
         ...options,
     };
 
-    const pluginStylistic = await interopDefault(
-        import("@stylistic/eslint-plugin"),
-    );
+    const pluginStylistic = await interopDefault(import("@stylistic/eslint-plugin"));
 
     const config = pluginStylistic.configs.customize({
         indent,
@@ -54,11 +45,7 @@ const stylistic = async (
 
                 // Replace 'brace-style' rule with '@stylistic' version
                 // enforce one true brace style
-                "@stylistic/brace-style": [
-                    "error",
-                    "1tbs",
-                    { allowSingleLine: true },
-                ],
+                "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
 
                 // Replace 'comma-dangle' rule with '@stylistic' version
                 // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
@@ -78,18 +65,12 @@ const stylistic = async (
 
                 // Replace 'comma-spacing' rule with '@stylistic' version
                 // enforce spacing before and after comma
-                "@stylistic/comma-spacing": [
-                    "error",
-                    { after: true, before: false },
-                ],
+                "@stylistic/comma-spacing": ["error", { after: true, before: false }],
 
                 // Replace 'func-call-spacing' rule with '@stylistic' version
                 "@stylistic/function-call-spacing": ["error", "never"],
 
-                "@stylistic/generator-star-spacing": [
-                    "error",
-                    { after: true, before: false },
-                ],
+                "@stylistic/generator-star-spacing": ["error", { after: true, before: false }],
 
                 "@stylistic/indent": [
                     "error",
@@ -138,10 +119,7 @@ const stylistic = async (
                 ],
 
                 // enforces spacing between keys and values in object literal properties
-                "@stylistic/key-spacing": [
-                    "error",
-                    { afterColon: true, beforeColon: false },
-                ],
+                "@stylistic/key-spacing": ["error", { afterColon: true, beforeColon: false }],
 
                 // require a space before & after certain keywords
                 "@stylistic/keyword-spacing": [
@@ -163,11 +141,7 @@ const stylistic = async (
 
                 // require or disallow newlines around directives
                 // https://eslint.org/docs/rules/lines-between-class-members
-                "@stylistic/lines-between-class-members": [
-                    "error",
-                    "always",
-                    { exceptAfterSingleLine: false },
-                ],
+                "@stylistic/lines-between-class-members": ["error", "always", { exceptAfterSingleLine: false }],
 
                 "@stylistic/member-delimiter-style": "error",
 
@@ -235,11 +209,7 @@ const stylistic = async (
 
                 // require quotes around object literal property names
                 // https://eslint.org/docs/rules/quote-props.html
-                "@stylistic/quote-props": [
-                    "error",
-                    "as-needed",
-                    { keywords: false, numbers: false, unnecessary: true },
-                ],
+                "@stylistic/quote-props": ["error", "as-needed", { keywords: false, numbers: false, unnecessary: true }],
 
                 // require or disallow space before blocks
                 "@stylistic/space-before-blocks": "error",
@@ -259,10 +229,7 @@ const stylistic = async (
 
                 "@stylistic/type-annotation-spacing": "error",
 
-                "@stylistic/yield-star-spacing": [
-                    "error",
-                    { after: true, before: false },
-                ],
+                "@stylistic/yield-star-spacing": ["error", { after: true, before: false }],
 
                 ...overrides,
 
@@ -328,8 +295,7 @@ const stylistic = async (
                         "@stylistic/js/no-tabs": specialRule,
                         "@stylistic/js/no-trailing-spaces": "off",
                         "@stylistic/js/no-whitespace-before-property": "off",
-                        "@stylistic/js/nonblock-statement-body-position":
-                              "off",
+                        "@stylistic/js/nonblock-statement-body-position": "off",
                         "@stylistic/js/object-curly-newline": "off",
                         "@stylistic/js/object-curly-spacing": "off",
                         "@stylistic/js/object-property-newline": "off",

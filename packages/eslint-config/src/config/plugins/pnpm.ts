@@ -1,13 +1,7 @@
 import { findUp } from "@visulima/fs";
 import { readYaml } from "@visulima/fs/yaml";
 
-import type {
-    OptionsFiles,
-    OptionsIsInEditor,
-    OptionsOverrides,
-    OptionsPnpm,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsFiles, OptionsIsInEditor, OptionsOverrides, OptionsPnpm, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -27,25 +21,15 @@ const detectCatalogUsage = async (): Promise<boolean> => {
     }
 };
 
-export default createConfig<
-    OptionsFiles & OptionsIsInEditor & OptionsOverrides & OptionsPnpm
->("all", async (options) => {
-    const {
-        catalogs = await detectCatalogUsage(),
-        isInEditor = false,
-        json = true,
-        sort = true,
-        yaml = true,
-    } = options;
+export default createConfig<OptionsFiles & OptionsIsInEditor & OptionsOverrides & OptionsPnpm>("all", async (options) => {
+    const { catalogs = await detectCatalogUsage(), isInEditor = false, json = true, sort = true, yaml = true } = options;
 
-    const [yamlParser, pluginYaml, pluginPnpm, jsoncParser] = await Promise.all(
-        [
-            interopDefault(import("yaml-eslint-parser")),
-            interopDefault(import("eslint-plugin-yml")),
-            interopDefault(import("eslint-plugin-pnpm")),
-            interopDefault(import("jsonc-eslint-parser")),
-        ] as const,
-    );
+    const [yamlParser, pluginYaml, pluginPnpm, jsoncParser] = await Promise.all([
+        interopDefault(import("yaml-eslint-parser")),
+        interopDefault(import("eslint-plugin-yml")),
+        interopDefault(import("eslint-plugin-pnpm")),
+        interopDefault(import("jsonc-eslint-parser")),
+    ] as const);
 
     const configs: TypedFlatConfigItem[] = [];
 
@@ -71,10 +55,7 @@ export default createConfig<
                         ],
                     }
                     : {},
-                "pnpm/json-prefer-workspace-settings": [
-                    "error",
-                    { autofix: !isInEditor },
-                ],
+                "pnpm/json-prefer-workspace-settings": ["error", { autofix: !isInEditor }],
                 "pnpm/json-valid-catalog": ["error", { autofix: !isInEditor }],
             },
         });

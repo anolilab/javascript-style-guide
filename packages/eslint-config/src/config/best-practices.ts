@@ -203,10 +203,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 "no-iterator": "error",
 
                 // disallow use of labels for anything other than loops and switches
-                "no-labels": [
-                    "error",
-                    { allowLoop: false, allowSwitch: false },
-                ],
+                "no-labels": ["error", { allowLoop: false, allowSwitch: false }],
 
                 // disallow unnecessary nested blocks
                 "no-lone-blocks": "error",
@@ -338,8 +335,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                         property: "__defineSetter__",
                     },
                     {
-                        message:
-                            "Use the exponentiation operator (**) instead.",
+                        message: "Use the exponentiation operator (**) instead.",
                         object: "Math",
                         property: "pow",
                     },
@@ -374,18 +370,15 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                         property: "parseInt",
                     },
                     {
-                        message:
-                            "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
+                        message: "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
                         property: "__proto__",
                     },
                     {
-                        message:
-                            "Use `Object.getOwnPropertyDescriptor` instead.",
+                        message: "Use `Object.getOwnPropertyDescriptor` instead.",
                         property: "__lookupGetter__",
                     },
                     {
-                        message:
-                            "Use `Object.getOwnPropertyDescriptor` instead.",
+                        message: "Use `Object.getOwnPropertyDescriptor` instead.",
                         property: "__lookupSetter__",
                     },
                 ],
@@ -476,10 +469,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 "prefer-named-capture-group": "off",
 
                 // https://eslint.org/docs/rules/prefer-promise-reject-errors
-                "prefer-promise-reject-errors": [
-                    "error",
-                    { allowEmptyReject: true },
-                ],
+                "prefer-promise-reject-errors": ["error", { allowEmptyReject: true }],
 
                 // Disabled because of eslint-plugin-regexp
                 // https://eslint.org/docs/rules/prefer-regex-literals
@@ -502,11 +492,7 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 "vars-on-top": "error",
 
                 // https://eslint.org/docs/rules/wrap-iife.html
-                "wrap-iife": [
-                    "error",
-                    "outside",
-                    { functionPrototypeMethods: false },
-                ],
+                "wrap-iife": ["error", "outside", { functionPrototypeMethods: false }],
                 // require or disallow Yoda conditions
                 yoda: "error",
             },

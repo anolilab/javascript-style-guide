@@ -38,13 +38,7 @@ const jsxGlobal = ["**/*.jsx", "**/*.mjsx", "**/*.cjsx"];
 export const getFilesGlobs = (fileType: FileType): string[] => {
     switch (fileType) {
         case "all": {
-            return [
-                ...jsGlobal,
-                ...dtsGlobal,
-                ...tsGlobal,
-                ...tsxGlobal,
-                ...jsxGlobal,
-            ];
+            return [...jsGlobal, ...dtsGlobal, ...tsGlobal, ...tsxGlobal, ...jsxGlobal];
         }
         case "astro": {
             return ["**/*.astro"];
@@ -98,26 +92,16 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return ["**/*.{md,mkdn,mdown,markdown}/*.{md,mkdn,mdown,markdown}"];
         }
         case "markdown_inline_js_jsx": {
-            return [
-                "**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node,json}",
-            ];
+            return ["**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node,json}"];
         }
         case "postcss": {
-            return [
-                "**/postcss.config.js",
-                "**/postcssrc.js",
-                "**/postcss.config.cjs",
-                "**/postcssrc.cjs",
-            ];
+            return ["**/postcss.config.js", "**/postcssrc.js", "**/postcss.config.cjs", "**/postcssrc.cjs"];
         }
         case "scss": {
             return ["**/*.scss"];
         }
         case "storybook": {
-            return [
-                "**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
-                "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)",
-            ];
+            return ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)", "**/*.story.@(ts|tsx|js|jsx|mjs|cjs)"];
         }
         case "svg": {
             return ["**/*.svg"];
@@ -132,10 +116,7 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
             return dtsGlobal;
         }
         case "vitest": {
-            return [
-                "**/__tests__/**/*.?(c|m)[jt]s?(x)",
-                "**/?(*.){test,spec}.?(c|m)[jt]s?(x)",
-            ];
+            return ["**/__tests__/**/*.?(c|m)[jt]s?(x)", "**/?(*.){test,spec}.?(c|m)[jt]s?(x)"];
         }
         case "xml": {
             return ["**/*.xml"];
@@ -150,12 +131,6 @@ export const getFilesGlobs = (fileType: FileType): string[] => {
 };
 
 export const createConfig
-    = <O>(
-        type: FileType,
-        rules: (
-            options: O,
-            files: string[],
-        ) => Promise<Omit<TypedFlatConfigItem, "files">[]>,
-    ) =>
+    = <O>(type: FileType, rules: (options: O, files: string[]) => Promise<Omit<TypedFlatConfigItem, "files">[]>) =>
         async (options: O): Promise<TypedFlatConfigItem[]> =>
             await rules(options, getFilesGlobs(type));

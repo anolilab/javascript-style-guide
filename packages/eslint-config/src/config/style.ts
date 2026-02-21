@@ -4,12 +4,7 @@ import type { OptionsFiles, OptionsHasPrettier } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
 export const noUnderscoreDangle = {
-    allow: [
-        "__DEV__",
-        "__STORYBOOK_CLIENT_API__",
-        "__STORYBOOK_ADDONS_CHANNEL__",
-        "__STORYBOOK_STORY_STORE__",
-    ],
+    allow: ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
     allowAfterSuper: false,
     allowAfterThis: false,
     enforceInMethodNames: true,
@@ -188,11 +183,7 @@ export const styleRules: Partial<Linter.RulesRecord> = {
         "error",
         {
             capIsNew: false,
-            capIsNewExceptions: [
-                "Immutable.Map",
-                "Immutable.Set",
-                "Immutable.List",
-            ],
+            capIsNewExceptions: ["Immutable.Map", "Immutable.Set", "Immutable.List"],
             newIsCap: true,
             newIsCapExceptions: [],
         },
@@ -287,25 +278,20 @@ export const styleRules: Partial<Linter.RulesRecord> = {
             selector: "ForInStatement",
         },
         {
-            message:
-                "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
+            message: "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
             selector: "LabeledStatement",
         },
         {
-            message:
-                "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
+            message: "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
             selector: "WithStatement",
         },
         {
-            message:
-                "`useMemo` with an empty dependency array can't provide a stable reference, use `useRef` instead.",
-            selector:
-                "CallExpression[callee.name=useMemo][arguments.1.type=ArrayExpression][arguments.1.elements.length=0]",
+            message: "`useMemo` with an empty dependency array can't provide a stable reference, use `useRef` instead.",
+            selector: "CallExpression[callee.name=useMemo][arguments.1.type=ArrayExpression][arguments.1.elements.length=0]",
         },
         {
             message: "Use `.key` instead of `.keyCode`",
-            selector:
-                "MemberExpression > .property[type=Identifier][name=keyCode]",
+            selector: "MemberExpression > .property[type=Identifier][name=keyCode]",
         },
         {
             message: "Do not use full-width tilde. Use wave dash instead.",
@@ -314,10 +300,8 @@ export const styleRules: Partial<Linter.RulesRecord> = {
                 ":matches(Literal[value=/～/],TemplateElement[value.raw=/～/])",
         },
         {
-            message:
-                "Use `.toString()` instead of template literal if you want to convert a value to string.",
-            selector:
-                "TemplateLiteral[quasis.0.value.raw=\"\"][quasis.1.tail=true][quasis.1.value.raw=\"\"]",
+            message: "Use `.toString()` instead of template literal if you want to convert a value to string.",
+            selector: "TemplateLiteral[quasis.0.value.raw=\"\"][quasis.1.tail=true][quasis.1.value.raw=\"\"]",
         },
     ],
 
@@ -462,138 +446,135 @@ export const styleRules: Partial<Linter.RulesRecord> = {
     "yield-star-spacing": "off",
 };
 
-export default createConfig<OptionsFiles & OptionsHasPrettier>(
-    "all",
-    async (config, oFiles) => {
-        const { files = oFiles, prettier } = config;
+export default createConfig<OptionsFiles & OptionsHasPrettier>("all", async (config, oFiles) => {
+    const { files = oFiles, prettier } = config;
 
-        return [
-            {
-                files,
-                name: "anolilab/style/rules",
-                rules: {
-                    ...styleRules,
+    return [
+        {
+            files,
+            name: "anolilab/style/rules",
+            rules: {
+                ...styleRules,
 
-                    "quote-props": "off",
+                "quote-props": "off",
 
-                    ...prettier
-                        ? {
-                            // The rest are rules that you never need to enable when using Prettier.
-                            "array-bracket-newline": "off",
-                            "array-bracket-spacing": "off",
-                            "array-element-newline": "off",
-                            "arrow-parens": "off",
-                            "arrow-spacing": "off",
-                            "block-spacing": "off",
-                            "brace-style": "off",
-                            "comma-dangle": "off",
+                ...prettier
+                    ? {
+                        // The rest are rules that you never need to enable when using Prettier.
+                        "array-bracket-newline": "off",
+                        "array-bracket-spacing": "off",
+                        "array-element-newline": "off",
+                        "arrow-parens": "off",
+                        "arrow-spacing": "off",
+                        "block-spacing": "off",
+                        "brace-style": "off",
+                        "comma-dangle": "off",
 
-                            "comma-spacing": "off",
-                            "comma-style": "off",
-                            "computed-property-spacing": "off",
-                            // script can distinguish them.
-                            curly: 0,
-                            "dot-location": "off",
-                            "eol-last": "off",
-                            "func-call-spacing": "off",
-                            "function-call-argument-newline": "off",
-                            "function-paren-newline": "off",
-                            "generator-star-spacing": "off",
-                            "implicit-arrow-linebreak": "off",
-                            indent: "off",
-                            "jsx-quotes": "off",
-                            "key-spacing": "off",
-                            "keyword-spacing": "off",
-                            "linebreak-style": "off",
-                            "lines-around-comment": 0,
-                            "max-len": 0,
-                            "max-statements-per-line": "off",
-                            "multiline-ternary": "off",
-                            "new-parens": "off",
-                            "newline-per-chained-call": "off",
-                            "no-confusing-arrow": 0,
-                            "no-extra-parens": "off",
-                            "no-extra-semi": "off",
-                            "no-floating-decimal": "off",
-                            "no-mixed-operators": 0,
-                            "no-mixed-spaces-and-tabs": "off",
-                            "no-multi-spaces": "off",
-                            "no-multiple-empty-lines": "off",
-                            "no-tabs": 0,
-                            "no-trailing-spaces": "off",
-                            "no-unexpected-multiline": 0,
-                            "no-whitespace-before-property": "off",
-                            "nonblock-statement-body-position": "off",
-                            "object-curly-newline": "off",
-                            "object-curly-spacing": "off",
-                            "object-property-newline": "off",
-                            "one-var-declaration-per-line": "off",
-                            "operator-linebreak": "off",
-                            "padded-blocks": "off",
-                            quotes: 0,
-                            "rest-spread-spacing": "off",
-                            semi: "off",
-                            "semi-spacing": "off",
-                            "semi-style": "off",
-                            "space-before-blocks": "off",
-                            "space-before-function-paren": "off",
-                            "space-in-parens": "off",
-                            "space-unary-ops": "off",
-                            "switch-colon-spacing": "off",
-                            "template-curly-spacing": "off",
-                            "template-tag-spacing": "off",
-                            "wrap-iife": "off",
-                            "wrap-regex": "off",
-                            "yield-star-spacing": "off",
-                        }
-                        : {},
-                },
+                        "comma-spacing": "off",
+                        "comma-style": "off",
+                        "computed-property-spacing": "off",
+                        // script can distinguish them.
+                        curly: 0,
+                        "dot-location": "off",
+                        "eol-last": "off",
+                        "func-call-spacing": "off",
+                        "function-call-argument-newline": "off",
+                        "function-paren-newline": "off",
+                        "generator-star-spacing": "off",
+                        "implicit-arrow-linebreak": "off",
+                        indent: "off",
+                        "jsx-quotes": "off",
+                        "key-spacing": "off",
+                        "keyword-spacing": "off",
+                        "linebreak-style": "off",
+                        "lines-around-comment": 0,
+                        "max-len": 0,
+                        "max-statements-per-line": "off",
+                        "multiline-ternary": "off",
+                        "new-parens": "off",
+                        "newline-per-chained-call": "off",
+                        "no-confusing-arrow": 0,
+                        "no-extra-parens": "off",
+                        "no-extra-semi": "off",
+                        "no-floating-decimal": "off",
+                        "no-mixed-operators": 0,
+                        "no-mixed-spaces-and-tabs": "off",
+                        "no-multi-spaces": "off",
+                        "no-multiple-empty-lines": "off",
+                        "no-tabs": 0,
+                        "no-trailing-spaces": "off",
+                        "no-unexpected-multiline": 0,
+                        "no-whitespace-before-property": "off",
+                        "nonblock-statement-body-position": "off",
+                        "object-curly-newline": "off",
+                        "object-curly-spacing": "off",
+                        "object-property-newline": "off",
+                        "one-var-declaration-per-line": "off",
+                        "operator-linebreak": "off",
+                        "padded-blocks": "off",
+                        quotes: 0,
+                        "rest-spread-spacing": "off",
+                        semi: "off",
+                        "semi-spacing": "off",
+                        "semi-style": "off",
+                        "space-before-blocks": "off",
+                        "space-before-function-paren": "off",
+                        "space-in-parens": "off",
+                        "space-unary-ops": "off",
+                        "switch-colon-spacing": "off",
+                        "template-curly-spacing": "off",
+                        "template-tag-spacing": "off",
+                        "wrap-iife": "off",
+                        "wrap-regex": "off",
+                        "yield-star-spacing": "off",
+                    }
+                    : {},
             },
-            {
-                files: getFilesGlobs("ts"),
-                name: "anolilab/style/ts-rules",
-                rules: {
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
-                    "brace-style": "off",
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
-                    camelcase: "off",
-                    // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
-                    "comma-dangle": "off",
+        },
+        {
+            files: getFilesGlobs("ts"),
+            name: "anolilab/style/ts-rules",
+            rules: {
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
+                "brace-style": "off",
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
+                camelcase: "off",
+                // The TypeScript version also adds 3 new options, all of which should be set to the same value as the base config
+                "comma-dangle": "off",
 
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
-                    "comma-spacing": "off",
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
+                "comma-spacing": "off",
 
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
-                    "func-call-spacing": "off",
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
+                "func-call-spacing": "off",
 
-                    // Require that function overload signatures be consecutive.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
-                    indent: "off",
+                // Require that function overload signatures be consecutive.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
+                indent: "off",
 
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
-                    "keyword-spacing": "off",
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
+                "keyword-spacing": "off",
 
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
-                    "lines-between-class-members": "off",
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
+                "lines-between-class-members": "off",
 
-                    // Some built-in types have aliases, while some types are considered dangerous or harmful.
-                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
-                    "no-array-constructor": "off",
+                // Some built-in types have aliases, while some types are considered dangerous or harmful.
+                // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/ban-types.md
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
+                "no-array-constructor": "off",
 
-                    // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
-                    quotes: "off",
+                // Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
+                quotes: "off",
 
-                    // Require each enum member value to be explicitly initialized.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
-                    semi: "off",
+                // Require each enum member value to be explicitly initialized.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
+                semi: "off",
 
-                    // Enforce using function types instead of interfaces with call signatures.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
-                    "space-before-function-paren": "off",
-                },
+                // Enforce using function types instead of interfaces with call signatures.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
+                "space-before-function-paren": "off",
             },
-        ];
-    },
-);
+        },
+    ];
+});

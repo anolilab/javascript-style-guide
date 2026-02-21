@@ -1,15 +1,8 @@
-import type {
-    OptionsFiles,
-    OptionsHasPrettier,
-    OptionsOverrides,
-    OptionsStylistic,
-} from "../../types";
+import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<
-    OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic
->("html", async (config, oFiles) => {
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsStylistic>("html", async (config, oFiles) => {
     const { files = oFiles, overrides, prettier, stylistic = true } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
@@ -42,7 +35,6 @@ export default createConfig<
             },
 
             settings: {
-                // eslint-disable-next-line @typescript-eslint/no-base-to-string
                 "html/indent": `+${indent.toString()}`,
                 "html/report-bad-indent": "error",
                 ...prettier ? { "html/report-bad-indent": "off" } : {},

@@ -1,32 +1,13 @@
 import { mergeProcessors, processorPassThrough } from "eslint-merge-processors";
 
-import type {
-    OptionsComponentExtensions,
-    OptionsFiles,
-    OptionsMarkdown,
-    OptionsOverrides,
-} from "../../types";
+import type { OptionsComponentExtensions, OptionsFiles, OptionsMarkdown, OptionsOverrides } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-export default createConfig<
-    OptionsComponentExtensions
-    & OptionsFiles
-    & OptionsMarkdown
-    & OptionsOverrides
->("markdown", async (config, oFiles) => {
-    const {
-        componentExts: componentExtensions = [],
-        files = oFiles,
-        gfm = true,
-        overrides,
-        overridesMarkdown,
-    } = config;
+export default createConfig<OptionsComponentExtensions & OptionsFiles & OptionsMarkdown & OptionsOverrides>("markdown", async (config, oFiles) => {
+    const { componentExts: componentExtensions = [], files = oFiles, gfm = true, overrides, overridesMarkdown } = config;
 
-    const [tseslint, markdown] = await Promise.all([
-        interopDefault(import("typescript-eslint")),
-        interopDefault(import("@eslint/markdown")),
-    ] as const);
+    const [tseslint, markdown] = await Promise.all([interopDefault(import("typescript-eslint")), interopDefault(import("@eslint/markdown"))] as const);
 
     const disableTypeChecked = tseslint.configs.disableTypeChecked.rules;
 
@@ -44,10 +25,7 @@ export default createConfig<
             // `eslint-plugin-markdown` only creates virtual files for code blocks,
             // but not the markdown file itself. We use `eslint-merge-processors` to
             // add a pass-through processor for the markdown file itself.
-            processor: mergeProcessors([
-                markdown.processors.markdown,
-                processorPassThrough,
-            ]),
+            processor: mergeProcessors([markdown.processors.markdown, processorPassThrough]),
         },
         {
             files,
@@ -83,13 +61,7 @@ export default createConfig<
             },
         },
         {
-            files: [
-                "**/*.md/**/*.?([cm])[jt]s?(x)",
-                "**/*.md/**/*.json",
-                ...componentExtensions.map(
-                    (extension) => `**/*.md/**/*.${extension}`,
-                ),
-            ],
+            files: ["**/*.md/**/*.?([cm])[jt]s?(x)", "**/*.md/**/*.json", ...componentExtensions.map((extension) => `**/*.md/**/*.${extension}`)],
             languageOptions: {
                 parserOptions: {
                     ecmaFeatures: {

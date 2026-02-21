@@ -1,10 +1,6 @@
 import { join } from "node:path";
 
-import {
-    ensurePackages,
-    hasPackageJsonAnyDependency,
-    parsePackageJson,
-} from "@visulima/package";
+import { ensurePackages, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import type { Linter } from "eslint";
 import { FlatConfigComposer } from "eslint-flat-config-utils";
 import { parse } from "semver";
@@ -59,28 +55,12 @@ import zod from "./config/plugins/zod";
 import style from "./config/style";
 import variables from "./config/variables";
 import type { RuleOptions } from "./typegen";
-import type {
-    Awaitable,
-    ConfigNames,
-    OptionsConfig,
-    OptionsFiles,
-    OptionsOverrides,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "./types";
+import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "./types";
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
 import isInEditorEnvironment from "./utils/is-in-editor-environment";
 
-const flatConfigProperties = [
-    "name",
-    "languageOptions",
-    "linterOptions",
-    "processor",
-    "plugins",
-    "rules",
-    "settings",
-] satisfies (keyof TypedFlatConfigItem)[];
+const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
 export type {
     Awaitable,
@@ -119,13 +99,8 @@ export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
  * @returns The resolved sub-options.
  * @template K
  */
-export const resolveSubOptions = <K extends keyof OptionsConfig>(
-    options: OptionsConfig,
-    key: K,
-): ResolvedOptions<OptionsConfig[K]> =>
-    (typeof options[key] === "boolean"
-        ? {}
-        : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
+export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> =>
+    (typeof options[key] === "boolean" ? {} : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
 
 /**
  * Retrieves override rules for a specific configuration key.
@@ -134,10 +109,7 @@ export const resolveSubOptions = <K extends keyof OptionsConfig>(
  * @param key The key of the configuration to get overrides for.
  * @returns The merged override rules.
  */
-export const getOverrides = (
-    options: OptionsConfig,
-    key: keyof OptionsConfig,
-): Partial<Linter.RulesRecord & RuleOptions> => {
+export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): Partial<Linter.RulesRecord & RuleOptions> => {
     const sub = resolveSubOptions(options, key);
 
     return {
@@ -151,10 +123,7 @@ export const getOverrides = (
  * @param key The key of the configuration to get file globs for.
  * @returns An array of file globs, or undefined if not specified.
  */
-export const getFiles = (
-    options: OptionsConfig,
-    key: keyof OptionsConfig,
-): string[] | undefined => {
+export const getFiles = (options: OptionsConfig, key: keyof OptionsConfig): string[] | undefined => {
     const sub = resolveSubOptions(options, key);
 
     if ("files" in sub) {
@@ -171,9 +140,7 @@ export const getFiles = (
 /**
  * Type alias for a Promise that resolves to a FlatConfigComposer instance.
  */
-export type PromiseFlatConfigComposer = Promise<
-    FlatConfigComposer<TypedFlatConfigItem, ConfigNames>
->;
+export type PromiseFlatConfigComposer = Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>>;
 
 /**
  * Construct an array of ESLint flat config items.
@@ -189,10 +156,7 @@ export const createConfig = async (
 
     ...userConfigs: Awaitable<
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        | FlatConfigComposer<any, any>
-        | Linter.Config[]
-        | TypedFlatConfigItem
-        | TypedFlatConfigItem[]
+        FlatConfigComposer<any, any> | Linter.Config[] | TypedFlatConfigItem | TypedFlatConfigItem[]
     >[]
     // eslint-disable-next-line sonarjs/cognitive-complexity
 ): PromiseFlatConfigComposer => {
@@ -209,30 +173,17 @@ export const createConfig = async (
 
     const hasPnpm = packageJson.packageManager?.startsWith("pnpm");
 
-    const enablePrettier = hasPackageJsonAnyDependency(packageJson, [
-        "prettier",
-    ]);
-    const isCwdInScope = hasPackageJsonAnyDependency(packageJson, [
-        "@anolilab/eslint-config",
-    ]);
+    const enablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
+    const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
-    const hasReact = hasPackageJsonAnyDependency(packageJson, [
-        "react",
-        "react-dom",
-    ]);
-    const detectedReactVersion
-        = packageJson["dependencies"]?.["react"]
-            ?? packageJson["devDependencies"]?.["react"];
-    const detectedHasReactCompiler = hasPackageJsonAnyDependency(packageJson, [
-        "react-compiler-runtime",
-    ]);
+    const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
+    const detectedReactVersion = packageJson["dependencies"]?.["react"] ?? packageJson["devDependencies"]?.["react"];
+    const detectedHasReactCompiler = hasPackageJsonAnyDependency(packageJson, ["react-compiler-runtime"]);
 
     let hasTailwindCssV3 = false;
     let hasTailwindCssV4 = false;
 
-    const tailwindCssVersion
-        = packageJson["dependencies"]?.["tailwindcss"]
-            ?? packageJson["devDependencies"]?.["tailwindcss"];
+    const tailwindCssVersion = packageJson["dependencies"]?.["tailwindcss"] ?? packageJson["devDependencies"]?.["tailwindcss"];
 
     if (tailwindCssVersion) {
         const parsedVersion = parse(tailwindCssVersion);
@@ -247,22 +198,14 @@ export const createConfig = async (
     }
 
     const {
-        astro: enableAstro = hasPackageJsonAnyDependency(packageJson, [
-            "astro",
-        ]),
+        astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
-        css: enableCss = hasPackageJsonAnyDependency(packageJson, [
-            "postcss",
-            "cssnano",
-        ]),
+        css: enableCss = hasPackageJsonAnyDependency(packageJson, ["postcss", "cssnano"]),
         // eslint-disable-next-line unicorn/prevent-abbreviations
         e18e: enableE18e = true,
         gitignore: enableGitignore = true,
         html: enableHtml = false,
-        jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, [
-            "eslint-plugin-jsx-a11y",
-            "eslint-plugin-validate-jsx-nesting",
-        ]) || hasReact,
+        jsx: enableJsx = hasPackageJsonAnyDependency(packageJson, ["eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting"]) || hasReact,
         lodash: enableLodash = hasPackageJsonAnyDependency(packageJson, [
             "lodash",
             "underscore",
@@ -568,10 +511,7 @@ export const createConfig = async (
             "lodash.topath",
             "lodash.uniqueid",
         ]),
-        playwright: enablePlaywright = hasPackageJsonAnyDependency(
-            packageJson,
-            ["playwright", "eslint-plugin-playwright"],
-        ),
+        playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
         pnpm: enablePnpm = hasPnpm,
         react: enableReact = hasReact
             || hasPackageJsonAnyDependency(packageJson, [
@@ -585,33 +525,16 @@ export const createConfig = async (
 
         regexp: enableRegexp = true,
         silent = false,
-        storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, [
-            "storybook",
-            "eslint-plugin-storybook",
-        ]),
+        storybook: enableStorybook = hasPackageJsonAnyDependency(packageJson, ["storybook", "eslint-plugin-storybook"]),
         tailwindcss: enableTailwindCss = hasTailwindCssV3 || hasTailwindCssV4,
-        tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(
-            packageJson,
-            ["@tanstack/react-query"],
-        ),
-        tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(
-            packageJson,
-            ["@tanstack/react-router"],
-        ),
-        testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(
-            packageJson,
-            ["@testing-library/dom", "@testing-library/react"],
-        ),
+        tanstackQuery: enableTanstackQuery = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-query"]),
+        tanstackRouter: enableTanstackRouter = hasPackageJsonAnyDependency(packageJson, ["@tanstack/react-router"]),
+        testingLibrary: enableTestingLibrary = hasPackageJsonAnyDependency(packageJson, ["@testing-library/dom", "@testing-library/react"]),
         tsdoc: enableTsdoc = false,
-        typescript: enableTypeScript = hasPackageJsonAnyDependency(
-            packageJson,
-            ["typescript"],
-        ),
+        typescript: enableTypeScript = hasPackageJsonAnyDependency(packageJson, ["typescript"]),
         unicorn: enableUnicorn = true,
         unocss: enableUnoCSS = false,
-        vitest: enableVitest = hasPackageJsonAnyDependency(packageJson, [
-            "vitest",
-        ]),
+        vitest: enableVitest = hasPackageJsonAnyDependency(packageJson, ["vitest"]),
         zod: enableZod = hasPackageJsonAnyDependency(packageJson, ["zod"]),
     } = options;
 
@@ -624,20 +547,15 @@ export const createConfig = async (
 
     // Extract React options
     const reactOptions = resolveSubOptions(options, "react");
-    const reactVersionFromOptions
-        = "version" in reactOptions ? reactOptions.version : undefined;
-    const reactCompilerFromOptions
-        = "compiler" in reactOptions ? reactOptions.compiler : undefined;
+    const reactVersionFromOptions = "version" in reactOptions ? reactOptions.version : undefined;
+    const reactCompilerFromOptions = "compiler" in reactOptions ? reactOptions.compiler : undefined;
 
     // Determine final React version (use option if provided, otherwise detected)
     const finalReactVersion = reactVersionFromOptions ?? detectedReactVersion;
 
     // Determine final React compiler setting
     // Priority: react.compiler > reactCompiler option > auto-detected
-    const finalReactCompiler: boolean
-        = enableReactCompilerOption
-            ?? reactCompilerFromOptions
-            ?? detectedHasReactCompiler;
+    const finalReactCompiler: boolean = enableReactCompilerOption ?? reactCompilerFromOptions ?? detectedHasReactCompiler;
 
     if (isCwdInScope) {
         let packages = [];
@@ -661,18 +579,12 @@ export const createConfig = async (
         if (enableCss || enableTailwindCss) {
             packages.push("@eslint/css");
 
-            if (
-                (enableTailwindCss && hasTailwindCssV4)
-                || enableTailwindCss === "v4"
-            ) {
+            if ((enableTailwindCss && hasTailwindCssV4) || enableTailwindCss === "v4") {
                 packages.push("tailwind-csstree");
             }
         }
 
-        if (
-            (enableTailwindCss && hasTailwindCssV3)
-            || enableTailwindCss === "v3"
-        ) {
+        if ((enableTailwindCss && hasTailwindCssV3) || enableTailwindCss === "v3") {
             packages.push("eslint-plugin-tailwindcss");
         }
 
@@ -700,10 +612,7 @@ export const createConfig = async (
         }
 
         if (enableJsx) {
-            packages.push(
-                "eslint-plugin-jsx-a11y",
-                "eslint-plugin-validate-jsx-nesting",
-            );
+            packages.push("eslint-plugin-jsx-a11y", "eslint-plugin-validate-jsx-nesting");
         }
 
         if (enableLodash) {
@@ -725,10 +634,7 @@ export const createConfig = async (
         if (enableAstro) {
             packages.push("eslint-plugin-astro", "astro-eslint-parser");
 
-            if (
-                typeof options.formatters === "object"
-                && options.formatters.astro
-            ) {
+            if (typeof options.formatters === "object" && options.formatters.astro) {
                 packages.push("prettier-plugin-astro");
             }
         }
@@ -762,15 +668,11 @@ export const createConfig = async (
 
         if (isInEditor) {
             // eslint-disable-next-line no-console
-            console.log(
-                "[@anolilab/eslint-config] Detected running in editor, some rules are disabled.",
-            );
+            console.log("[@anolilab/eslint-config] Detected running in editor, some rules are disabled.");
         }
     }
 
-    let stylisticOptions:
-        | boolean
-        | (OptionsFiles & OptionsOverrides & StylisticConfig) = {};
+    let stylisticOptions: boolean | (OptionsFiles & OptionsOverrides & StylisticConfig) = {};
 
     if (options.stylistic === false) {
         stylisticOptions = false;
@@ -787,34 +689,27 @@ export const createConfig = async (
     if (enableGitignore) {
         if (typeof enableGitignore === "boolean") {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(
-                    (r) => [
-                        r({
-                            name: "anolilab/gitignore",
-                            strict: false,
-                        }),
-                    ],
-                ),
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                    r({
+                        name: "anolilab/gitignore",
+                        strict: false,
+                    }),
+                ]),
             );
         } else {
             configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then(
-                    (r) => [
-                        r({
-                            name: "anolilab/gitignore",
-                            ...enableGitignore,
-                        }),
-                    ],
-                ),
+                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+                    r({
+                        name: "anolilab/gitignore",
+                        ...enableGitignore,
+                    }),
+                ]),
             );
         }
     }
 
     const typescriptOptions = resolveSubOptions(options, "typescript");
-    const tsconfigPath
-        = "tsconfigPath" in typescriptOptions
-            ? typescriptOptions.tsconfigPath
-            : undefined;
+    const tsconfigPath = "tsconfigPath" in typescriptOptions ? typescriptOptions.tsconfigPath : undefined;
 
     // Base configs
     configs.push(
@@ -978,9 +873,7 @@ export const createConfig = async (
     }
 
     if (enableRegexp) {
-        configs.push(
-            regexp(typeof enableRegexp === "boolean" ? {} : enableRegexp),
-        );
+        configs.push(regexp(typeof enableRegexp === "boolean" ? {} : enableRegexp));
     }
 
     if (enableVitest) {
@@ -1177,30 +1070,21 @@ export const createConfig = async (
     }
 
     if (options.formatters) {
-        const isPrettierPluginXmlInScope = hasPackageJsonAnyDependency(
-            packageJson,
-            ["@prettier/plugin-xml"],
-        );
+        const isPrettierPluginXmlInScope = hasPackageJsonAnyDependency(packageJson, ["@prettier/plugin-xml"]);
 
         configs.push(
             formatters(
                 {
-                    astro: hasPackageJsonAnyDependency(packageJson, [
-                        "prettier-plugin-astro",
-                    ]),
+                    astro: hasPackageJsonAnyDependency(packageJson, ["prettier-plugin-astro"]),
                     css: true,
                     graphql: true,
                     html: true,
                     markdown: true,
-                    slidev: hasPackageJsonAnyDependency(packageJson, [
-                        "@slidev/cli",
-                    ]),
+                    slidev: hasPackageJsonAnyDependency(packageJson, ["@slidev/cli"]),
                     svg: isPrettierPluginXmlInScope,
                     xml: isPrettierPluginXmlInScope,
 
-                    ...typeof options.formatters === "object"
-                        ? options.formatters
-                        : {},
+                    ...typeof options.formatters === "object" ? options.formatters : {},
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),
@@ -1210,17 +1094,14 @@ export const createConfig = async (
     // User can optionally pass a flat config item to the first argument
     // We pick the known keys as ESLint would do schema validation
     // eslint-disable-next-line unicorn/no-array-reduce
-    const fusedConfig = flatConfigProperties.reduce<TypedFlatConfigItem>(
-        (accumulator, key) => {
-            if (key in options) {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                accumulator[key] = options[key] as any;
-            }
+    const fusedConfig = flatConfigProperties.reduce<TypedFlatConfigItem>((accumulator, key) => {
+        if (key in options) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            accumulator[key] = options[key] as any;
+        }
 
-            return accumulator;
-        },
-        {},
-    );
+        return accumulator;
+    }, {});
 
     if (Object.keys(fusedConfig).length > 0) {
         configs.push([fusedConfig]);

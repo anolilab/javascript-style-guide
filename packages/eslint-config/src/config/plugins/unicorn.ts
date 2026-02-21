@@ -1,32 +1,13 @@
 import globals from "globals";
 
-import type {
-    OptionsFiles,
-    OptionsHasPrettier,
-    OptionsOverrides,
-    OptionsPackageJson,
-    OptionsStylistic,
-} from "../../types";
+import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsStylistic } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
-const FILENAME_IGNORE_PATTERN
-    = /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u;
+const FILENAME_IGNORE_PATTERN = /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u;
 
-export default createConfig<
-    OptionsFiles
-    & OptionsHasPrettier
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsStylistic
->("all", async (config, oFiles) => {
-    const {
-        files = oFiles,
-        overrides,
-        packageJson,
-        prettier,
-        stylistic = true,
-    } = config;
+export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides & OptionsPackageJson & OptionsStylistic>("all", async (config, oFiles) => {
+    const { files = oFiles, overrides, packageJson, prettier, stylistic = true } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
@@ -101,8 +82,7 @@ export default createConfig<
                 // It will be disabled in the next version of eslint-plugin-unicorn.
                 "unicorn/prefer-json-parse-buffer": "off",
 
-                "unicorn/prefer-module":
-                    packageJson.type === "module" ? "error" : "off",
+                "unicorn/prefer-module": packageJson.type === "module" ? "error" : "off",
 
                 "unicorn/prefer-node-protocol": "error",
 

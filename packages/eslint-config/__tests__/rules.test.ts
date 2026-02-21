@@ -1,14 +1,6 @@
 import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
-import {
-    copyFile,
-    lstat,
-    mkdir,
-    readdir,
-    readFile,
-    rm,
-    writeFile,
-} from "node:fs/promises";
+import { copyFile, lstat, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,29 +24,16 @@ const copyFolderRecursive = async (from: string, to: string): Promise<void> => {
         recursive: true,
     });
 
-    const copyFileOrFolder = async (
-        sourcePath: string,
-        targetPath: string,
-    ): Promise<void> => {
+    const copyFileOrFolder = async (sourcePath: string, targetPath: string): Promise<void> => {
         const stat = await lstat(sourcePath);
 
-        return stat.isFile()
-            ? copyFile(sourcePath, targetPath)
-            : copyFolderRecursive(sourcePath, targetPath);
+        return stat.isFile() ? copyFile(sourcePath, targetPath) : copyFolderRecursive(sourcePath, targetPath);
     };
 
-    await Promise.all(
-        files.map((element) =>
-            copyFileOrFolder(join(from, element), join(to, element)),
-        ),
-    );
+    await Promise.all(files.map((element) => copyFileOrFolder(join(from, element), join(to, element))));
 };
 
-const execCommand = (
-    command: string,
-    arguments_: string[],
-    cwd: string,
-): Promise<void> =>
+const execCommand = (command: string, arguments_: string[], cwd: string): Promise<void> =>
     new Promise((resolve, reject) => {
         const child = spawn(command, arguments_, {
             cwd,
@@ -71,22 +50,14 @@ const execCommand = (
             if (code === 0 || code === 1) {
                 resolve();
             } else {
-                reject(
-                    new Error(
-                        `Command failed with code ${String(code)}:\n${stderr}`,
-                    ),
-                );
+                reject(new Error(`Command failed with code ${String(code)}:\n${stderr}`));
             }
         });
 
         child.on("error", reject);
     });
 
-const runWithConfig = async (
-    name: string,
-    configs: CreateConfigOptions,
-    items: TypedFlatConfigItem[] = [],
-): Promise<void> => {
+const runWithConfig = async (name: string, configs: CreateConfigOptions, items: TypedFlatConfigItem[] = []): Promise<void> => {
     const from = join(fixturesPath, "input");
     const output = join(fixturesPath, "output", name);
     const target = join(temporaryDirectoryPath, name);
@@ -196,10 +167,7 @@ describe("eslint-config rules", () => {
             [
                 {
                     rules: {
-                        "@typescript-eslint/consistent-type-definitions": [
-                            "error",
-                            "type",
-                        ],
+                        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
                     },
                 },
             ],

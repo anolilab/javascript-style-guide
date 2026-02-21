@@ -1,21 +1,11 @@
-import type {
-    OptionsFormatters,
-    StylisticConfig,
-    TypedFlatConfigItem,
-} from "../../types";
+import type { OptionsFormatters, StylisticConfig, TypedFlatConfigItem } from "../../types";
 import { getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import parserPlain from "../../utils/parser-plain";
-import type {
-    VendoredPrettierOptions,
-    VendoredPrettierRuleOptions,
-} from "../../vender/prettier-types";
+import type { VendoredPrettierOptions, VendoredPrettierRuleOptions } from "../../vender/prettier-types";
 import { StylisticConfigDefaults } from "./stylistic";
 
-const mergePrettierOptions = (
-    options: VendoredPrettierOptions,
-    overrides: VendoredPrettierRuleOptions = {},
-): VendoredPrettierRuleOptions => {
+const mergePrettierOptions = (options: VendoredPrettierOptions, overrides: VendoredPrettierRuleOptions = {}): VendoredPrettierRuleOptions => {
     return {
         ...options,
         ...overrides,
@@ -28,14 +18,8 @@ const formatters = async (
     stylistic: StylisticConfig,
     // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Promise<TypedFlatConfigItem[]> => {
-    if (
-        options.slidev
-        && options.markdown !== true
-        && options.markdown !== "prettier"
-    ) {
-        throw new Error(
-            "`slidev` option only works when `markdown` is enabled with `prettier`",
-        );
+    if (options.slidev && options.markdown !== true && options.markdown !== "prettier") {
+        throw new Error("`slidev` option only works when `markdown` is enabled with `prettier`");
     }
 
     const { indent, quotes, semi } = {
@@ -194,8 +178,7 @@ const formatters = async (
     }
 
     if (options.markdown) {
-        const formater
-            = options.markdown === true ? "prettier" : options.markdown;
+        const formater = options.markdown === true ? "prettier" : options.markdown;
 
         let GLOB_SLIDEV: string[] = [];
 
@@ -268,10 +251,7 @@ const formatters = async (
                 },
             },
             {
-                files: [
-                    ...getFilesGlobs("astro"),
-                    ...getFilesGlobs("astro_ts"),
-                ],
+                files: [...getFilesGlobs("astro"), ...getFilesGlobs("astro_ts")],
                 name: "anolilab/formatter/astro/disables",
                 rules: {
                     "@stylistic/arrow-parens": "off",

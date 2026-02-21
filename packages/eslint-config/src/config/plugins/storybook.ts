@@ -5,9 +5,7 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsOverrides>("storybook", async (config) => {
     const { overrides } = config;
 
-    const storybookPlugin = await interopDefault(
-        import("eslint-plugin-storybook"),
-    );
+    const storybookPlugin = await interopDefault(import("eslint-plugin-storybook"));
 
     const options = [...storybookPlugin.configs["flat/recommended"]];
 

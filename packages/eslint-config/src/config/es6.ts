@@ -3,9 +3,7 @@ import type { Linter } from "eslint";
 import type { OptionsFiles, OptionsIsInEditor } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
-export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
-    isInEditor: boolean,
-) => {
+export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (isInEditor: boolean) => {
     return {
         // enforces no braces where they can be omitted
         // https://eslint.org/docs/rules/arrow-body-style
@@ -126,13 +124,11 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
                         name: "sys",
                     },
                     {
-                        message:
-                            "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
+                        message: "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
                         name: "querystring",
                     },
                     {
-                        message:
-                            "Please use one of the following instead: chalk, kleur, ansi-colors, @colors/colors",
+                        message: "Please use one of the following instead: chalk, kleur, ansi-colors, @colors/colors",
                         name: "colors",
                     },
                     {
@@ -140,23 +136,19 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
                         name: "mkdirp",
                     },
                     {
-                        message:
-                            "Please use \"@faker-js/faker\" as a replacement",
+                        message: "Please use \"@faker-js/faker\" as a replacement",
                         name: "faker",
                     },
                     {
-                        message:
-                            "Please use Object.assign or spread { ...obj }",
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "xtend",
                     },
                     {
-                        message:
-                            "Please use Object.assign or spread { ...obj }",
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "object-assign",
                     },
                     {
-                        message:
-                            "Please use Object.assign or spread { ...obj }",
+                        message: "Please use Object.assign or spread { ...obj }",
                         name: "extend-shallow",
                     },
                     {
@@ -353,53 +345,50 @@ export const es6Rules: (isInEditor: boolean) => Partial<Linter.RulesRecord> = (
     };
 };
 
-export default createConfig<OptionsFiles & OptionsIsInEditor>(
-    "all",
-    async (config, oFiles) => {
-        const { files = oFiles, isInEditor = false } = config;
+export default createConfig<OptionsFiles & OptionsIsInEditor>("all", async (config, oFiles) => {
+    const { files = oFiles, isInEditor = false } = config;
 
-        return [
-            {
-                files,
-                languageOptions: {
-                    parserOptions: {
-                        ecmaFeatures: {
-                            generators: false,
-                            objectLiteralDuplicateProperties: false,
-                        },
-                        ecmaVersion: 6,
-                        sourceType: "module",
+    return [
+        {
+            files,
+            languageOptions: {
+                parserOptions: {
+                    ecmaFeatures: {
+                        generators: false,
+                        objectLiteralDuplicateProperties: false,
                     },
-                },
-                name: "anolilab/es6/rules",
-                rules: es6Rules(isInEditor),
-            },
-            // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
-            // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
-            {
-                files: getFilesGlobs("ts"),
-                name: "anolilab/es6/ts-rules",
-                rules: {
-                    "constructor-super": "off",
-
-                    // Enforce constituents of a type union/intersection to be sorted alphabetically.
-                    "no-const-assign": "off",
-
-                    // Enforce specifying generic type arguments on constructor name of a constructor call.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
-                    "no-dupe-class-members": "off",
-
-                    // Disallow TypeScript namespaces.
-                    "no-new-symbol": "off",
-
-                    // Disallow aliasing this.
-                    "no-this-before-super": "off",
-
-                    // Disallow returning a value with type any from a function.
-                    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
-                    "no-useless-constructor": "off",
+                    ecmaVersion: 6,
+                    sourceType: "module",
                 },
             },
-        ];
-    },
-);
+            name: "anolilab/es6/rules",
+            rules: es6Rules(isInEditor),
+        },
+        // The following rules are enabled in config, but are already checked (more thoroughly) by the TypeScript compiler
+        // Some rules also fail in TypeScript files, for example: https://github.com/typescript-eslint/typescript-eslint/issues/662#issuecomment-507081586
+        {
+            files: getFilesGlobs("ts"),
+            name: "anolilab/es6/ts-rules",
+            rules: {
+                "constructor-super": "off",
+
+                // Enforce constituents of a type union/intersection to be sorted alphabetically.
+                "no-const-assign": "off",
+
+                // Enforce specifying generic type arguments on constructor name of a constructor call.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
+                "no-dupe-class-members": "off",
+
+                // Disallow TypeScript namespaces.
+                "no-new-symbol": "off",
+
+                // Disallow aliasing this.
+                "no-this-before-super": "off",
+
+                // Disallow returning a value with type any from a function.
+                // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.md
+                "no-useless-constructor": "off",
+            },
+        },
+    ];
+});

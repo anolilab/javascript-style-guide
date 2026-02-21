@@ -1,3 +1,16 @@
+## @anolilab/stylelint-config [10.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@10.0.0...@anolilab/stylelint-config@10.1.0) (2026-02-21)
+
+### Miscellaneous Chores
+
+* **stylelint-config:** add ESLint integration and migrate prettier config to ESM ([30eb3d0](https://github.com/anolilab/javascript-style-guide/commit/30eb3d036249e99dc0ffd9c6f00f3fecf670a2a9))
+* **stylelint-config:** simplify .prettierignore ([cd0a9e7](https://github.com/anolilab/javascript-style-guide/commit/cd0a9e7c9fc0f328e5fba471c31285613b8a029d))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 22.0.0
+* **@anolilab/prettier-config:** upgraded to 9.1.1
+
 ## @anolilab/stylelint-config [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@9.0.0...@anolilab/stylelint-config@10.0.0) (2026-01-29)
 
 ## @anolilab/stylelint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@8.0.1...@anolilab/stylelint-config@9.0.0) (2026-01-11)

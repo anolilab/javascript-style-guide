@@ -1,3 +1,32 @@
+## @anolilab/lint-staged-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@5.1.0...@anolilab/lint-staged-config@6.0.0) (2026-02-21)
+
+### ⚠ BREAKING CHANGES
+
+* **lint-staged-config:** Package is now ESM-only. The require export condition
+and dist/index.cjs have been removed. CommonJS consumers must migrate
+to ESM or use dynamic import().
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+
+### Features
+
+* **lint-staged-config:** migrate to ESM-only, drop CJS support ([38bbac9](https://github.com/anolilab/javascript-style-guide/commit/38bbac90d8e15d63527af239cb0666f077b9d99e))
+
+### Bug Fixes
+
+* resolve pre-commit hook failures and lint errors across packages ([a4707c3](https://github.com/anolilab/javascript-style-guide/commit/a4707c38941c7adb55a7a606f9689caa9c8f7962))
+
+### Miscellaneous Chores
+
+* **lint-staged-config:** add prettier-config to NX implicit dependencies ([02c267e](https://github.com/anolilab/javascript-style-guide/commit/02c267eb5b2b3adff6f9c31d994d4f7bef47c6f9))
+* **lint-staged-config:** simplify .prettierignore ([68bc97a](https://github.com/anolilab/javascript-style-guide/commit/68bc97acd76642eab0604626eecb529f0c1c87e1))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 22.0.0
+* **@anolilab/prettier-config:** upgraded to 9.1.1
+
 ## @anolilab/lint-staged-config [5.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@5.0.0...@anolilab/lint-staged-config@5.1.0) (2026-01-29)
 
 ### Code Refactoring

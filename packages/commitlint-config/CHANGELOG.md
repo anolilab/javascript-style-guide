@@ -1,3 +1,15 @@
+## @anolilab/commitlint-config [9.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@9.0.0...@anolilab/commitlint-config@9.1.0) (2026-02-21)
+
+### Miscellaneous Chores
+
+* **commitlint-config:** add ESLint config and replace .prettierrc.cjs with ESM ([bba4cbd](https://github.com/anolilab/javascript-style-guide/commit/bba4cbd53a18153816b8d63b823b8ea909442429))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 22.0.0
+* **@anolilab/prettier-config:** upgraded to 9.1.1
+
 ## @anolilab/commitlint-config [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@8.1.0...@anolilab/commitlint-config@9.0.0) (2026-01-11)
 
 ### Bug Fixes

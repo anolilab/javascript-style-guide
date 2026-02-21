@@ -1,3 +1,15 @@
+## @anolilab/textlint-config [12.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.0...@anolilab/textlint-config@12.1.1) (2026-02-21)
+
+### Miscellaneous Chores
+
+* **textlint-config:** migrate prettier config to ESM ([9b59056](https://github.com/anolilab/javascript-style-guide/commit/9b590565413ee3145e46bbc92e9f19a632e478fa))
+* **textlint-config:** simplify .prettierignore ([1e8c66f](https://github.com/anolilab/javascript-style-guide/commit/1e8c66f89cf02a197bb20249b581968b31c01aa9))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 9.1.1
+
 ## @anolilab/textlint-config [12.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.0.0...@anolilab/textlint-config@12.1.0) (2026-01-29)
 
 ## @anolilab/textlint-config [12.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@11.1.0...@anolilab/textlint-config@12.0.0) (2026-01-11)

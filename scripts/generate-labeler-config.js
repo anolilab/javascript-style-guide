@@ -106,18 +106,25 @@ async function generateLabelerYaml(pairs) {
         })
         .join("\n");
 
-    // Get the location of the Prettier config file
-    const prettierConfigPath = await prettier.resolveConfigFile();
-
-    if (!prettierConfigPath) {
-        throw new Error("No Prettier config file found. Please ensure you have a Prettier config file in your project.");
-    }
-
-    console.info("using prettier config file at:", prettierConfigPath);
-
-    // Resolve the Prettier config
-    const prettierConfig = await prettier.resolveConfig(prettierConfigPath);
-    console.info("using resolved prettier config:", prettierConfig);
+    // Inline the prettier config to avoid depending on the built @anolilab/prettier-config package
+    // (which may not be built yet when postinstall runs in CI)
+    const prettierConfig = {
+        arrowParens: "always",
+        bracketSpacing: true,
+        embeddedLanguageFormatting: "auto",
+        endOfLine: "lf",
+        htmlWhitespaceSensitivity: "css",
+        insertPragma: false,
+        jsxSingleQuote: false,
+        printWidth: 160,
+        proseWrap: "preserve",
+        quoteProps: "as-needed",
+        semi: true,
+        singleQuote: false,
+        tabWidth: 4,
+        trailingComma: "all",
+        useTabs: false,
+    };
 
     // Format the YAML string using Prettier
     const formattedStr = await prettier.format(formattedPairs, {

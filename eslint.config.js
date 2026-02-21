@@ -25,7 +25,7 @@ export default createConfig(
         },
     },
     {
-        files: ["packages/eslint-config/eslint.config.js"],
+        files: ["packages/eslint-config/eslint.config.js", "**/.prettierrc.*"],
         rules: {
             "antfu/no-import-dist": "off",
         },

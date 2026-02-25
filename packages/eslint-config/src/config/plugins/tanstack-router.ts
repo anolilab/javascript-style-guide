@@ -19,7 +19,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             },
         },
         {
-            files: "**/routes/**/*.{ts,tsx}",
+            files: ["**/routes/**/*.{ts,tsx}"],
             rules: {
                 // Tanstack Router uses a custom sort order for objects
                 "perfectionist/sort-objects": "off",

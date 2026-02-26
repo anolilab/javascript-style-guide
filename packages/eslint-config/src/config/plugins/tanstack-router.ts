@@ -23,6 +23,11 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             rules: {
                 // Tanstack Router uses a custom sort order for objects
                 "perfectionist/sort-objects": "off",
+
+                // TanStack Router route files export a `Route` object (createFileRoute result),
+                // loaders, and other non-component values — not just React components.
+                // Disabling avoids false positives from react-refresh HMR rule.
+                "react-refresh/only-export-components": "off",
             },
         },
     ];

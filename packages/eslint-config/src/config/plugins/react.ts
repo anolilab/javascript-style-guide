@@ -25,6 +25,9 @@ const ReactRefreshAllowConstantExportPackages = ["vite"];
 const RemixPackages = ["@remix-run/node", "@remix-run/react", "@remix-run/serve", "@remix-run/dev"];
 const NextJsPackages = ["next"];
 const ReactRouterPackages = ["@react-router/node", "@react-router/react", "@react-router/serve", "@react-router/dev"];
+// TanStack Router/Start route files export Route objects and server functions — not just components.
+// react-refresh HMR rule does not apply to these patterns.
+const TanstackRouterPackages = ["@tanstack/react-router", "@tanstack/router", "@tanstack/start", "@tanstack/react-start"];
 
 type PluginReactCompiler = {
     configs: {
@@ -124,6 +127,7 @@ export default createConfig<
     const isUsingRemix = hasPackageJsonAnyDependency(packageJson, RemixPackages);
     const isUsingNext = hasPackageJsonAnyDependency(packageJson, NextJsPackages);
     const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
+    const isUsingTanstack = hasPackageJsonAnyDependency(packageJson, TanstackRouterPackages);
 
     const { plugins } = pluginReactX.configs.all as {
         plugins: Record<string, unknown>;
@@ -297,34 +301,38 @@ export default createConfig<
                 "react-naming-convention/use-state": "error",
 
                 // react refresh
-                "react-refresh/only-export-components": [
-                    "error",
-                    {
-                        allowConstantExport: isAllowConstantExport,
-                        allowExportNames: [
-                            ...isUsingNext
-                                ? [
-                                    "dynamic",
-                                    "dynamicParams",
-                                    "revalidate",
-                                    "fetchCache",
-                                    "runtime",
-                                    "preferredRegion",
-                                    "maxDuration",
-                                    "config",
-                                    "generateStaticParams",
-                                    "metadata",
-                                    "generateMetadata",
-                                    "viewport",
-                                    "generateViewport",
-                                ]
-                                : [],
-                            ...isUsingRemix || isUsingReactRouter
-                                ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
-                                : [],
-                        ],
-                    },
-                ],
+                // Disabled for TanStack Router/Start: route files export Route objects,
+                // loaders, server functions and other non-component values by design.
+                "react-refresh/only-export-components": isUsingTanstack
+                    ? "off"
+                    : [
+                        "error",
+                        {
+                            allowConstantExport: isAllowConstantExport,
+                            allowExportNames: [
+                                ...isUsingNext
+                                    ? [
+                                        "dynamic",
+                                        "dynamicParams",
+                                        "revalidate",
+                                        "fetchCache",
+                                        "runtime",
+                                        "preferredRegion",
+                                        "maxDuration",
+                                        "config",
+                                        "generateStaticParams",
+                                        "metadata",
+                                        "generateMetadata",
+                                        "viewport",
+                                        "generateViewport",
+                                    ]
+                                    : [],
+                                ...isUsingRemix || isUsingReactRouter
+                                    ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
+                                    : [],
+                            ],
+                        },
+                    ],
 
                 // Prevents leaked addEventListener in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
@@ -1193,6 +1201,10 @@ export default createConfig<
                 // Prevent missing parentheses around multilines JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/no-typos.md
                 "react/no-typos": "error",
+
+                // React uses null as a first-class value: return null (render nothing),
+                // useRef<T>(null) (DOM refs), and external APIs/JSON all require null.
+                "unicorn/no-null": "off",
             },
             settings: {
                 extensions: [".jsx"],
@@ -1207,6 +1219,10 @@ export default createConfig<
                 "react/jsx-filename-extension": "off",
                 "react/prop-types": "off",
                 "react/require-default-props": "off",
+
+                // React uses null as a first-class value: return null (render nothing),
+                // useRef<T>(null) (DOM refs), and external APIs/JSON all require null.
+                "unicorn/no-null": "off",
             },
         },
         {

@@ -25,7 +25,9 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
                 "css/no-duplicate-imports": "error",
                 "css/no-empty-blocks": "error",
                 "css/no-important": "error",
-                "css/no-invalid-at-rules": "error",
+                // Tailwind v4 introduces custom at-rules (@custom-variant, @source, @theme, @utility)
+                // whose prelude syntax (@eslint/css-tree) cannot parse without crashing — disable when tailwind is enabled
+                "css/no-invalid-at-rules": tailwind ? "off" : "error",
                 "css/no-invalid-properties": "error",
                 "css/use-baseline": "warn",
                 "css/use-layers": "error",

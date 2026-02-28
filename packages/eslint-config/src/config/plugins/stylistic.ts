@@ -74,7 +74,7 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
 
                 "@stylistic/indent": [
                     "error",
-                    indent,
+                    indent as number | "tab" | undefined,
                     {
                         ArrayExpression: 1,
                         CallExpression: {

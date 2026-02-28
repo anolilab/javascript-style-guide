@@ -37,7 +37,7 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
                         "toml/array-bracket-newline": "error",
                         "toml/array-bracket-spacing": "error",
                         "toml/array-element-newline": "error",
-                        "toml/indent": ["error", indent === "tab" ? 2 : indent],
+                        "toml/indent": ["error", (indent === "tab" ? 2 : indent) as number | "tab"],
                         "toml/inline-table-curly-spacing": "error",
                         "toml/key-spacing": "error",
                         "toml/padding-line-between-pairs": "error",

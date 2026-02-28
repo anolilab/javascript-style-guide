@@ -691,11 +691,11 @@ export default createConfig<
 
                 // Prevent usage of setState in componentWillUpdate
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-                "react/jsx-indent": ["error", indent, { checkAttributes: true, indentLogicalExpressions: true }],
+                "react/jsx-indent": ["error", indent as number | "tab", { checkAttributes: true, indentLogicalExpressions: true }],
 
                 // Prevent direct mutation of this.state
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-                "react/jsx-indent-props": ["error", indent],
+                "react/jsx-indent-props": ["error", indent as number | "tab"],
 
                 // Prevent usage of isMounted
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
@@ -1113,7 +1113,7 @@ export default createConfig<
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"].rules : {},
+                ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"]?.rules ?? {} : {},
 
                 ...prettier
                     ? {
@@ -1166,7 +1166,7 @@ export default createConfig<
                     ecmaFeatures: {
                         jsx: true,
                     },
-                    ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"].languageOptions.parserOptions : {},
+                    ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {} : {},
                 },
             },
             name: "anolilab/react/jsx",

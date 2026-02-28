@@ -1,4 +1,4 @@
-import type { OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -8,13 +8,15 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
 
     const validateJsxNestingPlugin = await interopDefault(import("eslint-plugin-tailwindcss"));
 
-    const options = [...validateJsxNestingPlugin.configs["flat/recommended"]];
+    const options = [...validateJsxNestingPlugin.configs["flat/recommended"]] as TypedFlatConfigItem[];
 
-    options[1].files = files;
-    options[1].rules = {
-        ...options[1].rules,
-        ...overrides,
-    };
+    if (options[1]) {
+        options[1].files = files;
+        options[1].rules = {
+            ...options[1].rules,
+            ...overrides,
+        };
+    }
 
-    return options;
+    return options as unknown as Omit<TypedFlatConfigItem, "files">[];
 });

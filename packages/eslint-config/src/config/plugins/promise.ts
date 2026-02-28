@@ -1,5 +1,3 @@
-import { fixupPluginRules } from "@eslint/compat";
-
 import type { OptionsFiles, OptionsOverrides, Rules } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
@@ -19,9 +17,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 promise: promisesPlugin,
             },
             rules: {
-                ...(fixupPluginRules(
-                    (promisesPlugin as { configs: { "flat/recommended": { rules: Rules } } } | undefined)?.configs["flat/recommended"].rules,
-                ) as Rules),
+                ...(promisesPlugin as { configs: { "flat/recommended": { rules: Rules } } } | undefined)?.configs["flat/recommended"].rules,
 
                 "promise/prefer-await-to-callbacks": "off",
                 "promise/prefer-await-to-then": "off",

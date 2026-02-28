@@ -127,7 +127,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                         "unicorn/template-indent": "off",
                     }
                     : {
-                        "unicorn/template-indent": ["error", { indent }],
+                        "unicorn/template-indent": ["error", { indent: indent as string | number | undefined }],
                     },
 
                 ...overrides,

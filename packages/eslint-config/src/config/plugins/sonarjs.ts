@@ -1,4 +1,4 @@
-import type { OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsFiles, OptionsOverrides, Rules } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -7,6 +7,17 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
     const { files = oFiles, overrides } = config;
 
     const sonarJsPlugin = await interopDefault(import("eslint-plugin-sonarjs"));
+
+    const sonarJsRecommended = sonarJsPlugin.configs?.["recommended"];
+    const sonarJsRecommendedRules: Rules = {};
+
+    if (Array.isArray(sonarJsRecommended)) {
+        (sonarJsRecommended as { rules?: Rules }[]).forEach((sonarConfig) => {
+            Object.assign(sonarJsRecommendedRules, sonarConfig.rules);
+        });
+    } else {
+        Object.assign(sonarJsRecommendedRules, (sonarJsRecommended as { rules?: Rules } | undefined)?.rules);
+    }
 
     return [
         {
@@ -19,7 +30,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             files,
             name: "anolilab/sonarjs/rules",
             rules: {
-                ...sonarJsPlugin.configs["recommended"].rules,
+                ...sonarJsRecommendedRules,
                 "sonarjs/file-name-differ-from-class": "error",
                 "sonarjs/no-collapsible-if": "error",
                 "sonarjs/no-nested-template-literals": "off",

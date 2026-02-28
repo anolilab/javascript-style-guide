@@ -110,10 +110,10 @@ export const resolveSubOptions = <K extends keyof OptionsConfig>(options: Option
  * @returns The merged override rules.
  */
 export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): Partial<Linter.RulesRecord & RuleOptions> => {
-    const sub = resolveSubOptions(options, key);
+    const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
 
     return {
-        ..."overrides" in sub ? sub.overrides : {},
+        ..."overrides" in sub ? (sub as OptionsOverrides).overrides : {},
     };
 };
 
@@ -124,14 +124,16 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
  * @returns An array of file globs, or undefined if not specified.
  */
 export const getFiles = (options: OptionsConfig, key: keyof OptionsConfig): string[] | undefined => {
-    const sub = resolveSubOptions(options, key);
+    const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
 
     if ("files" in sub) {
-        if (typeof sub.files === "string") {
-            return [sub.files];
+        const { files } = sub as OptionsFiles;
+
+        if (typeof files === "string") {
+            return [files];
         }
 
-        return sub.files;
+        return files;
     }
 
     return undefined;
@@ -547,8 +549,8 @@ export const createConfig = async (
 
     // Extract React options
     const reactOptions = resolveSubOptions(options, "react");
-    const reactVersionFromOptions = "version" in reactOptions ? reactOptions.version : undefined;
-    const reactCompilerFromOptions = "compiler" in reactOptions ? reactOptions.compiler : undefined;
+    const reactVersionFromOptions = "reactVersion" in reactOptions ? reactOptions.reactVersion : undefined;
+    const reactCompilerFromOptions = "reactCompiler" in reactOptions ? reactOptions.reactCompiler : undefined;
 
     // Determine final React version (use option if provided, otherwise detected)
     const finalReactVersion = reactVersionFromOptions ?? detectedReactVersion;

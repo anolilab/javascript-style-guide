@@ -1,3 +1,9 @@
+## @anolilab/textlint-config [12.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.1...@anolilab/textlint-config@12.1.2) (2026-02-28)
+
+### Bug Fixes
+
+* **eslint-config:** disable css/no-invalid-at-rules for Tailwind CSS … ([#1000](https://github.com/anolilab/javascript-style-guide/issues/1000)) ([aa8b26b](https://github.com/anolilab/javascript-style-guide/commit/aa8b26b4cb711ad956a8d6360e2cc9f45d50565e))
+
 ## @anolilab/textlint-config [12.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.0...@anolilab/textlint-config@12.1.1) (2026-02-21)
 
 ### Miscellaneous Chores

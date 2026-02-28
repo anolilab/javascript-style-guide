@@ -20,6 +20,8 @@ catalogs:
     frontend:
         react: 19.2.4
     lint:
+        "@anolilab/eslint-config": 22.0.0
+        "@anolilab/prettier-config": 9.1.1
         "@commitlint/cli": 20.4.2
         "@commitlint/config-conventional": 20.4.2
         "@commitlint/core": 20.4.2
@@ -213,6 +215,3 @@ shellEmulator: true
 trustPolicy: no-downgrade
 
 trustPolicyIgnoreAfter: 1440
-catalog:
-    "@anolilab/eslint-config": 22.0.0
-    "@anolilab/prettier-config": 9.1.1

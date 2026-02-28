@@ -28,13 +28,6 @@ catalogs:
     taze:
       specifier: ^19.9.2
       version: 19.9.2
-  default:
-    '@anolilab/eslint-config':
-      specifier: 22.0.0
-      version: 22.0.0
-    '@anolilab/prettier-config':
-      specifier: 9.1.1
-      version: 9.1.1
   dev:
     '@arethetypeswrong/cli':
       specifier: ^0.18.2
@@ -47,6 +40,12 @@ catalogs:
       specifier: 19.2.4
       version: 19.2.4
   lint:
+    '@anolilab/eslint-config':
+      specifier: 22.0.0
+      version: 22.0.0
+    '@anolilab/prettier-config':
+      specifier: 9.1.1
+      version: 9.1.1
     '@commitlint/cli':
       specifier: 20.4.2
       version: 20.4.2
@@ -701,10 +700,10 @@ importers:
         version: 3.3.0(@types/node@25.3.0)(typescript@5.9.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -903,7 +902,7 @@ importers:
         version: 2.0.0
     devDependencies:
       '@anolilab/prettier-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1090,10 +1089,10 @@ importers:
         version: 5.4.4
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1205,10 +1204,10 @@ importers:
         version: 1.0.9(stylelint@17.3.0(typescript@5.9.3))
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1317,7 +1316,7 @@ importers:
         version: 1.0.8
     devDependencies:
       '@anolilab/prettier-config':
-        specifier: 'catalog:'
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli

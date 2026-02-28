@@ -35,7 +35,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             },
 
             settings: {
-                "html/indent": `+${indent.toString()}`,
+                "html/indent": `+${String(indent)}`,
                 "html/report-bad-indent": "error",
                 ...prettier ? { "html/report-bad-indent": "off" } : {},
             },

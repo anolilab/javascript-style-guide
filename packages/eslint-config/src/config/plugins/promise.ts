@@ -19,7 +19,9 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 promise: promisesPlugin,
             },
             rules: {
-                ...(fixupPluginRules(promisesPlugin?.configs["flat/recommended"].rules) as Rules),
+                ...(fixupPluginRules(
+                    (promisesPlugin as { configs: { "flat/recommended": { rules: Rules } } } | undefined)?.configs["flat/recommended"].rules,
+                ) as Rules),
 
                 "promise/prefer-await-to-callbacks": "off",
                 "promise/prefer-await-to-then": "off",

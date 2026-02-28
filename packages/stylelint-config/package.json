@@ -193,7 +193,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "8.0.0",
+        "browserslist-config-anolilab": "catalog:network",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
@@ -203,8 +203,8 @@
         "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
-        "@anolilab/eslint-config": "22.0.0",
-        "@anolilab/prettier-config": "9.1.1",
+        "@anolilab/eslint-config": "catalog:",
+        "@anolilab/prettier-config": "catalog:",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

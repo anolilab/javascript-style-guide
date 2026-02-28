@@ -100,6 +100,17 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // This is currently buggy, see https://github.com/vitest-dev/eslint-plugin-vitest/issues/692
                     "vitest/valid-title": "off",
 
+                    // Type-aware rules from configs.all — disable when no tsconfigPath is provided.
+                    // prefer-describe-function-title calls getParserServices() without declaring
+                    // requiresTypeChecking, causing a crash when typed linting is not configured.
+                    // prefer-vi-mocked properly declares requiresTypeChecking but still fails without types.
+                    ...tsconfigPath
+                        ? {}
+                        : {
+                            "vitest/prefer-describe-function-title": "off",
+                            "vitest/prefer-vi-mocked": "off",
+                        },
+
                     ...overrides,
 
                     ...prettier

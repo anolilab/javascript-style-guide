@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@6.0.0...@anolilab/lint-staged-config@6.0.1) (2026-02-28)
+
+### Bug Fixes
+
+* **eslint-config:** disable css/no-invalid-at-rules for Tailwind CSS … ([#1000](https://github.com/anolilab/javascript-style-guide/issues/1000)) ([aa8b26b](https://github.com/anolilab/javascript-style-guide/commit/aa8b26b4cb711ad956a8d6360e2cc9f45d50565e))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 22.0.2
+
 ## @anolilab/lint-staged-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@5.1.0...@anolilab/lint-staged-config@6.0.0) (2026-02-21)
 
 ### ⚠ BREAKING CHANGES

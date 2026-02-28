@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [22.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@22.0.1...@anolilab/eslint-config@22.0.2) (2026-02-28)
+
+### Bug Fixes
+
+* **eslint-config:** disable css/no-invalid-at-rules for Tailwind CSS … ([#1000](https://github.com/anolilab/javascript-style-guide/issues/1000)) ([aa8b26b](https://github.com/anolilab/javascript-style-guide/commit/aa8b26b4cb711ad956a8d6360e2cc9f45d50565e))
+* **eslint-config:** disable react-refresh/only-export-components for TanStack and unicorn/no-null for JSX/TSX ([2d719a1](https://github.com/anolilab/javascript-style-guide/commit/2d719a15e760dd2033c71784d84df23808471fdd))
+
 ## @anolilab/eslint-config [22.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@22.0.0...@anolilab/eslint-config@22.0.1) (2026-02-25)
 
 ### Bug Fixes

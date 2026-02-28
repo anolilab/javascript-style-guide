@@ -2,6 +2,7 @@
  * Vendor types from Prettier so we don't rely on the dependency.
  */
 
+// eslint-disable-next-line @stylistic/operator-linebreak
 export type BuiltInParserName =
     | "acorn"
     | "angular"

@@ -1,6 +1,6 @@
 import { fixupPluginRules } from "@eslint/compat";
 
-import type { OptionsFiles, OptionsOverrides } from "../../types";
+import type { OptionsFiles, OptionsOverrides, Rules } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -16,7 +16,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 "you-dont-need-lodash-underscore": fixupPluginRules(pluginYouDontNeedLodashUnderscore),
             },
             rules: {
-                ...pluginYouDontNeedLodashUnderscore.configs.all.rules,
+                ...(pluginYouDontNeedLodashUnderscore as { configs: { all: { rules: Rules } } }).configs.all.rules,
                 ...overrides,
             },
         },

@@ -5,7 +5,7 @@ import type { Awaitable, TypedFlatConfigItem } from "../types";
  * @param configs
  */
 const combine = async (...configs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]): Promise<TypedFlatConfigItem[]> => {
-    const resolved = await Promise.all(configs);
+    const resolved = await Promise.all(configs.map((c) => Promise.resolve(c)));
 
     return resolved.flat();
 };

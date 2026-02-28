@@ -1,4 +1,4 @@
-import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic } from "../../types";
+import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsStylistic, Rules } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -39,7 +39,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                         "yaml/flow-mapping-curly-spacing": "error",
                         "yaml/flow-sequence-bracket-newline": "error",
                         "yaml/flow-sequence-bracket-spacing": "error",
-                        "yaml/indent": [prettier ? "off" : "error", indent === "tab" ? 2 : indent],
+                        "yaml/indent": [prettier ? "off" : "error", (indent === "tab" ? 2 : indent) as number | undefined],
                         "yaml/key-spacing": "error",
                         "yaml/no-tab-indent": "error",
                         "yaml/quotes": [
@@ -53,7 +53,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     }
                     : {},
 
-                ...prettier ? pluginYaml.configs.prettier.rules : {},
+                ...prettier ? (pluginYaml.configs.prettier.rules as unknown as Rules) : {},
 
                 ...overrides,
             },

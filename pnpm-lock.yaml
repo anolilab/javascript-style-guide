@@ -40,12 +40,6 @@ catalogs:
       specifier: 19.2.4
       version: 19.2.4
   lint:
-    '@anolilab/eslint-config':
-      specifier: 22.0.0
-      version: 22.0.0
-    '@anolilab/prettier-config':
-      specifier: 9.1.1
-      version: 9.1.1
     '@commitlint/cli':
       specifier: 20.4.2
       version: 20.4.2
@@ -381,9 +375,6 @@ catalogs:
     browserslist:
       specifier: 4.28.1
       version: 4.28.1
-    browserslist-config-anolilab:
-      specifier: 8.0.0
-      version: 8.0.0
     confusing-browser-globals:
       specifier: ^1.0.11
       version: 1.0.11
@@ -700,10 +691,10 @@ importers:
         version: 3.3.0(@types/node@25.3.0)(typescript@5.9.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: catalog:lint
-        version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
+        specifier: 22.0.2
+        version: 22.0.2(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: catalog:lint
+        specifier: 9.1.1
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -902,7 +893,7 @@ importers:
         version: 2.0.0
     devDependencies:
       '@anolilab/prettier-config':
-        specifier: catalog:lint
+        specifier: 9.1.1
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1089,10 +1080,10 @@ importers:
         version: 5.4.4
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: catalog:lint
-        version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
+        specifier: 22.0.2
+        version: 22.0.2(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: catalog:lint
+        specifier: 9.1.1
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1179,7 +1170,7 @@ importers:
   packages/stylelint-config:
     dependencies:
       browserslist-config-anolilab:
-        specifier: catalog:network
+        specifier: 8.0.0
         version: 8.0.0
       stylelint-config-clean-order:
         specifier: catalog:lint
@@ -1204,10 +1195,10 @@ importers:
         version: 1.0.9(stylelint@17.3.0(typescript@5.9.3))
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: catalog:lint
-        version: 22.0.0(9984749e44884e44e05527ad88ca2e37)
+        specifier: 22.0.2
+        version: 22.0.2(9984749e44884e44e05527ad88ca2e37)
       '@anolilab/prettier-config':
-        specifier: catalog:lint
+        specifier: 9.1.1
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1316,7 +1307,7 @@ importers:
         version: 1.0.8
     devDependencies:
       '@anolilab/prettier-config':
-        specifier: catalog:lint
+        specifier: 9.1.1
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
@@ -1392,8 +1383,8 @@ packages:
   '@andrewbranch/untar.js@1.0.3':
     resolution: {integrity: sha512-Jh15/qVmrLGhkKJBdXlK1+9tY4lZruYjsgkDFj08ZmDiWVBLJcqkok7Z0/R0In+i1rScBpJlSvrTS2Lm41Pbnw==}
 
-  '@anolilab/eslint-config@22.0.0':
-    resolution: {integrity: sha512-R9+9iU6P3LiZpu1GzY4KEMOQRv3RI/4i4T8CrDE3h9gFiRuE+GkFinE87eGte2lQ2SvMIcOP+MJ8mV4YR2qtbQ==}
+  '@anolilab/eslint-config@22.0.2':
+    resolution: {integrity: sha512-toY+624THX9Z9AYjE9VaWzfcaNUqoWcqiAGgLYcJkI6JPU1MRv1EL5Z11Z4nmbKKQtd4sOPimqGTz9oZfp3uDw==}
     engines: {node: '>=20.18.* <=25.*'}
     peerDependencies:
       '@eslint-react/eslint-plugin': 2.13.0
@@ -11136,7 +11127,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.3': {}
 
-  '@anolilab/eslint-config@22.0.0(9984749e44884e44e05527ad88ca2e37)':
+  '@anolilab/eslint-config@22.0.2(9984749e44884e44e05527ad88ca2e37)':
     dependencies:
       '@e18e/eslint-plugin': 0.2.0(eslint@9.39.3(jiti@2.6.1))
       '@eslint-community/eslint-plugin-eslint-comments': 4.6.0(eslint@9.39.3(jiti@2.6.1))

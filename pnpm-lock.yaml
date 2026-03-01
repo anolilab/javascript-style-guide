@@ -224,14 +224,14 @@ catalogs:
       specifier: ^2.10.0
       version: 2.10.0
     eslint-plugin-security:
-      specifier: ^3.0.1
-      version: 3.0.1
+      specifier: ^4.0.0
+      version: 4.0.0
     eslint-plugin-simple-import-sort:
       specifier: ^12.1.1
       version: 12.1.1
     eslint-plugin-sonarjs:
-      specifier: 3.0.7
-      version: 3.0.7
+      specifier: 4.0.0
+      version: 4.0.0
     eslint-plugin-storybook:
       specifier: 9.1.19
       version: 9.1.19
@@ -851,13 +851,13 @@ importers:
         version: 2.10.0(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-security:
         specifier: catalog:lint
-        version: 3.0.1
+        version: 4.0.0
       eslint-plugin-simple-import-sort:
         specifier: catalog:lint
         version: 12.1.1(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-sonarjs:
         specifier: catalog:lint
-        version: 3.0.7(eslint@9.39.3(jiti@2.6.1))
+        version: 4.0.0(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-toml:
         specifier: catalog:lint
         version: 0.13.1(eslint@9.39.3(jiti@2.6.1))
@@ -6054,6 +6054,10 @@ packages:
     resolution: {integrity: sha512-XjVGBhtDZJfyuhIxnQ/WMm385RbX3DBu7H1J7HNNhmB2tnGxMeqVSnYv79oAj992ayvIBZghsymwkYFS6cGH4Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  eslint-plugin-security@4.0.0:
+    resolution: {integrity: sha512-tfuQT8K/Li1ZxhFzyD8wPIKtlzZxqBcPr9q0jFMQ77wWAbKBVEhaMPVQRTMTvCMUDhwBe5vPVqQPwAGk/ASfxQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   eslint-plugin-simple-import-sort@12.1.1:
     resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
     peerDependencies:
@@ -6063,6 +6067,11 @@ packages:
     resolution: {integrity: sha512-62jB20krIPvcwBLAyG3VVKa2ce2j2lL1yCb8Y0ylMRR/dLvCCTiQx8gQbXb+G81k1alPZ2/I3muZinqWQdBbzw==}
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
+
+  eslint-plugin-sonarjs@4.0.0:
+    resolution: {integrity: sha512-ihyH9HO52OeeWer/gWRndkW/ZhGqx9HDg+Iptu+ApSfiomT2LzhHgHCoyJrhh7DjCyKhjU3Hmmz1pzcXRf7B3g==}
+    peerDependencies:
+      eslint: ^8.0.0 || ^9.0.0 || ^10.0.0
 
   eslint-plugin-storybook@9.1.19:
     resolution: {integrity: sha512-hwZu/EnkJWrpFZgs/9mOba8hP71aK++eKdZIV+gTSAZXBccldOR0aL6YHaxjRbUe4DgyS4PvvVtqzu13o8fW6Q==}
@@ -8395,6 +8404,10 @@ packages:
   min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+
+  minimatch@10.2.1:
+    resolution: {integrity: sha512-MClCe8IL5nRRmawL6ib/eT4oLyeKMGCghibcDWK+J0hh0Q8kqSdia6BvbRMVk6mPa6WqUa5uR2oxt6C5jd533A==}
+    engines: {node: 20 || >=22}
 
   minimatch@10.2.4:
     resolution: {integrity: sha512-oRjTw/97aTBN0RHbYCdtF1MQfvusSIBQM0IZEgzl6426+8jSC0nF1a/GmnVLpfB9yyr6g6FTqWqiZVbxrtaCIg==}
@@ -16348,6 +16361,10 @@ snapshots:
     dependencies:
       safe-regex: 2.1.1
 
+  eslint-plugin-security@4.0.0:
+    dependencies:
+      safe-regex: 2.1.1
+
   eslint-plugin-simple-import-sort@12.1.1(eslint@9.39.3(jiti@2.6.1)):
     dependencies:
       eslint: 9.39.3(jiti@2.6.1)
@@ -16364,6 +16381,22 @@ snapshots:
       minimatch: 10.2.4
       scslre: 0.3.0
       semver: 7.7.4
+      typescript: 5.9.3
+
+  eslint-plugin-sonarjs@4.0.0(eslint@9.39.3(jiti@2.6.1)):
+    dependencies:
+      '@eslint-community/regexpp': 4.12.2
+      builtin-modules: 3.3.0
+      bytes: 3.1.2
+      eslint: 9.39.3(jiti@2.6.1)
+      functional-red-black-tree: 1.0.1
+      globals: 17.3.0
+      jsx-ast-utils-x: 0.1.0
+      lodash.merge: 4.6.2
+      minimatch: 10.2.1
+      scslre: 0.3.0
+      semver: 7.7.4
+      ts-api-utils: 2.4.0(typescript@5.9.3)
       typescript: 5.9.3
 
   eslint-plugin-storybook@9.1.19(eslint@9.39.3(jiti@2.6.1))(storybook@9.1.19(@testing-library/dom@10.4.1)(prettier@3.8.1)(vite@7.2.7(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))(typescript@5.9.3):
@@ -19471,6 +19504,10 @@ snapshots:
   mimic-response@4.0.0: {}
 
   min-indent@1.0.1: {}
+
+  minimatch@10.2.1:
+    dependencies:
+      brace-expansion: 5.0.2
 
   minimatch@10.2.4:
     dependencies:

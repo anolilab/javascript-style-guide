@@ -509,12 +509,14 @@ catalogs:
       version: 7.7.4
 
 overrides:
+  '@hono/node-server@<1.19.10': '>=1.19.10'
   '@modelcontextprotocol/sdk@>=1.10.0 <=1.25.3': '>=1.26.0'
   ajv@>=8.0.0 <8.18.0: '>=8.18.0'
   axios@>=1.0.0 <=1.13.4: '>=1.13.5'
   chrono-node@<2.2.4: '>=2.2.4'
   hono@<4.11.4: '>=4.11.4'
   hono@<4.11.7: '>=4.11.7'
+  hono@<4.12.4: '>=4.12.4'
   hono@>=4.12.0 <4.12.2: '>=4.12.2'
   lodash@>=4.0.0 <=4.17.22: '>=4.17.23'
   minimatch@<10.2.1: '>=10.2.1'
@@ -2352,11 +2354,11 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@hono/node-server@1.19.9':
-    resolution: {integrity: sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw==}
+  '@hono/node-server@1.19.10':
+    resolution: {integrity: sha512-hZ7nOssGqRgyV3FVVQdfi+U4q02uB23bpnYpdvNXkYTRRyWx84b7yf1ans+dnJ/7h41sGL3CeQTfO+ZGxuO+Iw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
-      hono: '>=4.11.7'
+      hono: '>=4.12.2'
 
   '@html-eslint/core@0.56.0':
     resolution: {integrity: sha512-xbgEwKMFVZXZdr/43irrXTs6z+lijKDSWt5Zi7CRCyc1cdf7J6dQDT9QDInuwadJJEqc/er+VVjFNY/Ymv9GCA==}
@@ -12141,7 +12143,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@hono/node-server@1.19.9(hono@4.12.3)':
+  '@hono/node-server@1.19.10(hono@4.12.3)':
     dependencies:
       hono: 4.12.3
 
@@ -12490,7 +12492,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.26.0(zod@3.25.76)':
     dependencies:
-      '@hono/node-server': 1.19.9(hono@4.12.3)
+      '@hono/node-server': 1.19.10(hono@4.12.3)
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
       content-type: 1.0.5

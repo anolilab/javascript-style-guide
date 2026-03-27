@@ -62,13 +62,13 @@ pnpm add @anolilab/lint-staged-config
 
 ## Usage
 
-If you don't have a `.lintstagedrc.js` or `.nano-staged.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
+If you don’t have a `.lintstagedrc.js` or `.nano-staged.js`, we can create the file for you after installing `@anolilab/lint-staged-config`, call `pnpm lint-stage-config:install`.
 
 If you already have a `.lintstagedrc.js` or `.nano-staged.js`, then you can extend the `.lintstagedrc.js` or `.nano-staged.js`, with `@anolilab/lint-staged-config`.
 
 > Note: If the script detects an existing `.lintstagedrc.js` or `.nano-staged.js` file, it will not overwrite it.
 
-The content of the `.lintstagedrc.js` or `.nano-staged.js` should look like this:
+The content of the `.lintstagedrc.js` or `.nano-staged.js` should look :
 
 ```js
 // or
@@ -127,11 +127,11 @@ Adding the following script to your root `package.json` file makes it easier to 
 pnpm pkg set scripts.prepare="is-ci || husky install || exit 0"
 ```
 
-This script will install husky only if it is not running in a CI environment.
+This script will install husky only if it's not running in a CI environment.
 
 After that you can find a `.husky` folder in your root directory, with a `pre-commit` (if not please create it) file.
 
-The file content can look like this:
+The file content can look :
 
 ```bash
 #!/bin/sh
@@ -150,7 +150,7 @@ echo Finished Git hook: pre-commit
 echo --------------------------------------------
 ```
 
-or with `nano-staged`:
+Or with `nano-staged`:
 
 ```bash
 #!/bin/sh
@@ -177,9 +177,9 @@ If `commitzen` is installed, the `prepare-commit-msg` hook with predefined conte
 
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+Libraries in this ecosystem make the best effort to track [Node.js’ release schedule](https://github.com/nodejs/release#release-schedule).
 
-Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Here’s [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
@@ -195,7 +195,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 ## Made with ❤️ at Anolilab
 
-This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+This is an open source project and will always remain free to use. If you think it’s cool, please star it 🌟. [Anolilab](https://anolilab.com/open-source) is a Development and AI Studio. Contact  at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or  want to say hi!
 
 ## License
 
@@ -210,9 +210,9 @@ The anolilab lint-staged-config is open-sourced software licensed under the [MIT
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
-[chat]: https://discord.gg/4VuvwWGaaB
+[chat]: https://discord.com/invite/4VuvwWGaaB
 [typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [license-url]: https://opensource.org/licenses/MIT
-[lint-staged]: https://github.com/okonet/lint-staged
+[lint-staged]: https://github.com/lint-staged/lint-staged
 [nano-staged]: https://github.com/usmanyunusov/nano-staged

@@ -53,9 +53,9 @@ pnpm add @anolilab/eslint-config
 Our package serves as a valuable resource for JavaScript/Typescript-based projects, offering composable [ESLint](https://eslint.org/) configurations. It encompasses a range of features, including performance optimization and the flexibility to extend pre-defined base configurations. We aim to provide a strong, opinionated foundation for code quality and consistency, while still allowing for customization to suit specific project needs.
 
 - Tailored Configuration for Workspaces: With this package, each workspace within your monorepo gains the ability to have its own customized ESLint configuration. This ensures that individual projects can maintain their specific requirements while still adhering to the overall guidelines.
-- Configurability at Your Fingertips: Crafting your workspace's ESLint configuration is a breeze, thanks to the seamless composition of pre-defined base configurations. This empowers you to tailor the settings to suit your project's unique needs, without starting from scratch.
+- Configurability at Your Fingertips: Crafting your workspace’s ESLint configuration is a breeze, thanks to the seamless composition of pre-defined base configurations. This empowers you to tailor the settings to suit your project’s unique needs, without starting from scratch.
 
-- Enhanced Efficiency: We've optimized the package's performance by intelligently enabling plugins based on file naming conventions and project dependencies. This streamlined approach ensures that your ESLint checks run efficiently, targeting the relevant files and maximizing productivity.
+- Enhanced Efficiency: We’ve optimized the package’s performance by intelligently enabling plugins based on file naming conventions and project dependencies. This streamlined approach ensures that your ESLint checks run efficiently, targeting the relevant files and maximizing productivity.
 
 > [!NOTE]
 > Since v16.0.0, this config is rewritten to the new [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new).
@@ -76,14 +76,14 @@ Our package serves as a valuable resource for JavaScript/Typescript-based projec
 - No need to specify file paths to lint as it intelligently lints relevant files, respecting `.gitignore` and common ignore patterns.
 - Config overrides per files/globs.
 - First-class TypeScript support, automatically enabled if `typescript` is detected in your project.
-- Includes a comprehensive set of ESLint plugins, like [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn), [import](https://github.com/benmosher/eslint-plugin-import), [sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs), and [security](#security) plugins. (See more under [Plugins](#plugins)).
-- Automatically enables relevant rules based on the [engines](https://docs.npmjs.com/files/package.json#engines) field in your `package.json`.
+- Includes a comprehensive set of ESLint plugins, like [unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn), [import](https://github.com/import-js/eslint-plugin-import), [sonarjs](https://github.com/SonarSource/eslint-plugin-sonarjs), and [security](#security) plugins. (See more under [Plugins](#plugins)).
+- Automatically enables relevant rules based on the [engines](https://docs.npmjs.com/files/package.json/#engines) field in your `package.json`.
 - Easily configure stylistic preferences like indent and semicolon without deep diving into rule configurations.
 - Works alongside Prettier: Our configuration disables ESLint rules that would conflict with Prettier, allowing ESLint to focus on code quality and Prettier on formatting if you choose to use both. However, many stylistic rules are included and can be enforced by ESLint directly.
 
 ## Usage
 
-Our default export is designed to be used within ESLint's flat configuration system (e.g., `eslint.config.js`). It contains a comprehensive set of ESLint rules, suitable for modern ECMAScript (ES2021+ by default) and TypeScript projects.
+Our default export is designed to be used within ESLint’s flat configuration system (e.g., `eslint.config.js`). It contains a comprehensive set of ESLint rules, suitable for modern ECMAScript (ES2021+ by default) and TypeScript projects.
 
 To use it, import the `createConfig` function from `@anolilab/eslint-config` into your `eslint.config.js` (or `eslint.config.mjs`). This function allows you to generate the configuration, optionally with your own settings.
 
@@ -101,7 +101,7 @@ export default createConfig();
 Combined with legacy config:
 </summary>
 
-If you still use some configs from the legacy eslintrc format, you can use the [`@eslint/eslintrc`](https://www.npmjs.com/package/@eslint/eslintrc) package to convert them to the flat config.
+If you still use  configs from the legacy eslintrc format, you can use the [`@eslint/eslintrc`](https://www.npmjs.com/package/@eslint/eslintrc) package to convert them to the flat config.
 
 ```js
 // eslint.config.mjs
@@ -347,9 +347,9 @@ lspconfig.eslint.setup(
 
 ### Neovim format on save
 
-There's few ways you can achieve format on save in neovim:
+There’s few ways you can achieve format on save in neovim:
 
-- `nvim-lspconfig` has a `EslintFixAll` command predefined, you can create a autocmd to call this command after saving file.
+- `nvim-lspconfig` has a `EslintFixAll` command predefined, you can create an autocmd to call this command after saving file.
 
 ```lua
 lspconfig.eslint.setup({
@@ -479,10 +479,10 @@ These plugins form the backbone of our linting rules, focusing on best practices
 
 ### Stylistic & Formatting
 
-These plugins help maintain a consistent code style. Note that while these are included, you can also use Prettier for formatting, and our config is designed to be compatible.
+These plugins help maintain a consistent code style.  while these are included, you can also use Prettier for formatting, and our config is designed to be compatible.
 
 - **[@stylistic/eslint-plugin](https://eslint.style/packages/default)** (and `@stylistic/eslint-plugin-ts`): ESLint Stylistic, for all stylistic rules.
-- **[eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)**: Easy import sorting.
+- **[eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)**:  import sorting.
 - **[eslint-plugin-format](https://github.com/antfu/eslint-plugin-format)**: Enables formatting of various file types using Prettier or other formatters via ESLint.
 
 ### Language Support & Syntax
@@ -502,7 +502,7 @@ Plugins for specific languages or syntaxes beyond standard JavaScript/TypeScript
 
 Managing imports and module structure.
 
-- **[eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)** (formerly `eslint-plugin-import`): Linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths and import names.
+- **[eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)** (formerly `eslint-plugin-import`): Linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths, and import names.
     - Uses `eslint-import-resolver-node` and `eslint-import-resolver-typescript`.
 - **[eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)** (formerly `eslint-plugin-node`): Additional ESLint rules for Node.js.
 
@@ -520,7 +520,7 @@ Plugins for various testing frameworks and practices.
 
 - **[eslint-plugin-no-only-tests](https://github.com/levibuzolic/eslint-plugin-no-only-tests)**: Disallow `.only` calls in test files.
 - **[eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library)**: ESLint plugin for Testing Library.
-- **[eslint-plugin-playwright](https://github.com/playwright-community/eslint-plugin-playwright)**: ESLint plugin for Playwright.
+- **[eslint-plugin-playwright](https://github.com/mskelton/eslint-plugin-playwright)**: ESLint plugin for Playwright.
 
 ### Frameworks & Libraries
 
@@ -557,7 +557,7 @@ Support for specific UI frameworks, libraries, and tools.
 
 ### List of Used Plugins (Condensed)
 
-This list is a more condensed version and might not be exhaustive if some plugins are very specific or utility-based. It aims to provide a quick overview of the primary active linting plugins.
+This list is a more condensed version and  not be exhaustive if  plugins are  specific or utility-based. It aims to provide a quick overview of the primary active linting plugins.
 
 - `@eslint/js`
 - `@stylistic/eslint-plugin`
@@ -605,7 +605,7 @@ This list is a more condensed version and might not be exhaustive if some plugin
 This ESLint configuration includes stylistic rules that can format your JavaScript and TypeScript code, promoting consistency.
 
 - **ESLint as the Primary Tool:** For JS/TS files, we encourage using ESLint for both linting code quality and enforcing code style. The VSCode settings above are configured to use ESLint as the default formatter for these files.
-- **Working with Prettier:** If you use Prettier in your project, this config is designed to be compatible. It disables ESLint rules that would conflict with Prettier's formatting decisions. You can let Prettier handle formatting for files ESLint doesn't cover (like CSS, HTML, etc.), or even use Prettier for JS/TS formatting and then have ESLint apply further fixes. However, for a streamlined experience with JS/TS, letting ESLint handle all aspects (quality and style) is often simpler.
+- **Working with Prettier:** If you use Prettier in your project, this config is designed to be compatible. It disables ESLint rules that would conflict with Prettier’s formatting decisions. You can let Prettier handle formatting for files ESLint doesn’t cover (like CSS, HTML, etc.), or even use Prettier for JS/TS formatting and then have ESLint apply further fixes. However, for a streamlined experience with JS/TS, letting ESLint handle all aspects (quality and style) is often simpler.
 
 ## Lint Staged / Pre-commit Hooks
 
@@ -633,14 +633,14 @@ This project aims to follow Semantic Versioning.
 - **Minor versions:** May introduce new non-breaking rules, enable new plugins by default (if non-breaking), or update existing rules with new options.
 - **Patch versions:** Typically include bug fixes or minor tweaks to rule configurations.
 
-Changes to rule strictness (e.g., changing a 'warn' to an 'error') might occur in minor versions if they reflect evolving best practices. We recommend reviewing changes when updating.
+Changes to rule strictness (e.g., changing a ’warn' to an ’error')  occur in minor versions if they reflect evolving best practices. We recommend reviewing changes when updating.
 
 ## Q & A
 
 ### Why not standard
 
-The standard specification believes that everyone should not waste time in personalized specifications, but the entire community should unify a specification. This statement makes sense, but it runs against the ESLint's design philosophy.
-Don't you remember how ESLint defeated JSHint and became the most popular JS code inspection tool? It's because of the plugin and configuration that ESLint advocates, which meets the individual needs of different technology stacks of different teams.
+The standard specification believes that everyone should not waste time in personalized specifications, but the entire community should unify a specification. This statement makes sense, but it runs against the ESLint’s design philosophy.
+Don’t you remember how ESLint defeated JSHint and became the most popular JS code inspection tool? It’s because of the plugin and configuration that ESLint advocates, which meets the individual needs of different technology stacks of different teams.
 
 Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It will not force you to use our config.
 
@@ -648,9 +648,9 @@ Therefore, `@anolilab/eslint-config` also inherits the philosophy of ESLint. It 
 
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+Libraries in this ecosystem make the best effort to track [Node.js’ release schedule](https://github.com/nodejs/release#release-schedule).
 
-Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Here’s [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
@@ -671,7 +671,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 ## Made with ❤️ at Anolilab
 
-This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+This is an open source project and will always remain free to use. If you think it’s cool, please star it 🌟. [Anolilab](https://anolilab.com/open-source) is a Development and AI Studio. Contact  at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or  want to say hi!
 
 ## License
 
@@ -686,7 +686,7 @@ The anolilab eslint-config is open-sourced software licensed under the [MIT][lic
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
-[chat]: https://discord.gg/4VuvwWGaaB
+[chat]: https://discord.com/invite/4VuvwWGaaB
 [typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [license-url]: https://opensource.org/licenses/MIT

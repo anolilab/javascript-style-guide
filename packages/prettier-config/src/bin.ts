@@ -39,7 +39,7 @@ ${JSON.stringify(content, undefined, 4)}\n`);
 
     await writeFile(
         prettierPath,
-        `${isTypeModule ? "import config from \"@anolilab/prettier-config\";" : "var config = require(\"@anolilab/prettier-config\");"}
+        `${isTypeModule ? 'import config from "@anolilab/prettier-config";' : 'var config = require("@anolilab/prettier-config");'}
 
 ${isTypeModule ? "export default" : "module.exports ="} {
     ...config,

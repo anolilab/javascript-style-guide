@@ -50,7 +50,7 @@ pnpm add @anolilab/commitlint-config
 
 ## Usage
 
-If you don't have a `commitlint.config.js` or the other supported names, we can create the file for you after installing `@anolilab/commitlint-config`, call `pnpm commitlint-config:install`.
+If you don’t have a `commitlint.config.js` or the other supported names, we can create the file for you after installing `@anolilab/commitlint-config`, call `pnpm commitlint-config:install`.
 
 > Alternatively the configuration can be defined in a `commitlint.config.js`, `.commitlintrc.js`, `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yml` file
 
@@ -66,7 +66,7 @@ module.exports = {
 };
 ```
 
-or
+Or
 
 ```js
 export default {
@@ -112,7 +112,7 @@ The following customized rules are included in this configuration:
   - `test`: Adding missing tests or correcting existing tests
   - `translation`: Translation changes
 
-and all rules from [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional).
+And all rules from [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional).
 
 ## Add a Package.json Script
 
@@ -148,7 +148,7 @@ pnpm pkg set scripts.prepare="is-ci || husky install || exit 0"
 
 ## Test the configuration
 
-For a first simple usage test of commitlint you can do the following:
+For a first  usage test of commitlint you can do the following:
 
 ```bash
 # using pnpm
@@ -165,9 +165,9 @@ This will check your last commit and return an error if invalid or a positive ou
 
 ### Test the hook
 
-You can test the hook by simply committing. If the commit message is valid, the commit will go through, otherwise you will see an error message.
+You can test the hook by  committing. If the commit message is valid, the commit will go through, otherwise you will see an error message.
 
-Here's an example of what the error message would look like if your commit message doesn't meet the required format:
+Here’s an example of what the error message would look like if your commit message doesn’t meet the required format:
 
 ```bash
 $ git commit -m "foo: this will fail"
@@ -182,7 +182,7 @@ No staged files match any of provided globs.
 husky > commit-msg hook failed (add --no-verify to bypass)
 ```
 
-If your commit message meets the required format, you should see a message like this:
+If your commit message meets the required format, you should see a message :
 
 ```bash
 $ git commit -m "feat: add new feature"
@@ -213,7 +213,7 @@ To add a `prepare-commit-msg` hook to your project, run the following command:
 npx husky add .husky/prepare-commit-msg 'exec < /dev/tty && npx cz --hook || true'
 ```
 
-> Note: This is only a simple example. To support most cases on Linux, Mac and Windows you can use the other example below.
+> Note: This is only a simple example. To support most cases on Linux, Mac, and Windows you can use the other example below.
 
 ```bash
 # if we hve a cmd that is running npx cz that means finalize and commit
@@ -262,9 +262,9 @@ Congratulations! Your repo is Commitizen friendly. Time to flaunt it!
 
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+Libraries in this ecosystem make the best effort to track [Node.js’ release schedule](https://github.com/nodejs/release#release-schedule).
 
-Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Here’s [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
@@ -280,7 +280,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 ## Made with ❤️ at Anolilab
 
-This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+This is an open source project and will always remain free to use. If you think it’s cool, please star it 🌟. [Anolilab](https://anolilab.com/open-source) is a Development and AI Studio. Contact  at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or  want to say hi!
 
 ## License
 
@@ -295,7 +295,7 @@ The anolilab commitlint-config is open-sourced software licensed under the [MIT]
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
-[chat]: https://discord.gg/4VuvwWGaaB
+[chat]: https://discord.com/invite/4VuvwWGaaB
 [typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [license-url]: https://opensource.org/licenses/MIT

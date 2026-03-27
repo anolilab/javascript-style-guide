@@ -86,7 +86,7 @@ module.exports = {
 
 [Browserslist](https://github.com/browserslist/browserslist) is a library to share a browsers list between different front end tools, like Autoprefixer, Eslint, and Stylelint.
 
--   Valid Browserslist query syntax validation [browserl.ist](http://browserl.ist)
+-   Valid Browserslist query syntax validation [browserl.ist](https://browsersl.ist/)
 -   ["Browserslist is a Good Idea"](https://css-tricks.com/browserlist-good-idea/) (blog post by [@chriscoyier](https://github.com/chriscoyier))
 
 ## Supported Browsers
@@ -116,9 +116,9 @@ module.exports = {
 
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+Libraries in this ecosystem make the best effort to track [Node.js’ release schedule](https://github.com/nodejs/release#release-schedule).
 
-Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Here’s [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
@@ -134,7 +134,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 ## Made with ❤️ at Anolilab
 
-This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+This is an open source project and will always remain free to use. If you think it’s cool, please star it 🌟. [Anolilab](https://anolilab.com/open-source) is a Development and AI Studio. Contact  at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or  want to say hi!
 
 ## License
 
@@ -149,7 +149,7 @@ The anolilab browserslist-config-anolilab is open-sourced software licensed unde
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
-[chat]: https://discord.gg/4VuvwWGaaB
+[chat]: https://discord.com/invite/4VuvwWGaaB
 [typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [license-url]: https://opensource.org/licenses/MIT

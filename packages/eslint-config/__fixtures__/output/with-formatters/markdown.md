@@ -30,8 +30,8 @@ function identity(x) {
 ---
 
 - List
-- with a [link] (/to/somewhere)
-- and [another one]
+- With a [link] (/to/somewhere)
+- And [another one]
 
     [another one]: http://example.com "Example title"
 

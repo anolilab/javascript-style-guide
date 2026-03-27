@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-* **eslint-config:** disable css/no-invalid-at-rules for Tailwind CSS … ([#1000](https://github.com/anolilab/javascript-style-guide/issues/1000)) ([aa8b26b](https://github.com/anolilab/javascript-style-guide/commit/aa8b26b4cb711ad956a8d6360e2cc9f45d50565e))
+* **eslint-config:** disable css/no-invalid-at-rules for Tailwind CSS … ([#1000](https://github.com/anolilab/javascript-style-guide/pull/1000)) ([aa8b26b](https://github.com/anolilab/javascript-style-guide/commit/aa8b26b4cb711ad956a8d6360e2cc9f45d50565e))
 
 
 ### Dependencies
@@ -25,33 +25,33 @@
 
 ### Bug Fixes
 
-* update package versions and configurations ([d4c690d](https://github.com/anolilab/javascript-style-guide/commit/d4c690d6132fb7c1734a299f64fbc1020190a300))
+* Update package versions and configurations ([d4c690d](https://github.com/anolilab/javascript-style-guide/commit/d4c690d6132fb7c1734a299f64fbc1020190a300))
 
 ## @anolilab/commitlint-config [8.1.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@8.0.0...@anolilab/commitlint-config@8.1.0) (2026-01-05)
 
 ### Bug Fixes
 
-* update package versions and configurations ([6a83bb6](https://github.com/anolilab/javascript-style-guide/commit/6a83bb692298f0f037c4af6e5830865cb0a6d847))
+* Update package versions and configurations ([6a83bb6](https://github.com/anolilab/javascript-style-guide/commit/6a83bb692298f0f037c4af6e5830865cb0a6d847))
 
 ## @anolilab/commitlint-config [8.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@7.0.0...@anolilab/commitlint-config@8.0.0) (2025-12-22)
 
 ### Bug Fixes
 
-* update package versions and configurations ([ad6cb2c](https://github.com/anolilab/javascript-style-guide/commit/ad6cb2c90ed4049ea8f136c583c0db1e477b20e7))
+* Update package versions and configurations ([ad6cb2c](https://github.com/anolilab/javascript-style-guide/commit/ad6cb2c90ed4049ea8f136c583c0db1e477b20e7))
 
 ### Styles
 
-* update package configurations and dependencies ([98475c5](https://github.com/anolilab/javascript-style-guide/commit/98475c5e5e7bc5d832ef10d3d723f75340223347))
+* Update package configurations and dependencies ([98475c5](https://github.com/anolilab/javascript-style-guide/commit/98475c5e5e7bc5d832ef10d3d723f75340223347))
 
 ### Miscellaneous Chores
 
-* update configuration and scripts ([5d6a44f](https://github.com/anolilab/javascript-style-guide/commit/5d6a44f99568b5f67939dfc52047fa742fd2bf58))
+* Update configuration and scripts ([5d6a44f](https://github.com/anolilab/javascript-style-guide/commit/5d6a44f99568b5f67939dfc52047fa742fd2bf58))
 
 ## @anolilab/commitlint-config [7.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.7...@anolilab/commitlint-config@7.0.0) (2025-12-10)
 
 ### Miscellaneous Chores
 
-* remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
+* Remove deprecated packages and update repository URLs ([0a3d423](https://github.com/anolilab/javascript-style-guide/commit/0a3d42307102047ac98d6a0c0ce46c7dfe5a6446))
 
 ## @anolilab/commitlint-config [6.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.6...@anolilab/commitlint-config@6.0.7) (2025-11-16)
 
@@ -61,63 +61,63 @@
 
 ### Miscellaneous Chores
 
-* **deps:** update dependency @commitlint/cli to v20 ([#942](https://github.com/anolilab/javascript-style-guide/issues/942)) ([cfa0bbf](https://github.com/anolilab/javascript-style-guide/commit/cfa0bbfe45e6f0052c4b2ce8c6b5cd4ec3c1d4b4))
+* **deps:** update dependency @commitlint/CLI to v20 ([#942](https://github.com/anolilab/javascript-style-guide/pull/942)) ([cfa0bbf](https://github.com/anolilab/javascript-style-guide/commit/cfa0bbfe45e6f0052c4b2ce8c6b5cd4ec3c1d4b4))
 
 ## @anolilab/commitlint-config [6.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.5...@anolilab/commitlint-config@6.0.6) (2025-10-14)
 
 ### Bug Fixes
 
-* update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
+* Update package versions and configurations ([55338c4](https://github.com/anolilab/javascript-style-guide/commit/55338c45d98042ea4616c4aa9b4fc6989889b1ac))
 
 ## @anolilab/commitlint-config [6.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.4...@anolilab/commitlint-config@6.0.5) (2025-10-02)
 
 ### Bug Fixes
 
-* update commitlint-config to use pnpm preset and add sideEffects flag ([b07ec8d](https://github.com/anolilab/javascript-style-guide/commit/b07ec8db738fde1e12944a9b0cc4e2363f1b4139))
+* Update commitlint-config to use pnpm preset and add sideEffects flag ([b07ec8d](https://github.com/anolilab/javascript-style-guide/commit/b07ec8db738fde1e12944a9b0cc4e2363f1b4139))
 
 ## @anolilab/commitlint-config [6.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.3...@anolilab/commitlint-config@6.0.4) (2025-10-02)
 
 ### Bug Fixes
 
-* add Prettier configuration and ignore files for commitlint-config ([3ee035c](https://github.com/anolilab/javascript-style-guide/commit/3ee035c7ab0ab4900430634f303be475476486e5))
+* Add Prettier configuration and ignore files for commitlint-config ([3ee035c](https://github.com/anolilab/javascript-style-guide/commit/3ee035c7ab0ab4900430634f303be475476486e5))
 
 ### Miscellaneous Chores
 
 * **deps:** update package dependencies to latest versions ([028b723](https://github.com/anolilab/javascript-style-guide/commit/028b7237222bfddb4f4ce43a1247f5a3ed9f2c68))
-* update @visulima/packem to version 2.0.0-alpha.19 and add eslint-plugin-erasable-syntax-only@0.3.1\n\n- Updated all instances of @visulima/packem to the latest alpha version.\n- Added new dependency eslint-plugin-erasable-syntax-only for enhanced linting capabilities.\n- Updated devDependencies in various package.json files to ensure consistency across configurations. ([0d62091](https://github.com/anolilab/javascript-style-guide/commit/0d620916bbabb0d64266136978c0b038844e3bc7))
+* Update @visulima/packem to version 2.0.0-alpha.19 and add eslint-plugin-erasable-syntax-only@0.3.1\n\n- Updated all instances of @visulima/packem to the latest alpha version.\n- Added new dependency eslint-plugin-erasable-syntax-only for enhanced linting capabilities.\n- Updated devDependencies in various package.json files to ensure consistency across configurations. ([0d62091](https://github.com/anolilab/javascript-style-guide/commit/0d620916bbabb0d64266136978c0b038844e3bc7))
 
 ## @anolilab/commitlint-config [6.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.2...@anolilab/commitlint-config@6.0.3) (2025-09-05)
 
 ### Bug Fixes
 
-* update commitlint-config package.json and packem.config.ts ([f755ccc](https://github.com/anolilab/javascript-style-guide/commit/f755ccc6d397d2499dbbb28163702429639409c2))
+* Update commitlint-config package.json and packem.config.ts ([f755ccc](https://github.com/anolilab/javascript-style-guide/commit/f755ccc6d397d2499dbbb28163702429639409c2))
 
 ### Miscellaneous Chores
 
-* update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
-* update dependencies and versions across packages ([edf84af](https://github.com/anolilab/javascript-style-guide/commit/edf84af6f9ff9a290c4e3705f3466068777e9992))
-* update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
+* Update dependencies across packages ([db14c14](https://github.com/anolilab/javascript-style-guide/commit/db14c14d94b2e21e8c23791b9dc83c391b1a9a87))
+* Update dependencies and versions across packages ([edf84af](https://github.com/anolilab/javascript-style-guide/commit/edf84af6f9ff9a290c4e3705f3466068777e9992))
+* Update dependencies and versions across packages ([48812ea](https://github.com/anolilab/javascript-style-guide/commit/48812ea5c4de5833636b2ed3b7302a35120aba3a))
 
 ## @anolilab/commitlint-config [6.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.1...@anolilab/commitlint-config@6.0.2) (2025-07-11)
 
 ### Bug Fixes
 
-* update package versions in commitlint-config ([ffbf2c7](https://github.com/anolilab/javascript-style-guide/commit/ffbf2c7c56161bab28de69c499887c486d34c177))
+* Update package versions in commitlint-config ([ffbf2c7](https://github.com/anolilab/javascript-style-guide/commit/ffbf2c7c56161bab28de69c499887c486d34c177))
 
 ### Miscellaneous Chores
 
 * **deps:** enhance package.json exports and add validation rules ([abd7693](https://github.com/anolilab/javascript-style-guide/commit/abd76936ff0c22be7936c5cecfaa13658c435b6d))
-* updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
+* Updated dev deps ([e564609](https://github.com/anolilab/javascript-style-guide/commit/e564609d20d40f7db705f32fcb4060359aec9a08))
 
 ## @anolilab/commitlint-config [6.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@6.0.0...@anolilab/commitlint-config@6.0.1) (2025-05-31)
 
 ### Bug Fixes
 
-* **deps:** update minor updates (minor) ([#896](https://github.com/anolilab/javascript-style-guide/issues/896)) ([d5132c8](https://github.com/anolilab/javascript-style-guide/commit/d5132c8e59df185331772917e8216c78a97e47be))
+* **deps:** update minor updates (minor) ([#896](https://github.com/anolilab/javascript-style-guide/pull/896)) ([d5132c8](https://github.com/anolilab/javascript-style-guide/commit/d5132c8e59df185331772917e8216c78a97e47be))
 
 ### Miscellaneous Chores
 
-* add new linting scripts and update dependencies ([655a866](https://github.com/anolilab/javascript-style-guide/commit/655a86641903f157e4d8a4dc69d0f44448fa7cc9))
+* Add new linting scripts and update dependencies ([655a866](https://github.com/anolilab/javascript-style-guide/commit/655a86641903f157e4d8a4dc69d0f44448fa7cc9))
 
 ## @anolilab/commitlint-config [6.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.3...@anolilab/commitlint-config@6.0.0) (2025-05-26)
 
@@ -137,22 +137,22 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Miscellaneous Chores
 
-* **deps:** update commitlint monorepo to ^18.4.4 (patch) ([#812](https://github.com/anolilab/javascript-style-guide/issues/812)) ([c3a8140](https://github.com/anolilab/javascript-style-guide/commit/c3a8140da4a8b5b21453172c8a07bedc9c1f0b1f))
-* remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
-* update commitlint-config dependencies to latest versions ([3ea318f](https://github.com/anolilab/javascript-style-guide/commit/3ea318ffa52ee17147213caba02944e9158fa3bd))
-* update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
-* updated dev dependencies ([89cb5c7](https://github.com/anolilab/javascript-style-guide/commit/89cb5c72b14fc27041783804f1098c2ecfc3cc33))
+* **deps:** update commitlint monorepo to ^18.4.4 (patch) ([#812](https://github.com/anolilab/javascript-style-guide/pull/812)) ([c3a8140](https://github.com/anolilab/javascript-style-guide/commit/c3a8140da4a8b5b21453172c8a07bedc9c1f0b1f))
+* Remove deprecated ESLint and Prettier configurations, update project structure and dependencies ([7b269ed](https://github.com/anolilab/javascript-style-guide/commit/7b269eda93e7dbede5fbdb536dec518dab2bc54b))
+* Update commitlint-config dependencies to latest versions ([3ea318f](https://github.com/anolilab/javascript-style-guide/commit/3ea318ffa52ee17147213caba02944e9158fa3bd))
+* Update node engine compatibility across multiple packages ([8755783](https://github.com/anolilab/javascript-style-guide/commit/8755783d4be3199bd602ede7d83628f83be3f358))
+* Updated dev dependencies ([89cb5c7](https://github.com/anolilab/javascript-style-guide/commit/89cb5c72b14fc27041783804f1098c2ecfc3cc33))
 
 ### Continuous Integration
 
-* fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
+* Fixed build workflow ([622591f](https://github.com/anolilab/javascript-style-guide/commit/622591f129fea0d30129d45346e49795169accd2))
 
 ## @anolilab/commitlint-config [5.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@5.0.2...@anolilab/commitlint-config@5.0.3) (2023-12-22)
 
 
 ### Bug Fixes
 
-* dep update ([5f6245c](https://github.com/anolilab/javascript-style-guide/commit/5f6245c1dd9a66b487887bb801ef823b07f0f8f3))
+* Dep update ([5f6245c](https://github.com/anolilab/javascript-style-guide/commit/5f6245c1dd9a66b487887bb801ef823b07f0f8f3))
 
 
 
@@ -165,7 +165,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* allow node 21 ([e95c9f7](https://github.com/anolilab/javascript-style-guide/commit/e95c9f70fb7d1ffa7c27e3d07067606b9b91bf54))
+* Allow node 21 ([e95c9f7](https://github.com/anolilab/javascript-style-guide/commit/e95c9f70fb7d1ffa7c27e3d07067606b9b91bf54))
 
 
 
@@ -179,7 +179,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* update package deps ([8d87ed0](https://github.com/anolilab/javascript-style-guide/commit/8d87ed044dd78658045c99b61f91d0594da21009))
+* Update package deps ([8d87ed0](https://github.com/anolilab/javascript-style-guide/commit/8d87ed044dd78658045c99b61f91d0594da21009))
 
 
 ### Miscellaneous Chores
@@ -199,12 +199,12 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### ⚠ BREAKING CHANGES
 
-* updated semantic-release to v22 and conventional-changelog-conventionalcommits to v7
+* Updated semantic-release to v22 and conventional-changelog-conventionalcommits to v7
 Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Features
 
-* updated semantic-release to v22 and conventional-changelog-conventionalcommits to v7 ([16bf1fc](https://github.com/anolilab/javascript-style-guide/commit/16bf1fc072e2f0646d41e389d6e8082a53e74596))
+* Updated semantic-release to v22 and conventional-changelog-conventionalcommits to v7 ([16bf1fc](https://github.com/anolilab/javascript-style-guide/commit/16bf1fc072e2f0646d41e389d6e8082a53e74596))
 
 
 
@@ -244,12 +244,12 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* Various project dependencies have been updated to their respective newer versions. This covers multiple packages such as '@babel/cli', '@babel/core', '@nrwl/js', and 'eslint' among others within the package.json file. This upgrade is necessary to ensure the utilization of the most recent features, optimization and security improvements of the updated packages, and it also helps to maintain overall project consistency. ([38535ab](https://github.com/anolilab/javascript-style-guide/commit/38535abf2557680e3f22e1ff74372764ca11c2f1))
+* Various project dependencies have been updated to their respective newer versions. This covers multiple packages such as ’@babel/CLI’, ’@babel/core’, ’@nrwl/js’, and ’eslint' among others within the package.json file. This upgrade is necessary to ensure the utilization of the most recent features, optimization, and security improvements of the updated packages, and it also helps to maintain overall project consistency. ([38535ab](https://github.com/anolilab/javascript-style-guide/commit/38535abf2557680e3f22e1ff74372764ca11c2f1))
 
 
 ### Styles
 
-* cs fixes ([e053d90](https://github.com/anolilab/javascript-style-guide/commit/e053d90a4ab7a6466699c17d5afec1a7adc2459d))
+* Cs fixes ([e053d90](https://github.com/anolilab/javascript-style-guide/commit/e053d90a4ab7a6466699c17d5afec1a7adc2459d))
 
 
 
@@ -271,22 +271,22 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### ⚠ BREAKING CHANGES
 
-* update conventional-changelog-conventionalcommits to v7 (was reverted)
+* Update conventional-changelog-conventionalcommits to v7 (was reverted)
 Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Features
 
-* updated conventional-changelog-conventionalcommits to v7 ([3fd9b04](https://github.com/anolilab/javascript-style-guide/commit/3fd9b04d933ee8a017d1f309a64c42e1c3dc58eb))
+* Updated conventional-changelog-conventionalcommits to v7 ([3fd9b04](https://github.com/anolilab/javascript-style-guide/commit/3fd9b04d933ee8a017d1f309a64c42e1c3dc58eb))
 
 
 ### Miscellaneous Chores
 
-* update package versions and Node.js versions in actions ([ba1bd5f](https://github.com/anolilab/javascript-style-guide/commit/ba1bd5fbdb5a053b7b2929c189486399012d58bc))
+* Update package versions and Node.js versions in actions ([ba1bd5f](https://github.com/anolilab/javascript-style-guide/commit/ba1bd5fbdb5a053b7b2929c189486399012d58bc))
 
 
 ### Continuous Integration
 
-* downgrade semantic-release to v21 and conventional-changelog-conventionalcommits to v6.1 ([30d8cd7](https://github.com/anolilab/javascript-style-guide/commit/30d8cd78dae211ed4566c7d23f5b85b696cbae13))
+* Downgrade semantic-release to v21 and conventional-changelog-conventionalcommits to v6.1 ([30d8cd7](https://github.com/anolilab/javascript-style-guide/commit/30d8cd78dae211ed4566c7d23f5b85b696cbae13))
 
 
 
@@ -299,12 +299,12 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* update dependencies ([72eabc7](https://github.com/anolilab/javascript-style-guide/commit/72eabc78c68be9778ac3e06ec4c2abb982da0636))
+* Update dependencies ([72eabc7](https://github.com/anolilab/javascript-style-guide/commit/72eabc78c68be9778ac3e06ec4c2abb982da0636))
 
 
 ### Styles
 
-* cs fixes based on new rules ([b99c020](https://github.com/anolilab/javascript-style-guide/commit/b99c020b9f61f2517acd65b4d1a9f3d1f15812b1))
+* Cs fixes based on new rules ([b99c020](https://github.com/anolilab/javascript-style-guide/commit/b99c020b9f61f2517acd65b4d1a9f3d1f15812b1))
 
 
 ### Miscellaneous Chores
@@ -323,8 +323,8 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 ### Bug Fixes
 
 * **deps:** update dependency conventional-changelog-conventionalcommits to v7 ([#749](https://github.com/anolilab/javascript-style-guide/issues/749)) ([ca57778](https://github.com/anolilab/javascript-style-guide/commit/ca5777809d0c1087dabb1ae191c7466c086b09e9)) (reverted)
-* fix for https://github.com/semantic-release/semantic-release/issues/2929 ([05c0392](https://github.com/anolilab/javascript-style-guide/commit/05c0392c4a564cbf556f6d5dfab46919002cad48))
-* updated dependencies to latest versions ([509bb76](https://github.com/anolilab/javascript-style-guide/commit/509bb763780a2fa85a275d8e91cc0525cc57e29f))
+* Fix for https://github.com/semantic-release/semantic-release/issues/2929 ([05c0392](https://github.com/anolilab/javascript-style-guide/commit/05c0392c4a564cbf556f6d5dfab46919002cad48))
+* Updated dependencies to latest versions ([509bb76](https://github.com/anolilab/javascript-style-guide/commit/509bb763780a2fa85a275d8e91cc0525cc57e29f))
 
 
 ### Miscellaneous Chores
@@ -343,7 +343,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
+* Upgrade project dependencies to latest versions ([340ff87](https://github.com/anolilab/javascript-style-guide/commit/340ff87dfe01ca4c7a21536c26c6dd703afc62f7))
 
 
 
@@ -371,7 +371,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* included 'skip.js' in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
+* Included ’skip.js’ in package.json for several packages ([1c84b33](https://github.com/anolilab/javascript-style-guide/commit/1c84b33435abc75666214632eba4566f36c78e1a))
 
 
 
@@ -397,13 +397,13 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### ⚠ BREAKING CHANGES
 
-* fixing broken releases that semantic-release did create
+* Fixing broken releases that semantic-release did create
 Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
-* update node version ([9a22309](https://github.com/anolilab/javascript-style-guide/commit/9a22309775cd2219320eed903ac3e22f66ffbe94))
+* Fixed broken releases ([d46de22](https://github.com/anolilab/javascript-style-guide/commit/d46de22a999cc09cc46f9a4d4e7682441705a861))
+* Update node version ([9a22309](https://github.com/anolilab/javascript-style-guide/commit/9a22309775cd2219320eed903ac3e22f66ffbe94))
 
 
 ### Miscellaneous Chores
@@ -463,7 +463,7 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* updated lock, updated @anolilab/package-json-utils and removed baseUrl in the tsconfig that was in the wrong place ([cb08fb5](https://github.com/anolilab/javascript-style-guide/commit/cb08fb5f9fa15f0134327f89f1908199fddaa327))
+* Updated lock, updated @anolilab/package-json-utils and removed baseUrl in the tsconfig that was in the wrong place ([cb08fb5](https://github.com/anolilab/javascript-style-guide/commit/cb08fb5f9fa15f0134327f89f1908199fddaa327))
 
 ## @anolilab/commitlint-config [1.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@1.0.1...@anolilab/commitlint-config@1.0.2) (2023-06-28)
 
@@ -483,15 +483,15 @@ Signed-off-by: prisis <d.bannert@anolilab.de>
 
 ### Bug Fixes
 
-* fixed wrong package inside postinstall, added info how to use cz ([b74d369](https://github.com/anolilab/javascript-style-guide/commit/b74d36993dd26f59caec74c6e17e6ce96e5f45b7))
+* Fixed wrong package inside postinstall, added info how to use cz ([b74d369](https://github.com/anolilab/javascript-style-guide/commit/b74d36993dd26f59caec74c6e17e6ce96e5f45b7))
 
 ## @anolilab/commitlint-config 1.0.0 (2023-06-23)
 
 
 ### Features
 
-* create commitlint-config package ([ef83403](https://github.com/anolilab/javascript-style-guide/commit/ef83403ccd4123f5a8fd6967b0c59261377e079c))
-* removed eslint-plugin-optimize-regex, using the unicorn rule for it ([3fea9de](https://github.com/anolilab/javascript-style-guide/commit/3fea9de9fc88713d40dffa66daa8b835210ae3ba))
+* Create commitlint-config package ([ef83403](https://github.com/anolilab/javascript-style-guide/commit/ef83403ccd4123f5a8fd6967b0c59261377e079c))
+* Removed eslint-plugin-optimize-regex, using the unicorn rule for it ([3fea9de](https://github.com/anolilab/javascript-style-guide/commit/3fea9de9fc88713d40dffa66daa8b835210ae3ba))
 
 
 

@@ -37,17 +37,17 @@
 ## Propose
 
 Our package offers a comprehensive collection of opinionated, yet adaptable configurations for [stylelint](https://stylelint.io/).
-These configurations are designed to empower developers in achieving consistent code styling and mitigating common errors. Here's what our package brings to the table:
+These configurations are designed to empower developers in achieving consistent code styling and mitigating common errors. Here’s what our package brings to the table:
 
-- A Strong Foundation for Code Styling: We provide a robust starting point for your project's code styling. Our configurations serve as a solid foundation that can be effortlessly extended and modified according to your specific needs. With this flexibility, you can easily tailor the styling rules to align with your project's requirements.
+- A Strong Foundation for Code Styling: We provide a robust starting point for your project’s code styling. Our configurations serve as a solid foundation that can be effortlessly extended and modified according to your specific needs. With this flexibility, you can easily tailor the styling rules to align with your project’s requirements.
 
-- Enforcing Best Practices: Our package ensures adherence to widely accepted best practices for CSS development. By enforcing consistent indentation, discouraging the use of vendor prefixes, and discouraging unnecessary specificity, we promote cleaner and more maintainable code. These practices help streamline collaboration and enhance the readability of your stylesheets.
+- Enforcing Best Practices: Our package ensures adherence to widely accepted best practices for CSS development. By enforcing consistent indentation, discouraging the use of vendor prefixes, and discouraging unnecessary specificity, we promote cleaner, and more maintainable code. These practices help streamline collaboration and enhance the readability of your stylesheets.
 
-- Error Prevention: Our configurations are equipped to catch common errors that can often go unnoticed. We help you identify and rectify issues like missing units for numeric values, usage of invalid colors, and utilization of unsupported or deprecated CSS features. By proactively highlighting these errors, we aid in improving the overall quality and compatibility of your stylesheets.
+- Error Prevention: Our configurations are equipped to catch common errors that can often go unnoticed. We help you identify and rectify issues like missing units for numeric values, usage of invalid colors, and utilization of unsupported or deprecated CSS features. By proactively highlighting these errors, we aid in improving the overall quality, and compatibility of your stylesheets.
 
-- Consistency Across Codebase: Maintaining consistency throughout your codebase is essential for a polished end result. Our package plays a pivotal role in achieving this objective. By providing clear and consistent rules for code styling, we empower developers to adhere to a unified approach. This not only enhances readability but also simplifies maintenance and collaboration within your team.
+- Consistency Across Codebase: Maintaining consistency throughout your codebase is essential for a polished end result. Our package plays a pivotal role in achieving this objective. By providing clear and consistent rules for code styling, we empower developers to adhere to a unified approach. This not only enhances readability but also simplifies maintenance, and collaboration within your team.
 
-In summary, our package equips developers with opinionated yet flexible stylelint configurations. By ensuring consistent code styling and error prevention, we streamline the development process and foster a more efficient and harmonious coding environment.
+In summary, our package equips developers with opinionated yet flexible stylelint configurations. By ensuring consistent code styling, and error prevention, we streamline the development process and foster a more efficient and harmonious coding environment.
 
 ## Install
 
@@ -65,7 +65,7 @@ pnpm add @anolilab/stylelint-config
 
 ## Usage
 
-If you don't have a `.stylelintrc.js` or the other supported file names and `.stylelintignore`, we can create the file for you after installing `@anolilab/stylelint-config`, call `pnpm stylelint-config:install`.
+If you don’t have a `.stylelintrc.js` or the other supported filenames and `.stylelintignore`, we can create the file for you after installing `@anolilab/stylelint-config`, call `pnpm stylelint-config:install`.
 
 > Note: If the script detects an existing `.stylelintrc.js` file, it will not overwrite it.
 
@@ -97,7 +97,7 @@ pnpm pkg set scripts.lint:css:fix="pnpm run lint:css --fix"
 
 > For `npm` users, replace `pnpm` with `npm` in the above command.
 
-or copy the following to your `package.json`:
+Or copy the following to your `package.json`:
 
 ```json
 {
@@ -108,7 +108,7 @@ or copy the following to your `package.json`:
 }
 ```
 
-This will run `stylelint` on all defined files in your app's directory and its subdirectories.
+This will run `stylelint` on all defined files in your app’s directory and its subdirectories.
 You can customize the files and directories to be linted as needed.
 
 > Note: this package use `browserslist` to detect the correct browserslist config.
@@ -132,9 +132,9 @@ The package exports the following configurations, to create your own configurati
 
 ## Supported Node.js Versions
 
-Libraries in this ecosystem make the best effort to track [Node.js' release schedule](https://github.com/nodejs/release#release-schedule).
+Libraries in this ecosystem make the best effort to track [Node.js’ release schedule](https://github.com/nodejs/release#release-schedule).
 
-Here's [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
+Here’s [a post on why we think this is important](https://medium.com/the-node-js-collection/maintainers-should-consider-following-node-js-release-schedule-ab08ed4de71a).
 
 ## Contributing
 
@@ -150,7 +150,7 @@ If you would like to help take a look at the [list of issues](https://github.com
 
 ## Made with ❤️ at Anolilab
 
-This is an open source project and will always remain free to use. If you think it's cool, please star it 🌟. [Anolilab](https://www.anolilab.com/open-source) is a Development and AI Studio. Contact us at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or just want to say hi!
+This is an open source project and will always remain free to use. If you think it’s cool, please star it 🌟. [Anolilab](https://anolilab.com/open-source) is a Development and AI Studio. Contact  at [hello@anolilab.com](mailto:hello@anolilab.com) if you need any help with these technologies or  want to say hi!
 
 ## License
 
@@ -165,7 +165,7 @@ The anolilab stylelint-config is open-sourced software licensed under the [MIT][
 [prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [chat-badge]: https://img.shields.io/discord/902465130518949899.svg?style=for-the-badge
-[chat]: https://discord.gg/4VuvwWGaaB
+[chat]: https://discord.com/invite/4VuvwWGaaB
 [typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: https://www.typescriptlang.org/
 [license-url]: https://opensource.org/licenses/MIT

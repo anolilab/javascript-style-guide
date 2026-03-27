@@ -96,14 +96,14 @@ jobs:
                   separator: ","
 
             - name: "Build"
-              run: "pnpm run build:affected:packages --files=${{ steps.files.outputs.all_changed_files }}"
+              run: "pnpm run build:affected:packages --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
             - name: "lint eslint"
-              run: "pnpm run lint:affected:eslint --files=${{ steps.files.outputs.all_changed_files }}"
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+              run: "pnpm run lint:affected:eslint --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
     package-json-lint:
         if: "needs.files-changed.outputs.package_json_lintable == 'true'"
@@ -148,14 +148,14 @@ jobs:
                   separator: ","
 
             - name: "Build"
-              run: "pnpm run build:affected:packages --files=${{ steps.files.outputs.all_changed_files }}"
+              run: "pnpm run build:affected:packages --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
             - name: "lint package.json"
-              run: "pnpm run lint:affected:package-json --files=${{ steps.files.outputs.all_changed_files }}"
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+              run: "pnpm run lint:affected:package-json --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
     types-lint:
         if: "needs.files-changed.outputs.frontend_lintable == 'true'"
@@ -200,14 +200,14 @@ jobs:
                   separator: ","
 
             - name: "Build"
-              run: "pnpm run build:affected:packages --files=${{ steps.files.outputs.all_changed_files }}"
+              run: "pnpm run build:affected:packages --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
             - name: "lint typescript files"
-              run: "pnpm run lint:affected:types --files=${{ steps.files.outputs.all_changed_files }}"
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+              run: "pnpm run lint:affected:types --files=$CHANGED_FILES"
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
     yaml-lint:
         if: "needs.files-changed.outputs.yaml_lintable == 'true'"
@@ -237,6 +237,7 @@ jobs:
     lint-workflows:
         if: "needs.files-changed.outputs.yaml_lintable == 'true'"
         needs: "files-changed"
+        name: "Lint Workflows"
         runs-on: "ubuntu-latest"
         steps:
             - name: "Harden Runner"
@@ -294,10 +295,6 @@ jobs:
 
             - name: "lint"
               run: "pnpm run lint:text"
-              continue-on-error: true
-
-            - name: "skipping markdown lint for now"
-              run: "exit 0"
 
     # This check runs once all dependant jobs have passed
     # It symbolizes that all required checks have successfully passed (Or skipped)

@@ -16,6 +16,10 @@ on: # yamllint disable-line rule:truthy
 permissions:
     contents: "read" # for checkout
 
+concurrency:
+    group: semantic-release
+    cancel-in-progress: false
+
 jobs:
     semantic-release:
         name: "Semantic Release"
@@ -49,6 +53,7 @@ jobs:
               with:
                   fetch-depth: 0
                   token: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
+                  persist-credentials: false
               env:
                   GIT_COMMITTER_NAME: "GitHub Actions Shell"
                   GIT_AUTHOR_NAME: "GitHub Actions Shell"
@@ -63,13 +68,6 @@ jobs:
 
             - name: "Build Production"
               run: "pnpm run build:packages:prod"
-
-            - name: "test and coverage"
-              run: "pnpm run test:all"
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
 
             - name: "Semantic Release"
               if: "success()"

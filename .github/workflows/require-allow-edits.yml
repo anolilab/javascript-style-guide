@@ -7,12 +7,13 @@ permissions:
 
 jobs:
     check_allow_edits:
+        if: “github.event_name == 'pull_request_target'”
         permissions:
-            pull-requests: "read" # for ljharb/require-allow-edits to check 'allow edits' on PR
+            pull-requests: “read” # for ljharb/require-allow-edits to check 'allow edits' on PR
 
-        name: "Require “Allow Edits”"
+        name: “Require “Allow Edits””
 
-        runs-on: "ubuntu-latest"
+        runs-on: “ubuntu-latest”
 
         steps:
             - name: "Harden Runner"

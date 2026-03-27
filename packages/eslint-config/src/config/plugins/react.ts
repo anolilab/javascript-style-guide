@@ -1,3 +1,4 @@
+import { fixupPluginRules } from "@eslint/compat";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
@@ -107,10 +108,6 @@ export default createConfig<
         // Disallow unused props
         // https://eslint-react.xyz/docs/rules/no-unused-props
         "react-x/no-unused-props": "error",
-
-        // Enforces read-only props in components
-        // https://eslint-react.xyz/docs/rules/prefer-read-only-props
-        "react-x/prefer-read-only-props": "error",
     };
 
     const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerf, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
@@ -201,7 +198,7 @@ export default createConfig<
         {
             name: "anolilab/react/setup",
             plugins: {
-                react: pluginReact,
+                react: fixupPluginRules(pluginReact),
 
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
@@ -408,10 +405,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-create-ref
                 "react-x/no-create-ref": "error",
 
-                // Disallow defaultProps property in favor of ES6 default parameters
-                // https://eslint-react.xyz/docs/rules/no-default-props
-                "react-x/no-default-props": "error",
-
                 // Disallow direct mutation of this.state
                 // https://eslint-react.xyz/docs/rules/no-direct-mutation-state
                 "react-x/no-direct-mutation-state": "error",
@@ -453,10 +446,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations
                 "react-x/no-nested-lazy-component-declarations": "error",
 
-                // Disallow propTypes in favor of TypeScript or another type-checking solution
-                // https://eslint-react.xyz/docs/rules/no-prop-types
-                "react-x/no-prop-types": "error",
-
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
                 "react-x/no-redundant-should-component-update": "error",
@@ -472,10 +461,6 @@ export default createConfig<
                 // Disallow calling this.setState in componentWillUpdate outside of functions, such as callbacks
                 // https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update
                 "react-x/no-set-state-in-component-will-update": "error",
-
-                // Replaces string refs with callback refs
-                // https://eslint-react.xyz/docs/rules/no-string-refs
-                "react-x/no-string-refs": "error",
 
                 // Disallow unnecessary usage of useCallback
                 // https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback
@@ -517,10 +502,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-use-context
                 "react-x/no-use-context": "error",
 
-                // Disallow useless forwardRef calls on components that don't use refs
-                // https://eslint-react.xyz/docs/rules/no-useless-forward-ref
-                "react-x/no-useless-forward-ref": "error",
-
                 // Disallow useless fragment elements
                 // https://eslint-react.xyz/docs/rules/no-useless-fragment
                 "react-x/no-useless-fragment": "off",
@@ -528,10 +509,6 @@ export default createConfig<
                 // Enforces destructuring assignment for component props and context
                 // https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment
                 "react-x/prefer-destructuring-assignment": "off",
-
-                // Enforces read-only props in components
-                // https://eslint-react.xyz/docs/rules/prefer-read-only-props
-                "react-x/prefer-read-only-props": "off",
 
                 // Disallow direct calls to the set function of useState in useEffect
                 // https://eslint-react.xyz/docs/rules/set-state-in-effect

@@ -9,6 +9,20 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
     const [pluginYaml, parserYaml] = await Promise.all([interopDefault(import("eslint-plugin-yml")), interopDefault(import("yaml-eslint-parser"))] as const);
 
+    const prettierRules: Rules = {};
+
+    if (prettier) {
+        const prettierConfig = pluginYaml.configs.prettier;
+
+        if (Array.isArray(prettierConfig)) {
+            (prettierConfig as { rules?: Rules }[]).forEach((cfg) => {
+                Object.assign(prettierRules, cfg.rules);
+            });
+        } else {
+            Object.assign(prettierRules, (prettierConfig as { rules?: Rules }).rules);
+        }
+    }
+
     return [
         {
             files,
@@ -53,7 +67,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     }
                     : {},
 
-                ...prettier ? (pluginYaml.configs.prettier.rules as unknown as Rules) : {},
+                ...prettierRules,
 
                 ...overrides,
             },

@@ -1,3 +1,4 @@
+import { fixupPluginRules } from "@eslint/compat";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
@@ -107,10 +108,6 @@ export default createConfig<
         // Disallow unused props
         // https://eslint-react.xyz/docs/rules/no-unused-props
         "react-x/no-unused-props": "error",
-
-        // Enforces read-only props in components
-        // https://eslint-react.xyz/docs/rules/prefer-read-only-props
-        "react-x/prefer-read-only-props": "error",
     };
 
     const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerf, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
@@ -201,12 +198,11 @@ export default createConfig<
         {
             name: "anolilab/react/setup",
             plugins: {
-                react: pluginReact,
+                react: fixupPluginRules(pluginReact),
 
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
 
-                "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
                 "react-naming-convention": plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
@@ -272,10 +268,6 @@ export default createConfig<
                     },
                 ],
 
-                // Disallow direct calls to the set function of useState in useEffect
-                // https://eslint-react.xyz/docs/rules/no-direct-set-state-in-use-effect
-                "react-hooks-extra/no-direct-set-state-in-use-effect": "error",
-
                 // Enforce Rules of Hooks
                 // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
                 "react-hooks/exhaustive-deps": "error",
@@ -284,21 +276,9 @@ export default createConfig<
                 // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
                 "react-hooks/rules-of-hooks": "error",
 
-                // Enforces naming conventions for components
-                // https://eslint-react.xyz/docs/rules/naming-convention-component-name
-                "react-naming-convention/component-name": "error",
-
                 // Enforces context name to be a valid component name with the suffix Context
                 // https://eslint-react.xyz/docs/rules/naming-convention-context-name
                 "react-naming-convention/context-name": "error",
-
-                // Enforces consistent file naming conventions
-                // https://eslint-react.xyz/docs/rules/naming-convention-filename
-                "react-naming-convention/filename": "off",
-
-                // Enforces naming conventions for useState
-                // https://eslint-react.xyz/docs/rules/naming-convention-use-state
-                "react-naming-convention/use-state": "error",
 
                 // react refresh
                 // Disabled for TanStack Router/Start: route files export Route objects,
@@ -350,20 +330,12 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
                 "react-web-api/no-leaked-timeout": "error",
 
-                // React-X Rules
-                // https://eslint-react.xyz/docs/rules
-
                 // Enforces that the key attribute is placed before the spread attribute in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-key-before-spread
                 "react-x/jsx-key-before-spread": "error",
 
-                // Disallow duplicate props in JSX elements
-                // https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
-                "react-x/jsx-no-duplicate-props": "error",
-
-                // Disallow undefined variables in JSX elements
-                // https://eslint-react.xyz/docs/rules/jsx-no-undef
-                "react-x/jsx-no-undef": "off",
+                // React-X Rules
+                // https://eslint-react.xyz/docs/rules
 
                 // Enforces a consistent style for boolean attributes
                 // https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
@@ -372,14 +344,6 @@ export default createConfig<
                 // Enforces a consistent style for React Fragments
                 // https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
                 "react-x/jsx-shorthand-fragment": "error",
-
-                // Marks React variables as used when JSX is used
-                // https://eslint-react.xyz/docs/rules/jsx-uses-react
-                "react-x/jsx-uses-react": hasJsxRuntime ? "off" : "error",
-
-                // Marks variables used in JSX elements as used
-                // https://eslint-react.xyz/docs/rules/jsx-uses-vars
-                "react-x/jsx-uses-vars": "error",
 
                 // Disallow accessing this.state inside setState calls
                 // https://eslint-react.xyz/docs/rules/no-access-state-in-setstate
@@ -441,10 +405,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-create-ref
                 "react-x/no-create-ref": "error",
 
-                // Disallow defaultProps property in favor of ES6 default parameters
-                // https://eslint-react.xyz/docs/rules/no-default-props
-                "react-x/no-default-props": "error",
-
                 // Disallow direct mutation of this.state
                 // https://eslint-react.xyz/docs/rules/no-direct-mutation-state
                 "react-x/no-direct-mutation-state": "error",
@@ -486,10 +446,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations
                 "react-x/no-nested-lazy-component-declarations": "error",
 
-                // Disallow propTypes in favor of TypeScript or another type-checking solution
-                // https://eslint-react.xyz/docs/rules/no-prop-types
-                "react-x/no-prop-types": "error",
-
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
                 "react-x/no-redundant-should-component-update": "error",
@@ -506,16 +462,12 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update
                 "react-x/no-set-state-in-component-will-update": "error",
 
-                // Replaces string refs with callback refs
-                // https://eslint-react.xyz/docs/rules/no-string-refs
-                "react-x/no-string-refs": "error",
-
                 // Disallow unnecessary usage of useCallback
                 // https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback
                 "react-x/no-unnecessary-use-callback": "error",
 
                 // Disallow unnecessary usage of useMemo
-                // https://eslint-react.xyz/docs/rules/react-hooks-extra/no-unnecessary-use-memo
+                // https://eslint-react.xyz/docs/rules/no-unnecessary-use-memo
                 "react-x/no-unnecessary-use-memo": "error",
 
                 // Warns the usage of UNSAFE_componentWillMount in class components
@@ -550,10 +502,6 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-use-context
                 "react-x/no-use-context": "error",
 
-                // Disallow useless forwardRef calls on components that don't use refs
-                // https://eslint-react.xyz/docs/rules/no-useless-forward-ref
-                "react-x/no-useless-forward-ref": "error",
-
                 // Disallow useless fragment elements
                 // https://eslint-react.xyz/docs/rules/no-useless-fragment
                 "react-x/no-useless-fragment": "off",
@@ -562,9 +510,9 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment
                 "react-x/prefer-destructuring-assignment": "off",
 
-                // Enforces read-only props in components
-                // https://eslint-react.xyz/docs/rules/prefer-read-only-props
-                "react-x/prefer-read-only-props": "off",
+                // Disallow direct calls to the set function of useState in useEffect
+                // https://eslint-react.xyz/docs/rules/set-state-in-effect
+                "react-x/set-state-in-effect": "error",
 
                 // Prevent missing displayName in a React component definition
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md
@@ -817,14 +765,12 @@ export default createConfig<
                     },
                 ],
 
-                // disallow using React.render/ReactDOM.render's return value
+                // Prevent React variables from being marked as unused when using JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-                // DISABLED: Handled by react-x/jsx-uses-react
                 "react/jsx-uses-react": "off",
 
-                // require a shouldComponentUpdate method, or PureRenderMixin
+                // Prevent variables used in JSX from being incorrectly marked as unused
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-                // DISABLED: Handled by react-x/jsx-uses-vars
                 "react/jsx-uses-vars": "off",
 
                 // warn against using findDOMNode()
@@ -1171,10 +1117,6 @@ export default createConfig<
             },
             name: "anolilab/react/jsx",
             rules: {
-                // Enforces consistent use of the JSX file extension.
-                // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
-                "react-naming-convention/filename-extension": ["error", "as-needed"],
-
                 // only .jsx files may have JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
                 "react/jsx-closing-tag-location": "error",

@@ -1,8 +1,8 @@
 name: "Preview Release"
 
 on: # yamllint disable-line rule:truthy
-    # eslint-disable-next-line yml/no-empty-mapping-value
-    pull_request: # yamllint disable-line rule:empty-values
+    pull_request:
+        types: ["opened", "synchronize", "reopened"]
 
 permissions:
     contents: "read" # to fetch code (actions/checkout)
@@ -64,12 +64,9 @@ jobs:
             - name: "Build"
               shell: "bash"
               run: |
-                  files="${{ steps.files.outputs.all_changed_files }}";
-                  pnpm run build:affected:prod:packages --files=${files//\\/\/}
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+                  pnpm run build:affected:prod:packages --files=${CHANGED_FILES//\\/\/}
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
             - name: "Preview Release"
               shell: "bash"

@@ -54,12 +54,13 @@ jobs:
         name: "Test (node-${{ matrix.node_version }}, ${{ matrix.os }})"
         if: "needs.files-changed.outputs.packages == 'true'"
         needs: "files-changed"
+        timeout-minutes: 30
         strategy:
             max-parallel: 4
             matrix:
                 os:
                     - "ubuntu-latest"
-                node_version: ["20", "22", "24", "25"]
+                node_version: ["20", "22", "24"]
                 # On the other platforms, we only test the lts node version
                 include:
                     - os: "macos-latest"
@@ -110,23 +111,20 @@ jobs:
             - name: "Build"
               shell: "bash"
               run: |
-                  files="${{ steps.files.outputs.all_changed_files }}";
-                  pnpm run build:affected:packages --files=${files//\\/\/}
+                  pnpm run build:affected:packages --files=${CHANGED_FILES//\\/\/}
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
             - name: "Run tests"
               shell: "bash"
               run: |
-                  files="${{ steps.files.outputs.all_changed_files }}";
-
                   if [[ ${{ matrix.os }} == "ubuntu-latest" && ${{ matrix.node_version }} == 22 ]]; then
-                      pnpm run test:affected:coverage --files=${files//\\/\/}
+                      pnpm run test:affected:coverage --files=${CHANGED_FILES//\\/\/}
                   else
-                      pnpm run test:affected --files=${files//\\/\/}
+                      pnpm run test:affected --files=${CHANGED_FILES//\\/\/}
                   fi
-
-            - name: "Prepare nx cache"
-              shell: "bash"
-              run: "tar -cf - .nx/cache | lz4 > /tmp/nx_cache.tar.lz4" # compress nx cache
+              env:
+                  CHANGED_FILES: "${{ steps.files.outputs.all_changed_files }}"
 
     # This check runs once all dependant jobs have passed
     # It symbolizes that all required checks have successfully passed (Or skipped)

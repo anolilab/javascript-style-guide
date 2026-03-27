@@ -23,6 +23,7 @@ const config = {
                 ignoreFunctions: ["theme"],
             },
         ],
+        // eslint-disable-next-line unicorn/no-null -- stylelint uses null to disable inherited rules
         "no-descending-specificity": null,
     },
 };

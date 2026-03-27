@@ -77,8 +77,8 @@
         "lint:secrets": "secretlint **/*",
         "lint:staged": "lint-staged --verbose --concurrent false --debug",
         "lint:styles": "stylelint",
-        "lint:text": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --cache --dry-run",
-        "lint:text:fix": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --parallel --experimental --fix",
+        "lint:text": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --experimental --cache --dry-run",
+        "lint:text:fix": "textlint ./.github/ ./packages/** ./README.md ./UPGRADE.md --experimental --fix",
         "lint:types": "nx run-many --target=lint:types --all --parallel",
         "sort-package-json": "sort-package-json packages/**/package.json apps/**/package.json ./package.json examples/**/package.json",
         "test:affected": "nx affected --target=test --parallel --exclude='*-bench,docs,storybook' --nxBail",
@@ -91,8 +91,7 @@
         "test:eslint-config": "pnpm --filter \"eslint-config\" run test",
         "test:lint-staged-config": "pnpm --filter \"lint-staged-config\" run test",
         "test:stylelint": "node scripts/is-not-windows.js || stylelint --formatter verbose --config packages/stylelint-config/index.mjs ./packages/stylelint-config/__tests__/css/**/*.css",
-        "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test",
-        "update:deps": "taze"
+        "test:stylelint-config": "pnpm --filter \"stylelint-config\" run test"
     },
     "dependencies": {
         "@anolilab/multi-semantic-release": "catalog:cli",
@@ -101,8 +100,6 @@
         "@commitlint/config-conventional": "catalog:lint",
         "@commitlint/core": "catalog:lint",
         "@secretlint/secretlint-rule-preset-recommend": "catalog:lint",
-        "@tsconfig/node16": "catalog:tsc",
-        "@tsconfig/strictest": "catalog:tsc",
         "@types/node": "catalog:types",
         "@vitest/coverage-v8": "catalog:test",
         "commitizen": "catalog:cli",
@@ -124,7 +121,6 @@
         "semantic-release": "catalog:cli",
         "sort-package-json": "catalog:prod",
         "stylelint": "catalog:lint",
-        "taze": "catalog:cli",
         "textlint": "catalog:lint",
         "typescript": "catalog:tsc",
         "vitest": "catalog:test"

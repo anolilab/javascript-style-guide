@@ -31,7 +31,8 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             name: "anolilab/sonarjs/rules",
             rules: {
                 ...sonarJsRecommendedRules,
-                "sonarjs/file-name-differ-from-class": "error",
+                // Disabled: v4 now fires on any primary export (not just classes), causing false positives on config files
+                "sonarjs/file-name-differ-from-class": "off",
                 "sonarjs/no-collapsible-if": "error",
                 "sonarjs/no-nested-template-literals": "off",
                 "sonarjs/no-tab": "error",

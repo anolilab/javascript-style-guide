@@ -12,6 +12,16 @@ const jsonc = async (
 
     const jsoncPlugin = await interopDefault(import("eslint-plugin-jsonc"));
 
+    const mergeConfigRules = (configs: Linter.Config[]): Linter.RulesRecord => {
+        const rules: Linter.RulesRecord = {};
+
+        (configs as { rules?: Linter.RulesRecord }[]).forEach((cfg) => {
+            Object.assign(rules, cfg.rules);
+        });
+
+        return rules;
+    };
+
     const hasSortPackageJson = hasPackageJsonAnyDependency(packageJson, ["sort-package-json"]);
 
     if (hasSortPackageJson && !silent) {
@@ -25,17 +35,17 @@ const jsonc = async (
         {
             files: ["**/*.json5"],
             name: "anolilab/jsonc/json5-rules",
-            rules: (jsoncPlugin.configs["recommended-with-json5"] as Linter.Config).rules,
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json5"]),
         },
         {
             files: ["**/*.jsonc"],
             name: "anolilab/jsonc/jsonc-rules",
-            rules: (jsoncPlugin.configs["recommended-with-jsonc"] as Linter.Config).rules,
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"]),
         },
         {
             files: ["**/*.json"],
             name: "anolilab/jsonc/json-rules",
-            rules: (jsoncPlugin.configs["recommended-with-json"] as Linter.Config).rules,
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json"]),
         },
         {
             files: ["package.json", "**/package.json"],
@@ -339,7 +349,7 @@ const jsonc = async (
         {
             files: ["**/renovate.json"],
             rules: {
-                ...jsoncPlugin.configs["recommended-with-jsonc"].rules,
+                ...mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"]),
                 "jsonc/comma-dangle": ["error", "never"],
                 "jsonc/no-comments": "off",
             },

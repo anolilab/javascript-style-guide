@@ -31,7 +31,7 @@ Check the README for each configuration within the `packages` directory for spec
 | [@anolilab/eslint-config](packages/eslint-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Feslint-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Feslint-config) | ESLint shareable config for the Anolilab JavaScript style guide. |
 | [@anolilab/lint-staged-config](packages/lint-staged-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Flint-staged-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Flint-staged-config) | Shareable Lint-Staged Config for any project. |
 | [@anolilab/prettier-config](packages/prettier-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Fprettier-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Fprettier-config) | Prettier shareable config for Anolilab. |
-| [@anolilab/stylelint-config](packages/stylelint-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Fstylelint-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Fstylelint-config) | Stylelint shareable config for the Anolilab stylesheet guide. |
+| [@anolilab/stylelint-config](packages/stylelint-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Fstylelint-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Fstylelint-config) | Stylelint shareable config for the Anolilab style sheet guide. |
 | [@anolilab/textlint-config](packages/textlint-config/README.md) | [![npm](https://img.shields.io/npm/v/%40anolilab%2Ftextlint-config?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/%40anolilab%2Ftextlint-config) | Anolilab Coding Standard for text linting. |
 | [browserslist-config-anolilab](packages/browserslist-config-anolilab/README.md) | [![npm](https://img.shields.io/npm/v/browserslist-config-anolilab?style=flat-square&labelColor=292a44&color=663399&label=v)](https://www.npmjs.com/package/browserslist-config-anolilab) | Shareable browserlist config for Anolilab projects. |
 <!-- END_TABLE_PLACEHOLDER -->
@@ -48,7 +48,7 @@ Show the world that you are using Anolilab’s code style in your project by inc
 
 ## How We Version
 
-We use [SemVer](https://semver.org/) for its versioning providing us an opt-in approach to releases.
+We use [SemVer](https://semver.org/) for its versioning providing  an opt-in approach to releases.
 This means we add a version number according to the spec, as you see below.
 So rather than force developers to consume the latest and greatest, they can choose which version to consume and test any newer ones before upgrading.
 Please the read the spec as it goes into further detail.
@@ -101,12 +101,5 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 
 <!-- badges -->
 
-[license-badge]: https://img.shields.io/npm/l/@visulima/tsconfig?style=for-the-badge
-[license]: https://github.com/anolilab/javascript-style-guide/blob/main/LICENSE
-[prs-welcome-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
-[chat-badge]: https://img.shields.io/discord/932323359193186354.svg?style=for-the-badge
-[chat]: https://discord.gg/TtFJY8xkFK
-[typescript-badge]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
-[typescript-url]: https://www.typescriptlang.org/
 [repository]: https://github.com/anolilab/javascript-style-guide

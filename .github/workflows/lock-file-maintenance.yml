@@ -3,9 +3,7 @@ name: "Lock File Maintenance"
 on: # yamllint disable-line rule:truthy
     schedule:
         - cron: "0 */3 * * *" # At minute 0 past every 3rd hour.
-    pull_request:
-        branches:
-            - "dependabot/**"
+    pull_request: # yamllint disable-line rule:empty-values
     workflow_dispatch: # yamllint disable-line rule:empty-values
 
 permissions:

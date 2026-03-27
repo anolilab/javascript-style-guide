@@ -100,12 +100,12 @@ pnpm pkg set scripts.lint:css:fix="pnpm run lint:css --fix"
 or copy the following to your `package.json`:
 
 ```json
-  {
+{
     "scripts": {
-      "lint:css": "stylelint --config=./.stylelintrc.js '**/*.{js,jsx,tsx,ts,less,css,scss,sass}'",
-      "lint:css:fix": "stylelint --config=./.stylelintrc.js '**/*.{js,jsx,tsx,ts,less,css,scss,sass}' --fix"
+        "lint:css": "stylelint --config=./.stylelintrc.js '**/*.{js,jsx,tsx,ts,less,css,scss,sass}'",
+        "lint:css:fix": "stylelint --config=./.stylelintrc.js '**/*.{js,jsx,tsx,ts,less,css,scss,sass}' --fix"
     }
-  }
+}
 ```
 
 This will run `stylelint` on all defined files in your app's directory and its subdirectories.

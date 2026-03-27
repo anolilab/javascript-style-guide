@@ -206,7 +206,6 @@ export default createConfig<
                 "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
 
-                "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
                 "react-naming-convention": plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
@@ -272,10 +271,6 @@ export default createConfig<
                     },
                 ],
 
-                // Disallow direct calls to the set function of useState in useEffect
-                // https://eslint-react.xyz/docs/rules/no-direct-set-state-in-use-effect
-                "react-hooks-extra/no-direct-set-state-in-use-effect": "error",
-
                 // Enforce Rules of Hooks
                 // https://github.com/facebook/react/blob/1204c789776cb01fbaf3e9f032e7e2ba85a44137/packages/eslint-plugin-react-hooks/src/ExhaustiveDeps.js
                 "react-hooks/exhaustive-deps": "error",
@@ -334,6 +329,8 @@ export default createConfig<
                         },
                     ],
 
+                // Disallow direct calls to the set function of useState in useEffect
+                // https://eslint-react.xyz/docs/rules/set-state-in-effect
                 // Prevents leaked addEventListener in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
                 "react-web-api/no-leaked-event-listener": "error",
@@ -350,12 +347,12 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
                 "react-web-api/no-leaked-timeout": "error",
 
-                // React-X Rules
-                // https://eslint-react.xyz/docs/rules
-
                 // Enforces that the key attribute is placed before the spread attribute in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-key-before-spread
                 "react-x/jsx-key-before-spread": "error",
+
+                // React-X Rules
+                // https://eslint-react.xyz/docs/rules
 
                 // Disallow duplicate props in JSX elements
                 // https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
@@ -515,7 +512,7 @@ export default createConfig<
                 "react-x/no-unnecessary-use-callback": "error",
 
                 // Disallow unnecessary usage of useMemo
-                // https://eslint-react.xyz/docs/rules/react-hooks-extra/no-unnecessary-use-memo
+                // https://eslint-react.xyz/docs/rules/no-unnecessary-use-memo
                 "react-x/no-unnecessary-use-memo": "error",
 
                 // Warns the usage of UNSAFE_componentWillMount in class components
@@ -565,6 +562,10 @@ export default createConfig<
                 // Enforces read-only props in components
                 // https://eslint-react.xyz/docs/rules/prefer-read-only-props
                 "react-x/prefer-read-only-props": "off",
+
+                // Disallow direct calls to the set function of useState in useEffect
+                // https://eslint-react.xyz/docs/rules/set-state-in-effect
+                "react-x/set-state-in-effect": "error",
 
                 // Prevent missing displayName in a React component definition
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/boolean-prop-naming.md

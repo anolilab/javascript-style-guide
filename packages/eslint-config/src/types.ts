@@ -177,6 +177,17 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
     noUnsanitized?: OptionsOverrides;
 
     /**
+     * Enable oxlint integration.
+     * Disables ESLint rules already covered by oxlint to avoid duplicate linting.
+     * Auto-detected when `oxlint` is present in package.json dependencies.
+     *
+     * Requires installing:
+     * - `eslint-plugin-oxlint`
+     * @default false
+     */
+    oxlint?: boolean | (OptionsOverrides & { configFile?: string });
+
+    /**
      * Override the `files` option to provide custom globs or disable some rules.
      */
     perfectionist?: OptionsFiles & OptionsOverrides;

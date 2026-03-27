@@ -27,6 +27,7 @@ import markdown from "./config/plugins/markdown";
 import noSecrets from "./config/plugins/no-secrets";
 import noUnsanitized from "./config/plugins/no-unsanitized";
 import node from "./config/plugins/node";
+import oxlint from "./config/plugins/oxlint";
 import perfectionist from "./config/plugins/perfectionist";
 import playwright from "./config/plugins/playwright";
 import pnpm from "./config/plugins/pnpm";
@@ -513,6 +514,7 @@ export const createConfig = async (
             "lodash.topath",
             "lodash.uniqueid",
         ]),
+        oxlint: enableOxlint = hasPackageJsonAnyDependency(packageJson, ["oxlint"]),
         playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
         pnpm: enablePnpm = hasPnpm,
         react: enableReact = hasReact
@@ -561,6 +563,10 @@ export const createConfig = async (
 
     if (isCwdInScope) {
         let packages = [];
+
+        if (enableOxlint) {
+            packages.push("eslint-plugin-oxlint");
+        }
 
         if (enableZod) {
             packages.push("eslint-plugin-zod");
@@ -1090,6 +1096,17 @@ export const createConfig = async (
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),
+        );
+    }
+
+    // oxlint must be last — it disables rules already covered by oxlint
+    if (enableOxlint) {
+        const oxlintOptions = typeof enableOxlint === "object" ? enableOxlint : {};
+
+        configs.push(
+            oxlint({
+                ...oxlintOptions,
+            }),
         );
     }
 

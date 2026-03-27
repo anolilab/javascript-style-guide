@@ -41,6 +41,12 @@ catalogs:
       specifier: 19.2.4
       version: 19.2.4
   lint:
+    '@anolilab/eslint-config':
+      specifier: 22.0.2
+      version: 22.0.2
+    '@anolilab/prettier-config':
+      specifier: 9.1.1
+      version: 9.1.1
     '@commitlint/cli':
       specifier: 20.5.0
       version: 20.5.0
@@ -379,6 +385,9 @@ catalogs:
     browserslist:
       specifier: 4.28.1
       version: 4.28.1
+    browserslist-config-anolilab:
+      specifier: 8.0.0
+      version: 8.0.0
     confusing-browser-globals:
       specifier: ^1.0.11
       version: 1.0.11
@@ -1179,7 +1188,7 @@ importers:
   packages/stylelint-config:
     dependencies:
       browserslist-config-anolilab:
-        specifier: 8.0.0
+        specifier: catalog:network
         version: 8.0.0
       stylelint-config-clean-order:
         specifier: catalog:lint
@@ -1204,10 +1213,10 @@ importers:
         version: 1.0.9(stylelint@17.6.0(typescript@6.0.2))
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 22.0.2
+        specifier: catalog:lint
         version: 22.0.2(47ce9d567fd8faee2cb480b4ff181918)
       '@anolilab/prettier-config':
-        specifier: 9.1.1
+        specifier: catalog:lint
         version: 9.1.1(prettier@3.8.1)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli

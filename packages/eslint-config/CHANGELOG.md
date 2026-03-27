@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [23.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@22.0.2...@anolilab/eslint-config@23.0.0) (2026-03-27)
+
+### Bug Fixes
+
+* **deps:** update dependencies, fix breaking changes, add oxlint in… ([#1011](https://github.com/anolilab/javascript-style-guide/issues/1011)) ([1967d7d](https://github.com/anolilab/javascript-style-guide/commit/1967d7d7dcea2349edfcbc1760ef7d5046d84848))
+
+### Styles
+
+* cs fixes on md files ([1262ea8](https://github.com/anolilab/javascript-style-guide/commit/1262ea848750c22d227f3591787356f048f02741))
+
 ## @anolilab/eslint-config [22.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@22.0.1...@anolilab/eslint-config@22.0.2) (2026-02-28)
 
 ### Bug Fixes

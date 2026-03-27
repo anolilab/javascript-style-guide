@@ -340,14 +340,6 @@ export default createConfig<
                 // React-X Rules
                 // https://eslint-react.xyz/docs/rules
 
-                // Disallow duplicate props in JSX elements
-                // https://eslint-react.xyz/docs/rules/jsx-no-duplicate-props
-                "react-x/jsx-no-duplicate-props": "error",
-
-                // Disallow undefined variables in JSX elements
-                // https://eslint-react.xyz/docs/rules/jsx-no-undef
-                "react-x/jsx-no-undef": "off",
-
                 // Enforces a consistent style for boolean attributes
                 // https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
                 "react-x/jsx-shorthand-boolean": "error",
@@ -355,14 +347,6 @@ export default createConfig<
                 // Enforces a consistent style for React Fragments
                 // https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
                 "react-x/jsx-shorthand-fragment": "error",
-
-                // Marks React variables as used when JSX is used
-                // https://eslint-react.xyz/docs/rules/jsx-uses-react
-                "react-x/jsx-uses-react": hasJsxRuntime ? "off" : "error",
-
-                // Marks variables used in JSX elements as used
-                // https://eslint-react.xyz/docs/rules/jsx-uses-vars
-                "react-x/jsx-uses-vars": "error",
 
                 // Disallow accessing this.state inside setState calls
                 // https://eslint-react.xyz/docs/rules/no-access-state-in-setstate
@@ -804,14 +788,12 @@ export default createConfig<
                     },
                 ],
 
-                // disallow using React.render/ReactDOM.render's return value
+                // Prevent React variables from being marked as unused when using JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-                // DISABLED: Handled by react-x/jsx-uses-react
                 "react/jsx-uses-react": "off",
 
-                // require a shouldComponentUpdate method, or PureRenderMixin
+                // Prevent variables used in JSX from being incorrectly marked as unused
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-                // DISABLED: Handled by react-x/jsx-uses-vars
                 "react/jsx-uses-vars": "off",
 
                 // warn against using findDOMNode()

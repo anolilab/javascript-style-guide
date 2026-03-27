@@ -279,21 +279,9 @@ export default createConfig<
                 // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
                 "react-hooks/rules-of-hooks": "error",
 
-                // Enforces naming conventions for components
-                // https://eslint-react.xyz/docs/rules/naming-convention-component-name
-                "react-naming-convention/component-name": "error",
-
                 // Enforces context name to be a valid component name with the suffix Context
                 // https://eslint-react.xyz/docs/rules/naming-convention-context-name
                 "react-naming-convention/context-name": "error",
-
-                // Enforces consistent file naming conventions
-                // https://eslint-react.xyz/docs/rules/naming-convention-filename
-                "react-naming-convention/filename": "off",
-
-                // Enforces naming conventions for useState
-                // https://eslint-react.xyz/docs/rules/naming-convention-use-state
-                "react-naming-convention/use-state": "error",
 
                 // react refresh
                 // Disabled for TanStack Router/Start: route files export Route objects,
@@ -1170,9 +1158,9 @@ export default createConfig<
             },
             name: "anolilab/react/jsx",
             rules: {
-                // Enforces consistent use of the JSX file extension.
-                // https://eslint-react.xyz/docs/rules/naming-convention-filename-extension
-                "react-naming-convention/filename-extension": ["error", "as-needed"],
+                // Enforces naming conventions for identifiers (components, hooks, etc.)
+                // https://eslint-react.xyz/docs/rules/naming-convention-id-name
+                "react-naming-convention/id-name": "off",
 
                 // only .jsx files may have JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md

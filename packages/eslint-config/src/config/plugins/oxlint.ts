@@ -1,4 +1,4 @@
-import type { OptionsOverrides } from "../../types";
+import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
@@ -17,7 +17,9 @@ export default createConfig<OptionsOxlint>("all", async (config) => {
 
     const oxlintPlugin = await interopDefault(import("eslint-plugin-oxlint"));
 
-    const baseConfigs = configFile ? oxlintPlugin.buildFromOxlintConfigFile(configFile) : oxlintPlugin.configs["flat/recommended"];
+    const baseConfigs = (configFile
+        ? oxlintPlugin.buildFromOxlintConfigFile(configFile)
+        : oxlintPlugin.configs["flat/recommended"]) as unknown as TypedFlatConfigItem[];
 
     if (Object.keys(overrides ?? {}).length === 0) {
         return baseConfigs;

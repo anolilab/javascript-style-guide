@@ -1,5 +1,5 @@
-import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const cconfig = [
     "./dist/config/best-practices.mjs",
@@ -13,16 +13,17 @@ const cconfig = [
 ];
 
 /**
- * @param {string} specifier
- * @returns {string}
+ * @param {string} specifier - The path specifier to resolve.
+ * @returns {string} The resolved absolute path.
  */
 const resolvePath = (specifier) => {
-    const currentModuleDir = path.dirname(fileURLToPath(import.meta.url));
-    return path.resolve(currentModuleDir, specifier);
+    const currentModuleDirectory = path.dirname(fileURLToPath(import.meta.url));
+
+    return path.resolve(currentModuleDirectory, specifier);
 };
 
 const config = {
-    extends: [...cconfig.map(resolvePath), "stylelint-config-clean-order"],
+    extends: [...cconfig.map((specifier) => resolvePath(specifier)), "stylelint-config-clean-order"],
 };
 
 export default config;

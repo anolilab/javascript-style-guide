@@ -15,9 +15,9 @@ const jsonc = async (
     const mergeConfigRules = (configs: Linter.Config[]): Linter.RulesRecord => {
         const rules: Linter.RulesRecord = {};
 
-        for (const cfg of configs) {
+        (configs as { rules?: Linter.RulesRecord }[]).forEach((cfg) => {
             Object.assign(rules, cfg.rules);
-        }
+        });
 
         return rules;
     };
@@ -35,17 +35,17 @@ const jsonc = async (
         {
             files: ["**/*.json5"],
             name: "anolilab/jsonc/json5-rules",
-            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json5"] as Linter.Config[]),
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json5"]),
         },
         {
             files: ["**/*.jsonc"],
             name: "anolilab/jsonc/jsonc-rules",
-            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"] as Linter.Config[]),
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"]),
         },
         {
             files: ["**/*.json"],
             name: "anolilab/jsonc/json-rules",
-            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json"] as Linter.Config[]),
+            rules: mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-json"]),
         },
         {
             files: ["package.json", "**/package.json"],
@@ -349,7 +349,7 @@ const jsonc = async (
         {
             files: ["**/renovate.json"],
             rules: {
-                ...mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"] as Linter.Config[]),
+                ...mergeConfigRules(jsoncPlugin.configs["flat/recommended-with-jsonc"]),
                 "jsonc/comma-dangle": ["error", "never"],
                 "jsonc/no-comments": "off",
             },

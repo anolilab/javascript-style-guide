@@ -15,9 +15,9 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
         const prettierConfig = pluginYaml.configs.prettier;
 
         if (Array.isArray(prettierConfig)) {
-            for (const config of prettierConfig as { rules?: Rules }[]) {
-                Object.assign(prettierRules, config.rules);
-            }
+            (prettierConfig as { rules?: Rules }[]).forEach((cfg) => {
+                Object.assign(prettierRules, cfg.rules);
+            });
         } else {
             Object.assign(prettierRules, (prettierConfig as { rules?: Rules }).rules);
         }

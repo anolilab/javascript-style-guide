@@ -4,7 +4,7 @@ export default createConfig(
     {
         astro: false,
         html: false,
-        ignores: ["./eslint.config.js", "./debug-eslint.config.mjs", "./src/typegen.d.ts", "./src/utils/vitest-globals.ts", "__fixtures__/**", "__tests__/**"],
+        ignores: ["eslint.config.js", "debug-eslint.config.mjs", "src/typegen.d.ts", "src/utils/vitest-globals.ts", "__fixtures__/**", "__tests__/**"],
         jsonc: false,
         jsx: false,
         lodash: false,
@@ -46,7 +46,7 @@ export default createConfig(
         },
     },
     {
-        files: ["./README.md"],
+        files: ["README.md"],
         rules: {
             "import/no-commonjs": "off",
             "jsdoc/check-tag-names": "off",

@@ -1158,10 +1158,6 @@ export default createConfig<
             },
             name: "anolilab/react/jsx",
             rules: {
-                // Enforces naming conventions for identifiers (components, hooks, etc.)
-                // https://eslint-react.xyz/docs/rules/naming-convention-id-name
-                "react-naming-convention/id-name": "off",
-
                 // only .jsx files may have JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
                 "react/jsx-closing-tag-location": "error",

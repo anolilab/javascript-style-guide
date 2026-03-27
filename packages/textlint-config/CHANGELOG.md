@@ -1,3 +1,9 @@
+## @anolilab/textlint-config [12.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.2...@anolilab/textlint-config@12.1.3) (2026-03-27)
+
+### Styles
+
+* cs fixes on md files ([1262ea8](https://github.com/anolilab/javascript-style-guide/commit/1262ea848750c22d227f3591787356f048f02741))
+
 ## @anolilab/textlint-config [12.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.1...@anolilab/textlint-config@12.1.2) (2026-02-28)
 
 ### Bug Fixes

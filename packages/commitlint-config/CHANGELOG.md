@@ -1,3 +1,14 @@
+## @anolilab/commitlint-config [9.2.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@9.1.1...@anolilab/commitlint-config@9.2.0) (2026-03-27)
+
+### Styles
+
+* cs fixes on md files ([1262ea8](https://github.com/anolilab/javascript-style-guide/commit/1262ea848750c22d227f3591787356f048f02741))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 23.0.0
+
 ## @anolilab/commitlint-config [9.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@9.1.0...@anolilab/commitlint-config@9.1.1) (2026-02-28)
 
 ### Bug Fixes

@@ -329,8 +329,6 @@ export default createConfig<
                         },
                     ],
 
-                // Disallow direct calls to the set function of useState in useEffect
-                // https://eslint-react.xyz/docs/rules/set-state-in-effect
                 // Prevents leaked addEventListener in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
                 "react-web-api/no-leaked-event-listener": "error",

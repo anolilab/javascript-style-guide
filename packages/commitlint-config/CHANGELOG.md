@@ -1,3 +1,10 @@
+## @anolilab/commitlint-config [9.4.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@9.3.0...@anolilab/commitlint-config@9.4.0) (2026-03-28)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 25.0.0
+
 ## @anolilab/commitlint-config [9.3.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@9.2.0...@anolilab/commitlint-config@9.3.0) (2026-03-28)
 
 

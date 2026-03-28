@@ -26,7 +26,7 @@ jobs:
 
         steps:
             - name: "Harden Runner"
-              uses: "step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e" # v2.14.2
+              uses: "step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594" # v2.16.0
               with:
                   egress-policy: "audit"
 
@@ -47,7 +47,7 @@ jobs:
 
             - name: "Setup resources and environment"
               id: "setup"
-              uses: "anolilab/workflows/step/setup@0f28eaf249ec4acecbf8170479122f75acb84ff8" # main
+              uses: "anolilab/workflows/step/setup@78c0eab008e6a0cf4dd4ca579b5177f6d610b5f3" # main
               with:
                   node-version: "20.x"
                   cache-prefix: "preview-release"
@@ -55,7 +55,7 @@ jobs:
             # Temporary solution until Nx solve this https://github.com/nrwl/nx/issues/22259
             - name: "Get changed files"
               id: "files"
-              uses: "tj-actions/changed-files@7dee1b0c1557f278e5c7dc244927139d78c0e22a" # v47.0.4
+              uses: "tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323" # v47.0.5
               with:
                   files_ignore_from_source_file: ".github/ignore-files-for-nx-affected.yml"
                   base_sha: "${{ steps.setSHAs.outputs.base }}"

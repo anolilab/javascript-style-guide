@@ -11,7 +11,7 @@ permissions:
 
 jobs:
     lock-file:
-        uses: "anolilab/workflows/.github/workflows/pnpm-lock-file-maintenance.yml@main"
+        uses: "anolilab/workflows/.github/workflows/pnpm-lock-file-maintenance.yml@78c0eab008e6a0cf4dd4ca579b5177f6d610b5f3" # main
         with:
             target-repo: "anolilab/javascript-style-guide"
             node-version: "22.x"

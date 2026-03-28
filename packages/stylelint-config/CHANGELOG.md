@@ -1,3 +1,10 @@
+## @anolilab/stylelint-config [10.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@10.1.2...@anolilab/stylelint-config@10.1.3) (2026-03-28)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 24.0.0
+
 ## @anolilab/stylelint-config [10.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@10.1.1...@anolilab/stylelint-config@10.1.2) (2026-03-27)
 
 ### Bug Fixes

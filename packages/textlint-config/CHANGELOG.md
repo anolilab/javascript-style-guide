@@ -1,3 +1,5 @@
+## @anolilab/textlint-config [12.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.5...@anolilab/textlint-config@12.1.6) (2026-04-01)
+
 ## @anolilab/textlint-config [12.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.4...@anolilab/textlint-config@12.1.5) (2026-03-28)
 
 ## @anolilab/textlint-config [12.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.3...@anolilab/textlint-config@12.1.4) (2026-03-28)

@@ -512,6 +512,7 @@ overrides:
   axios@>=1.0.0 <=1.13.4: '>=1.13.5'
   brace-expansion@>=4.0.0 <5.0.5: '>=5.0.5'
   chrono-node@<2.2.4: '>=2.2.4'
+  defu@<=6.1.4: '>=6.1.5'
   flatted@<3.4.0: '>=3.4.0'
   flatted@<=3.4.1: '>=3.4.2'
   h3@<1.15.6: '>=1.15.6'
@@ -520,8 +521,6 @@ overrides:
   handlebars@>=4.0.0 <4.7.9: '>=4.7.9'
   handlebars@>=4.0.0 <=4.7.8: '>=4.7.9'
   hono: '>=4.12.7'
-  lodash-es@<=4.17.23: '>=4.18.0'
-  lodash-es@>=4.0.0 <=4.17.23: '>=4.18.0'
   lodash@>=4.0.0 <=4.17.22: '>=4.17.23'
   minimatch@<10.2.1: '>=10.2.1'
   path-to-regexp@>=8.0.0 <8.4.0: '>=8.4.0'
@@ -5737,9 +5736,6 @@ packages:
     resolution: {integrity: sha512-jwK2UV4cnPpbcG7+VRARKTZPUWowwXA8bzH5NP6ud0oeAxyYPuGZUAC7hMugpCdz4BeSZl2Dl9k66CHJ/46ZYQ==}
     engines: {node: '>=0.10.0'}
 
-  defu@6.1.4:
-    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
-
   defu@6.1.6:
     resolution: {integrity: sha512-f8mefEW4WIVg4LckePx3mALjQSPQgFlg9U8yaPdlsbdYcHQyj9n2zL2LJEA52smeYxOvmd/nB7TpMtHGMTHcug==}
 
@@ -8082,6 +8078,9 @@ packages:
   locate-path@7.2.0:
     resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  lodash-es@4.17.23:
+    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
 
   lodash-es@4.18.1:
     resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
@@ -11536,7 +11535,7 @@ snapshots:
       detect-newline: 4.0.1
       execa: 9.6.1
       git-log-parser: 1.2.1
-      lodash-es: 4.18.1
+      lodash-es: 4.17.23
       resolve-from: 5.0.0
       semantic-release: 25.0.3(typescript@6.0.2)
       semver: 7.7.4
@@ -14626,7 +14625,7 @@ snapshots:
       browserslist: 4.26.2
       cjs-module-lexer: 2.2.0
       clean-css: 5.3.3
-      defu: 6.1.4
+      defu: 6.1.6
       fastest-levenshtein: 1.0.16
       hookable: 5.5.3
       html-minifier-next: 3.2.2
@@ -15920,8 +15919,6 @@ snapshots:
     dependencies:
       is-descriptor: 1.0.3
       isobject: 3.0.1
-
-  defu@6.1.4: {}
 
   defu@6.1.6: {}
 
@@ -18844,6 +18841,8 @@ snapshots:
   locate-path@7.2.0:
     dependencies:
       p-locate: 6.0.0
+
+  lodash-es@4.17.23: {}
 
   lodash-es@4.18.1: {}
 

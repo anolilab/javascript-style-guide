@@ -1,3 +1,29 @@
+## @anolilab/stylelint-config [11.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@10.1.5...@anolilab/stylelint-config@11.0.0) (2026-04-07)
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Node.js version raised from 20.18 to 22.12.0
+(current active LTS). Node 20 lacks Object.groupBy which is required by
+eslint-flat-config-utils and lint-staged-config. Updated engines in all
+packages and .nvmrc.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+
+### Features
+
+* require Node.js >=22.12.0 ([7c491c6](https://github.com/anolilab/javascript-style-guide/commit/7c491c660ea3ec96262dd4d9a17cc3e280b91579))
+
+### Bug Fixes
+
+* **stylelint-config:** fix eslint errors in bin.ts ([7b98488](https://github.com/anolilab/javascript-style-guide/commit/7b98488dc3d260305bb34471bca8979629419fb8))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 9.0.0
+* **@anolilab/eslint-config:** upgraded to 27.0.0
+* **@anolilab/prettier-config:** upgraded to 10.0.0
+
 ## @anolilab/stylelint-config [10.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@10.1.4...@anolilab/stylelint-config@10.1.5) (2026-04-01)
 
 

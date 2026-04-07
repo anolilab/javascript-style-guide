@@ -1,3 +1,23 @@
+## @anolilab/textlint-config [13.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.6...@anolilab/textlint-config@13.0.0) (2026-04-07)
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Node.js version raised from 20.18 to 22.12.0
+(current active LTS). Node 20 lacks Object.groupBy which is required by
+eslint-flat-config-utils and lint-staged-config. Updated engines in all
+packages and .nvmrc.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+
+### Features
+
+* require Node.js >=22.12.0 ([7c491c6](https://github.com/anolilab/javascript-style-guide/commit/7c491c660ea3ec96262dd4d9a17cc3e280b91579))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.0
+
 ## @anolilab/textlint-config [12.1.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.5...@anolilab/textlint-config@12.1.6) (2026-04-01)
 
 ## @anolilab/textlint-config [12.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@12.1.4...@anolilab/textlint-config@12.1.5) (2026-03-28)

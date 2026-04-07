@@ -1,3 +1,22 @@
+## @anolilab/prettier-config [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@9.1.1...@anolilab/prettier-config@10.0.0) (2026-04-07)
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Node.js version raised from 20.18 to 22.12.0
+(current active LTS). Node 20 lacks Object.groupBy which is required by
+eslint-flat-config-utils and lint-staged-config. Updated engines in all
+packages and .nvmrc.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+
+### Features
+
+* require Node.js >=22.12.0 ([7c491c6](https://github.com/anolilab/javascript-style-guide/commit/7c491c660ea3ec96262dd4d9a17cc3e280b91579))
+
+### Styles
+
+* cs fixes on md files ([1262ea8](https://github.com/anolilab/javascript-style-guide/commit/1262ea848750c22d227f3591787356f048f02741))
+
 ## @anolilab/prettier-config [9.1.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@9.1.0...@anolilab/prettier-config@9.1.1) (2026-02-21)
 
 ### Bug Fixes

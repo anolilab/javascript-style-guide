@@ -1,3 +1,31 @@
+## browserslist-config-anolilab [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@8.0.0...browserslist-config-anolilab@9.0.0) (2026-04-07)
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Node.js version raised from 20.18 to 22.12.0
+(current active LTS). Node 20 lacks Object.groupBy which is required by
+eslint-flat-config-utils and lint-staged-config. Updated engines in all
+packages and .nvmrc.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+
+### Features
+
+* require Node.js >=22.12.0 ([7c491c6](https://github.com/anolilab/javascript-style-guide/commit/7c491c660ea3ec96262dd4d9a17cc3e280b91579))
+
+### Styles
+
+* cs fixes on md files ([1262ea8](https://github.com/anolilab/javascript-style-guide/commit/1262ea848750c22d227f3591787356f048f02741))
+
+### Miscellaneous Chores
+
+* exclude eslint-config fixtures from Prettier and update labeler config ([520df66](https://github.com/anolilab/javascript-style-guide/commit/520df6655ec3a0a341e24764e648f0301106e95d))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.0
+
 ## browserslist-config-anolilab [8.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@7.0.1...browserslist-config-anolilab@8.0.0) (2026-01-11)
 
 ### Bug Fixes

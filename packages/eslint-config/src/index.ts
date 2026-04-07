@@ -553,6 +553,7 @@ export const createConfig = async (
     const reactOptions = resolveSubOptions(options, "react");
     const reactVersionFromOptions = "reactVersion" in reactOptions ? reactOptions.reactVersion : undefined;
     const reactCompilerFromOptions = "reactCompiler" in reactOptions ? reactOptions.reactCompiler : undefined;
+    const reactUnhookifyFromOptions = "reactUnhookify" in reactOptions ? reactOptions.reactUnhookify : undefined;
 
     // Determine final React version (use option if provided, otherwise detected)
     const finalReactVersion = reactVersionFromOptions ?? detectedReactVersion;
@@ -560,6 +561,9 @@ export const createConfig = async (
     // Determine final React compiler setting
     // Priority: react.compiler > reactCompiler option > auto-detected
     const finalReactCompiler: boolean = enableReactCompilerOption ?? reactCompilerFromOptions ?? detectedHasReactCompiler;
+
+    // Determine final React unhookify setting
+    const finalReactUnhookify: boolean = reactUnhookifyFromOptions ?? false;
 
     if (isCwdInScope) {
         let packages = [];
@@ -613,6 +617,10 @@ export const createConfig = async (
 
         if (enableReact && finalReactCompiler) {
             packages.push("eslint-plugin-react-compiler");
+        }
+
+        if (enableReact && finalReactUnhookify) {
+            packages.push("@ospm/eslint-plugin-react-unhookify");
         }
 
         if (enableTestingLibrary) {
@@ -995,6 +1003,7 @@ export const createConfig = async (
                 overrides: getOverrides(options, "react"),
                 packageJson,
                 reactCompiler: finalReactCompiler,
+                reactUnhookify: finalReactUnhookify,
                 reactVersion: finalReactVersion,
                 silent,
                 tsconfigPath,

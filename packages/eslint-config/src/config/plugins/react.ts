@@ -126,9 +126,29 @@ export default createConfig<
     const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
     const isUsingTanstack = hasPackageJsonAnyDependency(packageJson, TanstackRouterPackages);
 
-    const { plugins } = pluginReactX.configs.all as {
+    const { plugins: reactXPlugins } = pluginReactX.configs.all as {
         plugins: Record<string, unknown>;
     };
+
+    // @eslint-react/eslint-plugin v4+ merged all sub-plugins (dom, naming-convention,
+    // web-api, rsc) into the main @eslint-react plugin. Rules are now prefixed with
+    // their domain: dom-*, web-api-*, naming-convention-*, rsc-*.
+    //
+    // Migration from v3 to v4:
+    //   - react-dom/no-dangerously-set-innerhtml → react-x/dom-no-dangerously-set-innerhtml
+    //   - react-web-api/no-leaked-event-listener → react-x/web-api-no-leaked-event-listener
+    //   - react-naming-convention/context-name   → react-x/naming-convention-context-name
+    //   - react-x/jsx-key-before-spread, react-x/jsx-shorthand-boolean,
+    //     react-x/jsx-shorthand-fragment were removed in v4.
+    //
+    // Migration from v4 to v5:
+    //   - react-x/no-redundant-should-component-update was removed in v5.
+    const reactXPlugin = reactXPlugins["@eslint-react"];
+
+    // Detect v5+ to conditionally exclude removed rules
+    const reactXMeta = pluginReactX.meta as { version?: string } | undefined;
+    const reactXMajor = reactXMeta?.version ? Number.parseInt(reactXMeta.version.split(".")[0] as string, 10) : 4;
+    const isV5 = reactXMajor >= 5;
 
     // Use provided version or detect from package.json
     const reactVersionRaw = reactVersionFromOptions ?? packageJson.dependencies?.["react"] ?? packageJson.devDependencies?.["react"];
@@ -200,16 +220,11 @@ export default createConfig<
             plugins: {
                 react: fixupPluginRules(pluginReact),
 
-                "react-dom": plugins["@eslint-react/dom"],
                 "react-hooks": pluginReactHooks,
-
-                "react-naming-convention": plugins["@eslint-react/naming-convention"],
                 "react-perf": pluginReactPerf,
                 "react-refresh": pluginReactRefresh,
 
-                "react-web-api": plugins["@eslint-react/web-api"],
-
-                "react-x": plugins["@eslint-react"],
+                "react-x": reactXPlugin,
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
                 ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.configs.recommended.plugins : {},
                 ...hasReactUnhookify && pluginReactUnhookify ? { "react-unhookify": pluginReactUnhookify } : {},
@@ -278,7 +293,7 @@ export default createConfig<
 
                 // Enforces context name to be a valid component name with the suffix Context
                 // https://eslint-react.xyz/docs/rules/naming-convention-context-name
-                "react-naming-convention/context-name": "error",
+                "react-x/naming-convention-context-name": "error",
 
                 // react refresh
                 // Disabled for TanStack Router/Start: route files export Route objects,
@@ -316,34 +331,19 @@ export default createConfig<
 
                 // Prevents leaked addEventListener in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
-                "react-web-api/no-leaked-event-listener": "error",
+                "react-x/web-api-no-leaked-event-listener": "error",
 
                 // Prevents leaked setInterval in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval
-                "react-web-api/no-leaked-interval": "error",
+                "react-x/web-api-no-leaked-interval": "error",
 
                 // Prevents leaked ResizeObserver in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer
-                "react-web-api/no-leaked-resize-observer": "error",
+                "react-x/web-api-no-leaked-resize-observer": "error",
 
                 // Prevents leaked setTimeout in a component or custom hook
                 // https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
-                "react-web-api/no-leaked-timeout": "error",
-
-                // Enforces that the key attribute is placed before the spread attribute in JSX elements
-                // https://eslint-react.xyz/docs/rules/jsx-key-before-spread
-                "react-x/jsx-key-before-spread": "error",
-
-                // React-X Rules
-                // https://eslint-react.xyz/docs/rules
-
-                // Enforces a consistent style for boolean attributes
-                // https://eslint-react.xyz/docs/rules/jsx-shorthand-boolean
-                "react-x/jsx-shorthand-boolean": "error",
-
-                // Enforces a consistent style for React Fragments
-                // https://eslint-react.xyz/docs/rules/jsx-shorthand-fragment
-                "react-x/jsx-shorthand-fragment": "error",
+                "react-x/web-api-no-leaked-timeout": "error",
 
                 // Disallow accessing this.state inside setState calls
                 // https://eslint-react.xyz/docs/rules/no-access-state-in-setstate
@@ -448,7 +448,8 @@ export default createConfig<
 
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
-                "react-x/no-redundant-should-component-update": "error",
+                // Removed in @eslint-react v5
+                ...isV5 ? {} : { "react-x/no-redundant-should-component-update": "error" },
 
                 // Disallow calling this.setState in componentDidMount outside of functions, such as callbacks
                 // https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount

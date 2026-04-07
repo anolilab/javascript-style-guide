@@ -9,8 +9,10 @@ const file = ".stylelintrc";
  * Writes .stylelintrc.cjs if it doesn't exist. Warns if it exists.
  */
 const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
-    for (const filename of [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, `stylelint.config.js`, `stylelint.config.cjs`]) {
-        if (existsSync(join(cwd, filename))) {
+    const configFiles = [file, `${file}.js`, `${file}.cjs`, `${file}.json`, `${file}.yaml`, `${file}.yml`, "stylelint.config.js", "stylelint.config.cjs"];
+
+    for (const configFile of configFiles) {
+        if (existsSync(join(cwd, configFile))) {
             // eslint-disable-next-line no-console
             console.warn(
                 "⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.",
@@ -55,8 +57,8 @@ dist/**
     await writeFile(stylelintIgnorePath, content, "utf8");
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
-(async () => {
+// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+void (async () => {
     const cwd = process.cwd();
 
     const packageJsonPath = join(cwd, "package.json");
@@ -74,7 +76,7 @@ dist/**
     console.log("Configuring @anolilab/stylelint-config", cwd, "\n");
 
     try {
-        await writeStylelintRc(cwd, packageJson?.type === "module");
+        await writeStylelintRc(cwd, packageJson.type === "module");
         await writeStylelintIgnore(cwd);
 
         // eslint-disable-next-line no-console

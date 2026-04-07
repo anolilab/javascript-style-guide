@@ -20,7 +20,7 @@ const checkIfFileExists = (filename: string): boolean => {
 const writeCommitLintConfig = async (cwd: string, isTypeModule: boolean) => {
     const configFile = "commitlint";
 
-    for (const filename of [
+    const configFiles = [
         configFile,
         `.${configFile}rc`,
         `.${configFile}.json`,
@@ -36,10 +36,12 @@ const writeCommitLintConfig = async (cwd: string, isTypeModule: boolean) => {
         `.${configFile}.config.mjs`,
         `.${configFile}.config.ts`,
         `.${configFile}.config.cts`,
-    ]) {
-        if (checkIfFileExists(join(cwd, filename))) {
+    ];
+
+    for (const configFilename of configFiles) {
+        if (checkIfFileExists(join(cwd, configFilename))) {
             // eslint-disable-next-line no-console
-            console.warn(`⚠️  ${filename} already exists;`);
+            console.warn(`⚠️  ${configFilename} already exists;`);
 
             return;
         }
@@ -82,8 +84,8 @@ const writeCzrc = async (cwd: string) => {
     await writeFile(filePath, content, "utf8");
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
-(async () => {
+// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+void (async () => {
     const cwd = process.cwd();
 
     const packageJsonPath = join(cwd, "package.json");

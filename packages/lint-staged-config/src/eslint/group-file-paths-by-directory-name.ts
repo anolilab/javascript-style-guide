@@ -6,11 +6,9 @@ const groupFilePathsByDirectoryName = (filePaths: string[]): Record<string, stri
     filePaths.forEach((filePath) => {
         const directoryName = dirname(filePath);
 
-        if (!groups[directoryName]) {
-            groups[directoryName] = [];
-        }
+        groups[directoryName] ??= [];
 
-        (groups[directoryName] as string[]).push(filePath);
+        groups[directoryName].push(filePath);
     });
 
     return groups;

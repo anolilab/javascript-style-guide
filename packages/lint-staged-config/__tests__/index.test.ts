@@ -23,7 +23,9 @@ vi.mock(import("@visulima/package"), async (importOriginal) => {
     };
 });
 
-vi.mock(import("node:fs"), async () => {
+vi.mock(import("node:fs"), async (importOriginal) => {
+    await importOriginal();
+
     return {
         existsSync: existsSyncMock,
     };
@@ -44,6 +46,7 @@ describe(defineConfig, () => {
         findPackageManagerSyncMock.mockReturnValue({ packageManager: "npm" });
 
         expect(defineConfig()).toStrictEqual({
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- expect.any returns any
             [`**/*.{${eslintExtensions.join(",")}}`]: expect.any(Function),
         });
     });
@@ -57,7 +60,7 @@ describe(defineConfig, () => {
 
         expect(() => {
             defineConfig({ cwd: testCwd });
-        }).toThrowError(`No package.json found in the current working directory: ${testCwd}; Please adjust the "cwd" option.`);
+        }).toThrow(`No package.json found in the current working directory: ${testCwd}; Please adjust the "cwd" option.`);
     });
 
     it("should throw error when eslint extensions array is empty", () => {
@@ -75,6 +78,6 @@ describe(defineConfig, () => {
                     extensions: [],
                 },
             });
-        }).toThrowError("The `extensions` option is required for the ESLint configuration.");
+        }).toThrow("The `extensions` option is required for the ESLint configuration.");
     });
 });

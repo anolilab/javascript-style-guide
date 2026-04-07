@@ -20,10 +20,10 @@ const checkIfFileExists = (filename: string): boolean => {
 /**
  * Writes .lintstagedrc.js if it doesn't exist. Warns if it exists.
  */
-const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
+const writeLintStagedRc = (cwd: string, isTypeModule: boolean) => {
     const configFile = ".lintstagedrc";
 
-    for (const filename of [
+    const configFiles = [
         configFile,
         `${configFile}.js`,
         `${configFile}.cjs`,
@@ -34,10 +34,12 @@ const writeLintStagedRc = async (cwd: string, isTypeModule: boolean) => {
         "lint-staged.config.js",
         "lint-staged.config.mjs",
         "lint-staged.config.cjs",
-    ]) {
-        if (checkIfFileExists(join(cwd, filename))) {
+    ];
+
+    for (const configFilename of configFiles) {
+        if (checkIfFileExists(join(cwd, configFilename))) {
             // eslint-disable-next-line no-console
-            console.warn(`⚠️  ${filename} already exists;`);
+            console.warn(`⚠️  ${configFilename} already exists;`);
 
             return;
         }
@@ -52,24 +54,26 @@ ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
     writeFileSync(filePath, content);
 };
 
-const writeNanoStagedRc = async (cwd: string, isTypeModule: boolean) => {
-    const configFile = ".nano-staged";
+const writeNanoStagedRc = (cwd: string, isTypeModule: boolean) => {
+    const nanoConfigFile = ".nano-staged";
 
-    for (const filename of [
-        configFile,
-        `${configFile}.js`,
-        `${configFile}.cjs`,
-        `${configFile}.mjs`,
-        `${configFile}.json`,
-        `${configFile.replace(".", "")}.js`,
-        `${configFile.replace(".", "")}.cjs`,
-        `${configFile.replace(".", "")}.mjs`,
-        `${configFile.replace(".", "")}.json`,
+    const nanoConfigFiles = [
+        nanoConfigFile,
+        `${nanoConfigFile}.js`,
+        `${nanoConfigFile}.cjs`,
+        `${nanoConfigFile}.mjs`,
+        `${nanoConfigFile}.json`,
+        `${nanoConfigFile.replace(".", "")}.js`,
+        `${nanoConfigFile.replace(".", "")}.cjs`,
+        `${nanoConfigFile.replace(".", "")}.mjs`,
+        `${nanoConfigFile.replace(".", "")}.json`,
         ".nanostagedrc",
-    ]) {
-        if (checkIfFileExists(join(cwd, filename))) {
+    ];
+
+    for (const nanoConfigFilename of nanoConfigFiles) {
+        if (checkIfFileExists(join(cwd, nanoConfigFilename))) {
             // eslint-disable-next-line no-console
-            console.warn(`⚠️  ${filename} already exists;`);
+            console.warn(`⚠️  ${nanoConfigFilename} already exists;`);
 
             return;
         }
@@ -88,7 +92,7 @@ ${isTypeModule ? "export default" : "module.exports ="} defineConfig();
  * Adds husky hooks to .husky folder if they don't exist. Warns if they exist.
  */
 
-const writeHuskyFiles = async (cwd: string, packageJson: NormalizedPackageJson, hasNanoStaged: boolean) => {
+const writeHuskyFiles = (cwd: string, packageJson: NormalizedPackageJson, hasNanoStaged: boolean) => {
     const hasHusky = hasPackageJsonAnyDependency(packageJson, ["husky"]);
 
     if (!hasHusky) {
@@ -210,8 +214,8 @@ echo --------------------------------------------
     }
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
-(async () => {
+// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+void (async () => {
     const cwd = process.cwd();
 
     // eslint-disable-next-line no-console
@@ -234,12 +238,12 @@ echo --------------------------------------------
 
     try {
         if (hasLintStaged) {
-            await writeLintStagedRc(cwd, isTypeModule);
+            writeLintStagedRc(cwd, isTypeModule);
         } else if (hasNanoStaged) {
-            await writeNanoStagedRc(cwd, isTypeModule);
+            writeNanoStagedRc(cwd, isTypeModule);
         }
 
-        await writeHuskyFiles(cwd, packageJson, hasNanoStaged);
+        writeHuskyFiles(cwd, packageJson, hasNanoStaged);
 
         // eslint-disable-next-line no-console
         console.log("Everything went well, have fun!");

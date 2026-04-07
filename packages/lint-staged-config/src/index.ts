@@ -49,7 +49,7 @@ export const defineConfig = (
         },
         ...options,
     };
-    const cwd = config.cwd || process.cwd();
+    const cwd = config.cwd ?? process.cwd();
 
     if (!existsSync(`${cwd}/package.json`)) {
         throw new Error(`No package.json found in the current working directory: ${cwd}; Please adjust the "cwd" option.`);
@@ -100,9 +100,7 @@ export const defineConfig = (
             ...loadedPlugins,
             "**/*.md": (filenames: ReadonlyArray<string>) => [
                 ...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [],
-                ...hasMarkdownCli
-                    ? [`${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`]
-                    : [],
+                `${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`,
                 ...hasMarkdownCli2
                     ? [`${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`]
                     : [],
@@ -143,21 +141,10 @@ export const defineConfig = (
             const commands = new Set<string>();
 
             filenames.forEach((filePath) => {
-                if (typeof (config.typescript as TypescriptConfig)?.exclude === "object" && Array.isArray((config.typescript as TypescriptConfig).exclude)) {
-                    let exclude = false;
+                if (typeof (config.typescript as TypescriptConfig).exclude === "object" && Array.isArray((config.typescript as TypescriptConfig).exclude)) {
+                    const excluded = ((config.typescript as TypescriptConfig).exclude as string[]).some((value) => filePath.includes(value));
 
-                    ((config.typescript as TypescriptConfig).exclude as string[]).forEach((value) => {
-                        if (!exclude && filePath.includes(value)) {
-                            exclude = true;
-                        }
-                    });
-
-                    if (exclude) {
-                        if (config.debug) {
-                            // eslint-disable-next-line no-console
-                            console.info(`Skipping ${filePath} as it's excluded in the settings.`);
-                        }
-
+                    if (excluded) {
                         return;
                     }
                 }

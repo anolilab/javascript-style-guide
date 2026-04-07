@@ -12,7 +12,7 @@ const removeIgnoredFiles = async (filenames: ReadonlyArray<string>, eslint: ESLi
         }
 
         // eslint-disable-next-line no-console
-        console.error(`\nUnable to determine if file is ignored.\n\n\n${promise.reason}`);
+        console.error(`\nUnable to determine if file is ignored.\n\n\n${String(promise.reason)}`);
 
         throw new Error("Stopping lint-staged because of an error.");
     });

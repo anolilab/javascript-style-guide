@@ -12,7 +12,7 @@ const createEslintArguments = (eslintConfig: EslintConfig, packageJson: Normaliz
     const eslintArguments: string[] = [];
 
     if (eslintConfig["max-warnings"] !== undefined && Number.isNaN(eslintConfig["max-warnings"])) {
-        eslintArguments.push(`--max-warnings=${eslintConfig["max-warnings"]}`);
+        eslintArguments.push(`--max-warnings=${String(eslintConfig["max-warnings"])}`);
     } else if (eslintConfig["max-warnings"] !== false) {
         eslintArguments.push("--max-warnings=0");
     }

@@ -1,3 +1,28 @@
+## @anolilab/eslint-config [27.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@26.0.0...@anolilab/eslint-config@27.0.0) (2026-04-07)
+
+### ⚠ BREAKING CHANGES
+
+* Minimum Node.js version raised from 20.18 to 22.12.0
+(current active LTS). Node 20 lacks Object.groupBy which is required by
+eslint-flat-config-utils and lint-staged-config. Updated engines in all
+packages and .nvmrc.
+
+Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+
+### Features
+
+* require Node.js >=22.12.0 ([7c491c6](https://github.com/anolilab/javascript-style-guide/commit/7c491c660ea3ec96262dd4d9a17cc3e280b91579))
+
+### Bug Fixes
+
+* **eslint-config:** migrate to @eslint-react/eslint-plugin v4 and add v5 compat ([a5f3b42](https://github.com/anolilab/javascript-style-guide/commit/a5f3b427f6d1aaad7fd71dad1466d72c2ce48eb3))
+* **eslint-config:** resolve type-aware parsing and conflicting for-loop rules ([86f0dfd](https://github.com/anolilab/javascript-style-guide/commit/86f0dfd8a98831483f3641e92edfe143f716a1fa))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.0
+
 ## @anolilab/eslint-config [26.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@25.0.0...@anolilab/eslint-config@26.0.0) (2026-04-01)
 
 ## @anolilab/eslint-config [25.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@24.0.0...@anolilab/eslint-config@25.0.0) (2026-03-28)

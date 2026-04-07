@@ -58,12 +58,29 @@ export default createConfig<
     ];
     const { tsconfigPath } = config;
 
-    let { isTypeAware = true } = config;
-
-    isTypeAware = isTypeAware && tsconfigPath !== undefined;
+    const { isTypeAware = true } = config;
 
     const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
-        const thisDirectory = dirname(fileURLToPath(import.meta.url));
+        // When a tsconfigPath is provided, use process.cwd() (the project being
+        // linted) so the project service finds the correct tsconfig.  Fall back to
+        // the eslint-config package directory when no explicit path is given.
+        const rootDirectory = tsconfigPath ? process.cwd() : dirname(fileURLToPath(import.meta.url));
+
+        let typeAwareOptions: Record<string, unknown> = {};
+
+        if (typeAware && tsconfigPath) {
+            typeAwareOptions = {
+                // Use the explicit tsconfig as the project so all files
+                // it includes (tests, examples, etc.) get type information.
+                project: tsconfigPath,
+                tsconfigRootDir: rootDirectory,
+            };
+        } else if (typeAware) {
+            typeAwareOptions = {
+                projectService: true,
+                tsconfigRootDir: rootDirectory,
+            };
+        }
 
         return {
             files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
@@ -74,12 +91,7 @@ export default createConfig<
                 parserOptions: {
                     extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
-                    ...typeAware
-                        ? {
-                            projectService: true,
-                            tsconfigRootDir: thisDirectory,
-                        }
-                        : {},
+                    ...typeAwareOptions,
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     ...(parserOptions as any),
                 },
@@ -160,7 +172,9 @@ export default createConfig<
                 ignores: ignoresTypeAware,
                 name: "anolilab/typescript/no-for-of-array/rules",
                 rules: {
-                    "no-for-of-array/no-for-of-array": "error",
+                    // Disabled in favor of unicorn/no-for-loop which encourages
+                    // for...of — the two rules contradict each other.
+                    "no-for-of-array/no-for-of-array": "off",
                 },
             },
         );

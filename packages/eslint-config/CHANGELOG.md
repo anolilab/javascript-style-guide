@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [27.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.0...@anolilab/eslint-config@27.0.1) (2026-04-08)
+
+### Bug Fixes
+
+* **eslint-config:** disable opinionated e18e rules by default ([0149aff](https://github.com/anolilab/javascript-style-guide/commit/0149affc0442c6bb803ed2f92bbc89c823dd3844))
+
 ## @anolilab/eslint-config [27.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@26.0.0...@anolilab/eslint-config@27.0.0) (2026-04-07)
 
 ### ⚠ BREAKING CHANGES

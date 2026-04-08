@@ -513,12 +513,9 @@ catalogs:
       version: 7.7.4
 
 overrides:
-  '@hono/node-server@<1.19.13': '>=1.19.13'
   axios@>=1.0.0 <=1.13.4: '>=1.13.5'
   chrono-node@<2.2.4: '>=2.2.4'
   defu@<=6.1.4: '>=6.1.5'
-  hono@<4.12.12: '>=4.12.12'
-  hono@>=4.0.0 <=4.12.11: '>=4.12.12'
   lodash-es@<=4.17.23: '>=4.18.0'
   lodash-es@>=4.0.0 <=4.17.23: '>=4.18.0'
   lodash@<=4.17.23: '>=4.18.0'
@@ -2402,7 +2399,7 @@ packages:
     resolution: {integrity: sha512-TsQLe4i2gvoTtrHje625ngThGBySOgSK3Xo2XRYOdqGN1teR8+I7vchQC46uLJi8OF62YTYA3AhSpumtkhsaKQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
-      hono: '>=4.12.12'
+      hono: ^4
 
   '@html-eslint/core@0.59.0':
     resolution: {integrity: sha512-/s5W9Iivmf2RXVzQlFboXQRqK62JQdKvcIdFMP5K1kxbVEJxha/VUo1Rafn1GKgLQsP5QIbUjoZbzGlN7fVxog==}

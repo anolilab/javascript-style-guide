@@ -1,6 +1,12 @@
 packages:
     - "packages/**"
     - "!packages/eslint-config/__fixtures__/**"
+
+auditConfig:
+    ignoreCves:
+        - GHSA-v2wj-q39q-566r
+        - GHSA-p9ff-h696-f583
+        - GHSA-4w7w-66w2-5vf9
 catalog:
     "@eslint/css": ^1.1.0
 catalogMode: prefer
@@ -8,59 +14,59 @@ catalogMode: prefer
 catalogs:
     build:
         esbuild: 0.28.0
-        vite: 7.3.2
+        vite: 8.0.10
     cli:
-        "@anolilab/multi-semantic-release": 4.1.1
-        "@anolilab/semantic-release-pnpm": 5.0.0
-        "@anolilab/semantic-release-preset": 13.1.1
+        "@anolilab/multi-semantic-release": 4.4.1
+        "@anolilab/semantic-release-pnpm": 8.1.4
+        "@anolilab/semantic-release-preset": 13.4.5
         commitizen: ^4.3.1
         semantic-release: 25.0.3
     dev:
         "@arethetypeswrong/cli": ^0.18.2
-        "@visulima/packem": 2.0.0-alpha.32
+        "@visulima/packem": 2.0.0-alpha.76
     frontend:
-        react: 19.2.4
+        react: 19.2.5
     lint:
-        "@anolilab/eslint-config": 26.0.0
-        "@anolilab/prettier-config": 9.1.1
-        "@commitlint/cli": 20.5.0
+        "@anolilab/eslint-config": 27.0.1
+        "@anolilab/prettier-config": 10.0.0
+        "@commitlint/cli": 20.5.2
         "@commitlint/config-conventional": 20.5.0
-        "@commitlint/core": 20.5.0
+        "@commitlint/core": 20.5.2
         "@e18e/eslint-plugin": 0.3.0
         "@eslint-community/eslint-plugin-eslint-comments": 4.7.1
         "@eslint-react/eslint-plugin": 4.2.3
-        "@eslint/compat": 2.0.4
-        "@eslint/config-inspector": 1.5.0
+        "@eslint/compat": 2.0.5
+        "@eslint/config-inspector": 2.0.0
         "@eslint/css": 1.1.0
         "@eslint/js": 10.0.1
         "@eslint/markdown": 8.0.1
         "@html-eslint/eslint-plugin": 0.59.0
         "@html-eslint/parser": 0.59.0
         "@ospm/eslint-plugin-react-unhookify": ^1.0.2
-        "@secretlint/secretlint-rule-preset-recommend": 11.6.0
+        "@secretlint/secretlint-rule-preset-recommend": 12.3.1
         "@stylistic/eslint-plugin": 5.10.0
         "@stylistic/eslint-plugin-migrate": ^4.4.1
         "@stylistic/eslint-plugin-ts": ^4.4.1
-        "@tanstack/eslint-plugin-query": 5.96.2
+        "@tanstack/eslint-plugin-query": 5.100.5
         "@tanstack/eslint-plugin-router": 1.161.6
         "@textlint-rule/textlint-rule-no-invalid-control-character": ^3.0.0
         "@textlint-rule/textlint-rule-no-unmatched-pair": ^2.0.4
         "@textlint-rule/textlint-rule-preset-google": ^0.1.2
-        "@textlint/ast-node-types": 15.5.2
-        "@textlint/types": 15.5.2
-        "@unocss/eslint-plugin": 66.6.7
-        "@vitest/eslint-plugin": 1.6.14
+        "@textlint/ast-node-types": 15.6.0
+        "@textlint/types": 15.6.0
+        "@unocss/eslint-plugin": 66.6.8
+        "@vitest/eslint-plugin": 1.6.16
         astro-eslint-parser: 1.4.0
-        eslint: 10.2.0
+        eslint: 10.2.1
         eslint-config-flat-gitignore: 2.3.0
         eslint-flat-config-utils: 3.1.0
         eslint-import-resolver-node: 0.3.10
         eslint-import-resolver-typescript: ^4.4.4
         eslint-merge-processors: ^2.0.0
         eslint-plugin-antfu: 3.2.2
-        eslint-plugin-astro: 1.6.0
+        eslint-plugin-astro: 1.7.0
         eslint-plugin-compat: 7.0.1
-        eslint-plugin-erasable-syntax-only: ^0.4.0
+        eslint-plugin-erasable-syntax-only: 0.4.1
         eslint-plugin-es-x: 9.6.0
         eslint-plugin-format: 2.0.1
         eslint-plugin-html: 8.1.4
@@ -73,23 +79,23 @@ catalogs:
         eslint-plugin-no-only-tests: ^3.3.0
         eslint-plugin-no-secrets: 2.3.3
         eslint-plugin-no-unsanitized: 4.1.5
-        eslint-plugin-oxlint: 1.58.0
-        eslint-plugin-perfectionist: 5.8.0
-        eslint-plugin-playwright: 2.10.1
+        eslint-plugin-oxlint: 1.61.0
+        eslint-plugin-perfectionist: 5.9.0
+        eslint-plugin-playwright: 2.10.2
         eslint-plugin-pnpm: 1.6.0
-        eslint-plugin-promise: ^7.2.1
+        eslint-plugin-promise: 7.3.0
         eslint-plugin-react: ^7.37.5
         eslint-plugin-react-compiler: ^19.1.0-rc.2
-        eslint-plugin-react-hooks: ^7.0.1
+        eslint-plugin-react-hooks: 7.1.1
         eslint-plugin-react-perf: ^3.3.3
         eslint-plugin-react-refresh: 0.5.2
-        eslint-plugin-react-you-might-not-need-an-effect: 0.9.2
+        eslint-plugin-react-you-might-not-need-an-effect: 0.9.3
         eslint-plugin-regexp: 3.1.0
         eslint-plugin-security: 4.0.0
         eslint-plugin-simple-import-sort: 13.0.0
-        eslint-plugin-sonarjs: 4.0.2
-        eslint-plugin-storybook: 10.3.4
-        eslint-plugin-tailwindcss: ^3.18.2
+        eslint-plugin-sonarjs: 4.0.3
+        eslint-plugin-storybook: 10.3.5
+        eslint-plugin-tailwindcss: 3.18.3
         eslint-plugin-testing-library: 7.16.2
         eslint-plugin-toml: 1.3.1
         eslint-plugin-tsdoc: 0.5.2
@@ -98,16 +104,16 @@ catalogs:
         eslint-plugin-validate-jsx-nesting: ^0.1.1
         eslint-plugin-yml: 3.3.1
         eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
-        eslint-plugin-zod: 3.5.1
+        eslint-plugin-zod: 3.8.0
         eslint-typegen: 2.3.1
         husky: ^9.1.7
         jsonc-eslint-parser: 3.1.0
         lint-staged: 16.4.0
-        prettier: 3.8.1
+        prettier: 3.8.3
         publint: 0.3.18
-        secretlint: 11.6.0
-        storybook: 10.3.4
-        stylelint: 17.6.0
+        secretlint: 12.3.1
+        storybook: 10.3.5
+        stylelint: 17.9.0
         stylelint-config-clean-order: 8.0.1
         stylelint-config-standard: 40.0.0
         stylelint-declaration-block-no-ignored-properties: 3.0.0
@@ -115,7 +121,7 @@ catalogs:
         stylelint-no-unsupported-browser-features: 8.1.1
         stylelint-require-units: ^2.0.0
         stylelint-selector-no-empty: ^1.0.9
-        textlint: 15.5.2
+        textlint: 15.6.0
         textlint-filter-rule-comments: 1.3.0
         textlint-rule-abbr-within-parentheses: ^1.0.2
         textlint-rule-alex: ^5.0.0
@@ -132,24 +138,24 @@ catalogs:
         textlint-rule-terminology: ^5.2.16
         textlint-rule-write-good: ^2.0.0
         toml-eslint-parser: 1.0.3
-        typescript-eslint: 8.58.0
+        typescript-eslint: 8.59.0
         yaml-eslint-parser: 2.0.0
     monorepo:
-        nx: 22.6.4
+        nx: 22.7.0
     network:
         browserslist: 4.28.2
-        browserslist-config-anolilab: 8.0.0
+        browserslist-config-anolilab: 9.0.0
         confusing-browser-globals: ^1.0.11
     node:
         cross-env: ^10.1.0
         execa: ^9.6.1
-        globals: 17.4.0
-        pkg-pr-new: 0.0.66
+        globals: 17.5.0
+        pkg-pr-new: 0.0.67
         read-pkg: 10.1.0
         rimraf: 6.1.3
-        tinyglobby: ^0.2.15
+        tinyglobby: 0.2.16
     peer:
-        nano-staged: ^0.9.0
+        nano-staged: 1.0.2
     prod:
         "@visulima/fs": 4.1.0
         "@visulima/package": ^4.1.7
@@ -159,33 +165,33 @@ catalogs:
         parse-gitignore: ^2.0.0
         shell-quote: ^1.8.3
         sort-package-json: 3.6.1
-        type-fest: 5.5.0
+        type-fest: 5.6.0
         write-good: ^1.0.8
     script:
         tsx: ^4.21.0
     style:
-        postcss: 8.5.8
-        tailwind-csstree: 0.3.0
+        postcss: 8.5.12
+        tailwind-csstree: 0.3.1
     test:
         "@testing-library/dom": ^10.4.1
-        "@vitest/coverage-v8": 4.1.3
-        vitest: 4.1.3
+        "@vitest/coverage-v8": 4.1.5
+        vitest: 4.1.5
     tsc:
         "@total-typescript/ts-reset": ^0.6.1
         "@visulima/tsconfig": ^2.1.3
-        typescript: 6.0.2
+        typescript: 6.0.3
     types:
         "@types/confusing-browser-globals": ^1.0.3
         "@types/eslint": ^9.6.1
         "@types/eslint-plugin-jsx-a11y": ^6.10.1
         "@types/eslint-plugin-tailwindcss": ^3.17.0
-        "@types/node": 25.5.2
+        "@types/node": 25.6.0
         "@types/semver": ^7.7.1
         "@types/shell-quote": ^1.7.5
-        "@typescript-eslint/parser": 8.58.0
-        "@typescript-eslint/types": 8.58.0
+        "@typescript-eslint/parser": 8.59.0
+        "@typescript-eslint/types": 8.59.0
     utils:
-        caniuse-lite: 1.0.30001786
+        caniuse-lite: 1.0.30001791
         semver: 7.7.4
 onlyBuiltDependencies:
     - esbuild
@@ -195,6 +201,7 @@ onlyBuiltDependencies:
     - unrs-resolver
 overrides:
     axios@>=1.0.0 <=1.13.4: ">=1.13.5"
+    brace-expansion@>=4.0.0 <5.0.5: ">=5.0.5"
     chrono-node@<2.2.4: ">=2.2.4"
     defu@<=6.1.4: ">=6.1.5"
     lodash-es@<=4.17.23: ">=4.18.0"
@@ -203,20 +210,16 @@ overrides:
     lodash@>=4.0.0 <=4.17.22: ">=4.17.23"
     lodash@>=4.0.0 <=4.17.23: ">=4.18.0"
     picomatch@>=4.0.0 <4.0.4: ">=4.0.4"
+    postcss@<8.5.10: ">=8.5.10"
     tmp@<=0.2.3: ">=0.2.4"
     undici@<6.23.0: ">=6.23.0"
     undici@<6.24.0: ">=6.24.0"
     vite@>=7.0.0 <=7.3.1: ">=7.3.2"
     vite@>=7.1.0 <=7.3.1: ">=7.3.2"
+    yaml@>=2.0.0 <2.8.3: ">=2.8.3"
 
 shellEmulator: true
 
 trustPolicy: no-downgrade
 
 trustPolicyIgnoreAfter: 1440
-
-auditConfig:
-    ignoreCves:
-        - GHSA-v2wj-q39q-566r
-        - GHSA-p9ff-h696-f583
-        - GHSA-4w7w-66w2-5vf9

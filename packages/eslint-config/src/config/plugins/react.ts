@@ -7,12 +7,10 @@ import { parse } from "semver";
 
 import type {
     OptionsFiles,
-    OptionsHasPrettier,
     OptionsOverrides,
     OptionsPackageJson,
     OptionsReact,
     OptionsSilentConsoleLogs,
-    OptionsStylistic,
     OptionsTypeScriptParserOptions,
     OptionsTypeScriptWithTypes,
     TypedFlatConfigItem,
@@ -57,15 +55,7 @@ type PluginReactUnhookify = {
 
 // @see https://github.com/jsx-eslint/eslint-plugin-react
 export default createConfig<
-    OptionsFiles
-    & OptionsHasPrettier
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsReact
-    & OptionsSilentConsoleLogs
-    & OptionsStylistic
-    & OptionsTypeScriptParserOptions
-    & OptionsTypeScriptWithTypes
+    OptionsFiles & OptionsOverrides & OptionsPackageJson & OptionsReact & OptionsSilentConsoleLogs & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes
     // eslint-disable-next-line sonarjs/cognitive-complexity
 >("jsx_and_tsx", async (config, oFiles) => {
     const {
@@ -73,12 +63,10 @@ export default createConfig<
         filesTypeAware = getFilesGlobs("ts"),
         overrides,
         packageJson,
-        prettier,
         reactCompiler,
         reactUnhookify,
         reactVersion: reactVersionFromOptions,
         silent,
-        stylistic = true,
         tsconfigPath,
     } = config;
     const ignoresTypeAware = [
@@ -93,8 +81,6 @@ export default createConfig<
     let { isTypeAware = true } = config;
 
     isTypeAware = isTypeAware && tsconfigPath !== undefined;
-
-    const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
 
     const typeAwareRules: TypedFlatConfigItem["rules"] = {
         // Prevents key from not being explicitly specified (e.g. spreading key from objects)
@@ -146,7 +132,7 @@ export default createConfig<
     const reactXPlugin = reactXPlugins["@eslint-react"];
 
     // Detect v5+ to conditionally exclude removed rules
-    const reactXMeta = pluginReactX.meta as { version?: string } | undefined;
+    const reactXMeta = pluginReactX.meta;
     const reactXMajor = reactXMeta?.version ? Number.parseInt(reactXMeta.version.split(".")[0] as string, 10) : 4;
     const isV5 = reactXMajor >= 5;
 
@@ -200,7 +186,7 @@ export default createConfig<
         // eslint-disable-next-line no-console
         console.info(`@anolilab/eslint-config enabling react-compiler plugin\n`);
 
-        pluginReactCompiler = (await interopDefault(import("eslint-plugin-react-compiler"))) as unknown as PluginReactCompiler;
+        pluginReactCompiler = await interopDefault(import("eslint-plugin-react-compiler"));
     }
 
     // Enable react-unhookify if explicitly enabled
@@ -211,7 +197,7 @@ export default createConfig<
         // eslint-disable-next-line no-console
         console.info(`@anolilab/eslint-config enabling react-unhookify plugin\n`);
 
-        pluginReactUnhookify = (await interopDefault(import("@ospm/eslint-plugin-react-unhookify"))) as unknown as PluginReactUnhookify;
+        pluginReactUnhookify = await interopDefault(import("@ospm/eslint-plugin-react-unhookify"));
     }
 
     return [
@@ -291,10 +277,6 @@ export default createConfig<
                 // https://github.com/facebook/react/blob/c11015ff4f610ac2924d1fc6d569a17657a404fd/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js
                 "react-hooks/rules-of-hooks": "error",
 
-                // Enforces context name to be a valid component name with the suffix Context
-                // https://eslint-react.xyz/docs/rules/naming-convention-context-name
-                "react-x/naming-convention-context-name": "error",
-
                 // react refresh
                 // Disabled for TanStack Router/Start: route files export Route objects,
                 // loaders, server functions and other non-component values by design.
@@ -329,21 +311,9 @@ export default createConfig<
                         },
                     ],
 
-                // Prevents leaked addEventListener in a component or custom hook
-                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
-                "react-x/web-api-no-leaked-event-listener": "error",
-
-                // Prevents leaked setInterval in a component or custom hook
-                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval
-                "react-x/web-api-no-leaked-interval": "error",
-
-                // Prevents leaked ResizeObserver in a component or custom hook
-                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer
-                "react-x/web-api-no-leaked-resize-observer": "error",
-
-                // Prevents leaked setTimeout in a component or custom hook
-                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
-                "react-x/web-api-no-leaked-timeout": "error",
+                // Enforces context name to be a valid component name with the suffix Context
+                // https://eslint-react.xyz/docs/rules/naming-convention-context-name
+                "react-x/naming-convention-context-name": "error",
 
                 // Disallow accessing this.state inside setState calls
                 // https://eslint-react.xyz/docs/rules/no-access-state-in-setstate
@@ -445,6 +415,22 @@ export default createConfig<
                 // Disallow nesting lazy component declarations inside other components
                 // https://eslint-react.xyz/docs/rules/no-nested-lazy-component-declarations
                 "react-x/no-nested-lazy-component-declarations": "error",
+
+                // Prevents leaked addEventListener in a component or custom hook
+                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-event-listener
+                "react-x/web-api-no-leaked-event-listener": "error",
+
+                // Prevents leaked setInterval in a component or custom hook
+                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-interval
+                "react-x/web-api-no-leaked-interval": "error",
+
+                // Prevents leaked ResizeObserver in a component or custom hook
+                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-resize-observer
+                "react-x/web-api-no-leaked-resize-observer": "error",
+
+                // Prevents leaked setTimeout in a component or custom hook
+                // https://eslint-react.xyz/docs/rules/web-api-no-leaked-timeout
+                "react-x/web-api-no-leaked-timeout": "error",
 
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
@@ -595,34 +581,33 @@ export default createConfig<
                 "react/jsx-child-element-spacing": "off",
 
                 // Disallow undeclared variables in JSX
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-closing-bracket-location
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
-                "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+                "react/jsx-closing-bracket-location": "off",
 
                 // Enforce PascalCase for user-defined JSX components
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
                 "react/jsx-curly-brace-presence": ["error", { children: "never", props: "never" }],
 
                 // Enforce propTypes declarations alphabetical sorting
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-curly-newline
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
-                "react/jsx-curly-newline": [
-                    "error",
-                    {
-                        multiline: "consistent",
-                        singleline: "consistent",
-                    },
-                ],
+                "react/jsx-curly-newline": "off",
 
                 // Enforce props alphabetical sorting
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-curly-spacing
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
-                "react/jsx-curly-spacing": ["error", "never", { allowMultiline: true }],
+                "react/jsx-curly-spacing": "off",
 
                 // Prevent React to be incorrectly marked as unused
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-equals-spacing
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
-                "react/jsx-equals-spacing": ["error", "never"],
+                "react/jsx-equals-spacing": "off",
 
                 // Prevent variables used in JSX to be incorrectly marked as unused
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-first-prop-new-line
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-                "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+                "react/jsx-first-prop-new-line": "off",
 
                 // Prevent usage of dangerous JSX properties
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
@@ -639,12 +624,14 @@ export default createConfig<
                 ],
 
                 // Prevent usage of setState in componentWillUpdate
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-indent
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-                "react/jsx-indent": ["error", indent as number | "tab", { checkAttributes: true, indentLogicalExpressions: true }],
+                "react/jsx-indent": "off",
 
                 // Prevent direct mutation of this.state
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-indent-props
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-                "react/jsx-indent-props": ["error", indent as number | "tab"],
+                "react/jsx-indent-props": "off",
 
                 // Prevent usage of isMounted
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
@@ -655,8 +642,9 @@ export default createConfig<
                 "react/jsx-max-depth": "off",
 
                 // Prevent usage of setState
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-max-props-per-line
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-                "react/jsx-max-props-per-line": ["error", { maximum: 1, when: "multiline" }],
+                "react/jsx-max-props-per-line": "off",
 
                 // Prevent using string references
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/e2eaadae316f9506d163812a09424eb42698470a/docs/rules/jsx-newline.md
@@ -716,8 +704,9 @@ export default createConfig<
                 "react/jsx-no-useless-fragment": "off",
 
                 // Require that the first prop in a JSX element be on a new line when the element is multiline
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-one-expression-per-line
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
-                "react/jsx-one-expression-per-line": ["error", { allow: "single-child" }],
+                "react/jsx-one-expression-per-line": "off",
 
                 // Enforce spacing around jsx equals signs
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
@@ -730,8 +719,9 @@ export default createConfig<
                 ],
 
                 // Enforce JSX indentation
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-props-no-multi-spaces
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
-                "react/jsx-props-no-multi-spaces": "error",
+                "react/jsx-props-no-multi-spaces": "off",
 
                 // Prevent usage of setState in componentDidMount
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
@@ -755,16 +745,9 @@ export default createConfig<
                 "react/jsx-space-before-closing": ["off", "always"],
 
                 // prevent accidental JS comments from being injected into JSX as text
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-tag-spacing
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-tag-spacing.md
-                "react/jsx-tag-spacing": [
-                    "error",
-                    {
-                        afterOpening: "never",
-                        beforeClosing: "never",
-                        beforeSelfClosing: "always",
-                        closingSlash: "never",
-                    },
-                ],
+                "react/jsx-tag-spacing": "off",
 
                 // Prevent React variables from being marked as unused when using JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
@@ -1062,26 +1045,6 @@ export default createConfig<
 
                 ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"]?.rules ?? {} : {},
 
-                ...prettier
-                    ? {
-                        "react/jsx-child-element-spacing": "off",
-                        "react/jsx-closing-bracket-location": "off",
-                        "react/jsx-closing-tag-location": "off",
-                        "react/jsx-curly-newline": "off",
-                        "react/jsx-curly-spacing": "off",
-                        "react/jsx-equals-spacing": "off",
-                        "react/jsx-first-prop-new-line": "off",
-                        "react/jsx-indent": "off",
-                        "react/jsx-indent-props": "off",
-                        "react/jsx-max-props-per-line": "off",
-                        "react/jsx-newline": "off",
-                        "react/jsx-one-expression-per-line": "off",
-                        "react/jsx-props-no-multi-spaces": "off",
-                        "react/jsx-tag-spacing": "off",
-                        "react/jsx-wrap-multilines": "off",
-                    }
-                    : {},
-
                 // overrides
                 ...overrides,
             },
@@ -1119,27 +1082,18 @@ export default createConfig<
             name: "anolilab/react/jsx",
             rules: {
                 // only .jsx files may have JSX
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-closing-tag-location
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
-                "react/jsx-closing-tag-location": "error",
+                "react/jsx-closing-tag-location": "off",
 
                 // Prevents common casing typos
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
                 "react/jsx-filename-extension": "off",
 
                 // Validate closing tag location in JSX
+                // DISABLED: Stylistic rule, handled by @stylistic/jsx-wrap-multilines
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
-                "react/jsx-wrap-multilines": [
-                    "error",
-                    {
-                        arrow: "parens-new-line",
-                        assignment: "parens-new-line",
-                        condition: "parens-new-line",
-                        declaration: "parens-new-line",
-                        logical: "parens-new-line",
-                        prop: "parens-new-line",
-                        return: "parens-new-line",
-                    },
-                ],
+                "react/jsx-wrap-multilines": "off",
 
                 // Prevent missing parentheses around multilines JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/no-typos.md

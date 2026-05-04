@@ -6,6 +6,6 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
     lock-closed:
-        uses: "anolilab/workflows/.github/workflows/lock-closed.yml@5b10e6a2e712406be0b8317df4d437c69b1221ad" # main
+        uses: "anolilab/workflows/.github/workflows/lock-closed.yml@b46fcaddf7556a4a0dfeb63033f7acf60d4c4bd3" # main
         with:
             target-repo: "anolilab/javascript-style-guide"

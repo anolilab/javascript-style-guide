@@ -129,6 +129,11 @@ export default createConfig<
     //
     // Migration from v4 to v5:
     //   - react-x/no-redundant-should-component-update was removed in v5.
+    //   - react-x/no-children-prop                     → react-x/jsx-no-children-prop
+    //   - react-x/no-useless-fragment                  → react-x/jsx-no-useless-fragment
+    //   - react-x/no-unnecessary-use-callback,
+    //     react-x/no-unnecessary-use-memo              → react-x/no-unnecessary-use-prefix (merged)
+    //   - react-x/prefer-destructuring-assignment was removed in v5.
     const reactXPlugin = reactXPlugins["@eslint-react"];
 
     // Detect v5+ to conditionally exclude removed rules
@@ -311,6 +316,10 @@ export default createConfig<
                         },
                     ],
 
+                // Disallow passing children as a prop
+                // https://eslint-react.xyz/docs/rules/jsx-no-children-prop
+                "react-x/jsx-no-children-prop": "off",
+
                 // Enforces context name to be a valid component name with the suffix Context
                 // https://eslint-react.xyz/docs/rules/naming-convention-context-name
                 "react-x/naming-convention-context-name": "error",
@@ -338,10 +347,6 @@ export default createConfig<
                 // Disallow Children.only
                 // https://eslint-react.xyz/docs/rules/no-children-only
                 "react-x/no-children-only": "error",
-
-                // Disallow passing children as a prop
-                // https://eslint-react.xyz/docs/rules/no-children-prop
-                "react-x/no-children-prop": "off",
 
                 // Disallow Children.toArray
                 // https://eslint-react.xyz/docs/rules/no-children-to-array
@@ -437,6 +442,10 @@ export default createConfig<
                 // Removed in @eslint-react v5
                 ...isV5 ? {} : { "react-x/no-redundant-should-component-update": "error" },
 
+                // Disallow useless fragment elements
+                // https://eslint-react.xyz/docs/rules/jsx-no-useless-fragment
+                "react-x/jsx-no-useless-fragment": "off",
+
                 // Disallow calling this.setState in componentDidMount outside of functions, such as callbacks
                 // https://eslint-react.xyz/docs/rules/no-set-state-in-component-did-mount
                 "react-x/no-set-state-in-component-did-mount": "error",
@@ -449,13 +458,10 @@ export default createConfig<
                 // https://eslint-react.xyz/docs/rules/no-set-state-in-component-will-update
                 "react-x/no-set-state-in-component-will-update": "error",
 
-                // Disallow unnecessary usage of useCallback
-                // https://eslint-react.xyz/docs/rules/hooks-extra-no-unnecessary-use-callback
-                "react-x/no-unnecessary-use-callback": "error",
-
-                // Disallow unnecessary usage of useMemo
-                // https://eslint-react.xyz/docs/rules/no-unnecessary-use-memo
-                "react-x/no-unnecessary-use-memo": "error",
+                // Disallow unnecessary usage of useCallback, useMemo and other use* hooks
+                // (merged in @eslint-react v5 — replaces no-unnecessary-use-callback / no-unnecessary-use-memo)
+                // https://eslint-react.xyz/docs/rules/no-unnecessary-use-prefix
+                "react-x/no-unnecessary-use-prefix": "error",
 
                 // Warns the usage of UNSAFE_componentWillMount in class components
                 // https://eslint-react.xyz/docs/rules/no-unsafe-component-will-mount
@@ -488,14 +494,6 @@ export default createConfig<
                 // Replaces usages of useContext with use
                 // https://eslint-react.xyz/docs/rules/no-use-context
                 "react-x/no-use-context": "error",
-
-                // Disallow useless fragment elements
-                // https://eslint-react.xyz/docs/rules/no-useless-fragment
-                "react-x/no-useless-fragment": "off",
-
-                // Enforces destructuring assignment for component props and context
-                // https://eslint-react.xyz/docs/rules/prefer-destructuring-assignment
-                "react-x/prefer-destructuring-assignment": "off",
 
                 // Disallow direct calls to the set function of useState in useEffect
                 // https://eslint-react.xyz/docs/rules/set-state-in-effect
@@ -773,7 +771,7 @@ export default createConfig<
 
                 // Prevent problem with children and props.dangerouslySetInnerHTML
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
-                // DISABLED: Handled by react-x/no-children-prop
+                // DISABLED: Handled by react-x/jsx-no-children-prop
                 "react/no-children-prop": "off",
 
                 // Prevent unused propType definitions

@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [27.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.1...@anolilab/eslint-config@27.0.2) (2026-05-04)
+
+### Bug Fixes
+
+* **eslint-config:** align react-x rules with [@eslint-react](https://github.com/eslint-react) v5 ([9fa44d4](https://github.com/anolilab/javascript-style-guide/commit/9fa44d41b4f3a7260b90bf8e4fa69f66b80a5600))
+* **eslint-config:** disable JSX stylistic rules in eslint-plugin-react ([cd71eba](https://github.com/anolilab/javascript-style-guide/commit/cd71eba5930eabf55af46a0e8294caf68a518206))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.1
+
 ## @anolilab/eslint-config [27.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.0...@anolilab/eslint-config@27.0.1) (2026-04-08)
 
 ### Bug Fixes

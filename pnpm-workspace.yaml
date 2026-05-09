@@ -16,8 +16,8 @@ catalogs:
         vite: 8.0.10
     cli:
         "@anolilab/multi-semantic-release": 4.4.1
-        "@anolilab/semantic-release-pnpm": 8.1.8
-        "@anolilab/semantic-release-preset": 13.4.9
+        "@anolilab/semantic-release-pnpm": 8.1.9
+        "@anolilab/semantic-release-preset": 13.4.10
         commitizen: ^4.3.1
         semantic-release: 25.0.3
     dev:
@@ -26,14 +26,14 @@ catalogs:
     frontend:
         react: 19.2.5
     lint:
-        "@anolilab/eslint-config": 27.0.1
-        "@anolilab/prettier-config": 10.0.0
+        "@anolilab/eslint-config": 27.0.2
+        "@anolilab/prettier-config": 10.0.1
         "@commitlint/cli": 20.5.3
         "@commitlint/config-conventional": 20.5.3
         "@commitlint/core": 20.5.3
         "@e18e/eslint-plugin": 0.4.1
         "@eslint-community/eslint-plugin-eslint-comments": 4.7.1
-        "@eslint-react/eslint-plugin": 5.7.1
+        "@eslint-react/eslint-plugin": 5.7.3
         "@eslint/compat": 2.0.5
         "@eslint/config-inspector": 2.0.0
         "@eslint/css": 1.2.0
@@ -109,7 +109,7 @@ catalogs:
         jsonc-eslint-parser: 3.1.0
         lint-staged: 16.4.0
         prettier: 3.8.3
-        publint: 0.3.18
+        publint: 0.3.19
         secretlint: 13.0.0
         storybook: 10.3.6
         stylelint: 17.10.0
@@ -190,7 +190,7 @@ catalogs:
         "@typescript-eslint/parser": 8.59.1
         "@typescript-eslint/types": 8.59.1
     utils:
-        caniuse-lite: 1.0.30001791
+        caniuse-lite: 1.0.30001792
         semver: 7.7.4
 onlyBuiltDependencies:
     - esbuild
@@ -199,12 +199,12 @@ onlyBuiltDependencies:
     - rs-module-lexer
     - unrs-resolver
 overrides:
-    axios@>=1.0.0 <=1.13.4: ">=1.13.5"
+    axios@>=1.0.0 <=1.13.4: ">=1.13.6"
     brace-expansion@>=4.0.0 <5.0.5: ">=5.0.5"
-    chrono-node@<2.2.4: ">=2.2.4"
-    defu@<=6.1.4: ">=6.1.5"
+    chrono-node@<2.2.4: ">=2.2.7"
+    defu@<=6.1.4: ">=6.1.7"
     follow-redirects@<=1.15.11: ">=1.16.0"
-    hono@<4.12.14: ">=4.12.14"
+    hono@<4.12.14: ">=4.12.18"
     lodash-es@<=4.17.23: ">=4.18.0"
     lodash-es@>=4.0.0 <=4.17.23: ">=4.18.0"
     lodash@<=4.17.23: ">=4.18.0"
@@ -212,12 +212,12 @@ overrides:
     lodash@>=4.0.0 <=4.17.23: ">=4.18.0"
     picomatch@>=4.0.0 <4.0.4: ">=4.0.4"
     postcss@<8.5.10: ">=8.5.10"
-    tmp@<=0.2.3: ">=0.2.4"
+    tmp@<=0.2.3: ">=0.2.5"
     undici@<6.23.0: ">=6.23.0"
-    undici@<6.24.0: ">=6.24.0"
+    undici@<6.24.0: ">=6.24.1"
     vite@>=7.0.0 <=7.3.1: ">=7.3.2"
     vite@>=7.1.0 <=7.3.1: ">=7.3.2"
-    yaml@>=2.0.0 <2.8.3: ">=2.8.3"
+    yaml@>=2.0.0 <2.8.3: ">=2.8.4"
 
 shellEmulator: true
 

@@ -15,7 +15,7 @@ const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
         if (existsSync(join(cwd, configFile))) {
             // eslint-disable-next-line no-console
             console.warn(
-                "⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { \"extends\": [\"@anolilab/stylelint-config\"] }.",
+                `⚠️  .stylelintrc.js already exists; Make sure that it includes the following for @anolilab/stylelint-config to work as it should: { "extends": ["@anolilab/stylelint-config"] }.`,
             );
 
             return;

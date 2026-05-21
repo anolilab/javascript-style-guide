@@ -77,7 +77,7 @@ const dog = new Dog("Buddy");
 
 dog.bark();
 
-const function_ = (): string => `hello${1}`;
+const function_ = (): string => `hello1`;
 
 log(car1, car2, favoriteFruit, numericValue, function_());
 

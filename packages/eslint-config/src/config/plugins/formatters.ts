@@ -5,12 +5,13 @@ import parserPlain from "../../utils/parser-plain";
 import type { VendoredPrettierOptions, VendoredPrettierRuleOptions } from "../../vender/prettier-types";
 import { StylisticConfigDefaults } from "./stylistic";
 
-const mergePrettierOptions = <T extends VendoredPrettierRuleOptions>(options: VendoredPrettierOptions, overrides: T): T & VendoredPrettierOptions =>
-    ({
+const mergePrettierOptions = <T extends VendoredPrettierRuleOptions>(options: VendoredPrettierOptions, overrides: T): T & VendoredPrettierOptions => {
+    return {
         ...options,
         ...overrides,
         plugins: [...overrides.plugins ?? [], ...options.plugins ?? []],
-    }) as T & VendoredPrettierOptions;
+    };
+};
 
 const formatters = async (
     options: OptionsFormatters,

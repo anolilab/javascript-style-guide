@@ -35,7 +35,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             },
 
             settings: {
-                "html/indent": `+${String(indent as number | "tab")}`,
+                "html/indent": `+${typeof indent === "number" || typeof indent === "string" ? String(indent) : JSON.stringify(indent)}`,
                 "html/report-bad-indent": "error",
                 ...prettier ? { "html/report-bad-indent": "off" } : {},
             },

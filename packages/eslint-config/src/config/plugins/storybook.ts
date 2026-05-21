@@ -16,5 +16,5 @@ export default createConfig<OptionsOverrides>("storybook", async (config) => {
         };
     }
 
-    return options as unknown as Omit<TypedFlatConfigItem, "files">[];
+    return options;
 });

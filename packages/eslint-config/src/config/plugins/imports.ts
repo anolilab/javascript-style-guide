@@ -362,7 +362,7 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
         ];
 
         if (hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"])) {
-            rules.push(importPlugin.flatConfigs.react as TypedFlatConfigItem);
+            rules.push(importPlugin.flatConfigs.react);
         }
 
         if (hasPackageJsonAnyDependency(packageJson, ["typescript"])) {

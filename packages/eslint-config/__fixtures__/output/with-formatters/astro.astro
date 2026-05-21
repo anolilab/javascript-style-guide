@@ -14,9 +14,8 @@ const content = "hi!";
 
 
 <script>
-  const { log: logger } = console;
-
-  document.querySelector("h1")?.addEventListener("click", () => {
-      logger("clicked");
+  let {  log: logger } = console
+  document.querySelector('h1')?.addEventListener('click', () => {
+        logger('clicked');
   });
 </script>

@@ -26,7 +26,7 @@ export const HelloWorld = ({
             {greeting.endsWith(",")
                 ? " "
                 : (
-                    <span style={{ color: "\grey" }}>", "</span>
+                <span style={{ color: "\grey" }}>", "</span>
                 )}
             <em>{greeted}</em>
             {silent ? "." : "!"}

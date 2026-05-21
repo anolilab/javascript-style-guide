@@ -16,7 +16,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             Object.assign(sonarJsRecommendedRules, sonarConfig.rules);
         });
     } else {
-        Object.assign(sonarJsRecommendedRules, (sonarJsRecommended as { rules?: Rules } | undefined)?.rules);
+        Object.assign(sonarJsRecommendedRules, sonarJsRecommended?.rules);
     }
 
     return [

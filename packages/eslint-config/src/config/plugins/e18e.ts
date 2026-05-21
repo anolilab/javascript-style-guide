@@ -16,7 +16,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 e18e: e18ePlugin,
             },
             rules: {
-                ...(e18ePlugin.configs?.["recommended"] as { rules: Rules }).rules,
+                ...(e18ePlugin.configs["recommended"] as { rules: Rules }).rules,
 
                 // Conflicts with e18e/prefer-nullish-coalescing
                 "@typescript-eslint/prefer-nullish-coalescing": "off",

@@ -18,5 +18,5 @@ export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", asyn
         };
     }
 
-    return options as unknown as Omit<TypedFlatConfigItem, "files">[];
+    return options;
 });

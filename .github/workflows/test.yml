@@ -9,11 +9,10 @@ jobs:
     test:
         permissions:
             contents: "read"
-        uses: "anolilab/workflows/.github/workflows/test.yml@045a2d464dad0661a570c8a3c19f4b32bf9efad9" # v15.3.0+
+        uses: "anolilab/workflows/.github/workflows/test.yml@20b8733e71ebbb165d54fe8cede47e225985a58a" # v15.3.1+
         with:
             node_versions: '["20", "22", "24"]'
             os_matrix: '["ubuntu-latest"]'
             extra_includes: '[{"os": "macos-latest", "node_version": "20"}, {"os": "windows-latest", "node_version": "20.18"}]'
-            pnpm_version: "10"
             test_command: "pnpm test:all"
             coverage: false

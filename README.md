@@ -103,3 +103,4 @@ The anolilab javascript-style-guide is open-sourced software licensed under the 
 
 [prs-welcome]: https://github.com/anolilab/javascript-style-guide/blob/main/.github/CONTRIBUTING.md
 [repository]: https://github.com/anolilab/javascript-style-guide
+<!-- ci-verify -->

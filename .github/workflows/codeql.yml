@@ -1,5 +1,5 @@
 name: "CodeQL"
-on:
+on: # yamllint disable-line rule:truthy
     push:
         branches: ["main"]
     pull_request:
@@ -17,3 +17,4 @@ jobs:
         with:
             languages: '["javascript-typescript"]'
             branches: '["main"]'
+# ci verify trigger

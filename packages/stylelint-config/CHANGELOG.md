@@ -1,3 +1,10 @@
+## @anolilab/stylelint-config [11.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.0.2...@anolilab/stylelint-config@11.0.3) (2026-06-11)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 27.0.10
+
 ## @anolilab/stylelint-config [11.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.0.1...@anolilab/stylelint-config@11.0.2) (2026-06-11)
 
 ### Miscellaneous Chores

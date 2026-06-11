@@ -180,8 +180,8 @@ catalogs:
       specifier: ^4.4.1
       version: 4.4.1
     '@tanstack/eslint-plugin-query':
-      specifier: 5.100.9
-      version: 5.100.9
+      specifier: 5.100.14
+      version: 5.100.14
     '@tanstack/eslint-plugin-router':
       specifier: 1.161.6
       version: 1.161.6
@@ -985,7 +985,7 @@ importers:
         version: 4.4.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
       '@tanstack/eslint-plugin-query':
         specifier: catalog:lint
-        version: 5.100.9(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+        version: 5.100.14(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
       '@tanstack/eslint-plugin-router':
         specifier: catalog:lint
         version: 1.161.6(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
@@ -1147,8 +1147,8 @@ importers:
         version: 5.6.0
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 27.0.4
-        version: 27.0.4(58a47c6d83e1b916a112c3a35044bd9f)
+        specifier: 27.0.5
+        version: 27.0.5(58a47c6d83e1b916a112c3a35044bd9f)
       '@anolilab/prettier-config':
         specifier: 10.0.1
         version: 10.0.1(prettier@3.8.3)
@@ -1541,8 +1541,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/eslint-config@27.0.4':
-    resolution: {integrity: sha512-3lI/ya3knzQZQt5+f07Yh7HKdaksedT0eQkM0f34XalKpHwIHrDjJW2/CDeG8WjHfY2XC39bmRi4abn89t2UtA==}
+  '@anolilab/eslint-config@27.0.5':
+    resolution: {integrity: sha512-wzsmLk8eM+4tPO8zj/ef3pg8yKCtlrwYjUSt7L6rZaMAOJAi7AyKXmtY+DDYEODPQknT4drWs3wqfXZweLpCgA==}
     engines: {node: '>=22.12.0 <=25.*'}
     peerDependencies:
       '@eslint-react/eslint-plugin': 5.7.3
@@ -4369,6 +4369,15 @@ packages:
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
+
+  '@tanstack/eslint-plugin-query@5.100.14':
+    resolution: {integrity: sha512-NbpiBCmeHTRuVHeV5+U+1bzmxyTW5Dzp2sCeE6Hx+ZJTJWFK9dsm8VZmRc7LQP9/ZORsF620PvgUk67AwiBo4A==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
+      typescript: ^5.4.0 || ^6.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@tanstack/eslint-plugin-query@5.100.9':
     resolution: {integrity: sha512-3jZwyxAZWSBqI7EXEdw+rktFfX1opMpqn9Lruwz52DEzQdi7kbKnqixjhR3dJ1xFfG05YxV9vsqXGxXqcLAmjA==}
@@ -12764,7 +12773,7 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/eslint-config@27.0.4(58a47c6d83e1b916a112c3a35044bd9f)':
+  '@anolilab/eslint-config@27.0.5(58a47c6d83e1b916a112c3a35044bd9f)':
     dependencies:
       '@e18e/eslint-plugin': 0.4.1(eslint@10.3.0(jiti@2.7.0))(oxlint@1.57.0)
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.1(eslint@10.3.0(jiti@2.7.0))
@@ -15550,6 +15559,15 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
+  '@tanstack/eslint-plugin-query@5.100.14(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.61.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint: 10.3.0(jiti@2.7.0)
+    optionalDependencies:
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+
   '@tanstack/eslint-plugin-query@5.100.9(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/utils': 8.61.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
@@ -15558,6 +15576,7 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@tanstack/eslint-plugin-router@1.161.6(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)':
     dependencies:

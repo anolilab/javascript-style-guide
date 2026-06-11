@@ -1,3 +1,20 @@
+## @anolilab/lint-staged-config [11.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@11.0.1...@anolilab/lint-staged-config@11.0.2) (2026-06-11)
+
+### Bug Fixes
+
+* **deps:** update dependency jest to ^29.7.0 ([#1024](https://github.com/anolilab/javascript-style-guide/issues/1024)) ([40ac871](https://github.com/anolilab/javascript-style-guide/commit/40ac8710924d429b9c9ec46e092b94e70eb8abb7))
+* **deps:** update dependency secretlint to ^11.0.2 ([#1019](https://github.com/anolilab/javascript-style-guide/issues/1019)) ([6003a6d](https://github.com/anolilab/javascript-style-guide/commit/6003a6da330e7c0bc5159b8f94be75835fe6ad36))
+* **deps:** update patch updates (patch) ([#1020](https://github.com/anolilab/javascript-style-guide/issues/1020)) ([7b1116a](https://github.com/anolilab/javascript-style-guide/commit/7b1116a3fda9cdc08867e89fecb6d1cf306f7b9a))
+
+### Miscellaneous Chores
+
+* **security:** apply audit overrides ([c0fe05e](https://github.com/anolilab/javascript-style-guide/commit/c0fe05eb09877de49c3b05a367f7e1846eb01632))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 27.0.3
+
 ## @anolilab/lint-staged-config [11.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@11.0.0...@anolilab/lint-staged-config@11.0.1) (2026-05-04)
 
 ### Bug Fixes

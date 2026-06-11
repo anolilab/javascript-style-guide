@@ -1,3 +1,14 @@
+## @anolilab/lint-staged-config [11.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@11.0.3...@anolilab/lint-staged-config@11.0.4) (2026-06-11)
+
+### Bug Fixes
+
+* **ci:** resolve lint failures blocking PRs ([474c68f](https://github.com/anolilab/javascript-style-guide/commit/474c68fc78066226ad14836cad5653adfc17d05b))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 27.0.5
+
 ## @anolilab/lint-staged-config [11.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@11.0.2...@anolilab/lint-staged-config@11.0.3) (2026-06-11)
 
 

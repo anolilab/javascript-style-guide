@@ -1147,8 +1147,8 @@ importers:
         version: 5.6.0
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 27.0.2
-        version: 27.0.2(34f0b4383783b1bad195d03e316896c7)
+        specifier: 27.0.3
+        version: 27.0.3(58a47c6d83e1b916a112c3a35044bd9f)
       '@anolilab/prettier-config':
         specifier: 10.0.1
         version: 10.0.1(prettier@3.8.3)
@@ -1458,6 +1458,94 @@ packages:
     engines: {node: '>=22.12.0 <=25.*'}
     peerDependencies:
       '@eslint-react/eslint-plugin': 5.7.1
+      '@eslint/css': 1.2.0
+      '@ospm/eslint-plugin-react-unhookify': ^1.0.2
+      '@tanstack/eslint-plugin-query': 5.100.9
+      '@tanstack/eslint-plugin-router': 1.161.6
+      '@unocss/eslint-plugin': 66.6.8
+      astro-eslint-parser: 1.4.0
+      eslint: '>=9.38.0'
+      eslint-plugin-astro: 1.7.0
+      eslint-plugin-format: '>=0.1.0'
+      eslint-plugin-jsx-a11y: ^6.10.2
+      eslint-plugin-oxlint: 1.62.0
+      eslint-plugin-playwright: ^0.16.0 || ^0.18.0 || ^2.0.0
+      eslint-plugin-react: ^7.37.5
+      eslint-plugin-react-compiler: ^19.1.0-rc.2
+      eslint-plugin-react-hooks: 7.1.1
+      eslint-plugin-react-perf: ^3.3.3
+      eslint-plugin-react-refresh: 0.5.2
+      eslint-plugin-react-you-might-not-need-an-effect: 0.10.0
+      eslint-plugin-storybook: 10.3.6
+      eslint-plugin-tailwindcss: 3.18.3
+      eslint-plugin-testing-library: 7.16.2
+      eslint-plugin-tsdoc: 0.5.2
+      eslint-plugin-validate-jsx-nesting: ^0.1.1
+      eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
+      eslint-plugin-zod: 3.12.0
+      tailwind-csstree: 0.3.1
+      typescript: '*'
+    peerDependenciesMeta:
+      '@eslint-react/eslint-plugin':
+        optional: true
+      '@eslint/css':
+        optional: true
+      '@ospm/eslint-plugin-react-unhookify':
+        optional: true
+      '@tanstack/eslint-plugin-query':
+        optional: true
+      '@tanstack/eslint-plugin-router':
+        optional: true
+      '@unocss/eslint-plugin':
+        optional: true
+      astro-eslint-parser:
+        optional: true
+      eslint-plugin-astro:
+        optional: true
+      eslint-plugin-format:
+        optional: true
+      eslint-plugin-jsx-a11y:
+        optional: true
+      eslint-plugin-oxlint:
+        optional: true
+      eslint-plugin-playwright:
+        optional: true
+      eslint-plugin-react:
+        optional: true
+      eslint-plugin-react-compiler:
+        optional: true
+      eslint-plugin-react-hooks:
+        optional: true
+      eslint-plugin-react-perf:
+        optional: true
+      eslint-plugin-react-refresh:
+        optional: true
+      eslint-plugin-react-you-might-not-need-an-effect:
+        optional: true
+      eslint-plugin-storybook:
+        optional: true
+      eslint-plugin-tailwindcss:
+        optional: true
+      eslint-plugin-testing-library:
+        optional: true
+      eslint-plugin-tsdoc:
+        optional: true
+      eslint-plugin-validate-jsx-nesting:
+        optional: true
+      eslint-plugin-you-dont-need-lodash-underscore:
+        optional: true
+      eslint-plugin-zod:
+        optional: true
+      tailwind-csstree:
+        optional: true
+      typescript:
+        optional: true
+
+  '@anolilab/eslint-config@27.0.3':
+    resolution: {integrity: sha512-KADnxcQ9iyzzKimqVY6pWPiNC/QVfgX2b6GC5Qu+zoOTFi3S6qq7V7X/4KnY08FHL48L8ZwqyfJJVGsSG7fRgw==}
+    engines: {node: '>=22.12.0 <=25.*'}
+    peerDependencies:
+      '@eslint-react/eslint-plugin': 5.7.3
       '@eslint/css': 1.2.0
       '@ospm/eslint-plugin-react-unhookify': ^1.0.2
       '@tanstack/eslint-plugin-query': 5.100.9
@@ -12676,6 +12764,100 @@ snapshots:
       - vitest
       - yaml
 
+  '@anolilab/eslint-config@27.0.3(58a47c6d83e1b916a112c3a35044bd9f)':
+    dependencies:
+      '@e18e/eslint-plugin': 0.4.1(eslint@10.3.0(jiti@2.7.0))(oxlint@1.57.0)
+      '@eslint-community/eslint-plugin-eslint-comments': 4.7.1(eslint@10.3.0(jiti@2.7.0))
+      '@eslint/compat': 2.0.5(eslint@10.3.0(jiti@2.7.0))
+      '@eslint/js': 10.0.1(eslint@10.3.0(jiti@2.7.0))
+      '@eslint/markdown': 8.0.1
+      '@html-eslint/eslint-plugin': 0.60.0(eslint@10.3.0(jiti@2.7.0))
+      '@html-eslint/parser': 0.60.0
+      '@stylistic/eslint-plugin': 5.10.0(eslint@10.3.0(jiti@2.7.0))
+      '@stylistic/eslint-plugin-ts': 4.4.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      '@typescript-eslint/parser': 8.59.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      '@typescript-eslint/types': 8.59.1
+      '@visulima/fs': 4.1.0(yaml@2.9.0)
+      '@visulima/package': 4.1.7(@types/node@25.9.1)
+      '@visulima/tsconfig': 2.1.3(yaml@2.9.0)
+      '@vitest/eslint-plugin': 1.6.16(@typescript-eslint/eslint-plugin@8.59.4(@typescript-eslint/parser@8.59.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.5)
+      confusing-browser-globals: 1.0.11
+      eslint: 10.3.0(jiti@2.7.0)
+      eslint-config-flat-gitignore: 2.3.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-flat-config-utils: 3.2.0
+      eslint-import-resolver-node: 0.3.10
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.2(@typescript-eslint/utils@8.61.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint-import-resolver-node@0.3.10)(eslint@10.3.0(jiti@2.7.0)))(eslint-plugin-import@2.29.0(@typescript-eslint/parser@8.59.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0)))(eslint@10.3.0(jiti@2.7.0))
+      eslint-merge-processors: 2.0.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-antfu: 3.2.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-compat: 7.0.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-erasable-syntax-only: 0.4.1(@typescript-eslint/parser@8.59.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint-plugin-es-x: 9.6.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-html: 8.1.4
+      eslint-plugin-import-x: 4.16.2(@typescript-eslint/utils@8.61.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint-import-resolver-node@0.3.10)(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-jsdoc: 62.9.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-jsonc: 3.1.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-n: 17.24.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint-plugin-no-for-of-array: 0.1.0(eslint@10.3.0(jiti@2.7.0))(typescript-eslint@8.59.4(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(typescript@6.0.3)
+      eslint-plugin-no-only-tests: 3.4.0
+      eslint-plugin-no-secrets: 2.3.3(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-no-unsanitized: 4.1.5(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-perfectionist: 5.9.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint-plugin-pnpm: 1.6.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-promise: 7.3.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-regexp: 3.1.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-security: 4.0.0
+      eslint-plugin-simple-import-sort: 13.0.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-sonarjs: 4.0.3(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-toml: 1.3.1(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-unicorn: 64.0.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-unused-imports: 4.4.1(@typescript-eslint/eslint-plugin@8.59.4(@typescript-eslint/parser@8.59.1(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-yml: 3.3.2(eslint@10.3.0(jiti@2.7.0))
+      globals: 17.6.0
+      jsonc-eslint-parser: 3.1.0
+      parse-gitignore: 2.0.0
+      semver: 7.7.4
+      toml-eslint-parser: 1.0.3
+      typescript-eslint: 8.59.4(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      yaml-eslint-parser: 2.0.0
+    optionalDependencies:
+      '@eslint-react/eslint-plugin': 5.7.3(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      '@eslint/css': 1.2.0
+      '@ospm/eslint-plugin-react-unhookify': 1.0.2(@types/react@19.2.10)(eslint@10.3.0(jiti@2.7.0))(react-dom@19.2.4(react@19.2.5))(react@19.2.5)
+      '@tanstack/eslint-plugin-query': 5.100.9(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      '@tanstack/eslint-plugin-router': 1.161.6(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      '@unocss/eslint-plugin': 66.6.8(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      astro-eslint-parser: 1.4.0
+      eslint-plugin-astro: 1.7.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-format: 2.0.1(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-oxlint: 1.62.0(oxlint@1.57.0)
+      eslint-plugin-playwright: 2.10.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react: 7.37.5(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react-compiler: 19.1.0-rc.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react-hooks: 7.1.1(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react-perf: 3.3.3(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react-refresh: 0.5.2(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-react-you-might-not-need-an-effect: 0.10.0(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-storybook: 10.3.6(eslint@10.3.0(jiti@2.7.0))(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.4(react@19.2.5))(react@19.2.5))(typescript@6.0.3)
+      eslint-plugin-tailwindcss: 3.18.3(tailwindcss@3.3.5(ts-node@10.9.1(@types/node@25.9.1)(typescript@6.0.3)))
+      eslint-plugin-testing-library: 7.16.2(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint-plugin-tsdoc: 0.5.2(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      eslint-plugin-validate-jsx-nesting: 0.1.1(eslint@10.3.0(jiti@2.7.0))
+      eslint-plugin-you-dont-need-lodash-underscore: 6.14.0
+      eslint-plugin-zod: 3.12.0(eslint@10.3.0(jiti@2.7.0))(oxlint@1.57.0)(typescript@6.0.3)(zod@4.4.3)
+      tailwind-csstree: 0.3.1(@eslint/css@1.2.0)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - '@eslint/json'
+      - '@types/node'
+      - '@typescript-eslint/eslint-plugin'
+      - '@typescript-eslint/utils'
+      - eslint-plugin-import
+      - oxlint
+      - supports-color
+      - vitest
+      - yaml
+
   '@anolilab/multi-semantic-release@4.4.1(semantic-release@25.0.3(typescript@6.0.3))(typescript@6.0.3)':
     dependencies:
       '@semrel-extra/topo': 1.14.1
@@ -17175,7 +17357,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.59.4(@typescript-eslint/parser@8.59.4(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
       typescript: 6.0.3
-      vitest: 4.1.5(@types/node@25.9.1)(@vitest/coverage-v8@4.1.7)(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.0)(jiti@2.7.0)(terser@5.46.2)(tsx@4.21.0)(yaml@2.9.0))
+      vitest: 4.1.5(@types/node@25.9.1)(@vitest/coverage-v8@4.1.5)(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.0)(jiti@2.7.0)(terser@5.46.2)(tsx@4.21.0)(yaml@2.9.0))
     transitivePeerDependencies:
       - supports-color
 

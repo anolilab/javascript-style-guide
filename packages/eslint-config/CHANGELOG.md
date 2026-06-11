@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [27.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.2...@anolilab/eslint-config@27.0.3) (2026-06-11)
+
+### Miscellaneous Chores
+
+* **security:** apply audit overrides ([c0fe05e](https://github.com/anolilab/javascript-style-guide/commit/c0fe05eb09877de49c3b05a367f7e1846eb01632))
+
 ## @anolilab/eslint-config [27.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.1...@anolilab/eslint-config@27.0.2) (2026-05-04)
 
 ### Bug Fixes

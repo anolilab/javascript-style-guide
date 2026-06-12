@@ -36,14 +36,14 @@ catalog:
     stylelint: 17.12.0
     textlint: 15.7.1
     typescript: 6.0.3
-    vite: 8.0.14
+    vite: 8.0.16
     vitest: 4.1.7
 catalogMode: prefer
 
 catalogs:
     build:
         esbuild: 0.28.0
-        vite: 8.0.10
+        vite: 8.0.16
     cli:
         "@anolilab/multi-semantic-release": 4.4.4
         "@anolilab/semantic-release-pnpm": 8.1.15
@@ -249,8 +249,8 @@ overrides:
     tmp@<0.2.6: ">=0.2.6"
     undici@<6.23.0: ">=6.23.0"
     undici@<6.24.0: ">=6.24.1"
-    vite@>=7.0.0 <=7.3.1: ">=7.3.2"
-    vite@>=7.1.0 <=7.3.1: ">=7.3.2"
+    vite@>=7.0.0 <=7.3.1: ">=7.3.5"
+    vite@>=7.1.0 <=7.3.1: ">=7.3.5"
     yaml@>=2.0.0 <2.8.3: ">=2.8.4"
 
 shellEmulator: true

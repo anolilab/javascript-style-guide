@@ -306,8 +306,8 @@ catalogs:
       specifier: 0.5.2
       version: 0.5.2
     eslint-plugin-react-you-might-not-need-an-effect:
-      specifier: 0.10.0
-      version: 0.10.0
+      specifier: 1.0.0
+      version: 1.0.0
     eslint-plugin-regexp:
       specifier: 3.1.0
       version: 3.1.0
@@ -1057,7 +1057,7 @@ importers:
         version: 0.5.2(eslint@10.3.0(jiti@2.7.0))
       eslint-plugin-react-you-might-not-need-an-effect:
         specifier: catalog:lint
-        version: 0.10.0(eslint@10.3.0(jiti@2.7.0))
+        version: 1.0.0(eslint@10.3.0(jiti@2.7.0))
       eslint-plugin-storybook:
         specifier: catalog:lint
         version: 10.3.6(eslint@10.3.0(jiti@2.7.0))(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.4(react@19.2.7))(react@19.2.7))(typescript@6.0.3)
@@ -7371,6 +7371,12 @@ packages:
 
   eslint-plugin-react-you-might-not-need-an-effect@0.10.0:
     resolution: {integrity: sha512-a4pugbQc2zLiE2NZGuXdTjtMNvlP2984QFPDv71eskUYDzigLFYfBL4QjK+RnRtcboHoXRKOcQqEZKxiK6KegA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      eslint: '>=8.40.0'
+
+  eslint-plugin-react-you-might-not-need-an-effect@1.0.0:
+    resolution: {integrity: sha512-8exakZ5dCJdZb7TA3P8vD47HlnM3IllA9sjKzU22wyLEx0PZBDjFPxT5+5Rb10tSE6uWmwoBsgClIDNuJ8UW6g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -19587,6 +19593,12 @@ snapshots:
       - supports-color
 
   eslint-plugin-react-you-might-not-need-an-effect@0.10.0(eslint@10.3.0(jiti@2.7.0)):
+    dependencies:
+      eslint: 10.3.0(jiti@2.7.0)
+      globals: 16.5.0
+    optional: true
+
+  eslint-plugin-react-you-might-not-need-an-effect@1.0.0(eslint@10.3.0(jiti@2.7.0)):
     dependencies:
       eslint: 10.3.0(jiti@2.7.0)
       globals: 16.5.0

@@ -102,8 +102,8 @@ catalogs:
       specifier: 3.6.1
       version: 3.6.1
     stylelint:
-      specifier: 17.13.0
-      version: 17.13.0
+      specifier: 17.12.0
+      version: 17.12.0
     textlint:
       specifier: 15.7.1
       version: 15.7.1
@@ -372,8 +372,8 @@ catalogs:
       specifier: 10.3.6
       version: 10.3.6
     stylelint:
-      specifier: 17.13.0
-      version: 17.13.0
+      specifier: 17.10.0
+      version: 17.10.0
     stylelint-config-clean-order:
       specifier: 8.0.2
       version: 8.0.2
@@ -499,8 +499,8 @@ catalogs:
       specifier: ^1.8.4
       version: 1.8.4
     type-fest:
-      specifier: 5.6.0
-      version: 5.6.0
+      specifier: 5.7.0
+      version: 5.7.0
     write-good:
       specifier: ^1.0.8
       version: 1.0.8
@@ -677,7 +677,7 @@ importers:
         version: 3.6.1
       stylelint:
         specifier: 'catalog:'
-        version: 17.13.0(typescript@6.0.3)
+        version: 17.12.0(typescript@6.0.3)
       textlint:
         specifier: 'catalog:'
         version: 15.7.1
@@ -1111,7 +1111,7 @@ importers:
         version: 4.22.4
       type-fest:
         specifier: catalog:prod
-        version: 5.6.0
+        version: 5.7.0
       typescript:
         specifier: catalog:tsc
         version: 6.0.3
@@ -1144,7 +1144,7 @@ importers:
         version: 17.12.0(typescript@6.0.3)
       type-fest:
         specifier: catalog:prod
-        version: 5.6.0
+        version: 5.7.0
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 27.0.10
@@ -1241,25 +1241,25 @@ importers:
         version: 9.0.0
       stylelint-config-clean-order:
         specifier: catalog:lint
-        version: 8.0.2(stylelint-order@6.0.4(stylelint@17.13.0(typescript@6.0.3)))(stylelint@17.13.0(typescript@6.0.3))
+        version: 8.0.2(stylelint-order@6.0.4(stylelint@17.10.0(typescript@6.0.3)))(stylelint@17.10.0(typescript@6.0.3))
       stylelint-config-standard:
         specifier: catalog:lint
-        version: 40.0.0(stylelint@17.13.0(typescript@6.0.3))
+        version: 40.0.0(stylelint@17.10.0(typescript@6.0.3))
       stylelint-declaration-block-no-ignored-properties:
         specifier: catalog:lint
-        version: 3.0.0(stylelint@17.13.0(typescript@6.0.3))
+        version: 3.0.0(stylelint@17.10.0(typescript@6.0.3))
       stylelint-high-performance-animation:
         specifier: catalog:lint
-        version: 2.0.0(stylelint@17.13.0(typescript@6.0.3))
+        version: 2.0.0(stylelint@17.10.0(typescript@6.0.3))
       stylelint-no-unsupported-browser-features:
         specifier: catalog:lint
-        version: 8.1.1(stylelint@17.13.0(typescript@6.0.3))
+        version: 8.1.1(stylelint@17.10.0(typescript@6.0.3))
       stylelint-require-units:
         specifier: catalog:lint
-        version: 2.0.0(stylelint@17.13.0(typescript@6.0.3))
+        version: 2.0.0(stylelint@17.10.0(typescript@6.0.3))
       stylelint-selector-no-empty:
         specifier: catalog:lint
-        version: 1.0.9(stylelint@17.13.0(typescript@6.0.3))
+        version: 1.0.9(stylelint@17.10.0(typescript@6.0.3))
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 27.0.10
@@ -1302,7 +1302,7 @@ importers:
         version: 25.0.3(typescript@6.0.3)
       stylelint:
         specifier: catalog:lint
-        version: 17.13.0(typescript@6.0.3)
+        version: 17.10.0(typescript@6.0.3)
       typescript:
         specifier: catalog:tsc
         version: 6.0.3
@@ -8549,6 +8549,10 @@ packages:
     resolution: {integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==}
     engines: {node: '>=0.10.0'}
 
+  is-plain-object@5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
+    engines: {node: '>=0.10.0'}
+
   is-promise@4.0.0:
     resolution: {integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==}
 
@@ -11464,13 +11468,13 @@ packages:
     peerDependencies:
       stylelint: ^14.9.1
 
-  stylelint@17.12.0:
-    resolution: {integrity: sha512-KIlzWXMHUvgfPUR0R7TK3H80yCIi0uoivUwf+6Az4yrHJD1Q3c1qIkh/H5Z0i/K3QXgtq/UMEkWyBUSUwnpnOg==}
+  stylelint@17.10.0:
+    resolution: {integrity: sha512-cI7I6HHEYOHHVNVci+s92WlA3QfmNhjwFdgCgYV3TLEysilOjk+B3EFxMED1xY9GYB0Kre3OD+mSLj19VLTIvA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  stylelint@17.13.0:
-    resolution: {integrity: sha512-G1WYzMerp7ihOaIe9VJCHLt12MoAD2QLf1AFerYP37+BCRBUK5UCpq8e/mN+zCIaJPKQcaxhE4WlPmqdiOx/gw==}
+  stylelint@17.12.0:
+    resolution: {integrity: sha512-KIlzWXMHUvgfPUR0R7TK3H80yCIi0uoivUwf+6Az4yrHJD1Q3c1qIkh/H5Z0i/K3QXgtq/UMEkWyBUSUwnpnOg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -11897,6 +11901,10 @@ packages:
 
   type-fest@5.6.0:
     resolution: {integrity: sha512-8ZiHFm91orbSAe2PSAiSVBVko18pbhbiB3U9GglSzF/zCGkR+rxpHx6sEMCUm4kxY4LjDIUGgCfUMtwfZfjfUA==}
+    engines: {node: '>=20'}
+
+  type-fest@5.7.0:
+    resolution: {integrity: sha512-1URUxUqfHFM1c+zfSPsa3gnkO7Aq21qyH75SIduNYz4SzY964rn1X2vCMQaHSHhktiw+0kPa2iyb6PUpXqB6Vg==}
     engines: {node: '>=20'}
 
   type-is@2.0.1:
@@ -16718,14 +16726,14 @@ snapshots:
   '@visulima/fs@4.1.0(yaml@2.8.3)':
     dependencies:
       '@visulima/path': 2.0.5
-      type-fest: 5.6.0
+      type-fest: 5.7.0
     optionalDependencies:
       yaml: 2.8.3
 
   '@visulima/fs@4.1.0(yaml@2.9.0)':
     dependencies:
       '@visulima/path': 2.0.5
-      type-fest: 5.6.0
+      type-fest: 5.7.0
     optionalDependencies:
       yaml: 2.9.0
 
@@ -21001,6 +21009,8 @@ snapshots:
     dependencies:
       isobject: 3.0.1
 
+  is-plain-object@5.0.0: {}
+
   is-promise@4.0.0: {}
 
   is-reference@1.2.1:
@@ -24962,52 +24972,52 @@ snapshots:
     dependencies:
       boundary: 2.0.0
 
-  stylelint-config-clean-order@8.0.2(stylelint-order@6.0.4(stylelint@17.13.0(typescript@6.0.3)))(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-config-clean-order@8.0.2(stylelint-order@6.0.4(stylelint@17.10.0(typescript@6.0.3)))(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
-      stylelint: 17.13.0(typescript@6.0.3)
-      stylelint-order: 6.0.4(stylelint@17.13.0(typescript@6.0.3))
+      stylelint: 17.10.0(typescript@6.0.3)
+      stylelint-order: 6.0.4(stylelint@17.10.0(typescript@6.0.3))
 
-  stylelint-config-recommended@18.0.0(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-config-recommended@18.0.0(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-config-standard@40.0.0(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-config-standard@40.0.0(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
-      stylelint: 17.13.0(typescript@6.0.3)
-      stylelint-config-recommended: 18.0.0(stylelint@17.13.0(typescript@6.0.3))
+      stylelint: 17.10.0(typescript@6.0.3)
+      stylelint-config-recommended: 18.0.0(stylelint@17.10.0(typescript@6.0.3))
 
-  stylelint-declaration-block-no-ignored-properties@3.0.0(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-declaration-block-no-ignored-properties@3.0.0(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-high-performance-animation@2.0.0(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-high-performance-animation@2.0.0(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
       postcss-value-parser: 4.2.0
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-no-unsupported-browser-features@8.1.1(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-no-unsupported-browser-features@8.1.1(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
       browserslist: 4.28.2
       doiuse: 6.0.6
       postcss: 8.5.15
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-order@6.0.4(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-order@6.0.4(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
       postcss: 8.5.15
       postcss-sorting: 8.0.2(postcss@8.5.15)
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-require-units@2.0.0(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-require-units@2.0.0(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
       postcss-value-parser: 4.2.0
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint-selector-no-empty@1.0.9(stylelint@17.13.0(typescript@6.0.3)):
+  stylelint-selector-no-empty@1.0.9(stylelint@17.10.0(typescript@6.0.3)):
     dependencies:
-      stylelint: 17.13.0(typescript@6.0.3)
+      stylelint: 17.10.0(typescript@6.0.3)
 
-  stylelint@17.12.0(typescript@6.0.3):
+  stylelint@17.10.0(typescript@6.0.3):
     dependencies:
       '@csstools/css-calc': 3.2.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
@@ -25030,6 +25040,7 @@ snapshots:
       html-tags: 5.1.0
       ignore: 7.0.5
       import-meta-resolve: 4.2.0
+      is-plain-object: 5.0.0
       mathml-tag-names: 4.0.0
       meow: 14.1.0
       micromatch: 4.0.8
@@ -25048,7 +25059,7 @@ snapshots:
       - supports-color
       - typescript
 
-  stylelint@17.13.0(typescript@6.0.3):
+  stylelint@17.12.0(typescript@6.0.3):
     dependencies:
       '@csstools/css-calc': 3.2.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
@@ -25597,6 +25608,10 @@ snapshots:
   type-fest@4.41.0: {}
 
   type-fest@5.6.0:
+    dependencies:
+      tagged-tag: 1.0.0
+
+  type-fest@5.7.0:
     dependencies:
       tagged-tag: 1.0.0
 

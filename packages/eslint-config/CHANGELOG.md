@@ -1,3 +1,18 @@
+## @anolilab/eslint-config [28.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.10...@anolilab/eslint-config@28.0.0) (2026-06-20)
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** updated dependencies to major versions
+
+### Bug Fixes
+
+* **deps:** update eslint ([9a62669](https://github.com/anolilab/javascript-style-guide/commit/9a62669619b41c96b9adac7f9418ca95fa17d865))
+* **deps:** update eslint ([0500a32](https://github.com/anolilab/javascript-style-guide/commit/0500a32e98b5c5eb591d4b7320ff3a558f83dc69))
+
+### Styles
+
+* **deps:** update eslint to v1 ([4a0f84a](https://github.com/anolilab/javascript-style-guide/commit/4a0f84a126aeb7f0e4e96512edeec93e8bd20ff3))
+
 ## @anolilab/eslint-config [27.0.10](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.9...@anolilab/eslint-config@27.0.10) (2026-06-11)
 
 ## @anolilab/eslint-config [27.0.9](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@27.0.8...@anolilab/eslint-config@27.0.9) (2026-06-11)

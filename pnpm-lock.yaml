@@ -499,8 +499,8 @@ catalogs:
       specifier: ^1.8.4
       version: 1.8.4
     type-fest:
-      specifier: 5.7.0
-      version: 5.7.0
+      specifier: 5.6.0
+      version: 5.6.0
     write-good:
       specifier: ^1.0.8
       version: 1.0.8
@@ -589,8 +589,8 @@ overrides:
   tmp@<0.2.6: '>=0.2.6'
   undici@<6.23.0: '>=6.23.0'
   undici@<6.24.0: '>=6.24.1'
-  vite@>=7.0.0 <=7.3.1: '>=7.3.2'
-  vite@>=7.1.0 <=7.3.1: '>=7.3.2'
+  vite@>=7.0.0 <=7.3.1: '>=8.0.16'
+  vite@>=7.1.0 <=7.3.1: '>=8.0.16'
   yaml@>=2.0.0 <2.8.3: '>=2.8.4'
 
 importers:
@@ -1111,7 +1111,7 @@ importers:
         version: 4.22.4
       type-fest:
         specifier: catalog:prod
-        version: 5.7.0
+        version: 5.6.0
       typescript:
         specifier: catalog:tsc
         version: 6.0.3
@@ -1144,7 +1144,7 @@ importers:
         version: 17.12.0(typescript@6.0.3)
       type-fest:
         specifier: catalog:prod
-        version: 5.7.0
+        version: 5.6.0
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 27.0.10
@@ -5565,7 +5565,7 @@ packages:
     resolution: {integrity: sha512-/x2EmFC4mT4NNzqvC3fmesuV97w5FC903KPmey4gsnJiMQ3Be1IlDKVaDaG8iqaLFHqJ2FVEkxZk5VmeLjIItw==}
     peerDependencies:
       msw: ^2.4.9
-      vite: '>=7.3.2'
+      vite: '>=8.0.16'
     peerDependenciesMeta:
       msw:
         optional: true
@@ -5576,7 +5576,7 @@ packages:
     resolution: {integrity: sha512-vY7nuamKgfvpA1Koa3oYIw/k7D6kZnpGyNMZW8loow2bsBYla1TFdqTaXncWdRn4pgwNs+90RhnXhJScDwQeJA==}
     peerDependencies:
       msw: ^2.4.9
-      vite: '>=7.3.2'
+      vite: '>=8.0.16'
     peerDependenciesMeta:
       msw:
         optional: true
@@ -10905,7 +10905,7 @@ packages:
     engines: {node: '>=20.20.0'}
     peerDependencies:
       rollup: ^3.0.0 || ^4.0.0
-      vite: '>=7.3.2'
+      vite: '>=8.0.16'
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -11903,10 +11903,6 @@ packages:
     resolution: {integrity: sha512-8ZiHFm91orbSAe2PSAiSVBVko18pbhbiB3U9GglSzF/zCGkR+rxpHx6sEMCUm4kxY4LjDIUGgCfUMtwfZfjfUA==}
     engines: {node: '>=20'}
 
-  type-fest@5.7.0:
-    resolution: {integrity: sha512-1URUxUqfHFM1c+zfSPsa3gnkO7Aq21qyH75SIduNYz4SzY964rn1X2vCMQaHSHhktiw+0kPa2iyb6PUpXqB6Vg==}
-    engines: {node: '>=20'}
-
   type-is@2.0.1:
     resolution: {integrity: sha512-OZs6gsjF4vMp32qrCbiVSkrFmXtG/AZhY3t0iAMrMBiAZyV9oALtXO8hsrHbMXF9x6L3grlFuwW2oAz7cav+Gw==}
     engines: {node: '>= 0.6'}
@@ -12269,7 +12265,7 @@ packages:
       '@vitest/ui': 4.1.5
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=7.3.2'
+      vite: '>=8.0.16'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -12310,7 +12306,7 @@ packages:
       '@vitest/ui': 4.1.7
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=7.3.2'
+      vite: '>=8.0.16'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -16726,14 +16722,14 @@ snapshots:
   '@visulima/fs@4.1.0(yaml@2.8.3)':
     dependencies:
       '@visulima/path': 2.0.5
-      type-fest: 5.7.0
+      type-fest: 5.6.0
     optionalDependencies:
       yaml: 2.8.3
 
   '@visulima/fs@4.1.0(yaml@2.9.0)':
     dependencies:
       '@visulima/path': 2.0.5
-      type-fest: 5.7.0
+      type-fest: 5.6.0
     optionalDependencies:
       yaml: 2.9.0
 
@@ -25608,10 +25604,6 @@ snapshots:
   type-fest@4.41.0: {}
 
   type-fest@5.6.0:
-    dependencies:
-      tagged-tag: 1.0.0
-
-  type-fest@5.7.0:
     dependencies:
       tagged-tag: 1.0.0
 

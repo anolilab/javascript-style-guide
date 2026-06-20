@@ -756,7 +756,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 27.0.2
-        version: 27.0.2(da2f20c0be75d25b89b872a7ad36bb20)
+        version: 27.0.2(6cdad104d3bc77978f35d04df9d76be8)
       '@anolilab/prettier-config':
         specifier: 10.0.1
         version: 10.0.1(prettier@3.8.3)
@@ -12512,7 +12512,7 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/eslint-config@27.0.2(da2f20c0be75d25b89b872a7ad36bb20)':
+  '@anolilab/eslint-config@27.0.2(6cdad104d3bc77978f35d04df9d76be8)':
     dependencies:
       '@e18e/eslint-plugin': 0.4.1(eslint@10.3.0(jiti@2.7.0))(oxlint@1.62.0)
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.1(eslint@10.3.0(jiti@2.7.0))
@@ -12590,7 +12590,7 @@ snapshots:
       eslint-plugin-tsdoc: 0.5.2(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
       eslint-plugin-validate-jsx-nesting: 0.1.1(eslint@10.3.0(jiti@2.7.0))
       eslint-plugin-you-dont-need-lodash-underscore: 6.14.0
-      eslint-plugin-zod: 3.12.0(eslint@10.3.0(jiti@2.7.0))(oxlint@1.62.0)(typescript@6.0.3)(zod@4.4.3)
+      eslint-plugin-zod: 3.12.0(eslint@10.3.0(jiti@2.7.0))(oxlint@1.62.0)(typescript@6.0.3)(zod@3.25.76)
       typescript: 6.0.3
     transitivePeerDependencies:
       - '@eslint/json'
@@ -19254,6 +19254,19 @@ snapshots:
   eslint-plugin-you-dont-need-lodash-underscore@6.14.0:
     dependencies:
       kebab-case: 1.0.2
+
+  eslint-plugin-zod@3.12.0(eslint@10.3.0(jiti@2.7.0))(oxlint@1.62.0)(typescript@6.0.3)(zod@3.25.76):
+    dependencies:
+      '@typescript-eslint/utils': 8.61.0(eslint@10.3.0(jiti@2.7.0))(typescript@6.0.3)
+      esquery: 1.7.0
+    optionalDependencies:
+      eslint: 10.3.0(jiti@2.7.0)
+      oxlint: 1.62.0
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    optional: true
 
   eslint-plugin-zod@3.12.0(eslint@10.3.0(jiti@2.7.0))(oxlint@1.62.0)(typescript@6.0.3)(zod@4.4.3):
     dependencies:

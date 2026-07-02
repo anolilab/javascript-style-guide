@@ -13,6 +13,6 @@ permissions:
 
 jobs:
     lock-closed:
-        uses: "anolilab/workflows/.github/workflows/lock-closed.yml@main"
+        uses: "anolilab/workflows/.github/workflows/lock-closed.yml@9c000ebdb7571f022d19752c1c38a57e61a63448" # main
         with:
             target-repo: "anolilab/javascript-style-guide"

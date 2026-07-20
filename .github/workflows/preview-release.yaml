@@ -49,7 +49,7 @@ jobs:
               id: "setup"
               uses: "anolilab/workflows/step/setup@8249d8ea27b21190f8079df71fd7ba0c63f8d352" # v20.2.10 # main
               with:
-                  node-version: "20.x"
+                  node-version: "22.x"
                   cache-prefix: "preview-release"
 
             # Temporary solution until Nx solve this https://github.com/nrwl/nx/issues/22259

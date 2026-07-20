@@ -233,10 +233,16 @@ onlyBuiltDependencies:
     - unrs-resolver
 overrides:
     axios@>=1.0.0 <=1.13.4: ">=1.13.6"
+    # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
+    axios@<1.18.0: ">=1.18.0"
     brace-expansion@>=4.0.0 <5.0.5: ">=5.0.6"
     brace-expansion@>=5.0.0 <5.0.6: ">=5.0.6"
     chrono-node@<2.2.4: ">=2.2.7"
     defu@<=6.1.4: ">=6.1.7"
+    # The published @anolilab/eslint-config pulls sonarjs 4.0.3 transitively, which reads
+    # AST_NODE_TYPES.FunctionType at load and crashes against eslint 10.7. Sibling packages
+    # lint themselves with the published config, so force the version this workspace uses.
+    eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
     follow-redirects@<=1.15.11: ">=1.16.0"
     hono@<4.12.14: ">=4.12.24"
     hono@<4.12.21: ">=4.12.24"

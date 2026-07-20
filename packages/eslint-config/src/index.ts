@@ -113,7 +113,7 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
     const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
 
     return {
-        ..."overrides" in sub && (sub as OptionsOverrides).overrides,
+        ...("overrides" in sub && (sub as OptionsOverrides).overrides),
     };
 };
 
@@ -164,7 +164,7 @@ export const createConfig = async (
 ): PromiseFlatConfigComposer => {
     if ("files" in options) {
         throw new Error(
-            "[@anolilab/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.",
+            '[@anolilab/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.',
         );
     }
 
@@ -176,6 +176,11 @@ export const createConfig = async (
     const hasPnpm = packageJson.packageManager?.startsWith("pnpm");
 
     const isEnablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
+    const isEnableOxfmt = hasPackageJsonAnyDependency(packageJson, ["oxfmt", "@anolilab/oxfmt-config"]);
+    // A formatter that owns JS/TS/JSX styling is present, so the matching stylistic lint rules must be
+    // turned off to avoid fighting it. oxfmt only formats JS/TS/JSX, so this does not extend to the
+    // markup/data formats (html, jsonc, yaml) that only Prettier handles.
+    const hasJsFormatter = isEnablePrettier || isEnableOxfmt;
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
     const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
@@ -516,8 +521,8 @@ export const createConfig = async (
         oxlint: enableOxlint = hasPackageJsonAnyDependency(packageJson, ["oxlint", "@anolilab/oxlint-config"]),
         playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
         pnpm: enablePnpm = hasPnpm,
-        react: enableReact = hasReact
-            || hasPackageJsonAnyDependency(packageJson, [
+        react: enableReact = hasReact ||
+            hasPackageJsonAnyDependency(packageJson, [
                 "eslint-plugin-react",
                 "eslint-plugin-react-hooks",
                 "eslint-plugin-react-refresh",
@@ -670,7 +675,7 @@ export const createConfig = async (
             await ensurePackages(packageJson, packages, "devDependencies", {
                 confirm: {
                     message: (list: string[]) =>
-                        `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join("\"\n\"")}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
+                        `@anolilab/eslint-config requires the following ${list.length === 1 ? "package" : "packages"} to be installed: \n\n"${list.join('"\n"')}"\n\nfor the ESLint configurations to work correctly. Do you want to install ${packages.length === 1 ? "it" : "them"} now?`,
                 },
             });
         }
@@ -711,13 +716,13 @@ export const createConfig = async (
                 createGitignoreConfig(
                     typeof enableGitignore === "boolean"
                         ? {
-                            name: "anolilab/gitignore",
-                            strict: false,
-                        }
+                              name: "anolilab/gitignore",
+                              strict: false,
+                          }
                         : {
-                            name: "anolilab/gitignore",
-                            ...enableGitignore,
-                        },
+                              name: "anolilab/gitignore",
+                              ...enableGitignore,
+                          },
                 ),
             ];
         };
@@ -737,7 +742,7 @@ export const createConfig = async (
         bestPractices({}),
         errors({}),
         style({
-            prettier: isEnablePrettier,
+            prettier: hasJsFormatter,
         }),
         es6({
             isInEditor,
@@ -828,7 +833,7 @@ export const createConfig = async (
                 files: getFiles(options, "unicorn"),
                 overrides: getOverrides(options, "unicorn"),
                 packageJson,
-                prettier: isEnablePrettier,
+                prettier: hasJsFormatter,
                 stylistic: stylisticOptions,
             }),
         );
@@ -875,7 +880,7 @@ export const createConfig = async (
                 ...typescriptOptions,
                 componentExts: componentExtensions,
                 overrides: getOverrides(options, "typescript"),
-                prettier: isEnablePrettier,
+                prettier: hasJsFormatter,
             }),
         );
     }
@@ -885,6 +890,9 @@ export const createConfig = async (
             stylistic({
                 ...stylisticOptions,
                 overrides: getOverrides(options, "stylistic"),
+                // Turn off the @stylistic formatting rules when a JS/TS formatter owns styling,
+                // otherwise they fight prettier/oxfmt over spacing, quotes, brace style, etc.
+                prettier: hasJsFormatter,
             }),
         );
     }
@@ -899,7 +907,7 @@ export const createConfig = async (
                 files: getFiles(options, "vitest"),
                 isInEditor,
                 overrides: getOverrides(options, "vitest"),
-                prettier: isEnablePrettier,
+                prettier: hasJsFormatter,
                 tsconfigPath,
             }),
         );
@@ -1102,7 +1110,7 @@ export const createConfig = async (
                     svg: isPrettierPluginXmlInScope,
                     xml: isPrettierPluginXmlInScope,
 
-                    ...typeof options.formatters === "object" && options.formatters,
+                    ...(typeof options.formatters === "object" && options.formatters),
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),

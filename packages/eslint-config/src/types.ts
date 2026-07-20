@@ -178,14 +178,17 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * Enable oxlint integration.
-     * Disables ESLint rules already covered by oxlint to avoid duplicate linting.
-     * Auto-detected when `oxlint` is present in package.json dependencies.
+     * Disables ESLint rules already covered by oxlint to avoid duplicate linting. By default every
+     * ESLint rule that oxlint supports is turned off (`mode: "all"`); pass `mode: "recommended"` to
+     * only turn off oxlint's recommended set, or `configFile` to turn off exactly the rules a
+     * given `.oxlintrc.json` enables.
+     * Auto-detected when `oxlint` or `@anolilab/oxlint-config` is present in package.json dependencies.
      *
      * Requires installing:
      * - `eslint-plugin-oxlint`
      * @default false
      */
-    oxlint?: boolean | (OptionsOverrides & { configFile?: string });
+    oxlint?: boolean | (OptionsOverrides & { configFile?: string; mode?: "all" | "recommended" });
 
     /**
      * Override the `files` option to provide custom globs or disable some rules.

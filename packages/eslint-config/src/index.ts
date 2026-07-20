@@ -513,7 +513,7 @@ export const createConfig = async (
             "lodash.topath",
             "lodash.uniqueid",
         ]),
-        oxlint: enableOxlint = hasPackageJsonAnyDependency(packageJson, ["oxlint"]),
+        oxlint: enableOxlint = hasPackageJsonAnyDependency(packageJson, ["oxlint", "@anolilab/oxlint-config"]),
         playwright: enablePlaywright = hasPackageJsonAnyDependency(packageJson, ["playwright", "eslint-plugin-playwright"]),
         pnpm: enablePnpm = hasPnpm,
         react: enableReact = hasReact

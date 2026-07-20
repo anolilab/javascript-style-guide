@@ -1,4 +1,5 @@
-# Header
+Header
+======
 
 _Look,_ code blocks are formatted _too!_
 

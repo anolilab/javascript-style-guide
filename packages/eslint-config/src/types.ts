@@ -496,11 +496,11 @@ export interface OptionsMarkdown {
     /**
      * Override rules for markdown files (not for code blocks inside markdown).
      */
-    overridesMarkdown?: TypedFlatConfigItem["rules"];
+    overridesMarkdown?: NonNullable<TypedFlatConfigItem["rules"]>;
 }
 
 export interface OptionsOverrides {
-    overrides?: TypedFlatConfigItem["rules"];
+    overrides?: NonNullable<TypedFlatConfigItem["rules"]>;
 }
 
 export interface OptionsPnpm {
@@ -584,7 +584,7 @@ export interface OptionsTypeScriptWithTypes {
     /**
      * Override type aware rules.
      */
-    overridesTypeAware?: TypedFlatConfigItem["rules"];
+    overridesTypeAware?: NonNullable<TypedFlatConfigItem["rules"]>;
 
     /**
      * When this options is provided, type aware rules will be enabled.

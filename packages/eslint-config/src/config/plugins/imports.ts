@@ -142,11 +142,9 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Require a newline after the last import/require in a group
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
-                    ...stylistic
-                        ? {
-                            "import/newline-after-import": ["error", { count: 1 }],
-                        }
-                        : {},
+                    ...stylistic && {
+                        "import/newline-after-import": ["error", { count: 1 }],
+                    },
 
                     // Forbid import of modules using absolute paths
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md

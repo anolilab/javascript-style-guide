@@ -48,14 +48,12 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsStylistic>(
                 "astro/semi": "off",
                 "astro/valid-compile": "error",
 
-                ...stylistic
-                    ? {
-                        "@stylistic/indent": "off",
-                        "@stylistic/jsx-closing-tag-location": "off",
-                        "@stylistic/jsx-one-expression-per-line": "off",
-                        "@stylistic/no-multiple-empty-lines": "off",
-                    }
-                    : {},
+                ...stylistic && {
+                    "@stylistic/indent": "off",
+                    "@stylistic/jsx-closing-tag-location": "off",
+                    "@stylistic/jsx-one-expression-per-line": "off",
+                    "@stylistic/no-multiple-empty-lines": "off",
+                },
 
                 ...overrides,
             },

@@ -60,12 +60,10 @@ export default createConfig<
 
                 ...overrides,
 
-                ...stylistic
-                    ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                ...stylistic && {
+                    "jsdoc/check-alignment": "warn",
+                    "jsdoc/multiline-blocks": "warn",
+                },
             },
         },
     ];
@@ -90,12 +88,10 @@ export default createConfig<
 
                 ...overrides,
 
-                ...stylistic
-                    ? {
-                        "jsdoc/check-alignment": "warn",
-                        "jsdoc/multiline-blocks": "warn",
-                    }
-                    : {},
+                ...stylistic && {
+                    "jsdoc/check-alignment": "warn",
+                    "jsdoc/multiline-blocks": "warn",
+                },
             },
         });
     }

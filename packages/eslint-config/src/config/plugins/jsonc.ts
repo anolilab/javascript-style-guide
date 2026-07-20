@@ -15,8 +15,8 @@ const jsonc = async (
     const mergeConfigRules = (configs: Linter.Config[]): Linter.RulesRecord => {
         const rules: Linter.RulesRecord = {};
 
-        (configs as { rules?: Linter.RulesRecord }[]).forEach((cfg) => {
-            Object.assign(rules, cfg.rules);
+        (configs as { rules?: Linter.RulesRecord }[]).forEach((config_) => {
+            Object.assign(rules, config_.rules);
         });
 
         return rules;
@@ -358,20 +358,18 @@ const jsonc = async (
         {
             files: ["**/*.json", "**/*.jsonc", "**/*.json5"],
             rules: {
-                ...stylistic
-                    ? {
-                        "jsonc/array-bracket-spacing": ["error", "never"],
-                        "jsonc/comma-dangle": ["error", "never"],
-                        "jsonc/comma-style": ["error", "last"],
-                        "jsonc/indent": ["error", indent],
-                        "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
-                        "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
-                        "jsonc/object-curly-spacing": ["error", "always"],
-                        "jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
-                        "jsonc/quote-props": "error",
-                        "jsonc/quotes": "error",
-                    }
-                    : {},
+                ...stylistic && {
+                    "jsonc/array-bracket-spacing": ["error", "never"],
+                    "jsonc/comma-dangle": ["error", "never"],
+                    "jsonc/comma-style": ["error", "last"],
+                    "jsonc/indent": ["error", indent],
+                    "jsonc/key-spacing": ["error", { afterColon: true, beforeColon: false }],
+                    "jsonc/object-curly-newline": ["error", { consistent: true, multiline: true }],
+                    "jsonc/object-curly-spacing": ["error", "always"],
+                    "jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
+                    "jsonc/quote-props": "error",
+                    "jsonc/quotes": "error",
+                },
 
                 ...overrides,
             },

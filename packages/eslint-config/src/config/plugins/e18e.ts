@@ -6,17 +6,17 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;
 
-    const e18ePlugin = await interopDefault(import("@e18e/eslint-plugin"));
+    const pluginE18e = await interopDefault(import("@e18e/eslint-plugin"));
 
     return [
         {
             files,
             name: "anolilab/e18e/rules",
             plugins: {
-                e18e: e18ePlugin,
+                e18e: pluginE18e,
             },
             rules: {
-                ...(e18ePlugin.configs["recommended"] as { rules: Rules }).rules,
+                ...(pluginE18e.configs["recommended"] as { rules: Rules }).rules,
 
                 // Conflicts with e18e/prefer-nullish-coalescing
                 "@typescript-eslint/prefer-nullish-coalescing": "off",

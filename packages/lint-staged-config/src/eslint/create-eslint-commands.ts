@@ -1,5 +1,6 @@
 import type { NormalizedPackageJson, PackageManager } from "@visulima/package";
 import { hasPackageJsonAnyDependency } from "@visulima/package";
+import { ESLint } from "eslint";
 
 import type { EslintConfig } from "../types";
 import getNearestConfigPath from "../utils/get-nearest-config-path";
@@ -76,7 +77,13 @@ const createEslintCommands = async (
     eslintConfig: EslintConfig,
     filenames: ReadonlyArray<string>,
 ): Promise<string[]> => {
-    const filteredFiles = await removeIgnoredFiles(filenames);
+    // The ignore check has to use the same config the lint run will use. With a bare `new ESLint()`
+    // it resolves the nearest config per file instead, so a file ignored by the configured config
+    // survives the filter and then fails the run with an "ignored file" warning.
+    const filteredFiles = await removeIgnoredFiles(
+        filenames,
+        eslintConfig.config === undefined ? new ESLint() : new ESLint({ overrideConfigFile: eslintConfig.config }),
+    );
 
     const eslintArguments = createEslintArguments(eslintConfig, packageJson);
 

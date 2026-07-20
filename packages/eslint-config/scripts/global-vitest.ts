@@ -6,50 +6,56 @@
  * MIT License
  * Copyright (c) 2024 FRSOURCE - Let's shape your web
  */
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { ModuleBody, SourceFile } from "typescript";
-import ts from "typescript";
-
 const rootPath = dirname(fileURLToPath(import.meta.url));
 
-const showMessageAndExit = (message: string, fail = true) => {
+const BLOCK_COMMENT_PATTERN = /\/\*[\s\S]*?\*\//g;
+const LINE_COMMENT_PATTERN = /\/\/[^\n]*/g;
+const GLOBAL_BLOCK_PATTERN = /declare\s+global\s*\{([\s\S]*)\}/;
+// Matched against one already-trimmed line at a time, so it cannot backtrack across the block.
+const GLOBAL_DECLARATION_PATTERN = /^(?:declare\s+)?(?:let|const|var)\s+([\p{ID_Start}$_][\p{ID_Continue}$]*)/u;
+
+const showMessageAndExit = (message: string, shouldFail = true) => {
     // eslint-disable-next-line no-console
     console.log(message);
 
     // eslint-disable-next-line unicorn/no-process-exit
-    process.exit(fail ? 1 : 0);
+    process.exit(shouldFail ? 1 : 0);
 };
 
+/**
+ * Extracts the variable names declared inside vitest's `declare global { ... }` block.
+ *
+ * This used to walk the TypeScript AST via `ts.createProgram`, but TypeScript 7 (the native
+ * port) no longer exposes the compiler API from the package root — its only root export is
+ * `lib/version.cjs`. The declaration file is a flat list of `let <name>: ...` statements, so
+ * scanning it directly avoids depending on a compiler API altogether.
+ */
 const extract = (file: string) => {
-    const program = ts.createProgram([file], {});
-    const sourceFile = program.getSourceFile(file) as SourceFile;
+    const source = readFileSync(file, "utf8")
+        // Strip comments so a commented-out declaration is never picked up as a global.
+        .replaceAll(BLOCK_COMMENT_PATTERN, "")
+        .replaceAll(LINE_COMMENT_PATTERN, "");
+
+    const globalBlock = GLOBAL_BLOCK_PATTERN.exec(source)?.[1];
+
+    if (globalBlock === undefined) {
+        return [];
+    }
+
     const globals: string[] = [];
 
-    ts.forEachChild(sourceFile, (node) => {
-        if (ts.isModuleDeclaration(node)) {
-            ts.forEachChild(node.body as ModuleBody, (mNode) => {
-                if (ts.isVariableStatement(mNode)) {
-                    ts.forEachChild(mNode, (vNode) => {
-                        if (ts.isVariableDeclarationList(vNode)) {
-                            for (const declaration of vNode.declarations) {
-                                const name = ts.getNameOfDeclaration(declaration);
+    for (const line of globalBlock.split("\n")) {
+        const name = GLOBAL_DECLARATION_PATTERN.exec(line.trim())?.[1];
 
-                                const escaped = (name as unknown as { escapedText?: unknown }).escapedText;
-
-                                if (typeof escaped === "string") {
-                                    globals.push(escaped);
-                                }
-                            }
-                        }
-                    });
-                }
-            });
+        if (name !== undefined) {
+            globals.push(name);
         }
-    });
+    }
 
     return globals;
 };

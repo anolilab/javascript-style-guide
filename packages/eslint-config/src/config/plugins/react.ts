@@ -80,7 +80,7 @@ export default createConfig<
     ];
     let { isTypeAware = true } = config;
 
-    isTypeAware = isTypeAware && tsconfigPath !== undefined;
+    isTypeAware &&= tsconfigPath !== undefined;
 
     const typeAwareRules: TypedFlatConfigItem["rules"] = {
         // Prevents key from not being explicitly specified (e.g. spreading key from objects)
@@ -96,7 +96,7 @@ export default createConfig<
         "react-x/no-unused-props": "error",
     };
 
-    const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerf, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
+    const [pluginReactX, pluginReact, pluginReactHooks, pluginReactRefresh, pluginReactPerformance, pluginReactYouMightNotNeedAnEffect] = await Promise.all([
         interopDefault(import("@eslint-react/eslint-plugin")),
         // eslint-disable-next-line e18e/ban-dependencies
         interopDefault(import("eslint-plugin-react")),
@@ -138,7 +138,7 @@ export default createConfig<
 
     // Detect v5+ to conditionally exclude removed rules
     const reactXMeta = pluginReactX.meta;
-    const reactXMajor = reactXMeta?.version ? Number.parseInt(reactXMeta.version.split(".")[0] as string, 10) : 4;
+    const reactXMajor = reactXMeta?.version ? Number(reactXMeta.version.split(".", 1)[0]) : 4;
     const isV5 = reactXMajor >= 5;
 
     // Use provided version or detect from package.json
@@ -212,13 +212,13 @@ export default createConfig<
                 react: fixupPluginRules(pluginReact),
 
                 "react-hooks": pluginReactHooks,
-                "react-perf": pluginReactPerf,
+                "react-perf": pluginReactPerformance,
                 "react-refresh": pluginReactRefresh,
 
                 "react-x": reactXPlugin,
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler && pluginReactCompiler ? pluginReactCompiler.configs.recommended.plugins : {},
-                ...hasReactUnhookify && pluginReactUnhookify ? { "react-unhookify": pluginReactUnhookify } : {},
+                ...hasReactCompiler && pluginReactCompiler?.configs.recommended.plugins,
+                ...hasReactUnhookify && pluginReactUnhookify && { "react-unhookify": pluginReactUnhookify },
             },
         },
         {
@@ -440,7 +440,7 @@ export default createConfig<
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
                 // Removed in @eslint-react v5
-                ...isV5 ? {} : { "react-x/no-redundant-should-component-update": "error" },
+                ...!isV5 && { "react-x/no-redundant-should-component-update": "error" },
 
                 // Disallow useless fragment elements
                 // https://eslint-react.xyz/docs/rules/jsx-no-useless-fragment
@@ -990,47 +990,45 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...hasReactCompiler && pluginReactCompiler
-                    ? {
-                        "react-compiler/react-compiler": "error",
-                        "react-hooks/component-hook-factories": "error",
-                        "react-hooks/config": "error",
-                        "react-hooks/error-boundaries": "error",
-                        "react-hooks/gating": "error",
-                        "react-hooks/globals": "error",
-                        "react-hooks/immutability": "error",
-                        "react-hooks/incompatible-library": "warn",
-                        "react-hooks/preserve-manual-memoization": "error",
-                        "react-hooks/purity": "error",
-                        "react-hooks/refs": "error",
-                        "react-hooks/set-state-in-effect": "error",
-                        "react-hooks/set-state-in-render": "error",
-                        "react-hooks/static-components": "error",
-                        "react-hooks/unsupported-syntax": "warn",
-                        "react-hooks/use-memo": "error",
-                    }
-                    : {},
+                ...hasReactCompiler
+                && pluginReactCompiler && {
+                    "react-compiler/react-compiler": "error",
+                    "react-hooks/component-hook-factories": "error",
+                    "react-hooks/config": "error",
+                    "react-hooks/error-boundaries": "error",
+                    "react-hooks/gating": "error",
+                    "react-hooks/globals": "error",
+                    "react-hooks/immutability": "error",
+                    "react-hooks/incompatible-library": "warn",
+                    "react-hooks/preserve-manual-memoization": "error",
+                    "react-hooks/purity": "error",
+                    "react-hooks/refs": "error",
+                    "react-hooks/set-state-in-effect": "error",
+                    "react-hooks/set-state-in-render": "error",
+                    "react-hooks/static-components": "error",
+                    "react-hooks/unsupported-syntax": "warn",
+                    "react-hooks/use-memo": "error",
+                },
 
                 // React Unhookify rules for removing unnecessary memoization hooks
                 // when using React Compiler
-                ...hasReactUnhookify && pluginReactUnhookify
-                    ? {
-                        // Removes React.memo HOC
-                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                        "react-unhookify/remove-memo": "error",
+                ...hasReactUnhookify
+                && pluginReactUnhookify && {
+                    // Removes React.memo HOC
+                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                    "react-unhookify/remove-memo": "error",
 
-                        // Removes useCallback calls
-                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                        "react-unhookify/remove-use-callback": "error",
+                    // Removes useCallback calls
+                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                    "react-unhookify/remove-use-callback": "error",
 
-                        // Removes useMemo calls
-                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                        "react-unhookify/remove-use-memo": "error",
-                    }
-                    : {},
+                    // Removes useMemo calls
+                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                    "react-unhookify/remove-use-memo": "error",
+                },
 
                 ...(
-                    pluginReactPerf as {
+                    pluginReactPerformance as {
                         configs: {
                             flat: {
                                 recommended: { rules: Record<string, unknown> };
@@ -1041,7 +1039,7 @@ export default createConfig<
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"]?.rules ?? {} : {},
+                ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {}),
 
                 // overrides
                 ...overrides,
@@ -1074,7 +1072,7 @@ export default createConfig<
                     ecmaFeatures: {
                         jsx: true,
                     },
-                    ...hasJsxRuntime ? pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {} : {},
+                    ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {}),
                 },
             },
             name: "anolilab/react/jsx",

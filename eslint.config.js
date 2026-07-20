@@ -35,7 +35,8 @@ export default createConfig(
     {
         files: ["**/e18e.ts"],
         rules: {
-            "unicorn/prevent-abbreviations": "off",
+            // Renamed from `unicorn/prevent-abbreviations` in eslint-plugin-unicorn v72.
+            "unicorn/name-replacements": "off",
         },
     },
     {

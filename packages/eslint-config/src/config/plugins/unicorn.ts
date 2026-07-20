@@ -64,36 +64,15 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     },
                 ],
 
-                "unicorn/no-abusive-eslint-disable": "error",
-
-                "unicorn/no-array-for-each": "off",
-
-                "unicorn/no-instanceof-builtins": "error",
-
-                // Disabled because of the use of sonarjs/no-nested-conditional
-                "unicorn/no-nested-ternary": "off",
-
-                // TODO: Temporarily disabled until it becomes more mature.
-                "unicorn/no-useless-undefined": "off",
-
-                // Disabled to use faster alternatives.
-                "unicorn/prefer-at": "off",
-
-                // It will be disabled in the next version of eslint-plugin-unicorn.
-                "unicorn/prefer-json-parse-buffer": "off",
-
-                "unicorn/prefer-module": packageJson.type === "module" ? "error" : "off",
-
-                "unicorn/prefer-node-protocol": "error",
-
-                // We only enforce it for single-line statements to not be too opinionated.
-                "unicorn/prefer-ternary": ["error", "only-single-line"],
-
-                // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/898fcb4/docs/rules/prevent-abbreviations.md
-                "unicorn/prevent-abbreviations": [
+                // Renamed from `unicorn/prevent-abbreviations` in eslint-plugin-unicorn v72.
+                // @see https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v72.0.0/docs/rules/name-replacements.md
+                "unicorn/name-replacements": [
                     "error",
                     {
                         allowList: {
+                            // Ecosystem performance project name, like i18n. Otherwise the `e`
+                            // replacement turns it into `error18error`.
+                            e18e: true,
                             // for-loop index
                             i: true,
                             j: true,
@@ -118,6 +97,32 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     },
                 ],
 
+                "unicorn/no-abusive-eslint-disable": "error",
+
+                // Renamed from `unicorn/no-array-for-each` in eslint-plugin-unicorn v72.
+                "unicorn/no-for-each": "off",
+
+                "unicorn/no-instanceof-builtins": "error",
+
+                // Disabled because of the use of sonarjs/no-nested-conditional
+                "unicorn/no-nested-ternary": "off",
+
+                // TODO: Temporarily disabled until it becomes more mature.
+                "unicorn/no-useless-undefined": "off",
+
+                // Disabled to use faster alternatives.
+                "unicorn/prefer-at": "off",
+
+                // It will be disabled in the next version of eslint-plugin-unicorn.
+                "unicorn/prefer-json-parse-buffer": "off",
+
+                "unicorn/prefer-module": packageJson.type === "module" ? "error" : "off",
+
+                "unicorn/prefer-node-protocol": "error",
+
+                // We only enforce it for single-line statements to not be too opinionated.
+                "unicorn/prefer-ternary": ["error", "only-single-line"],
+
                 ...prettier
                     ? {
                         "unicorn/empty-brace-spaces": "off",
@@ -137,7 +142,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
             files: ["tsconfig.dev.json", "tsconfig.prod.json"],
             name: "anolilab/unicorn/tsconfig-overrides",
             rules: {
-                "unicorn/prevent-abbreviations": "off",
+                "unicorn/name-replacements": "off",
             },
         },
         {

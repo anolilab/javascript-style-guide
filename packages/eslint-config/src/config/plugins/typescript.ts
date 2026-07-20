@@ -60,7 +60,7 @@ export default createConfig<
 
     const { isTypeAware = true } = config;
 
-    const makeParser = (typeAware: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
+    const makeParser = (isTypeAwareParser: boolean, pFiles: string[], ignores?: string[]): TypedFlatConfigItem => {
         // When a tsconfigPath is provided, use process.cwd() (the project being
         // linted) so the project service finds the correct tsconfig.  Fall back to
         // the eslint-config package directory when no explicit path is given.
@@ -68,14 +68,14 @@ export default createConfig<
 
         let typeAwareOptions: Record<string, unknown> = {};
 
-        if (typeAware && tsconfigPath) {
+        if (isTypeAwareParser && tsconfigPath) {
             typeAwareOptions = {
                 // Use the explicit tsconfig as the project so all files
                 // it includes (tests, examples, etc.) get type information.
                 project: tsconfigPath,
                 tsconfigRootDir: rootDirectory,
             };
-        } else if (typeAware) {
+        } else if (isTypeAwareParser) {
             typeAwareOptions = {
                 projectService: true,
                 tsconfigRootDir: rootDirectory,
@@ -84,7 +84,7 @@ export default createConfig<
 
         return {
             files: [...pFiles, ...componentExtensions.map((extension) => `**/*.${extension}`)],
-            ...ignores ? { ignores } : {},
+            ...ignores && { ignores },
             languageOptions: {
                 parser: tseslint.parser,
 
@@ -96,7 +96,7 @@ export default createConfig<
                     ...(parserOptions as any),
                 },
             },
-            name: `anolilab/typescript/${typeAware ? "type-aware-parser" : "parser"}`,
+            name: `anolilab/typescript/${isTypeAwareParser ? "type-aware-parser" : "parser"}`,
         };
     };
 
@@ -108,7 +108,7 @@ export default createConfig<
             plugins: {
                 "@typescript-eslint": tseslint.plugin,
                 "no-for-of-array": noForOfArrayPlugin,
-                ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin.configs.recommended.plugins : {},
+                ...erasableSyntaxOnlyPlugin?.configs.recommended.plugins,
             },
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
@@ -458,34 +458,32 @@ export default createConfig<
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.mdx
             "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
 
-            ...erasableSyntaxOnlyPlugin ? erasableSyntaxOnlyPlugin.configs.recommended.rules : {},
+            ...erasableSyntaxOnlyPlugin?.configs.recommended.rules,
 
             ...overrides,
 
             // Disable rules that are handled by prettier
-            ...prettier
-                ? {
-                    "@typescript-eslint/block-spacing": "off",
-                    "@typescript-eslint/brace-style": "off",
-                    "@typescript-eslint/comma-dangle": "off",
-                    "@typescript-eslint/comma-spacing": "off",
-                    "@typescript-eslint/func-call-spacing": "off",
-                    "@typescript-eslint/indent": "off",
-                    "@typescript-eslint/key-spacing": "off",
-                    "@typescript-eslint/keyword-spacing": "off",
-                    "@typescript-eslint/lines-around-comment": 0,
-                    "@typescript-eslint/member-delimiter-style": "off",
-                    "@typescript-eslint/no-extra-parens": "off",
-                    "@typescript-eslint/no-extra-semi": "off",
-                    "@typescript-eslint/object-curly-spacing": "off",
-                    "@typescript-eslint/quotes": 0,
-                    "@typescript-eslint/semi": "off",
-                    "@typescript-eslint/space-before-blocks": "off",
-                    "@typescript-eslint/space-before-function-paren": "off",
-                    "@typescript-eslint/space-infix-ops": "off",
-                    "@typescript-eslint/type-annotation-spacing": "off",
-                }
-                : {},
+            ...prettier && {
+                "@typescript-eslint/block-spacing": "off",
+                "@typescript-eslint/brace-style": "off",
+                "@typescript-eslint/comma-dangle": "off",
+                "@typescript-eslint/comma-spacing": "off",
+                "@typescript-eslint/func-call-spacing": "off",
+                "@typescript-eslint/indent": "off",
+                "@typescript-eslint/key-spacing": "off",
+                "@typescript-eslint/keyword-spacing": "off",
+                "@typescript-eslint/lines-around-comment": 0,
+                "@typescript-eslint/member-delimiter-style": "off",
+                "@typescript-eslint/no-extra-parens": "off",
+                "@typescript-eslint/no-extra-semi": "off",
+                "@typescript-eslint/object-curly-spacing": "off",
+                "@typescript-eslint/quotes": 0,
+                "@typescript-eslint/semi": "off",
+                "@typescript-eslint/space-before-blocks": "off",
+                "@typescript-eslint/space-before-function-paren": "off",
+                "@typescript-eslint/space-infix-ops": "off",
+                "@typescript-eslint/type-annotation-spacing": "off",
+            },
         },
     });
 

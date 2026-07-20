@@ -38,14 +38,13 @@ export default createConfig<OptionsFiles & OptionsOverrides & { tailwind?: boole
                 ...overrides,
             },
 
-            ...tailwind && tailwindCustomSyntax
-                ? {
-                    languageOptions: {
-                        customSyntax: tailwindCustomSyntax.tailwind4,
-                        tolerant: true,
-                    },
-                }
-                : {},
+            ...tailwind
+            && tailwindCustomSyntax && {
+                languageOptions: {
+                    customSyntax: tailwindCustomSyntax.tailwind4,
+                    tolerant: true,
+                },
+            },
         },
     ];
 });

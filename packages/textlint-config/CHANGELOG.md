@@ -1,3 +1,10 @@
+## @anolilab/textlint-config [13.0.5](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Ftextlint-config%4013.0.4...%40anolilab%2Ftextlint-config%4013.0.5) (2026-07-20)
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.2
+
 ## @anolilab/textlint-config [13.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@13.0.3...@anolilab/textlint-config@13.0.4) (2026-07-03)
 
 ## @anolilab/textlint-config [13.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@13.0.2...@anolilab/textlint-config@13.0.3) (2026-06-20)

@@ -1,3 +1,10 @@
+## browserslist-config-anolilab [9.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab%409.0.0...browserslist-config-anolilab%409.0.1) (2026-07-20)
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.2
+
 ## browserslist-config-anolilab [9.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@8.0.0...browserslist-config-anolilab@9.0.0) (2026-04-07)
 
 ### ⚠ BREAKING CHANGES

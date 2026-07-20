@@ -1,3 +1,12 @@
+## @anolilab/stylelint-config [11.0.6](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fstylelint-config%4011.0.5...%40anolilab%2Fstylelint-config%4011.0.6) (2026-07-20)
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 9.0.1
+* **@anolilab/eslint-config:** upgraded to 28.0.2
+* **@anolilab/prettier-config:** upgraded to 10.0.2
+
 ## @anolilab/stylelint-config [11.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.0.4...@anolilab/stylelint-config@11.0.5) (2026-07-03)
 
 

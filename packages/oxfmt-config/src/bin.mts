@@ -48,37 +48,32 @@ ${exportLine} {
     );
 };
 
-// The bin is built to both ESM and CJS, and CJS cannot use top-level await, so the async work
-// runs in an IIFE. prefer-top-level-await is turned off for this file in eslint.config.js.
-// eslint-disable-next-line no-void
-void (async () => {
-    const cwd = process.cwd();
+const cwd = process.cwd();
 
-    const packageJsonPath = join(cwd, "package.json");
+const packageJsonPath = join(cwd, "package.json");
 
-    if (!existsSync(packageJsonPath)) {
-        // eslint-disable-next-line no-console
-        console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
+if (!existsSync(packageJsonPath)) {
+    // eslint-disable-next-line no-console
+    console.error("No package.json found in the current directory. You need to run this command in a directory with a package.json file.");
 
-        exit(1);
-    }
+    exit(1);
+}
 
-    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
+const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
+
+// eslint-disable-next-line no-console
+console.log("Configuring @anolilab/oxfmt-config", cwd, "\n");
+
+try {
+    await writeOxfmtConfig(cwd, packageJson.type === "module");
 
     // eslint-disable-next-line no-console
-    console.log("Configuring @anolilab/oxfmt-config", cwd, "\n");
+    console.log("Everything went well, have fun!");
 
-    try {
-        await writeOxfmtConfig(cwd, packageJson.type === "module");
+    exit(0);
+} catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Something went wrong:", error);
 
-        // eslint-disable-next-line no-console
-        console.log("Everything went well, have fun!");
-
-        exit(0);
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error("Something went wrong:", error);
-
-        exit(1);
-    }
-})();
+    exit(1);
+}

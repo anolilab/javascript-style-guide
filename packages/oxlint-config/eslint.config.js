@@ -11,12 +11,4 @@ export default createConfig(
             "sonarjs/file-name-differ-from-class": "off",
         },
     },
-    {
-        // The install bin is built to both ESM and CJS; CJS cannot use top-level await, so the
-        // async work stays in an IIFE.
-        files: ["src/bin.ts"],
-        rules: {
-            "unicorn/prefer-top-level-await": "off",
-        },
-    },
 );

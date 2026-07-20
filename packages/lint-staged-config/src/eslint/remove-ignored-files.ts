@@ -17,7 +17,7 @@ const removeIgnoredFiles = async (filenames: ReadonlyArray<string>, eslint: ESLi
         throw new Error("Stopping lint-staged because of an error.");
     });
 
-    const filteredFiles = filenames.filter((_, index) => !ignoredFiles[index]);
+    const filteredFiles = filenames.filter((_, index) => ignoredFiles[index] !== true);
 
     return filteredFiles.map((filename) => `"${isWindows ? filename : quote([filename])}"`);
 };

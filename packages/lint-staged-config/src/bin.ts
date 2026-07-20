@@ -6,7 +6,7 @@ import { ensureDirSync, isAccessibleSync, writeFileSync } from "@visulima/fs";
 import type { NormalizedPackageJson } from "@visulima/package";
 import { hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 
-const checkIfFileExists = (filename: string): boolean => {
+const isExistingFile = (filename: string): boolean => {
     if (isAccessibleSync(filename)) {
         // eslint-disable-next-line no-console
         console.warn(`⚠️ ${filename} already exists;`);
@@ -37,7 +37,7 @@ const writeLintStagedRc = (cwd: string, isTypeModule: boolean) => {
     ];
 
     for (const configFilename of configFiles) {
-        if (checkIfFileExists(join(cwd, configFilename))) {
+        if (isExistingFile(join(cwd, configFilename))) {
             // eslint-disable-next-line no-console
             console.warn(`⚠️  ${configFilename} already exists;`);
 
@@ -71,7 +71,7 @@ const writeNanoStagedRc = (cwd: string, isTypeModule: boolean) => {
     ];
 
     for (const nanoConfigFilename of nanoConfigFiles) {
-        if (checkIfFileExists(join(cwd, nanoConfigFilename))) {
+        if (isExistingFile(join(cwd, nanoConfigFilename))) {
             // eslint-disable-next-line no-console
             console.warn(`⚠️  ${nanoConfigFilename} already exists;`);
 
@@ -108,7 +108,7 @@ const writeHuskyFiles = (cwd: string, packageJson: NormalizedPackageJson, hasNan
 
     const commonShPath = join(huskyFolderPath, "common.sh");
 
-    if (!checkIfFileExists(commonShPath)) {
+    if (!isExistingFile(commonShPath)) {
         writeFileSync(
             commonShPath,
             `#!/bin/sh
@@ -139,7 +139,7 @@ fi
 
     const preCommitPath = join(huskyFolderPath, "pre-commit");
 
-    if (!checkIfFileExists(preCommitPath)) {
+    if (!isExistingFile(preCommitPath)) {
         writeFileSync(
             preCommitPath,
             `#!/bin/sh
@@ -164,7 +164,7 @@ echo --------------------------------------------
     const prepareCommitMessagePath = join(huskyFolderPath, "prepare-commit-msg");
     const hasCz = hasPackageJsonAnyDependency(packageJson, ["commitizen"]);
 
-    if (hasCz && !checkIfFileExists(prepareCommitMessagePath)) {
+    if (hasCz && !isExistingFile(prepareCommitMessagePath)) {
         writeFileSync(
             prepareCommitMessagePath,
             `#!/bin/sh
@@ -214,7 +214,7 @@ echo --------------------------------------------
     }
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+// eslint-disable-next-line no-void
 void (async () => {
     const cwd = process.cwd();
 

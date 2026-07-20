@@ -39,6 +39,11 @@ const writeStylelintRc = async (cwd: string, isTypeModule: boolean) => {
  */
 const writeStylelintIgnore = async (cwd: string) => {
     const stylelintIgnorePath = join(cwd, ".stylelintignore");
+
+    if (existsSync(stylelintIgnorePath)) {
+        return;
+    }
+
     const content = `package.json
 package-lock.json
 yarn.lock
@@ -50,14 +55,10 @@ dist/**
 
 `;
 
-    if (existsSync(stylelintIgnorePath)) {
-        return;
-    }
-
     await writeFile(stylelintIgnorePath, content, "utf8");
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+// eslint-disable-next-line no-void
 void (async () => {
     const cwd = process.cwd();
 

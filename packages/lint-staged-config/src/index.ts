@@ -95,7 +95,7 @@ export const defineConfig = (
         loadedPlugins["**/package.json"] = (filenames: ReadonlyArray<string>) => [`${packageManager} exec sort-package-json ${concatFiles(filenames)}`];
     }
 
-    if (config.markdown !== false && hasMarkdownCli) {
+    if (hasMarkdownCli && config.markdown !== false) {
         loadedPlugins = {
             ...loadedPlugins,
             "**/*.md": (filenames: ReadonlyArray<string>) => [
@@ -142,9 +142,9 @@ export const defineConfig = (
 
             filenames.forEach((filePath) => {
                 if (typeof (config.typescript as TypescriptConfig).exclude === "object" && Array.isArray((config.typescript as TypescriptConfig).exclude)) {
-                    const excluded = ((config.typescript as TypescriptConfig).exclude as string[]).some((value) => filePath.includes(value));
+                    const isExcluded = ((config.typescript as TypescriptConfig).exclude as string[]).some((value) => filePath.includes(value));
 
-                    if (excluded) {
+                    if (isExcluded) {
                         return;
                     }
                 }

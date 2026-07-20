@@ -141,6 +141,8 @@ catalogs:
         husky: ^9.1.7
         jsonc-eslint-parser: 3.1.0
         lint-staged: 17.1.0
+        oxfmt: 0.59.0
+        oxlint: 1.74.0
         prettier: 3.9.5
         publint: 0.3.21
         secretlint: 13.0.2
@@ -279,6 +281,7 @@ minimumReleaseAge: 1440
 
 minimumReleaseAgeExclude:
     - "@anolilab/*"
+    - "browserslist-config-anolilab"
     - "@visulima/fs@5.0.5"
     - "@visulima/packem-rollup@1.0.0-alpha.80"
     - "@visulima/packem-share@1.0.0-alpha.55"

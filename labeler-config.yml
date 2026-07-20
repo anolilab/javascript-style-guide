@@ -10,6 +10,12 @@
 "package: lint-staged-config":
     - changed-files:
           - any-glob-to-any-file: "packages/lint-staged-config/**/*"
+"package: oxfmt-config":
+    - changed-files:
+          - any-glob-to-any-file: "packages/oxfmt-config/**/*"
+"package: oxlint-config":
+    - changed-files:
+          - any-glob-to-any-file: "packages/oxlint-config/**/*"
 "package: prettier-config":
     - changed-files:
           - any-glob-to-any-file: "packages/prettier-config/**/*"

@@ -6,17 +6,21 @@ import interopDefault from "../../utils/interop-default";
 export default createConfig<OptionsFiles & OptionsOverrides>("jsx_and_tsx", async (config, oFiles) => {
     const { files = oFiles, overrides } = config;
 
-    const validateJsxNestingPlugin = await interopDefault(import("eslint-plugin-tailwindcss"));
+    const tailwindcssPlugin = await interopDefault(import("eslint-plugin-tailwindcss"));
 
-    const options = [...validateJsxNestingPlugin.configs["flat/recommended"]] as TypedFlatConfigItem[];
+    // eslint-plugin-tailwindcss v4 renamed `configs["flat/recommended"]` to `configs.recommended`
+    // and collapsed it from a two-element array into a single flat config object.
+    const recommended = tailwindcssPlugin.configs.recommended as TypedFlatConfigItem;
 
-    if (options[1]) {
-        options[1].files = files;
-        options[1].rules = {
-            ...options[1].rules,
-            ...overrides,
-        };
-    }
-
-    return options;
+    return [
+        {
+            ...recommended,
+            files,
+            name: "anolilab/tailwindcss/setup",
+            rules: {
+                ...recommended.rules,
+                ...overrides,
+            },
+        },
+    ];
 });

@@ -63,7 +63,7 @@
         "build": "packem build --development",
         "build:prod": "packem build --production",
         "clean": "rimraf node_modules dist",
-        "lint:attw": "attw --pack",
+        "lint:attw": "attw --pack --profile esm-only",
         "lint:eslint": "eslint . --cache --concurrency auto",
         "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
@@ -79,8 +79,8 @@
         "type-fest": "catalog:prod"
     },
     "devDependencies": {
-        "@anolilab/eslint-config": "28.0.1",
-        "@anolilab/prettier-config": "10.0.1",
+        "@anolilab/eslint-config": "catalog:lint",
+        "@anolilab/prettier-config": "catalog:lint",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

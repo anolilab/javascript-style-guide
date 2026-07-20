@@ -10,6 +10,9 @@ export default createConfig(
             "labeler-config.yml",
             "pnpm-workspace.yaml",
             "scripts/**",
+            // Tool config for @visulima/vis. Remove this entry once the package is installed
+            // and its types resolve, otherwise the defineConfig() call reads as an unsafe call.
+            "vis.config.ts",
             "packages/eslint-config/__fixtures__/**",
             "packages/eslint-config/README.md",
             "packages/eslint-config/scripts/**",
@@ -35,7 +38,8 @@ export default createConfig(
     {
         files: ["**/e18e.ts"],
         rules: {
-            "unicorn/prevent-abbreviations": "off",
+            // Renamed from `unicorn/prevent-abbreviations` in eslint-plugin-unicorn v72.
+            "unicorn/name-replacements": "off",
         },
     },
     {

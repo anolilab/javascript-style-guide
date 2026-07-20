@@ -44,17 +44,15 @@ export default createConfig<OptionsFiles & OptionsIsInEditor & OptionsOverrides 
                 pnpm: pluginPnpm,
             },
             rules: {
-                ...catalogs
-                    ? {
-                        "pnpm/json-enforce-catalog": [
-                            "error",
-                            {
-                                autofix: !isInEditor,
-                                ignores: ["@types/vscode"],
-                            },
-                        ],
-                    }
-                    : {},
+                ...catalogs && {
+                    "pnpm/json-enforce-catalog": [
+                        "error",
+                        {
+                            autofix: !isInEditor,
+                            ignores: ["@types/vscode"],
+                        },
+                    ],
+                },
                 "pnpm/json-prefer-workspace-settings": ["error", { autofix: !isInEditor }],
                 "pnpm/json-valid-catalog": ["error", { autofix: !isInEditor }],
             },

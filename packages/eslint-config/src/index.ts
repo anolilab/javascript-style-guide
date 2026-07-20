@@ -14,7 +14,6 @@ import astro from "./config/plugins/astro";
 import comments from "./config/plugins/comments";
 import compat from "./config/plugins/compat";
 import css from "./config/plugins/css";
-// eslint-disable-next-line unicorn/prevent-abbreviations
 import e18e from "./config/plugins/e18e";
 import formatters from "./config/plugins/formatters";
 import html from "./config/plugins/html";
@@ -114,7 +113,7 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
     const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
 
     return {
-        ..."overrides" in sub ? (sub as OptionsOverrides).overrides : {},
+        ..."overrides" in sub && (sub as OptionsOverrides).overrides,
     };
 };
 
@@ -176,12 +175,12 @@ export const createConfig = async (
 
     const hasPnpm = packageJson.packageManager?.startsWith("pnpm");
 
-    const enablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
+    const isEnablePrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
     const isCwdInScope = hasPackageJsonAnyDependency(packageJson, ["@anolilab/eslint-config"]);
 
     const hasReact = hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"]);
     const detectedReactVersion = packageJson["dependencies"]?.["react"] ?? packageJson["devDependencies"]?.["react"];
-    const detectedHasReactCompiler = hasPackageJsonAnyDependency(packageJson, ["react-compiler-runtime"]);
+    const isDetectedHasReactCompiler = hasPackageJsonAnyDependency(packageJson, ["react-compiler-runtime"]);
 
     let hasTailwindCssV3 = false;
     let hasTailwindCssV4 = false;
@@ -204,7 +203,7 @@ export const createConfig = async (
         astro: enableAstro = hasPackageJsonAnyDependency(packageJson, ["astro"]),
         componentExts: componentExtensions = [],
         css: enableCss = hasPackageJsonAnyDependency(packageJson, ["postcss", "cssnano"]),
-        // eslint-disable-next-line unicorn/prevent-abbreviations
+        // eslint-disable-next-line unicorn/name-replacements -- `e18e` is a project name, not an abbreviation
         e18e: enableE18e = true,
         gitignore: enableGitignore = true,
         html: enableHtml = false,
@@ -560,10 +559,10 @@ export const createConfig = async (
 
     // Determine final React compiler setting
     // Priority: react.compiler > reactCompiler option > auto-detected
-    const finalReactCompiler: boolean = enableReactCompilerOption ?? reactCompilerFromOptions ?? detectedHasReactCompiler;
+    const isFinalReactCompiler: boolean = enableReactCompilerOption ?? reactCompilerFromOptions ?? isDetectedHasReactCompiler;
 
     // Determine final React unhookify setting
-    const finalReactUnhookify: boolean = reactUnhookifyFromOptions ?? false;
+    const isFinalReactUnhookify: boolean = reactUnhookifyFromOptions ?? false;
 
     if (isCwdInScope) {
         let packages = [];
@@ -591,12 +590,12 @@ export const createConfig = async (
         if (enableCss || enableTailwindCss) {
             packages.push("@eslint/css");
 
-            if ((enableTailwindCss && hasTailwindCssV4) || enableTailwindCss === "v4") {
+            if (enableTailwindCss === "v4" || (enableTailwindCss && hasTailwindCssV4)) {
                 packages.push("tailwind-csstree");
             }
         }
 
-        if ((enableTailwindCss && hasTailwindCssV3) || enableTailwindCss === "v3") {
+        if (enableTailwindCss === "v3" || (enableTailwindCss && hasTailwindCssV3)) {
             packages.push("eslint-plugin-tailwindcss");
         }
 
@@ -615,11 +614,11 @@ export const createConfig = async (
             );
         }
 
-        if (enableReact && finalReactCompiler) {
+        if (enableReact && isFinalReactCompiler) {
             packages.push("eslint-plugin-react-compiler");
         }
 
-        if (enableReact && finalReactUnhookify) {
+        if (enableReact && isFinalReactUnhookify) {
             packages.push("@ospm/eslint-plugin-react-unhookify");
         }
 
@@ -703,25 +702,27 @@ export const createConfig = async (
     const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
     if (enableGitignore) {
-        if (typeof enableGitignore === "boolean") {
-            configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
-                    r({
-                        name: "anolilab/gitignore",
-                        strict: false,
-                    }),
-                ]),
-            );
-        } else {
-            configs.push(
-                interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
-                    r({
-                        name: "anolilab/gitignore",
-                        ...enableGitignore,
-                    }),
-                ]),
-            );
-        }
+        // Kept as a pushed promise rather than awaited here so the dynamic import still
+        // resolves in parallel with every other config, matching the other entries.
+        const gitignoreConfig = async (): Promise<TypedFlatConfigItem[]> => {
+            const createGitignoreConfig = await interopDefault(import("eslint-config-flat-gitignore"));
+
+            return [
+                createGitignoreConfig(
+                    typeof enableGitignore === "boolean"
+                        ? {
+                            name: "anolilab/gitignore",
+                            strict: false,
+                        }
+                        : {
+                            name: "anolilab/gitignore",
+                            ...enableGitignore,
+                        },
+                ),
+            ];
+        };
+
+        configs.push(gitignoreConfig());
     }
 
     const typescriptOptions = resolveSubOptions(options, "typescript");
@@ -736,7 +737,7 @@ export const createConfig = async (
         bestPractices({}),
         errors({}),
         style({
-            prettier: enablePrettier,
+            prettier: isEnablePrettier,
         }),
         es6({
             isInEditor,
@@ -827,7 +828,7 @@ export const createConfig = async (
                 files: getFiles(options, "unicorn"),
                 overrides: getOverrides(options, "unicorn"),
                 packageJson,
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
                 stylistic: stylisticOptions,
             }),
         );
@@ -874,7 +875,7 @@ export const createConfig = async (
                 ...typescriptOptions,
                 componentExts: componentExtensions,
                 overrides: getOverrides(options, "typescript"),
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
             }),
         );
     }
@@ -898,7 +899,7 @@ export const createConfig = async (
                 files: getFiles(options, "vitest"),
                 isInEditor,
                 overrides: getOverrides(options, "vitest"),
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
                 tsconfigPath,
             }),
         );
@@ -941,7 +942,7 @@ export const createConfig = async (
         );
     }
 
-    if ((enableTailwindCss && hasTailwindCssV3) || enableTailwindCss === "v3") {
+    if (enableTailwindCss === "v3" || (enableTailwindCss && hasTailwindCssV3)) {
         configs.push(
             tailwindcss({
                 overrides: getOverrides(options, "tailwindcss"),
@@ -972,7 +973,7 @@ export const createConfig = async (
             html({
                 files: getFiles(options, "html"),
                 overrides: getOverrides(options, "html"),
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
                 stylistic: stylisticOptions,
             }),
         );
@@ -1002,8 +1003,8 @@ export const createConfig = async (
                 ...typescriptOptions,
                 overrides: getOverrides(options, "react"),
                 packageJson,
-                reactCompiler: finalReactCompiler,
-                reactUnhookify: finalReactUnhookify,
+                reactCompiler: isFinalReactCompiler,
+                reactUnhookify: isFinalReactUnhookify,
                 reactVersion: finalReactVersion,
                 silent,
                 tsconfigPath,
@@ -1035,7 +1036,7 @@ export const createConfig = async (
             jsonc({
                 overrides: getOverrides(options, "jsonc"),
                 packageJson,
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
                 silent,
                 stylistic: stylisticOptions,
             }),
@@ -1068,7 +1069,7 @@ export const createConfig = async (
             yaml({
                 files: getFiles(options, "yaml"),
                 overrides: getOverrides(options, "yaml"),
-                prettier: enablePrettier,
+                prettier: isEnablePrettier,
                 stylistic: stylisticOptions,
             }),
         );
@@ -1101,7 +1102,7 @@ export const createConfig = async (
                     svg: isPrettierPluginXmlInScope,
                     xml: isPrettierPluginXmlInScope,
 
-                    ...typeof options.formatters === "object" ? options.formatters : {},
+                    ...typeof options.formatters === "object" && options.formatters,
                 },
                 typeof stylisticOptions === "object" ? stylisticOptions : {},
             ),
@@ -1123,6 +1124,9 @@ export const createConfig = async (
     // We pick the known keys as ESLint would do schema validation
     // eslint-disable-next-line unicorn/no-array-reduce
     const fusedConfig = flatConfigProperties.reduce<TypedFlatConfigItem>((accumulator, key) => {
+        // `Object.hasOwn` would be preferred here, but the root tsconfig declares `lib: ["es2021"]`
+        // so it is untyped and trips `@typescript-eslint/no-unsafe-call`. Revisit once lib is es2022.
+        // eslint-disable-next-line unicorn/no-computed-property-existence-check
         if (key in options) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             accumulator[key] = options[key] as any;

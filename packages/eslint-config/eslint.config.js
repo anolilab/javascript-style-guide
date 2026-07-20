@@ -56,6 +56,8 @@ export default createConfig(
     {
         files: getFilesGlobs("markdown_inline_js_jsx"),
         rules: {
+            // Documentation snippets import packages that consumers install, not this repo.
+            "import/no-extraneous-dependencies": "off",
             "import/no-unresolved": "off",
             "jsonc/no-comments": "off",
         },
@@ -63,7 +65,8 @@ export default createConfig(
     {
         files: ["**/e18e.ts"],
         rules: {
-            "unicorn/prevent-abbreviations": "off",
+            // Renamed from `unicorn/prevent-abbreviations` in eslint-plugin-unicorn v72.
+            "unicorn/name-replacements": "off",
         },
     },
 );

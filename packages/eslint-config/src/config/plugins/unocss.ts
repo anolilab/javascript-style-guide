@@ -14,16 +14,12 @@ const unocss = async (options: OptionsUnoCSS): Promise<TypedFlatConfigItem[]> =>
             },
             rules: {
                 "unocss/order": "warn",
-                ...attributify
-                    ? {
-                        "unocss/order-attributify": "warn",
-                    }
-                    : {},
-                ...strict
-                    ? {
-                        "unocss/blocklist": "error",
-                    }
-                    : {},
+                ...attributify && {
+                    "unocss/order-attributify": "warn",
+                },
+                ...strict && {
+                    "unocss/blocklist": "error",
+                },
             },
         },
     ];

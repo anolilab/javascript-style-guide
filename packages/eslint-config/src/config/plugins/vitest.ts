@@ -3,9 +3,11 @@ import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 import vitestGlobals from "../../utils/vitest-globals";
 
-// Hold the reference so we don't redeclare the plugin on each call
+// Hold the reference so we don't redeclare the plugin on each call. A cache object is used
+// rather than a bare `let` so memoising from inside the config factory stays a property
+// assignment instead of a top-level variable assignment.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let pluginTest: any;
+const pluginCache: { test?: any } = {};
 
 export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEditor & OptionsOverrides & OptionsTypeScriptWithTypes>(
     "vitest",
@@ -18,7 +20,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             interopDefault(import("eslint-plugin-no-only-tests")),
         ] as const);
 
-        pluginTest = pluginTest ?? {
+        pluginCache.test ??= {
             ...vitestPlugin,
             rules: {
                 ...vitestPlugin.rules,
@@ -31,21 +33,19 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             {
                 name: "anolilab/vitest/setup",
                 plugins: {
-                    vitest: pluginTest,
+                    vitest: pluginCache.test,
                 },
             },
             {
                 files,
-                ...tsconfigPath
-                    ? {
-                        ...vitestPlugin.configs.env,
-                        settings: {
-                            vitest: {
-                                typecheck: true,
-                            },
+                ...tsconfigPath && {
+                    ...vitestPlugin.configs.env,
+                    settings: {
+                        vitest: {
+                            typecheck: true,
                         },
-                    }
-                    : {},
+                    },
+                },
                 languageOptions: {
                     globals: {
                         ...vitestGlobals,
@@ -104,27 +104,23 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // prefer-describe-function-title calls getParserServices() without declaring
                     // requiresTypeChecking, causing a crash when typed linting is not configured.
                     // prefer-vi-mocked properly declares requiresTypeChecking but still fails without types.
-                    ...tsconfigPath
-                        ? {}
-                        : {
-                            "vitest/prefer-describe-function-title": "off",
-                            "vitest/prefer-vi-mocked": "off",
-                        },
+                    ...!tsconfigPath && {
+                        "vitest/prefer-describe-function-title": "off",
+                        "vitest/prefer-vi-mocked": "off",
+                    },
 
                     ...overrides,
 
-                    ...prettier
-                        ? {
-                            "vitest/padding-around-after-all-blocks": "off",
-                            "vitest/padding-around-after-each-blocks": "off",
-                            "vitest/padding-around-all": "off",
-                            "vitest/padding-around-before-all-blocks": "off",
-                            "vitest/padding-around-before-each-blocks": "off",
-                            "vitest/padding-around-describe-blocks": "off",
-                            "vitest/padding-around-expect-blocks": "off",
-                            "vitest/padding-around-test-blocks": "off",
-                        }
-                        : {},
+                    ...prettier && {
+                        "vitest/padding-around-after-all-blocks": "off",
+                        "vitest/padding-around-after-each-blocks": "off",
+                        "vitest/padding-around-all": "off",
+                        "vitest/padding-around-before-all-blocks": "off",
+                        "vitest/padding-around-before-each-blocks": "off",
+                        "vitest/padding-around-describe-blocks": "off",
+                        "vitest/padding-around-expect-blocks": "off",
+                        "vitest/padding-around-test-blocks": "off",
+                    },
                 },
             },
         ];

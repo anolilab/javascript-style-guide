@@ -15,8 +15,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
         const prettierConfig = pluginYaml.configs.prettier;
 
         if (Array.isArray(prettierConfig)) {
-            (prettierConfig as { rules?: Rules }[]).forEach((cfg) => {
-                Object.assign(prettierRules, cfg.rules);
+            (prettierConfig as { rules?: Rules }[]).forEach((config) => {
+                Object.assign(prettierRules, config.rules);
             });
         } else {
             Object.assign(prettierRules, (prettierConfig as { rules?: Rules }).rules);
@@ -45,27 +45,25 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
                 "yaml/vue-custom-block/no-parsing-error": "error",
 
-                ...stylistic
-                    ? {
-                        "yaml/block-mapping-question-indicator-newline": "error",
-                        "yaml/block-sequence-hyphen-indicator-newline": "error",
-                        "yaml/flow-mapping-curly-newline": "error",
-                        "yaml/flow-mapping-curly-spacing": "error",
-                        "yaml/flow-sequence-bracket-newline": "error",
-                        "yaml/flow-sequence-bracket-spacing": "error",
-                        "yaml/indent": [prettier ? "off" : "error", (indent === "tab" ? 2 : indent) as number | undefined],
-                        "yaml/key-spacing": "error",
-                        "yaml/no-tab-indent": "error",
-                        "yaml/quotes": [
-                            "error",
-                            {
-                                avoidEscape: true,
-                                prefer: quotes === "backtick" ? "single" : quotes,
-                            },
-                        ],
-                        "yaml/spaced-comment": "error",
-                    }
-                    : {},
+                ...stylistic && {
+                    "yaml/block-mapping-question-indicator-newline": "error",
+                    "yaml/block-sequence-hyphen-indicator-newline": "error",
+                    "yaml/flow-mapping-curly-newline": "error",
+                    "yaml/flow-mapping-curly-spacing": "error",
+                    "yaml/flow-sequence-bracket-newline": "error",
+                    "yaml/flow-sequence-bracket-spacing": "error",
+                    "yaml/indent": [prettier ? "off" : "error", (indent === "tab" ? 2 : indent) as number | undefined],
+                    "yaml/key-spacing": "error",
+                    "yaml/no-tab-indent": "error",
+                    "yaml/quotes": [
+                        "error",
+                        {
+                            avoidEscape: true,
+                            prefer: quotes === "backtick" ? "single" : quotes,
+                        },
+                    ],
+                    "yaml/spaced-comment": "error",
+                },
 
                 ...prettierRules,
 

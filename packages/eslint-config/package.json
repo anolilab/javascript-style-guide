@@ -97,7 +97,7 @@
         "build:typegen": "tsx ./scripts/typegen.ts",
         "clean": "rimraf node_modules dist",
         "debug:rules": "pnpm exec eslint-config-inspector --config ./debug-eslint.config.mjs",
-        "lint:attw": "attw --pack",
+        "lint:attw": "attw --pack --profile esm-only",
         "lint:eslint": "eslint . --cache --concurrency auto",
         "lint:eslint:fix": "eslint . --cache --concurrency auto --fix",
         "lint:prettier": "prettier .",
@@ -163,7 +163,7 @@
         "yaml-eslint-parser": "catalog:lint"
     },
     "devDependencies": {
-        "@anolilab/prettier-config": "10.0.1",
+        "@anolilab/prettier-config": "catalog:lint",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

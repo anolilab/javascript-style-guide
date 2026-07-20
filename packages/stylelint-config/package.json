@@ -176,6 +176,8 @@
         "README.md",
         "dist",
         "index.cjs",
+        "index.d.cts",
+        "index.d.mts",
         "index.d.ts",
         "index.mjs"
     ],
@@ -193,7 +195,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "9.0.0",
+        "browserslist-config-anolilab": "catalog:network",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
@@ -203,8 +205,8 @@
         "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
-        "@anolilab/eslint-config": "28.0.1",
-        "@anolilab/prettier-config": "10.0.1",
+        "@anolilab/eslint-config": "catalog:lint",
+        "@anolilab/prettier-config": "catalog:lint",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

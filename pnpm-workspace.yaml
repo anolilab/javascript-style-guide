@@ -1,6 +1,9 @@
 packages:
     - "packages/**"
     - "!packages/eslint-config/__fixtures__/**"
+    # Scratch projects written by the eslint-config tests; each has a package.json and
+    # would otherwise be registered as a workspace project by an install during a test run.
+    - "!packages/eslint-config/tmp_fixtures/**"
 auditConfig:
     ignoreCves:
         - GHSA-v2wj-q39q-566r

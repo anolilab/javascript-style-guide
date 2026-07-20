@@ -19,7 +19,22 @@ import * as prettier from "prettier";
 /**
  * Directories to exclude from package discovery
  */
-const EXCLUDED_DIRS = new Set(["node_modules", ".git", "dist", "build", ".next", ".turbo", "__fixtures__", "examples", "__tests__", ".DS_Store"]);
+// `tmp_fixtures` is the scratch directory the eslint-config tests write generated
+// projects into. Each one contains a package.json, so without this it is picked up
+// as a real package whenever the generator runs while a test is in flight.
+const EXCLUDED_DIRS = new Set([
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    ".next",
+    ".turbo",
+    "__fixtures__",
+    "tmp_fixtures",
+    "examples",
+    "__tests__",
+    ".DS_Store",
+]);
 
 /**
  * Recursively finds all package.json files in the packages directory

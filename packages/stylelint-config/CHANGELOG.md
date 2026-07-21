@@ -1,3 +1,10 @@
+## @anolilab/stylelint-config [11.1.0](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fstylelint-config%4011.0.6...%40anolilab%2Fstylelint-config%4011.1.0) (2026-07-21)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 28.1.0
+
 ## @anolilab/stylelint-config [11.0.6](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fstylelint-config%4011.0.5...%40anolilab%2Fstylelint-config%4011.0.6) (2026-07-20)
 
 

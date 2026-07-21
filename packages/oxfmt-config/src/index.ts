@@ -20,7 +20,7 @@ interface OxfmtConfig {
     insertFinalNewline?: boolean;
     jsxSingleQuote?: boolean;
     objectWrap?: "collapse" | "preserve";
-    overrides?: { excludeFiles?: string[]; files: string[]; options: Omit<OxfmtConfig, "overrides"> }[];
+    overrides?: { excludeFiles?: string[] | string; files: string[] | string; options: Omit<OxfmtConfig, "overrides"> }[];
     printWidth?: number;
     proseWrap?: "always" | "never" | "preserve";
     quoteProps?: "as-needed" | "consistent" | "preserve";

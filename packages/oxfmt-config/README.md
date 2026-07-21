@@ -40,25 +40,16 @@ pnpm add -D @anolilab/oxfmt-config oxfmt
 
 ## Setup
 
-Run the installer to scaffold an `oxfmt.config.js` for you:
+Run the installer to scaffold an `oxfmt.config.ts` for you:
 
 ```sh
 npx oxfmt-config:install
 ```
 
-Or wire it up manually.
+Or wire it up manually. oxfmt auto-discovers `.oxfmtrc.json`, `.oxfmtrc.jsonc`, `oxfmt.config.ts`
+and `oxfmt.config.mts` (note: `oxfmt.config.js` is **not** auto-discovered).
 
-**`oxfmt.config.js`**
-
-```js
-import config from "@anolilab/oxfmt-config";
-
-export default {
-    ...config,
-};
-```
-
-**`oxfmt.config.ts`**
+**`oxfmt.config.ts`** (imports this package)
 
 ```ts
 import config from "@anolilab/oxfmt-config";
@@ -70,7 +61,7 @@ export default config;
 
 Spread the config and change what you need:
 
-```js
+```ts
 import config from "@anolilab/oxfmt-config";
 
 export default {

@@ -178,14 +178,18 @@ export interface OptionsConfig extends OptionsComponentExtensions, OptionsSilent
 
     /**
      * Enable oxlint integration.
-     * Disables ESLint rules already covered by oxlint to avoid duplicate linting.
-     * Auto-detected when `oxlint` is present in package.json dependencies.
+     * Disables ESLint rules already covered by oxlint to avoid duplicate linting. If an
+     * `.oxlintrc.json` is found in the project (or passed via `configFile`), only the rules that
+     * config actually enables are turned off, so ESLint keeps checking everything oxlint does not
+     * run; the result is cached until the file changes. When no config file exists it falls back to
+     * `mode` (`"all"` disables every oxlint-supported rule, `"recommended"` only the recommended set).
+     * Auto-detected when `oxlint` or `@anolilab/oxlint-config` is present in package.json dependencies.
      *
      * Requires installing:
      * - `eslint-plugin-oxlint`
      * @default false
      */
-    oxlint?: boolean | (OptionsOverrides & { configFile?: string });
+    oxlint?: boolean | (OptionsOverrides & { configFile?: string; mode?: "all" | "recommended" });
 
     /**
      * Override the `files` option to provide custom globs or disable some rules.
@@ -460,8 +464,8 @@ export interface OptionsFormatters {
     slidev?:
         | boolean
         | {
-            files?: string[];
-        };
+              files?: string[];
+          };
 
     /**
      * Enable formatting support for SVG.

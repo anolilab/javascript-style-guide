@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import process from "node:process";
 
-const checkIfFileExists = (filename: string): boolean => {
+const isExistingFile = (filename: string): boolean => {
     if (existsSync(filename)) {
         // eslint-disable-next-line no-console
         console.warn(`⚠️ ${filename} already exists;`);
@@ -39,7 +39,7 @@ const writeCommitLintConfig = async (cwd: string, isTypeModule: boolean) => {
     ];
 
     for (const configFilename of configFiles) {
-        if (checkIfFileExists(join(cwd, configFilename))) {
+        if (isExistingFile(join(cwd, configFilename))) {
             // eslint-disable-next-line no-console
             console.warn(`⚠️  ${configFilename} already exists;`);
 
@@ -84,7 +84,7 @@ const writeCzrc = async (cwd: string) => {
     await writeFile(filePath, content, "utf8");
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await, no-void
+// eslint-disable-next-line no-void
 void (async () => {
     const cwd = process.cwd();
 

@@ -3,6 +3,7 @@ import globals from "globals";
 import type { OptionsFiles, OptionsHasPrettier, OptionsOverrides, OptionsPackageJson, OptionsStylistic } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import getPrettierConflictRules from "../../utils/prettier-conflict-rules";
 
 const FILENAME_IGNORE_PATTERN = /(FUNDING\.yml|README\.md|CHANGELOG\.md|CONTRIBUTING\.md|CODE_OF_CONDUCT\.md|SECURITY\.md|LICENSE)/u;
 
@@ -10,6 +11,8 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
     const { files = oFiles, overrides, packageJson, prettier, stylistic = true } = config;
 
     const { indent = 4 } = typeof stylistic === "boolean" ? {} : stylistic;
+
+    const prettierConflictRules = prettier ? await getPrettierConflictRules() : {};
 
     const pluginUnicorn = await interopDefault(import("eslint-plugin-unicorn"));
 
@@ -123,17 +126,9 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                 // We only enforce it for single-line statements to not be too opinionated.
                 "unicorn/prefer-ternary": ["error", "only-single-line"],
 
-                ...prettier
-                    ? {
-                        "unicorn/empty-brace-spaces": "off",
-                        // Its disabled
-                        // "unicorn/no-nested-ternary": "off",
-                        "unicorn/number-literal-case": "off",
-                        "unicorn/template-indent": "off",
-                    }
-                    : {
-                        "unicorn/template-indent": ["error", { indent: indent as string | number | undefined }],
-                    },
+                // A JS/TS formatter owns unicorn's formatting rules (empty-brace-spaces,
+                // number-literal-case, template-indent); eslint-config-prettier turns them off.
+                ...(prettier ? prettierConflictRules : { "unicorn/template-indent": ["error", { indent: indent as string | number | undefined }] }),
 
                 ...overrides,
             },

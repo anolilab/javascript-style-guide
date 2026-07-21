@@ -36,7 +36,7 @@ catalog:
     secretlint: 13.0.2
     semantic-release: 25.0.8
     sort-package-json: 4.0.0
-    stylelint: 17.14.0
+    stylelint: 17.14.1
     textlint: 15.7.1
     typescript: 6.0.3
     vite: 8.1.5
@@ -59,14 +59,14 @@ catalogs:
     frontend:
         react: 19.2.7
     lint:
-        "@anolilab/eslint-config": 28.0.1
-        "@anolilab/prettier-config": 10.0.1
+        "@anolilab/eslint-config": 28.0.2
+        "@anolilab/prettier-config": 10.0.2
         "@commitlint/cli": 21.2.1
         "@commitlint/config-conventional": 21.2.0
         "@commitlint/core": 21.2.1
         "@e18e/eslint-plugin": 0.5.1
         "@eslint-community/eslint-plugin-eslint-comments": 4.7.2
-        "@eslint-react/eslint-plugin": 5.17.1
+        "@eslint-react/eslint-plugin": 5.17.3
         "@eslint/compat": 2.1.0
         "@eslint/config-inspector": 3.1.0
         "@eslint/css": 1.4.0
@@ -104,7 +104,7 @@ catalogs:
         eslint-plugin-format: 2.0.1
         eslint-plugin-html: 8.1.4
         eslint-plugin-import-x: 4.17.1
-        eslint-plugin-jsdoc: 63.1.0
+        eslint-plugin-jsdoc: 63.2.0
         eslint-plugin-jsonc: 3.3.0
         eslint-plugin-jsx-a11y: ^6.10.2
         eslint-plugin-n: 18.2.2
@@ -127,7 +127,7 @@ catalogs:
         eslint-plugin-security: 4.0.1
         eslint-plugin-simple-import-sort: 14.0.0
         eslint-plugin-sonarjs: 4.2.0
-        eslint-plugin-storybook: 10.5.2
+        eslint-plugin-storybook: 10.5.3
         eslint-plugin-tailwindcss: 4.2.0
         eslint-plugin-testing-library: 7.16.2
         eslint-plugin-toml: 1.4.0
@@ -147,8 +147,8 @@ catalogs:
         prettier: 3.9.5
         publint: 0.3.21
         secretlint: 13.0.2
-        storybook: 10.5.2
-        stylelint: 17.14.0
+        storybook: 10.5.3
+        stylelint: 17.14.1
         stylelint-config-clean-order: 10.0.0
         stylelint-config-standard: 40.0.0
         stylelint-declaration-block-no-ignored-properties: 3.0.0
@@ -173,13 +173,13 @@ catalogs:
         textlint-rule-terminology: ^5.2.16
         textlint-rule-write-good: ^2.0.0
         toml-eslint-parser: 1.0.3
-        typescript-eslint: 8.64.0
+        typescript-eslint: 8.65.0
         yaml-eslint-parser: 2.1.0
     monorepo:
         nx: 23.1.0
     network:
         browserslist: 4.28.6
-        browserslist-config-anolilab: 9.0.0
+        browserslist-config-anolilab: 9.0.1
         confusing-browser-globals: ^1.0.11
     node:
         cross-env: ^10.1.0
@@ -193,7 +193,7 @@ catalogs:
         nano-staged: 1.0.2
     prod:
         "@visulima/fs": 5.0.5
-        "@visulima/package": ^5.0.4
+        "@visulima/package": ^5.0.5
         conventional-changelog-conventionalcommits: 10.2.1
         cz-conventional-changelog: ^3.3.0
         is-ci: ^4.1.0
@@ -213,7 +213,7 @@ catalogs:
         vitest: 4.1.10
     tsc:
         "@total-typescript/ts-reset": ^0.6.1
-        "@visulima/tsconfig": ^3.1.1
+        "@visulima/tsconfig": ^3.2.0
         typescript: 6.0.3
     types:
         "@types/confusing-browser-globals": ^1.0.3
@@ -223,8 +223,8 @@ catalogs:
         "@types/node": 26.1.1
         "@types/semver": ^7.7.1
         "@types/shell-quote": ^1.7.5
-        "@typescript-eslint/parser": 8.64.0
-        "@typescript-eslint/types": 8.64.0
+        "@typescript-eslint/parser": 8.65.0
+        "@typescript-eslint/types": 8.65.0
     utils:
         caniuse-lite: 1.0.30001806
         semver: 7.8.5
@@ -237,47 +237,49 @@ onlyBuiltDependencies:
     - rs-module-lexer
     - unrs-resolver
 overrides:
-    axios@>=1.0.0 <=1.13.4: ">=1.13.6"
+    axios@>=1.0.0 <=1.13.4: ">=1.18.1"
     # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
-    axios@<1.18.0: ">=1.18.0"
+    axios@<1.18.0: ">=1.18.1"
     # GHSA-v422-hmwv-36x6
     body-parser@>=2.0.0 <2.3.0: ">=2.3.0"
     # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
     brace-expansion@1: ">=1.1.16"
     brace-expansion@2: ">=2.1.2"
     brace-expansion@>=3.0.0 <5.0.7: ">=5.0.7"
-    chrono-node@<2.2.4: ">=2.2.7"
+    chrono-node@<2.2.4: ">=2.10.0"
     defu@<=6.1.4: ">=6.1.7"
     # The published @anolilab/eslint-config pulls sonarjs 4.0.3 transitively, which reads
     # AST_NODE_TYPES.FunctionType at load and crashes against eslint 10.7. Sibling packages
     # lint themselves with the published config, so force the version this workspace uses.
     eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
     # GHSA-32gv-6cf3-8cmc
-    fast-uri@>=3.0.0 <3.1.3: ">=3.1.3"
+    fast-uri@>=3.0.0 <3.1.3: ">=3.1.4"
     follow-redirects@<=1.15.11: ">=1.16.0"
     # GHSA-p3x2-7fjr-vqmv (path traversal)
-    "@hono/node-server@<2.0.5": ">=2.0.5"
+    "@hono/node-server@<2.0.5": ">=2.0.10"
     # GHSA-xgm2-5f3f-mvvc
-    hono@<4.12.27: ">=4.12.27"
-    ip-address@<=10.1.0: ">=10.1.1"
+    hono@<4.12.27: ">=4.12.30"
+    ip-address@<=10.1.0: ">=10.2.0"
     lodash-es@<=4.17.23: ">=4.18.0"
     lodash-es@>=4.0.0 <=4.17.23: ">=4.18.0"
     lodash@<=4.17.23: ">=4.18.0"
     lodash@>=4.0.0 <=4.17.22: ">=4.18.1"
     lodash@>=4.0.0 <=4.17.23: ">=4.18.0"
-    picomatch@>=4.0.0 <4.0.4: ">=4.0.4"
-    postcss@<8.5.10: ">=8.5.15"
-    shell-quote@>=1.1.0 <=1.8.3: ">=1.8.4"
+    picomatch@>=4.0.0 <4.0.4: ">=4.0.5"
+    postcss@<8.5.10: ">=8.5.19"
+    shell-quote@>=1.1.0 <=1.8.3: ">=1.10.0"
+    # GHSA-2p49-hgcm-8545
+    svgo@>=4.0.0 <4.0.2: ">=4.0.2"
     tmp@<0.2.7: ">=0.2.7"
-    undici@<6.23.0: ">=6.23.0"
-    undici@<6.24.0: ">=6.24.1"
+    undici@<6.23.0: ">=6.27.0"
+    undici@<6.24.0: ">=6.27.0"
     undici@>=7.0.0 <7.28.0: "7.28.0"
-    undici@>=8.0.0 <8.5.0: "8.5.0"
-    "@actions/http-client>undici": "8.5.0"
+    undici@>=8.0.0 <8.5.0: "8.7.0"
+    "@actions/http-client>undici": "8.7.0"
     vite@>=7.0.0 <=7.3.1: ">=7.3.2"
     vite@>=7.1.0 <=7.3.1: ">=7.3.2"
     vite@>=8.0.0 <=8.0.15: ">=8.0.16"
-    yaml@>=2.0.0 <2.8.3: ">=2.8.4"
+    yaml@>=2.0.0 <2.8.3: ">=2.9.0"
     esbuild@>=0.27.3 <0.28.1: ">=0.28.1"
     form-data@>=4.0.0 <4.0.6: ">=4.0.6"
     # Stay on 4.x: js-yaml 5.x is ESM-only with no default export and breaks

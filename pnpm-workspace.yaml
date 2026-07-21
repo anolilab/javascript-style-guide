@@ -252,9 +252,13 @@ overrides:
     # AST_NODE_TYPES.FunctionType at load and crashes against eslint 10.7. Sibling packages
     # lint themselves with the published config, so force the version this workspace uses.
     eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
+    # GHSA-32gv-6cf3-8cmc
+    fast-uri@>=3.0.0 <3.1.3: ">=3.1.3"
     follow-redirects@<=1.15.11: ">=1.16.0"
-    hono@<4.12.14: ">=4.12.24"
-    hono@<4.12.21: ">=4.12.24"
+    # GHSA-p3x2-7fjr-vqmv (path traversal)
+    "@hono/node-server@<2.0.5": ">=2.0.5"
+    # GHSA-xgm2-5f3f-mvvc
+    hono@<4.12.27: ">=4.12.27"
     ip-address@<=10.1.0: ">=10.1.1"
     lodash-es@<=4.17.23: ">=4.18.0"
     lodash-es@>=4.0.0 <=4.17.23: ">=4.18.0"

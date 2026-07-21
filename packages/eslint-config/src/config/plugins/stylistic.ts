@@ -1,5 +1,6 @@
 import type { OptionsHasPrettier, OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from "../../types";
 import interopDefault from "../../utils/interop-default";
+import getPrettierConflictRules from "../../utils/prettier-conflict-rules";
 
 const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & StylisticConfig): Promise<TypedFlatConfigItem[]> => {
     const {
@@ -29,13 +30,7 @@ const stylistic = async (options: OptionsHasPrettier & OptionsOverrides & Stylis
     // rules that conflict with Prettier (and the Prettier-compatible oxfmt) instead of a
     // hand-maintained copy, so exactly the fighting rules are turned off and non-conflicting ones
     // (e.g. @stylistic/padding-line-between-statements) stay on.
-    let prettierConflictRules: NonNullable<TypedFlatConfigItem["rules"]> = {};
-
-    if (prettier) {
-        const configPrettier = await interopDefault(import("eslint-config-prettier"));
-
-        prettierConflictRules = configPrettier.rules as NonNullable<TypedFlatConfigItem["rules"]>;
-    }
+    const prettierConflictRules = prettier ? await getPrettierConflictRules() : {};
 
     return [
         {

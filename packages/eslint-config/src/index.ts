@@ -1123,6 +1123,7 @@ export const createConfig = async (
 
         configs.push(
             oxlint({
+                cwd,
                 ...oxlintOptions,
             }),
         );

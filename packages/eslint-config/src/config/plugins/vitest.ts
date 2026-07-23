@@ -112,10 +112,6 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // Note: explicit options required to avoid TypeError in @vitest/eslint-plugin when options[0] is undefined
                     "vitest/no-standalone-expect": ["error", { additionalTestBlockFunctions: [] }],
 
-                    // Prefer expect(x).toEqual(y) over expect(x).toStrictEqual(y) —
-                    // toEqual is simpler and sufficient for most test assertions.
-                    "vitest/prefer-strict-equal": "off",
-
                     // Disallow using expect outside of it or test blocks
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
                     "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],

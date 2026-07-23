@@ -38,14 +38,14 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             },
             {
                 files,
-                ...tsconfigPath && {
+                ...(tsconfigPath && {
                     ...vitestPlugin.configs.env,
                     settings: {
                         vitest: {
                             typecheck: true,
                         },
                     },
-                },
+                }),
                 languageOptions: {
                     globals: {
                         ...vitestGlobals,
@@ -58,12 +58,33 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
 
                     "@typescript-eslint/explicit-function-return-type": "off",
 
+                    // Disabled across all anolilab/visulima projects in test files.
+                    "@typescript-eslint/naming-convention": "off",
+
                     // Disables
                     "antfu/no-top-level-await": "off",
+
+                    // Test files often import devDependencies (vitest, test utilities).
+                    "import/no-extraneous-dependencies": "off",
+
+                    // Node built-in version checks are irrelevant in test contexts.
+                    "n/no-unsupported-features/node-builtins": "off",
 
                     "n/prefer-global/process": "off",
 
                     "no-unused-expressions": "off",
+
+                    // Test snapshots and control-flow tests use regex literals freely.
+                    "sonarjs/no-control-regex": "off",
+
+                    // Test files commonly use null values in fixtures and assertions.
+                    "unicorn/no-null": "off",
+
+                    // Test files are not entry points; CJS interop is fine.
+                    "unicorn/prefer-module": "off",
+
+                    // Allow unused vars in tests (e.g. destructured mocks, setup).
+                    "unused-imports/no-unused-vars": "off",
 
                     "vitest/consistent-test-it": ["error", { fn: "it", withinDescribe: "it" }],
 
@@ -91,6 +112,10 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // Note: explicit options required to avoid TypeError in @vitest/eslint-plugin when options[0] is undefined
                     "vitest/no-standalone-expect": ["error", { additionalTestBlockFunctions: [] }],
 
+                    // Prefer expect(x).toEqual(y) over expect(x).toStrictEqual(y) —
+                    // toEqual is simpler and sufficient for most test assertions.
+                    "vitest/prefer-strict-equal": "off",
+
                     // Disallow using expect outside of it or test blocks
                     // https://github.com/veritem/eslint-plugin-vitest/blob/main/docs/rules/valid-expect.md
                     "vitest/valid-expect": ["error", { alwaysAwait: true, maxArgs: 2, minArgs: 1 }],
@@ -104,14 +129,17 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                     // prefer-describe-function-title calls getParserServices() without declaring
                     // requiresTypeChecking, causing a crash when typed linting is not configured.
                     // prefer-vi-mocked properly declares requiresTypeChecking but still fails without types.
-                    ...!tsconfigPath && {
+                    ...(!tsconfigPath && {
                         "vitest/prefer-describe-function-title": "off",
                         "vitest/prefer-vi-mocked": "off",
-                    },
+                    }),
+
+                    // Disabled across projects — mock type parameters are often loosely typed in tests.
+                    "vitest/require-mock-type-parameters": "off",
 
                     ...overrides,
 
-                    ...prettier && {
+                    ...(prettier && {
                         "vitest/padding-around-after-all-blocks": "off",
                         "vitest/padding-around-after-each-blocks": "off",
                         "vitest/padding-around-all": "off",
@@ -120,7 +148,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
                         "vitest/padding-around-describe-blocks": "off",
                         "vitest/padding-around-expect-blocks": "off",
                         "vitest/padding-around-test-blocks": "off",
-                    },
+                    }),
                 },
             },
         ];

@@ -1,3 +1,5 @@
+## @anolilab/prettier-config [10.0.3](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fprettier-config%4010.0.2...%40anolilab%2Fprettier-config%4010.0.3) (2026-08-10)
+
 ## @anolilab/prettier-config [10.0.2](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fprettier-config%4010.0.1...%40anolilab%2Fprettier-config%4010.0.2) (2026-07-20)
 
 ## @anolilab/prettier-config [10.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@10.0.0...@anolilab/prettier-config@10.0.1) (2026-05-04)

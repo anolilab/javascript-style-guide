@@ -1,3 +1,11 @@
+## @anolilab/lint-staged-config [11.1.3](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Flint-staged-config%4011.1.2...%40anolilab%2Flint-staged-config%4011.1.3) (2026-08-10)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 28.1.3
+* **@anolilab/prettier-config:** upgraded to 10.0.3
+
 ## @anolilab/lint-staged-config [11.1.2](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Flint-staged-config%4011.1.1...%40anolilab%2Flint-staged-config%4011.1.2) (2026-07-23)
 
 

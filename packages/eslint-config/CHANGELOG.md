@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [28.1.3](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Feslint-config%4028.1.2...%40anolilab%2Feslint-config%4028.1.3) (2026-08-10)
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 10.0.3
+
 ## @anolilab/eslint-config [28.1.2](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Feslint-config%4028.1.1...%40anolilab%2Feslint-config%4028.1.2) (2026-07-23)
 
 ## @anolilab/eslint-config [28.1.1](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Feslint-config%4028.1.0...%40anolilab%2Feslint-config%4028.1.1) (2026-07-23)

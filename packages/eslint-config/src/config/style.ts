@@ -11,7 +11,7 @@ export const noUnderscoreDangle = {
     enforceInMethodNames: true,
 };
 
-export const styleRules: Partial<Linter.RulesRecord> = {
+export const styleRules = {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.org/docs/rules/array-bracket-newline
     "array-bracket-newline": "off",
@@ -304,6 +304,22 @@ export const styleRules: Partial<Linter.RulesRecord> = {
             message: "Use `.toString()` instead of template literal if you want to convert a value to string.",
             selector: 'TemplateLiteral[quasis.0.value.raw=""][quasis.1.tail=true][quasis.1.value.raw=""]',
         },
+        {
+            message: "Module mocking replaces the dependency for the whole file and drifts from the real module. Inject the dependency instead.",
+            selector: "CallExpression[callee.object.name=/^(vi|jest)$/][callee.property.name=/^(mock|doMock|unstable_mockModule)$/]",
+        },
+        {
+            message: "`Reflect.get` returns `any` and skips the property check. Access the property directly.",
+            selector: 'CallExpression[callee.object.name="Reflect"][callee.property.name="get"]',
+        },
+        {
+            message: "Spreading `{}` makes the property optional in a way the type no longer records. Make the field optional, or build both objects explicitly.",
+            selector: "ObjectExpression > SpreadElement > ConditionalExpression > ObjectExpression[properties.length=0]",
+        },
+        {
+            message: "An alias for `unknown` only hides that the value was never parsed. Give the alias the parsed type.",
+            selector: "TSTypeAliasDeclaration > TSUnknownKeyword",
+        },
     ],
 
     // disallow space between function identifier and application
@@ -445,7 +461,7 @@ export const styleRules: Partial<Linter.RulesRecord> = {
 
     // Require or disallow spacing around the `*` in `yield*` expressions
     "yield-star-spacing": "off",
-};
+} satisfies Partial<Linter.RulesRecord>;
 
 export default createConfig<OptionsFiles & OptionsHasPrettier>("all", async (config, oFiles) => {
     const { files = oFiles, prettier } = config;

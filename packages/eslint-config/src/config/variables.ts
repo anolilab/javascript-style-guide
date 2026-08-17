@@ -4,7 +4,7 @@ import type { Linter } from "eslint";
 import type { OptionsFiles } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
-export const variablesRules: Partial<Linter.RulesRecord> = {
+export const variablesRules = {
     // enforce or disallow variable initializations at definition
     "init-declarations": "off",
 
@@ -60,7 +60,7 @@ export const variablesRules: Partial<Linter.RulesRecord> = {
 
     // disallow use of variables before they are defined
     "no-use-before-define": ["error", { classes: true, functions: true, variables: true }],
-};
+} satisfies Partial<Linter.RulesRecord>;
 
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
     const { files = oFiles } = config;

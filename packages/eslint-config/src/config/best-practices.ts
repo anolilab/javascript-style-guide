@@ -3,7 +3,7 @@ import type { Linter } from "eslint";
 import type { OptionsFiles } from "../types";
 import { createConfig, getFilesGlobs } from "../utils/create-config";
 
-export const bestPracticesRules: Partial<Linter.RulesRecord> = {
+export const bestPracticesRules = {
     // Disable the "dot-notation" rule, as it can report incorrect errors on TypeScript code
     "dot-notation": "off",
 
@@ -43,7 +43,7 @@ export const bestPracticesRules: Partial<Linter.RulesRecord> = {
     // Disallow empty exports that don't change anything in a module file.
     // Breaks @typescript-eslint/parser
     strict: "off",
-};
+} satisfies Partial<Linter.RulesRecord>;
 
 export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
     const { files = oFiles } = config;

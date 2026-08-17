@@ -1,7 +1,6 @@
 import { existsSync } from "node:fs";
 
 import { findPackageManagerSync, hasPackageJsonAnyDependency, parsePackageJsonSync } from "@visulima/package";
-// eslint-disable-next-line e18e/ban-dependencies
 import type { Configuration } from "lint-staged";
 
 import type { EslintConfig } from "./types";
@@ -85,8 +84,8 @@ export const defineConfig = (
             const { default: createEslintCommands } = await import("./eslint/create-eslint-commands");
 
             return [
-                ...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [],
-                ...await createEslintCommands(packageManager, packageJson, config.eslint as EslintConfig, filenames),
+                ...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []),
+                ...(await createEslintCommands(packageManager, packageJson, config.eslint as EslintConfig, filenames)),
             ];
         };
     }
@@ -99,13 +98,13 @@ export const defineConfig = (
         loadedPlugins = {
             ...loadedPlugins,
             "**/*.md": (filenames: ReadonlyArray<string>) => [
-                ...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [],
+                ...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []),
                 `${packageManager} exec markdownlint --fix --ignore '**/node_modules/**' --ignore '**/CHANGELOG.md' ${concatFiles(filenames)}`,
-                ...hasMarkdownCli2
+                ...(hasMarkdownCli2
                     ? [`${packageManager} exec markdownlint-cli2 --fix '!**/node_modules/**' '!**/CHANGELOG.md' ${concatFiles(filenames)}`]
-                    : [],
+                    : []),
             ],
-            "**/*.mdx": (filenames: ReadonlyArray<string>) => [...hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []],
+            "**/*.mdx": (filenames: ReadonlyArray<string>) => [...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : [])],
         };
     }
 
@@ -115,22 +114,22 @@ export const defineConfig = (
 
     if (config.stylesheets !== false && hasPackageJsonAnyDependency(packageJson, ["stylelint"])) {
         if (
-            !Array.isArray((config.stylesheets as StylesheetsConfig).extensions)
-            || ((config.stylesheets as StylesheetsConfig).extensions as string[]).length === 0
+            !Array.isArray((config.stylesheets as StylesheetsConfig).extensions) ||
+            ((config.stylesheets as StylesheetsConfig).extensions as string[]).length === 0
         ) {
             throw new Error("The `extensions` option is required for the Stylesheets configuration.");
         }
 
         loadedPlugins[`**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`] = (filenames: ReadonlyArray<string>) => [
-            ...hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : [],
+            ...(hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : []),
             `${packageManager} exec stylelint --fix`,
         ];
     }
 
     if (config.typescript !== false && hasPackageJsonAnyDependency(packageJson, ["typescript"])) {
         if (
-            !Array.isArray((config.typescript as TypescriptConfig).extensions)
-            || ((config.typescript as TypescriptConfig).extensions as string[]).length === 0
+            !Array.isArray((config.typescript as TypescriptConfig).extensions) ||
+            ((config.typescript as TypescriptConfig).extensions as string[]).length === 0
         ) {
             throw new Error("The `extensions` option is required for the TypeScript configuration.");
         }

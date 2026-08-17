@@ -652,7 +652,16 @@ export interface OptionsUnoCSS extends OptionsOverrides {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Rules = Record<string, Linter.RuleEntry<any> | undefined> & RuleOptions;
 
-export type StylisticConfig = Pick<StylisticCustomizeOptions, "indent" | "jsx" | "quotes" | "semi">;
+export type StylisticConfig = Pick<StylisticCustomizeOptions, "jsx" | "quotes" | "semi"> & {
+    /**
+     * Indent width, or `"tab"`.
+     *
+     * `@stylistic`'s own option also accepts the full `indent` rule option tuple, but every config
+     * here forwards this to rules of other plugins that only understand the scalar form, so the
+     * tuple form is not supported.
+     */
+    indent?: "tab" | number;
+};
 
 /**
  * An updated version of ESLint's `Linter.Config`, which provides autocompletion
@@ -665,7 +674,11 @@ export type TypedFlatConfigItem = Omit<Linter.Config, "plugins" | "rules"> & {
      * When `files` is specified, these plugins are only available to the matching files.
      * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // A precise `Record<string, ESLint.Plugin>` rejects plugins that work fine at runtime:
+    // typescript-eslint ships `RuleModule` rather than `RuleDefinition`, and duplicate
+    // `@types/eslint` copies in a dependency tree make the two `Plugin` types structurally
+    // incompatible. Tighten this once the ecosystem converges on `@eslint/core`.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-restricted-types -- see comment above
     plugins?: Record<string, any>;
 
     /**

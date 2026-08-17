@@ -17,6 +17,7 @@ import type {
 } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import { configPlugins, configRules } from "../../utils/plugin-config";
 import { noUnderscoreDangle } from "../style";
 
 // react refresh
@@ -102,7 +103,8 @@ export default createConfig<
         interopDefault(import("eslint-plugin-react")),
         interopDefault(import("eslint-plugin-react-hooks")),
         interopDefault(import("eslint-plugin-react-refresh")),
-        interopDefault(import("eslint-plugin-react-perf")),
+        // eslint-plugin-react-perf ships no types; name only what is read below.
+        interopDefault<{ configs?: { flat?: { recommended?: unknown } } }>(import("eslint-plugin-react-perf")),
         interopDefault(import("eslint-plugin-react-you-might-not-need-an-effect")),
     ] as const);
 
@@ -112,9 +114,7 @@ export default createConfig<
     const isUsingReactRouter = hasPackageJsonAnyDependency(packageJson, ReactRouterPackages);
     const isUsingTanstack = hasPackageJsonAnyDependency(packageJson, TanstackRouterPackages);
 
-    const { plugins: reactXPlugins } = pluginReactX.configs.all as {
-        plugins: Record<string, unknown>;
-    };
+    const reactXPlugins = configPlugins(pluginReactX.configs.all);
 
     // @eslint-react/eslint-plugin v4+ merged all sub-plugins (dom, naming-convention,
     // web-api, rsc) into the main @eslint-react plugin. Rules are now prefixed with
@@ -1027,15 +1027,7 @@ export default createConfig<
                     "react-unhookify/remove-use-memo": "error",
                 },
 
-                ...(
-                    pluginReactPerformance as {
-                        configs: {
-                            flat: {
-                                recommended: { rules: Record<string, unknown> };
-                            };
-                        };
-                    }
-                ).configs.flat.recommended.rules,
+                ...configRules(pluginReactPerformance.configs?.flat?.recommended),
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 

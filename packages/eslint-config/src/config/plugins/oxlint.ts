@@ -13,6 +13,16 @@ type OxlintPlugin = {
     configs: Record<string, TypedFlatConfigItem[] | undefined>;
 };
 
+/** Checks that the loaded module actually exposes the parts of `eslint-plugin-oxlint` used here. */
+const isOxlintPlugin = (value: unknown): value is OxlintPlugin =>
+    typeof value === "object" &&
+    value !== null &&
+    "buildFromOxlintConfigFile" in value &&
+    typeof value.buildFromOxlintConfigFile === "function" &&
+    "configs" in value &&
+    typeof value.configs === "object" &&
+    value.configs !== null;
+
 /**
  * Caches the disable-set computed from an oxlint config file, keyed on the file's modification
  * time, so the file is only re-read and re-processed when it changes.
@@ -82,7 +92,11 @@ export interface OptionsOxlint extends OptionsOverrides {
 export default createConfig<OptionsOxlint>("all", async (config) => {
     const { configFile, cwd = process.cwd(), mode = "all", overrides } = config;
 
-    const oxlintPlugin = (await interopDefault(import("eslint-plugin-oxlint"))) as unknown as OxlintPlugin;
+    const oxlintPlugin: unknown = await interopDefault(import("eslint-plugin-oxlint"));
+
+    if (!isOxlintPlugin(oxlintPlugin)) {
+        throw new TypeError("[@anolilab/eslint-config] eslint-plugin-oxlint does not expose `buildFromOxlintConfigFile` and `configs`.");
+    }
 
     const resolvedConfigFile = resolveConfigFile(configFile, cwd);
 

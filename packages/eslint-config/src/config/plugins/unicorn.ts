@@ -128,7 +128,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
 
                 // A JS/TS formatter owns unicorn's formatting rules (empty-brace-spaces,
                 // number-literal-case, template-indent); eslint-config-prettier turns them off.
-                ...(prettier ? prettierConflictRules : { "unicorn/template-indent": ["error", { indent: indent as string | number | undefined }] }),
+                ...(prettier ? prettierConflictRules : { "unicorn/template-indent": ["error", { indent }] }),
 
                 ...overrides,
             },

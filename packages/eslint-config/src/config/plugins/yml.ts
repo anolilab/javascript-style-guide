@@ -52,7 +52,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsOverrides
                     "yaml/flow-mapping-curly-spacing": "error",
                     "yaml/flow-sequence-bracket-newline": "error",
                     "yaml/flow-sequence-bracket-spacing": "error",
-                    "yaml/indent": [prettier ? "off" : "error", (indent === "tab" ? 2 : indent) as number | undefined],
+                    "yaml/indent": [prettier ? "off" : "error", indent === "tab" ? 2 : indent],
                     "yaml/key-spacing": "error",
                     "yaml/no-tab-indent": "error",
                     "yaml/quotes": [

@@ -59,7 +59,7 @@ import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverri
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
 import isInEditorEnvironment from "./utils/is-in-editor-environment";
-import { configItem } from "./utils/plugin-config";
+import { configItem, isRecord } from "./utils/plugin-config";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -120,8 +120,8 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
     const sub: unknown = resolveSubOptions(options, key);
     const overrides: Partial<Linter.RulesRecord & RuleOptions> = {};
 
-    if (typeof sub === "object" && sub !== null && "overrides" in sub) {
-        Object.assign(overrides, sub.overrides);
+    if (isRecord(sub) && isRecord(sub["overrides"])) {
+        Object.assign(overrides, sub["overrides"]);
     }
 
     return overrides;
@@ -136,7 +136,7 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
 export const getFiles = (options: OptionsConfig, key: keyof OptionsConfig): string[] | undefined => {
     const sub: unknown = resolveSubOptions(options, key);
 
-    if (typeof sub !== "object" || sub === null || !("files" in sub)) {
+    if (!isRecord(sub) || !("files" in sub)) {
         return undefined;
     }
 
@@ -1169,7 +1169,11 @@ export const createConfig = async (
 
         // Duck-typed rather than `instanceof`: a composer built against a duplicate copy of
         // eslint-flat-config-utils in the dependency tree is still a composer.
-        if ("append" in resolved && typeof resolved.append === "function") {
+        // `resolved` is typed as non-nullable, but `createConfig` is the package entry point and
+        // JavaScript consumers reach it from eslint.config.js without that guarantee, so the
+        // object check is load-bearing rather than redundant.
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, sonarjs/different-types-comparison -- see comment above
+        if (typeof resolved === "object" && resolved !== null && "append" in resolved && typeof resolved.append === "function") {
             return resolved;
         }
 

@@ -13,6 +13,12 @@ describe("plugin-config", () => {
         expect(configRules(undefined)).toStrictEqual({});
         expect(configRules(null)).toStrictEqual({});
         expect(configRules("nope")).toStrictEqual({});
+
+        // A non-record `rules` must yield nothing rather than an index-keyed record: copying a
+        // string would produce { 0: "o", 1: "o", ... } and emit a nonsense ESLint config.
+        expect(configRules({ rules: "oops" })).toStrictEqual({});
+        expect(configRules({ rules: ["a", "b"] })).toStrictEqual({});
+        expect(configRules({ rules: null })).toStrictEqual({});
     });
 
     it("reads plugins and whole config items", () => {
@@ -21,6 +27,11 @@ describe("plugin-config", () => {
         expect(configPlugins(null)).toStrictEqual({});
         expect(configItem({ name: "x", rules: { a: "error" } })).toStrictEqual({ name: "x", rules: { a: "error" } });
         expect(configItem(null)).toStrictEqual({});
+
+        expect(configPlugins({ plugins: "oops" })).toStrictEqual({});
+        expect(configPlugins({ plugins: ["a"] })).toStrictEqual({});
+        expect(configItem(["not", "an", "item"])).toStrictEqual({});
+        expect(configItem("nope")).toStrictEqual({});
     });
 });
 
@@ -53,6 +64,13 @@ describe("option resolvers", () => {
         expect(getOverrides({ react: { overrides: { "x/y": "error" } } }, "react")).toStrictEqual({ "x/y": "error" });
         expect(getOverrides({ react: true }, "react")).toStrictEqual({});
         expect(getOverrides({}, "react")).toStrictEqual({});
+
+        // Same guard as above: a malformed `overrides` must not become an index-keyed record.
+        const malformedOverrides: OptionsConfig = {};
+
+        Object.assign(malformedOverrides, { react: { overrides: "oops" } });
+
+        expect(getOverrides(malformedOverrides, "react")).toStrictEqual({});
 
         // A bare string is not in the declared type but is handled defensively at runtime.
         const withStringFiles: OptionsConfig = {};

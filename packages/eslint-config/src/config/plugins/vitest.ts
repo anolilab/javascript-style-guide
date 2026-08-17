@@ -1,6 +1,7 @@
 import type { OptionsFiles, OptionsHasPrettier, OptionsIsInEditor, OptionsOverrides, OptionsTypeScriptWithTypes } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import { configRules } from "../../utils/plugin-config";
 import vitestGlobals from "../../utils/vitest-globals";
 
 // Hold the reference so we don't redeclare the plugin on each call. A cache object is used
@@ -25,7 +26,7 @@ export default createConfig<OptionsFiles & OptionsHasPrettier & OptionsIsInEdito
             rules: {
                 ...vitestPlugin.rules,
                 // extend `test/no-only-tests` rule
-                ...(noOnlyTestsPlugin as { rules: Record<string, unknown> }).rules,
+                ...configRules(noOnlyTestsPlugin),
             },
         };
 

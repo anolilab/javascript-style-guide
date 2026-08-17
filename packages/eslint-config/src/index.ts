@@ -59,6 +59,7 @@ import type { Awaitable, ConfigNames, OptionsConfig, OptionsFiles, OptionsOverri
 import { getFilesGlobs } from "./utils/create-config";
 import interopDefault from "./utils/interop-default";
 import isInEditorEnvironment from "./utils/is-in-editor-environment";
+import { configItem, isRecord } from "./utils/plugin-config";
 
 const flatConfigProperties = ["name", "languageOptions", "linterOptions", "processor", "plugins", "rules", "settings"] satisfies (keyof TypedFlatConfigItem)[];
 
@@ -99,8 +100,14 @@ export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
  * @returns The resolved sub-options.
  * @template K
  */
-export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> =>
-    (typeof options[key] === "boolean" ? {} : options[key] || {}) as ResolvedOptions<OptionsConfig[K]>;
+export const resolveSubOptions = <K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> => {
+    const value = typeof options[key] === "boolean" ? {} : options[key] || {};
+
+    // `ResolvedOptions` strips the boolean arm, which is exactly what the ternary above does, but
+    // TypeScript cannot match that against a conditional type over an unresolved generic.
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- see comment above
+    return value as ResolvedOptions<OptionsConfig[K]>;
+};
 
 /**
  * Retrieves override rules for a specific configuration key.
@@ -110,11 +117,14 @@ export const resolveSubOptions = <K extends keyof OptionsConfig>(options: Option
  * @returns The merged override rules.
  */
 export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): Partial<Linter.RulesRecord & RuleOptions> => {
-    const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
+    const sub: unknown = resolveSubOptions(options, key);
+    const overrides: Partial<Linter.RulesRecord & RuleOptions> = {};
 
-    return {
-        ...("overrides" in sub && (sub as OptionsOverrides).overrides),
-    };
+    if (isRecord(sub) && isRecord(sub["overrides"])) {
+        Object.assign(overrides, sub["overrides"]);
+    }
+
+    return overrides;
 };
 
 /**
@@ -124,19 +134,19 @@ export const getOverrides = (options: OptionsConfig, key: keyof OptionsConfig): 
  * @returns An array of file globs, or undefined if not specified.
  */
 export const getFiles = (options: OptionsConfig, key: keyof OptionsConfig): string[] | undefined => {
-    const sub = resolveSubOptions(options, key) as unknown as Record<string, unknown>;
+    const sub: unknown = resolveSubOptions(options, key);
 
-    if ("files" in sub) {
-        const { files } = sub as OptionsFiles;
-
-        if (typeof files === "string") {
-            return [files];
-        }
-
-        return files;
+    if (!isRecord(sub) || !("files" in sub)) {
+        return undefined;
     }
 
-    return undefined;
+    const { files } = sub;
+
+    if (typeof files === "string") {
+        return [files];
+    }
+
+    return Array.isArray(files) ? files.filter((file) => typeof file === "string") : undefined;
 };
 
 /**
@@ -1137,8 +1147,7 @@ export const createConfig = async (
         // so it is untyped and trips `@typescript-eslint/no-unsafe-call`. Revisit once lib is es2022.
         // eslint-disable-next-line unicorn/no-computed-property-existence-check
         if (key in options) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            accumulator[key] = options[key] as any;
+            Object.assign(accumulator, { [key]: options[key] });
         }
 
         return accumulator;
@@ -1150,8 +1159,28 @@ export const createConfig = async (
 
     let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    composer = composer.append(...configs, ...(userConfigs as any));
+    // `append` takes config arrays and composers; wrap the single-item form so it fits.
+    const normalizedUserConfigs = userConfigs.map(async (userConfig) => {
+        const resolved = await userConfig;
+
+        if (Array.isArray(resolved)) {
+            return resolved.map((item) => configItem(item));
+        }
+
+        // Duck-typed rather than `instanceof`: a composer built against a duplicate copy of
+        // eslint-flat-config-utils in the dependency tree is still a composer.
+        // `resolved` is typed as non-nullable, but `createConfig` is the package entry point and
+        // JavaScript consumers reach it from eslint.config.js without that guarantee, so the
+        // object check is load-bearing rather than redundant.
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, sonarjs/different-types-comparison -- see comment above
+        if (typeof resolved === "object" && resolved !== null && "append" in resolved && typeof resolved.append === "function") {
+            return resolved;
+        }
+
+        return [configItem(resolved)];
+    });
+
+    composer = composer.append(...configs, ...normalizedUserConfigs);
 
     return composer;
 };

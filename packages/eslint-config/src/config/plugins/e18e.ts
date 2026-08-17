@@ -1,6 +1,7 @@
-import type { OptionsFiles, OptionsOverrides, Rules } from "../../types";
+import type { OptionsFiles, OptionsOverrides } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import { configRules } from "../../utils/plugin-config";
 
 // @see https://github.com/e18e/eslint-plugin#readme
 export default createConfig<OptionsFiles & OptionsOverrides>("all", async (config, oFiles) => {
@@ -16,7 +17,7 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 e18e: pluginE18e,
             },
             rules: {
-                ...(pluginE18e.configs["recommended"] as { rules: Rules }).rules,
+                ...configRules(pluginE18e.configs["recommended"]),
 
                 // Conflicts with e18e/prefer-nullish-coalescing
                 "@typescript-eslint/prefer-nullish-coalescing": "off",

@@ -1,8 +1,6 @@
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { Linter } from "eslint";
-
 import type {
     OptionsComponentExtensions,
     OptionsFiles,
@@ -15,9 +13,10 @@ import type {
 } from "../../types";
 import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import { configItem } from "../../utils/plugin-config";
 import getPrettierConflictRules from "../../utils/prettier-conflict-rules";
 import { bestPracticesRules } from "../best-practices";
-import { es6Rules as es6RulesFunction } from "../es6";
+import { es6BaseRules } from "../es6";
 import { styleRules as styleRulesFunction } from "../style";
 import { variablesRules } from "../variables";
 
@@ -30,12 +29,11 @@ export default createConfig<
         OptionsTypeScriptParserOptions &
         OptionsTypeScriptWithTypes
 >("ts", async (config, oFiles) => {
-    const { componentExts: componentExtensions = [], files = oFiles, isInEditor = false, overrides, overridesTypeAware, parserOptions, prettier } = config;
+    const { componentExts: componentExtensions = [], files = oFiles, overrides, overridesTypeAware, parserOptions, prettier } = config;
 
     const prettierConflictRules = prettier ? await getPrettierConflictRules() : {};
 
     const styleRules = styleRulesFunction;
-    const es6Rules = es6RulesFunction(isInEditor);
 
     const [tseslint, noForOfArrayPlugin] = await Promise.all([
         interopDefault(import("typescript-eslint")),
@@ -69,7 +67,7 @@ export default createConfig<
         // the eslint-config package directory when no explicit path is given.
         const rootDirectory = tsconfigPath ? process.cwd() : dirname(fileURLToPath(import.meta.url));
 
-        let typeAwareOptions: Record<string, unknown> = {};
+        let typeAwareOptions: { project?: string; projectService?: boolean; tsconfigRootDir?: string } = {};
 
         if (isTypeAwareParser && tsconfigPath) {
             typeAwareOptions = {
@@ -95,8 +93,7 @@ export default createConfig<
                     extraFileExtensions: componentExtensions.map((extension) => `.${extension}`),
                     sourceType: "module",
                     ...typeAwareOptions,
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    ...(parserOptions as any),
+                    ...parserOptions,
                 },
             },
             name: `anolilab/typescript/${isTypeAwareParser ? "type-aware-parser" : "parser"}`,
@@ -116,12 +113,12 @@ export default createConfig<
         },
         // assign type-aware parser for type-aware files and type-unaware parser for the rest
         ...(isTypeAware ? [makeParser(false, files), makeParser(true, filesTypeAware, ignoresTypeAware)] : [makeParser(false, files)]),
-        ...(tseslint.configs.strict as TypedFlatConfigItem[]),
+        ...tseslint.configs.strict.map((item) => configItem(item)),
     ];
 
     if (isTypeAware) {
         // Apply strictTypeCheckedOnly rules only to type-aware files
-        const strictTypeCheckedConfigs = (tseslint.configs.strictTypeCheckedOnly as TypedFlatConfigItem[]).map((flatConfig) => {
+        const strictTypeCheckedConfigs = tseslint.configs.strictTypeCheckedOnly.map((item) => configItem(item)).map((flatConfig) => {
             return {
                 ...flatConfig,
                 files: filesTypeAware,
@@ -158,6 +155,11 @@ export default createConfig<
                     // Disallow returning a value with type any from a function.
                     // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-return.mdx
                     "@typescript-eslint/no-unsafe-return": "error",
+
+                    // Disallow assertions that narrow to a type the checker cannot verify, which covers
+                    // `x as unknown as T` laundering and widen-then-assert round trips.
+                    // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-unsafe-type-assertion.mdx
+                    "@typescript-eslint/no-unsafe-type-assertion": "error",
 
                     // Enforce using the nullish coalescing operator instead of logical chaining.
                     // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.mdx
@@ -301,7 +303,7 @@ export default createConfig<
 
             // Replace 'no-array-constructor' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.mdx
-            "@typescript-eslint/no-array-constructor": styleRules["no-array-constructor"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-array-constructor": styleRules["no-array-constructor"],
 
             // Disallow non-null assertion in locations that may be confusing.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-confusing-non-null-assertion.mdx
@@ -312,7 +314,7 @@ export default createConfig<
 
             // Replace 'no-dupe-class-members' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.mdx
-            "@typescript-eslint/no-dupe-class-members": es6Rules["no-dupe-class-members"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-dupe-class-members": es6BaseRules["no-dupe-class-members"],
 
             // Disallow duplicate enum member values.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-duplicate-enum-values.mdx
@@ -324,7 +326,7 @@ export default createConfig<
 
             // Replace 'no-empty-function' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.mdx
-            "@typescript-eslint/no-empty-function": bestPracticesRules["no-empty-function"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-empty-function": bestPracticesRules["no-empty-function"],
 
             "@typescript-eslint/no-explicit-any": [
                 "error",
@@ -350,11 +352,11 @@ export default createConfig<
 
             // Replace 'no-loop-func' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-loop-func.mdx
-            "@typescript-eslint/no-loop-func": bestPracticesRules["no-loop-func"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-loop-func": bestPracticesRules["no-loop-func"],
 
             // Replace 'no-magic-numbers' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.mdx
-            "@typescript-eslint/no-magic-numbers": bestPracticesRules["no-magic-numbers"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-magic-numbers": bestPracticesRules["no-magic-numbers"],
 
             // Enforce valid definition of new and constructor.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-misused-new.mdx
@@ -378,15 +380,35 @@ export default createConfig<
 
             // Replace 'no-redeclare' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-redeclare.mdx
-            "@typescript-eslint/no-redeclare": bestPracticesRules["no-redeclare"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-redeclare": bestPracticesRules["no-redeclare"],
 
             // Disallow invocation of require().
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-require-imports.mdx
             "@typescript-eslint/no-require-imports": "error",
 
+            // Disallow dictionary contracts that carry no type information — they push the
+            // unsafe-* rules downstream instead of describing the data at the boundary.
+            // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-restricted-types.mdx
+            "@typescript-eslint/no-restricted-types": [
+                "error",
+                {
+                    types: {
+                        object: {
+                            message: "Describe the properties you actually read, or use `Record<string, T>` with a concrete `T`.",
+                        },
+                        "Record<string, any>": {
+                            message: "Describe the keys you actually read, or use a concrete value type.",
+                        },
+                        "Record<string, unknown>": {
+                            message: "Describe the keys you actually read, or use a concrete value type.",
+                        },
+                    },
+                },
+            ],
+
             // Replace 'no-shadow' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.mdx
-            "@typescript-eslint/no-shadow": variablesRules["no-shadow"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-shadow": variablesRules["no-shadow"],
 
             // Disallow aliasing this.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-this-alias.mdx
@@ -402,7 +424,7 @@ export default createConfig<
 
             // Replace 'no-unused-expressions' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.mdx
-            "@typescript-eslint/no-unused-expressions": bestPracticesRules["no-unused-expressions"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-unused-expressions": bestPracticesRules["no-unused-expressions"],
 
             // Replace 'no-unused-vars' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.mdx
@@ -411,11 +433,11 @@ export default createConfig<
 
             // Replace 'no-use-before-define' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.mdx
-            "@typescript-eslint/no-use-before-define": variablesRules["no-use-before-define"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-use-before-define": variablesRules["no-use-before-define"],
 
             // Replace 'no-useless-constructor' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-useless-constructor.mdx
-            "@typescript-eslint/no-useless-constructor": es6Rules["no-useless-constructor"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/no-useless-constructor": es6BaseRules["no-useless-constructor"],
 
             // Disallow empty exports that don't change anything in a module file.
             // https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin/docs/rules/no-useless-empty-export.mdx
@@ -442,7 +464,7 @@ export default createConfig<
 
             // Replace 'no-return-await' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.mdx
-            "@typescript-eslint/return-await": bestPracticesRules["no-return-await"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/return-await": bestPracticesRules["no-return-await"],
 
             // Replaced by stylistic rules
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.mdx
@@ -459,7 +481,7 @@ export default createConfig<
 
             // Replace 'space-infix-ops' rule with '@typescript-eslint' version
             // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.mdx
-            "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"] as Linter.RuleEntry<[]>,
+            "@typescript-eslint/space-infix-ops": styleRules["space-infix-ops"],
 
             ...erasableSyntaxOnlyPlugin?.configs.recommended.rules,
 

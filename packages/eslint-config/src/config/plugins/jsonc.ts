@@ -15,7 +15,7 @@ const jsonc = async (
     const mergeConfigRules = (configs: Linter.Config[]): Linter.RulesRecord => {
         const rules: Linter.RulesRecord = {};
 
-        (configs as { rules?: Linter.RulesRecord }[]).forEach((config_) => {
+        configs.forEach((config_) => {
             Object.assign(rules, config_.rules);
         });
 

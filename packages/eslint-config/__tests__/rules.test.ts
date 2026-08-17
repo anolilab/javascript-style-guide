@@ -134,7 +134,7 @@ describe("eslint-config rules", () => {
             typescript: false,
             vitest: false,
         });
-    }, 30_000);
+    });
 
     it("should lint with all config", async () => {
         expect.hasAssertions();
@@ -143,7 +143,7 @@ describe("eslint-config rules", () => {
             astro: true,
             typescript: true,
         });
-    }, 30_000);
+    });
 
     it("should lint with no-style config", async () => {
         expect.hasAssertions();
@@ -152,7 +152,7 @@ describe("eslint-config rules", () => {
             stylistic: false,
             typescript: true,
         });
-    }, 30_000);
+    });
 
     // Note: tab-double-quotes test is skipped because unicorn/template-indent doesn't accept "tab" as string value
 
@@ -172,7 +172,7 @@ describe("eslint-config rules", () => {
                 },
             ],
         );
-    }, 30_000);
+    });
 
     it("should lint with ts-strict config", async () => {
         expect.hasAssertions();
@@ -192,7 +192,7 @@ describe("eslint-config rules", () => {
                 },
             ],
         );
-    }, 30_000);
+    });
 
     it("should lint with ts-strict-with-react config", async () => {
         expect.hasAssertions();
@@ -213,7 +213,7 @@ describe("eslint-config rules", () => {
                 },
             ],
         );
-    }, 30_000);
+    });
 
     it("should lint with formatters config", async () => {
         expect.hasAssertions();
@@ -223,7 +223,7 @@ describe("eslint-config rules", () => {
             formatters: true,
             typescript: true,
         });
-    }, 30_000);
+    });
 
     it("should lint with no-markdown-with-formatters config", async () => {
         expect.hasAssertions();
@@ -235,5 +235,5 @@ describe("eslint-config rules", () => {
             jsx: false,
             markdown: false,
         });
-    }, 30_000);
+    });
 });

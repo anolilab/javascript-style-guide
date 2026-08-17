@@ -3,7 +3,7 @@ import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { ESLint } from "eslint";
 
 import type { EslintConfig } from "../types";
-import getNearestConfigPath from "../utils/get-nearest-config-path";
+import getNearestConfigPath, { isAbsolutePath } from "../utils/get-nearest-config-path";
 import groupFilePathsByDirectoryName from "./group-file-paths-by-directory-name";
 import removeIgnoredFiles from "./remove-ignored-files";
 
@@ -109,11 +109,13 @@ const createEslintCommands = async (
             }
 
             try {
-                config = getNearestConfigPath(
-                    configName,
-                    // eslint-disable-next-line no-template-curly-in-string
-                    filePaths[0] as "/${string}",
-                );
+                const [firstPath] = filePaths;
+
+                if (firstPath === undefined || !isAbsolutePath(firstPath)) {
+                    return;
+                }
+
+                config = getNearestConfigPath(configName, firstPath);
             } catch {
                 // Ignore
             }

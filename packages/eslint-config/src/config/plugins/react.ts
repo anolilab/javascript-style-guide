@@ -721,18 +721,12 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
                 "react/jsx-props-no-multi-spaces": "off",
 
-                // Prevent usage of setState in componentDidMount
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
+                // DISABLED: forwarding the full prop surface is how Radix/shadcn-style primitives
+                // compose, so a wrapper spreads the rest of its props onto the underlying element.
+                // Complying means enumerating every prop of every primitive by hand and redoing it
+                // whenever the upstream library changes.
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
-                "react/jsx-props-no-spreading": [
-                    "error",
-                    {
-                        custom: "enforce",
-                        exceptions: [],
-                        explicitSpread: "ignore",
-                        html: "enforce",
-                    },
-                ],
+                "react/jsx-props-no-spreading": "off",
 
                 // Prevent usage of setState in componentDidUpdate
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
@@ -1029,6 +1023,19 @@ export default createConfig<
 
                 ...configRules(pluginReactPerformance.configs?.flat?.recommended),
 
+                // DISABLED: these predate the React Compiler, which memoises component output
+                // automatically. Satisfying them means hand-rolling useMemo/useCallback, and manual
+                // memoisation can make the compiler bail on a component rather than optimise it, so
+                // following the rule can measurably reduce optimisation. They also fire on every
+                // prop object of animation libraries, where object props are the API.
+                // Placed after the spread above, which would otherwise re-enable them.
+                // Re-enable in the consumer config if the project does not run the compiler.
+                // https://github.com/cvazac/eslint-plugin-react-perf
+                "react-perf/jsx-no-jsx-as-prop": "off",
+                "react-perf/jsx-no-new-array-as-prop": "off",
+                "react-perf/jsx-no-new-function-as-prop": "off",
+                "react-perf/jsx-no-new-object-as-prop": "off",
+
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
                 ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {}),
@@ -1108,14 +1115,6 @@ export default createConfig<
                 // React uses null as a first-class value: return null (render nothing),
                 // useRef<T>(null) (DOM refs), and external APIs/JSON all require null.
                 "unicorn/no-null": "off",
-            },
-        },
-        {
-            // For performance run storybook/recommended on test files, not regular code
-            files: getFilesGlobs("storybook"),
-            name: "anolilab/react/storybook",
-            rules: {
-                "react/jsx-props-no-spreading": "off",
             },
         },
         ...isTypeAware

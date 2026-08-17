@@ -4,6 +4,14 @@ packages:
     # Scratch projects written by the eslint-config tests; each has a package.json and
     # would otherwise be registered as a workspace project by an install during a test run.
     - "!packages/eslint-config/tmp_fixtures/**"
+packageExtensions:
+    # eslint-plugin-compat requires caniuse-lite from its caniuse provider but does not declare
+    # it, so pnpm's isolated linker cannot resolve it and loading the plugin throws
+    # MODULE_NOT_FOUND. The range matches browserslist's own so the two share one copy.
+    # Remove once https://github.com/amilajack/eslint-plugin-compat declares the dependency.
+    eslint-plugin-compat:
+        dependencies:
+            caniuse-lite: "^1.0.30001809"
 auditConfig:
     ignoreCves:
         - GHSA-v2wj-q39q-566r

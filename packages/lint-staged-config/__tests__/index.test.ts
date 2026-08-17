@@ -45,9 +45,12 @@ describe(defineConfig, () => {
         });
         findPackageManagerSyncMock.mockReturnValue({ packageManager: "npm" });
 
+        // "md" is appended because neither markdownlint CLI is installed in this fixture. The
+        // expectation used to read `eslintExtensions` directly and passed only because the
+        // implementation mutated that exported array in place.
         expect(defineConfig()).toStrictEqual({
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- expect.any returns any
-            [`**/*.{${eslintExtensions.join(",")}}`]: expect.any(Function),
+            [`**/*.{${[...eslintExtensions, "md"].join(",")}}`]: expect.any(Function),
         });
     });
 

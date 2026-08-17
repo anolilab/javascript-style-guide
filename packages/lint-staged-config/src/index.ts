@@ -5,7 +5,7 @@ import type { Configuration } from "lint-staged";
 
 import type { EslintConfig } from "./types";
 import concatFiles from "./utils/concat-files";
-import getNearestConfigPath from "./utils/get-nearest-config-path";
+import getNearestConfigPath, { isAbsolutePath } from "./utils/get-nearest-config-path";
 
 interface StylesheetsConfig {
     extensions?: (typeof stylesheetsExtensions)[number][];
@@ -34,18 +34,17 @@ export const defineConfig = (
     } = {},
     // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Configuration => {
+    // Copies, not the exported tuples themselves: the ESLint branch below pushes "md" onto this
+    // array, which would otherwise mutate the shared constant for every subsequent call.
+    const defaultEslint: EslintConfig = { extensions: [...eslintExtensions] };
+    const defaultStylesheets: StylesheetsConfig = { extensions: [...stylesheetsExtensions] };
+    const defaultTypescript: TypescriptConfig = { exclude: [], extensions: [...typescriptExtensions] };
+
     const config = {
         debug: false,
-        eslint: {
-            extensions: eslintExtensions,
-        },
-        stylesheets: {
-            extensions: stylesheetsExtensions,
-        },
-        typescript: {
-            exclude: [],
-            extensions: typescriptExtensions,
-        },
+        eslint: defaultEslint,
+        stylesheets: defaultStylesheets,
+        typescript: defaultTypescript,
         ...options,
     };
     const cwd = config.cwd ?? process.cwd();
@@ -69,23 +68,29 @@ export const defineConfig = (
 
     const hasPrettier = hasPackageJsonAnyDependency(packageJson, ["prettier"]);
 
+    // `Extract` here selects lint-staged's object task-map from its config union; it is a union
+    // filter rather than a dictionary contract, which is what the rule is guarding against.
+    // eslint-disable-next-line @typescript-eslint/no-restricted-types -- see comment above
     let loadedPlugins: Extract<Configuration, Record<string, unknown>> = {};
 
     if (config.eslint !== false && hasPackageJsonAnyDependency(packageJson, ["eslint"])) {
-        if (!Array.isArray((config.eslint as EslintConfig).extensions) || ((config.eslint as EslintConfig).extensions as string[]).length === 0) {
+        const eslintConfig: EslintConfig = config.eslint;
+        const { extensions } = eslintConfig;
+
+        if (!Array.isArray(extensions) || extensions.length === 0) {
             throw new Error("The `extensions` option is required for the ESLint configuration.");
         }
 
         if (!hasMarkdownCli && !hasMarkdownCli2) {
-            ((config.eslint as EslintConfig).extensions as string[]).push("md");
+            extensions.push("md");
         }
 
-        loadedPlugins[`**/*.{${((config.eslint as EslintConfig).extensions as string[]).join(",")}}`] = async (filenames: ReadonlyArray<string>) => {
+        loadedPlugins[`**/*.{${extensions.join(",")}}`] = async (filenames: ReadonlyArray<string>) => {
             const { default: createEslintCommands } = await import("./eslint/create-eslint-commands");
 
             return [
                 ...(hasPrettier ? [`${packageManager} exec prettier --write ${concatFiles(filenames)}`] : []),
-                ...(await createEslintCommands(packageManager, packageJson, config.eslint as EslintConfig, filenames)),
+                ...(await createEslintCommands(packageManager, packageJson, eslintConfig, filenames)),
             ];
         };
     }
@@ -113,47 +118,45 @@ export const defineConfig = (
     }
 
     if (config.stylesheets !== false && hasPackageJsonAnyDependency(packageJson, ["stylelint"])) {
-        if (
-            !Array.isArray((config.stylesheets as StylesheetsConfig).extensions) ||
-            ((config.stylesheets as StylesheetsConfig).extensions as string[]).length === 0
-        ) {
+        const stylesheetsConfig: StylesheetsConfig = config.stylesheets;
+        const { extensions } = stylesheetsConfig;
+
+        if (!Array.isArray(extensions) || extensions.length === 0) {
             throw new Error("The `extensions` option is required for the Stylesheets configuration.");
         }
 
-        loadedPlugins[`**/*.{${((config.stylesheets as StylesheetsConfig).extensions as string[]).join(",")}}`] = (filenames: ReadonlyArray<string>) => [
+        loadedPlugins[`**/*.{${extensions.join(",")}}`] = (filenames: ReadonlyArray<string>) => [
             ...(hasPrettier ? [`${packageManager} exec prettier --ignore-unknown --write ${concatFiles(filenames)}`] : []),
             `${packageManager} exec stylelint --fix`,
         ];
     }
 
     if (config.typescript !== false && hasPackageJsonAnyDependency(packageJson, ["typescript"])) {
-        if (
-            !Array.isArray((config.typescript as TypescriptConfig).extensions) ||
-            ((config.typescript as TypescriptConfig).extensions as string[]).length === 0
-        ) {
+        const typescriptConfig: TypescriptConfig = config.typescript;
+        const { extensions } = typescriptConfig;
+
+        if (!Array.isArray(extensions) || extensions.length === 0) {
             throw new Error("The `extensions` option is required for the TypeScript configuration.");
         }
 
-        loadedPlugins[`**/*.{${((config.typescript as TypescriptConfig).extensions as string[]).join(",")}}`] = (
+        loadedPlugins[`**/*.{${extensions.join(",")}}`] = (
             filenames: ReadonlyArray<string>,
         ): string[] => {
             const commands = new Set<string>();
 
             filenames.forEach((filePath) => {
-                if (typeof (config.typescript as TypescriptConfig).exclude === "object" && Array.isArray((config.typescript as TypescriptConfig).exclude)) {
-                    const isExcluded = ((config.typescript as TypescriptConfig).exclude as string[]).some((value) => filePath.includes(value));
+                const { exclude } = typescriptConfig;
 
-                    if (isExcluded) {
-                        return;
-                    }
+                if (Array.isArray(exclude) && exclude.some((value) => filePath.includes(value))) {
+                    return;
+                }
+
+                if (!isAbsolutePath(filePath)) {
+                    return;
                 }
 
                 try {
-                    const tsconfigPath = getNearestConfigPath(
-                        "tsconfig.json",
-                        // eslint-disable-next-line no-template-curly-in-string
-                        filePath as "/${string}",
-                    ) as string;
+                    const tsconfigPath = getNearestConfigPath("tsconfig.json", filePath);
 
                     commands.add(`${packageManager} exec tsc --noEmit --project ${tsconfigPath}`);
                 } catch (error) {

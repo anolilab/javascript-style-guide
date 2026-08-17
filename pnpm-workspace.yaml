@@ -18,7 +18,7 @@ auditConfig:
         - GHSA-p9ff-h696-f583
         - GHSA-4w7w-66w2-5vf9
 catalog:
-    "@anolilab/multi-semantic-release": 4.4.6
+    "@anolilab/multi-semantic-release": 4.4.7
     "@commitlint/cli": 21.2.1
     "@commitlint/config-conventional": 21.2.0
     "@commitlint/core": 21.2.1
@@ -53,12 +53,12 @@ catalogMode: prefer
 
 catalogs:
     build:
-        esbuild: 0.28.1
+        esbuild: 0.28.2
         vite: 8.2.0
     cli:
-        "@anolilab/multi-semantic-release": 4.4.6
-        "@anolilab/semantic-release-pnpm": 8.1.17
-        "@anolilab/semantic-release-preset": 13.4.18
+        "@anolilab/multi-semantic-release": 4.4.7
+        "@anolilab/semantic-release-pnpm": 8.1.18
+        "@anolilab/semantic-release-preset": 13.4.19
         commitizen: ^4.3.2
         semantic-release: 25.0.9
     dev:
@@ -67,14 +67,14 @@ catalogs:
     frontend:
         react: 19.2.8
     lint:
-        "@anolilab/eslint-config": 28.1.2
-        "@anolilab/prettier-config": 10.0.2
+        "@anolilab/eslint-config": 28.1.5
+        "@anolilab/prettier-config": 10.0.3
         "@commitlint/cli": 21.2.1
         "@commitlint/config-conventional": 21.2.0
         "@commitlint/core": 21.2.1
         "@e18e/eslint-plugin": 0.8.0
         "@eslint-community/eslint-plugin-eslint-comments": 4.7.2
-        "@eslint-react/eslint-plugin": 5.18.3
+        "@eslint-react/eslint-plugin": 5.18.6
         "@eslint/compat": 2.1.0
         "@eslint/config-inspector": 3.2.0
         "@eslint/css": 1.4.0
@@ -95,8 +95,8 @@ catalogs:
         "@textlint/ast-node-types": 15.8.0
         "@textlint/types": 15.8.0
         "@unocss/eslint-plugin": 66.7.5
-        "@vitest/eslint-plugin": 1.6.26
-        astro-eslint-parser: 3.0.0
+        "@vitest/eslint-plugin": 1.6.27
+        astro-eslint-parser: 3.1.0
         eslint: 10.8.0
         eslint-config-flat-gitignore: 2.3.0
         eslint-config-prettier: 10.1.8
@@ -150,7 +150,7 @@ catalogs:
         husky: ^9.1.7
         jsonc-eslint-parser: 3.3.0
         lint-staged: 17.3.0
-        oxfmt: 0.62.0
+        oxfmt: 0.63.0
         oxlint: 1.77.0
         prettier: 3.9.6
         publint: 0.3.23
@@ -192,7 +192,7 @@ catalogs:
     node:
         cross-env: ^10.1.0
         execa: ^10.0.1
-        globals: 17.9.0
+        globals: 17.11.0
         pkg-pr-new: 0.0.87
         read-pkg: 10.1.0
         rimraf: 6.1.3
@@ -211,7 +211,7 @@ catalogs:
         type-fest: 5.8.0
         write-good: ^1.0.8
     script:
-        tsx: ^4.23.11
+        tsx: ^4.23.12
     style:
         postcss: 8.5.25
         tailwind-csstree: 0.3.3
@@ -237,7 +237,7 @@ catalogs:
         caniuse-lite: 1.0.30001809
         semver: 7.8.5
     conflicts_lint_10_0_2:
-        "@anolilab/prettier-config": 10.0.2
+        "@anolilab/prettier-config": 10.0.3
 onlyBuiltDependencies:
     - esbuild
     - nx
@@ -268,12 +268,12 @@ overrides:
 
     follow-redirects@<=1.15.11: ">=1.16.0"
     # GHSA-p3x2-7fjr-vqmv (path traversal)
-    "@hono/node-server@<2.0.5": ">=2.1.0"
+    "@hono/node-server@<2.0.5": ">=2.1.1"
     # GHSA-xgm2-5f3f-mvvc
-    hono@<4.12.27: ">=4.13.1"
-    ip-address@<=10.1.0: ">=10.4.0"
+    hono@<4.12.27: ">=4.13.2"
+    ip-address@<=10.1.0: ">=10.5.0"
     # GHSA-5p4m-2wfm-xmqj (Quadratuc CPU in !!omap) — jest's load-nyc-config pulls 3.x
-    js-yaml@>=3.0.0 <3.15.1: "^3.15.1"
+    js-yaml@>=3.0.0 <3.15.1: "^5.3.0"
     lodash-es@<=4.17.23: ">=4.18.0"
     lodash-es@>=4.0.0 <=4.17.23: ">=4.18.0"
     lodash@<=4.17.23: ">=4.18.0"
@@ -287,20 +287,20 @@ overrides:
     # GHSA-2p49-hgcm-8545
     svgo@>=4.0.0 <4.0.2: ">=4.0.2"
     tmp@<0.2.7: ">=0.2.7"
-    undici@<6.23.0: ">=6.28.0"
-    undici@<6.24.0: ">=6.28.0"
-    undici@>=7.0.0 <7.28.0: "7.29.0"
+    undici@<6.23.0: ">=8.10.0"
+    undici@<6.24.0: ">=8.10.0"
+    undici@>=7.0.0 <7.28.0: "8.10.0"
     undici@>=8.0.0 <8.5.0: "8.10.0"
     "@actions/http-client>undici": "8.10.0"
     vite@>=7.0.0 <=7.3.1: ">=7.3.2"
     vite@>=7.1.0 <=7.3.1: ">=7.3.2"
     vite@>=8.0.0 <=8.0.15: ">=8.2.0"
     yaml@>=2.0.0 <2.8.3: ">=2.9.0"
-    esbuild@>=0.27.3 <0.28.1: ">=0.28.1"
+    esbuild@>=0.27.3 <0.28.1: ">=0.28.2"
     form-data@>=4.0.0 <4.0.6: ">=4.0.6"
     # Stay on 4.x: js-yaml 5.x is ESM-only with no default export and breaks
     # multi-semantic-release's `import ... from "js-yaml"`. ^4.3.0 still patches GHSA-52cp-r559-cp3m.
-    js-yaml@>=4.0.0 <4.3.0: "^4.3.1"
+    js-yaml@>=4.0.0 <4.3.0: "^5.3.0"
 
 shellEmulator: true
 

@@ -300,7 +300,7 @@ overrides:
     form-data@>=4.0.0 <4.0.6: ">=4.0.6"
     # Stay on 4.x: js-yaml 5.x is ESM-only with no default export and breaks
     # multi-semantic-release's `import ... from "js-yaml"`. ^4.3.0 still patches GHSA-52cp-r559-cp3m.
-    js-yaml@>=4.0.0 <4.3.0: "^4.3.1"
+    js-yaml@>=4.0.0 <4.3.0: "^5.3.0"
 
 shellEmulator: true
 

@@ -51,8 +51,8 @@ catalogs:
       specifier: ^4.3.2
       version: 4.3.2
     conventional-changelog-conventionalcommits:
-      specifier: 10.3.0
-      version: 10.3.0
+      specifier: 9.3.1
+      version: 9.3.1
     cross-env:
       specifier: ^10.1.0
       version: 10.1.0
@@ -496,8 +496,8 @@ catalogs:
       specifier: ^5.0.5
       version: 5.0.5
     conventional-changelog-conventionalcommits:
-      specifier: 10.3.0
-      version: 10.3.0
+      specifier: 9.3.1
+      version: 9.3.1
     cz-conventional-changelog:
       specifier: ^3.3.0
       version: 3.3.0
@@ -654,7 +654,7 @@ importers:
         version: 4.3.2(@types/node@26.1.1)(typescript@6.0.3)
       conventional-changelog-conventionalcommits:
         specifier: 'catalog:'
-        version: 10.3.0
+        version: 9.3.1
       cross-env:
         specifier: 'catalog:'
         version: 10.1.0
@@ -777,14 +777,14 @@ importers:
         version: 4.3.2(@types/node@26.1.1)(typescript@6.0.3)
       conventional-changelog-conventionalcommits:
         specifier: catalog:prod
-        version: 10.3.0
+        version: 9.3.1
       cz-conventional-changelog:
         specifier: catalog:prod
         version: 3.3.0(@types/node@26.1.1)(typescript@6.0.3)
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 30.0.0
-        version: 30.0.0(d74f0ecf69eb162a78b4a25c234f6d09)
+        specifier: 30.0.1
+        version: 30.0.1(d74f0ecf69eb162a78b4a25c234f6d09)
       '@anolilab/prettier-config':
         specifier: 10.0.3
         version: 10.0.3(prettier@3.9.6)
@@ -1235,8 +1235,8 @@ importers:
   packages/oxfmt-config:
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 30.0.0
-        version: 30.0.0(d74f0ecf69eb162a78b4a25c234f6d09)
+        specifier: 30.0.1
+        version: 30.0.1(d74f0ecf69eb162a78b4a25c234f6d09)
       '@anolilab/prettier-config':
         specifier: 10.0.3
         version: 10.0.3(prettier@3.9.6)
@@ -1818,8 +1818,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/eslint-config@30.0.0':
-    resolution: {integrity: sha512-Psnw6CZFwUC0TRRV/o8XkqntB/0V9aQyn+b3QbeLDNJAlfzqMYhD+ABeiv4tikSSDvFdoxhxP97K0cradDrhCw==}
+  '@anolilab/eslint-config@30.0.1':
+    resolution: {integrity: sha512-ljmkkokh9YwrvaukDv8l1SeBOPa5vZ9DFq4KGGN6KtOkHmBfvWqx0Leybcq0TUlinDdDjIPxFC6YrPbK6FtRPw==}
     engines: {node: '>=22.12.0 <=25.*'}
     peerDependencies:
       '@eslint-react/eslint-plugin': 5.18.6
@@ -6822,6 +6822,10 @@ packages:
   conventional-changelog-conventionalcommits@10.3.0:
     resolution: {integrity: sha512-qag0zFD867Qq1DK0jAWicyWlEMS1FFC/BLVLISaoeI7Y6Em6aWchk7BCkhOTsecRpMsV6qX41XmlNnghiiTmSw==}
     engines: {node: '>=22'}
+
+  conventional-changelog-conventionalcommits@9.3.1:
+    resolution: {integrity: sha512-dTYtpIacRpcZgrvBYvBfArMmK2xvIpv2TaxM0/ZI5CBtNUzvF2x0t15HsbRABWprS6UPmvj+PzHVjSx4qAVKyw==}
+    engines: {node: '>=18'}
 
   conventional-changelog-writer@8.4.0:
     resolution: {integrity: sha512-HHBFkk1EECxxmCi4CTu091iuDpQv5/OavuCUAuZmrkWpmYfyD816nom1CvtfXJ/uYfAAjavgHvXHX291tSLK8g==}
@@ -12517,7 +12521,7 @@ packages:
       '@vitest/ui': 4.1.10
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=8.2.0'
+      vite: '>=7.3.2'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -13103,7 +13107,7 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/eslint-config@30.0.0(d74f0ecf69eb162a78b4a25c234f6d09)':
+  '@anolilab/eslint-config@30.0.1(d74f0ecf69eb162a78b4a25c234f6d09)':
     dependencies:
       '@e18e/eslint-plugin': 0.8.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.77.0)
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.2(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -18591,6 +18595,10 @@ snapshots:
   conventional-changelog-conventionalcommits@10.3.0:
     dependencies:
       '@conventional-changelog/template': 1.3.0
+
+  conventional-changelog-conventionalcommits@9.3.1:
+    dependencies:
+      compare-func: 2.0.0
 
   conventional-changelog-writer@8.4.0:
     dependencies:

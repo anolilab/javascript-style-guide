@@ -1,3 +1,5 @@
+## @anolilab/eslint-config [30.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.1...@anolilab/eslint-config@30.0.2) (2026-09-07)
+
 ## @anolilab/eslint-config [30.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.0...@anolilab/eslint-config@30.0.1) (2026-08-19)
 
 ## @anolilab/eslint-config [30.0.0](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Feslint-config%4029.0.1...%40anolilab%2Feslint-config%4030.0.0) (2026-08-17)

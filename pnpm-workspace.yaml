@@ -5,6 +5,9 @@ packages:
     # would otherwise be registered as a workspace project by an install during a test run.
     - "!packages/eslint-config/tmp_fixtures/**"
 packageExtensions:
+    "@visulima/fs":
+        dependencies:
+            "@visulima/yaml": "1.0.0"
     # eslint-plugin-compat requires caniuse-lite from its caniuse provider but does not declare
     # it, so pnpm's isolated linker cannot resolve it and loading the plugin throws
     # MODULE_NOT_FOUND. The range matches browserslist's own so the two share one copy.

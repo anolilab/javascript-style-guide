@@ -36,8 +36,8 @@ catalogs:
       specifier: 21.2.2
       version: 21.2.2
     '@eslint/css':
-      specifier: 1.4.0
-      version: 1.4.0
+      specifier: 2.0.0
+      version: 2.0.0
     '@secretlint/secretlint-rule-preset-recommend':
       specifier: 13.0.5
       version: 13.0.5
@@ -153,8 +153,8 @@ catalogs:
       specifier: 3.2.0
       version: 3.2.0
     '@eslint/css':
-      specifier: 1.4.0
-      version: 1.4.0
+      specifier: 2.0.0
+      version: 2.0.0
     '@eslint/js':
       specifier: 10.0.1
       version: 10.0.1
@@ -1008,7 +1008,7 @@ importers:
         version: 3.2.0(@modelcontextprotocol/server@2.0.0)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@1.0.3)
       '@eslint/css':
         specifier: catalog:lint
-        version: 1.4.0
+        version: 2.0.0
       '@ospm/eslint-plugin-react-unhookify':
         specifier: catalog:lint
         version: 1.0.2(@types/react@19.2.18)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1134,7 +1134,7 @@ importers:
         version: 10.5.8(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
       tailwind-csstree:
         specifier: catalog:style
-        version: 0.3.3(@eslint/css@1.4.0)
+        version: 0.3.3(@eslint/css@2.0.0)
       tinyglobby:
         specifier: catalog:node
         version: 0.2.17
@@ -1385,7 +1385,7 @@ importers:
     devDependencies:
       '@anolilab/eslint-config':
         specifier: 28.1.3
-        version: 28.1.3(b60bad4f3d3fdc3e12b687589ee8759e)
+        version: 28.1.3(a202505cf9e90ea9e5c4434b3e4b896b)
       '@anolilab/prettier-config':
         specifier: 10.0.3
         version: 10.0.3(prettier@3.9.6)
@@ -1400,7 +1400,7 @@ importers:
         version: 0.18.5
       '@eslint/css':
         specifier: 'catalog:'
-        version: 1.4.0
+        version: 2.0.0
       '@visulima/packem':
         specifier: catalog:dev
         version: 2.0.0-alpha.98(@arethetypeswrong/core@0.18.5)(@babel/core@8.0.1)(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(@visulima/css-style-inject@1.0.0-alpha.19)(@visulima/find-cache-dir@3.0.0)(@visulima/packem-rollup@1.0.0-alpha.80(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(esbuild@0.28.2)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(rolldown@1.2.7)(rollup@4.62.2)(typescript@6.0.3)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))(yaml@2.9.0))(esbuild@0.28.2)(github-slugger@2.0.0)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(package-manager-detector@1.8.0)(picomatch@4.0.7)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rolldown@1.2.7)(rollup@4.62.2)(typescript@6.0.3)(yaml@2.9.0)
@@ -2729,6 +2729,10 @@ packages:
 
   '@eslint/css@1.4.0':
     resolution: {integrity: sha512-OnRNKgnbX+tufPuZc2kOJS+v1iIARvfJHRNEAVwN77DBpojl+rGjEP8NKTL6pEZ7BR+HtwIuSSdrymEFlANGxg==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+
+  '@eslint/css@2.0.0':
+    resolution: {integrity: sha512-lODVRbtxOXgcSOWNvv3gE4A8oRTSUHefA0tX9zrWUD57F+5RTLGDX9I8bnHQROO8nWb0hrmke0uO23pTlNfZ0A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   '@eslint/eslintrc@3.3.7':
@@ -12234,7 +12238,7 @@ packages:
       '@vitest/ui': 4.1.10
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=8.2.0'
+      vite: '>=7.3.2'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -12524,7 +12528,7 @@ snapshots:
 
   '@andrewbranch/untar.js@1.0.4': {}
 
-  '@anolilab/eslint-config@28.1.3(b60bad4f3d3fdc3e12b687589ee8759e)':
+  '@anolilab/eslint-config@28.1.3(a202505cf9e90ea9e5c4434b3e4b896b)':
     dependencies:
       '@e18e/eslint-plugin': 0.8.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.78.0)
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.2(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -12581,7 +12585,7 @@ snapshots:
       typescript-eslint: 8.66.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       yaml-eslint-parser: 2.1.0
     optionalDependencies:
-      '@eslint/css': 1.4.0
+      '@eslint/css': 2.0.0
       '@ospm/eslint-plugin-react-unhookify': 1.0.2(@types/react@19.2.18)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@tanstack/eslint-plugin-router': 1.162.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-astro: 3.1.0(@typescript-eslint/parser@8.66.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript-eslint@8.66.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))
@@ -12602,7 +12606,7 @@ snapshots:
       eslint-plugin-validate-jsx-nesting: 0.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-you-dont-need-lodash-underscore: 6.14.0
       eslint-plugin-zod: 4.9.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.78.0)(supports-color@10.2.2)(typescript@6.0.3)(zod@4.5.4)
-      tailwind-csstree: 0.3.3(@eslint/css@1.4.0)
+      tailwind-csstree: 0.3.3(@eslint/css@2.0.0)
       typescript: 6.0.3
     transitivePeerDependencies:
       - '@eslint/json'
@@ -14021,6 +14025,13 @@ snapshots:
       source-map-js: 1.2.1
 
   '@eslint/css@1.4.0':
+    dependencies:
+      '@eslint/core': 1.2.1
+      '@eslint/css-tree': 4.1.0
+      '@eslint/plugin-kit': 0.7.3
+    optional: true
+
+  '@eslint/css@2.0.0':
     dependencies:
       '@eslint/core': 1.2.1
       '@eslint/css-tree': 4.1.0
@@ -24942,6 +24953,11 @@ snapshots:
   tailwind-csstree@0.3.3(@eslint/css@1.4.0):
     optionalDependencies:
       '@eslint/css': 1.4.0
+    optional: true
+
+  tailwind-csstree@0.3.3(@eslint/css@2.0.0):
+    optionalDependencies:
+      '@eslint/css': 2.0.0
 
   tailwindcss@4.3.3: {}
 

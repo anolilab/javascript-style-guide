@@ -11,11 +11,11 @@ catalogs:
       version: 0.28.2
   cli:
     '@anolilab/semantic-release-pnpm':
-      specifier: 8.1.18
-      version: 8.1.18
+      specifier: 8.1.22
+      version: 8.1.22
     '@anolilab/semantic-release-preset':
-      specifier: 13.4.19
-      version: 13.4.19
+      specifier: 13.4.23
+      version: 13.4.23
     commitizen:
       specifier: ^4.3.2
       version: 4.3.2
@@ -24,8 +24,8 @@ catalogs:
       version: 25.0.9
   default:
     '@anolilab/multi-semantic-release':
-      specifier: 4.4.7
-      version: 4.4.7
+      specifier: 4.4.9
+      version: 4.4.9
     '@commitlint/cli':
       specifier: 21.2.2
       version: 21.2.2
@@ -84,8 +84,8 @@ catalogs:
       specifier: 3.9.6
       version: 3.9.6
     publint:
-      specifier: 0.3.23
-      version: 0.3.23
+      specifier: 0.3.24
+      version: 0.3.24
     read-pkg:
       specifier: 10.1.0
       version: 10.1.0
@@ -144,11 +144,11 @@ catalogs:
       specifier: 4.7.2
       version: 4.7.2
     '@eslint-react/eslint-plugin':
-      specifier: 5.18.6
-      version: 5.18.6
+      specifier: 5.18.10
+      version: 5.18.10
     '@eslint/compat':
-      specifier: 2.1.0
-      version: 2.1.0
+      specifier: 2.1.1
+      version: 2.1.1
     '@eslint/config-inspector':
       specifier: 3.2.0
       version: 3.2.0
@@ -463,8 +463,8 @@ catalogs:
       version: 2.1.0
   network:
     browserslist:
-      specifier: 4.28.8
-      version: 4.28.8
+      specifier: 4.28.9
+      version: 4.28.9
     confusing-browser-globals:
       specifier: ^1.0.11
       version: 1.0.11
@@ -515,7 +515,7 @@ catalogs:
       version: 1.0.8
   script:
     tsx:
-      specifier: ^4.23.12
+      specifier: ^4.23.13
       version: 4.23.13
   style:
     postcss:
@@ -571,8 +571,8 @@ catalogs:
       version: 8.66.0
   utils:
     caniuse-lite:
-      specifier: 1.0.30001809
-      version: 1.0.30001809
+      specifier: 1.0.30001810
+      version: 1.0.30001810
     semver:
       specifier: 7.8.5
       version: 7.8.5
@@ -584,41 +584,41 @@ overrides:
   brace-expansion@1: '>=5.0.9'
   brace-expansion@2: '>=5.0.9'
   brace-expansion@>=3.0.0 <5.0.9: '>=5.0.9'
-  browserslist@<=4.28.6: '>=4.28.7'
+  browserslist@<=4.28.6: '>=4.28.9'
   chrono-node@<2.2.4: '>=2.10.1'
   defu@<=6.1.4: '>=6.1.7'
   eslint-plugin-sonarjs@<4.2.0: '>=4.2.0'
-  fast-uri@>=3.0.0 <3.1.3: ^4.1.2
-  fast-uri@>=4.0.0 <4.1.2: ^4.1.2
-  fast-uri@4.1.1: ^4.1.2
+  fast-uri@>=3.0.0 <3.1.3: ^4.1.4
+  fast-uri@>=4.0.0 <4.1.2: ^4.1.4
+  fast-uri@4.1.1: ^4.1.4
   follow-redirects@<=1.15.11: '>=1.16.0'
   '@hono/node-server@<2.0.5': '>=2.1.1'
-  hono@<4.12.27: '>=4.13.2'
-  ip-address@<=10.1.0: '>=10.5.0'
-  js-yaml@>=3.0.0 <3.15.1: ^3.15.1
+  hono@<4.12.27: '>=4.13.7'
+  ip-address@<=10.1.0: '>=10.5.1'
+  js-yaml@>=3.0.0 <3.15.1: ^3.15.2
   lodash-es@<=4.17.23: '>=4.18.0'
   lodash-es@>=4.0.0 <=4.17.23: '>=4.18.0'
   lodash@<=4.17.23: '>=4.18.0'
   lodash@>=4.0.0 <=4.17.22: '>=4.18.1'
   lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
   nanoid@<5.1.16: '>=5.1.16'
-  picomatch@>=4.0.0 <4.0.4: '>=4.0.5'
+  picomatch@>=4.0.0 <4.0.4: '>=4.0.7'
   postcss@<8.5.10: '>=8.5.25'
   shell-quote@>=1.1.0 <=1.8.3: '>=1.10.0'
   svgo@>=4.0.0 <4.0.2: '>=4.0.2'
   tmp@<0.2.7: '>=0.2.7'
-  undici@<6.23.0: '>=8.10.0'
-  undici@<6.24.0: '>=8.10.0'
-  undici@>=7.0.0 <7.28.0: 8.10.0
-  undici@>=8.0.0 <8.5.0: 8.10.0
-  '@actions/http-client>undici': 8.10.0
+  undici@<6.23.0: '>=8.10.2'
+  undici@<6.24.0: '>=8.10.2'
+  undici@>=7.0.0 <7.28.0: 8.10.2
+  undici@>=8.0.0 <8.5.0: 8.10.2
+  '@actions/http-client>undici': 8.10.2
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
   vite@>=8.0.0 <=8.0.15: '>=8.2.0'
   yaml@>=2.0.0 <2.8.3: '>=2.9.0'
   esbuild@>=0.27.3 <0.28.1: '>=0.28.2'
   form-data@>=4.0.0 <4.0.6: '>=4.0.6'
-  js-yaml@>=4.0.0 <4.3.0: ^4.3.1
+  js-yaml@>=4.0.0 <4.3.0: ^4.3.2
 
 packageExtensionsChecksum: sha256-MjAIE7G6Co++8ZSfBPkLyV3w3Rk1vr3erem+CmhDnvQ=
 
@@ -628,7 +628,7 @@ importers:
     dependencies:
       '@anolilab/multi-semantic-release':
         specifier: 'catalog:'
-        version: 4.4.7(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(supports-color@7.2.0)
+        version: 4.4.9(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(supports-color@7.2.0)
       '@anolilab/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -688,7 +688,7 @@ importers:
         version: 3.9.6
       publint:
         specifier: 'catalog:'
-        version: 0.3.23
+        version: 0.3.24
       read-pkg:
         specifier: 'catalog:'
         version: 10.1.0
@@ -727,10 +727,10 @@ importers:
         version: 10.0.2(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -739,10 +739,10 @@ importers:
         version: 2.0.0-alpha.98(@arethetypeswrong/core@0.18.5)(@babel/core@8.0.1)(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(@visulima/css-style-inject@1.0.0-alpha.19)(@visulima/find-cache-dir@3.0.0)(@visulima/packem-rollup@1.0.0-alpha.80(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(esbuild@0.28.2)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(rolldown@1.2.7)(rollup@4.62.2)(typescript@6.0.3)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0))(yaml@2.9.0))(esbuild@0.28.2)(github-slugger@2.0.0)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(package-manager-detector@1.8.0)(picomatch@4.0.7)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rolldown@1.2.7)(rollup@4.62.2)(typescript@6.0.3)(yaml@2.9.0)
       browserslist:
         specifier: catalog:network
-        version: 4.28.8
+        version: 4.28.9
       caniuse-lite:
         specifier: catalog:utils
-        version: 1.0.30001809
+        version: 1.0.30001810
       cross-env:
         specifier: catalog:node
         version: 10.1.0
@@ -791,10 +791,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -836,7 +836,7 @@ importers:
         version: 4.7.2(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/compat':
         specifier: catalog:lint
-        version: 2.1.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
+        version: 2.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/js':
         specifier: catalog:lint
         version: 10.0.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -993,16 +993,16 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
       '@eslint-react/eslint-plugin':
         specifier: catalog:lint
-        version: 5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@eslint/config-inspector':
         specifier: catalog:lint
         version: 3.2.0(@modelcontextprotocol/server@2.0.0)(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(srvx@1.0.3)
@@ -1186,10 +1186,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1243,10 +1243,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1288,10 +1288,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1327,10 +1327,10 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1391,10 +1391,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1503,10 +1503,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1819,8 +1819,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/multi-semantic-release@4.4.7':
-    resolution: {integrity: sha512-7pmmjwT5kdFUEdreMosfPszko8U3GDNb/iUj3130PkOwMy75TZqM7AZJvpge7iOmedRcPpH79c60Kt+eTrkDMA==}
+  '@anolilab/multi-semantic-release@4.4.9':
+    resolution: {integrity: sha512-QmFf/1cvloUAeSys30OKi2jVZxdmTGBT8Kyvd9xxyUSj/oXUlTCMeXmzszwlMqrmuE0/JRMMfmy3vllfWPPFCA==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     hasBin: true
@@ -1841,24 +1841,24 @@ packages:
     peerDependencies:
       prettier: 3.9.6
 
-  '@anolilab/rc@4.0.5':
-    resolution: {integrity: sha512-Tv+Et/U2ClOOvGHnNvJvE5OWO6n5yMPZDEpmwrxIrtRusxNg1nJaP9KfnhFTHHLagUcJ6/KLjZlbG++ieKP05g==}
+  '@anolilab/rc@4.0.8':
+    resolution: {integrity: sha512-kZyIt5qsY+VSKJ2AMx3T44HwmJOgG7UsdvltRj50rDvHxVtzF6jSXWyFpjzJHP3r/Zm5hWaIedbkVE9VFfCAfA==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-clean-package-json@5.5.16':
-    resolution: {integrity: sha512-WDliERWgnCbH0YiUhNrDdhAjPugMryBwxrZutzbMpVr/cNm+c/6mt1ZyWNLO5sGngT0jM1qpOk+o63HurkQUBg==}
+  '@anolilab/semantic-release-clean-package-json@5.5.19':
+    resolution: {integrity: sha512-fzZbCercvz8pflapuKRq66/HcV3BNqI1ZlaxyJn+VlQJNAXiaFxnob8whgWMnMbuatKN7GWYjR24LsQ9l++eHw==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-pnpm@8.1.18':
-    resolution: {integrity: sha512-ieVlstywYyLTf1Oer5qSSuI6hoyOQktULNlTagTCoh7rUlZA65lvl3f4/lVWpE93UOZGNhUGFGl1Xpj+IWfK9A==}
+  '@anolilab/semantic-release-pnpm@8.1.22':
+    resolution: {integrity: sha512-YProADWvhkp6WejLncU3R1jltvrvLN4HAuWZ0/cz2cuoRRQ3m0BSzsRSi/IkACay//ptof/RGY6sDCoyGyobcQ==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-preset@13.4.19':
-    resolution: {integrity: sha512-uAVxu5EV+YmHwB0ZLMe/PMm9NSHyKTZ27tVvoM6UV/V7rm9q84vm8kvkIA+dt8S772yk5S3HSrUJtWS9Xr3Kjg==}
+  '@anolilab/semantic-release-preset@13.4.23':
+    resolution: {integrity: sha512-x2f8xX9ywfQ9jxgq9yRojDH36y6uFzDn9Mzl148QBrDq0Ike6GZiENn/4FSzfbgjs6MxQu8egnoizw3iJIV8rw==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     peerDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.18
+      '@anolilab/semantic-release-pnpm': 8.1.22
       '@semantic-release/npm': 13.1.5
       semantic-release: 25.0.9
       semantic-release-yarn: ^3.0.2
@@ -2623,8 +2623,22 @@ packages:
     resolution: {integrity: sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  '@eslint-react/ast@5.18.10':
+    resolution: {integrity: sha512-j0sv/nLWAswXIzbO4B3KslmnRNfMjQavrRLp3I7Ad4L3KbM2FBuQzmpQFl9Wwu4S+RoaOefAnUWWxr+uYewRAw==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   '@eslint-react/ast@5.18.6':
     resolution: {integrity: sha512-okgOez6L9onvcdU0lyLOykKQSaj2hMtVV2ucx2iqmTsfKDGyhVlMuNLnfyOkgQyHdgfROTVtAAYnQ6KPf7PggQ==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
+  '@eslint-react/core@5.18.10':
+    resolution: {integrity: sha512-+GTslSHZSVeIBkJ+zCGUsb8ZG+Kike8doXKOBFjrH5VekFkQQJZMl4rgG8vawOr7yoLOoM5I8cs9VZvTKATUxA==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       eslint: '*'
@@ -2637,8 +2651,22 @@ packages:
       eslint: '*'
       typescript: '*'
 
+  '@eslint-react/eslint-plugin@5.18.10':
+    resolution: {integrity: sha512-+WmN3eUxvrsHAoDpz419aN/kV9seOQXV8+/y4c05TRmtLivLGwk+1tHoTj7o80LeJPGfdFs5dEdd1Rr5oVS21A==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   '@eslint-react/eslint-plugin@5.18.6':
     resolution: {integrity: sha512-qBZXKx05CPNrvdNydM958rZt2hgVhhriU/8LUeS5s/5gdpuekflrfF+y3yT4NT8Ej3J37h7e50RdH6Lu1r0KPg==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
+  '@eslint-react/eslint@5.18.10':
+    resolution: {integrity: sha512-EYqgswoSEHsOf5H9mYhaC6Tgwikrl3LBzVdfrRCVs0HTxrMUWwsv+pkBS7zyd+I6wgX/u9yXJFvD8d5afF2FbA==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       eslint: '*'
@@ -2651,6 +2679,13 @@ packages:
       eslint: '*'
       typescript: '*'
 
+  '@eslint-react/jsx@5.18.10':
+    resolution: {integrity: sha512-hGO67QZu94YCQISLM9M5z3fExWWcZwj/OJ8VH5fyZVvdn3R3maD2avBhndfE6DjLp8nK55PtX10pQLzwRkoGWw==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   '@eslint-react/jsx@5.18.6':
     resolution: {integrity: sha512-oAbG2pW6XhiROZotfSjLU19A84/AxYHiiKjim5USHH5xtYfYjO7skFSM6LztuPggqn/wccSxLgmKIFGUKM/95g==}
     engines: {node: '>=22.0.0'}
@@ -2658,8 +2693,22 @@ packages:
       eslint: '*'
       typescript: '*'
 
+  '@eslint-react/shared@5.18.10':
+    resolution: {integrity: sha512-aN+SJuOPVH1l3iCFgESyy3FfZ0wCkVfXcnGtoeRuEMqD3D2hCVkw50RK6OXn9mhgjT9FAbetb/WCMuEH47ZDRQ==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   '@eslint-react/shared@5.18.6':
     resolution: {integrity: sha512-zCzb/W1xwG412BWVTjqhDznsJEHdyZVkVJz4jbAebHLpKxygK5XeG+vShdYbIFC7OcJU8hYbvEf3P2UNqXVhBw==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
+  '@eslint-react/var@5.18.10':
+    resolution: {integrity: sha512-V+w8LOEa/rXn64l0gUEBBYr/4axjGMawwVBQ0gP7UTSVptYxpmz0LdWBVhaM4wq2Wwm/QGvDlPTpN9096sq68A==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       eslint: '*'
@@ -2681,6 +2730,15 @@ packages:
 
   '@eslint/compat@2.1.0':
     resolution: {integrity: sha512-LgaSCymEpw7tF53xvDw9SNsraPb1IBHxpdABIOM0hW8UAlP8znrjYtuxfR58FSJ3L9BhwD+FaPRFQpZq84Nh6g==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+    peerDependencies:
+      eslint: ^8.40 || 9 || 10
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+
+  '@eslint/compat@2.1.1':
+    resolution: {integrity: sha512-rMcy8GSrwNzcISX/BlTDY/GLB4eCopEuy9woIls3To+15OLxykZrxxq+WUcylCPCQ6F4MujjBM1DX5V1aqI3Vw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^8.40 || 9 || 10
@@ -5685,7 +5743,7 @@ packages:
       elysia: '>=1.0'
       express: '>=4.0'
       fastify: '>=4.0'
-      hono: '>=4.13.2'
+      hono: '>=4.13.7'
       next: '>=14.0'
       rotating-file-stream: '>=3.2.9'
     peerDependenciesMeta:
@@ -6444,11 +6502,6 @@ packages:
     resolution: {integrity: sha512-lZlaLLl4UwVgpw2pcdg9Aze5lC+njyK2UtW2YpoWcUkcyZC3ZGpB1Yq1eLCQBzoPwW1ZBWFIvZrP4s4C3uHTBw==}
     engines: {node: '>=22.12.0 <=25.*'}
 
-  browserslist@4.28.8:
-    resolution: {integrity: sha512-V2NpofLblG64mfOtSgDhOJESZEGogzDMBv/q+W6oc4LXWP/q75eOXoOaaOu1EOadB9U4Bwx/e0yzbvwKH8zalA==}
-    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
-    hasBin: true
-
   browserslist@4.28.9:
     resolution: {integrity: sha512-EWazOblFYUvlGZcfGhPUPmYh3nikUxBVb+y9MJun5f3hBi812X+8MSQTujLBtgK3cf51fJWbWfOjyeO954d+Eg==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -6541,9 +6594,6 @@ packages:
   camelcase@7.0.1:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
-
-  caniuse-lite@1.0.30001809:
-    resolution: {integrity: sha512-xxWVywk6a6Arlk+hymeycyn/VgqEfLDxupvhH/xiY5SJ/18kmi9o6MiO320DCUzypORHLtvh0I4i04tUhCNHNQ==}
 
   caniuse-lite@1.0.30001810:
     resolution: {integrity: sha512-TITQPUkaz+aVk5GL6NhOdwk1aEaNTSDPsGFWrTuhKGtjTF70jL/Oht2W4c6rXUe5fu7Ie19VIahAXHIIiWWNeg==}
@@ -6811,10 +6861,6 @@ packages:
 
   conventional-changelog-angular@9.4.0:
     resolution: {integrity: sha512-HdxRxuS8bBXVIuo4V82gvSwAXT0vYQUizrjs/izmPg5JdDstr8v8I5hduGL3iQbG+o310dUDxC4+LetuS5hu9w==}
-    engines: {node: '>=22'}
-
-  conventional-changelog-conventionalcommits@10.2.1:
-    resolution: {integrity: sha512-n4Kr1HFMTf3iMbES0TMxKIcYtUUv4rKqyQQp2JwfOEfFCOfGT3Tq4mCyJ8S9/YPyWhydjfKrrvnyl+gCjA+mJQ==}
     engines: {node: '>=22'}
 
   conventional-changelog-conventionalcommits@10.4.0:
@@ -7593,6 +7639,13 @@ packages:
     peerDependencies:
       eslint: '>=7'
 
+  eslint-plugin-react-dom@5.18.10:
+    resolution: {integrity: sha512-cAfLQLvyAN+zsvWQIpxVL17wheQagTZBa0LqFBal4lstdtBKLuAQIENlNoI6FZoeogUAm8+TqoZ0NAWHIhATRA==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   eslint-plugin-react-dom@5.18.6:
     resolution: {integrity: sha512-xco47I0Agu+83QH2ONbgZd1JPLSXJON+gtFGJbOhgfPvetfO7UkcHu8iLpncopwyWekAXfhvomJsDlNLTm26/g==}
     engines: {node: '>=22.0.0'}
@@ -7606,8 +7659,22 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0 || ^10.0.0
 
+  eslint-plugin-react-jsx@5.18.10:
+    resolution: {integrity: sha512-hrgj1dTUjM1HGFzd9VhIr08WW0cC9g+TqlzViqsOWsKNbRhp86Aq0eoxlN9zoMVlJHGNnKgK4MnuBGYV4QHyVA==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   eslint-plugin-react-jsx@5.18.6:
     resolution: {integrity: sha512-6EvzS5gZGfQ0byvSxgqV/F0qXTVnNGcCU7wgFZqz8I1IXmcbYyBCyU7gqNlKW1/1ptiZFmuwo57+eW6HyK+wEg==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
+  eslint-plugin-react-naming-convention@5.18.10:
+    resolution: {integrity: sha512-JUFdwD3LT2RFNdQg3JXOPVw6gSv0yAoVrzpIgnO1Nu4GyGRf6YRMrWf6aL6mEJ4OBlDS8IIygG3nkzQXzP1N1A==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       eslint: '*'
@@ -7631,6 +7698,13 @@ packages:
     peerDependencies:
       eslint: ^9 || ^10
 
+  eslint-plugin-react-rsc@5.18.10:
+    resolution: {integrity: sha512-tltK3u2LosifD53w0WDmyXHicPZpeTZP29tpWd9+r2f9CTK4KoQzc6mPEDNpTrShBUjL0v9pEmM1AIRk2ynXbQ==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   eslint-plugin-react-rsc@5.18.6:
     resolution: {integrity: sha512-4mzLkRKRpN9Rr5JMeNrxkMFLHce1ikAdsjAiPOSIgYwWSsQWxHwpMTf+UfjXgfB6CcAcyKCyIe5HmOMX2kUoVQ==}
     engines: {node: '>=22.0.0'}
@@ -7638,8 +7712,22 @@ packages:
       eslint: '*'
       typescript: '*'
 
+  eslint-plugin-react-web-api@5.18.10:
+    resolution: {integrity: sha512-OFrddlUuPLZ5xFxKehRP1yD/l8E29DZizjtbGcXbqakNQG4DSgukB1MC0VgE1zDY/LnSoYqzSHECfjSiHXQuSQ==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
   eslint-plugin-react-web-api@5.18.6:
     resolution: {integrity: sha512-r8s39AbHZ0071XcgCMoCdNkSARftqI6U/0bBJXPioVUw+hjp0n4EB27fsc69AHzRl/NJWA1oUJb+kcqxoWMR4w==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+
+  eslint-plugin-react-x@5.18.10:
+    resolution: {integrity: sha512-YjYQGMMV0Cs9gP5gbE96TdXDSS0B+XAFpjnaYk0U9ZpeHo9Q+gdgu1c0ImJllWiAFYwiilfJd5pu5ewBB6IwZg==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       eslint: '*'
@@ -7957,7 +8045,7 @@ packages:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
-      picomatch: '>=4.0.5'
+      picomatch: '>=4.0.7'
     peerDependenciesMeta:
       picomatch:
         optional: true
@@ -10680,8 +10768,8 @@ packages:
     resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
     engines: {node: '>=10'}
 
-  publint@0.3.23:
-    resolution: {integrity: sha512-5MQipUPcB7MWw84zLUkHrg/H/UBtk3LL+A0GngTTBSsiNJLQurMUaSIRG3edlOrRz4UFe0AOKK9TZdIWviV+jQ==}
+  publint@0.3.24:
+    resolution: {integrity: sha512-9zS56KrKBoqi5Qt8h92uMP8TTM9AYZSgnmCo4u2priMqkOZvQnTsziZ2p5LJ2ywbYkAjoCDp2jda9u4cgFefIw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -11956,8 +12044,8 @@ packages:
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
-  undici@8.10.0:
-    resolution: {integrity: sha512-HvltHd7avK13QIw/oLe4qoOLyoVSoafqJ2jYOrtMRBkbYT31eiBQ8O0ehRKZiEZCMEyLFQNIADpgCWC5fALvYQ==}
+  undici@8.10.2:
+    resolution: {integrity: sha512-/y4/bH9YNU5hi9NIrpOuvGXFcxrj3CMrV+/AYpowAYTpHn8gX/XPFjNy766FPoYY0miQhdW977JFWKGNhBdwyQ==}
     engines: {node: '>=22.19.0'}
 
   unherit@3.0.1:
@@ -12100,7 +12188,7 @@ packages:
     resolution: {integrity: sha512-UQ+MSxlhRm1bzjhU+DcuXfjFO1FzNtqhK5+9Yvlp90ItDLk5vT932A0rFu619nf7RVS+Y/VeaUW1jaRDqZ8VJw==}
     hasBin: true
     peerDependencies:
-      browserslist: '>=4.28.7'
+      browserslist: '>=4.28.9'
 
   update-notifier@6.0.2:
     resolution: {integrity: sha512-EDxhTEVPZZRLWYcJ4ZXjGFN0oP7qYvbXWzEgRm/Yql4dHX5wDbvh89YHP6PK1lzZJYrMtXUuZZz8XGK+U6U1og==}
@@ -12234,7 +12322,7 @@ packages:
       '@vitest/ui': 4.1.10
       happy-dom: '*'
       jsdom: '*'
-      vite: '>=8.2.0'
+      vite: '>=7.3.2'
     peerDependenciesMeta:
       '@edge-runtime/vm':
         optional: true
@@ -12516,7 +12604,7 @@ snapshots:
   '@actions/http-client@4.0.1':
     dependencies:
       tunnel: 0.0.6
-      undici: 8.10.0
+      undici: 8.10.2
 
   '@actions/io@3.0.2': {}
 
@@ -12916,7 +13004,7 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/multi-semantic-release@4.4.7(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(supports-color@7.2.0)':
+  '@anolilab/multi-semantic-release@4.4.9(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(supports-color@7.2.0)':
     dependencies:
       '@semrel-extra/topo': 1.14.1
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)
@@ -12950,16 +13038,17 @@ snapshots:
     dependencies:
       prettier: 3.9.6
 
-  '@anolilab/rc@4.0.5':
+  '@anolilab/rc@4.0.8':
     dependencies:
       ini: 7.0.0
       ts-deepmerge: 8.0.0
 
-  '@anolilab/semantic-release-clean-package-json@5.5.16(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)':
+  '@anolilab/semantic-release-clean-package-json@5.5.19(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)':
     dependencies:
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)
       '@visulima/path': 3.1.0
+      detect-indent: 7.0.2
       type-fest: 5.8.0
     transitivePeerDependencies:
       - ini
@@ -12968,15 +13057,16 @@ snapshots:
       - smol-toml
       - yaml
 
-  '@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)':
+  '@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)':
     dependencies:
       '@actions/core': 3.0.1
-      '@anolilab/rc': 4.0.5
+      '@anolilab/rc': 4.0.8
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)
       '@visulima/package': 5.0.11(ini@7.0.0)(jsonc-parser@3.3.1)
       '@visulima/path': 3.1.0
       debug: 4.4.3(supports-color@10.2.2)
+      detect-indent: 7.0.2
       env-ci: 11.2.0
       execa: 10.0.1
       ini: 7.0.0
@@ -12990,19 +13080,19 @@ snapshots:
       - supports-color
       - yaml
 
-  '@anolilab/semantic-release-preset@13.4.19(@anolilab/semantic-release-pnpm@8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)':
+  '@anolilab/semantic-release-preset@13.4.23(@anolilab/semantic-release-pnpm@8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)(yaml@2.9.0)':
     dependencies:
-      '@anolilab/semantic-release-clean-package-json': 5.5.16(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)
+      '@anolilab/semantic-release-clean-package-json': 5.5.19(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(yaml@2.9.0)
       '@semantic-release/changelog': 7.0.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/exec': 7.1.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/git': 11.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/github': 12.0.9(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
-      conventional-changelog-conventionalcommits: 10.2.1
+      conventional-changelog-conventionalcommits: 9.3.1
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
     optionalDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.18(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
+      '@anolilab/semantic-release-pnpm': 8.1.22(json5@2.2.3)(jsonc-parser@3.3.1)(supports-color@10.2.2)(yaml@2.9.0)
       '@semantic-release/npm': 13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
     transitivePeerDependencies:
       - ini
@@ -13853,6 +13943,17 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.2': {}
 
+  '@eslint-react/ast@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/typescript-estree': 8.69.0(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      string-ts: 2.3.1
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+
   '@eslint-react/ast@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/types': 8.69.0
@@ -13860,6 +13961,22 @@ snapshots:
       '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
       string-ts: 2.3.1
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/core@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.69.0
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -13878,6 +13995,21 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
+
+  '@eslint-react/eslint-plugin@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      eslint-plugin-react-dom: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-jsx: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-naming-convention: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-rsc: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-web-api: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-x: 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
 
   '@eslint-react/eslint-plugin@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
@@ -13892,11 +14024,35 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
+
+  '@eslint-react/eslint@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
 
   '@eslint-react/eslint@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/jsx@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -13914,6 +14070,18 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
+
+  '@eslint-react/shared@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
+      typescript: 6.0.3
+      zod: 4.5.4
+    transitivePeerDependencies:
+      - supports-color
 
   '@eslint-react/shared@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
@@ -13923,6 +14091,20 @@ snapshots:
       ts-pattern: 5.9.0
       typescript: 6.0.3
       zod: 4.5.4
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/var@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.69.0
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
+      typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -13938,6 +14120,7 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@eslint-stylistic/metadata@4.4.1': {}
 
@@ -13951,6 +14134,12 @@ snapshots:
       - typescript
 
   '@eslint/compat@2.1.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))':
+    dependencies:
+      '@eslint/core': 1.2.1
+    optionalDependencies:
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+
+  '@eslint/compat@2.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))':
     dependencies:
       '@eslint/core': 1.2.1
     optionalDependencies:
@@ -15561,7 +15750,7 @@ snapshots:
       p-filter: 4.1.0
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
       tinyglobby: 0.2.17
-      undici: 8.10.0
+      undici: 8.10.2
       url-join: 5.0.0
     transitivePeerDependencies:
       - kerberos
@@ -15585,7 +15774,7 @@ snapshots:
       p-filter: 4.1.0
       semantic-release: 25.0.9(supports-color@7.2.0)(typescript@6.0.3)
       tinyglobby: 0.2.17
-      undici: 8.10.0
+      undici: 8.10.2
       url-join: 5.0.0
     transitivePeerDependencies:
       - kerberos
@@ -17976,14 +18165,6 @@ snapshots:
 
   browserslist-config-anolilab@9.0.1: {}
 
-  browserslist@4.28.8:
-    dependencies:
-      baseline-browser-mapping: 2.11.21
-      caniuse-lite: 1.0.30001810
-      electron-to-chromium: 1.5.422
-      node-releases: 2.0.54
-      update-browserslist-db: 1.3.2(browserslist@4.28.8)
-
   browserslist@4.28.9:
     dependencies:
       baseline-browser-mapping: 2.11.21
@@ -18077,8 +18258,6 @@ snapshots:
   camelcase@6.3.0: {}
 
   camelcase@7.0.1: {}
-
-  caniuse-lite@1.0.30001809: {}
 
   caniuse-lite@1.0.30001810: {}
 
@@ -18323,10 +18502,6 @@ snapshots:
       compare-func: 2.0.0
 
   conventional-changelog-angular@9.4.0:
-    dependencies:
-      '@conventional-changelog/template': 1.4.0
-
-  conventional-changelog-conventionalcommits@10.2.1:
     dependencies:
       '@conventional-changelog/template': 1.4.0
 
@@ -18946,7 +19121,7 @@ snapshots:
 
   eslint-config-flat-gitignore@2.3.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
-      '@eslint/compat': 2.1.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
+      '@eslint/compat': 2.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
 
   eslint-config-prettier@10.1.8(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
@@ -19291,6 +19466,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  eslint-plugin-react-dom@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      compare-versions: 6.1.1
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+
   eslint-plugin-react-dom@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@eslint-react/ast': 5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -19304,6 +19493,7 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   eslint-plugin-react-hooks@7.1.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
@@ -19313,6 +19503,20 @@ snapshots:
       hermes-parser: 0.25.1
       zod: 4.5.4
       zod-validation-error: 4.0.2(zod@4.5.4)
+    transitivePeerDependencies:
+      - supports-color
+
+  eslint-plugin-react-jsx@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -19326,6 +19530,22 @@ snapshots:
       '@typescript-eslint/types': 8.69.0
       '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-naming-convention@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -19344,6 +19564,7 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   eslint-plugin-react-perf@3.3.3(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
@@ -19352,6 +19573,20 @@ snapshots:
   eslint-plugin-react-refresh@0.5.3(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+
+  eslint-plugin-react-rsc@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
 
   eslint-plugin-react-rsc@5.18.6(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
@@ -19363,6 +19598,23 @@ snapshots:
       '@typescript-eslint/types': 8.69.0
       '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-web-api@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      birecord: 0.1.2
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -19378,6 +19630,29 @@ snapshots:
       '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       birecord: 0.1.2
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      ts-pattern: 5.9.0
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-x@5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.18.10(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.69.0
+      '@typescript-eslint/type-utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
+      '@typescript-eslint/typescript-estree': 8.69.0(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.69.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      compare-versions: 6.1.1
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+      string-ts: 2.3.1
+      ts-api-utils: 2.5.0(typescript@6.0.3)
       ts-pattern: 5.9.0
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -19404,6 +19679,7 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   eslint-plugin-react-you-might-not-need-an-effect@1.0.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
@@ -23629,7 +23905,7 @@ snapshots:
 
   proxy-from-env@2.1.0: {}
 
-  publint@0.3.23:
+  publint@0.3.24:
     dependencies:
       '@publint/pack': 0.1.7
       package-manager-detector: 1.8.0
@@ -25399,7 +25675,7 @@ snapshots:
 
   undici-types@8.3.0: {}
 
-  undici@8.10.0: {}
+  undici@8.10.2: {}
 
   unherit@3.0.1: {}
 
@@ -25633,12 +25909,6 @@ snapshots:
       '@unrs/resolver-binding-win32-arm64-msvc': 1.12.2
       '@unrs/resolver-binding-win32-ia32-msvc': 1.12.2
       '@unrs/resolver-binding-win32-x64-msvc': 1.12.2
-
-  update-browserslist-db@1.3.2(browserslist@4.28.8):
-    dependencies:
-      browserslist: 4.28.8
-      escalade: 3.2.0
-      picocolors: 1.1.1
 
   update-browserslist-db@1.3.2(browserslist@4.28.9):
     dependencies:

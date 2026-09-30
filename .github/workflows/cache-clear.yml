@@ -5,6 +5,10 @@ on: # yamllint disable-line rule:truthy
         types:
             - "closed"
 
+permissions:
+    actions: "write" # to delete caches for the merged branch
+    contents: "read" # to read the repository
+
 jobs:
     cleanup-branch-cache:
         uses: "anolilab/workflows/.github/workflows/cleanup-branch-cache.yaml@2bd348c5c236a10db670232e5b08619ccbaf55b3" # v21.0.5 # main

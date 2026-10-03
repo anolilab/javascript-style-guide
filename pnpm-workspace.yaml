@@ -296,7 +296,7 @@ overrides:
   undici@<6.24.0: ">=8.10.0"
   undici@>=7.0.0 <7.28.0: "8.10.0"
   undici@>=8.0.0 <8.5.0: "8.10.0"
-  "@actions/http-client>undici": "8.10.0"
+  "@actions/http-client>undici": "8.10.2"
   vite@>=7.0.0 <=7.3.1: ">=7.3.2"
   vite@>=7.1.0 <=7.3.1: ">=7.3.2"
   vite@>=8.0.0 <=8.0.15: ">=8.2.0"
@@ -327,6 +327,8 @@ minimumReleaseAgeExclude:
   - "@visulima/tsconfig@3.2.0"
   # Renovate security update: axios@1.20.0
   - axios@1.20.0
+  # Renovate security update: undici@8.10.2
+  - undici@8.10.2
 
 blockExoticSubdeps: true
 

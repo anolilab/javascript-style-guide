@@ -256,7 +256,7 @@ overrides:
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
   brace-expansion@1: ">=5.0.9"
   brace-expansion@2: ">=5.0.9"
-  brace-expansion@>=3.0.0 <5.0.9: ">=5.0.9"
+  brace-expansion@>=3.0.0 <5.0.9: ">=5.0.12"
   browserslist@<=4.28.6: ">=4.28.7"
   chrono-node@<2.2.4: ">=2.10.1"
   defu@<=6.1.4: ">=6.1.7"
@@ -296,7 +296,7 @@ overrides:
   undici@<6.24.0: ">=8.10.0"
   undici@>=7.0.0 <7.28.0: "8.10.0"
   undici@>=8.0.0 <8.5.0: "8.10.0"
-  "@actions/http-client>undici": "8.10.2"
+  "@actions/http-client>undici": "8.10.0"
   vite@>=7.0.0 <=7.3.1: ">=7.3.2"
   vite@>=7.1.0 <=7.3.1: ">=7.3.2"
   vite@>=8.0.0 <=8.0.15: ">=8.2.0"
@@ -325,8 +325,8 @@ minimumReleaseAgeExclude:
   - "@visulima/rollup-plugin-css@1.0.0-alpha.59"
   - "@visulima/rollup-plugin-dts@1.0.0-alpha.40"
   - "@visulima/tsconfig@3.2.0"
-  # Renovate security update: undici@8.10.2
-  - undici@8.10.2
+  # Renovate security update: brace-expansion@5.0.12
+  - brace-expansion@5.0.12
 
 blockExoticSubdeps: true
 

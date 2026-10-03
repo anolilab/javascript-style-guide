@@ -248,9 +248,9 @@ onlyBuiltDependencies:
   - rs-module-lexer
   - unrs-resolver
 overrides:
-  axios@>=1.0.0 <=1.13.4: ">=1.19.0"
+  axios@>=1.0.0 <=1.13.4: ">=1.20.0"
   # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
-  axios@<1.18.0: ">=1.20.0"
+  axios@<1.18.0: ">=1.19.0"
   # GHSA-v422-hmwv-36x6
   body-parser@>=2.0.0 <2.3.0: ">=2.3.0"
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7

@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { ensurePackages, hasPackageJsonAnyDependency, parsePackageJson } from "@visulima/package";
 import type { Linter } from "eslint";
 import { FlatConfigComposer } from "eslint-flat-config-utils";
+// eslint-disable-next-line e18e/ban-dependencies
 import { parse } from "semver";
 
 import bestPractices from "./config/best-practices";

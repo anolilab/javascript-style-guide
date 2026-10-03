@@ -51,7 +51,7 @@ catalog:
   textlint: 15.8.0
   typescript: 6.0.3
   vite: 8.2.0
-  vitest: 4.1.11
+  vitest: 4.1.10
 catalogMode: prefer
 
 catalogs:
@@ -221,7 +221,7 @@ catalogs:
   test:
     "@testing-library/dom": ^10.4.1
     "@vitest/coverage-v8": 4.1.11
-    vitest: 4.1.11
+    vitest: 4.1.10
   tsc:
     "@total-typescript/ts-reset": ^0.6.1
     "@visulima/tsconfig": ^3.2.0
@@ -250,7 +250,7 @@ onlyBuiltDependencies:
 overrides:
   axios@>=1.0.0 <=1.13.4: ">=1.19.0"
   # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
-  axios@<1.18.0: ">=1.19.0"
+  axios@<1.18.0: ">=1.20.0"
   # GHSA-v422-hmwv-36x6
   body-parser@>=2.0.0 <2.3.0: ">=2.3.0"
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
@@ -325,8 +325,8 @@ minimumReleaseAgeExclude:
   - "@visulima/rollup-plugin-css@1.0.0-alpha.59"
   - "@visulima/rollup-plugin-dts@1.0.0-alpha.40"
   - "@visulima/tsconfig@3.2.0"
-  # Renovate security update: vitest@4.1.11
-  - vitest@4.1.11
+  # Renovate security update: axios@1.20.0
+  - axios@1.20.0
 
 blockExoticSubdeps: true
 

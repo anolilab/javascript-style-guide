@@ -255,7 +255,7 @@ overrides:
   body-parser@>=2.0.0 <2.3.0: ">=2.3.0"
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
   brace-expansion@1: ">=5.0.9"
-  brace-expansion@2: ">=5.0.12"
+  brace-expansion@2: ">=5.0.9"
   brace-expansion@>=3.0.0 <5.0.9: ">=5.0.9"
   browserslist@<=4.28.6: ">=4.28.7"
   chrono-node@<2.2.4: ">=2.10.1"
@@ -265,7 +265,7 @@ overrides:
   # lint themselves with the published config, so force the version this workspace uses.
   eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
   # GHSA-32gv-6cf3-8cmc
-  fast-uri@>=3.0.0 <3.1.3: "^4.1.2"
+  fast-uri@>=3.0.0 <3.1.3: "^4.1.5"
   # GHSA-7p8r-x3mc-p8w7 (host confusion via backslash)
   fast-uri@>=4.0.0 <4.1.2: "^4.1.2"
   fast-uri@4.1.1: "^4.1.2"
@@ -325,8 +325,8 @@ minimumReleaseAgeExclude:
   - "@visulima/rollup-plugin-css@1.0.0-alpha.59"
   - "@visulima/rollup-plugin-dts@1.0.0-alpha.40"
   - "@visulima/tsconfig@3.2.0"
-  # Renovate security update: brace-expansion@5.0.12
-  - brace-expansion@5.0.12
+  # Renovate security update: fast-uri@4.1.5
+  - fast-uri@4.1.5
 
 blockExoticSubdeps: true
 

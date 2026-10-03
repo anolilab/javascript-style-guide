@@ -609,8 +609,8 @@ overrides:
   tmp@<0.2.7: '>=0.2.7'
   undici@<6.23.0: '>=8.10.0'
   undici@<6.24.0: '>=8.10.0'
-  undici@>=7.0.0 <7.28.0: 8.10.2
-  undici@>=8.0.0 <8.5.0: 8.10.0
+  undici@>=7.0.0 <7.28.0: 8.10.0
+  undici@>=8.0.0 <8.5.0: 8.10.2
   '@actions/http-client>undici': 8.10.0
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
@@ -11982,10 +11982,6 @@ packages:
     resolution: {integrity: sha512-HvltHd7avK13QIw/oLe4qoOLyoVSoafqJ2jYOrtMRBkbYT31eiBQ8O0ehRKZiEZCMEyLFQNIADpgCWC5fALvYQ==}
     engines: {node: '>=22.19.0'}
 
-  undici@8.10.2:
-    resolution: {integrity: sha512-/y4/bH9YNU5hi9NIrpOuvGXFcxrj3CMrV+/AYpowAYTpHn8gX/XPFjNy766FPoYY0miQhdW977JFWKGNhBdwyQ==}
-    engines: {node: '>=22.19.0'}
-
   unherit@3.0.1:
     resolution: {integrity: sha512-akOOQ/Yln8a2sgcLj4U0Jmx0R5jpIg2IUyRrWOzmEbjBtGzBdHtSeFKgoEcoH4KYIG/Pb8GQ/BwtYm0GCq1Sqg==}
 
@@ -15587,7 +15583,7 @@ snapshots:
       p-filter: 4.1.0
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
       tinyglobby: 0.2.17
-      undici: 8.10.2
+      undici: 8.10.0
       url-join: 5.0.0
     transitivePeerDependencies:
       - kerberos
@@ -15611,7 +15607,7 @@ snapshots:
       p-filter: 4.1.0
       semantic-release: 25.0.9(supports-color@7.2.0)(typescript@6.0.3)
       tinyglobby: 0.2.17
-      undici: 8.10.2
+      undici: 8.10.0
       url-join: 5.0.0
     transitivePeerDependencies:
       - kerberos
@@ -25426,8 +25422,6 @@ snapshots:
   undici-types@8.3.0: {}
 
   undici@8.10.0: {}
-
-  undici@8.10.2: {}
 
   unherit@3.0.1: {}
 

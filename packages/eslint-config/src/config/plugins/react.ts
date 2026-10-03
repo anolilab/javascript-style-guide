@@ -3,6 +3,7 @@ import { hasPackageJsonAnyDependency } from "@visulima/package";
 import { readTsConfig } from "@visulima/tsconfig";
 import type { Rule } from "eslint";
 import globals from "globals";
+// eslint-disable-next-line e18e/ban-dependencies
 import { parse } from "semver";
 
 import type {

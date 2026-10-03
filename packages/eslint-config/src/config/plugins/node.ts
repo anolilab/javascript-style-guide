@@ -1,3 +1,4 @@
+// eslint-disable-next-line e18e/ban-dependencies
 import { minVersion } from "semver";
 
 import type { OptionsFiles, OptionsOverrides, OptionsPackageJson } from "../../types";

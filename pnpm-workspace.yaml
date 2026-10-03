@@ -59,9 +59,9 @@ catalogs:
     esbuild: 0.28.2
     vite: 8.2.0
   cli:
-    "@anolilab/multi-semantic-release": 4.4.7
-    "@anolilab/semantic-release-pnpm": 8.1.18
-    "@anolilab/semantic-release-preset": 13.4.19
+    "@anolilab/multi-semantic-release": 4.4.21
+    "@anolilab/semantic-release-pnpm": 8.1.31
+    "@anolilab/semantic-release-preset": 13.4.32
     commitizen: ^4.3.2
     semantic-release: 25.0.9
   dev:
@@ -70,17 +70,17 @@ catalogs:
   frontend:
     react: 19.2.8
   lint:
-    "@anolilab/eslint-config": 30.0.1
+    "@anolilab/eslint-config": 30.0.2
     "@anolilab/prettier-config": 10.0.3
     "@commitlint/cli": 21.2.2
     "@commitlint/config-conventional": 21.2.2
     "@commitlint/core": 21.2.2
-    "@e18e/eslint-plugin": 0.8.0
-    "@eslint-community/eslint-plugin-eslint-comments": 4.7.2
-    "@eslint-react/eslint-plugin": 5.18.6
-    "@eslint/compat": 2.1.0
-    "@eslint/config-inspector": 3.2.0
-    "@eslint/css": 1.4.0
+    "@e18e/eslint-plugin": 0.8.1
+    "@eslint-community/eslint-plugin-eslint-comments": 4.8.1
+    "@eslint-react/eslint-plugin": 5.22.1
+    "@eslint/compat": 2.1.1
+    "@eslint/config-inspector": 3.5.0
+    "@eslint/css": 2.0.0
     "@eslint/js": 10.0.1
     "@eslint/markdown": 8.0.3
     "@html-eslint/eslint-plugin": 0.65.0
@@ -99,7 +99,7 @@ catalogs:
     "@textlint/types": 15.8.0
     "@unocss/eslint-plugin": 66.10.0
     "@vitest/eslint-plugin": 1.6.27
-    astro-eslint-parser: 3.1.0
+    astro-eslint-parser: 3.2.0
     eslint: 10.8.0
     eslint-config-flat-gitignore: 2.3.0
     eslint-config-prettier: 10.1.8
@@ -152,13 +152,13 @@ catalogs:
     eslint-typegen: 2.3.1
     husky: ^9.1.7
     jsonc-eslint-parser: 3.3.0
-    lint-staged: 17.3.0
-    oxfmt: 0.63.0
-    oxlint: 1.78.0
+    lint-staged: 17.6.0
+    oxfmt: 0.71.0
+    oxlint: 1.86.0
     prettier: 3.9.6
-    publint: 0.3.23
+    publint: 0.3.24
     secretlint: 13.0.5
-    storybook: 10.5.8
+    storybook: 10.6.0
     stylelint: 17.14.1
     stylelint-config-clean-order: 10.0.0
     stylelint-config-standard: 40.0.0
@@ -184,18 +184,18 @@ catalogs:
     textlint-rule-terminology: ^5.2.16
     textlint-rule-write-good: ^2.0.0
     toml-eslint-parser: 1.0.3
-    typescript-eslint: 8.67.0
+    typescript-eslint: 8.71.0
     yaml-eslint-parser: 2.1.0
   monorepo:
-    nx: 23.1.3
+    nx: 23.2.1
   network:
-    browserslist: 4.28.8
+    browserslist: 4.29.2
     browserslist-config-anolilab: 9.0.1
     confusing-browser-globals: ^1.0.11
   node:
     cross-env: ^10.1.0
     execa: ^10.0.1
-    globals: 17.11.0
+    globals: 17.12.0
     pkg-pr-new: 0.0.88
     read-pkg: 10.1.0
     rimraf: 6.1.3
@@ -209,19 +209,19 @@ catalogs:
     cz-conventional-changelog: ^3.3.0
     is-ci: ^4.1.0
     parse-gitignore: ^2.0.0
-    shell-quote: ^1.10.0
+    shell-quote: ^1.11.0
     sort-package-json: 4.0.0
     type-fest: 5.8.0
     write-good: ^1.0.8
   script:
-    tsx: ^4.23.12
+    tsx: ^4.23.15
   style:
     postcss: 8.5.25
-    tailwind-csstree: 0.3.3
+    tailwind-csstree: 0.4.0
   test:
     "@testing-library/dom": ^10.4.1
     "@vitest/coverage-v8": 4.1.11
-    vitest: 4.1.10
+    vitest: 4.1.11
   tsc:
     "@total-typescript/ts-reset": ^0.6.1
     "@visulima/tsconfig": ^3.2.0
@@ -237,7 +237,7 @@ catalogs:
     "@typescript-eslint/parser": 8.66.0
     "@typescript-eslint/types": 8.66.0
   utils:
-    caniuse-lite: 1.0.30001809
+    caniuse-lite: 1.0.30001813
     semver: 7.8.5
   conflicts_lint_10_0_2:
     "@anolilab/prettier-config": 10.0.3

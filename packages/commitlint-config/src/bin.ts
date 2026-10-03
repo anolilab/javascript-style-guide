@@ -98,13 +98,13 @@ void (async () => {
         process.exit(1);
     }
 
-    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
+    const packageJson: unknown = JSON.parse(await readFile(packageJsonPath, "utf8"));
 
     // eslint-disable-next-line no-console
     console.log("Configuring @anolilab/commitlint-config", cwd, "\n");
 
     try {
-        await writeCommitLintConfig(cwd, packageJson.type === "module");
+        await writeCommitLintConfig(cwd, typeof packageJson === "object" && packageJson !== null && "type" in packageJson && packageJson.type === "module");
         await writeCzrc(cwd);
 
         // eslint-disable-next-line no-console

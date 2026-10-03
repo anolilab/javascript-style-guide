@@ -268,7 +268,7 @@ overrides:
   fast-uri@>=3.0.0 <3.1.3: "^4.1.2"
   # GHSA-7p8r-x3mc-p8w7 (host confusion via backslash)
   fast-uri@>=4.0.0 <4.1.2: "^4.1.2"
-  fast-uri@4.1.1: "^4.1.5"
+  fast-uri@4.1.1: "^4.1.2"
 
   follow-redirects@<=1.15.11: ">=1.16.0"
   # GHSA-p3x2-7fjr-vqmv (path traversal)
@@ -292,7 +292,7 @@ overrides:
   # GHSA-2p49-hgcm-8545
   svgo@>=4.0.0 <4.0.2: ">=4.0.2"
   tmp@<0.2.7: ">=0.2.7"
-  undici@<6.23.0: ">=8.10.0"
+  undici@<6.23.0: ">=8.10.2"
   undici@<6.24.0: ">=8.10.0"
   undici@>=7.0.0 <7.28.0: "8.10.0"
   undici@>=8.0.0 <8.5.0: "8.10.0"
@@ -325,8 +325,8 @@ minimumReleaseAgeExclude:
   - "@visulima/rollup-plugin-css@1.0.0-alpha.59"
   - "@visulima/rollup-plugin-dts@1.0.0-alpha.40"
   - "@visulima/tsconfig@3.2.0"
-  # Renovate security update: fast-uri@4.1.5
-  - fast-uri@4.1.5
+  # Renovate security update: undici@8.10.2
+  - undici@8.10.2
 
 blockExoticSubdeps: true
 

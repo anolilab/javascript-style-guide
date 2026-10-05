@@ -526,8 +526,8 @@ catalogs:
       version: 0.4.0
   test:
     '@testing-library/dom':
-      specifier: ^10.4.1
-      version: 10.4.1
+      specifier: ^10.4.2
+      version: 10.4.2
     '@vitest/coverage-v8':
       specifier: 4.1.11
       version: 4.1.11
@@ -583,6 +583,7 @@ overrides:
   axios@<1.18.0: '>=1.19.0'
   axios@>=1.0.0 <1.20.0: '>=1.20.0'
   body-parser@>=2.0.0 <2.3.0: '>=2.3.0'
+  undici@<8.10.2: '>=8.10.2'
   brace-expansion@1: '>=5.0.12'
   brace-expansion@2: '>=5.0.12'
   brace-expansion@>=3.0.0 <5.0.12: '>=5.0.12'
@@ -608,14 +609,13 @@ overrides:
   shell-quote@>=1.1.0 <=1.8.3: '>=1.10.0'
   svgo@>=4.0.0 <4.0.2: '>=4.0.2'
   tmp@<0.2.7: '>=0.2.7'
-  undici@<8.10.2: '>=8.10.2'
-  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
   vite@>=8.0.0 <=8.0.15: '>=8.2.0'
   yaml@>=2.0.0 <2.8.3: '>=2.9.0'
   esbuild@>=0.27.3 <0.28.1: '>=0.28.2'
   moment@>=2.29.2 <2.31.0: '>=2.31.0 <3'
+  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   form-data@>=4.0.0 <4.0.6: '>=4.0.6'
   js-yaml@>=4.0.0 <4.3.0: ^4.3.1
 
@@ -1022,7 +1022,7 @@ importers:
         version: 1.162.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@testing-library/dom':
         specifier: catalog:test
-        version: 10.4.1
+        version: 10.4.2
       '@total-typescript/ts-reset':
         specifier: catalog:tsc
         version: 0.6.1
@@ -4953,6 +4953,10 @@ packages:
 
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
+    engines: {node: '>=18'}
+
+  '@testing-library/dom@10.4.2':
+    resolution: {integrity: sha512-yzr2S9HyAIdhz2/6qHgbs665Q7PKVcDF05vsOlHPxG1mo36gKVesdYVeDLnXgfjJ03CrKRk08knc6+E/9m8v2Q==}
     engines: {node: '>=18'}
 
   '@testing-library/jest-dom@6.9.1':
@@ -16326,6 +16330,17 @@ snapshots:
       - typescript
 
   '@testing-library/dom@10.4.1':
+    dependencies:
+      '@babel/code-frame': 7.29.7
+      '@babel/runtime': 7.29.7
+      '@types/aria-query': 5.0.4
+      aria-query: 5.3.0
+      dom-accessibility-api: 0.5.16
+      lz-string: 1.5.0
+      picocolors: 1.1.1
+      pretty-format: 27.5.1
+
+  '@testing-library/dom@10.4.2':
     dependencies:
       '@babel/code-frame': 7.29.7
       '@babel/runtime': 7.29.7

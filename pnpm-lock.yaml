@@ -180,8 +180,8 @@ catalogs:
       specifier: ^4.4.1
       version: 4.4.1
     '@tanstack/eslint-plugin-query':
-      specifier: 5.102.8
-      version: 5.102.8
+      specifier: 5.104.1
+      version: 5.104.1
     '@tanstack/eslint-plugin-router':
       specifier: 1.162.0
       version: 1.162.0
@@ -583,6 +583,7 @@ overrides:
   axios@<1.18.0: '>=1.19.0'
   axios@>=1.0.0 <1.20.0: '>=1.20.0'
   body-parser@>=2.0.0 <2.3.0: '>=2.3.0'
+  undici@<8.10.2: '>=8.10.2'
   brace-expansion@1: '>=5.0.12'
   brace-expansion@2: '>=5.0.12'
   brace-expansion@>=3.0.0 <5.0.12: '>=5.0.12'
@@ -608,14 +609,13 @@ overrides:
   shell-quote@>=1.1.0 <=1.8.3: '>=1.10.0'
   svgo@>=4.0.0 <4.0.2: '>=4.0.2'
   tmp@<0.2.7: '>=0.2.7'
-  undici@<8.10.2: '>=8.10.2'
-  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
   vite@>=8.0.0 <=8.0.15: '>=8.2.0'
   yaml@>=2.0.0 <2.8.3: '>=2.9.0'
   esbuild@>=0.27.3 <0.28.1: '>=0.28.2'
   moment@>=2.29.2 <2.31.0: '>=2.31.0 <3'
+  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   form-data@>=4.0.0 <4.0.6: '>=4.0.6'
   js-yaml@>=4.0.0 <4.3.0: ^4.3.1
 
@@ -1016,7 +1016,7 @@ importers:
         version: 4.4.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@tanstack/eslint-plugin-query':
         specifier: catalog:lint
-        version: 5.102.8(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 5.104.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@tanstack/eslint-plugin-router':
         specifier: catalog:lint
         version: 1.162.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -4939,6 +4939,15 @@ packages:
 
   '@tanstack/eslint-plugin-query@5.102.8':
     resolution: {integrity: sha512-zRjG2PL3zvoqnsSNJFyfX5Mo+OwRwTbLERwZVO3oNQQn82V949INwaLrprzsOW/ivuow7gASeAUUC24xH7kwSQ==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
+      typescript: ^5.6.0 || ^6.0.0 || ^7.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  '@tanstack/eslint-plugin-query@5.104.1':
+    resolution: {integrity: sha512-7LmiJkxzuy0YrCoL0q5yWz9NsW39h2CeuKjvetjVaFCJ9hrS4UM9TiCEx0rWeLDe6ff1r1KwV+yzclCvzzrnQg==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: ^5.6.0 || ^6.0.0 || ^7.0.0
@@ -16309,6 +16318,16 @@ snapshots:
       defer-to-connect: 2.0.1
 
   '@tanstack/eslint-plugin-query@5.102.8(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.71.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
+    optionalDependencies:
+      typescript: 6.0.3
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@tanstack/eslint-plugin-query@5.104.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/utils': 8.71.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)

@@ -24,8 +24,8 @@ catalogs:
       version: 25.0.9
   default:
     '@anolilab/multi-semantic-release':
-      specifier: 4.4.7
-      version: 4.4.7
+      specifier: 4.4.21
+      version: 4.4.21
     '@commitlint/cli':
       specifier: 21.2.2
       version: 21.2.2
@@ -84,8 +84,8 @@ catalogs:
       specifier: 3.9.6
       version: 3.9.6
     publint:
-      specifier: 0.3.23
-      version: 0.3.23
+      specifier: 0.3.25
+      version: 0.3.25
     read-pkg:
       specifier: 10.1.0
       version: 10.1.0
@@ -463,8 +463,8 @@ catalogs:
       version: 2.1.0
   network:
     browserslist:
-      specifier: 4.29.2
-      version: 4.29.2
+      specifier: 4.29.3
+      version: 4.29.3
     confusing-browser-globals:
       specifier: ^1.0.11
       version: 1.0.11
@@ -522,8 +522,8 @@ catalogs:
       specifier: 8.5.25
       version: 8.5.25
     tailwind-csstree:
-      specifier: 0.4.0
-      version: 0.4.0
+      specifier: 0.4.1
+      version: 0.4.1
   test:
     '@testing-library/dom':
       specifier: ^10.4.1
@@ -571,8 +571,8 @@ catalogs:
       version: 8.66.0
   utils:
     caniuse-lite:
-      specifier: 1.0.30001813
-      version: 1.0.30001813
+      specifier: 1.0.30001814
+      version: 1.0.30001814
     semver:
       specifier: 7.8.5
       version: 7.8.5
@@ -583,41 +583,41 @@ overrides:
   axios@<1.18.0: '>=1.19.0'
   axios@>=1.0.0 <1.20.0: '>=1.20.0'
   body-parser@>=2.0.0 <2.3.0: '>=2.3.0'
+  undici@<8.10.2: '>=8.10.2'
   brace-expansion@1: '>=5.0.12'
   brace-expansion@2: '>=5.0.12'
   brace-expansion@>=3.0.0 <5.0.12: '>=5.0.12'
-  browserslist@<=4.28.6: '>=4.28.7'
+  browserslist@<=4.28.6: '>=4.28.9'
   chrono-node@<2.2.4: '>=2.10.1'
   defu@<=6.1.4: '>=6.1.7'
   eslint-plugin-sonarjs@<4.2.0: '>=4.2.0'
   fast-uri@>=3.0.0 <3.1.3: ^4.1.5
   fast-uri@>=4.0.0 <4.1.5: ^4.1.5
-  follow-redirects@<=1.15.11: '>=1.16.0'
-  '@hono/node-server@<2.0.5': '>=2.1.1'
-  hono@<4.12.27: '>=4.13.2'
-  ip-address@<=10.1.0: '>=10.5.0'
-  js-yaml@>=3.0.0 <3.15.1: ^3.15.1
+  follow-redirects@<=1.15.11: '>=1.16.1'
+  '@hono/node-server@<2.0.5': '>=2.1.3'
+  hono@<4.12.27: '>=4.13.12'
+  ip-address@<=10.1.0: '>=10.5.1'
+  js-yaml@>=3.0.0 <3.15.1: ^3.15.2
   lodash-es@<=4.17.23: '>=4.18.0'
   lodash-es@>=4.0.0 <=4.17.23: '>=4.18.0'
   lodash@<=4.17.23: '>=4.18.0'
   lodash@>=4.0.0 <=4.17.22: '>=4.18.1'
   lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
   nanoid@<5.1.16: '>=5.1.16'
-  picomatch@>=4.0.0 <4.0.4: '>=4.0.5'
+  picomatch@>=4.0.0 <4.0.4: '>=4.0.7'
   postcss@<8.5.10: '>=8.5.25'
   shell-quote@>=1.1.0 <=1.8.3: '>=1.10.0'
   svgo@>=4.0.0 <4.0.2: '>=4.0.2'
   tmp@<0.2.7: '>=0.2.7'
-  undici@<8.10.2: '>=8.10.2'
-  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   vite@>=7.0.0 <=7.3.1: '>=7.3.2'
   vite@>=7.1.0 <=7.3.1: '>=7.3.2'
   vite@>=8.0.0 <=8.0.15: '>=8.2.0'
-  yaml@>=2.0.0 <2.8.3: '>=2.9.0'
+  yaml@>=2.0.0 <2.8.3: '>=2.9.1'
   esbuild@>=0.27.3 <0.28.1: '>=0.28.2'
   moment@>=2.29.2 <2.31.0: '>=2.31.0 <3'
+  http-cache-semantics@<=4.2.0: '>=4.3.0 <5'
   form-data@>=4.0.0 <4.0.6: '>=4.0.6'
-  js-yaml@>=4.0.0 <4.3.0: ^4.3.1
+  js-yaml@>=4.0.0 <4.3.0: ^4.3.2
 
 packageExtensionsChecksum: sha256-MjAIE7G6Co++8ZSfBPkLyV3w3Rk1vr3erem+CmhDnvQ=
 
@@ -627,7 +627,7 @@ importers:
     dependencies:
       '@anolilab/multi-semantic-release':
         specifier: 'catalog:'
-        version: 4.4.7(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)
+        version: 4.4.21(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)
       '@anolilab/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -687,7 +687,7 @@ importers:
         version: 3.9.6
       publint:
         specifier: 'catalog:'
-        version: 0.3.23
+        version: 0.3.25
       read-pkg:
         specifier: 'catalog:'
         version: 10.1.0
@@ -738,10 +738,10 @@ importers:
         version: 2.0.0-alpha.98(@arethetypeswrong/core@0.18.5)(@babel/core@8.0.1)(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(@visulima/css-style-inject@1.0.0-alpha.19)(@visulima/find-cache-dir@3.0.0)(@visulima/packem-rollup@1.0.0-alpha.80(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(esbuild@0.28.2)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(rolldown@1.2.7)(rollup@4.62.2)(smol-toml@1.9.0)(typescript@6.0.3)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.0))(yaml@2.9.0))(esbuild@0.28.2)(github-slugger@2.0.0)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(package-manager-detector@1.8.0)(picomatch@4.0.7)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rolldown@1.2.7)(rollup@4.62.2)(smol-toml@1.9.0)(typescript@6.0.3)(yaml@2.9.0)
       browserslist:
         specifier: catalog:network
-        version: 4.29.2
+        version: 4.29.3
       caniuse-lite:
         specifier: catalog:utils
-        version: 1.0.30001813
+        version: 1.0.30001814
       cross-env:
         specifier: catalog:node
         version: 10.1.0
@@ -1133,7 +1133,7 @@ importers:
         version: 10.6.0(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
       tailwind-csstree:
         specifier: catalog:style
-        version: 0.4.0(@eslint/css@2.0.0)
+        version: 0.4.1(@eslint/css@2.0.0)
       tinyglobby:
         specifier: catalog:node
         version: 0.2.17
@@ -1818,8 +1818,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/multi-semantic-release@4.4.7':
-    resolution: {integrity: sha512-7pmmjwT5kdFUEdreMosfPszko8U3GDNb/iUj3130PkOwMy75TZqM7AZJvpge7iOmedRcPpH79c60Kt+eTrkDMA==}
+  '@anolilab/multi-semantic-release@4.4.21':
+    resolution: {integrity: sha512-o9pKfrK59/ciIKcfjXI7Aw4WX3ZdGpQjKeozac7j73WI+UbNqvfR8QLanOGOWcps81Z0ld1jXRb9t///VAMaZw==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     hasBin: true
@@ -5930,7 +5930,7 @@ packages:
       elysia: '>=1.0'
       express: '>=4.0'
       fastify: '>=4.0'
-      hono: '>=4.13.2'
+      hono: '>=4.13.12'
       next: '>=14.0'
       rotating-file-stream: '>=3.2.9'
     peerDependenciesMeta:
@@ -6711,6 +6711,11 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
+  browserslist@4.29.3:
+    resolution: {integrity: sha512-1R4kiYKXGViqEN0CnoDrXc1StD9niAwu+j2dukWzrD4bJgsD4lDmEp0CRbc6E/vYJIfTHwPmwyaKtVSudICdPA==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
   bser@2.1.1:
     resolution: {integrity: sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==}
 
@@ -6801,6 +6806,9 @@ packages:
 
   caniuse-lite@1.0.30001813:
     resolution: {integrity: sha512-zfjJo4rM0+fUomGDBW/xcDjhIwz/210DGvip2MAMDZ8KHcRPnOHmEgHPZP0UHlZoxr8fYKVJOqcORhYQcG4FKQ==}
+
+  caniuse-lite@1.0.30001814:
+    resolution: {integrity: sha512-/Uaf1lAzr59XcMpW0o96WoEfr+VXK2OX4U9AgFoiSHsVJ4HppnIFUjtYzsyDH2+tgANaQb2/oxYGwCPapN1FpA==}
 
   ccount@1.1.0:
     resolution: {integrity: sha512-vlNK021QdI7PNeiUh/lKkC/mNHHfV0m/Ad5JoI0TYtlBnJAslM/JIkm/tGC88bkLIwO6OQ5uV6ztS6kVAtCDlg==}
@@ -7119,8 +7127,8 @@ packages:
       cosmiconfig: '>=9'
       typescript: '>=5'
 
-  cosmiconfig@10.0.0:
-    resolution: {integrity: sha512-RYs2EfrIoS16yh6j/MLgF753u5rROFFw3XGjcJXM4UQJm1iGXX7gKNyk4O/bCkyfi9Qfo+fVdd3FrnviZv830g==}
+  cosmiconfig@10.0.1:
+    resolution: {integrity: sha512-/zvGoYn0y27QTBmK+0B+oPdEPC4fKGUmJsMTQbDjqph00TrkqfVFW/M+C6ya54sYCgHC6QCwK/mI6djt8cEGHQ==}
     engines: {node: ^22.18 || >= 24}
 
   cosmiconfig@9.0.2:
@@ -8269,7 +8277,7 @@ packages:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
-      picomatch: '>=4.0.5'
+      picomatch: '>=4.0.7'
     peerDependenciesMeta:
       picomatch:
         optional: true
@@ -9379,6 +9387,10 @@ packages:
 
   js-yaml@4.3.2:
     resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
+    hasBin: true
+
+  js-yaml@5.4.2:
+    resolution: {integrity: sha512-m+aqu+LwO1O6sIopafj8HUVl5aawITwZQe/yHpMCKjaWBaA/d07B/QdMb3529REftiU+RMMHL3Vlsw3hON7vWg==}
     hasBin: true
 
   jsdoc-type-pratt-parser@7.3.0:
@@ -10999,8 +11011,8 @@ packages:
     resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
     engines: {node: '>=10'}
 
-  publint@0.3.23:
-    resolution: {integrity: sha512-5MQipUPcB7MWw84zLUkHrg/H/UBtk3LL+A0GngTTBSsiNJLQurMUaSIRG3edlOrRz4UFe0AOKK9TZdIWviV+jQ==}
+  publint@0.3.25:
+    resolution: {integrity: sha512-WMMbn/d7JqRlfXQL/JUI4n5skC8cJ5WVr8/wT5mmiYWkUdENkZr1I5rgs2+dQPVRgoJd+JRYtB46MTsuDylw9g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -11911,8 +11923,8 @@ packages:
       '@eslint/css':
         optional: true
 
-  tailwind-csstree@0.4.0:
-    resolution: {integrity: sha512-EBQfcsJBrRhGLsV/dBc7qIeLzCkOtSb31wNlU6//DUlHO74dcbvyl5sugoI/FeuxtENH5exS+6F5nffe1deDog==}
+  tailwind-csstree@0.4.1:
+    resolution: {integrity: sha512-GOgf0lQhk13norDMdHbW6aK7wd5gFPrArzTkDgJH88w9AVtQQrROUqLVu3sgXqzPBUXIhd+tLASpKqba7+I68g==}
     engines: {node: '>=18.18'}
     peerDependencies:
       '@eslint/css': '>=1.0.0'
@@ -12435,7 +12447,7 @@ packages:
     resolution: {integrity: sha512-pJ2sYawQS0R/WI928Gj5GlPhTGzbMelq0+4INtSYNDV9ErKJcX6xjGWkoG/VnB3dpUm00zALaqkrUD77pO5TDQ==}
     hasBin: true
     peerDependencies:
-      browserslist: '>=4.28.7'
+      browserslist: '>=4.28.9'
 
   update-notifier@6.0.2:
     resolution: {integrity: sha512-EDxhTEVPZZRLWYcJ4ZXjGFN0oP7qYvbXWzEgRm/Yql4dHX5wDbvh89YHP6PK1lzZJYrMtXUuZZz8XGK+U6U1og==}
@@ -12530,7 +12542,7 @@ packages:
       sugarss: ^5.0.0
       terser: ^5.16.0
       tsx: ^4.8.1
-      yaml: '>=2.9.0'
+      yaml: '>=2.9.1'
     peerDependenciesMeta:
       '@types/node':
         optional: true
@@ -13240,15 +13252,14 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/multi-semantic-release@4.4.7(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)':
+  '@anolilab/multi-semantic-release@4.4.21(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)':
     dependencies:
       '@semrel-extra/topo': 1.14.1
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
       '@visulima/path': 3.1.0
-      cosmiconfig: 10.0.0
+      cosmiconfig: 10.0.1
       debug: 4.4.3(supports-color@7.2.0)
       detect-indent: 7.0.2
-      detect-newline: 4.0.1
       execa: 10.0.1
       git-log-parser: 1.2.1
       lodash-es: 4.18.1
@@ -17646,7 +17657,7 @@ snapshots:
       '@visulima/rollup-plugin-css': 1.0.0-alpha.59(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@visulima/css-style-inject@1.0.0-alpha.19)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rollup@4.62.2)(smol-toml@1.9.0)(yaml@2.9.1)
       '@visulima/rollup-plugin-dts': 1.0.0-alpha.40(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(ini@7.0.0)(json5@2.2.3)(rolldown@1.2.7)(rollup@4.62.2)(smol-toml@1.9.0)(typescript@6.0.3)(yaml@2.9.1)
       '@visulima/tsconfig': 3.2.0(ini@7.0.0)(json5@2.2.3)(smol-toml@1.9.0)(yaml@2.9.1)
-      browserslist: 4.29.2
+      browserslist: 4.29.3
       cjs-module-lexer: 2.2.0
       clean-css: 5.3.3
       defu: 6.1.7
@@ -17715,7 +17726,7 @@ snapshots:
       '@visulima/rollup-plugin-css': 1.0.0-alpha.59(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@visulima/css-style-inject@1.0.0-alpha.19)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rollup@4.62.2)(smol-toml@1.9.0)(yaml@2.9.0)
       '@visulima/rollup-plugin-dts': 1.0.0-alpha.40(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(ini@7.0.0)(json5@2.2.3)(rolldown@1.2.7)(rollup@4.62.2)(smol-toml@1.9.0)(typescript@6.0.3)(yaml@2.9.0)
       '@visulima/tsconfig': 3.2.0(ini@7.0.0)(json5@2.2.3)(smol-toml@1.9.0)(yaml@2.9.0)
-      browserslist: 4.29.2
+      browserslist: 4.29.3
       cjs-module-lexer: 2.2.0
       clean-css: 5.3.3
       defu: 6.1.7
@@ -17784,7 +17795,7 @@ snapshots:
       '@visulima/rollup-plugin-css': 1.0.0-alpha.59(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)(@csstools/postcss-slow-plugins@3.0.0(postcss@8.5.25))(@visulima/css-style-inject@1.0.0-alpha.19)(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(lightningcss@1.33.0)(postcss-value-parser@4.2.0)(postcss@8.5.25)(rollup@4.62.2)(smol-toml@1.9.0)(yaml@2.9.1)
       '@visulima/rollup-plugin-dts': 1.0.0-alpha.40(@ts-macro/tsc@0.3.7(rollup@4.62.2)(typescript@6.0.3))(ini@7.0.0)(json5@2.2.3)(rolldown@1.2.7)(rollup@4.62.2)(smol-toml@1.9.0)(typescript@6.0.3)(yaml@2.9.1)
       '@visulima/tsconfig': 3.2.0(ini@7.0.0)(json5@2.2.3)(smol-toml@1.9.0)(yaml@2.9.1)
-      browserslist: 4.29.2
+      browserslist: 4.29.3
       cjs-module-lexer: 2.2.0
       clean-css: 5.3.3
       defu: 6.1.7
@@ -18635,6 +18646,14 @@ snapshots:
       node-releases: 2.0.57
       update-browserslist-db: 1.3.3(browserslist@4.29.2)
 
+  browserslist@4.29.3:
+    dependencies:
+      baseline-browser-mapping: 2.11.27
+      caniuse-lite: 1.0.30001813
+      electron-to-chromium: 1.5.444
+      node-releases: 2.0.57
+      update-browserslist-db: 1.3.3(browserslist@4.29.3)
+
   bser@2.1.1:
     dependencies:
       node-int64: 0.4.0
@@ -18722,6 +18741,8 @@ snapshots:
   camelcase@7.0.1: {}
 
   caniuse-lite@1.0.30001813: {}
+
+  caniuse-lite@1.0.30001814: {}
 
   ccount@1.1.0: {}
 
@@ -19003,7 +19024,7 @@ snapshots:
 
   core-js-compat@3.50.0:
     dependencies:
-      browserslist: 4.29.2
+      browserslist: 4.29.3
 
   core-util-is@1.0.3: {}
 
@@ -19014,10 +19035,10 @@ snapshots:
       jiti: 2.6.1
       typescript: 6.0.3
 
-  cosmiconfig@10.0.0:
+  cosmiconfig@10.0.1:
     dependencies:
       env-paths: 2.2.1
-      js-yaml: 4.3.2
+      js-yaml: 5.4.2
 
   cosmiconfig@9.0.2(typescript@6.0.3):
     dependencies:
@@ -19268,8 +19289,8 @@ snapshots:
 
   doiuse@6.0.6:
     dependencies:
-      browserslist: 4.29.2
-      caniuse-lite: 1.0.30001813
+      browserslist: 4.29.3
+      caniuse-lite: 1.0.30001814
       css-tokenize: 1.0.1
       duplexify: 4.1.3
       multimatch: 5.0.0
@@ -19723,8 +19744,8 @@ snapshots:
     dependencies:
       '@mdn/browser-compat-data': 6.1.5
       ast-metadata-inferer: 0.8.1
-      browserslist: 4.29.2
-      caniuse-lite: 1.0.30001813
+      browserslist: 4.29.3
+      caniuse-lite: 1.0.30001814
       eslint: 10.8.0(jiti@2.7.0)(supports-color@10.2.2)
       find-up: 5.0.0
       globals: 15.15.0
@@ -20290,7 +20311,7 @@ snapshots:
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
       '@eslint/css-tree': 4.1.0
-      browserslist: 4.29.2
+      browserslist: 4.29.3
       change-case: 5.4.4
       ci-info: 4.4.0
       core-js-compat: 3.50.0
@@ -22047,6 +22068,10 @@ snapshots:
       esprima: 4.0.1
 
   js-yaml@4.3.2:
+    dependencies:
+      argparse: 2.0.1
+
+  js-yaml@5.4.2:
     dependencies:
       argparse: 2.0.1
 
@@ -24425,7 +24450,7 @@ snapshots:
 
   proxy-from-env@2.1.0: {}
 
-  publint@0.3.23:
+  publint@0.3.25:
     dependencies:
       '@publint/pack': 0.1.7
       package-manager-detector: 1.8.0
@@ -25566,7 +25591,7 @@ snapshots:
 
   stylelint-no-unsupported-browser-features@8.1.1(stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
-      browserslist: 4.29.2
+      browserslist: 4.29.3
       doiuse: 6.0.6
       postcss: 8.5.25
       stylelint: 17.14.1(supports-color@10.2.2)(typescript@6.0.3)
@@ -25740,7 +25765,7 @@ snapshots:
       '@eslint/css': 1.4.0
     optional: true
 
-  tailwind-csstree@0.4.0(@eslint/css@2.0.0):
+  tailwind-csstree@0.4.1(@eslint/css@2.0.0):
     optionalDependencies:
       '@eslint/css': 2.0.0
 
@@ -26447,6 +26472,12 @@ snapshots:
   update-browserslist-db@1.3.3(browserslist@4.29.2):
     dependencies:
       browserslist: 4.29.2
+      escalade: 3.2.0
+      picocolors: 1.1.1
+
+  update-browserslist-db@1.3.3(browserslist@4.29.3):
+    dependencies:
+      browserslist: 4.29.3
       escalade: 3.2.0
       picocolors: 1.1.1
 

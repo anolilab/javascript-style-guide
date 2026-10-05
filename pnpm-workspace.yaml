@@ -16,6 +16,11 @@ packageExtensions:
     dependencies:
       caniuse-lite: "^1.0.30001809"
 auditConfig:
+  ignoreGhsas:
+    # GHSA-vfj7-8cjw-p6xm (braces stack exhaustion) has no fix: the advisory covers <=3.0.3
+    # and 3.0.3 is the latest published version. Reached only through dev-only micromatch,
+    # whose patterns come from our own config.
+    - GHSA-vfj7-8cjw-p6xm
   ignoreCves:
     - GHSA-v2wj-q39q-566r
     - GHSA-p9ff-h696-f583
@@ -51,7 +56,7 @@ catalog:
   textlint: 15.8.0
   typescript: 6.0.3
   vite: 8.2.0
-  vitest: 4.1.10
+  vitest: 4.1.11
 catalogMode: prefer
 
 catalogs:
@@ -248,15 +253,24 @@ onlyBuiltDependencies:
   - rs-module-lexer
   - unrs-resolver
 overrides:
+  # nx pins smol-toml@1.6.1 exactly; GHSA-7w5x-hrqm-74c2 is fixed in 1.7.1.
+  smol-toml@<1.7.1: ">=1.7.1 <2"
   axios@>=1.0.0 <=1.13.4: ">=1.20.0"
   # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
   axios@<1.18.0: ">=1.19.0"
+  # nx pins axios@1.18.1 exactly, so this range has to cover it too.
+  axios@>=1.0.0 <1.20.0: ">=1.20.0"
   # GHSA-v422-hmwv-36x6
   body-parser@>=2.0.0 <2.3.0: ">=2.3.0"
+  # GHSA-2jfj-6hjv-fm6j, GHSA-3wwx-pv8p-q78v, GHSA-3xpg-4rpp-hhhm, GHSA-pmjh-fq2x-6v4x,
+  # GHSA-rfgv-xxqx-mfg5, GHSA-rx4f-c7p8-82vq, GHSA-vp8m-p9jh-q5pm, GHSA-w293-vg96-wgc3:
+  # vulnerable <8.10.2. A single selector covers every lower range, including the
+  # ^6.23.0 that @actions/http-client@4 declares.
+  undici@<8.10.2: ">=8.10.2"
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
-  brace-expansion@1: ">=5.0.9"
-  brace-expansion@2: ">=5.0.9"
-  brace-expansion@>=3.0.0 <5.0.9: ">=5.0.9"
+  brace-expansion@1: ">=5.0.12"
+  brace-expansion@2: ">=5.0.12"
+  brace-expansion@>=3.0.0 <5.0.12: ">=5.0.12"
   browserslist@<=4.28.6: ">=4.28.7"
   chrono-node@<2.2.4: ">=2.10.1"
   defu@<=6.1.4: ">=6.1.7"
@@ -265,10 +279,9 @@ overrides:
   # lint themselves with the published config, so force the version this workspace uses.
   eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
   # GHSA-32gv-6cf3-8cmc
-  fast-uri@>=3.0.0 <3.1.3: "^4.1.2"
+  fast-uri@>=3.0.0 <3.1.3: "^4.1.5"
   # GHSA-7p8r-x3mc-p8w7 (host confusion via backslash)
-  fast-uri@>=4.0.0 <4.1.2: "^4.1.2"
-  fast-uri@4.1.1: "^4.1.2"
+  fast-uri@>=4.0.0 <4.1.5: "^4.1.5"
 
   follow-redirects@<=1.15.11: ">=1.16.0"
   # GHSA-p3x2-7fjr-vqmv (path traversal)
@@ -292,16 +305,15 @@ overrides:
   # GHSA-2p49-hgcm-8545
   svgo@>=4.0.0 <4.0.2: ">=4.0.2"
   tmp@<0.2.7: ">=0.2.7"
-  undici@<6.23.0: ">=8.10.0"
-  undici@<6.24.0: ">=8.10.0"
-  undici@>=7.0.0 <7.28.0: "8.10.0"
-  undici@>=8.0.0 <8.5.0: "8.10.0"
-  "@actions/http-client>undici": "8.10.0"
   vite@>=7.0.0 <=7.3.1: ">=7.3.2"
   vite@>=7.1.0 <=7.3.1: ">=7.3.2"
   vite@>=8.0.0 <=8.0.15: ">=8.2.0"
   yaml@>=2.0.0 <2.8.3: ">=2.9.0"
   esbuild@>=0.27.3 <0.28.1: ">=0.28.2"
+  # GHSA-4p3w-j4w9-5jqw, vulnerable >=2.29.2 <2.31.0.
+  moment@>=2.29.2 <2.31.0: ">=2.31.0 <3"
+  # GHSA-ch52-4w7c-c8xp; cacheable-request@10 wants ^4.1.1.
+  http-cache-semantics@<=4.2.0: ">=4.3.0 <5"
   form-data@>=4.0.0 <4.0.6: ">=4.0.6"
   # Stay on 4.x: js-yaml 5.x is ESM-only with no default export and breaks
   # multi-semantic-release's `import ... from "js-yaml"`. ^4.3.0 still patches GHSA-52cp-r559-cp3m.

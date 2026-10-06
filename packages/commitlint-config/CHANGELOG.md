@@ -1,3 +1,14 @@
+## @anolilab/commitlint-config [10.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.3...@anolilab/commitlint-config@10.1.4) (2026-10-06)
+
+### Miscellaneous Chores
+
+* **deps:** consolidate pending dependency updates ([#1169](https://github.com/anolilab/javascript-style-guide/issues/1169)) ([ef0ef8e](https://github.com/anolilab/javascript-style-guide/commit/ef0ef8e11717f6ac480d5d587ca0821e980a85fa))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.3
+
 ## @anolilab/commitlint-config [10.1.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.2...@anolilab/commitlint-config@10.1.3) (2026-09-07)
 
 

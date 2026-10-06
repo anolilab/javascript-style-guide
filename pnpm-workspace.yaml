@@ -46,7 +46,7 @@ catalog:
   eslint: 10.8.0
   husky: ^9.1.7
   is-ci: ^4.1.0
-  lint-staged: 17.3.0
+  lint-staged: 17.6.0
   nx: 23.2.1
   pkg-pr-new: 0.0.88
   postcss: 8.5.25
@@ -87,7 +87,7 @@ catalogs:
     "@commitlint/core": 21.2.2
     "@e18e/eslint-plugin": 0.8.1
     "@eslint-community/eslint-plugin-eslint-comments": 4.8.1
-    "@eslint-react/eslint-plugin": 5.22.1
+    "@eslint-react/eslint-plugin": 5.23.5
     "@eslint/compat": 2.1.1
     "@eslint/config-inspector": 3.5.0
     "@eslint/css": 2.0.0
@@ -205,7 +205,7 @@ catalogs:
   node:
     cross-env: ^10.1.0
     execa: ^10.0.1
-    globals: 17.12.0
+    globals: 17.13.0
     pkg-pr-new: 0.0.88
     read-pkg: 10.1.0
     rimraf: 6.1.3
@@ -219,7 +219,7 @@ catalogs:
     cz-conventional-changelog: ^3.3.0
     is-ci: ^4.1.0
     parse-gitignore: ^2.0.0
-    shell-quote: ^1.11.0
+    shell-quote: ^1.12.0
     sort-package-json: 4.0.0
     type-fest: 5.8.0
     write-good: ^1.0.8
@@ -262,7 +262,7 @@ overrides:
   smol-toml@<1.7.1: ">=1.7.1 <2"
   axios@>=1.0.0 <=1.13.4: ">=1.20.0"
   # GHSA-pmv8-rq9r-6j72, GHSA-xj6q-8x83-jv6g, GHSA-42h9-826w-cgv3 — all patched in 1.18.0
-  axios@<1.18.0: ">=1.19.0"
+  axios@<1.18.0: ">=1.20.0"
   # nx pins axios@1.18.1 exactly, so this range has to cover it too.
   axios@>=1.0.0 <1.20.0: ">=1.20.0"
   # GHSA-v422-hmwv-36x6
@@ -271,12 +271,12 @@ overrides:
   # GHSA-rfgv-xxqx-mfg5, GHSA-rx4f-c7p8-82vq, GHSA-vp8m-p9jh-q5pm, GHSA-w293-vg96-wgc3:
   # vulnerable <8.10.2. A single selector covers every lower range, including the
   # ^6.23.0 that @actions/http-client@4 declares.
-  undici@<8.10.2: ">=8.10.2"
+  undici@<8.10.2: ">=8.11.2"
   # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
   brace-expansion@1: ">=5.0.12"
   brace-expansion@2: ">=5.0.12"
   brace-expansion@>=3.0.0 <5.0.12: ">=5.0.12"
-  browserslist@<=4.28.6: ">=4.28.9"
+  browserslist@<=4.28.6: ">=4.29.3"
   chrono-node@<2.2.4: ">=2.10.1"
   defu@<=6.1.4: ">=6.1.7"
   # The published @anolilab/eslint-config pulls sonarjs 4.0.3 transitively, which reads
@@ -284,16 +284,16 @@ overrides:
   # lint themselves with the published config, so force the version this workspace uses.
   eslint-plugin-sonarjs@<4.2.0: ">=4.2.0"
   # GHSA-32gv-6cf3-8cmc
-  fast-uri@>=3.0.0 <3.1.3: "^4.1.5"
+  fast-uri@>=3.0.0 <3.1.3: "^4.2.1"
   # GHSA-7p8r-x3mc-p8w7 (host confusion via backslash)
-  fast-uri@>=4.0.0 <4.1.5: "^4.1.5"
+  fast-uri@>=4.0.0 <4.1.5: "^4.2.1"
 
   follow-redirects@<=1.15.11: ">=1.16.1"
   # GHSA-p3x2-7fjr-vqmv (path traversal)
   "@hono/node-server@<2.0.5": ">=2.1.3"
   # GHSA-xgm2-5f3f-mvvc
   hono@<4.12.27: ">=4.13.12"
-  ip-address@<=10.1.0: ">=10.5.1"
+  ip-address@<=10.1.0: ">=10.7.3"
   # GHSA-5p4m-2wfm-xmqj (Quadratuc CPU in !!omap) — jest's load-nyc-config pulls 3.x.
   # Do not raise to v5; see the js-yaml@>=4.0.0 note below.
   js-yaml@>=3.0.0 <3.15.1: "^3.15.2"
@@ -306,9 +306,9 @@ overrides:
   nanoid@<5.1.16: ">=5.1.16"
   picomatch@>=4.0.0 <4.0.4: ">=4.0.7"
   postcss@<8.5.10: ">=8.5.25"
-  shell-quote@>=1.1.0 <=1.8.3: ">=1.10.0"
+  shell-quote@>=1.1.0 <=1.8.3: ">=1.12.0"
   # GHSA-2p49-hgcm-8545
-  svgo@>=4.0.0 <4.0.2: ">=4.0.2"
+  svgo@>=4.0.0 <4.0.2: ">=4.1.0"
   tmp@<0.2.7: ">=0.2.7"
   vite@>=7.0.0 <=7.3.1: ">=7.3.2"
   vite@>=7.1.0 <=7.3.1: ">=7.3.2"
@@ -327,7 +327,7 @@ overrides:
   # GHSA-68fv-2mgg-jv7q (event-loop DoS), fixed in 1.2.2.
   source-map-js@<1.2.2: ">=1.2.2"
   # GHSA-5gmw-xhrv-c9v3, GHSA-85c8-ppgw-ccpr (critical) — fixed in 2.1.2.
-  tinypool@<2.1.2: ">=2.1.2"
+  tinypool@<2.1.2: ">=2.2.0"
 
 shellEmulator: true
 

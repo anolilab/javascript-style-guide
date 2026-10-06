@@ -1,3 +1,5 @@
+## @anolilab/eslint-config [30.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.3...@anolilab/eslint-config@30.0.4) (2026-10-06)
+
 ## @anolilab/eslint-config [30.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.2...@anolilab/eslint-config@30.0.3) (2026-10-06)
 
 ### Miscellaneous Chores

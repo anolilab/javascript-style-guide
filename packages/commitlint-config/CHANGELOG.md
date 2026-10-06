@@ -1,3 +1,10 @@
+## @anolilab/commitlint-config [10.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.4...@anolilab/commitlint-config@10.1.5) (2026-10-06)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.4
+
 ## @anolilab/commitlint-config [10.1.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.3...@anolilab/commitlint-config@10.1.4) (2026-10-06)
 
 ### Miscellaneous Chores

@@ -11,11 +11,11 @@ catalogs:
       version: 0.28.2
   cli:
     '@anolilab/semantic-release-pnpm':
-      specifier: 8.1.31
-      version: 8.1.31
+      specifier: 8.1.32
+      version: 8.1.32
     '@anolilab/semantic-release-preset':
-      specifier: 13.4.32
-      version: 13.4.32
+      specifier: 13.4.34
+      version: 13.4.34
     commitizen:
       specifier: ^4.3.2
       version: 4.3.2
@@ -24,8 +24,8 @@ catalogs:
       version: 25.0.9
   default:
     '@anolilab/multi-semantic-release':
-      specifier: 4.4.21
-      version: 4.4.21
+      specifier: 4.4.23
+      version: 4.4.23
     '@commitlint/cli':
       specifier: 21.2.2
       version: 21.2.2
@@ -75,8 +75,8 @@ catalogs:
       specifier: 23.2.1
       version: 23.2.1
     pkg-pr-new:
-      specifier: 0.0.88
-      version: 0.0.88
+      specifier: 0.0.90
+      version: 0.0.90
     postcss:
       specifier: 8.5.25
       version: 8.5.25
@@ -595,7 +595,7 @@ overrides:
   fast-uri@>=4.0.0 <4.1.5: ^4.2.1
   follow-redirects@<=1.15.11: '>=1.16.1'
   '@hono/node-server@<2.0.5': '>=2.1.3'
-  hono@<4.12.27: '>=4.13.12'
+  hono@<4.12.27: '>=4.13.13'
   ip-address@<=10.1.0: '>=10.7.3'
   js-yaml@>=3.0.0 <3.15.1: ^3.15.2
   lodash-es@<=4.17.23: '>=4.18.0'
@@ -629,7 +629,7 @@ importers:
     dependencies:
       '@anolilab/multi-semantic-release':
         specifier: 'catalog:'
-        version: 4.4.21(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)
+        version: 4.4.23(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)
       '@anolilab/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -680,7 +680,7 @@ importers:
         version: 23.2.1
       pkg-pr-new:
         specifier: 'catalog:'
-        version: 0.0.88
+        version: 0.0.90
       postcss:
         specifier: 'catalog:'
         version: 8.5.25
@@ -716,10 +716,10 @@ importers:
         version: 6.0.3
       vite:
         specifier: 'catalog:'
-        version: 8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.0)
+        version: 8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)
       vitest:
         specifier: 'catalog:'
-        version: 4.1.11(@types/node@26.1.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.0))
+        version: 4.1.11(@types/node@26.1.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
 
   packages/browserslist-config-anolilab:
     devDependencies:
@@ -728,10 +728,10 @@ importers:
         version: 10.0.2(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -792,10 +792,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -994,10 +994,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1187,10 +1187,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1244,10 +1244,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1289,10 +1289,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1328,10 +1328,10 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1392,10 +1392,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1504,10 +1504,10 @@ importers:
         version: 10.0.3(prettier@3.9.6)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1732,8 +1732,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/multi-semantic-release@4.4.21':
-    resolution: {integrity: sha512-o9pKfrK59/ciIKcfjXI7Aw4WX3ZdGpQjKeozac7j73WI+UbNqvfR8QLanOGOWcps81Z0ld1jXRb9t///VAMaZw==}
+  '@anolilab/multi-semantic-release@4.4.23':
+    resolution: {integrity: sha512-tXie/iVGNAYXLDTwM5wZm4PaBeTrXKzvvRH/qQV6mQvNYdmFaD9csAglfzWCGCDx+OAk4MjrgiBopaK1gYZXhA==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     hasBin: true
@@ -1758,21 +1758,21 @@ packages:
     resolution: {integrity: sha512-e3KBrm9Fr2xCmSyKc17cWyL6jOwHJWciiSb6FbRveAmykn0vwYQT1Bf4BJNkuEhCUXNsJL1aN70czA5atzlGzw==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-clean-package-json@5.5.27':
-    resolution: {integrity: sha512-+tF6Dr2K5adOL7yWrBHYG1EzKrLflysAu+A0rHKXNjCH33S596Kg6/5lOK7WUGWfiDpv9RYPfjxrDGT2a9aBAQ==}
+  '@anolilab/semantic-release-clean-package-json@5.5.28':
+    resolution: {integrity: sha512-dQfpxkB8UqKaa4xlBXB88a0ZSrR3AI78YC8zfKWjC87Nx2tsyZjw9Q+QVJr76iEFvR78fWsO96VHzxkni1R7bA==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-pnpm@8.1.31':
-    resolution: {integrity: sha512-GLPt0ND58mrRdu91DY9RbprXUgZaYirmdO+10WjbI8P4zF8cJLW8RDAR5cIzeG5itAGUzgaH4Mtk0e1xC4D8cQ==}
+  '@anolilab/semantic-release-pnpm@8.1.32':
+    resolution: {integrity: sha512-WPHFn44USBTtbKcnI/fOTYUeCSOYCYQ4v0IzCg0k5OMQGFlc3EUPEW2Ouic8w6cJSVlqnS2x7JEVtRd7gtq1Xg==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-preset@13.4.32':
-    resolution: {integrity: sha512-w700iLea7D8dkaPH/qJZ7kmtKKDLCS2naomzNl1Hrh/fuU9HaQke3jx5Vo4nPeK17ibk/aOY6OFkLdZ62DLiOA==}
+  '@anolilab/semantic-release-preset@13.4.34':
+    resolution: {integrity: sha512-6W404dbKDHpCN23Mdoqw0JuE9WJcZGM1M9/3BYOhlew8ynKRs6rh0M9krRNHJsYqOU6wyJkzJmJmX+lWhAaw0w==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     peerDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.31
-      '@semantic-release/npm': 13.1.5
+      '@anolilab/semantic-release-pnpm': 8.1.32
+      '@semantic-release/npm': 13.2.0
       semantic-release: 25.0.9
       semantic-release-yarn: ^3.0.2
     peerDependenciesMeta:
@@ -3084,6 +3084,12 @@ packages:
 
   '@octokit/plugin-paginate-rest@14.0.0':
     resolution: {integrity: sha512-fNVRE7ufJiAA3XUrha2omTA39M6IXIc6GIZLvlbsm8QOQCYvpq/LkMNGyFlB1d8hTDzsAXa3OKtybdMAYsV/fw==}
+    engines: {node: '>= 20'}
+    peerDependencies:
+      '@octokit/core': '>=6'
+
+  '@octokit/plugin-paginate-rest@15.0.0':
+    resolution: {integrity: sha512-lw9A9YL5s4VPj+VEx8uMxaxQm2YTgrPDkrLEuZuu18R8TK3oPcXF4K6t52nx6xn1RcogZC9i188sAr/4XYJaQQ==}
     engines: {node: '>= 20'}
     peerDependencies:
       '@octokit/core': '>=6'
@@ -4707,6 +4713,12 @@ packages:
     peerDependencies:
       semantic-release: '>=20.1.0'
 
+  '@semantic-release/github@12.0.10':
+    resolution: {integrity: sha512-QskygvpX8hFx9UEbqJ+C46OIhaJjsysNQ8PYJPuRDc/ek5+dh8WYGD1ofUahCcGLAOmnnwZTcmCJCEXM8XxhRw==}
+    engines: {node: ^22.14.0 || >= 24.10.0}
+    peerDependencies:
+      semantic-release: '>=24.1.0'
+
   '@semantic-release/github@12.0.9':
     resolution: {integrity: sha512-ODIqb0V3QqndipryEEiaBxUQCFjvv7Oese5Dt4omMGa60YRNEW0Sx3K+zri0uac2Y6S9nOlMehciWIzvvRCTGQ==}
     engines: {node: ^22.14.0 || >= 24.10.0}
@@ -5542,6 +5554,25 @@ packages:
       yaml:
         optional: true
 
+  '@visulima/fs@6.0.18':
+    resolution: {integrity: sha512-9i1ylvVpKwowZusVxFzD8BTNGbHdWfzC3mTqID8vrcvV5FQ5cHSu12tCa/33EdrxBM/N2iQrkrtyik2iCq9ddQ==}
+    engines: {node: ^22.14.0 || >=24.10.0}
+    os: [darwin, linux, win32]
+    peerDependencies:
+      ini: ^7.0.0
+      json5: ^2.2.3
+      jsonc-parser: ^3.3.1
+      smol-toml: ^1.7.1
+    peerDependenciesMeta:
+      ini:
+        optional: true
+      json5:
+        optional: true
+      jsonc-parser:
+        optional: true
+      smol-toml:
+        optional: true
+
   '@visulima/fs@6.0.7':
     resolution: {integrity: sha512-RZGvDlMjN0AugQ3f9V9/OaDbj0KXu2IqHFh81hL3XjqAsSGNLLpGdgtIfY/JbMobaSJT76ivQs/gZWfUkFcm5g==}
     engines: {node: ^22.14.0 || >=24.10.0}
@@ -5600,6 +5631,11 @@ packages:
 
   '@visulima/package@5.0.21':
     resolution: {integrity: sha512-YX//NFvxxhSNZDKPVenbbcvWvEp+O9TKPp0MQNsU5IFhy4gIYJRKaYJa3P/OOEYYvd3MB12hbRwFO6Xbb5oOhQ==}
+    engines: {node: ^22.14.0 || >=24.10.0}
+    os: [darwin, linux, win32]
+
+  '@visulima/package@5.0.31':
+    resolution: {integrity: sha512-hth405IWJe+oikG46T0H5lwDsjkvCpLNjwVPZ+/Anct9/amDQ5Xzbv8MC4mGMuygjiPzv8eJ5OMn5M7U+YhpQQ==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
 
@@ -5736,7 +5772,7 @@ packages:
       elysia: '>=1.0'
       express: '>=4.0'
       fastify: '>=4.0'
-      hono: '>=4.13.12'
+      hono: '>=4.13.13'
       next: '>=14.0'
       rotating-file-stream: '>=3.2.9'
     peerDependenciesMeta:
@@ -10629,8 +10665,8 @@ packages:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
 
-  pkg-pr-new@0.0.88:
-    resolution: {integrity: sha512-Xc6PMJ2gher0WZP+rtjefFk26hIb7V1PTLL30bmy1Z2vsRmSvqiss7Ag1XUdyplTGYzIlFNJp4L3vMNmK44N6g==}
+  pkg-pr-new@0.0.90:
+    resolution: {integrity: sha512-koirj8hzOS1t86OHIunQL/ezeimuCegmtcoNJTGqaFbjWSUbM5U+uKfFqu5Q2kxC/odCAZknaf2tFmfLsbchiw==}
     hasBin: true
 
   pkg-types@1.3.1:
@@ -11949,6 +11985,10 @@ packages:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
 
+  type-fest@5.10.0:
+    resolution: {integrity: sha512-NoSdpq/WEiAg5sjmBkmV/hfxv6HJH4NqPNrqjtSO5CwRmpsDfaf4begxW34KdJykH/l1yHtwBWQkCRdoXO8mPA==}
+    engines: {node: '>=20'}
+
   type-fest@5.8.0:
     resolution: {integrity: sha512-YGYEVz3Fm5iy/AybuA0oyNFq7H4CgQNfRp/qfe8nurE1kuCeNm3/vfm9X4Mtl+qLyaKJUh5xrFZwogr41SMjYA==}
     engines: {node: '>=20'}
@@ -12534,6 +12574,10 @@ packages:
     resolution: {integrity: sha512-2rAgRKu54VsHkqI0/tYkmluGXHD4KW7yZoycuqDQ15QOTnc2VVfy0nN/1eMhnQLO00A+dwtK20xuCnc1YGeUyg==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
 
+  yargs@18.2.0:
+    resolution: {integrity: sha512-9OpKOLeaoNFecEp7P6iYbzze/5CqWoH7N3SMs/6y1XF4nMvFMspEGZzJ6uFi9MmQwXhyzqYoSEKO3tvA3Z/o2w==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=23}
+
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
@@ -12885,10 +12929,10 @@ snapshots:
       - vitest
       - yaml
 
-  '@anolilab/multi-semantic-release@4.4.21(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)':
+  '@anolilab/multi-semantic-release@4.4.23(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@7.2.0)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@7.2.0)':
     dependencies:
       '@semrel-extra/topo': 1.14.1
-      '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
+      '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
       '@visulima/path': 3.1.0
       cosmiconfig: 10.0.1
       debug: 4.4.3(supports-color@7.2.0)
@@ -12901,8 +12945,8 @@ snapshots:
       semver: 7.8.5
       signale: 1.4.0
       stream-buffers: 3.0.3
-      yaml: 2.9.0
-      yargs: 18.1.0
+      yaml: 2.9.1
+      yargs: 18.2.0
     transitivePeerDependencies:
       - ini
       - json5
@@ -12923,13 +12967,13 @@ snapshots:
       ini: 7.0.0
       ts-deepmerge: 8.0.0
 
-  '@anolilab/semantic-release-clean-package-json@5.5.27(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)':
+  '@anolilab/semantic-release-clean-package-json@5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)':
     dependencies:
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
       '@visulima/path': 3.1.0
       detect-indent: 7.0.2
-      type-fest: 5.8.0
+      type-fest: 5.10.0
     transitivePeerDependencies:
       - ini
       - json5
@@ -12937,13 +12981,13 @@ snapshots:
       - smol-toml
       - yaml
 
-  '@anolilab/semantic-release-clean-package-json@5.5.27(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)':
+  '@anolilab/semantic-release-clean-package-json@5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)':
     dependencies:
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
       '@visulima/path': 3.1.0
       detect-indent: 7.0.2
-      type-fest: 5.8.0
+      type-fest: 5.10.0
     transitivePeerDependencies:
       - ini
       - json5
@@ -12951,13 +12995,13 @@ snapshots:
       - smol-toml
       - yaml
 
-  '@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)':
+  '@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)':
     dependencies:
       '@actions/core': 3.0.1
       '@anolilab/rc': 4.0.9
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
-      '@visulima/package': 5.0.21(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
+      '@visulima/package': 5.0.31(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 3.1.0
       debug: 4.4.3(supports-color@10.2.2)
       detect-indent: 7.0.2
@@ -12974,13 +13018,13 @@ snapshots:
       - supports-color
       - yaml
 
-  '@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
+  '@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
     dependencies:
       '@actions/core': 3.0.1
       '@anolilab/rc': 4.0.9
       '@semantic-release/error': 4.0.0
       '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
-      '@visulima/package': 5.0.21(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
+      '@visulima/package': 5.0.31(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 3.1.0
       debug: 4.4.3(supports-color@10.2.2)
       detect-indent: 7.0.2
@@ -12997,20 +13041,19 @@ snapshots:
       - supports-color
       - yaml
 
-  '@anolilab/semantic-release-preset@13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)':
+  '@anolilab/semantic-release-preset@13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)':
     dependencies:
-      '@anolilab/semantic-release-clean-package-json': 5.5.27(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
+      '@anolilab/semantic-release-clean-package-json': 5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.0)
       '@semantic-release/changelog': 7.0.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/exec': 7.1.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/git': 11.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
-      '@semantic-release/github': 12.0.9(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
+      '@semantic-release/github': 12.0.10(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       conventional-changelog-conventionalcommits: 9.3.1
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
     optionalDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
-      '@semantic-release/npm': 13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
+      '@anolilab/semantic-release-pnpm': 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.0)
     transitivePeerDependencies:
       - ini
       - json5
@@ -13020,20 +13063,19 @@ snapshots:
       - supports-color
       - yaml
 
-  '@anolilab/semantic-release-preset@13.4.32(@anolilab/semantic-release-pnpm@8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
+  '@anolilab/semantic-release-preset@13.4.34(@anolilab/semantic-release-pnpm@8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
     dependencies:
-      '@anolilab/semantic-release-clean-package-json': 5.5.27(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
+      '@anolilab/semantic-release-clean-package-json': 5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
       '@semantic-release/changelog': 7.0.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/exec': 7.1.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/git': 11.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
-      '@semantic-release/github': 12.0.9(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
+      '@semantic-release/github': 12.0.10(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/release-notes-generator': 14.1.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       conventional-changelog-conventionalcommits: 9.3.1
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
     optionalDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.31(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
-      '@semantic-release/npm': 13.1.5(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
+      '@anolilab/semantic-release-pnpm': 8.1.32(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
     transitivePeerDependencies:
       - ini
       - json5
@@ -14626,6 +14668,11 @@ snapshots:
       '@octokit/core': 7.0.8
       '@octokit/types': 16.0.0
 
+  '@octokit/plugin-paginate-rest@15.0.0(@octokit/core@7.0.8)':
+    dependencies:
+      '@octokit/core': 7.0.8
+      '@octokit/types': 17.0.0
+
   '@octokit/plugin-retry@8.1.1(@octokit/core@7.0.8)':
     dependencies:
       '@octokit/core': 7.0.8
@@ -15670,6 +15717,30 @@ snapshots:
       p-reduce: 3.0.0
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
     transitivePeerDependencies:
+      - supports-color
+
+  '@semantic-release/github@12.0.10(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)':
+    dependencies:
+      '@octokit/core': 7.0.8
+      '@octokit/plugin-paginate-rest': 15.0.0(@octokit/core@7.0.8)
+      '@octokit/plugin-retry': 8.1.1(@octokit/core@7.0.8)
+      '@octokit/plugin-throttling': 11.0.5(@octokit/core@7.0.8)
+      '@semantic-release/error': 4.0.0
+      aggregate-error: 5.0.0
+      debug: 4.4.3(supports-color@10.2.2)
+      dir-glob: 3.0.1
+      http-proxy-agent: 9.1.0(supports-color@10.2.2)
+      https-proxy-agent: 9.1.0(supports-color@10.2.2)
+      issue-parser: 7.0.2
+      lodash-es: 4.18.1
+      mime: 4.1.0
+      p-filter: 4.1.0
+      semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
+      tinyglobby: 0.2.17
+      undici: 8.11.2
+      url-join: 5.0.0
+    transitivePeerDependencies:
+      - kerberos
       - supports-color
 
   '@semantic-release/github@12.0.9(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)':
@@ -16919,6 +16990,16 @@ snapshots:
       smol-toml: 1.9.0
       yaml: 2.9.1
 
+  '@visulima/fs@6.0.18(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)':
+    dependencies:
+      '@visulima/path': 4.0.0
+      '@visulima/yaml': 1.0.0
+    optionalDependencies:
+      ini: 7.0.0
+      json5: 2.2.3
+      jsonc-parser: 3.3.1
+      smol-toml: 1.9.0
+
   '@visulima/fs@6.0.7(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)':
     dependencies:
       '@visulima/path': 4.0.0
@@ -16973,6 +17054,19 @@ snapshots:
     dependencies:
       '@antfu/install-pkg': 2.0.1
       '@visulima/fs': 6.0.8(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
+      '@visulima/path': 4.0.0
+      json5: 2.2.3
+      normalize-package-data: 9.0.0
+      yaml: 2.9.0
+    transitivePeerDependencies:
+      - ini
+      - jsonc-parser
+      - smol-toml
+
+  '@visulima/package@5.0.31(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)':
+    dependencies:
+      '@antfu/install-pkg': 2.0.1
+      '@visulima/fs': 6.0.18(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 4.0.0
       json5: 2.2.3
       normalize-package-data: 9.0.0
@@ -17469,7 +17563,7 @@ snapshots:
       obug: 2.1.4
       std-env: 4.2.0
       tinyrainbow: 3.1.1
-      vitest: 4.1.11(@types/node@26.1.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.0))
+      vitest: 4.1.11(@types/node@26.1.1)(@vitest/coverage-v8@4.1.11)(vite@8.2.0(@types/node@26.1.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
 
   '@vitest/eslint-plugin@1.6.26(@typescript-eslint/eslint-plugin@8.66.0(@typescript-eslint/parser@8.66.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@4.1.11)':
     dependencies:
@@ -23649,7 +23743,7 @@ snapshots:
     dependencies:
       find-up: 4.1.0
 
-  pkg-pr-new@0.0.88: {}
+  pkg-pr-new@0.0.90: {}
 
   pkg-types@1.3.1:
     dependencies:
@@ -25410,6 +25504,10 @@ snapshots:
 
   type-fest@4.41.0: {}
 
+  type-fest@5.10.0:
+    dependencies:
+      tagged-tag: 1.0.0
+
   type-fest@5.8.0:
     dependencies:
       tagged-tag: 1.0.0
@@ -26178,6 +26276,15 @@ snapshots:
       yargs-parser: 21.1.1
 
   yargs@18.1.0:
+    dependencies:
+      cliui: 9.0.1
+      escalade: 3.2.0
+      get-caller-file: 2.0.5
+      string-width: 8.2.2
+      y18n: 5.0.8
+      yargs-parser: 22.0.0
+
+  yargs@18.2.0:
     dependencies:
       cliui: 9.0.1
       escalade: 3.2.0

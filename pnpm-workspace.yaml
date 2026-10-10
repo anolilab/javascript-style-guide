@@ -49,7 +49,7 @@ catalog:
   lint-staged: 17.6.0
   nx: 23.2.1
   pkg-pr-new: 0.0.88
-  postcss: 8.5.25
+  postcss: 8.5.29
   prettier: 3.9.6
   publint: 0.3.25
   read-pkg: 10.1.0
@@ -174,7 +174,7 @@ catalogs:
     stylelint-config-standard: 40.0.0
     stylelint-declaration-block-no-ignored-properties: 3.0.0
     stylelint-high-performance-animation: 2.0.0
-    stylelint-no-unsupported-browser-features: 8.1.1
+    stylelint-no-unsupported-browser-features: 8.1.2
     stylelint-require-units: ^2.0.0
     stylelint-selector-no-empty: ^1.0.9
     textlint: 15.8.0
@@ -226,7 +226,7 @@ catalogs:
   script:
     tsx: ^4.23.15
   style:
-    postcss: 8.5.25
+    postcss: 8.5.29
     tailwind-csstree: 0.4.1
   test:
     "@testing-library/dom": ^10.4.1
@@ -305,7 +305,7 @@ overrides:
   # GHSA-2v37-7h3g-55p8 (custom generators loop indefinitely when size is zero)
   nanoid@<5.1.16: ">=5.1.16"
   picomatch@>=4.0.0 <4.0.4: ">=4.0.7"
-  postcss@<8.5.10: ">=8.5.25"
+  postcss@<8.5.10: ">=8.5.29"
   shell-quote@>=1.1.0 <=1.8.3: ">=1.12.0"
   # GHSA-2p49-hgcm-8545
   svgo@>=4.0.0 <4.0.2: ">=4.1.0"

@@ -1,3 +1,13 @@
+## @anolilab/lint-staged-config [12.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@12.0.3...@anolilab/lint-staged-config@12.0.4) (2026-10-12)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.5
+* **eslint:** 10.8.0 → 10.8.1
+* **@visulima/fs:** 5.0.5 → 5.0.11
+* **@visulima/package:** ^5.0.5 → ^5.0.42
+
 ## @anolilab/lint-staged-config [12.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@12.0.2...@anolilab/lint-staged-config@12.0.3) (2026-10-06)
 
 

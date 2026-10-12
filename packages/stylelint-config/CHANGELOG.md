@@ -1,3 +1,12 @@
+## @anolilab/stylelint-config [11.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.1.1...@anolilab/stylelint-config@11.1.2) (2026-10-12)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.5
+* **stylelint-no-unsupported-browser-features:** 8.1.1 → 8.1.2
+* **postcss:** 8.5.25 → 8.5.29
+
 ## @anolilab/stylelint-config [11.1.1](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fstylelint-config%4011.1.0...%40anolilab%2Fstylelint-config%4011.1.1) (2026-08-10)
 
 

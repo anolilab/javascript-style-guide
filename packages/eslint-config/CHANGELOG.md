@@ -1,3 +1,30 @@
+## @anolilab/eslint-config [30.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.4...@anolilab/eslint-config@30.0.5) (2026-10-12)
+
+### Bug Fixes
+
+* **deps:** update eslint ([d76127d](https://github.com/anolilab/javascript-style-guide/commit/d76127d59404dc7efec302b4182a5273248e88fd))
+
+### Miscellaneous Chores
+
+* **deps:** combine open Renovate updates into renovate/combined ([1e81558](https://github.com/anolilab/javascript-style-guide/commit/1e81558011d11c15132f47dd159991b6373ac56b))
+
+
+### Dependencies
+
+* **@eslint-react/eslint-plugin:** 5.23.5 → 5.24.10
+* **eslint-plugin-es-x:** 10.0.0 → 10.0.1
+* **eslint-plugin-jsonc:** 3.4.1 → 3.4.2
+* **eslint-plugin-perfectionist:** 5.10.0 → 5.10.1
+* **eslint-plugin-react-refresh:** 0.5.3 → 0.5.7
+* **eslint-plugin-react-you-might-not-need-an-effect:** 1.0.1 → 1.0.2
+* **eslint-plugin-sonarjs:** 4.2.0 → 4.2.2
+* **eslint-plugin-storybook:** 10.5.3 → 10.5.10
+* **eslint-plugin-tsdoc:** 0.5.2 → 0.5.4
+* **eslint-plugin-zod:** 4.9.0 → 4.9.1
+* **@visulima/fs:** 5.0.5 → 5.0.11
+* **@visulima/package:** ^5.0.5 → ^5.0.42
+* **@visulima/tsconfig:** ^3.2.0 → ^3.2.36
+
 ## @anolilab/eslint-config [30.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.3...@anolilab/eslint-config@30.0.4) (2026-10-06)
 
 ## @anolilab/eslint-config [30.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.2...@anolilab/eslint-config@30.0.3) (2026-10-06)

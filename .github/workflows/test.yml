@@ -9,7 +9,7 @@ jobs:
     test:
         permissions:
             contents: "read"
-        uses: "anolilab/workflows/.github/workflows/test.yml@2bd348c5c236a10db670232e5b08619ccbaf55b3" # v21.0.5
+        uses: "anolilab/workflows/.github/workflows/test.yml@52ac50a94d1eb79f1f13a11d595a585ead491cc2" # v23.0.7
         with:
             node_versions: '["22", "24"]'
             os_matrix: '["ubuntu-latest"]'

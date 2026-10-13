@@ -1,3 +1,18 @@
+## @anolilab/lint-staged-config [13.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@12.0.4...@anolilab/lint-staged-config@13.0.0) (2026-10-13)
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** updated dependencies to major versions
+
+### Miscellaneous Chores
+
+* **deps:** update dependency vitest to v5 ([ceb4695](https://github.com/anolilab/javascript-style-guide/commit/ceb4695d752267013ec47f8698c1fd89626649b6))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.6
+
 ## @anolilab/lint-staged-config [12.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@12.0.3...@anolilab/lint-staged-config@12.0.4) (2026-10-12)
 
 

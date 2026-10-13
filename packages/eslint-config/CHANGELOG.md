@@ -1,3 +1,10 @@
+## @anolilab/eslint-config [30.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.5...@anolilab/eslint-config@30.0.6) (2026-10-13)
+
+
+### Dependencies
+
+* **typescript-eslint:** 8.71.0 → 8.71.1
+
 ## @anolilab/eslint-config [30.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.4...@anolilab/eslint-config@30.0.5) (2026-10-12)
 
 ### Bug Fixes

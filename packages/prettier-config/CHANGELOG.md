@@ -1,3 +1,10 @@
+## @anolilab/prettier-config [10.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@10.0.3...@anolilab/prettier-config@10.0.4) (2026-10-13)
+
+
+### Dependencies
+
+* **prettier:** 3.9.6 → 3.9.10
+
 ## @anolilab/prettier-config [10.0.3](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fprettier-config%4010.0.2...%40anolilab%2Fprettier-config%4010.0.3) (2026-08-10)
 
 ## @anolilab/prettier-config [10.0.2](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Fprettier-config%4010.0.1...%40anolilab%2Fprettier-config%4010.0.2) (2026-07-20)

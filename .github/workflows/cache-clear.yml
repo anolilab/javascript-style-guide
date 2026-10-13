@@ -11,6 +11,6 @@ permissions:
 
 jobs:
     cleanup-branch-cache:
-        uses: "anolilab/workflows/.github/workflows/cleanup-branch-cache.yaml@2bd348c5c236a10db670232e5b08619ccbaf55b3" # v21.0.5 # main
+        uses: "anolilab/workflows/.github/workflows/cleanup-branch-cache.yaml@b5d611c5dda8645e93f2407e3d3fee250a9f5376" # v24.1.0 # main
         with:
             target-repo: "anolilab/javascript-style-guide"

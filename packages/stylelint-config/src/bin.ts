@@ -71,13 +71,13 @@ void (async () => {
         exit(1);
     }
 
-    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8")) as { type?: string };
+    const packageJson: unknown = JSON.parse(await readFile(packageJsonPath, "utf8"));
 
     // eslint-disable-next-line no-console
     console.log("Configuring @anolilab/stylelint-config", cwd, "\n");
 
     try {
-        await writeStylelintRc(cwd, packageJson.type === "module");
+        await writeStylelintRc(cwd, typeof packageJson === "object" && packageJson !== null && "type" in packageJson && packageJson.type === "module");
         await writeStylelintIgnore(cwd);
 
         // eslint-disable-next-line no-console

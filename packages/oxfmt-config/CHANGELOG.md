@@ -1,3 +1,11 @@
+## @anolilab/oxfmt-config [1.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxfmt-config@1.0.6...@anolilab/oxfmt-config@1.0.7) (2026-10-16)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.7
+* **oxfmt:** 0.72.0 → 0.73.0
+
 ## @anolilab/oxfmt-config [1.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxfmt-config@1.0.5...@anolilab/oxfmt-config@1.0.6) (2026-10-12)
 
 

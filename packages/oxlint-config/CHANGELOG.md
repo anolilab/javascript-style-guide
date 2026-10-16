@@ -1,3 +1,11 @@
+## @anolilab/oxlint-config [1.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@1.0.4...@anolilab/oxlint-config@1.0.5) (2026-10-16)
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 30.0.7
+* **oxlint:** 1.87.0 → 1.88.0
+
 ## @anolilab/oxlint-config [1.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@1.0.3...@anolilab/oxlint-config@1.0.4) (2026-10-12)
 
 

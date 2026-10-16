@@ -31,7 +31,7 @@ auditConfig:
     - GHSA-p9ff-h696-f583
     - GHSA-4w7w-66w2-5vf9
 catalog:
-  "@anolilab/multi-semantic-release": 4.4.23
+  "@anolilab/multi-semantic-release": 4.4.24
   "@commitlint/cli": 21.2.2
   "@commitlint/config-conventional": 21.2.2
   "@commitlint/core": 21.2.2
@@ -69,9 +69,9 @@ catalogs:
     esbuild: 0.28.2
     vite: 8.2.0
   cli:
-    "@anolilab/multi-semantic-release": 4.4.23
-    "@anolilab/semantic-release-pnpm": 8.1.32
-    "@anolilab/semantic-release-preset": 13.4.34
+    "@anolilab/multi-semantic-release": 4.4.24
+    "@anolilab/semantic-release-pnpm": 8.1.33
+    "@anolilab/semantic-release-preset": 13.4.35
     commitizen: ^4.3.2
     semantic-release: 25.0.9
   dev:
@@ -80,7 +80,7 @@ catalogs:
   frontend:
     react: 19.3.0
   lint:
-    "@anolilab/eslint-config": 30.0.4
+    "@anolilab/eslint-config": 30.0.6
     "@anolilab/prettier-config": 10.0.3
     "@commitlint/cli": 21.2.2
     "@commitlint/config-conventional": 21.2.2
@@ -204,7 +204,7 @@ catalogs:
     confusing-browser-globals: ^1.0.11
   node:
     cross-env: ^10.1.0
-    execa: ^10.1.0
+    execa: ^10.1.1
     globals: 17.13.0
     pkg-pr-new: 0.0.91
     read-pkg: 10.1.0
@@ -247,7 +247,7 @@ catalogs:
     "@typescript-eslint/parser": 8.66.0
     "@typescript-eslint/types": 8.66.0
   utils:
-    caniuse-lite: 1.0.30001815
+    caniuse-lite: 1.0.30001816
     semver: 7.8.5
   conflicts_lint_10_0_2:
     "@anolilab/prettier-config": 10.0.3
@@ -277,7 +277,7 @@ overrides:
   brace-expansion@2: ">=5.0.12"
   brace-expansion@>=3.0.0 <5.0.12: ">=5.0.12"
   browserslist@<=4.28.6: ">=4.29.3"
-  chrono-node@<2.2.4: ">=2.10.2"
+  chrono-node@<2.2.4: ">=2.10.3"
   defu@<=6.1.4: ">=6.1.7"
   # The published @anolilab/eslint-config pulls sonarjs 4.0.3 transitively, which reads
   # AST_NODE_TYPES.FunctionType at load and crashes against eslint 10.7. Sibling packages
@@ -290,10 +290,10 @@ overrides:
 
   follow-redirects@<=1.15.11: ">=1.16.1"
   # GHSA-p3x2-7fjr-vqmv (path traversal)
-  "@hono/node-server@<2.0.5": ">=2.1.4"
+  "@hono/node-server@<2.0.5": ">=2.1.5"
   # GHSA-xgm2-5f3f-mvvc
   hono@<4.12.27: ">=4.13.13"
-  ip-address@<=10.1.0: ">=10.7.3"
+  ip-address@<=10.1.0: ">=10.7.4"
   # GHSA-5p4m-2wfm-xmqj (Quadratuc CPU in !!omap) — jest's load-nyc-config pulls 3.x.
   # Do not raise to v5; see the js-yaml@>=4.0.0 note below.
   js-yaml@>=3.0.0 <3.15.1: "^3.15.2"

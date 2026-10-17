@@ -1,3 +1,13 @@
+## @anolilab/eslint-config [30.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.6...@anolilab/eslint-config@30.0.7) (2026-10-16)
+
+
+### Dependencies
+
+* **@eslint-react/eslint-plugin:** 5.24.10 → 5.26.5
+* **@tanstack/eslint-plugin-query:** 5.104.1 → 5.104.2
+* **@unocss/eslint-plugin:** 66.10.0 → 66.11.0
+* **typescript-eslint:** 8.71.1 → 8.71.2
+
 ## @anolilab/eslint-config [30.0.6](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.5...@anolilab/eslint-config@30.0.6) (2026-10-13)
 
 

@@ -44,11 +44,11 @@ jobs:
 
             - name: "Derive appropriate SHAs for base and head for `nx affected` commands"
               id: "setSHAs"
-              uses: "nrwl/nx-set-shas@afb73a62d26e41464e9254689e1fd6122ee683c1" # v5.0.1
+              uses: "nrwl/nx-set-shas@e602fada7ad5987b0f7b1905e7a99ea1c661514c" # v5.1.0
 
             - name: "Setup resources and environment"
               id: "setup"
-              uses: "anolilab/workflows/step/setup@b5d611c5dda8645e93f2407e3d3fee250a9f5376" # v24.1.0 # main
+              uses: "anolilab/workflows/step/setup@fb7a881926480723026a1deaa587ceaaaee7bf12" # v24.2.0 # main
               with:
                   run-signatures-audit: "false"
                   node-version: "22.x"

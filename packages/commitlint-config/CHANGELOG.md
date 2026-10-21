@@ -1,3 +1,21 @@
+## @anolilab/commitlint-config [11.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.5...@anolilab/commitlint-config@11.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 31.0.0
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+* **@commitlint/config-conventional:** 21.2.2 → 21.2.4
+* **@commitlint/core:** 21.2.2 → 21.2.4
+
 ## @anolilab/commitlint-config [10.1.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/commitlint-config@10.1.4...@anolilab/commitlint-config@10.1.5) (2026-10-06)
 
 

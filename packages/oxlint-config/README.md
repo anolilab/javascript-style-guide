@@ -96,14 +96,16 @@ Relax or tighten individual rules on top of the shared base:
   information run through [`oxlint-tsgolint`](https://www.npmjs.com/package/oxlint-tsgolint). That
   package must be installed next to `oxlint`. A consumer that sets its own `options` keeps this
   setting.
-- **React Doctor.** Its rules are enabled except the 68 that oxlint already runs natively under the
-  same name (`jsx-a11y/*`, `react/*`, `no-eval`), so no finding is reported twice. Where React
-  Doctor's severity was stricter than the native rule's, the native rule is pinned to it (for
-  example `react/rules-of-hooks` is `error`). The 12 remaining React Doctor rules with an ESLint
-  counterpart are `error` and turn that counterpart off, but only when its ESLint plugin is loaded.
-  The rest are `warn`.
+- **Severity parity.** Every rule that `@anolilab/eslint-config` runs at `error` or `warn` runs here at
+  the same severity. Rules from the `style`, `restriction` and `nursery` categories that ESLint enables are
+  listed explicitly.
+- **React Doctor.** Its rules are enabled except the 80 that oxlint already runs natively under the
+  same name (for example `jsx-a11y/alt-text`, `react/rules-of-hooks`, `no-eval`), so no finding is
+  reported twice. Where React Doctor is stricter than the native rule, the native rule is pinned to
+  React Doctor's severity. The React Doctor rules that match an ESLint rule of the same concept are
+  `error` and turn that ESLint rule off, but only when its plugin is loaded. The rest are `warn`.
 
-The `style` category is intentionally left off — formatting is the formatter's job. Pair this
+The `style` category is left off as a category — formatting is the formatter's job. The rules ESLint runs from it are listed explicitly above. Pair this
 with [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
 
 `@anolilab/eslint-config` reads this file when it is present and turns off the rules it runs, so

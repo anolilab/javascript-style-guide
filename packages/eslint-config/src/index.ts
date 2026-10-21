@@ -1135,7 +1135,11 @@ export const createConfig = async (
         configs.push(
             oxlint({
                 cwd,
-                loadedRulePrefixes: [...(enableJsx ? ["jsx-a11y"] : []), ...(enableReact ? ["react", "react-hooks"] : [])],
+                loadedRulePrefixes: [
+                    ...(enableJsx ? ["jsx-a11y"] : []),
+                    ...(enableReact ? ["react", "react-hooks", "react-x", "react-refresh"] : []),
+                    ...(enableUnicorn ? ["unicorn"] : []),
+                ],
                 ...oxlintOptions,
             }),
         );

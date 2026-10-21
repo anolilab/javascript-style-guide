@@ -69,6 +69,65 @@ describe("oxlint plugin wiring", () => {
 
         await expect(oxlint({ configFile: join(dir, ".oxlintrc.json") })).rejects.toThrow("could not read oxlint config file");
     });
+
+    it("leaves an ESLint rule on for the files an oxlint override turns off, so neither linter skips them", async () => {
+        expect.hasAssertions();
+
+        const dir = mkdtempSync(join(tmpdir(), "oxlint-override-off-"));
+
+        writeFileSync(
+            join(dir, ".oxlintrc.json"),
+            JSON.stringify({
+                jsPlugins: ["eslint-plugin-sonarjs"],
+                rules: { "sonarjs/no-collapsible-if": "error" },
+                overrides: [{ files: ["**/*.test.ts"], rules: { "sonarjs/no-collapsible-if": "off" } }],
+            }),
+        );
+
+        const items = await oxlint({ configFile: join(dir, ".oxlintrc.json"), cwd: dir });
+        const turnOff = items.find((item) => item.rules?.["sonarjs/no-collapsible-if"] === "off" && item.files?.[0] === "**/*");
+
+        expect(turnOff?.ignores).toStrictEqual(["**/*.test.ts"]);
+    });
+
+    it("matches a basename-only override pattern at any depth, as oxlint does", async () => {
+        expect.hasAssertions();
+
+        const dir = mkdtempSync(join(tmpdir(), "oxlint-basename-override-"));
+
+        writeFileSync(
+            join(dir, ".oxlintrc.json"),
+            JSON.stringify({
+                jsPlugins: ["eslint-plugin-sonarjs"],
+                rules: { "sonarjs/no-collapsible-if": "error" },
+                overrides: [{ files: ["*.test.js"], rules: { "sonarjs/no-collapsible-if": "off" } }],
+            }),
+        );
+
+        const items = await oxlint({ configFile: join(dir, ".oxlintrc.json"), cwd: dir });
+        const turnOff = items.find((item) => item.rules?.["sonarjs/no-collapsible-if"] === "off" && item.files?.[0] === "**/*");
+
+        expect(turnOff?.ignores).toStrictEqual(["**/*.test.js"]);
+    });
+
+    it("turns off an ESLint rule for the files an oxlint override enables it on", async () => {
+        expect.hasAssertions();
+
+        const dir = mkdtempSync(join(tmpdir(), "oxlint-override-on-"));
+
+        writeFileSync(
+            join(dir, ".oxlintrc.json"),
+            JSON.stringify({
+                jsPlugins: ["eslint-plugin-sonarjs"],
+                rules: { "sonarjs/no-collapsible-if": "off" },
+                overrides: [{ files: ["src/**/*.ts"], rules: { "sonarjs/no-collapsible-if": "error" } }],
+            }),
+        );
+
+        const items = await oxlint({ configFile: join(dir, ".oxlintrc.json"), cwd: dir });
+
+        expect(items.some((item) => item.files?.includes("src/**/*.ts") && item.rules?.["sonarjs/no-collapsible-if"] === "off")).toBe(true);
+    });
 });
 
 describe("jsPluginRuleOverrides", () => {

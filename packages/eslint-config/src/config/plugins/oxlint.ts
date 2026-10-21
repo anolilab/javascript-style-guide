@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
-import { dirname, isAbsolute, join, resolve as resolvePath } from "node:path";
+import { dirname, isAbsolute, join, relative, resolve as resolvePath } from "node:path";
 
 import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
@@ -24,16 +24,38 @@ const isOxlintPlugin = (value: unknown): value is OxlintPlugin =>
     typeof value.configs === "object" &&
     value.configs !== null;
 
+type OxlintRuleSetting = string | number | ReadonlyArray<unknown>;
+
+/** An `overrides` entry. `files` and `excludeFiles` are absolute glob patterns once read by `readOxlintFile`. */
+type OxlintOverride = {
+    excludeFiles?: string[];
+    files?: string[];
+    rules?: Record<string, OxlintRuleSetting>;
+};
+
 /** The parts of an `.oxlintrc.json` that decide which rules oxlint runs through a JS plugin. */
 type OxlintFileRules = {
     extends?: string[];
     jsPlugins?: (string | { name: string; specifier: string })[];
+    overrides?: OxlintOverride[];
     rules?: Record<string, OxlintRuleSetting>;
 };
 
-type OxlintRuleSetting = string | number | ReadonlyArray<unknown>;
-
 const isOxlintFileRules = (value: unknown): value is OxlintFileRules => typeof value === "object" && value !== null && !Array.isArray(value);
+
+/**
+ * Resolves an override's glob pattern against the directory of the file that declares it. A pattern
+ * without a slash matches at any depth below that directory, as it does in oxlint.
+ */
+const anchorPattern = (pattern: string, directory: string): string => (pattern.includes("/") ? join(directory, pattern) : join(directory, "**", pattern));
+
+const resolveOverride = (override: OxlintOverride, directory: string): OxlintOverride => {
+    return {
+        excludeFiles: override.excludeFiles?.map((pattern) => anchorPattern(pattern, directory)),
+        files: override.files?.map((pattern) => anchorPattern(pattern, directory)),
+        rules: override.rules,
+    };
+};
 
 /**
  * Reads an oxlint config together with every config it `extends`, the extending file winning.
@@ -46,7 +68,7 @@ const readOxlintFile = (file: string, seen: ReadonlySet<string> = new Set()): Ox
         return {};
     }
 
-    const merged: Required<OxlintFileRules> = { extends: [], jsPlugins: [], rules: {} };
+    const merged: Required<OxlintFileRules> = { extends: [], jsPlugins: [], overrides: [], rules: {} };
 
     const parents = parsed.extends ?? [];
 
@@ -60,11 +82,13 @@ const readOxlintFile = (file: string, seen: ReadonlySet<string> = new Set()): Ox
 
             merged.jsPlugins.push(...(inherited.jsPlugins ?? []));
             Object.assign(merged.rules, inherited.rules);
+            merged.overrides.push(...(inherited.overrides ?? []));
         }
     }
 
     merged.jsPlugins.push(...(parsed.jsPlugins ?? []));
     Object.assign(merged.rules, parsed.rules);
+    merged.overrides.push(...(parsed.overrides ?? []).map((override) => resolveOverride(override, dirname(file))));
 
     return merged;
 };
@@ -110,6 +134,107 @@ const jsPluginRuleOverrides = (oxlintFile: OxlintFileRules, loadedRulePrefixes: 
     }
 
     return overrides;
+};
+
+const isOff = (setting: OxlintRuleSetting): boolean => {
+    const severity = Array.isArray(setting) ? setting[0] : setting;
+
+    return severity === "off" || severity === 0;
+};
+
+/** Expresses an absolute oxlint glob as a pattern relative to `cwd`, which is where ESLint resolves `files`. */
+const toEslintPattern = (pattern: string, cwd: string): string => relative(cwd, pattern).replaceAll("\\", "/");
+
+/** ESLint rejects a present `ignores` that is not an array, so the key is left out when there is nothing to ignore. */
+const ignoresOf = (ignores: string[] | undefined): { ignores?: string[] } => (ignores === undefined || ignores.length === 0 ? {} : { ignores });
+
+const turnOffItem = (files: string[], eslintRule: string, ignores?: string[]): TypedFlatConfigItem => {
+    return {
+        files,
+        ...ignoresOf(ignores),
+        name: "anolilab/oxlint/js-plugins",
+        rules: { [eslintRule]: "off" },
+    };
+};
+
+/** The files an override applies to, and the files it excludes, as ESLint patterns. */
+type OverrideScope = { excludeFiles: string[]; files: string[] };
+
+type OverrideState = { disabledFiles: Record<string, string[]>; items: TypedFlatConfigItem[] };
+
+/** What one override rule contributes: the items it adds, and the files where oxlint no longer runs the base rule. */
+type RuleEffect = { disabledFiles: string[]; items: TypedFlatConfigItem[] };
+
+const overrideRuleEffect = (eslintRule: string, setting: OxlintRuleSetting, scope: OverrideScope, baseOff: Record<string, "off">): RuleEffect => {
+    if (!isOff(setting)) {
+        return { disabledFiles: [], items: scope.files.length > 0 ? [turnOffItem(scope.files, eslintRule, scope.excludeFiles)] : [] };
+    }
+
+    // Oxlint still runs the base rule on the excluded files, so ESLint stays off there.
+    const excluded = scope.excludeFiles.length > 0 && Object.hasOwn(baseOff, eslintRule) ? [turnOffItem(scope.excludeFiles, eslintRule)] : [];
+
+    return { disabledFiles: scope.files, items: excluded };
+};
+
+const overrideTurnOffs = (oxlintFile: OxlintFileRules, loadedRulePrefixes: ReadonlySet<string>, cwd: string, baseOff: Record<string, "off">): OverrideState => {
+    const state: OverrideState = { disabledFiles: {}, items: [] };
+    const overrides = oxlintFile.overrides ?? [];
+
+    for (const override of overrides) {
+        const scope: OverrideScope = {
+            excludeFiles: (override.excludeFiles ?? []).map((pattern) => toEslintPattern(pattern, cwd)),
+            files: (override.files ?? []).map((pattern) => toEslintPattern(pattern, cwd)),
+        };
+        const rules = Object.entries(override.rules ?? {});
+
+        for (const [rule, setting] of rules) {
+            const eslintRule = eslintCounterpartOf(rule, loadedRulePrefixes);
+
+            if (eslintRule !== undefined) {
+                const effect = overrideRuleEffect(eslintRule, setting, scope, baseOff);
+
+                state.items.push(...effect.items);
+                state.disabledFiles[eslintRule] = [...(state.disabledFiles[eslintRule] ?? []), ...effect.disabledFiles];
+            }
+        }
+    }
+
+    return state;
+};
+
+/** One item per distinct ignore list, so rules that share an exclusion stay a single entry. */
+const globalTurnOffItems = (baseOff: Record<string, "off">, disabledFiles: Record<string, string[]>): TypedFlatConfigItem[] => {
+    const byIgnores = new Map<string, Record<string, "off">>();
+
+    for (const eslintRule of Object.keys(baseOff)) {
+        const ignores = [...new Set(disabledFiles[eslintRule])];
+        const key = ignores.join("\n");
+        const rules = byIgnores.get(key) ?? {};
+
+        rules[eslintRule] = "off";
+        byIgnores.set(key, rules);
+    }
+
+    return [...byIgnores].map(([key, rules]) => {
+        return {
+            files: ["**/*"],
+            ...ignoresOf(key === "" ? undefined : key.split("\n")),
+            name: "anolilab/oxlint/js-plugins",
+            rules,
+        };
+    });
+};
+
+/**
+ * Builds the ESLint items that turn off JS-plugin counterparts for the files oxlint runs them on.
+ * A rule an override turns off stays on for that override's files, so those files are excluded
+ * from the turn-off. A rule an override turns on gets a turn-off for that override's files.
+ */
+const jsPluginConfigItems = (oxlintFile: OxlintFileRules, loadedRulePrefixes: ReadonlySet<string>, cwd: string): TypedFlatConfigItem[] => {
+    const baseOff = jsPluginRuleOverrides(oxlintFile, loadedRulePrefixes);
+    const state = overrideTurnOffs(oxlintFile, loadedRulePrefixes, cwd, baseOff);
+
+    return [...state.items, ...globalTurnOffItems(baseOff, state.disabledFiles)];
 };
 
 /**
@@ -200,20 +325,20 @@ export default createConfig<OptionsOxlint>("all", async (config) => {
     const fallbackKey = mode === "recommended" ? "flat/recommended" : "flat/all";
 
     const baseConfigs = resolvedConfigFile ? buildFromFileCached(oxlintPlugin, resolvedConfigFile) : (oxlintPlugin.configs[fallbackKey] ?? []);
-    const jsPluginOverrides = resolvedConfigFile ? jsPluginRuleOverrides(readOxlintFile(resolvedConfigFile), new Set(["", ...loadedRulePrefixes])) : {};
-    const extraRules = { ...jsPluginOverrides, ...overrides };
+    const jsPluginItems = resolvedConfigFile ? jsPluginConfigItems(readOxlintFile(resolvedConfigFile), new Set(["", ...loadedRulePrefixes]), cwd) : [];
 
-    if (Object.keys(extraRules).length === 0) {
-        return baseConfigs;
+    if (overrides === undefined || Object.keys(overrides).length === 0) {
+        return [...baseConfigs, ...jsPluginItems];
     }
 
     return [
         ...baseConfigs,
+        ...jsPluginItems,
         {
             name: "anolilab/oxlint/overrides",
-            rules: extraRules,
+            rules: overrides,
         },
     ];
 });
 
-export { jsPluginRuleOverrides };
+export { jsPluginConfigItems, jsPluginRuleOverrides };

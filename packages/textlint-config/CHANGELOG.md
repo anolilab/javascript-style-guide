@@ -1,3 +1,18 @@
+## @anolilab/textlint-config [14.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/textlint-config@13.0.6...@anolilab/textlint-config@14.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+
 ## @anolilab/textlint-config [13.0.6](https://github.com/anolilab/javascript-style-guide/compare/%40anolilab%2Ftextlint-config%4013.0.5...%40anolilab%2Ftextlint-config%4013.0.6) (2026-08-10)
 
 

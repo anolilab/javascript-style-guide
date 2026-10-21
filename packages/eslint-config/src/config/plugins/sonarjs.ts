@@ -35,7 +35,6 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 "sonarjs/file-name-differ-from-class": "off",
                 "sonarjs/no-collapsible-if": "error",
                 "sonarjs/no-nested-template-literals": "off",
-                "sonarjs/no-tab": "error",
 
                 // This rule does not work will with disable next line
                 "sonarjs/todo-tag": "off",

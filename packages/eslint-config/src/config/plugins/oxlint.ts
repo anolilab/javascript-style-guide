@@ -5,6 +5,7 @@ import { dirname, isAbsolute, join, resolve as resolvePath } from "node:path";
 import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
 import { createConfig } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
+import reactDoctorEslintCounterparts from "./oxlint-react-doctor";
 
 const OXLINT_CONFIG_FILENAME = ".oxlintrc.json";
 
@@ -32,8 +33,6 @@ type OxlintFileRules = {
 };
 
 type OxlintRuleSetting = string | number | ReadonlyArray<unknown>;
-
-const ESLINT_PLUGIN_PREFIX = /^eslint-plugin-/;
 
 const isOxlintFileRules = (value: unknown): value is OxlintFileRules => typeof value === "object" && value !== null && !Array.isArray(value);
 
@@ -70,23 +69,42 @@ const readOxlintFile = (file: string, seen: ReadonlySet<string> = new Set()): Ox
 };
 
 /**
+ * JS plugins whose rule names match the ESLint plugin of the same name, so an enabled oxlint rule
+ * means the ESLint rule of that name is redundant. Other JS plugins are mapped explicitly.
+ */
+const SAME_NAME_JS_PLUGINS = new Set(["eslint-comments", "no-secrets", "regexp", "sonarjs"]);
+
+/**
  * Turns off the ESLint rules the oxlint file runs through a JS plugin. eslint-plugin-oxlint only
  * covers native oxlint rules, and a JS-plugin rule shares its name with the ESLint rule, so
  * without this both tools would report it. Rules the file already turns off are left alone.
+ * An ESLint rule is only turned off when its plugin prefix is in `loadedRulePrefixes`; turning off
+ * a rule of a plugin that is not loaded makes ESLint fail to build the config.
  */
-const jsPluginRuleOverrides = (oxlintFile: OxlintFileRules): Record<string, "off"> => {
-    const pluginNames = new Set(
-        (oxlintFile.jsPlugins ?? []).map((plugin) => (typeof plugin === "string" ? plugin.replace(ESLINT_PLUGIN_PREFIX, "") : plugin.name)),
-    );
-    const enabledRules = Object.entries(oxlintFile.rules ?? {});
+const eslintCounterpartOf = (rule: string, loadedRulePrefixes: ReadonlySet<string>): string | undefined => {
+    const counterpart = reactDoctorEslintCounterparts[rule];
+
+    if (counterpart !== undefined) {
+        const prefix = counterpart.includes("/") ? counterpart.slice(0, counterpart.indexOf("/")) : "";
+
+        return loadedRulePrefixes.has(prefix) ? counterpart : undefined;
+    }
+
+    const separator = rule.indexOf("/");
+
+    return separator !== -1 && SAME_NAME_JS_PLUGINS.has(rule.slice(0, separator)) ? rule : undefined;
+};
+
+const jsPluginRuleOverrides = (oxlintFile: OxlintFileRules, loadedRulePrefixes: ReadonlySet<string>): Record<string, "off"> => {
     const overrides: Record<string, "off"> = {};
+    const enabledRules = Object.entries(oxlintFile.rules ?? {});
 
     for (const [rule, setting] of enabledRules) {
-        const separator = rule.indexOf("/");
         const severity = Array.isArray(setting) ? setting[0] : setting;
+        const eslintRule = severity === "off" || severity === 0 ? undefined : eslintCounterpartOf(rule, loadedRulePrefixes);
 
-        if (severity !== "off" && severity !== 0 && separator !== -1 && pluginNames.has(rule.slice(0, separator))) {
-            overrides[rule] = "off";
+        if (eslintRule !== undefined) {
+            overrides[eslintRule] = "off";
         }
     }
 
@@ -123,11 +141,7 @@ const buildFromFileCached = (plugin: OxlintPlugin, file: string): TypedFlatConfi
         return cached.configs;
     }
 
-    const jsPluginOverrides = jsPluginRuleOverrides(readOxlintFile(file));
-    const configs = [
-        ...plugin.buildFromOxlintConfigFile(file),
-        ...(Object.keys(jsPluginOverrides).length > 0 ? [{ name: "anolilab/oxlint/js-plugin-overrides", rules: jsPluginOverrides }] : []),
-    ];
+    const configs = plugin.buildFromOxlintConfigFile(file);
 
     configFileCache.set(file, { configs, mtimeMs });
 
@@ -151,6 +165,14 @@ export interface OptionsOxlint extends OptionsOverrides {
     cwd?: string;
 
     /**
+     * ESLint rule prefixes whose plugin is loaded in this config (`""` for core rules). Set by
+     * `createConfig` from the enabled framework options. An oxlint rule that counts as an ESLint
+     * counterpart only turns off its ESLint rule when that prefix is listed here.
+     * @default Core rules only, so no framework counterpart is turned off unless the caller lists its prefix.
+     */
+    loadedRulePrefixes?: string[];
+
+    /**
      * Fallback used only when no oxlint config file is found.
      * - `"all"` (default) disables every ESLint rule that oxlint supports.
      * - `"recommended"` disables only the rules in oxlint's recommended set.
@@ -164,7 +186,7 @@ export interface OptionsOxlint extends OptionsOverrides {
 
 // @see https://github.com/oxc-project/eslint-plugin-oxlint
 export default createConfig<OptionsOxlint>("all", async (config) => {
-    const { configFile, cwd = process.cwd(), mode = "all", overrides } = config;
+    const { configFile, cwd = process.cwd(), loadedRulePrefixes = [], mode = "all", overrides } = config;
 
     const oxlintPlugin: unknown = await interopDefault(import("eslint-plugin-oxlint"));
 
@@ -177,8 +199,10 @@ export default createConfig<OptionsOxlint>("all", async (config) => {
     const fallbackKey = mode === "recommended" ? "flat/recommended" : "flat/all";
 
     const baseConfigs = resolvedConfigFile ? buildFromFileCached(oxlintPlugin, resolvedConfigFile) : (oxlintPlugin.configs[fallbackKey] ?? []);
+    const jsPluginOverrides = resolvedConfigFile ? jsPluginRuleOverrides(readOxlintFile(resolvedConfigFile), new Set(["", ...loadedRulePrefixes])) : {};
+    const extraRules = { ...jsPluginOverrides, ...overrides };
 
-    if (Object.keys(overrides ?? {}).length === 0) {
+    if (Object.keys(extraRules).length === 0) {
         return baseConfigs;
     }
 
@@ -186,7 +210,7 @@ export default createConfig<OptionsOxlint>("all", async (config) => {
         ...baseConfigs,
         {
             name: "anolilab/oxlint/overrides",
-            rules: overrides,
+            rules: extraRules,
         },
     ];
 });

@@ -23,6 +23,8 @@ export default defineConfig({
                     "eslint-plugin-no-secrets",
                     "eslint-plugin-regexp",
                     "eslint-plugin-sonarjs",
+                    "oxlint-plugin-react-doctor",
+                    "oxlint-tsgolint",
                 ],
             },
         },

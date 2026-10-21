@@ -84,11 +84,20 @@ Relax or tighten individual rules on top of the shared base:
 
 - `categories`: `correctness: "error"`, `suspicious: "warn"`, `pedantic: "warn"`
 - `plugins`: `typescript`, `unicorn`, `oxc`, `import`, `promise`, `node`, `jsdoc`, `react`, `jsx-a11y`
-- `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets` — ESLint plugins oxlint loads
-  unchanged, with the rules `@anolilab/eslint-config` enables for them
+- `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets`, `react-doctor`. ESLint plugins
+  oxlint loads unchanged, with the rules `@anolilab/eslint-config` enables for them, and the
+  [`oxlint-plugin-react-doctor`](https://www.npmjs.com/package/oxlint-plugin-react-doctor) rule set.
 - `rules`: the rules `@anolilab/eslint-config` enables for every JS/TS file that oxlint can run,
   with ESLint's severity and options. Rules that apply only to some files (tests, markdown, JSON),
-  type-aware rules, and rules oxlint does not implement stay in ESLint.
+  and rules oxlint does not implement stay in ESLint.
+- **Type-aware rules.** The `typescript/*` rules that need type information are listed here and
+  run through [`oxlint-tsgolint`](https://www.npmjs.com/package/oxlint-tsgolint) only when oxlint is
+  started with `--type-aware`. Without that flag they do not run, and `@anolilab/eslint-config`
+  still turns off their ESLint counterparts, so a project that omits the flag loses those checks.
+- **React Doctor.** All of React Doctor's rules are enabled. Those with an ESLint counterpart are
+  `error` and turn the ESLint counterpart off, but only when that ESLint plugin is loaded; the rest
+  are `warn`. Native oxlint `jsx-a11y` and `react` rules still run beside the React Doctor rules
+  with the same name, so a few findings appear twice.
 
 The `style` category is intentionally left off — formatting is the formatter's job. Pair this
 with [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).

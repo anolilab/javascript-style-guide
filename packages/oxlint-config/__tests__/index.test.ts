@@ -23,13 +23,20 @@ describe("@anolilab/oxlint-config", () => {
         expect(config.categories).not.toHaveProperty("style");
     });
 
-    it("loads sonarjs, regexp, eslint-comments and no-secrets as JS plugins", () => {
+    it("loads sonarjs, regexp, eslint-comments, no-secrets and react-doctor as JS plugins", () => {
         expect.hasAssertions();
 
         const names = config.jsPlugins.map((plugin) => plugin.name);
 
-        expect(names).toStrictEqual(["sonarjs", "regexp", "eslint-comments", "no-secrets"]);
+        expect(names).toStrictEqual(["sonarjs", "regexp", "eslint-comments", "no-secrets", "react-doctor"]);
         expect(config.rules["sonarjs/cognitive-complexity"]).toBeDefined();
+        expect(Object.keys(config.rules).filter((rule) => rule.startsWith("react-doctor/")).length).toBeGreaterThan(900);
+    });
+
+    it("enables the type-aware TypeScript rules, which only run under oxlint --type-aware", () => {
+        expect.hasAssertions();
+
+        expect(config.rules["typescript/no-floating-promises"]).toBe("error");
     });
 
     it("only enables rules whose plugin is declared", () => {

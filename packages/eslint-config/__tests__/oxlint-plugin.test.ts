@@ -46,6 +46,29 @@ describe("oxlint plugin wiring", () => {
         expect(off.has("sonarjs/no-collapsible-if")).toBe(true);
         expect(off.has("sonarjs/cognitive-complexity")).toBe(false);
     });
+
+    it("resolves a relative extends path against the declaring file", async () => {
+        expect.hasAssertions();
+
+        const dir = mkdtempSync(join(tmpdir(), "oxlint-relative-extends-"));
+
+        writeFileSync(join(dir, "parent.json"), JSON.stringify({ jsPlugins: ["eslint-plugin-sonarjs"], rules: { "sonarjs/no-collapsible-if": "warn" } }));
+        writeFileSync(join(dir, ".oxlintrc.json"), JSON.stringify({ extends: ["parent.json"] }));
+
+        const off = offRules(await oxlint({ configFile: join(dir, ".oxlintrc.json") }));
+
+        expect(off.has("sonarjs/no-collapsible-if")).toBe(true);
+    });
+
+    it("reports a missing extends parent through eslint-plugin-oxlint instead of a raw file error", async () => {
+        expect.hasAssertions();
+
+        const dir = mkdtempSync(join(tmpdir(), "oxlint-missing-extends-"));
+
+        writeFileSync(join(dir, ".oxlintrc.json"), JSON.stringify({ extends: ["./missing.json"] }));
+
+        await expect(oxlint({ configFile: join(dir, ".oxlintrc.json") })).rejects.toThrow("could not read oxlint config file");
+    });
 });
 
 describe("jsPluginRuleOverrides", () => {

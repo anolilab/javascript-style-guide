@@ -1,5 +1,4 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
-import { createRequire } from "node:module";
 import { dirname, isAbsolute, join, resolve as resolvePath } from "node:path";
 
 import type { OptionsOverrides, TypedFlatConfigItem } from "../../types";
@@ -51,10 +50,12 @@ const readOxlintFile = (file: string, seen: ReadonlySet<string> = new Set()): Ox
 
     const parents = parsed.extends ?? [];
 
+    // oxlint resolves every `extends` value as a path relative to the file that declares it. A missing
+    // parent is skipped here; eslint-plugin-oxlint reports it when it reads the same file.
     for (const parent of parents) {
-        const parentFile = parent.startsWith(".") || isAbsolute(parent) ? resolvePath(dirname(file), parent) : createRequire(file).resolve(parent);
+        const parentFile = resolvePath(dirname(file), parent);
 
-        if (!seen.has(parentFile)) {
+        if (!seen.has(parentFile) && existsSync(parentFile)) {
             const inherited = readOxlintFile(parentFile, new Set([...seen, file]));
 
             merged.jsPlugins.push(...(inherited.jsPlugins ?? []));

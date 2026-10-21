@@ -1,3 +1,18 @@
+## browserslist-config-anolilab [10.0.0](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab@9.0.1...browserslist-config-anolilab@10.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+
 ## browserslist-config-anolilab [9.0.1](https://github.com/anolilab/javascript-style-guide/compare/browserslist-config-anolilab%409.0.0...browserslist-config-anolilab%409.0.1) (2026-07-20)
 
 

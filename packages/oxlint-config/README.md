@@ -28,14 +28,16 @@ and leaves the `style` category to [`@anolilab/oxfmt-config`](https://anolilab.c
 ## Install
 
 ```sh
-npm install --save-dev @anolilab/oxlint-config oxlint
+npm install --save-dev @anolilab/oxlint-config oxlint oxlint-tsgolint
 ```
 
 ```sh
-pnpm add -D @anolilab/oxlint-config oxlint
+pnpm add -D @anolilab/oxlint-config oxlint oxlint-tsgolint
 ```
 
-> `oxlint` is a peer dependency, install it alongside this package.
+> `oxlint` and `oxlint-tsgolint` are peer dependencies. Install both alongside this package. The
+> config turns on type-aware linting, and oxlint looks for `oxlint-tsgolint` in your project.
+> Without it, oxlint stops with `Failed to find tsgolint executable`.
 
 ## Setup
 
@@ -90,14 +92,16 @@ Relax or tighten individual rules on top of the shared base:
 - `rules`: the rules `@anolilab/eslint-config` enables for every JS/TS file that oxlint can run,
   with ESLint's severity and options. Rules that apply only to some files (tests, markdown, JSON),
   and rules oxlint does not implement stay in ESLint.
-- **Type-aware rules.** The `typescript/*` rules that need type information are listed here and
-  run through [`oxlint-tsgolint`](https://www.npmjs.com/package/oxlint-tsgolint) only when oxlint is
-  started with `--type-aware`. Without that flag they do not run, and `@anolilab/eslint-config`
-  still turns off their ESLint counterparts, so a project that omits the flag loses those checks.
-- **React Doctor.** All of React Doctor's rules are enabled. Those with an ESLint counterpart are
-  `error` and turn the ESLint counterpart off, but only when that ESLint plugin is loaded; the rest
-  are `warn`. Native oxlint `jsx-a11y` and `react` rules still run beside the React Doctor rules
-  with the same name, so a few findings appear twice.
+- **Type-aware rules.** `options.typeAware` is on, so the `typescript/*` rules that need type
+  information run through [`oxlint-tsgolint`](https://www.npmjs.com/package/oxlint-tsgolint). That
+  package must be installed next to `oxlint`. A consumer that sets its own `options` keeps this
+  setting.
+- **React Doctor.** Its rules are enabled except the 68 that oxlint already runs natively under the
+  same name (`jsx-a11y/*`, `react/*`, `no-eval`), so no finding is reported twice. Where React
+  Doctor's severity was stricter than the native rule's, the native rule is pinned to it (for
+  example `react/rules-of-hooks` is `error`). The 12 remaining React Doctor rules with an ESLint
+  counterpart are `error` and turn that counterpart off, but only when its ESLint plugin is loaded.
+  The rest are `warn`.
 
 The `style` category is intentionally left off — formatting is the formatter's job. Pair this
 with [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).

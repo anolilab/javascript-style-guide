@@ -30,13 +30,22 @@ describe("@anolilab/oxlint-config", () => {
 
         expect(names).toStrictEqual(["sonarjs", "regexp", "eslint-comments", "no-secrets", "react-doctor"]);
         expect(config.rules["sonarjs/cognitive-complexity"]).toBeDefined();
-        expect(Object.keys(config.rules).filter((rule) => rule.startsWith("react-doctor/")).length).toBeGreaterThan(900);
+        expect(Object.keys(config.rules).filter((rule) => rule.startsWith("react-doctor/")).length).toBeGreaterThan(800);
     });
 
-    it("enables the type-aware TypeScript rules, which only run under oxlint --type-aware", () => {
+    it("turns on type-aware linting so the typescript/* rules that need type information run", () => {
         expect.hasAssertions();
 
+        expect(config.options.typeAware).toBe(true);
         expect(config.rules["typescript/no-floating-promises"]).toBe("error");
+    });
+
+    it("leaves out React Doctor rules that oxlint already runs natively under the same name", () => {
+        expect.hasAssertions();
+
+        expect(config.rules).not.toHaveProperty("react-doctor/alt-text");
+        expect(config.rules).not.toHaveProperty("react-doctor/no-eval");
+        expect(config.rules["react/rules-of-hooks"]).toBe("error");
     });
 
     it("only enables rules whose plugin is declared", () => {

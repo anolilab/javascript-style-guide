@@ -87,8 +87,7 @@
         "eslint-plugin-no-secrets": "catalog:lint",
         "eslint-plugin-regexp": "catalog:lint",
         "eslint-plugin-sonarjs": "catalog:lint",
-        "oxlint-plugin-react-doctor": "catalog:lint",
-        "oxlint-tsgolint": "catalog:lint"
+        "oxlint-plugin-react-doctor": "catalog:lint"
     },
     "devDependencies": {
         "@anolilab/eslint-config": "catalog:lint",
@@ -100,6 +99,7 @@
         "esbuild": "catalog:build",
         "eslint": "catalog:lint",
         "oxlint": "catalog:lint",
+        "oxlint-tsgolint": "catalog:lint",
         "prettier": "catalog:lint",
         "rimraf": "catalog:node",
         "semantic-release": "catalog:cli",
@@ -107,7 +107,8 @@
         "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "oxlint": "catalog:lint"
+        "oxlint": "catalog:lint",
+        "oxlint-tsgolint": "catalog:lint"
     },
     "engines": {
         "node": ">=22.12.0 <=25.*"

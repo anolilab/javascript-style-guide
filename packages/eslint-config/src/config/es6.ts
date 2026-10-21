@@ -85,23 +85,19 @@ export const es6BaseRules = {
         {
             paths: [
                 {
-                    message:
-                        "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                    message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     name: "lodash.isequal",
                 },
                 {
-                    message:
-                        "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                    message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     name: "lodash.uniqueId",
                 },
                 {
-                    message:
-                        "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                    message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     name: "lodash.mergewith",
                 },
                 {
-                    message:
-                        "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                    message: "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
                     name: "lodash.pick",
                 },
                 {
@@ -123,7 +119,7 @@ export const es6BaseRules = {
                     name: "sys",
                 },
                 {
-                    message: "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
+                    message: 'Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try "qs" as a package',
                     name: "querystring",
                 },
                 {
@@ -135,7 +131,7 @@ export const es6BaseRules = {
                     name: "mkdirp",
                 },
                 {
-                    message: "Please use \"@faker-js/faker\" as a replacement",
+                    message: 'Please use "@faker-js/faker" as a replacement',
                     name: "faker",
                 },
                 {
@@ -155,23 +151,23 @@ export const es6BaseRules = {
                     name: "rimraf",
                 },
                 {
-                    message: "just use \"\".padStart() and \"\".padEnd()",
+                    message: 'just use "".padStart() and "".padEnd()',
                     name: "pad-left",
                 },
                 {
-                    message: "just use \"\".padStart() and \"\".padEnd()",
+                    message: 'just use "".padStart() and "".padEnd()',
                     name: "pad-right",
                 },
                 {
-                    message: "just use \"\".padStart() and \"\".padEnd()",
+                    message: 'just use "".padStart() and "".padEnd()',
                     name: "left-pad",
                 },
                 {
-                    message: "just use \"\".padStart() and \"\".padEnd()",
+                    message: 'just use "".padStart() and "".padEnd()',
                     name: "right-pad",
                 },
                 {
-                    message: "just use \"\".padStart() and \"\".padEnd()",
+                    message: 'just use "".padStart() and "".padEnd()',
                     name: "pad",
                 },
                 {
@@ -361,7 +357,6 @@ export default createConfig<OptionsFiles & OptionsIsInEditor>("all", async (conf
                         generators: false,
                         objectLiteralDuplicateProperties: false,
                     },
-                    ecmaVersion: 6,
                     sourceType: "module",
                 },
             },

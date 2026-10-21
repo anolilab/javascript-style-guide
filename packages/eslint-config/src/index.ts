@@ -1135,6 +1135,11 @@ export const createConfig = async (
         configs.push(
             oxlint({
                 cwd,
+                loadedRulePrefixes: [
+                    ...(enableJsx ? ["jsx-a11y"] : []),
+                    ...(enableReact ? ["react", "react-hooks", "react-x", "react-refresh"] : []),
+                    ...(enableUnicorn ? ["unicorn"] : []),
+                ],
                 ...oxlintOptions,
             }),
         );
@@ -1144,10 +1149,7 @@ export const createConfig = async (
     // We pick the known keys as ESLint would do schema validation
     // eslint-disable-next-line unicorn/no-array-reduce
     const fusedConfig = flatConfigProperties.reduce<TypedFlatConfigItem>((accumulator, key) => {
-        // `Object.hasOwn` would be preferred here, but the root tsconfig declares `lib: ["es2021"]`
-        // so it is untyped and trips `@typescript-eslint/no-unsafe-call`. Revisit once lib is es2022.
-        // eslint-disable-next-line unicorn/no-computed-property-existence-check
-        if (key in options) {
+        if (Object.hasOwn(options, key)) {
             Object.assign(accumulator, { [key]: options[key] });
         }
 

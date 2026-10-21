@@ -82,9 +82,16 @@
         "test": "vitest --config ./vitest.config.ts",
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
+    "dependencies": {
+        "@eslint-community/eslint-plugin-eslint-comments": "catalog:lint",
+        "eslint-plugin-no-secrets": "catalog:lint",
+        "eslint-plugin-regexp": "catalog:lint",
+        "eslint-plugin-sonarjs": "catalog:lint",
+        "oxlint-plugin-react-doctor": "catalog:lint"
+    },
     "devDependencies": {
-        "@anolilab/eslint-config": "30.0.7",
-        "@anolilab/prettier-config": "10.0.4",
+        "@anolilab/eslint-config": "catalog:lint",
+        "@anolilab/prettier-config": "catalog:lint",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",
@@ -92,6 +99,7 @@
         "esbuild": "catalog:build",
         "eslint": "catalog:lint",
         "oxlint": "catalog:lint",
+        "oxlint-tsgolint": "catalog:lint",
         "prettier": "catalog:lint",
         "rimraf": "catalog:node",
         "semantic-release": "catalog:cli",
@@ -99,7 +107,8 @@
         "vitest": "catalog:test"
     },
     "peerDependencies": {
-        "oxlint": "catalog:lint"
+        "oxlint": "catalog:lint",
+        "oxlint-tsgolint": "catalog:lint"
     },
     "engines": {
         "node": ">=22.12.0 <=25.*"

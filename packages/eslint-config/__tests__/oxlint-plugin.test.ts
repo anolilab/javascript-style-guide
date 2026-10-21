@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -105,6 +105,29 @@ describe("oxlint plugin wiring", () => {
         );
 
         const items = await oxlint({ configFile: join(dir, ".oxlintrc.json"), cwd: dir });
+        const turnOff = items.find((item) => item.rules?.["sonarjs/no-collapsible-if"] === "off" && item.files?.[0] === "**/*");
+
+        expect(turnOff?.ignores).toStrictEqual(["**/*.test.js"]);
+    });
+
+    it("matches an ancestor's basename-only override from a child directory that extends it", async () => {
+        expect.hasAssertions();
+
+        const root = mkdtempSync(join(tmpdir(), "oxlint-ancestor-override-"));
+        const child = join(root, "packages", "app");
+
+        mkdirSync(child, { recursive: true });
+        writeFileSync(
+            join(root, ".oxlintrc.json"),
+            JSON.stringify({
+                jsPlugins: ["eslint-plugin-sonarjs"],
+                rules: { "sonarjs/no-collapsible-if": "error" },
+                overrides: [{ files: ["*.test.js"], rules: { "sonarjs/no-collapsible-if": "off" } }],
+            }),
+        );
+        writeFileSync(join(child, ".oxlintrc.json"), JSON.stringify({ extends: ["../../.oxlintrc.json"] }));
+
+        const items = await oxlint({ configFile: join(child, ".oxlintrc.json"), cwd: child });
         const turnOff = items.find((item) => item.rules?.["sonarjs/no-collapsible-if"] === "off" && item.files?.[0] === "**/*");
 
         expect(turnOff?.ignores).toStrictEqual(["**/*.test.js"]);

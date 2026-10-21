@@ -142,8 +142,17 @@ const isOff = (setting: OxlintRuleSetting): boolean => {
     return severity === "off" || severity === 0;
 };
 
+/** `../` segments that a `**` follows, the only case where an ancestor pattern still matches below `cwd`. */
+const ANCESTOR_SEGMENTS = /^(?:\.\.\/)+(?=\*\*(?:\/|$))/;
+
 /** Expresses an absolute oxlint glob as a pattern relative to `cwd`, which is where ESLint resolves `files`. */
-const toEslintPattern = (pattern: string, cwd: string): string => relative(cwd, pattern).replaceAll("\\", "/");
+const toEslintPattern = (pattern: string, cwd: string): string => {
+    const relativePattern = relative(cwd, pattern).replaceAll("\\", "/");
+
+    // A `**` after `../` segments still covers everything below `cwd`. Any other `../` pattern points
+    // outside `cwd`, and ESLint cannot match it, so it stays as it is.
+    return relativePattern.replace(ANCESTOR_SEGMENTS, "");
+};
 
 /** ESLint rejects a present `ignores` that is not an array, so the key is left out when there is nothing to ignore. */
 const ignoresOf = (ignores: string[] | undefined): { ignores?: string[] } => (ignores === undefined || ignores.length === 0 ? {} : { ignores });

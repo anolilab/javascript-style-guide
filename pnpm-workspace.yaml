@@ -224,7 +224,7 @@ catalogs:
         is-ci: ^4.1.0
         parse-gitignore: ^2.0.0
         shell-quote: ^1.12.0
-        sort-package-json: 4.0.0
+        sort-package-json: 4.1.0
         type-fest: 5.10.0
         write-good: ^1.0.8
     script:
@@ -279,7 +279,7 @@ overrides:
     # GHSA-rfgv-xxqx-mfg5, GHSA-rx4f-c7p8-82vq, GHSA-vp8m-p9jh-q5pm, GHSA-w293-vg96-wgc3:
     # vulnerable <8.10.2. A single selector covers every lower range, including the
     # ^6.23.0 that @actions/http-client@4 declares.
-    undici@<8.10.2: ">=8.11.2"
+    undici@<8.10.2: ">=8.12.2"
     # GHSA-3jxr-9vmj-r5cp (ReDoS) — patched per major line: 1.1.16, 2.1.2, 5.0.7
     brace-expansion@1: ">=5.0.12"
     brace-expansion@2: ">=5.0.12"

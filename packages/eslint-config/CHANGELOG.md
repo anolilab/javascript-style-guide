@@ -1,3 +1,45 @@
+## @anolilab/eslint-config [31.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.7...@anolilab/eslint-config@31.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+* **@eslint-react/eslint-plugin:** 5.26.5 → 5.28.2
+* **@eslint/css:** 2.0.0 → 2.0.1
+* **@html-eslint/eslint-plugin:** 0.66.1 → 0.67.0
+* **@html-eslint/parser:** 0.66.1 → 0.67.0
+* **@tanstack/eslint-plugin-query:** 5.104.2 → 5.104.5
+* **eslint-config-flat-gitignore:** 2.3.0 → 2.4.0
+* **eslint-plugin-astro:** 3.1.0 → 3.2.1
+* **eslint-plugin-erasable-syntax-only:** 0.4.2 → 0.7.2
+* **eslint-plugin-es-x:** 10.0.1 → 10.1.0
+* **eslint-plugin-html:** 8.1.4 → 8.2.1
+* **eslint-plugin-jsdoc:** 63.3.3 → 65.3.15
+* **eslint-plugin-n:** 18.2.2 → 18.5.0
+* **eslint-plugin-oxlint:** 1.77.0 → 1.89.0
+* **eslint-plugin-perfectionist:** 5.10.1 → 5.13.0
+* **eslint-plugin-pnpm:** 1.7.0 → 1.9.1
+* **eslint-plugin-regexp:** 3.1.1 → 3.3.1
+* **eslint-plugin-security:** 4.0.1 → 4.2.0
+* **eslint-plugin-storybook:** 10.5.10 → 10.6.2
+* **eslint-plugin-tailwindcss:** 4.2.0 → 4.4.0
+* **eslint-plugin-yml:** 3.8.1 → 3.9.0
+* **eslint-plugin-zod:** 4.9.1 → 5.2.0
+* **typescript-eslint:** 8.71.2 → 8.72.0
+* **@visulima/fs:** 5.0.11 → 7.0.0
+* **@visulima/package:** ^5.0.42 → ^6.0.0
+* **@visulima/tsconfig:** ^3.2.36 → ^3.2.38
+* **@typescript-eslint/parser:** 8.66.0 → 8.72.0
+* **@typescript-eslint/types:** 8.66.0 → 8.72.0
+
 ## @anolilab/eslint-config [30.0.7](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.6...@anolilab/eslint-config@30.0.7) (2026-10-16)
 
 

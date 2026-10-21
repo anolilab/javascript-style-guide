@@ -1,3 +1,23 @@
+## @anolilab/lint-staged-config [14.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@13.0.1...@anolilab/lint-staged-config@14.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 31.0.0
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+* **eslint:** 10.8.1 → 10.13.0
+* **@visulima/fs:** 5.0.11 → 7.0.0
+* **@visulima/package:** ^5.0.42 → ^6.0.0
+* **type-fest:** 5.8.0 → 5.10.0
+
 ## @anolilab/lint-staged-config [13.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/lint-staged-config@13.0.0...@anolilab/lint-staged-config@13.0.1) (2026-10-13)
 
 

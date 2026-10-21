@@ -1,3 +1,21 @@
+## @anolilab/oxlint-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@1.0.5...@anolilab/oxlint-config@2.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 31.0.0
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+* **eslint-plugin-regexp:** 3.1.1 → 3.3.1
+* **oxlint:** 1.88.0 → 1.89.0
+
 ## @anolilab/oxlint-config [1.0.5](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@1.0.4...@anolilab/oxlint-config@1.0.5) (2026-10-16)
 
 

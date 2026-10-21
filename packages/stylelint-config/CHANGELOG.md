@@ -1,3 +1,25 @@
+## @anolilab/stylelint-config [12.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.1.2...@anolilab/stylelint-config@12.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+### Miscellaneous Chores
+
+* **deps:** combine open Renovate updates (13 PRs) ([#1230](https://github.com/anolilab/javascript-style-guide/issues/1230)) ([7e07dea](https://github.com/anolilab/javascript-style-guide/commit/7e07dea0861739aa8cc1d52c5987a2e13baeeaec))
+
+
+### Dependencies
+
+* **browserslist-config-anolilab:** upgraded to 10.0.0
+* **@anolilab/eslint-config:** upgraded to 31.0.0
+* **@anolilab/prettier-config:** upgraded to 11.0.0
+* **postcss:** 8.5.29 → 8.5.31
+
 ## @anolilab/stylelint-config [11.1.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/stylelint-config@11.1.1...@anolilab/stylelint-config@11.1.2) (2026-10-12)
 
 

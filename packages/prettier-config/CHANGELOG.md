@@ -1,3 +1,17 @@
+## @anolilab/prettier-config [11.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@10.0.4...@anolilab/prettier-config@11.0.0) (2026-10-21)
+
+### ⚠ BREAKING CHANGES
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables (#1245)
+
+### Features
+
+* **oxlint-config:** run the JS-plugin and native rules eslint-config enables ([#1245](https://github.com/anolilab/javascript-style-guide/issues/1245)) ([ca63d08](https://github.com/anolilab/javascript-style-guide/commit/ca63d084e0b1d8a569a045dd79ec48eb13ea6ee7))
+
+### Miscellaneous Chores
+
+* **deps:** combine open Renovate updates (13 PRs) ([#1230](https://github.com/anolilab/javascript-style-guide/issues/1230)) ([7e07dea](https://github.com/anolilab/javascript-style-guide/commit/7e07dea0861739aa8cc1d52c5987a2e13baeeaec))
+
 ## @anolilab/prettier-config [10.0.4](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/prettier-config@10.0.3...@anolilab/prettier-config@10.0.4) (2026-10-13)
 
 

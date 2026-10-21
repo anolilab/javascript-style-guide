@@ -1,6 +1,6 @@
 {
     "name": "@anolilab/stylelint-config",
-    "version": "11.1.2",
+    "version": "12.0.0",
     "description": "Stylelint shareable config for the Anolilab stylesheet guide.",
     "keywords": [
         "css",
@@ -195,7 +195,7 @@
         "test:coverage": "vitest --config ./vitest.config.ts --run --coverage"
     },
     "dependencies": {
-        "browserslist-config-anolilab": "catalog:network",
+        "browserslist-config-anolilab": "10.0.0",
         "stylelint-config-clean-order": "catalog:lint",
         "stylelint-config-standard": "catalog:lint",
         "stylelint-declaration-block-no-ignored-properties": "catalog:lint",
@@ -205,8 +205,8 @@
         "stylelint-selector-no-empty": "catalog:lint"
     },
     "devDependencies": {
-        "@anolilab/eslint-config": "catalog:",
-        "@anolilab/prettier-config": "catalog:",
+        "@anolilab/eslint-config": "31.0.0",
+        "@anolilab/prettier-config": "11.0.0",
         "@anolilab/semantic-release-pnpm": "catalog:cli",
         "@anolilab/semantic-release-preset": "catalog:cli",
         "@arethetypeswrong/cli": "catalog:dev",

@@ -9,9 +9,6 @@ const noSecrets = async (config: OptionsOverrides): Promise<TypedFlatConfigItem[
         {
             files: ["*", "*/**"],
             ignores: ["package.json", "**/package.json", "package-lock.json", "**/package-lock.json", "tsconfig.json", "**/tsconfig.json"],
-            languageOptions: {
-                ecmaVersion: 6,
-            },
             name: "anolilab/no-secrets",
             plugins: {
                 "no-secrets": noSecretsPlugin,

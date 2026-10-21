@@ -16,8 +16,16 @@ export default defineConfig({
     validation: {
         dependencies: {
             unused: {
-                // `oxlint` is a peer dependency, the config object is inlined from `.oxlintrc.json`.
-                exclude: ["oxlint"],
+                // `oxlint` is a peer dependency and the plugins are loaded by oxlint through `jsPlugins`, so none is imported.
+                exclude: [
+                    "oxlint",
+                    "@eslint-community/eslint-plugin-eslint-comments",
+                    "eslint-plugin-no-secrets",
+                    "eslint-plugin-regexp",
+                    "eslint-plugin-sonarjs",
+                    "oxlint-plugin-react-doctor",
+                    "oxlint-tsgolint",
+                ],
             },
         },
     },

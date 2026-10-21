@@ -11,8 +11,11 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
     const pluginNode = await interopDefault(import("eslint-plugin-n"));
 
-    const nodeVersionRange = packageJson.engines?.["node"];
-    const nodeVersion = nodeVersionRange ? minVersion(nodeVersionRange)?.version : undefined;
+    // Without `engines.node` the no-unsupported-features checks would not run at all. Fall back to the oldest
+    // Node this config supports (22.12, the floor of the supported LTS line), so such a project still gets them.
+    // A declared `engines.node` takes precedence.
+    const nodeVersionRange = packageJson.engines?.["node"] ?? ">=22.12.0";
+    const nodeVersion = minVersion(nodeVersionRange)?.version;
 
     return [
         {
@@ -92,11 +95,11 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
                 // https://eslint.org/docs/rules/no-path-concat
                 "no-path-concat": "error",
 
-                ...nodeVersion && {
+                ...(nodeVersion && {
                     "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],
                     "n/no-unsupported-features/es-syntax": ["error", { ignores: ["modules"], version: nodeVersion }],
                     "n/no-unsupported-features/node-builtins": ["error", { version: nodeVersion }],
-                },
+                }),
 
                 ...overrides,
             },

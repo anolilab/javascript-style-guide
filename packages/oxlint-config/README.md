@@ -84,9 +84,17 @@ Relax or tighten individual rules on top of the shared base:
 
 - `categories`: `correctness: "error"`, `suspicious: "warn"`, `pedantic: "warn"`
 - `plugins`: `typescript`, `unicorn`, `oxc`, `import`, `promise`, `node`, `jsdoc`, `react`, `jsx-a11y`
+- `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets` — ESLint plugins oxlint loads
+  unchanged, with the rules `@anolilab/eslint-config` enables for them
+- `rules`: the rules `@anolilab/eslint-config` enables for every JS/TS file that oxlint can run,
+  with ESLint's severity and options. Rules that apply only to some files (tests, markdown, JSON),
+  type-aware rules, and rules oxlint does not implement stay in ESLint.
 
 The `style` category is intentionally left off — formatting is the formatter's job. Pair this
 with [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
+
+`@anolilab/eslint-config` reads this file when it is present and turns off the rules it runs, so
+no rule is reported twice.
 
 ## Related
 

@@ -1,10 +1,1280 @@
 {
     "$schema": "../../node_modules/oxlint/configuration_schema.json",
-    "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node", "jsdoc", "react", "jsx-a11y"],
+    "jsPlugins": [
+        {
+            "name": "sonarjs",
+            "specifier": "eslint-plugin-sonarjs"
+        },
+        {
+            "name": "regexp",
+            "specifier": "eslint-plugin-regexp"
+        },
+        {
+            "name": "eslint-comments",
+            "specifier": "@eslint-community/eslint-plugin-eslint-comments"
+        },
+        {
+            "name": "no-secrets",
+            "specifier": "eslint-plugin-no-secrets"
+        }
+    ],
+    "plugins": ["typescript", "unicorn", "oxc", "import", "jsdoc", "react", "jsx-a11y", "promise", "node"],
     "categories": {
         "correctness": "error",
         "suspicious": "warn",
         "pedantic": "warn"
     },
-    "rules": {}
+    "rules": {
+        "array-callback-return": [
+            "error",
+            {
+                "allowImplicit": true
+            }
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed",
+            {
+                "requireReturnForObjectLiteral": true
+            }
+        ],
+        "block-scoped-var": ["error"],
+        "class-methods-use-this": [
+            "error",
+            {
+                "exceptMethods": []
+            }
+        ],
+        "consistent-return": ["error"],
+        "default-case": [
+            "error",
+            {
+                "commentPattern": "^no default$"
+            }
+        ],
+        "default-case-last": ["error"],
+        "default-param-last": ["error"],
+        "eqeqeq": [
+            "error",
+            "always",
+            {
+                "null": "ignore"
+            }
+        ],
+        "eslint-comments/no-aggregating-enable": ["error"],
+        "eslint-comments/no-duplicate-disable": ["error"],
+        "eslint-comments/no-unused-disable": ["error"],
+        "eslint-comments/no-unused-enable": ["error"],
+        "for-direction": ["error"],
+        "func-names": ["error", "as-needed"],
+        "func-style": ["error", "expression"],
+        "global-require": ["error"],
+        "grouped-accessor-pairs": ["error"],
+        "guard-for-in": ["error"],
+        "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+        "import/exports-last": ["error"],
+        "import/first": ["error"],
+        "import/no-absolute-path": ["error"],
+        "import/no-amd": ["error"],
+        "import/no-dynamic-require": ["error"],
+        "import/no-empty-named-blocks": ["error"],
+        "import/no-mutable-exports": ["error"],
+        "import/no-named-as-default": ["error"],
+        "import/no-named-as-default-member": ["error"],
+        "import/no-named-default": ["error"],
+        "import/no-namespace": ["error"],
+        "import/no-self-import": ["error"],
+        "import/no-webpack-loader-syntax": ["error"],
+        "import/prefer-default-export": ["error"],
+        "jsdoc/check-access": ["error"],
+        "jsdoc/check-property-names": ["error"],
+        "jsdoc/check-tag-names": [
+            "error",
+            {
+                "definedTags": ["remarks", "openapi", "link"],
+                "jsxTags": false
+            }
+        ],
+        "jsdoc/empty-tags": ["error"],
+        "jsdoc/implements-on-classes": ["error"],
+        "jsdoc/no-defaults": ["error"],
+        "jsdoc/require-param": ["error"],
+        "jsdoc/require-param-description": ["error"],
+        "jsdoc/require-param-name": ["error"],
+        "jsdoc/require-param-type": ["error"],
+        "jsdoc/require-property": ["error"],
+        "jsdoc/require-property-description": ["error"],
+        "jsdoc/require-property-name": ["error"],
+        "jsdoc/require-property-type": ["error"],
+        "jsdoc/require-returns": ["error"],
+        "jsdoc/require-returns-description": ["error"],
+        "jsdoc/require-returns-type": ["error"],
+        "jsdoc/require-throws-type": ["error"],
+        "jsdoc/require-yields": ["error"],
+        "jsdoc/require-yields-type": ["error"],
+        "max-classes-per-file": ["error", 1],
+        "new-cap": [
+            "error",
+            {
+                "capIsNew": false,
+                "capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"],
+                "newIsCap": true,
+                "newIsCapExceptions": []
+            }
+        ],
+        "no-async-promise-executor": ["error"],
+        "no-await-in-loop": ["error"],
+        "no-bitwise": ["error"],
+        "no-caller": ["error"],
+        "no-case-declarations": ["error"],
+        "no-compare-neg-zero": ["error"],
+        "no-cond-assign": ["error", "always"],
+        "no-constant-binary-expression": ["error"],
+        "no-constant-condition": ["warn"],
+        "no-constructor-return": ["error"],
+        "no-control-regex": ["error"],
+        "no-debugger": ["error"],
+        "no-delete-var": ["error"],
+        "no-dupe-else-if": ["error"],
+        "no-duplicate-case": ["error"],
+        "no-else-return": [
+            "error",
+            {
+                "allowElseIf": false
+            }
+        ],
+        "no-empty": ["error"],
+        "no-empty-static-block": ["error"],
+        "no-eval": ["error"],
+        "no-ex-assign": ["error"],
+        "no-extend-native": ["error"],
+        "no-extra-bind": ["error"],
+        "no-extra-boolean-cast": ["error"],
+        "no-extra-label": ["error"],
+        "no-fallthrough": ["error"],
+        "no-global-assign": [
+            "error",
+            {
+                "exceptions": []
+            }
+        ],
+        "no-inner-declarations": ["error"],
+        "no-iterator": ["error"],
+        "no-label-var": ["error"],
+        "no-lonely-if": ["error"],
+        "no-loss-of-precision": ["error"],
+        "no-misleading-character-class": ["error"],
+        "no-multi-assign": ["error"],
+        "no-multi-str": ["error"],
+        "no-new": ["error"],
+        "no-new-wrappers": ["error"],
+        "no-nonoctal-decimal-escape": ["error"],
+        "no-param-reassign": [
+            "error",
+            {
+                "ignorePropertyModificationsFor": ["acc", "accumulator", "e", "ctx", "context", "req", "request", "res", "response", "$scope", "staticContext"],
+                "props": true
+            }
+        ],
+        "no-path-concat": ["error"],
+        "no-plusplus": ["error"],
+        "no-promise-executor-return": ["error"],
+        "no-proto": ["error"],
+        "no-prototype-builtins": ["error"],
+        "no-regex-spaces": ["error"],
+        "no-restricted-exports": [
+            "error",
+            {
+                "restrictDefaultExports": {
+                    "defaultFrom": false,
+                    "direct": false,
+                    "named": true,
+                    "namedFrom": false,
+                    "namespaceFrom": true
+                },
+                "restrictedNamedExports": ["then"]
+            }
+        ],
+        "no-restricted-globals": [
+            "error",
+            {
+                "message": "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
+                "name": "isFinite"
+            },
+            {
+                "message": "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
+                "name": "isNaN"
+            },
+            {
+                "message": "Use window.addEventListener instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "addEventListener"
+            },
+            {
+                "message": "Use window.blur instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "blur"
+            },
+            {
+                "message": "Use window.close instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "close"
+            },
+            {
+                "message": "Use window.closed instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "closed"
+            },
+            {
+                "message": "Use window.confirm instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "confirm"
+            },
+            {
+                "message": "Use window.defaultStatus instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "defaultStatus"
+            },
+            {
+                "message": "Use window.defaultstatus instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "defaultstatus"
+            },
+            {
+                "message": "Use window.event instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "event"
+            },
+            {
+                "message": "Use window.external instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "external"
+            },
+            {
+                "message": "Use window.find instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "find"
+            },
+            {
+                "message": "Use window.focus instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "focus"
+            },
+            {
+                "message": "Use window.frameElement instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "frameElement"
+            },
+            {
+                "message": "Use window.frames instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "frames"
+            },
+            {
+                "message": "Use window.history instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "history"
+            },
+            {
+                "message": "Use window.innerHeight instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "innerHeight"
+            },
+            {
+                "message": "Use window.innerWidth instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "innerWidth"
+            },
+            {
+                "message": "Use window.length instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "length"
+            },
+            {
+                "message": "Use window.location instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "location"
+            },
+            {
+                "message": "Use window.locationbar instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "locationbar"
+            },
+            {
+                "message": "Use window.menubar instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "menubar"
+            },
+            {
+                "message": "Use window.moveBy instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "moveBy"
+            },
+            {
+                "message": "Use window.moveTo instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "moveTo"
+            },
+            {
+                "message": "Use window.name instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "name"
+            },
+            {
+                "message": "Use window.onblur instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onblur"
+            },
+            {
+                "message": "Use window.onerror instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onerror"
+            },
+            {
+                "message": "Use window.onfocus instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onfocus"
+            },
+            {
+                "message": "Use window.onload instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onload"
+            },
+            {
+                "message": "Use window.onresize instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onresize"
+            },
+            {
+                "message": "Use window.onunload instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "onunload"
+            },
+            {
+                "message": "Use window.open instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "open"
+            },
+            {
+                "message": "Use window.opener instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "opener"
+            },
+            {
+                "message": "Use window.opera instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "opera"
+            },
+            {
+                "message": "Use window.outerHeight instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "outerHeight"
+            },
+            {
+                "message": "Use window.outerWidth instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "outerWidth"
+            },
+            {
+                "message": "Use window.pageXOffset instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "pageXOffset"
+            },
+            {
+                "message": "Use window.pageYOffset instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "pageYOffset"
+            },
+            {
+                "message": "Use window.parent instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "parent"
+            },
+            {
+                "message": "Use window.print instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "print"
+            },
+            {
+                "message": "Use window.removeEventListener instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "removeEventListener"
+            },
+            {
+                "message": "Use window.resizeBy instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "resizeBy"
+            },
+            {
+                "message": "Use window.resizeTo instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "resizeTo"
+            },
+            {
+                "message": "Use window.screen instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "screen"
+            },
+            {
+                "message": "Use window.screenLeft instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "screenLeft"
+            },
+            {
+                "message": "Use window.screenTop instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "screenTop"
+            },
+            {
+                "message": "Use window.screenX instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "screenX"
+            },
+            {
+                "message": "Use window.screenY instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "screenY"
+            },
+            {
+                "message": "Use window.scroll instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scroll"
+            },
+            {
+                "message": "Use window.scrollbars instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scrollbars"
+            },
+            {
+                "message": "Use window.scrollBy instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scrollBy"
+            },
+            {
+                "message": "Use window.scrollTo instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scrollTo"
+            },
+            {
+                "message": "Use window.scrollX instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scrollX"
+            },
+            {
+                "message": "Use window.scrollY instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "scrollY"
+            },
+            {
+                "message": "Use window.self instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "self"
+            },
+            {
+                "message": "Use window.status instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "status"
+            },
+            {
+                "message": "Use window.statusbar instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "statusbar"
+            },
+            {
+                "message": "Use window.stop instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "stop"
+            },
+            {
+                "message": "Use window.toolbar instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "toolbar"
+            },
+            {
+                "message": "Use window.top instead. https://github.com/facebook/create-react-app/blob/HEAD/packages/confusing-browser-globals/README.md",
+                "name": "top"
+            },
+            {
+                "message": "Use `globalThis` instead.",
+                "name": "global"
+            },
+            {
+                "message": "Use `globalThis` instead.",
+                "name": "self"
+            }
+        ],
+        "no-restricted-imports": [
+            "error",
+            {
+                "paths": [
+                    {
+                        "message": "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        "name": "lodash.isequal"
+                    },
+                    {
+                        "message": "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        "name": "lodash.uniqueId"
+                    },
+                    {
+                        "message": "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        "name": "lodash.mergewith"
+                    },
+                    {
+                        "message": "Lodash modularised (and lodash < 4.17.11) have CVE vulnerabilities. Please use tree-shakeable imports like lodash/xxx instead",
+                        "name": "lodash.pick"
+                    },
+                    {
+                        "name": "error"
+                    },
+                    {
+                        "name": "domain"
+                    },
+                    {
+                        "name": "freelist"
+                    },
+                    {
+                        "name": "smalloc"
+                    },
+                    {
+                        "name": "punycode"
+                    },
+                    {
+                        "name": "sys"
+                    },
+                    {
+                        "message": "Is legacy, npm version got deprecated, migrate to URLSearchParams as recommended or try \"qs\" as a package",
+                        "name": "querystring"
+                    },
+                    {
+                        "message": "Please use one of the following instead: chalk, kleur, ansi-colors, @colors/colors",
+                        "name": "colors"
+                    },
+                    {
+                        "message": "node v10.12 mkdir supports recursive option",
+                        "name": "mkdirp"
+                    },
+                    {
+                        "message": "Please use \"@faker-js/faker\" as a replacement",
+                        "name": "faker"
+                    },
+                    {
+                        "message": "Please use Object.assign or spread { ...obj }",
+                        "name": "xtend"
+                    },
+                    {
+                        "message": "Please use Object.assign or spread { ...obj }",
+                        "name": "object-assign"
+                    },
+                    {
+                        "message": "Please use Object.assign or spread { ...obj }",
+                        "name": "extend-shallow"
+                    },
+                    {
+                        "message": "node supports recursive option now",
+                        "name": "rimraf"
+                    },
+                    {
+                        "message": "just use \"\".padStart() and \"\".padEnd()",
+                        "name": "pad-left"
+                    },
+                    {
+                        "message": "just use \"\".padStart() and \"\".padEnd()",
+                        "name": "pad-right"
+                    },
+                    {
+                        "message": "just use \"\".padStart() and \"\".padEnd()",
+                        "name": "left-pad"
+                    },
+                    {
+                        "message": "just use \"\".padStart() and \"\".padEnd()",
+                        "name": "right-pad"
+                    },
+                    {
+                        "message": "just use \"\".padStart() and \"\".padEnd()",
+                        "name": "pad"
+                    },
+                    {
+                        "name": "safe-buffer"
+                    },
+                    {
+                        "name": "safer-buffer"
+                    },
+                    {
+                        "message": "just use [].flat() or some other polyfill",
+                        "name": "array-flatten"
+                    },
+                    {
+                        "message": "Been deprecated",
+                        "name": "request"
+                    },
+                    {
+                        "message": "use async/await instead",
+                        "name": "co"
+                    },
+                    {
+                        "message": "Please use TextDecoder instead",
+                        "name": "windows-1252"
+                    },
+                    {
+                        "message": "Please use TextDecoder instead",
+                        "name": "string_decoder"
+                    },
+                    {
+                        "message": "Please use array.prototype.flatMap instead",
+                        "name": "concat-map"
+                    },
+                    {
+                        "name": "buffer-alloc"
+                    }
+                ],
+                "patterns": ["lodash.*"]
+            }
+        ],
+        "no-restricted-properties": [
+            "error",
+            {
+                "message": "arguments.callee is deprecated",
+                "object": "arguments",
+                "property": "callee"
+            },
+            {
+                "message": "Please use Number.isFinite instead",
+                "object": "global",
+                "property": "isFinite"
+            },
+            {
+                "message": "Please use Number.isFinite instead",
+                "object": "self",
+                "property": "isFinite"
+            },
+            {
+                "message": "Please use Number.isFinite instead",
+                "object": "window",
+                "property": "isFinite"
+            },
+            {
+                "message": "Please use Number.isNaN instead",
+                "object": "global",
+                "property": "isNaN"
+            },
+            {
+                "message": "Please use Number.isNaN instead",
+                "object": "self",
+                "property": "isNaN"
+            },
+            {
+                "message": "Please use Number.isNaN instead",
+                "object": "window",
+                "property": "isNaN"
+            },
+            {
+                "message": "Please use Object.defineProperty instead.",
+                "property": "__defineGetter__"
+            },
+            {
+                "message": "Please use Object.defineProperty instead.",
+                "property": "__defineSetter__"
+            },
+            {
+                "message": "Use the exponentiation operator (**) instead.",
+                "object": "Math",
+                "property": "pow"
+            },
+            {
+                "message": "Use `Number.isNaN` instead.",
+                "object": "globalThis",
+                "property": "isNaN"
+            },
+            {
+                "message": "Use `Number.isFinite` instead.",
+                "object": "globalThis",
+                "property": "isFinite"
+            },
+            {
+                "message": "Use `Number.parseFloat` instead.",
+                "object": "globalThis",
+                "property": "parseFloat"
+            },
+            {
+                "message": "Use `Number.parseInt` instead.",
+                "object": "globalThis",
+                "property": "parseInt"
+            },
+            {
+                "message": "Use `Number.parseFloat` instead.",
+                "object": "window",
+                "property": "parseFloat"
+            },
+            {
+                "message": "Use `Number.parseInt` instead.",
+                "object": "window",
+                "property": "parseInt"
+            },
+            {
+                "message": "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
+                "property": "__proto__"
+            },
+            {
+                "message": "Use `Object.getOwnPropertyDescriptor` instead.",
+                "property": "__lookupGetter__"
+            },
+            {
+                "message": "Use `Object.getOwnPropertyDescriptor` instead.",
+                "property": "__lookupSetter__"
+            }
+        ],
+        "no-return-assign": ["error", "always"],
+        "no-script-url": ["error"],
+        "no-secrets/no-secrets": ["error"],
+        "no-self-assign": [
+            "error",
+            {
+                "props": true
+            }
+        ],
+        "no-self-compare": ["error"],
+        "no-sequences": ["error"],
+        "no-shadow-restricted-names": ["error"],
+        "no-sparse-arrays": ["error"],
+        "no-template-curly-in-string": ["error"],
+        "no-unassigned-vars": ["error"],
+        "no-underscore-dangle": [
+            "error",
+            {
+                "allow": ["__DEV__", "__STORYBOOK_CLIENT_API__", "__STORYBOOK_ADDONS_CHANNEL__", "__STORYBOOK_STORY_STORE__"],
+                "allowAfterSuper": false,
+                "allowAfterThis": false,
+                "enforceInMethodNames": true
+            }
+        ],
+        "no-unneeded-ternary": [
+            "error",
+            {
+                "defaultAssignment": false
+            }
+        ],
+        "no-unsafe-finally": ["error"],
+        "no-unsafe-optional-chaining": [
+            "error",
+            {
+                "disallowArithmeticOperators": true
+            }
+        ],
+        "no-unused-private-class-members": ["error"],
+        "no-useless-catch": ["error"],
+        "no-useless-computed-key": ["error"],
+        "no-useless-concat": ["error"],
+        "no-useless-escape": ["error"],
+        "no-useless-rename": [
+            "error",
+            {
+                "ignoreDestructuring": false,
+                "ignoreExport": false,
+                "ignoreImport": false
+            }
+        ],
+        "no-useless-return": ["error"],
+        "no-var": ["error"],
+        "no-void": ["error"],
+        "object-shorthand": [
+            "error",
+            "always",
+            {
+                "avoidQuotes": true,
+                "ignoreConstructors": false
+            }
+        ],
+        "operator-assignment": ["error", "always"],
+        "prefer-arrow-callback": [
+            "error",
+            {
+                "allowNamedFunctions": false,
+                "allowUnboundThis": true
+            }
+        ],
+        "prefer-const": ["error"],
+        "prefer-destructuring": [
+            "error",
+            {
+                "AssignmentExpression": {
+                    "array": true,
+                    "object": false
+                },
+                "VariableDeclarator": {
+                    "array": false,
+                    "object": true
+                }
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ],
+        "prefer-numeric-literals": ["error"],
+        "prefer-object-spread": ["error"],
+        "prefer-regex-literals": ["error"],
+        "prefer-rest-params": ["error"],
+        "prefer-spread": ["error"],
+        "prefer-template": ["error"],
+        "preserve-caught-error": ["error"],
+        "promise/always-return": ["error"],
+        "promise/catch-or-return": ["error"],
+        "promise/no-callback-in-promise": ["warn"],
+        "promise/no-nesting": ["warn"],
+        "promise/no-new-statics": ["error"],
+        "promise/no-promise-in-callback": ["warn"],
+        "promise/no-return-in-finally": ["warn"],
+        "promise/no-return-wrap": ["error"],
+        "promise/param-names": ["error"],
+        "promise/valid-params": ["warn"],
+        "radix": ["error"],
+        "regexp/confusing-quantifier": ["warn"],
+        "regexp/control-character-escape": ["error"],
+        "regexp/match-any": ["error"],
+        "regexp/negation": ["error"],
+        "regexp/no-contradiction-with-assertion": ["error"],
+        "regexp/no-dupe-characters-character-class": ["error"],
+        "regexp/no-dupe-disjunctions": ["error"],
+        "regexp/no-empty-alternative": ["warn"],
+        "regexp/no-empty-capturing-group": ["error"],
+        "regexp/no-empty-character-class": ["error"],
+        "regexp/no-empty-group": ["error"],
+        "regexp/no-empty-lookarounds-assertion": ["error"],
+        "regexp/no-empty-string-literal": ["error"],
+        "regexp/no-escape-backspace": ["error"],
+        "regexp/no-extra-lookaround-assertions": ["error"],
+        "regexp/no-invalid-regexp": ["error"],
+        "regexp/no-invisible-character": ["error"],
+        "regexp/no-lazy-ends": ["warn"],
+        "regexp/no-misleading-capturing-group": ["error"],
+        "regexp/no-misleading-unicode-character": ["error"],
+        "regexp/no-non-standard-flag": ["error"],
+        "regexp/no-obscure-range": ["error"],
+        "regexp/no-optional-assertion": ["error"],
+        "regexp/no-potentially-useless-backreference": ["warn"],
+        "regexp/no-super-linear-backtracking": ["error"],
+        "regexp/no-trivially-nested-assertion": ["error"],
+        "regexp/no-trivially-nested-quantifier": ["error"],
+        "regexp/no-unused-capturing-group": ["error"],
+        "regexp/no-useless-assertions": ["error"],
+        "regexp/no-useless-backreference": ["error"],
+        "regexp/no-useless-character-class": ["error"],
+        "regexp/no-useless-escape": ["error"],
+        "regexp/no-useless-lazy": ["error"],
+        "regexp/no-useless-non-capturing-group": ["error"],
+        "regexp/no-useless-quantifier": ["error"],
+        "regexp/no-useless-range": ["error"],
+        "regexp/no-useless-set-operand": ["error"],
+        "regexp/no-useless-string-literal": ["error"],
+        "regexp/no-useless-two-nums-quantifier": ["error"],
+        "regexp/no-zero-quantifier": ["error"],
+        "regexp/optimal-lookaround-quantifier": ["warn"],
+        "regexp/optimal-quantifier-concatenation": ["error"],
+        "regexp/prefer-character-class": ["error"],
+        "regexp/prefer-d": ["error"],
+        "regexp/prefer-plus-quantifier": ["error"],
+        "regexp/prefer-predefined-assertion": ["error"],
+        "regexp/prefer-question-quantifier": ["error"],
+        "regexp/prefer-range": ["error"],
+        "regexp/prefer-set-operation": ["error"],
+        "regexp/prefer-star-quantifier": ["error"],
+        "regexp/prefer-unicode-codepoint-escapes": ["error"],
+        "regexp/prefer-w": ["error"],
+        "regexp/simplify-set-operations": ["error"],
+        "regexp/sort-flags": ["error"],
+        "regexp/strict": ["error"],
+        "regexp/use-ignore-case": ["error"],
+        "require-yield": ["error"],
+        "sonarjs/anchor-precedence": ["error"],
+        "sonarjs/argument-type": ["error"],
+        "sonarjs/arguments-order": ["error"],
+        "sonarjs/array-callback-without-return": ["error"],
+        "sonarjs/assertions-in-test-cases": ["error"],
+        "sonarjs/assertions-in-tests": ["error"],
+        "sonarjs/async-test-assertions": ["error"],
+        "sonarjs/avoid-mutating-nested-properties-of-shallow-clones": ["error"],
+        "sonarjs/aws-apigateway-public-api": ["error"],
+        "sonarjs/aws-ec2-rds-dms-public": ["error"],
+        "sonarjs/aws-ec2-unencrypted-ebs-volume": ["error"],
+        "sonarjs/aws-efs-unencrypted": ["error"],
+        "sonarjs/aws-iam-all-privileges": ["error"],
+        "sonarjs/aws-iam-privilege-escalation": ["error"],
+        "sonarjs/aws-iam-public-access": ["error"],
+        "sonarjs/aws-opensearchservice-domain": ["error"],
+        "sonarjs/aws-rds-unencrypted-databases": ["error"],
+        "sonarjs/aws-restricted-ip-admin-access": ["error"],
+        "sonarjs/aws-s3-bucket-granted-access": ["error"],
+        "sonarjs/aws-s3-bucket-insecure-http": ["error"],
+        "sonarjs/aws-s3-bucket-public-access": ["error"],
+        "sonarjs/aws-s3-bucket-versioning": ["error"],
+        "sonarjs/aws-sagemaker-unencrypted-notebook": ["error"],
+        "sonarjs/aws-sns-unencrypted-topics": ["error"],
+        "sonarjs/aws-sqs-unencrypted-queue": ["error"],
+        "sonarjs/bitwise-operators": ["error"],
+        "sonarjs/block-scoped-var": ["error"],
+        "sonarjs/call-argument-line": ["error"],
+        "sonarjs/chai-determinate-assertion": ["error"],
+        "sonarjs/class-name": ["error"],
+        "sonarjs/code-eval": ["error"],
+        "sonarjs/cognitive-complexity": ["error", 15],
+        "sonarjs/comma-or-logical-or-case": ["error"],
+        "sonarjs/concise-regex": ["error"],
+        "sonarjs/constructor-for-side-effects": ["error"],
+        "sonarjs/content-length": ["error"],
+        "sonarjs/content-security-policy": ["error"],
+        "sonarjs/cookie-no-httponly": ["error"],
+        "sonarjs/cors": ["error"],
+        "sonarjs/csrf": ["error"],
+        "sonarjs/deprecation": ["error"],
+        "sonarjs/different-types-comparison": ["error"],
+        "sonarjs/disabled-auto-escaping": ["error"],
+        "sonarjs/disabled-resource-integrity": ["error"],
+        "sonarjs/disabled-timeout": ["error"],
+        "sonarjs/dompurify-unsafe-config": ["error"],
+        "sonarjs/duplicates-in-character-class": ["error"],
+        "sonarjs/dynamically-constructed-templates": ["error"],
+        "sonarjs/empty-string-repetition": ["error"],
+        "sonarjs/encryption-secure-mode": ["error"],
+        "sonarjs/existing-groups": ["error"],
+        "sonarjs/explicit-test-skip": ["error"],
+        "sonarjs/file-permissions": ["error"],
+        "sonarjs/file-uploads": ["error"],
+        "sonarjs/fixme-tag": ["error"],
+        "sonarjs/for-loop-increment-sign": ["error"],
+        "sonarjs/function-inside-loop": ["error"],
+        "sonarjs/function-return-type": ["error"],
+        "sonarjs/future-reserved-words": ["error"],
+        "sonarjs/generator-without-yield": ["error"],
+        "sonarjs/hardcoded-secret-signatures": ["error"],
+        "sonarjs/hashing": ["error"],
+        "sonarjs/hooks-before-test-cases": ["error"],
+        "sonarjs/in-operator-type-error": ["error"],
+        "sonarjs/inconsistent-function-call": ["error"],
+        "sonarjs/index-of-compare-to-positive-number": ["error"],
+        "sonarjs/insecure-cookie": ["error"],
+        "sonarjs/insecure-jwt-token": ["error"],
+        "sonarjs/inverted-assertion-arguments": ["error"],
+        "sonarjs/jsx-no-leaked-render": ["error"],
+        "sonarjs/label-position": ["error"],
+        "sonarjs/link-with-target-blank": ["error"],
+        "sonarjs/max-switch-cases": ["error"],
+        "sonarjs/memoize-cache-key": ["error"],
+        "sonarjs/misplaced-loop-counter": ["error"],
+        "sonarjs/new-operator-misuse": ["error"],
+        "sonarjs/no-alphabetical-sort": ["error"],
+        "sonarjs/no-angular-bypass-sanitization": ["error"],
+        "sonarjs/no-array-delete": ["error"],
+        "sonarjs/no-associative-arrays": ["error"],
+        "sonarjs/no-async-constructor": ["error"],
+        "sonarjs/no-case-label-in-switch": ["error"],
+        "sonarjs/no-clear-text-protocols": ["error"],
+        "sonarjs/no-code-after-done": ["error"],
+        "sonarjs/no-collapsible-if": ["error"],
+        "sonarjs/no-collection-size-mischeck": ["error"],
+        "sonarjs/no-control-regex": ["error"],
+        "sonarjs/no-dead-store": ["error"],
+        "sonarjs/no-debounce-throttle-in-render": ["error"],
+        "sonarjs/no-debug-commands-in-ui-tests": ["error"],
+        "sonarjs/no-default-utility-imports": ["error"],
+        "sonarjs/no-delete-var": ["error"],
+        "sonarjs/no-duplicate-in-composite": ["error"],
+        "sonarjs/no-duplicate-parameterized-test-case": ["error"],
+        "sonarjs/no-duplicate-test-title": ["error"],
+        "sonarjs/no-duplicated-branches": ["error"],
+        "sonarjs/no-element-overwrite": ["error"],
+        "sonarjs/no-empty-after-reluctant": ["error"],
+        "sonarjs/no-empty-alternatives": ["error"],
+        "sonarjs/no-empty-character-class": ["error"],
+        "sonarjs/no-empty-collection": ["error"],
+        "sonarjs/no-empty-group": ["error"],
+        "sonarjs/no-empty-parameterized-test-dataset": ["error"],
+        "sonarjs/no-empty-test-file": ["error"],
+        "sonarjs/no-empty-test-title": ["error"],
+        "sonarjs/no-equals-in-for-termination": ["error"],
+        "sonarjs/no-exclusive-tests": ["error"],
+        "sonarjs/no-extra-arguments": ["error"],
+        "sonarjs/no-fallthrough": ["error"],
+        "sonarjs/no-fixed-wait-in-tests": ["error"],
+        "sonarjs/no-floating-point-equality": ["error"],
+        "sonarjs/no-forced-browser-interaction": ["error"],
+        "sonarjs/no-global-this": ["error"],
+        "sonarjs/no-globals-shadowing": ["error"],
+        "sonarjs/no-gratuitous-expressions": ["error"],
+        "sonarjs/no-hardcoded-ip": ["error"],
+        "sonarjs/no-hardcoded-passwords": ["error"],
+        "sonarjs/no-hardcoded-secrets": ["error"],
+        "sonarjs/no-hook-setter-in-body": ["error"],
+        "sonarjs/no-identical-conditions": ["error"],
+        "sonarjs/no-identical-expressions": ["error"],
+        "sonarjs/no-identical-functions": ["error"],
+        "sonarjs/no-ignored-exceptions": ["error"],
+        "sonarjs/no-ignored-return": ["error"],
+        "sonarjs/no-implicit-global": ["error"],
+        "sonarjs/no-in-misuse": ["error"],
+        "sonarjs/no-incompatible-assertion-types": ["error"],
+        "sonarjs/no-incomplete-assertions": ["error"],
+        "sonarjs/no-internal-api-use": ["error"],
+        "sonarjs/no-interpolation-in-inline-snapshots": ["error"],
+        "sonarjs/no-invalid-regexp": ["error"],
+        "sonarjs/no-invariant-returns": ["error"],
+        "sonarjs/no-inverted-boolean-check": ["error"],
+        "sonarjs/no-labels": ["error"],
+        "sonarjs/no-literal-call": ["error"],
+        "sonarjs/no-mime-sniff": ["error"],
+        "sonarjs/no-misleading-array-reverse": ["error"],
+        "sonarjs/no-misleading-character-class": ["error"],
+        "sonarjs/no-mutate-reactive-state-in-updated-hook": ["error"],
+        "sonarjs/no-nested-assignment": ["error"],
+        "sonarjs/no-nested-conditional": ["error"],
+        "sonarjs/no-nested-functions": ["error"],
+        "sonarjs/no-os-command-from-path": ["error"],
+        "sonarjs/no-parameter-reassignment": ["error"],
+        "sonarjs/no-primitive-wrappers": ["error"],
+        "sonarjs/no-redundant-assignments": ["error"],
+        "sonarjs/no-redundant-boolean": ["error"],
+        "sonarjs/no-redundant-jump": ["error"],
+        "sonarjs/no-redundant-optional": ["error"],
+        "sonarjs/no-referrer-policy": ["error"],
+        "sonarjs/no-regex-spaces": ["error"],
+        "sonarjs/no-same-argument-assert": ["error"],
+        "sonarjs/no-same-line-conditional": ["error"],
+        "sonarjs/no-selector-parameter": ["error"],
+        "sonarjs/no-session-cookies-on-static-assets": ["error"],
+        "sonarjs/no-skipped-tests": ["error"],
+        "sonarjs/no-small-switch": ["error"],
+        "sonarjs/no-tab": ["error"],
+        "sonarjs/no-table-as-layout": ["error"],
+        "sonarjs/no-trivial-assertions": ["error"],
+        "sonarjs/no-try-promise": ["error"],
+        "sonarjs/no-undefined-argument": ["error"],
+        "sonarjs/no-unenclosed-multiline-block": ["error"],
+        "sonarjs/no-uniq-key": ["error"],
+        "sonarjs/no-unthrown-error": ["error"],
+        "sonarjs/no-unused-collection": ["error"],
+        "sonarjs/no-unused-vars": ["error"],
+        "sonarjs/no-use-of-empty-return-value": ["error"],
+        "sonarjs/no-useless-catch": ["error"],
+        "sonarjs/no-useless-increment": ["error"],
+        "sonarjs/no-useless-intersection": ["error"],
+        "sonarjs/no-useless-react-setstate": ["error"],
+        "sonarjs/no-vue-class-component": ["error"],
+        "sonarjs/no-vue-mixins": ["error"],
+        "sonarjs/no-weak-cipher": ["error"],
+        "sonarjs/no-weak-keys": ["error"],
+        "sonarjs/non-existent-operator": ["error"],
+        "sonarjs/null-dereference": ["error"],
+        "sonarjs/object-alt-content": ["error"],
+        "sonarjs/parameterized-tests": ["error"],
+        "sonarjs/post-message": ["error"],
+        "sonarjs/prefer-cypress-should": ["error"],
+        "sonarjs/prefer-default-last": ["error"],
+        "sonarjs/prefer-native-axios-alternative": ["error"],
+        "sonarjs/prefer-native-jquery-alternative": ["error"],
+        "sonarjs/prefer-native-lodash-alternative": ["error"],
+        "sonarjs/prefer-promise-shorthand": ["error"],
+        "sonarjs/prefer-read-only-props": ["error"],
+        "sonarjs/prefer-regexp-exec": ["error"],
+        "sonarjs/prefer-single-boolean-return": ["error"],
+        "sonarjs/prefer-specific-assertions": ["error"],
+        "sonarjs/prefer-type-guard": ["error"],
+        "sonarjs/prefer-while": ["error"],
+        "sonarjs/production-debug": ["error"],
+        "sonarjs/pseudo-random": ["error"],
+        "sonarjs/publicly-writable-directories": ["error"],
+        "sonarjs/reduce-initial-value": ["error"],
+        "sonarjs/redundant-type-aliases": ["error"],
+        "sonarjs/regex-complexity": ["error"],
+        "sonarjs/review-blockchain-mnemonic": ["error"],
+        "sonarjs/session-regeneration": ["error"],
+        "sonarjs/single-char-in-character-classes": ["error"],
+        "sonarjs/single-character-alternation": ["error"],
+        "sonarjs/slow-regex": ["error"],
+        "sonarjs/sql-queries": ["error"],
+        "sonarjs/stable-tests": ["error"],
+        "sonarjs/stateful-regex": ["error"],
+        "sonarjs/strict-transport-security": ["error"],
+        "sonarjs/super-linear-regex": ["error"],
+        "sonarjs/synchronous-exception-assertions": ["error"],
+        "sonarjs/synchronous-suite-callback": ["error"],
+        "sonarjs/table-header": ["error"],
+        "sonarjs/table-header-reference": ["error"],
+        "sonarjs/test-check-exception": ["error"],
+        "sonarjs/testing-library-prefer-query-by-disappearance": ["error"],
+        "sonarjs/testing-library-query-assertion": ["error"],
+        "sonarjs/unused-import": ["error"],
+        "sonarjs/unused-named-groups": ["error"],
+        "sonarjs/unverified-certificate": ["error"],
+        "sonarjs/unverified-hostname": ["error"],
+        "sonarjs/updated-const-var": ["error"],
+        "sonarjs/updated-loop-counter": ["error"],
+        "sonarjs/use-type-alias": ["error"],
+        "sonarjs/vitest-mock-at-module-scope": ["error"],
+        "sonarjs/void-use": ["error"],
+        "sonarjs/weak-ssl": ["error"],
+        "sonarjs/x-powered-by": ["error"],
+        "sonarjs/xml-parser-xxe": ["error"],
+        "symbol-description": ["error"],
+        "typescript/adjacent-overload-signatures": ["error"],
+        "typescript/array-type": [
+            "error",
+            {
+                "default": "array",
+                "readonly": "generic"
+            }
+        ],
+        "typescript/ban-ts-comment": [
+            "error",
+            {
+                "minimumDescriptionLength": 3,
+                "ts-check": false,
+                "ts-expect-error": "allow-with-description",
+                "ts-ignore": "allow-with-description",
+                "ts-nocheck": true
+            }
+        ],
+        "typescript/consistent-generic-constructors": ["error"],
+        "typescript/consistent-type-imports": [
+            "error",
+            {
+                "disallowTypeAnnotations": false,
+                "fixStyle": "separate-type-imports",
+                "prefer": "type-imports"
+            }
+        ],
+        "typescript/explicit-member-accessibility": ["error"],
+        "typescript/explicit-module-boundary-types": ["error"],
+        "typescript/method-signature-style": ["error"],
+        "typescript/no-array-constructor": ["error"],
+        "typescript/no-confusing-non-null-assertion": ["error"],
+        "typescript/no-dupe-class-members": ["error"],
+        "typescript/no-duplicate-enum-values": ["error"],
+        "typescript/no-dynamic-delete": ["warn"],
+        "typescript/no-empty-object-type": ["error"],
+        "typescript/no-explicit-any": [
+            "error",
+            {
+                "fixToUnknown": false,
+                "ignoreRestArgs": true
+            }
+        ],
+        "typescript/no-extra-non-null-assertion": ["error"],
+        "typescript/no-extraneous-class": ["error"],
+        "typescript/no-import-type-side-effects": ["error"],
+        "typescript/no-invalid-void-type": ["warn"],
+        "typescript/no-misused-new": ["error"],
+        "typescript/no-namespace": ["error"],
+        "typescript/no-non-null-asserted-nullish-coalescing": ["warn"],
+        "typescript/no-non-null-asserted-optional-chain": ["error"],
+        "typescript/no-non-null-assertion": ["error"],
+        "typescript/no-restricted-types": [
+            "error",
+            {
+                "types": {
+                    "object": {
+                        "message": "Describe the properties you actually read, or use `Record<string, T>` with a concrete `T`."
+                    },
+                    "Record<string, any>": {
+                        "message": "Describe the keys you actually read, or use a concrete value type."
+                    },
+                    "Record<string, unknown>": {
+                        "message": "Describe the keys you actually read, or use a concrete value type."
+                    }
+                }
+            }
+        ],
+        "typescript/no-shadow": ["error"],
+        "typescript/no-this-alias": ["error"],
+        "typescript/no-unnecessary-type-constraint": ["error"],
+        "typescript/no-unsafe-declaration-merging": ["error"],
+        "typescript/no-unsafe-function-type": ["error"],
+        "typescript/no-use-before-define": [
+            "error",
+            {
+                "classes": true,
+                "functions": true,
+                "variables": true
+            }
+        ],
+        "typescript/no-useless-constructor": ["error"],
+        "typescript/no-useless-empty-export": ["error"],
+        "typescript/no-wrapper-object-types": ["error"],
+        "typescript/prefer-as-const": ["error"],
+        "typescript/prefer-enum-initializers": ["error"],
+        "typescript/prefer-function-type": ["error"],
+        "typescript/prefer-literal-enum-member": ["error"],
+        "typescript/prefer-namespace-keyword": ["error"],
+        "typescript/triple-slash-reference": ["error"],
+        "typescript/unified-signatures": ["error"],
+        "unicorn/catch-error-name": ["error"],
+        "unicorn/consistent-assert": ["error"],
+        "unicorn/consistent-date-clone": ["error"],
+        "unicorn/consistent-empty-array-spread": ["error"],
+        "unicorn/consistent-existence-index-check": ["error"],
+        "unicorn/consistent-template-literal-escape": ["error"],
+        "unicorn/error-message": ["error"],
+        "unicorn/escape-case": ["error"],
+        "unicorn/explicit-length-check": ["error"],
+        "unicorn/explicit-timer-delay": ["error"],
+        "unicorn/filename-case": [
+            "error",
+            {
+                "case": "kebabCase"
+            }
+        ],
+        "unicorn/max-nested-calls": ["error"],
+        "unicorn/new-for-builtins": ["error"],
+        "unicorn/no-abusive-eslint-disable": ["error"],
+        "unicorn/no-accessor-recursion": ["error"],
+        "unicorn/no-anonymous-default-export": ["error"],
+        "unicorn/no-array-callback-reference": ["error"],
+        "unicorn/no-array-fill-with-reference-type": ["error"],
+        "unicorn/no-array-method-this-argument": ["error"],
+        "unicorn/no-array-reduce": ["error"],
+        "unicorn/no-array-reverse": ["error"],
+        "unicorn/no-array-sort": ["error"],
+        "unicorn/no-await-expression-member": ["error"],
+        "unicorn/no-await-in-promise-methods": ["error"],
+        "unicorn/no-confusing-array-with": ["error"],
+        "unicorn/no-console-spaces": ["error"],
+        "unicorn/no-document-cookie": ["error"],
+        "unicorn/no-empty-file": ["error"],
+        "unicorn/no-immediate-mutation": ["error"],
+        "unicorn/no-instanceof-builtins": ["error"],
+        "unicorn/no-invalid-fetch-options": ["error"],
+        "unicorn/no-invalid-remove-event-listener": ["error"],
+        "unicorn/no-lonely-if": ["error"],
+        "unicorn/no-magic-array-flat-depth": ["error"],
+        "unicorn/no-negated-condition": ["error"],
+        "unicorn/no-negation-in-equality-check": ["error"],
+        "unicorn/no-new-array": ["error"],
+        "unicorn/no-new-buffer": ["error"],
+        "unicorn/no-null": ["error"],
+        "unicorn/no-object-as-default-parameter": ["error"],
+        "unicorn/no-process-exit": ["error"],
+        "unicorn/no-single-promise-in-promise-methods": ["error"],
+        "unicorn/no-static-only-class": ["error"],
+        "unicorn/no-thenable": ["error"],
+        "unicorn/no-this-assignment": ["error"],
+        "unicorn/no-typeof-undefined": ["error"],
+        "unicorn/no-unnecessary-array-flat-depth": ["error"],
+        "unicorn/no-unnecessary-array-splice-count": ["error"],
+        "unicorn/no-unnecessary-await": ["error"],
+        "unicorn/no-unnecessary-slice-end": ["error"],
+        "unicorn/no-unreadable-array-destructuring": ["error"],
+        "unicorn/no-unreadable-iife": ["error"],
+        "unicorn/no-useless-collection-argument": ["error"],
+        "unicorn/no-useless-error-capture-stack-trace": ["error"],
+        "unicorn/no-useless-fallback-in-spread": ["error"],
+        "unicorn/no-useless-iterator-to-array": ["error"],
+        "unicorn/no-useless-length-check": ["error"],
+        "unicorn/no-useless-promise-resolve-reject": ["error"],
+        "unicorn/no-useless-spread": ["error"],
+        "unicorn/no-useless-switch-case": ["error"],
+        "unicorn/no-zero-fractions": ["error"],
+        "unicorn/numeric-separators-style": ["error"],
+        "unicorn/prefer-add-event-listener": ["error"],
+        "unicorn/prefer-array-find": ["error"],
+        "unicorn/prefer-array-flat": ["error"],
+        "unicorn/prefer-array-flat-map": ["error"],
+        "unicorn/prefer-array-index-of": ["error"],
+        "unicorn/prefer-array-some": ["error"],
+        "unicorn/prefer-bigint-literals": ["error"],
+        "unicorn/prefer-blob-reading-methods": ["error"],
+        "unicorn/prefer-class-fields": ["error"],
+        "unicorn/prefer-classlist-toggle": ["error"],
+        "unicorn/prefer-code-point": ["error"],
+        "unicorn/prefer-date-now": ["error"],
+        "unicorn/prefer-default-parameters": ["error"],
+        "unicorn/prefer-dom-node-append": ["error"],
+        "unicorn/prefer-dom-node-remove": ["error"],
+        "unicorn/prefer-dom-node-text-content": ["error"],
+        "unicorn/prefer-event-target": ["error"],
+        "unicorn/prefer-export-from": ["error"],
+        "unicorn/prefer-global-this": ["error"],
+        "unicorn/prefer-includes": ["error"],
+        "unicorn/prefer-keyboard-event-key": ["error"],
+        "unicorn/prefer-logical-operator-over-ternary": ["error"],
+        "unicorn/prefer-math-min-max": ["error"],
+        "unicorn/prefer-math-trunc": ["error"],
+        "unicorn/prefer-modern-dom-apis": ["error"],
+        "unicorn/prefer-modern-math-apis": ["error"],
+        "unicorn/prefer-native-coercion-functions": ["error"],
+        "unicorn/prefer-negative-index": ["error"],
+        "unicorn/prefer-node-protocol": ["error"],
+        "unicorn/prefer-number-coercion": ["error"],
+        "unicorn/prefer-number-properties": ["error"],
+        "unicorn/prefer-object-from-entries": ["error"],
+        "unicorn/prefer-optional-catch-binding": ["error"],
+        "unicorn/prefer-prototype-methods": ["error"],
+        "unicorn/prefer-query-selector": ["error"],
+        "unicorn/prefer-reflect-apply": ["error"],
+        "unicorn/prefer-regexp-test": ["error"],
+        "unicorn/prefer-response-static-json": ["error"],
+        "unicorn/prefer-set-has": ["error"],
+        "unicorn/prefer-set-size": ["error"],
+        "unicorn/prefer-single-call": ["error"],
+        "unicorn/prefer-spread": ["error"],
+        "unicorn/prefer-string-replace-all": ["error"],
+        "unicorn/prefer-string-slice": ["error"],
+        "unicorn/prefer-string-starts-ends-with": ["error"],
+        "unicorn/prefer-string-trim-start-end": ["error"],
+        "unicorn/prefer-structured-clone": ["error"],
+        "unicorn/prefer-ternary": ["error", "only-single-line"],
+        "unicorn/prefer-top-level-await": ["error"],
+        "unicorn/prefer-type-error": ["error"],
+        "unicorn/relative-url-style": ["error"],
+        "unicorn/require-array-join-separator": ["error"],
+        "unicorn/require-module-attributes": ["error"],
+        "unicorn/require-module-specifiers": ["error"],
+        "unicorn/require-number-to-fixed-digits-argument": ["error"],
+        "unicorn/switch-case-braces": ["error"],
+        "unicorn/switch-case-break-position": ["error"],
+        "unicorn/text-encoding-identifier-case": ["error"],
+        "unicorn/throw-new-error": ["error"],
+        "use-isnan": ["error"],
+        "vars-on-top": ["error"],
+        "yoda": ["error"]
+    }
 }

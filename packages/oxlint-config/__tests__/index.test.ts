@@ -23,6 +23,24 @@ describe("@anolilab/oxlint-config", () => {
         expect(config.categories).not.toHaveProperty("style");
     });
 
+    it("loads sonarjs, regexp, eslint-comments and no-secrets as JS plugins", () => {
+        expect.hasAssertions();
+
+        const names = config.jsPlugins.map((plugin) => plugin.name);
+
+        expect(names).toStrictEqual(["sonarjs", "regexp", "eslint-comments", "no-secrets"]);
+        expect(config.rules["sonarjs/cognitive-complexity"]).toBeDefined();
+    });
+
+    it("only enables rules whose plugin is declared", () => {
+        expect.hasAssertions();
+
+        const declared = new Set([...config.plugins, ...config.jsPlugins.map((plugin) => plugin.name)]);
+        const undeclared = Object.keys(config.rules).filter((rule) => rule.includes("/") && !declared.has(rule.slice(0, rule.indexOf("/"))));
+
+        expect(undeclared).toStrictEqual([]);
+    });
+
     it("declares a plugins array", () => {
         expect.assertions(2);
 

@@ -61,7 +61,7 @@ jobs:
 
             - name: "Setup resources and environment"
               id: "setup"
-              uses: "anolilab/workflows/step/setup@c69dbdcdfb274e317a1ca7a17b3457b19cbae527" # v24.2.2 # main
+              uses: "anolilab/workflows/step/setup@986f549679af57daf7997679e2a6ffce5dbb4d6b" # v25.0.1 # main
               with:
                   run-signatures-audit: "false"
                   node-version: "22.x"

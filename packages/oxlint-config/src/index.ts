@@ -28,7 +28,8 @@ export const jsxRuntimeOverrides = (tsconfigPaths: string[]): { files: string[];
             return [];
         }
 
-        const directory = dirname(tsconfigPath);
+        // oxlint treats a backslash in a glob as an escape, so Windows separators must become "/".
+        const directory = dirname(tsconfigPath).replaceAll("\\", "/");
 
         return [{ files: [directory === "." ? "**" : `${directory}/**`], rules: { "react/react-in-jsx-scope": "off" } }];
     });

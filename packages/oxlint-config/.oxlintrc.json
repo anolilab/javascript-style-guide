@@ -76,8 +76,21 @@
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import/exports-last": ["error"],
         "import/first": ["error"],
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 1
+            }
+        ],
         "import/no-absolute-path": ["error"],
         "import/no-amd": ["error"],
+        "import/no-commonjs": [
+            "error",
+            {
+                "allowPrimitiveModules": true
+            }
+        ],
+        "import/no-duplicates": "error",
         "import/no-dynamic-require": ["error"],
         "import/no-empty-named-blocks": ["error"],
         "import/no-mutable-exports": ["error"],
@@ -124,6 +137,7 @@
                 "newIsCapExceptions": []
             }
         ],
+        "no-alert": "error",
         "no-async-promise-executor": ["error"],
         "no-await-in-loop": ["error"],
         "no-bitwise": ["error"],
@@ -131,6 +145,7 @@
         "no-case-declarations": ["error"],
         "no-compare-neg-zero": ["error"],
         "no-cond-assign": ["error", "always"],
+        "no-console": ["warn", {}],
         "no-constant-binary-expression": ["error"],
         "no-constant-condition": ["warn"],
         "no-constructor-return": ["error"],
@@ -146,6 +161,12 @@
             }
         ],
         "no-empty": ["error"],
+        "no-empty-pattern": [
+            "error",
+            {
+                "allowObjectPatternsAsParameters": false
+            }
+        ],
         "no-empty-static-block": ["error"],
         "no-eval": ["error"],
         "no-ex-assign": ["error"],
@@ -161,8 +182,26 @@
             }
         ],
         "no-inner-declarations": "off",
+        "no-irregular-whitespace": [
+            "error",
+            {
+                "skipComments": false,
+                "skipJSXText": false,
+                "skipRegExps": false,
+                "skipStrings": true,
+                "skipTemplates": false
+            }
+        ],
         "no-iterator": ["error"],
         "no-label-var": ["error"],
+        "no-labels": [
+            "error",
+            {
+                "allowLoop": false,
+                "allowSwitch": false
+            }
+        ],
+        "no-lone-blocks": "error",
         "no-lonely-if": ["error"],
         "no-loss-of-precision": ["error"],
         "no-misleading-character-class": ["error"],
@@ -1616,8 +1655,10 @@
         "regexp/no-invalid-regexp": ["error"],
         "regexp/no-invisible-character": ["error"],
         "regexp/no-lazy-ends": ["warn"],
+        "regexp/no-legacy-features": "error",
         "regexp/no-misleading-capturing-group": ["error"],
         "regexp/no-misleading-unicode-character": ["error"],
+        "regexp/no-missing-g-flag": "error",
         "regexp/no-non-standard-flag": ["error"],
         "regexp/no-obscure-range": ["error"],
         "regexp/no-optional-assertion": ["error"],
@@ -1629,7 +1670,9 @@
         "regexp/no-useless-assertions": ["error"],
         "regexp/no-useless-backreference": ["error"],
         "regexp/no-useless-character-class": ["error"],
+        "regexp/no-useless-dollar-replacements": "error",
         "regexp/no-useless-escape": ["error"],
+        "regexp/no-useless-flag": "warn",
         "regexp/no-useless-lazy": ["error"],
         "regexp/no-useless-non-capturing-group": ["error"],
         "regexp/no-useless-quantifier": ["error"],
@@ -1731,6 +1774,7 @@
         "sonarjs/memoize-cache-key": ["error"],
         "sonarjs/misplaced-loop-counter": ["error"],
         "sonarjs/new-operator-misuse": ["error"],
+        "sonarjs/no-all-duplicated-branches": "error",
         "sonarjs/no-alphabetical-sort": ["error"],
         "sonarjs/no-angular-bypass-sanitization": ["error"],
         "sonarjs/no-array-delete": ["error"],
@@ -1850,6 +1894,7 @@
         "sonarjs/prefer-while": ["error"],
         "sonarjs/production-debug": ["error"],
         "sonarjs/pseudo-random": ["error"],
+        "sonarjs/public-static-readonly": "error",
         "sonarjs/publicly-writable-directories": ["error"],
         "sonarjs/reduce-initial-value": ["error"],
         "sonarjs/redundant-type-aliases": ["error"],
@@ -1950,6 +1995,7 @@
         "typescript/no-non-null-asserted-optional-chain": ["error"],
         "typescript/no-non-null-assertion": ["error"],
         "typescript/no-redundant-type-constituents": "error",
+        "typescript/no-require-imports": "error",
         "typescript/no-restricted-types": [
             "error",
             {
@@ -2110,6 +2156,7 @@
         "unicorn/prefer-math-trunc": ["error"],
         "unicorn/prefer-modern-dom-apis": ["error"],
         "unicorn/prefer-modern-math-apis": ["error"],
+        "unicorn/prefer-module": "error",
         "unicorn/prefer-native-coercion-functions": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-node-protocol": ["error"],
@@ -2126,6 +2173,7 @@
         "unicorn/prefer-set-size": ["error"],
         "unicorn/prefer-single-call": ["error"],
         "unicorn/prefer-spread": ["error"],
+        "unicorn/prefer-string-raw": "error",
         "unicorn/prefer-string-replace-all": ["error"],
         "unicorn/prefer-string-slice": ["error"],
         "unicorn/prefer-string-starts-ends-with": ["error"],
@@ -2143,6 +2191,7 @@
         "unicorn/switch-case-break-position": ["error"],
         "unicorn/text-encoding-identifier-case": ["error"],
         "unicorn/throw-new-error": ["error"],
+        "unicode-bom": ["error", "never"],
         "use-isnan": ["error"],
         "vars-on-top": "off",
         "yoda": ["error"],
@@ -2204,6 +2253,208 @@
                 "jsdoc/require-throws-type": "off",
                 "jsdoc/require-yields": "off",
                 "jsdoc/require-yields-type": "off"
+            }
+        },
+        {
+            "files": ["**/*.{js,cjs,mjs,jsx}"],
+            "rules": {
+                "getter-return": [
+                    "error",
+                    {
+                        "allowImplicit": true
+                    }
+                ],
+                "no-empty-function": [
+                    "error",
+                    {
+                        "allow": ["arrowFunctions", "functions", "methods"]
+                    }
+                ],
+                "no-implied-eval": "error",
+                "no-loop-func": "error",
+                "no-new-func": "error",
+                "no-redeclare": [
+                    "error",
+                    {
+                        "builtinGlobals": true
+                    }
+                ],
+                "no-shadow": [
+                    "error",
+                    {
+                        "allow": [],
+                        "builtinGlobals": false,
+                        "hoist": "functions",
+                        "ignoreOnInitialization": false,
+                        "ignoreTypeValueShadow": true
+                    }
+                ],
+                "no-throw-literal": "error",
+                "no-unsafe-negation": [
+                    "error",
+                    {
+                        "enforceForOrderingRelations": false
+                    }
+                ],
+                "no-use-before-define": [
+                    "error",
+                    {
+                        "classes": true,
+                        "functions": true,
+                        "variables": true,
+                        "allowNamedExports": false,
+                        "enums": true,
+                        "typedefs": true,
+                        "ignoreTypeReferences": true
+                    }
+                ],
+                "prefer-promise-reject-errors": [
+                    "error",
+                    {
+                        "allowEmptyReject": true
+                    }
+                ],
+                "unicorn/import-style": [
+                    "error",
+                    {
+                        "styles": {
+                            "node:path": {
+                                "named": true
+                            },
+                            "node:util": {
+                                "named": true
+                            },
+                            "path": {
+                                "named": true
+                            },
+                            "util": {
+                                "named": true
+                            }
+                        }
+                    }
+                ],
+                "valid-typeof": [
+                    "error",
+                    {
+                        "requireStringLiterals": true
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["**/*.{jsx,tsx}"],
+            "rules": {
+                "jsx-a11y/alt-text": [
+                    "error",
+                    {
+                        "area": [],
+                        "elements": ["img", "object", "area", "input[type=\"image\"]"],
+                        "img": [],
+                        "input[type=\"image\"]": [],
+                        "object": []
+                    }
+                ],
+                "jsx-a11y/anchor-has-content": [
+                    "error",
+                    {
+                        "components": []
+                    }
+                ],
+                "jsx-a11y/anchor-is-valid": [
+                    "error",
+                    {
+                        "aspects": ["noHref", "invalidHref", "preferButton"],
+                        "components": ["A", "LinkTo", "Link"],
+                        "specialLink": ["to"]
+                    }
+                ],
+                "jsx-a11y/aria-role": [
+                    "error",
+                    {
+                        "ignoreNonDOM": false
+                    }
+                ],
+                "jsx-a11y/control-has-associated-label": [
+                    "error",
+                    {
+                        "controlComponents": [],
+                        "depth": 5,
+                        "ignoreElements": ["audio", "canvas", "embed", "input", "textarea", "tr", "video"],
+                        "ignoreRoles": ["grid", "listbox", "menu", "menubar", "radiogroup", "row", "tablist", "toolbar", "tree", "treegrid"],
+                        "labelAttributes": ["label"]
+                    }
+                ],
+                "jsx-a11y/heading-has-content": [
+                    "error",
+                    {
+                        "components": [""]
+                    }
+                ],
+                "jsx-a11y/label-has-associated-control": [
+                    "error",
+                    {
+                        "assert": "both",
+                        "controlComponents": [],
+                        "depth": 25,
+                        "labelAttributes": [],
+                        "labelComponents": []
+                    }
+                ],
+                "jsx-a11y/media-has-caption": [
+                    "error",
+                    {
+                        "audio": [],
+                        "track": [],
+                        "video": []
+                    }
+                ],
+                "jsx-a11y/no-autofocus": [
+                    "error",
+                    {
+                        "ignoreNonDOM": true
+                    }
+                ],
+                "jsx-a11y/no-distracting-elements": [
+                    "error",
+                    {
+                        "elements": ["marquee", "blink"]
+                    }
+                ],
+                "jsx-a11y/no-interactive-element-to-noninteractive-role": [
+                    "error",
+                    {
+                        "tr": ["none", "presentation"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-element-interactions": [
+                    "error",
+                    {
+                        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-element-to-interactive-role": [
+                    "error",
+                    {
+                        "li": ["menuitem", "option", "row", "tab", "treeitem"],
+                        "ol": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+                        "table": ["grid"],
+                        "td": ["gridcell"],
+                        "ul": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-tabindex": [
+                    "error",
+                    {
+                        "roles": ["tabpanel"],
+                        "tags": []
+                    }
+                ],
+                "jsx-a11y/no-static-element-interactions": [
+                    "error",
+                    {
+                        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+                    }
+                ]
             }
         }
     ],

@@ -86,6 +86,7 @@ Relax or tighten individual rules on top of the shared base:
 
 - `categories`: `correctness: "error"`
 - `overrides`: turns the `jsdoc` rules off for TypeScript files, as `@anolilab/eslint-config` does
+- `overrides`: also enables the JavaScript-only rules (`no-undef` is left out because the preset sets no globals) and the JSX accessibility rules, for the file kinds `@anolilab/eslint-config` enables them for
 - `plugins`: `typescript`, `unicorn`, `oxc`, `import`, `promise`, `node`, `jsdoc`, `react`, `jsx-a11y`
 - `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets`, `react-doctor`. ESLint plugins
   oxlint loads unchanged, with the rules `@anolilab/eslint-config` enables for them, and the

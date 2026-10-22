@@ -24,9 +24,7 @@
     ],
     "plugins": ["typescript", "unicorn", "oxc", "import", "jsdoc", "react", "jsx-a11y", "promise", "node"],
     "categories": {
-        "correctness": "error",
-        "suspicious": "warn",
-        "pedantic": "warn"
+        "correctness": "error"
     },
     "rules": {
         "array-callback-return": [
@@ -162,7 +160,7 @@
                 "exceptions": []
             }
         ],
-        "no-inner-declarations": ["error"],
+        "no-inner-declarations": "off",
         "no-iterator": ["error"],
         "no-label-var": ["error"],
         "no-lonely-if": ["error"],
@@ -710,7 +708,7 @@
         "no-unused-private-class-members": ["error"],
         "no-useless-catch": ["error"],
         "no-useless-computed-key": ["error"],
-        "no-useless-concat": ["error"],
+        "no-useless-concat": "off",
         "no-useless-escape": ["error"],
         "no-useless-rename": [
             "error",
@@ -731,7 +729,7 @@
                 "ignoreConstructors": false
             }
         ],
-        "operator-assignment": ["error", "always"],
+        "operator-assignment": "off",
         "prefer-arrow-callback": [
             "error",
             {
@@ -1683,7 +1681,7 @@
         "sonarjs/aws-sns-unencrypted-topics": ["error"],
         "sonarjs/aws-sqs-unencrypted-queue": ["error"],
         "sonarjs/bitwise-operators": ["error"],
-        "sonarjs/block-scoped-var": ["error"],
+        "sonarjs/block-scoped-var": "off",
         "sonarjs/call-argument-line": ["error"],
         "sonarjs/chai-determinate-assertion": ["error"],
         "sonarjs/class-name": ["error"],
@@ -1748,7 +1746,7 @@
         "sonarjs/no-debounce-throttle-in-render": ["error"],
         "sonarjs/no-debug-commands-in-ui-tests": ["error"],
         "sonarjs/no-default-utility-imports": ["error"],
-        "sonarjs/no-delete-var": ["error"],
+        "sonarjs/no-delete-var": "off",
         "sonarjs/no-duplicate-in-composite": ["error"],
         "sonarjs/no-duplicate-parameterized-test-case": ["error"],
         "sonarjs/no-duplicate-test-title": ["error"],
@@ -1756,16 +1754,16 @@
         "sonarjs/no-element-overwrite": ["error"],
         "sonarjs/no-empty-after-reluctant": ["error"],
         "sonarjs/no-empty-alternatives": ["error"],
-        "sonarjs/no-empty-character-class": ["error"],
+        "sonarjs/no-empty-character-class": "off",
         "sonarjs/no-empty-collection": ["error"],
-        "sonarjs/no-empty-group": ["error"],
+        "sonarjs/no-empty-group": "off",
         "sonarjs/no-empty-parameterized-test-dataset": ["error"],
         "sonarjs/no-empty-test-file": ["error"],
         "sonarjs/no-empty-test-title": ["error"],
         "sonarjs/no-equals-in-for-termination": ["error"],
         "sonarjs/no-exclusive-tests": ["error"],
         "sonarjs/no-extra-arguments": ["error"],
-        "sonarjs/no-fallthrough": ["error"],
+        "sonarjs/no-fallthrough": "off",
         "sonarjs/no-fixed-wait-in-tests": ["error"],
         "sonarjs/no-floating-point-equality": ["error"],
         "sonarjs/no-forced-browser-interaction": ["error"],
@@ -1787,14 +1785,14 @@
         "sonarjs/no-incomplete-assertions": ["error"],
         "sonarjs/no-internal-api-use": ["error"],
         "sonarjs/no-interpolation-in-inline-snapshots": ["error"],
-        "sonarjs/no-invalid-regexp": ["error"],
+        "sonarjs/no-invalid-regexp": "off",
         "sonarjs/no-invariant-returns": ["error"],
         "sonarjs/no-inverted-boolean-check": ["error"],
         "sonarjs/no-labels": ["error"],
         "sonarjs/no-literal-call": ["error"],
         "sonarjs/no-mime-sniff": ["error"],
         "sonarjs/no-misleading-array-reverse": ["error"],
-        "sonarjs/no-misleading-character-class": ["error"],
+        "sonarjs/no-misleading-character-class": "off",
         "sonarjs/no-mutate-reactive-state-in-updated-hook": ["error"],
         "sonarjs/no-nested-assignment": ["error"],
         "sonarjs/no-nested-conditional": ["error"],
@@ -1807,7 +1805,7 @@
         "sonarjs/no-redundant-jump": ["error"],
         "sonarjs/no-redundant-optional": ["error"],
         "sonarjs/no-referrer-policy": ["error"],
-        "sonarjs/no-regex-spaces": ["error"],
+        "sonarjs/no-regex-spaces": "off",
         "sonarjs/no-same-argument-assert": ["error"],
         "sonarjs/no-same-line-conditional": ["error"],
         "sonarjs/no-selector-parameter": ["error"],
@@ -1825,7 +1823,7 @@
         "sonarjs/no-unused-collection": ["error"],
         "sonarjs/no-unused-vars": ["error"],
         "sonarjs/no-use-of-empty-return-value": ["error"],
-        "sonarjs/no-useless-catch": ["error"],
+        "sonarjs/no-useless-catch": "off",
         "sonarjs/no-useless-increment": ["error"],
         "sonarjs/no-useless-intersection": ["error"],
         "sonarjs/no-useless-react-setstate": ["error"],
@@ -2146,7 +2144,7 @@
         "unicorn/text-encoding-identifier-case": ["error"],
         "unicorn/throw-new-error": ["error"],
         "use-isnan": ["error"],
-        "vars-on-top": ["error"],
+        "vars-on-top": "off",
         "yoda": ["error"],
         "react/jsx-no-script-url": "error",
         "react/jsx-no-target-blank": "error",
@@ -2174,13 +2172,41 @@
         "react/no-unknown-property": "error",
         "react/function-component-definition": "error",
         "react/jsx-curly-brace-presence": "error",
-        "react/prefer-es6-class": "error",
+        "react/prefer-es6-class": "off",
         "react/require-render-return": "error",
         "react/self-closing-comp": "error",
-        "react/state-in-constructor": "error",
+        "react/state-in-constructor": "off",
         "no-unexpected-multiline": "error",
         "node/no-exports-assign": "error"
     },
+    "overrides": [
+        {
+            "files": ["**/*.{ts,tsx,mts,cts}"],
+            "rules": {
+                "jsdoc/check-access": "off",
+                "jsdoc/check-property-names": "off",
+                "jsdoc/check-tag-names": "off",
+                "jsdoc/empty-tags": "off",
+                "jsdoc/implements-on-classes": "off",
+                "jsdoc/no-blank-blocks": "off",
+                "jsdoc/no-defaults": "off",
+                "jsdoc/require-param": "off",
+                "jsdoc/require-param-description": "off",
+                "jsdoc/require-param-name": "off",
+                "jsdoc/require-param-type": "off",
+                "jsdoc/require-property": "off",
+                "jsdoc/require-property-description": "off",
+                "jsdoc/require-property-name": "off",
+                "jsdoc/require-property-type": "off",
+                "jsdoc/require-returns": "off",
+                "jsdoc/require-returns-description": "off",
+                "jsdoc/require-returns-type": "off",
+                "jsdoc/require-throws-type": "off",
+                "jsdoc/require-yields": "off",
+                "jsdoc/require-yields-type": "off"
+            }
+        }
+    ],
     "options": {
         "typeAware": true
     }

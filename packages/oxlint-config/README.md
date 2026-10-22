@@ -22,8 +22,8 @@
 ---
 
 A shareable [oxlint](https://oxc.rs/docs/guide/usage/linter) configuration for Anolilab. It
-enables the `correctness`, `suspicious` and `pedantic` rule categories across a broad plugin set
-and leaves the `style` category to [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
+enables the `correctness` category and lists every other rule it turns on by name, so no rule
+switches on by category alone. It leaves the `style` category to [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
 
 ## Install
 
@@ -84,7 +84,8 @@ Relax or tighten individual rules on top of the shared base:
 
 ## What it sets
 
-- `categories`: `correctness: "error"`, `suspicious: "warn"`, `pedantic: "warn"`
+- `categories`: `correctness: "error"`
+- `overrides`: turns the `jsdoc` rules off for TypeScript files, as `@anolilab/eslint-config` does
 - `plugins`: `typescript`, `unicorn`, `oxc`, `import`, `promise`, `node`, `jsdoc`, `react`, `jsx-a11y`
 - `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets`, `react-doctor`. ESLint plugins
   oxlint loads unchanged, with the rules `@anolilab/eslint-config` enables for them, and the

@@ -16,6 +16,14 @@ describe("@anolilab/oxlint-config", () => {
         expect(config.categories).not.toHaveProperty("pedantic");
     });
 
+    it("enables the ESLint rules oxlint implements, in the file kinds ESLint enables them for", () => {
+        expect.assertions(3);
+
+        expect(config.rules["no-console"]).toStrictEqual(["warn", {}]);
+        expect(config.rules["import/no-duplicates"]).toBe("error");
+        expect(config.overrides.find((override) => override.files.includes("**/*.{jsx,tsx}"))?.rules["jsx-a11y/alt-text"]).toBeDefined();
+    });
+
     it("turns the jsdoc rules off for TypeScript files, as @anolilab/eslint-config does", () => {
         expect.assertions(2);
 

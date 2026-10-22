@@ -78,7 +78,7 @@ export default createConfig<
         ...getFilesGlobs("jsx"),
         "**/*.json",
         "**/*.jsonc",
-        ...config.ignoresTypeAware ?? [],
+        ...(config.ignoresTypeAware ?? []),
     ];
     let { isTypeAware = true } = config;
 
@@ -218,8 +218,8 @@ export default createConfig<
 
                 "react-x": reactXPlugin,
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler && pluginReactCompiler?.configs.recommended.plugins,
-                ...hasReactUnhookify && pluginReactUnhookify && { "react-unhookify": pluginReactUnhookify },
+                ...(hasReactCompiler && pluginReactCompiler?.configs.recommended.plugins),
+                ...(hasReactUnhookify && pluginReactUnhookify && { "react-unhookify": pluginReactUnhookify }),
             },
         },
         {
@@ -289,33 +289,33 @@ export default createConfig<
                 "react-refresh/only-export-components": isUsingTanstack
                     ? "off"
                     : [
-                        "error",
-                        {
-                            allowConstantExport: isAllowConstantExport,
-                            allowExportNames: [
-                                ...isUsingNext
-                                    ? [
-                                        "dynamic",
-                                        "dynamicParams",
-                                        "revalidate",
-                                        "fetchCache",
-                                        "runtime",
-                                        "preferredRegion",
-                                        "maxDuration",
-                                        "config",
-                                        "generateStaticParams",
-                                        "metadata",
-                                        "generateMetadata",
-                                        "viewport",
-                                        "generateViewport",
-                                    ]
-                                    : [],
-                                ...isUsingRemix || isUsingReactRouter
-                                    ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
-                                    : [],
-                            ],
-                        },
-                    ],
+                          "error",
+                          {
+                              allowConstantExport: isAllowConstantExport,
+                              allowExportNames: [
+                                  ...(isUsingNext
+                                      ? [
+                                            "dynamic",
+                                            "dynamicParams",
+                                            "revalidate",
+                                            "fetchCache",
+                                            "runtime",
+                                            "preferredRegion",
+                                            "maxDuration",
+                                            "config",
+                                            "generateStaticParams",
+                                            "metadata",
+                                            "generateMetadata",
+                                            "viewport",
+                                            "generateViewport",
+                                        ]
+                                      : []),
+                                  ...(isUsingRemix || isUsingReactRouter
+                                      ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
+                                      : []),
+                              ],
+                          },
+                      ],
 
                 // Disallow passing children as a prop
                 // https://eslint-react.xyz/docs/rules/jsx-no-children-prop
@@ -441,7 +441,7 @@ export default createConfig<
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
                 // Removed in @eslint-react v5
-                ...!isV5 && { "react-x/no-redundant-should-component-update": "error" },
+                ...(!isV5 && { "react-x/no-redundant-should-component-update": "error" }),
 
                 // Disallow useless fragment elements
                 // https://eslint-react.xyz/docs/rules/jsx-no-useless-fragment
@@ -985,42 +985,42 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...hasReactCompiler
-                && pluginReactCompiler && {
-                    "react-compiler/react-compiler": "error",
-                    "react-hooks/component-hook-factories": "error",
-                    "react-hooks/config": "error",
-                    "react-hooks/error-boundaries": "error",
-                    "react-hooks/gating": "error",
-                    "react-hooks/globals": "error",
-                    "react-hooks/immutability": "error",
-                    "react-hooks/incompatible-library": "warn",
-                    "react-hooks/preserve-manual-memoization": "error",
-                    "react-hooks/purity": "error",
-                    "react-hooks/refs": "error",
-                    "react-hooks/set-state-in-effect": "error",
-                    "react-hooks/set-state-in-render": "error",
-                    "react-hooks/static-components": "error",
-                    "react-hooks/unsupported-syntax": "warn",
-                    "react-hooks/use-memo": "error",
-                },
+                ...(hasReactCompiler &&
+                    pluginReactCompiler && {
+                        "react-compiler/react-compiler": "error",
+                        "react-hooks/component-hook-factories": "error",
+                        "react-hooks/config": "error",
+                        "react-hooks/error-boundaries": "error",
+                        "react-hooks/gating": "error",
+                        "react-hooks/globals": "error",
+                        "react-hooks/immutability": "error",
+                        "react-hooks/incompatible-library": "warn",
+                        "react-hooks/preserve-manual-memoization": "error",
+                        "react-hooks/purity": "error",
+                        "react-hooks/refs": "error",
+                        "react-hooks/set-state-in-effect": "error",
+                        "react-hooks/set-state-in-render": "error",
+                        "react-hooks/static-components": "error",
+                        "react-hooks/unsupported-syntax": "warn",
+                        "react-hooks/use-memo": "error",
+                    }),
 
                 // React Unhookify rules for removing unnecessary memoization hooks
                 // when using React Compiler
-                ...hasReactUnhookify
-                && pluginReactUnhookify && {
-                    // Removes React.memo HOC
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-memo": "error",
+                ...(hasReactUnhookify &&
+                    pluginReactUnhookify && {
+                        // Removes React.memo HOC
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-memo": "error",
 
-                    // Removes useCallback calls
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-use-callback": "error",
+                        // Removes useCallback calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-callback": "error",
 
-                    // Removes useMemo calls
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-use-memo": "error",
-                },
+                        // Removes useMemo calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-memo": "error",
+                    }),
 
                 ...configRules(pluginReactPerformance.configs?.flat?.recommended),
 
@@ -1039,7 +1039,7 @@ export default createConfig<
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {}),
+                ...(hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {})),
 
                 // overrides
                 ...overrides,
@@ -1072,7 +1072,7 @@ export default createConfig<
                     ecmaFeatures: {
                         jsx: true,
                     },
-                    ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {}),
+                    ...(hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {})),
                 },
             },
             name: "anolilab/react/jsx",
@@ -1118,17 +1118,17 @@ export default createConfig<
                 "unicorn/no-null": "off",
             },
         },
-        ...isTypeAware
+        ...(isTypeAware
             ? [
-                {
-                    files: filesTypeAware,
-                    ignores: ignoresTypeAware,
-                    name: "anolilab/react/type-aware-rules",
-                    rules: {
-                        ...typeAwareRules,
-                    },
-                },
-            ]
-            : [],
+                  {
+                      files: filesTypeAware,
+                      ignores: ignoresTypeAware,
+                      name: "anolilab/react/type-aware-rules",
+                      rules: {
+                          ...typeAwareRules,
+                      },
+                  },
+              ]
+            : []),
     ];
 });

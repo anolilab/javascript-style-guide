@@ -74,40 +74,40 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     "import/extensions": hasRewriteExtensions
                         ? "off"
                         : [
-                            "error",
-                            "ignorePackages",
-                            {
-                                checkTypeImports: tsconfigPath !== undefined,
-                                // Always require a file extension except from packages
-                                // https://github.com/Microsoft/TypeScript/issues/27481
-                                ignorePackages: true,
-                                pattern: {
-                                    ...packageJson.type === "module"
-                                        ? {
-                                            cjs: "always",
-                                            cts: "never",
-                                            js: "always",
-                                            json: "always",
-                                            jsx: "always",
-                                            mjs: "always",
-                                            mts: "never",
-                                            ts: "never",
-                                            tsx: "never",
-                                        }
-                                        : {
-                                            cjs: "never",
-                                            cts: "never",
-                                            js: "never",
-                                            json: "always",
-                                            jsx: "never",
-                                            mjs: "never",
-                                            mts: "never",
-                                            ts: "never",
-                                            tsx: "never",
-                                        },
-                                },
-                            },
-                        ],
+                              "error",
+                              "ignorePackages",
+                              {
+                                  checkTypeImports: tsconfigPath !== undefined,
+                                  // Always require a file extension except from packages
+                                  // https://github.com/Microsoft/TypeScript/issues/27481
+                                  ignorePackages: true,
+                                  pattern: {
+                                      ...(packageJson.type === "module"
+                                          ? {
+                                                cjs: "always",
+                                                cts: "never",
+                                                js: "always",
+                                                json: "always",
+                                                jsx: "always",
+                                                mjs: "always",
+                                                mts: "never",
+                                                ts: "never",
+                                                tsx: "never",
+                                            }
+                                          : {
+                                                cjs: "never",
+                                                cts: "never",
+                                                js: "never",
+                                                json: "always",
+                                                jsx: "never",
+                                                mjs: "never",
+                                                mts: "never",
+                                                ts: "never",
+                                                tsx: "never",
+                                            }),
+                                  },
+                              },
+                          ],
 
                     // disallow non-import statements appearing before import statements
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md
@@ -142,9 +142,9 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Require a newline after the last import/require in a group
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
-                    ...stylistic && {
+                    ...(stylistic && {
                         "import/newline-after-import": ["error", { count: 1 }],
-                    },
+                    }),
 
                     // Forbid import of modules using absolute paths
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-absolute-path.md
@@ -400,26 +400,26 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                         "@typescript-eslint/parser": getFilesGlobs("ts").map((extension) => extension.replace("**/*", "")),
                     },
 
-                    ...tsconfigPath
+                    ...(tsconfigPath
                         ? {
-                            // Append 'ts' extensions to 'import/resolver' setting
-                            "import/resolver": {
-                                node: true,
-                                typescript: {
-                                    // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-                                    alwaysTryTypes: true,
-                                    project: tsconfigPath,
-                                },
-                            },
-                        }
+                              // Append 'ts' extensions to 'import/resolver' setting
+                              "import/resolver": {
+                                  node: true,
+                                  typescript: {
+                                      // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                                      alwaysTryTypes: true,
+                                      project: tsconfigPath,
+                                  },
+                              },
+                          }
                         : {
-                            "import/resolver": {
-                                node: true,
-                                // You will also need to install and configure the TypeScript resolver
-                                // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-                                typescript: true,
-                            },
-                        },
+                              "import/resolver": {
+                                  node: true,
+                                  // You will also need to install and configure the TypeScript resolver
+                                  // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+                                  typescript: true,
+                              },
+                          }),
                 },
             });
         }

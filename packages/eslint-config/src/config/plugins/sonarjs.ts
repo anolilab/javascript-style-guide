@@ -31,11 +31,22 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
             name: "anolilab/sonarjs/rules",
             rules: {
                 ...sonarJsRecommendedRules,
+                // core ESLint, unicorn or regexp report the same code; keep one copy
+                "sonarjs/block-scoped-var": "off",
                 // Disabled: v4 now fires on any primary export (not just classes), causing false positives on config files
                 "sonarjs/file-name-differ-from-class": "off",
                 "sonarjs/no-collapsible-if": "error",
-                "sonarjs/no-nested-template-literals": "off",
 
+                "sonarjs/no-delete-var": "off",
+
+                "sonarjs/no-empty-character-class": "off",
+                "sonarjs/no-empty-group": "off",
+                "sonarjs/no-fallthrough": "off",
+                "sonarjs/no-invalid-regexp": "off",
+                "sonarjs/no-misleading-character-class": "off",
+                "sonarjs/no-nested-template-literals": "off",
+                "sonarjs/no-regex-spaces": "off",
+                "sonarjs/no-useless-catch": "off",
                 // This rule does not work will with disable next line
                 "sonarjs/todo-tag": "off",
 

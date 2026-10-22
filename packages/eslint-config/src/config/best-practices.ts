@@ -436,10 +436,6 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 // https://eslint.org/docs/rules/no-useless-catch
                 "no-useless-catch": "error",
 
-                // disallow unnecessary string escaping
-                // https://eslint.org/docs/rules/no-useless-concat
-                "no-useless-concat": "error",
-
                 // disallow redundant return; keywords
                 // https://eslint.org/docs/rules/no-useless-escape
                 "no-useless-escape": "error",
@@ -488,9 +484,6 @@ export default createConfig<OptionsFiles>("all", async (config, oFiles) => {
                 "require-unicode-regexp": "off",
 
                 // require immediate function invocation to be wrapped in parentheses
-                // requires to declare all vars on top of their containing scope
-                "vars-on-top": "error",
-
                 // https://eslint.org/docs/rules/wrap-iife.html
                 "wrap-iife": ["error", "outside", { functionPrototypeMethods: false }],
                 // require or disallow Yoda conditions

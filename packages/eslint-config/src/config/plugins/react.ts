@@ -262,10 +262,6 @@ export default createConfig<
                     },
                 ],
 
-                // Specify whether double or single quotes should be used in JSX attributes
-                // https://eslint.org/docs/rules/jsx-quotes
-                "jsx-quotes": ["error", "prefer-double"],
-
                 "no-underscore-dangle": [
                     "error",
                     {
@@ -545,21 +541,6 @@ export default createConfig<
                 // Validate props indentation in JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
                 "react/forbid-elements": ["off", { forbid: [] }],
-
-                // Validate JSX has key prop when in array or iterator
-                // but it's only critical if you're stripping propTypes in production.
-                "react/forbid-foreign-prop-types": ["error", { allowInPropTypes: true }],
-
-                // Limit maximum of props on a single line in JSX
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-                "react/forbid-prop-types": [
-                    "error",
-                    {
-                        checkChildContextTypes: true,
-                        checkContextTypes: true,
-                        forbid: ["any", "array", "object"],
-                    },
-                ],
 
                 // Prevent usage of .bind() in JSX props
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
@@ -861,10 +842,6 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
                 "react/no-will-update-set-state": "error",
 
-                // Prevent this from being used in stateless functional components
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
-                "react/prefer-es6-class": ["error", "always"],
-
                 // Validate JSX maximum depth
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
                 "react/prefer-read-only-props": "off",
@@ -885,8 +862,6 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
                 "react/require-default-props": "off",
 
-                // Enforce state initialization style
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
                 "react/require-optimization": ["off", { allowDecorators: [] }],
 
@@ -898,67 +873,6 @@ export default createConfig<
                 // Disallow JSX props spreading
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
                 "react/self-closing-comp": "error",
-
-                // Enforce that props are read-only
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
-                "react/sort-comp": [
-                    "error",
-                    {
-                        groups: {
-                            lifecycle: [
-                                "displayName",
-                                "propTypes",
-                                "contextTypes",
-                                "childContextTypes",
-                                "mixins",
-                                "statics",
-                                "defaultProps",
-                                "constructor",
-                                "getDefaultProps",
-                                "getInitialState",
-                                "state",
-                                "getChildContext",
-                                "getDerivedStateFromProps",
-                                "componentWillMount",
-                                "UNSAFE_componentWillMount",
-                                "componentDidMount",
-                                "componentWillReceiveProps",
-                                "UNSAFE_componentWillReceiveProps",
-                                "shouldComponentUpdate",
-                                "componentWillUpdate",
-                                "UNSAFE_componentWillUpdate",
-                                "getSnapshotBeforeUpdate",
-                                "componentDidUpdate",
-                                "componentDidCatch",
-                                "componentWillUnmount",
-                            ],
-                            rendering: ["/^render.+$/", "render"],
-                        },
-                        order: [
-                            "static-variables",
-                            "static-methods",
-                            "instance-variables",
-                            "lifecycle",
-                            "/^handle.+$/",
-                            "/^on.+$/",
-                            "getters",
-                            "setters",
-                            "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
-                            "instance-methods",
-                            "everything-else",
-                            "rendering",
-                        ],
-                    },
-                ],
-
-                // Prevent usage of `javascript:` URLs
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-default-props.md
-                "react/sort-default-props": [
-                    "error",
-                    {
-                        ignoreCase: true,
-                    },
-                ],
 
                 // Disallow unnecessary fragments
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
@@ -972,11 +886,6 @@ export default createConfig<
                     },
                 ],
 
-                // Prevent adjacent inline elements not separated by whitespace
-                "react/state-in-constructor": ["error", "never"],
-
-                // Enforce a specific function type for function components
-                "react/static-property-placement": ["error", "static public field"],
                 // Enforce a new line after jsx elements and expressions
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
                 "react/style-prop-object": "error",

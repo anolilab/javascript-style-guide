@@ -271,10 +271,6 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md
                     "import/no-named-as-default-member": "error",
 
-                    // Prevent importing the default as if it were named
-                    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-default.md
-                    "import/no-named-default": "error",
-
                     // Prohibit named exports. this is a terrible rule, do not use it.
                     // https://github.com/import-js/eslint-plugin-import/blob/1ec80fa35fa1819e2d35a70e68fb6a149fb57c5e/docs/rules/no-named-export.md
                     "import/no-named-export": "off",

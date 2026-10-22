@@ -88,10 +88,6 @@ export const styleRules = {
     // https://eslint.org/docs/rules/function-paren-newline
     "function-paren-newline": "off",
 
-    // Blacklist certain identifiers to prevent them being used
-    // https://eslint.org/docs/rules/id-blacklist
-    "id-blacklist": "error",
-
     // disallow specified identifiers
     // https://eslint.org/docs/rules/id-denylist
     "id-denylist": "off",
@@ -107,10 +103,6 @@ export const styleRules = {
     // https://eslint.org/docs/rules/implicit-arrow-linebreak
     "implicit-arrow-linebreak": "off",
 
-    // specify whether double or single quotes should be used in JSX attributes
-    // https://eslint.org/docs/rules/jsx-quotes
-    "jsx-quotes": "off",
-
     // enforce position of line comments
     // https://eslint.org/docs/rules/line-comment-position
     "line-comment-position": "off",
@@ -118,15 +110,6 @@ export const styleRules = {
     // disallow mixed 'LF' and 'CRLF' as linebreaks
     // https://eslint.org/docs/rules/linebreak-style
     "linebreak-style": "off",
-
-    // https://eslint.org/docs/rules/lines-around-directive
-    "lines-around-directive": [
-        "error",
-        {
-            after: "always",
-            before: "always",
-        },
-    ],
 
     // specify the maximum depth that blocks can be nested
     "max-depth": ["off", 4],
@@ -263,7 +246,7 @@ export const styleRules = {
     "no-nested-ternary": "error",
 
     // disallow use of the Object constructor
-    "no-new-object": "error",
+    "no-object-constructor": "error",
 
     // disallow use of unary operators, ++ and --
     // https://eslint.org/docs/rules/no-plusplus
@@ -313,7 +296,8 @@ export const styleRules = {
             selector: 'CallExpression[callee.object.name="Reflect"][callee.property.name="get"]',
         },
         {
-            message: "Spreading `{}` makes the property optional in a way the type no longer records. Make the field optional, or build both objects explicitly.",
+            message:
+                "Spreading `{}` makes the property optional in a way the type no longer records. Make the field optional, or build both objects explicitly.",
             selector: "ObjectExpression > SpreadElement > ConditionalExpression > ObjectExpression[properties.length=0]",
         },
         {
@@ -369,10 +353,6 @@ export const styleRules = {
     // require a newline around variable declaration
     // https://eslint.org/docs/rules/one-var-declaration-per-line
     "one-var-declaration-per-line": "off",
-
-    // require assignment operator shorthand where possible or prohibit it entirely
-    // https://eslint.org/docs/rules/operator-assignment
-    "operator-assignment": ["error", "always"],
 
     // Requires operator at the beginning of the line in multiline statements
     // https://eslint.org/docs/rules/operator-linebreak

@@ -30,15 +30,15 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
             rules: {
                 ...pluginNode.configs.recommended.rules,
 
-                // https://eslint.org/docs/rules/global-require
-                "global-require": "error",
-
                 // enforce return after a callback
                 "n/callback-return": "off",
 
                 // enforce the style of file extensions in import declarations
                 // This rule is buggy @see https://github.com/eslint-community/eslint-plugin-n/issues/21
                 "n/file-extension-in-import": "off",
+
+                // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/global-require.md
+                "n/global-require": "error",
 
                 // enforces error handling in callbacks (node environment)
                 "n/handle-callback-err": "off",
@@ -69,6 +69,9 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
                 // disallow use of new operator with the require function
                 "n/no-new-require": "error",
 
+                // https://github.com/eslint-community/eslint-plugin-n/blob/master/docs/rules/no-path-concat.md
+                "n/no-path-concat": "error",
+
                 // disallow use of process.env
                 "n/no-process-env": "off",
 
@@ -88,12 +91,6 @@ export default createConfig<OptionsFiles & OptionsOverrides & OptionsPackageJson
 
                 // require that process.exit() expressions use the same code path as throw
                 "n/process-exit-as-throw": "error",
-
-                // https://eslint.org/docs/rules/no-buffer-constructor
-                "no-buffer-constructor": "error",
-
-                // https://eslint.org/docs/rules/no-path-concat
-                "no-path-concat": "error",
 
                 ...(nodeVersion && {
                     "n/no-unsupported-features/es-builtins": ["error", { version: nodeVersion }],

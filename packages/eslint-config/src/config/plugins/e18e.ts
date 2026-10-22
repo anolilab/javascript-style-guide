@@ -25,9 +25,14 @@ export default createConfig<OptionsFiles & OptionsOverrides>("all", async (confi
                 // these are a bit opinionated and dangerous (introducing behavioral changes), so we'll disable them by default for now
                 "e18e/prefer-array-at": "off",
                 "e18e/prefer-array-from-map": "off",
+                "e18e/prefer-array-some": "off",
                 "e18e/prefer-array-to-reversed": "off",
                 "e18e/prefer-array-to-sorted": "off",
                 "e18e/prefer-array-to-spliced": "off",
+
+                "e18e/prefer-date-now": "off",
+                // unicorn/prefer-includes, unicorn/prefer-date-now and unicorn/prefer-array-some cover the same patterns
+                "e18e/prefer-includes": "off",
                 "e18e/prefer-spread-syntax": "off",
 
                 // Conflicts with e18e/prefer-exponentiation-operator

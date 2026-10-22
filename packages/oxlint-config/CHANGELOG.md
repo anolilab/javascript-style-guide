@@ -1,3 +1,9 @@
+## @anolilab/oxlint-config [2.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@2.0.0...@anolilab/oxlint-config@2.0.1) (2026-10-22)
+
+### Bug Fixes
+
+* **oxlint-config:** match eslint-config on one-var and react-in-jsx-scope ([#1248](https://github.com/anolilab/javascript-style-guide/issues/1248)) ([7c875b8](https://github.com/anolilab/javascript-style-guide/commit/7c875b8e635cb5ad675afa0e413a265b3b59aa15))
+
 ## @anolilab/oxlint-config [2.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@1.0.5...@anolilab/oxlint-config@2.0.0) (2026-10-21)
 
 ### ⚠ BREAKING CHANGES

@@ -24,9 +24,7 @@
     ],
     "plugins": ["typescript", "unicorn", "oxc", "import", "jsdoc", "react", "jsx-a11y", "promise", "node"],
     "categories": {
-        "correctness": "error",
-        "suspicious": "warn",
-        "pedantic": "warn"
+        "correctness": "error"
     },
     "rules": {
         "array-callback-return": [
@@ -78,8 +76,21 @@
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import/exports-last": ["error"],
         "import/first": ["error"],
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 1
+            }
+        ],
         "import/no-absolute-path": ["error"],
         "import/no-amd": ["error"],
+        "import/no-commonjs": [
+            "error",
+            {
+                "allowPrimitiveModules": true
+            }
+        ],
+        "import/no-duplicates": "error",
         "import/no-dynamic-require": ["error"],
         "import/no-empty-named-blocks": ["error"],
         "import/no-mutable-exports": ["error"],
@@ -126,6 +137,7 @@
                 "newIsCapExceptions": []
             }
         ],
+        "no-alert": "error",
         "no-async-promise-executor": ["error"],
         "no-await-in-loop": ["error"],
         "no-bitwise": ["error"],
@@ -133,6 +145,7 @@
         "no-case-declarations": ["error"],
         "no-compare-neg-zero": ["error"],
         "no-cond-assign": ["error", "always"],
+        "no-console": ["warn", {}],
         "no-constant-binary-expression": ["error"],
         "no-constant-condition": ["warn"],
         "no-constructor-return": ["error"],
@@ -148,6 +161,12 @@
             }
         ],
         "no-empty": ["error"],
+        "no-empty-pattern": [
+            "error",
+            {
+                "allowObjectPatternsAsParameters": false
+            }
+        ],
         "no-empty-static-block": ["error"],
         "no-eval": ["error"],
         "no-ex-assign": ["error"],
@@ -162,9 +181,27 @@
                 "exceptions": []
             }
         ],
-        "no-inner-declarations": ["error"],
+        "no-inner-declarations": "off",
+        "no-irregular-whitespace": [
+            "error",
+            {
+                "skipComments": false,
+                "skipJSXText": false,
+                "skipRegExps": false,
+                "skipStrings": true,
+                "skipTemplates": false
+            }
+        ],
         "no-iterator": ["error"],
         "no-label-var": ["error"],
+        "no-labels": [
+            "error",
+            {
+                "allowLoop": false,
+                "allowSwitch": false
+            }
+        ],
+        "no-lone-blocks": "error",
         "no-lonely-if": ["error"],
         "no-loss-of-precision": ["error"],
         "no-misleading-character-class": ["error"],
@@ -710,7 +747,7 @@
         "no-unused-private-class-members": ["error"],
         "no-useless-catch": ["error"],
         "no-useless-computed-key": ["error"],
-        "no-useless-concat": ["error"],
+        "no-useless-concat": "off",
         "no-useless-escape": ["error"],
         "no-useless-rename": [
             "error",
@@ -731,7 +768,7 @@
                 "ignoreConstructors": false
             }
         ],
-        "operator-assignment": ["error", "always"],
+        "operator-assignment": "off",
         "prefer-arrow-callback": [
             "error",
             {
@@ -1618,8 +1655,10 @@
         "regexp/no-invalid-regexp": ["error"],
         "regexp/no-invisible-character": ["error"],
         "regexp/no-lazy-ends": ["warn"],
+        "regexp/no-legacy-features": "error",
         "regexp/no-misleading-capturing-group": ["error"],
         "regexp/no-misleading-unicode-character": ["error"],
+        "regexp/no-missing-g-flag": "error",
         "regexp/no-non-standard-flag": ["error"],
         "regexp/no-obscure-range": ["error"],
         "regexp/no-optional-assertion": ["error"],
@@ -1631,7 +1670,9 @@
         "regexp/no-useless-assertions": ["error"],
         "regexp/no-useless-backreference": ["error"],
         "regexp/no-useless-character-class": ["error"],
+        "regexp/no-useless-dollar-replacements": "error",
         "regexp/no-useless-escape": ["error"],
+        "regexp/no-useless-flag": "warn",
         "regexp/no-useless-lazy": ["error"],
         "regexp/no-useless-non-capturing-group": ["error"],
         "regexp/no-useless-quantifier": ["error"],
@@ -1683,7 +1724,7 @@
         "sonarjs/aws-sns-unencrypted-topics": ["error"],
         "sonarjs/aws-sqs-unencrypted-queue": ["error"],
         "sonarjs/bitwise-operators": ["error"],
-        "sonarjs/block-scoped-var": ["error"],
+        "sonarjs/block-scoped-var": "off",
         "sonarjs/call-argument-line": ["error"],
         "sonarjs/chai-determinate-assertion": ["error"],
         "sonarjs/class-name": ["error"],
@@ -1733,6 +1774,7 @@
         "sonarjs/memoize-cache-key": ["error"],
         "sonarjs/misplaced-loop-counter": ["error"],
         "sonarjs/new-operator-misuse": ["error"],
+        "sonarjs/no-all-duplicated-branches": "error",
         "sonarjs/no-alphabetical-sort": ["error"],
         "sonarjs/no-angular-bypass-sanitization": ["error"],
         "sonarjs/no-array-delete": ["error"],
@@ -1748,7 +1790,7 @@
         "sonarjs/no-debounce-throttle-in-render": ["error"],
         "sonarjs/no-debug-commands-in-ui-tests": ["error"],
         "sonarjs/no-default-utility-imports": ["error"],
-        "sonarjs/no-delete-var": ["error"],
+        "sonarjs/no-delete-var": "off",
         "sonarjs/no-duplicate-in-composite": ["error"],
         "sonarjs/no-duplicate-parameterized-test-case": ["error"],
         "sonarjs/no-duplicate-test-title": ["error"],
@@ -1756,16 +1798,16 @@
         "sonarjs/no-element-overwrite": ["error"],
         "sonarjs/no-empty-after-reluctant": ["error"],
         "sonarjs/no-empty-alternatives": ["error"],
-        "sonarjs/no-empty-character-class": ["error"],
+        "sonarjs/no-empty-character-class": "off",
         "sonarjs/no-empty-collection": ["error"],
-        "sonarjs/no-empty-group": ["error"],
+        "sonarjs/no-empty-group": "off",
         "sonarjs/no-empty-parameterized-test-dataset": ["error"],
         "sonarjs/no-empty-test-file": ["error"],
         "sonarjs/no-empty-test-title": ["error"],
         "sonarjs/no-equals-in-for-termination": ["error"],
         "sonarjs/no-exclusive-tests": ["error"],
         "sonarjs/no-extra-arguments": ["error"],
-        "sonarjs/no-fallthrough": ["error"],
+        "sonarjs/no-fallthrough": "off",
         "sonarjs/no-fixed-wait-in-tests": ["error"],
         "sonarjs/no-floating-point-equality": ["error"],
         "sonarjs/no-forced-browser-interaction": ["error"],
@@ -1787,14 +1829,14 @@
         "sonarjs/no-incomplete-assertions": ["error"],
         "sonarjs/no-internal-api-use": ["error"],
         "sonarjs/no-interpolation-in-inline-snapshots": ["error"],
-        "sonarjs/no-invalid-regexp": ["error"],
+        "sonarjs/no-invalid-regexp": "off",
         "sonarjs/no-invariant-returns": ["error"],
         "sonarjs/no-inverted-boolean-check": ["error"],
         "sonarjs/no-labels": ["error"],
         "sonarjs/no-literal-call": ["error"],
         "sonarjs/no-mime-sniff": ["error"],
         "sonarjs/no-misleading-array-reverse": ["error"],
-        "sonarjs/no-misleading-character-class": ["error"],
+        "sonarjs/no-misleading-character-class": "off",
         "sonarjs/no-mutate-reactive-state-in-updated-hook": ["error"],
         "sonarjs/no-nested-assignment": ["error"],
         "sonarjs/no-nested-conditional": ["error"],
@@ -1807,7 +1849,7 @@
         "sonarjs/no-redundant-jump": ["error"],
         "sonarjs/no-redundant-optional": ["error"],
         "sonarjs/no-referrer-policy": ["error"],
-        "sonarjs/no-regex-spaces": ["error"],
+        "sonarjs/no-regex-spaces": "off",
         "sonarjs/no-same-argument-assert": ["error"],
         "sonarjs/no-same-line-conditional": ["error"],
         "sonarjs/no-selector-parameter": ["error"],
@@ -1825,7 +1867,7 @@
         "sonarjs/no-unused-collection": ["error"],
         "sonarjs/no-unused-vars": ["error"],
         "sonarjs/no-use-of-empty-return-value": ["error"],
-        "sonarjs/no-useless-catch": ["error"],
+        "sonarjs/no-useless-catch": "off",
         "sonarjs/no-useless-increment": ["error"],
         "sonarjs/no-useless-intersection": ["error"],
         "sonarjs/no-useless-react-setstate": ["error"],
@@ -1852,6 +1894,7 @@
         "sonarjs/prefer-while": ["error"],
         "sonarjs/production-debug": ["error"],
         "sonarjs/pseudo-random": ["error"],
+        "sonarjs/public-static-readonly": "error",
         "sonarjs/publicly-writable-directories": ["error"],
         "sonarjs/reduce-initial-value": ["error"],
         "sonarjs/redundant-type-aliases": ["error"],
@@ -1952,6 +1995,7 @@
         "typescript/no-non-null-asserted-optional-chain": ["error"],
         "typescript/no-non-null-assertion": ["error"],
         "typescript/no-redundant-type-constituents": "error",
+        "typescript/no-require-imports": "error",
         "typescript/no-restricted-types": [
             "error",
             {
@@ -2112,6 +2156,7 @@
         "unicorn/prefer-math-trunc": ["error"],
         "unicorn/prefer-modern-dom-apis": ["error"],
         "unicorn/prefer-modern-math-apis": ["error"],
+        "unicorn/prefer-module": "error",
         "unicorn/prefer-native-coercion-functions": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-node-protocol": ["error"],
@@ -2128,6 +2173,7 @@
         "unicorn/prefer-set-size": ["error"],
         "unicorn/prefer-single-call": ["error"],
         "unicorn/prefer-spread": ["error"],
+        "unicorn/prefer-string-raw": "error",
         "unicorn/prefer-string-replace-all": ["error"],
         "unicorn/prefer-string-slice": ["error"],
         "unicorn/prefer-string-starts-ends-with": ["error"],
@@ -2145,8 +2191,9 @@
         "unicorn/switch-case-break-position": ["error"],
         "unicorn/text-encoding-identifier-case": ["error"],
         "unicorn/throw-new-error": ["error"],
+        "unicode-bom": ["error", "never"],
         "use-isnan": ["error"],
-        "vars-on-top": ["error"],
+        "vars-on-top": "off",
         "yoda": ["error"],
         "react/jsx-no-script-url": "error",
         "react/jsx-no-target-blank": "error",
@@ -2174,13 +2221,243 @@
         "react/no-unknown-property": "error",
         "react/function-component-definition": "error",
         "react/jsx-curly-brace-presence": "error",
-        "react/prefer-es6-class": "error",
+        "react/prefer-es6-class": "off",
         "react/require-render-return": "error",
         "react/self-closing-comp": "error",
-        "react/state-in-constructor": "error",
+        "react/state-in-constructor": "off",
         "no-unexpected-multiline": "error",
         "node/no-exports-assign": "error"
     },
+    "overrides": [
+        {
+            "files": ["**/*.{ts,tsx,mts,cts}"],
+            "rules": {
+                "jsdoc/check-access": "off",
+                "jsdoc/check-property-names": "off",
+                "jsdoc/check-tag-names": "off",
+                "jsdoc/empty-tags": "off",
+                "jsdoc/implements-on-classes": "off",
+                "jsdoc/no-blank-blocks": "off",
+                "jsdoc/no-defaults": "off",
+                "jsdoc/require-param": "off",
+                "jsdoc/require-param-description": "off",
+                "jsdoc/require-param-name": "off",
+                "jsdoc/require-param-type": "off",
+                "jsdoc/require-property": "off",
+                "jsdoc/require-property-description": "off",
+                "jsdoc/require-property-name": "off",
+                "jsdoc/require-property-type": "off",
+                "jsdoc/require-returns": "off",
+                "jsdoc/require-returns-description": "off",
+                "jsdoc/require-returns-type": "off",
+                "jsdoc/require-throws-type": "off",
+                "jsdoc/require-yields": "off",
+                "jsdoc/require-yields-type": "off"
+            }
+        },
+        {
+            "files": ["**/*.{js,cjs,mjs,jsx}"],
+            "rules": {
+                "getter-return": [
+                    "error",
+                    {
+                        "allowImplicit": true
+                    }
+                ],
+                "no-empty-function": [
+                    "error",
+                    {
+                        "allow": ["arrowFunctions", "functions", "methods"]
+                    }
+                ],
+                "no-implied-eval": "error",
+                "no-loop-func": "error",
+                "no-new-func": "error",
+                "no-redeclare": [
+                    "error",
+                    {
+                        "builtinGlobals": true
+                    }
+                ],
+                "no-shadow": [
+                    "error",
+                    {
+                        "allow": [],
+                        "builtinGlobals": false,
+                        "hoist": "functions",
+                        "ignoreOnInitialization": false,
+                        "ignoreTypeValueShadow": true
+                    }
+                ],
+                "no-throw-literal": "error",
+                "no-unsafe-negation": [
+                    "error",
+                    {
+                        "enforceForOrderingRelations": false
+                    }
+                ],
+                "no-use-before-define": [
+                    "error",
+                    {
+                        "classes": true,
+                        "functions": true,
+                        "variables": true,
+                        "allowNamedExports": false,
+                        "enums": true,
+                        "typedefs": true,
+                        "ignoreTypeReferences": true
+                    }
+                ],
+                "prefer-promise-reject-errors": [
+                    "error",
+                    {
+                        "allowEmptyReject": true
+                    }
+                ],
+                "unicorn/import-style": [
+                    "error",
+                    {
+                        "styles": {
+                            "node:path": {
+                                "named": true
+                            },
+                            "node:util": {
+                                "named": true
+                            },
+                            "path": {
+                                "named": true
+                            },
+                            "util": {
+                                "named": true
+                            }
+                        }
+                    }
+                ],
+                "valid-typeof": [
+                    "error",
+                    {
+                        "requireStringLiterals": true
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["**/*.{jsx,tsx}"],
+            "rules": {
+                "jsx-a11y/alt-text": [
+                    "error",
+                    {
+                        "area": [],
+                        "elements": ["img", "object", "area", "input[type=\"image\"]"],
+                        "img": [],
+                        "input[type=\"image\"]": [],
+                        "object": []
+                    }
+                ],
+                "jsx-a11y/anchor-has-content": [
+                    "error",
+                    {
+                        "components": []
+                    }
+                ],
+                "jsx-a11y/anchor-is-valid": [
+                    "error",
+                    {
+                        "aspects": ["noHref", "invalidHref", "preferButton"],
+                        "components": ["A", "LinkTo", "Link"],
+                        "specialLink": ["to"]
+                    }
+                ],
+                "jsx-a11y/aria-role": [
+                    "error",
+                    {
+                        "ignoreNonDOM": false
+                    }
+                ],
+                "jsx-a11y/control-has-associated-label": [
+                    "error",
+                    {
+                        "controlComponents": [],
+                        "depth": 5,
+                        "ignoreElements": ["audio", "canvas", "embed", "input", "textarea", "tr", "video"],
+                        "ignoreRoles": ["grid", "listbox", "menu", "menubar", "radiogroup", "row", "tablist", "toolbar", "tree", "treegrid"],
+                        "labelAttributes": ["label"]
+                    }
+                ],
+                "jsx-a11y/heading-has-content": [
+                    "error",
+                    {
+                        "components": [""]
+                    }
+                ],
+                "jsx-a11y/label-has-associated-control": [
+                    "error",
+                    {
+                        "assert": "both",
+                        "controlComponents": [],
+                        "depth": 25,
+                        "labelAttributes": [],
+                        "labelComponents": []
+                    }
+                ],
+                "jsx-a11y/media-has-caption": [
+                    "error",
+                    {
+                        "audio": [],
+                        "track": [],
+                        "video": []
+                    }
+                ],
+                "jsx-a11y/no-autofocus": [
+                    "error",
+                    {
+                        "ignoreNonDOM": true
+                    }
+                ],
+                "jsx-a11y/no-distracting-elements": [
+                    "error",
+                    {
+                        "elements": ["marquee", "blink"]
+                    }
+                ],
+                "jsx-a11y/no-interactive-element-to-noninteractive-role": [
+                    "error",
+                    {
+                        "tr": ["none", "presentation"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-element-interactions": [
+                    "error",
+                    {
+                        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-element-to-interactive-role": [
+                    "error",
+                    {
+                        "li": ["menuitem", "option", "row", "tab", "treeitem"],
+                        "ol": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+                        "table": ["grid"],
+                        "td": ["gridcell"],
+                        "ul": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"]
+                    }
+                ],
+                "jsx-a11y/no-noninteractive-tabindex": [
+                    "error",
+                    {
+                        "roles": ["tabpanel"],
+                        "tags": []
+                    }
+                ],
+                "jsx-a11y/no-static-element-interactions": [
+                    "error",
+                    {
+                        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+                    }
+                ]
+            }
+        }
+    ],
     "options": {
         "typeAware": true
     }

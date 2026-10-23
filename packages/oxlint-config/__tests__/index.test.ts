@@ -9,12 +9,28 @@ describe("@anolilab/oxlint-config", () => {
         expect(config).toBeTypeOf("object");
     });
 
-    it("enables the correctness, suspicious and pedantic categories", () => {
+    it("enables only the correctness category; every other rule is listed explicitly", () => {
+        expect.assertions(2);
+
+        expect(config.categories).toStrictEqual({ correctness: "error" });
+        expect(config.categories).not.toHaveProperty("pedantic");
+    });
+
+    it("enables the ESLint rules oxlint implements, in the file kinds ESLint enables them for", () => {
         expect.assertions(3);
 
-        expect(config.categories.correctness).toBe("error");
-        expect(config.categories.suspicious).toBe("warn");
-        expect(config.categories.pedantic).toBe("warn");
+        expect(config.rules["no-console"]).toStrictEqual(["warn", {}]);
+        expect(config.rules["import/no-duplicates"]).toBe("error");
+        expect(config.overrides.find((override) => override.files.includes("**/*.{jsx,tsx}"))?.rules["jsx-a11y/alt-text"]).toBeDefined();
+    });
+
+    it("turns the jsdoc rules off for TypeScript files, as @anolilab/eslint-config does", () => {
+        expect.assertions(2);
+
+        const typescript = config.overrides.find((override) => override.files.includes("**/*.{ts,tsx,mts,cts}"));
+
+        expect(typescript?.rules["jsdoc/require-param-type"]).toBe("off");
+        expect(typescript?.rules["jsdoc/require-returns"]).toBe("off");
     });
 
     it("does not enable the style category (handled by oxfmt)", () => {

@@ -78,7 +78,7 @@ export default createConfig<
         ...getFilesGlobs("jsx"),
         "**/*.json",
         "**/*.jsonc",
-        ...config.ignoresTypeAware ?? [],
+        ...(config.ignoresTypeAware ?? []),
     ];
     let { isTypeAware = true } = config;
 
@@ -218,8 +218,8 @@ export default createConfig<
 
                 "react-x": reactXPlugin,
                 "react-you-might-not-need-an-effect": pluginReactYouMightNotNeedAnEffect,
-                ...hasReactCompiler && pluginReactCompiler?.configs.recommended.plugins,
-                ...hasReactUnhookify && pluginReactUnhookify && { "react-unhookify": pluginReactUnhookify },
+                ...(hasReactCompiler && pluginReactCompiler?.configs.recommended.plugins),
+                ...(hasReactUnhookify && pluginReactUnhookify && { "react-unhookify": pluginReactUnhookify }),
             },
         },
         {
@@ -262,10 +262,6 @@ export default createConfig<
                     },
                 ],
 
-                // Specify whether double or single quotes should be used in JSX attributes
-                // https://eslint.org/docs/rules/jsx-quotes
-                "jsx-quotes": ["error", "prefer-double"],
-
                 "no-underscore-dangle": [
                     "error",
                     {
@@ -289,33 +285,33 @@ export default createConfig<
                 "react-refresh/only-export-components": isUsingTanstack
                     ? "off"
                     : [
-                        "error",
-                        {
-                            allowConstantExport: isAllowConstantExport,
-                            allowExportNames: [
-                                ...isUsingNext
-                                    ? [
-                                        "dynamic",
-                                        "dynamicParams",
-                                        "revalidate",
-                                        "fetchCache",
-                                        "runtime",
-                                        "preferredRegion",
-                                        "maxDuration",
-                                        "config",
-                                        "generateStaticParams",
-                                        "metadata",
-                                        "generateMetadata",
-                                        "viewport",
-                                        "generateViewport",
-                                    ]
-                                    : [],
-                                ...isUsingRemix || isUsingReactRouter
-                                    ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
-                                    : [],
-                            ],
-                        },
-                    ],
+                          "error",
+                          {
+                              allowConstantExport: isAllowConstantExport,
+                              allowExportNames: [
+                                  ...(isUsingNext
+                                      ? [
+                                            "dynamic",
+                                            "dynamicParams",
+                                            "revalidate",
+                                            "fetchCache",
+                                            "runtime",
+                                            "preferredRegion",
+                                            "maxDuration",
+                                            "config",
+                                            "generateStaticParams",
+                                            "metadata",
+                                            "generateMetadata",
+                                            "viewport",
+                                            "generateViewport",
+                                        ]
+                                      : []),
+                                  ...(isUsingRemix || isUsingReactRouter
+                                      ? ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction", "handle", "shouldRevalidate"]
+                                      : []),
+                              ],
+                          },
+                      ],
 
                 // Disallow passing children as a prop
                 // https://eslint-react.xyz/docs/rules/jsx-no-children-prop
@@ -441,7 +437,7 @@ export default createConfig<
                 // Disallow shouldComponentUpdate when extending React.PureComponent
                 // https://eslint-react.xyz/docs/rules/no-redundant-should-component-update
                 // Removed in @eslint-react v5
-                ...!isV5 && { "react-x/no-redundant-should-component-update": "error" },
+                ...(!isV5 && { "react-x/no-redundant-should-component-update": "error" }),
 
                 // Disallow useless fragment elements
                 // https://eslint-react.xyz/docs/rules/jsx-no-useless-fragment
@@ -545,21 +541,6 @@ export default createConfig<
                 // Validate props indentation in JSX
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
                 "react/forbid-elements": ["off", { forbid: [] }],
-
-                // Validate JSX has key prop when in array or iterator
-                // but it's only critical if you're stripping propTypes in production.
-                "react/forbid-foreign-prop-types": ["error", { allowInPropTypes: true }],
-
-                // Limit maximum of props on a single line in JSX
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-                "react/forbid-prop-types": [
-                    "error",
-                    {
-                        checkChildContextTypes: true,
-                        checkContextTypes: true,
-                        forbid: ["any", "array", "object"],
-                    },
-                ],
 
                 // Prevent usage of .bind() in JSX props
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
@@ -861,10 +842,6 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
                 "react/no-will-update-set-state": "error",
 
-                // Prevent this from being used in stateless functional components
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
-                "react/prefer-es6-class": ["error", "always"],
-
                 // Validate JSX maximum depth
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
                 "react/prefer-read-only-props": "off",
@@ -885,8 +862,6 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
                 "react/require-default-props": "off",
 
-                // Enforce state initialization style
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
                 "react/require-optimization": ["off", { allowDecorators: [] }],
 
@@ -898,67 +873,6 @@ export default createConfig<
                 // Disallow JSX props spreading
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
                 "react/self-closing-comp": "error",
-
-                // Enforce that props are read-only
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
-                "react/sort-comp": [
-                    "error",
-                    {
-                        groups: {
-                            lifecycle: [
-                                "displayName",
-                                "propTypes",
-                                "contextTypes",
-                                "childContextTypes",
-                                "mixins",
-                                "statics",
-                                "defaultProps",
-                                "constructor",
-                                "getDefaultProps",
-                                "getInitialState",
-                                "state",
-                                "getChildContext",
-                                "getDerivedStateFromProps",
-                                "componentWillMount",
-                                "UNSAFE_componentWillMount",
-                                "componentDidMount",
-                                "componentWillReceiveProps",
-                                "UNSAFE_componentWillReceiveProps",
-                                "shouldComponentUpdate",
-                                "componentWillUpdate",
-                                "UNSAFE_componentWillUpdate",
-                                "getSnapshotBeforeUpdate",
-                                "componentDidUpdate",
-                                "componentDidCatch",
-                                "componentWillUnmount",
-                            ],
-                            rendering: ["/^render.+$/", "render"],
-                        },
-                        order: [
-                            "static-variables",
-                            "static-methods",
-                            "instance-variables",
-                            "lifecycle",
-                            "/^handle.+$/",
-                            "/^on.+$/",
-                            "getters",
-                            "setters",
-                            "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
-                            "instance-methods",
-                            "everything-else",
-                            "rendering",
-                        ],
-                    },
-                ],
-
-                // Prevent usage of `javascript:` URLs
-                // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-default-props.md
-                "react/sort-default-props": [
-                    "error",
-                    {
-                        ignoreCase: true,
-                    },
-                ],
 
                 // Disallow unnecessary fragments
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
@@ -972,11 +886,6 @@ export default createConfig<
                     },
                 ],
 
-                // Prevent adjacent inline elements not separated by whitespace
-                "react/state-in-constructor": ["error", "never"],
-
-                // Enforce a specific function type for function components
-                "react/static-property-placement": ["error", "static public field"],
                 // Enforce a new line after jsx elements and expressions
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
                 "react/style-prop-object": "error",
@@ -985,42 +894,42 @@ export default createConfig<
                 // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
                 "react/void-dom-elements-no-children": "error",
 
-                ...hasReactCompiler
-                && pluginReactCompiler && {
-                    "react-compiler/react-compiler": "error",
-                    "react-hooks/component-hook-factories": "error",
-                    "react-hooks/config": "error",
-                    "react-hooks/error-boundaries": "error",
-                    "react-hooks/gating": "error",
-                    "react-hooks/globals": "error",
-                    "react-hooks/immutability": "error",
-                    "react-hooks/incompatible-library": "warn",
-                    "react-hooks/preserve-manual-memoization": "error",
-                    "react-hooks/purity": "error",
-                    "react-hooks/refs": "error",
-                    "react-hooks/set-state-in-effect": "error",
-                    "react-hooks/set-state-in-render": "error",
-                    "react-hooks/static-components": "error",
-                    "react-hooks/unsupported-syntax": "warn",
-                    "react-hooks/use-memo": "error",
-                },
+                ...(hasReactCompiler &&
+                    pluginReactCompiler && {
+                        "react-compiler/react-compiler": "error",
+                        "react-hooks/component-hook-factories": "error",
+                        "react-hooks/config": "error",
+                        "react-hooks/error-boundaries": "error",
+                        "react-hooks/gating": "error",
+                        "react-hooks/globals": "error",
+                        "react-hooks/immutability": "error",
+                        "react-hooks/incompatible-library": "warn",
+                        "react-hooks/preserve-manual-memoization": "error",
+                        "react-hooks/purity": "error",
+                        "react-hooks/refs": "error",
+                        "react-hooks/set-state-in-effect": "error",
+                        "react-hooks/set-state-in-render": "error",
+                        "react-hooks/static-components": "error",
+                        "react-hooks/unsupported-syntax": "warn",
+                        "react-hooks/use-memo": "error",
+                    }),
 
                 // React Unhookify rules for removing unnecessary memoization hooks
                 // when using React Compiler
-                ...hasReactUnhookify
-                && pluginReactUnhookify && {
-                    // Removes React.memo HOC
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-memo": "error",
+                ...(hasReactUnhookify &&
+                    pluginReactUnhookify && {
+                        // Removes React.memo HOC
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-memo": "error",
 
-                    // Removes useCallback calls
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-use-callback": "error",
+                        // Removes useCallback calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-callback": "error",
 
-                    // Removes useMemo calls
-                    // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
-                    "react-unhookify/remove-use-memo": "error",
-                },
+                        // Removes useMemo calls
+                        // https://www.npmjs.com/package/@ospm/eslint-plugin-react-unhookify
+                        "react-unhookify/remove-use-memo": "error",
+                    }),
 
                 ...configRules(pluginReactPerformance.configs?.flat?.recommended),
 
@@ -1039,7 +948,7 @@ export default createConfig<
 
                 ...pluginReactYouMightNotNeedAnEffect.configs.recommended.rules,
 
-                ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {}),
+                ...(hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.rules ?? {})),
 
                 // overrides
                 ...overrides,
@@ -1072,7 +981,7 @@ export default createConfig<
                     ecmaFeatures: {
                         jsx: true,
                     },
-                    ...hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {}),
+                    ...(hasJsxRuntime && (pluginReact.configs.flat["jsx-runtime"]?.languageOptions.parserOptions ?? {})),
                 },
             },
             name: "anolilab/react/jsx",
@@ -1118,17 +1027,17 @@ export default createConfig<
                 "unicorn/no-null": "off",
             },
         },
-        ...isTypeAware
+        ...(isTypeAware
             ? [
-                {
-                    files: filesTypeAware,
-                    ignores: ignoresTypeAware,
-                    name: "anolilab/react/type-aware-rules",
-                    rules: {
-                        ...typeAwareRules,
-                    },
-                },
-            ]
-            : [],
+                  {
+                      files: filesTypeAware,
+                      ignores: ignoresTypeAware,
+                      name: "anolilab/react/type-aware-rules",
+                      rules: {
+                          ...typeAwareRules,
+                      },
+                  },
+              ]
+            : []),
     ];
 });

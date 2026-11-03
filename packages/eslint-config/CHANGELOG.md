@@ -1,3 +1,9 @@
+## @anolilab/eslint-config [31.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@31.0.1...@anolilab/eslint-config@31.0.2) (2026-11-03)
+
+### Bug Fixes
+
+* **eslint-config:** turn off jsdoc/text-escaping and jsdoc/check-indentation ([#1256](https://github.com/anolilab/javascript-style-guide/issues/1256)) ([0c6c1e5](https://github.com/anolilab/javascript-style-guide/commit/0c6c1e56c31e4f16e7a05044f0f96a7d5d24a63b))
+
 ## @anolilab/eslint-config [31.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@31.0.0...@anolilab/eslint-config@31.0.1) (2026-11-03)
 
 ### Bug Fixes

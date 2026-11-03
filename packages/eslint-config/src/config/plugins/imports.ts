@@ -69,45 +69,41 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
 
                     // Ensure consistent use of file extension within the import path
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
-                    // When rewriteRelativeImportExtensions is enabled, allow .ts extensions
-                    // since TypeScript will rewrite them to .js at compile time
-                    "import/extensions": hasRewriteExtensions
-                        ? "off"
-                        : [
-                              "error",
-                              "ignorePackages",
-                              {
-                                  checkTypeImports: tsconfigPath !== undefined,
-                                  // Always require a file extension except from packages
-                                  // https://github.com/Microsoft/TypeScript/issues/27481
-                                  ignorePackages: true,
-                                  pattern: {
-                                      ...(packageJson.type === "module"
-                                          ? {
-                                                cjs: "always",
-                                                cts: "never",
-                                                js: "always",
-                                                json: "always",
-                                                jsx: "always",
-                                                mjs: "always",
-                                                mts: "never",
-                                                ts: "never",
-                                                tsx: "never",
-                                            }
-                                          : {
-                                                cjs: "never",
-                                                cts: "never",
-                                                js: "never",
-                                                json: "always",
-                                                jsx: "never",
-                                                mjs: "never",
-                                                mts: "never",
-                                                ts: "never",
-                                                tsx: "never",
-                                            }),
-                                  },
-                              },
-                          ],
+                    "import/extensions": [
+                        "error",
+                        "ignorePackages",
+                        {
+                            checkTypeImports: tsconfigPath !== undefined,
+                            // Always require a file extension except from packages
+                            // https://github.com/Microsoft/TypeScript/issues/27481
+                            ignorePackages: true,
+                            pattern: {
+                                ...(packageJson.type === "module"
+                                    ? {
+                                          cjs: "always",
+                                          cts: "never",
+                                          js: "always",
+                                          json: "always",
+                                          jsx: "always",
+                                          mjs: "always",
+                                          mts: "never",
+                                          ts: "never",
+                                          tsx: "never",
+                                      }
+                                    : {
+                                          cjs: "never",
+                                          cts: "never",
+                                          js: "never",
+                                          json: "always",
+                                          jsx: "never",
+                                          mjs: "never",
+                                          mts: "never",
+                                          ts: "never",
+                                          tsx: "never",
+                                      }),
+                            },
+                        },
+                    ],
 
                     // disallow non-import statements appearing before import statements
                     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md
@@ -354,6 +350,17 @@ export default createConfig<OptionsCwd & OptionsFiles & OptionsOverrides & Optio
                 },
             },
         ];
+
+        if (hasRewriteExtensions) {
+            // TypeScript rewrites relative .ts extensions at compile time, so the extension check is off for TypeScript files only
+            rules.push({
+                files: getFilesGlobs("ts"),
+                name: "anolilab/imports/rewrite-relative-import-extensions",
+                rules: {
+                    "import/extensions": "off",
+                },
+            });
+        }
 
         if (hasPackageJsonAnyDependency(packageJson, ["react", "react-dom"])) {
             rules.push(importPlugin.flatConfigs.react);

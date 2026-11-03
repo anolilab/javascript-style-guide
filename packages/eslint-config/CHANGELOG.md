@@ -1,3 +1,15 @@
+## @anolilab/eslint-config [31.0.1](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@31.0.0...@anolilab/eslint-config@31.0.1) (2026-11-03)
+
+### Bug Fixes
+
+* **oxlint-config:** align the preset with eslint-config rules ([#1250](https://github.com/anolilab/javascript-style-guide/issues/1250)) ([e4cdb57](https://github.com/anolilab/javascript-style-guide/commit/e4cdb57d0cd09f9c616faed956fd5d8cc629b811))
+
+
+### Dependencies
+
+* **eslint-plugin-jsdoc:** 65.3.15 → 65.3.16
+* **eslint-plugin-storybook:** 10.6.2 → 10.6.3
+
 ## @anolilab/eslint-config [31.0.0](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@30.0.7...@anolilab/eslint-config@31.0.0) (2026-10-21)
 
 ### ⚠ BREAKING CHANGES

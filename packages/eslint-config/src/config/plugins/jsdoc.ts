@@ -13,14 +13,14 @@ import { createConfig, getFilesGlobs } from "../../utils/create-config";
 import interopDefault from "../../utils/interop-default";
 
 export default createConfig<
-    OptionsFiles
-    & OptionsOverrides
-    & OptionsPackageJson
-    & OptionsSilentConsoleLogs
-    & OptionsStylistic & {
-        jsx?: boolean;
-        typescript?: OptionsTypescript | boolean;
-    }
+    OptionsFiles &
+        OptionsOverrides &
+        OptionsPackageJson &
+        OptionsSilentConsoleLogs &
+        OptionsStylistic & {
+            jsx?: boolean;
+            typescript?: OptionsTypescript | boolean;
+        }
 >("js", async (config, oFiles) => {
     const { files = oFiles, jsx = false, overrides = {}, packageJson, silent, stylistic = true, typescript } = config;
 
@@ -34,7 +34,6 @@ export default createConfig<
     }
 
     const definedTags = ["remarks", "openapi", "link"];
-    const excludeTags = ["openapi"];
 
     const rules: TypedFlatConfigItem[] = [
         {
@@ -49,7 +48,8 @@ export default createConfig<
             rules: {
                 ...jsdocPlugin.configs["flat/recommended-error"].rules,
 
-                "jsdoc/check-indentation": ["error", { excludeTags }],
+                // Off: it rejects nested lists and hanging indents in valid prose (#1203, #1204).
+                "jsdoc/check-indentation": "off",
                 "jsdoc/check-tag-names": [
                     "error",
                     {
@@ -57,13 +57,15 @@ export default createConfig<
                         jsxTags: jsx,
                     },
                 ],
+                // Off: its autofix escapes `<` inside code spans, which corrupts types such as Id<"_storage"> (#1203, #1204).
+                "jsdoc/text-escaping": "off",
 
                 ...overrides,
 
-                ...stylistic && {
+                ...(stylistic && {
                     "jsdoc/check-alignment": "warn",
                     "jsdoc/multiline-blocks": "warn",
-                },
+                }),
             },
         },
     ];
@@ -77,7 +79,8 @@ export default createConfig<
                 ...jsdocPlugin.configs["flat/logical-typescript-error"].rules,
                 ...jsdocPlugin.configs["flat/stylistic-typescript-error"].rules,
 
-                "jsdoc/check-indentation": ["error", { excludeTags }],
+                // Off: it rejects nested lists and hanging indents in valid prose (#1203, #1204).
+                "jsdoc/check-indentation": "off",
                 "jsdoc/check-tag-names": [
                     "error",
                     {
@@ -85,13 +88,15 @@ export default createConfig<
                         jsxTags: jsx,
                     },
                 ],
+                // Off: its autofix escapes `<` inside code spans, which corrupts types such as Id<"_storage"> (#1203, #1204).
+                "jsdoc/text-escaping": "off",
 
                 ...overrides,
 
-                ...stylistic && {
+                ...(stylistic && {
                     "jsdoc/check-alignment": "warn",
                     "jsdoc/multiline-blocks": "warn",
-                },
+                }),
             },
         });
     }

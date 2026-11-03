@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { createConfig } from "../src/index";
 
 const lint = async (source: string) => {
-    const configs = await createConfig({
+    const configs = (await createConfig({
         astro: false,
         css: false,
         formatters: false,
@@ -15,7 +15,7 @@ const lint = async (source: string) => {
         stylistic: false,
         toml: false,
         yaml: false,
-    });
+    })) as Linter.Config[];
     const linter = new Linter({ configType: "flat" });
 
     return linter.verify(source, configs, "file.ts");

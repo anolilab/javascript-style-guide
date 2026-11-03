@@ -2,7 +2,7 @@ import { createConfig } from "@anolilab/eslint-config";
 
 export default createConfig(
     {
-        ignores: [".prettierrc.js", "**/*.d.cts", "**/*.d.mts", "__tests__/**", "README.md"],
+        ignores: [".prettierrc.js", "**/*.d.cts", "**/*.d.mts", "__tests__/**", "__fixtures__/**", "README.md"],
     },
     {
         rules: {

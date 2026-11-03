@@ -72,9 +72,6 @@ export const errorsRules: Partial<Linter.RulesRecord> = {
     // https://eslint.org/docs/rules/no-import-assign
     "no-import-assign": "error",
 
-    // disallow function or variable declarations in nested blocks
-    "no-inner-declarations": "error",
-
     // Disabled because of eslint-plugin-regexp
     // disallow invalid regular expression strings in the RegExp constructor
     "no-invalid-regexp": "off",

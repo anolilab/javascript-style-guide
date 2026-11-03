@@ -22,8 +22,8 @@
 ---
 
 A shareable [oxlint](https://oxc.rs/docs/guide/usage/linter) configuration for Anolilab. It
-enables the `correctness`, `suspicious` and `pedantic` rule categories across a broad plugin set
-and leaves the `style` category to [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
+enables the `correctness` category and lists every other rule it turns on by name, so no rule
+switches on by category alone. It leaves the `style` category to [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).
 
 ## Install
 
@@ -84,14 +84,13 @@ Relax or tighten individual rules on top of the shared base:
 
 ## What it sets
 
-- `categories`: `correctness: "error"`, `suspicious: "warn"`, `pedantic: "warn"`
+- `categories`: `correctness: "error"`
+- `overrides`: one entry per file kind whose rules differ from the TypeScript rules: `**/*.{cjs,mjs,js}`, `**/*.jsx`, `**/*.tsx`. Each uses the values `@anolilab/eslint-config` sets for those files
 - `plugins`: `typescript`, `unicorn`, `oxc`, `import`, `promise`, `node`, `jsdoc`, `react`, `jsx-a11y`
 - `jsPlugins`: `sonarjs`, `regexp`, `eslint-comments`, `no-secrets`, `react-doctor`. ESLint plugins
   oxlint loads unchanged, with the rules `@anolilab/eslint-config` enables for them, and the
   [`oxlint-plugin-react-doctor`](https://www.npmjs.com/package/oxlint-plugin-react-doctor) rule set.
-- `rules`: the rules `@anolilab/eslint-config` enables for every JS/TS file that oxlint can run,
-  with ESLint's severity and options. Rules that apply only to some files (tests, markdown, JSON),
-  and rules oxlint does not implement stay in ESLint.
+- `rules`: every rule oxlint implements that `@anolilab/eslint-config` enables for TypeScript files, with ESLint's severity and options. Every other rule oxlint implements is set to `off` explicitly, so the preset never switches a rule on by category.
 - **Type-aware rules.** `options.typeAware` is on, so the `typescript/*` rules that need type
   information run through [`oxlint-tsgolint`](https://www.npmjs.com/package/oxlint-tsgolint). That
   package must be installed next to `oxlint`. A consumer that sets its own `options` keeps this
@@ -104,6 +103,15 @@ Relax or tighten individual rules on top of the shared base:
   reported twice. Where React Doctor is stricter than the native rule, the native rule is pinned to
   React Doctor's severity. The React Doctor rules that match an ESLint rule of the same concept are
   `error` and turn that ESLint rule off, but only when its plugin is loaded. The rest are `warn`.
+
+### Not migrated
+
+Every rule `@anolilab/eslint-config` enables that oxlint implements is enabled here with the same file kinds. These are not:
+
+- `no-undef`: the preset declares no globals, so it would report `module`, `process` and browser globals. Keep it in ESLint.
+- Options oxlint does not accept. The rule runs at ESLint's severity with its default options: `preserve-caught-error`, `unicorn/escape-case`, `unicorn/filename-case`, `unicorn/no-array-callback-reference`, `unicorn/no-empty-file`, `unicorn/no-unreadable-array-destructuring`, `unicorn/prefer-add-event-listener`, `unicorn/prefer-array-find`, `unicorn/prefer-array-flat`, `unicorn/prefer-set-has`.
+- Rules oxlint does not implement, so they stay in ESLint. These are the `unicorn`, `jsdoc`, `perfectionist`, `react-x`, `n`, `antfu`, `e18e`, `import`, `react` and `@stylistic` rules ESLint enables that oxlint has no rule for, and `camelcase`, `no-restricted-syntax`, `no-return-await` and `no-undef-init` among the core rules.
+- Rules for other languages (JSON, YAML, TOML, Markdown, CSS, HTML, Astro) and framework plugins (Storybook, Testing Library, Playwright, TanStack, Tailwind, UnoCSS, Zod, Vitest). Those stay in ESLint.
 
 The `style` category is left off as a category — formatting is the formatter's job. The rules ESLint runs from it are listed explicitly above. Pair this
 with [`@anolilab/oxfmt-config`](https://anolilab.com/nodejs/packages/oxfmt-config).

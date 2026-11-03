@@ -24,6 +24,6 @@ jobs:
             contents: "read"
             issues: "write" # to create the labels
             pull-requests: "write" # to apply them
-        uses: "anolilab/workflows/.github/workflows/vouch.yml@986f549679af57daf7997679e2a6ffce5dbb4d6b" # v25.0.1
+        uses: "anolilab/workflows/.github/workflows/vouch.yml@6003d90154c36909a762bd6f3a9801a6559c19a0" # v25.0.7
         with:
             target-repo: "anolilab/javascript-style-guide"

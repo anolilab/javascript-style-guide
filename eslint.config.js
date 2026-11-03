@@ -17,6 +17,7 @@ export default createConfig(
             // and its types resolve, otherwise the defineConfig() call reads as an unsafe call.
             "vis.config.ts",
             "packages/eslint-config/__fixtures__/**",
+            "packages/oxlint-config/__fixtures__/**",
             "packages/eslint-config/README.md",
             // Doc code blocks show import/export examples that the markdown JS linter cannot parse
             // as project-service files; the packages' local configs ignore these too.

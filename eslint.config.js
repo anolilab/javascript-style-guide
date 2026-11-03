@@ -37,6 +37,13 @@ export default createConfig(
         },
     },
     {
+        // The generated oxlint preset holds rule names and option keys, which the entropy check reads as secrets.
+        files: ["packages/oxlint-config/.oxlintrc.json"],
+        rules: {
+            "no-secrets/no-secrets": "off",
+        },
+    },
+    {
         files: ["packages/eslint-config/eslint.config.js", "**/.prettierrc.*"],
         rules: {
             "antfu/no-import-dist": "off",

@@ -1,6 +1,24 @@
+import { matchesGlob } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import config from "../src/index";
+
+/** The value oxlint uses for `rule` in `file`: the base rules, then every matching override in order. */
+const effectiveRule = (file: string, rule: string): unknown => {
+    let value: unknown = (config.rules as Record<string, unknown>)[rule];
+
+    for (const override of config.overrides as { files: string[]; rules: Record<string, unknown> }[]) {
+        if (override.files.some((glob) => matchesGlob(file, glob)) && rule in override.rules) {
+            value = override.rules[rule];
+        }
+    }
+
+    return value;
+};
+
+/** The severity of a rule value, which is either the severity or `[severity, ...options]`. */
+const severityOf = (value: unknown): unknown => (Array.isArray(value) ? value[0] : value);
 
 describe("@anolilab/oxlint-config", () => {
     it("exports the config object as default", () => {
@@ -17,20 +35,19 @@ describe("@anolilab/oxlint-config", () => {
     });
 
     it("enables the ESLint rules oxlint implements, in the file kinds ESLint enables them for", () => {
-        expect.assertions(3);
+        expect.assertions(4);
 
-        expect(config.rules["no-console"]).toStrictEqual(["warn", {}]);
-        expect(config.rules["import/no-duplicates"]).toBe("error");
-        expect(config.overrides.find((override) => override.files.includes("**/*.{jsx,tsx}"))?.rules["jsx-a11y/alt-text"]).toBeDefined();
+        expect(effectiveRule("src/index.ts", "no-console")).toStrictEqual(["warn", {}]);
+        expect(effectiveRule("src/index.ts", "import/no-duplicates")).toBe("error");
+        expect(severityOf(effectiveRule("src/app.tsx", "jsx-a11y/alt-text"))).toBe("error");
+        expect(severityOf(effectiveRule("src/index.ts", "jsx-a11y/alt-text"))).toBe("off");
     });
 
     it("turns the jsdoc rules off for TypeScript files, as @anolilab/eslint-config does", () => {
         expect.assertions(2);
 
-        const typescript = config.overrides.find((override) => override.files.includes("**/*.{ts,tsx,mts,cts}"));
-
-        expect(typescript?.rules["jsdoc/require-param-type"]).toBe("off");
-        expect(typescript?.rules["jsdoc/require-returns"]).toBe("off");
+        expect(effectiveRule("src/index.ts", "jsdoc/require-param-type")).toBe("off");
+        expect(effectiveRule("src/index.ts", "jsdoc/require-returns")).toBe("off");
     });
 
     it("does not enable the style category (handled by oxfmt)", () => {
@@ -61,7 +78,7 @@ describe("@anolilab/oxlint-config", () => {
 
         expect(config.rules).not.toHaveProperty("react-doctor/alt-text");
         expect(config.rules).not.toHaveProperty("react-doctor/no-eval");
-        expect(config.rules["react/rules-of-hooks"]).toBe("error");
+        expect(effectiveRule("src/app.tsx", "react/rules-of-hooks")).toBe("error");
     });
 
     it("only enables rules whose plugin is declared", () => {

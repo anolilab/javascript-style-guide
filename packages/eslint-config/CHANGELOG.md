@@ -1,3 +1,12 @@
+## @anolilab/eslint-config [31.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@31.0.2...@anolilab/eslint-config@31.0.3) (2026-11-04)
+
+
+### Dependencies
+
+* **@eslint-react/eslint-plugin:** 5.28.2 → 5.28.8
+* **@vitest/eslint-plugin:** 1.6.27 → 1.6.28
+* **tailwind-csstree:** 0.4.1 → 0.4.2
+
 ## @anolilab/eslint-config [31.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/eslint-config@31.0.1...@anolilab/eslint-config@31.0.2) (2026-11-03)
 
 ### Bug Fixes

@@ -1,3 +1,16 @@
+## @anolilab/oxlint-config [2.0.3](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@2.0.2...@anolilab/oxlint-config@2.0.3) (2026-11-04)
+
+### Documentation
+
+* **oxlint-config:** explain override precedence and jsxRuntimeOverrides ([#1260](https://github.com/anolilab/javascript-style-guide/issues/1260)) ([56de6dc](https://github.com/anolilab/javascript-style-guide/commit/56de6dc80f7b4e1e5f9e0e51e2f9a1b683830bc5))
+
+
+### Dependencies
+
+* **@anolilab/eslint-config:** upgraded to 31.0.3
+* **oxlint-plugin-react-doctor:** 0.9.18 → 0.9.21
+* **oxlint-tsgolint:** 7.0.2004 → 7.0.2005
+
 ## @anolilab/oxlint-config [2.0.2](https://github.com/anolilab/javascript-style-guide/compare/@anolilab/oxlint-config@2.0.1...@anolilab/oxlint-config@2.0.2) (2026-11-03)
 
 ### Bug Fixes

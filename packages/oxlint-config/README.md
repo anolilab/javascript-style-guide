@@ -82,6 +82,44 @@ Relax or tighten individual rules on top of the shared base:
 }
 ```
 
+Top-level `rules` lose to the preset's per-file-kind `overrides` (see [What it sets](#what-it-sets)).
+A rule the preset also sets for `**/*.tsx`, `**/*.jsx` or `**/*.{cjs,mjs,js}` keeps the preset's
+value for those files, even when your top-level `rules` turn it off. To change it there too, set it
+in an override of your own. Your overrides apply after the preset's:
+
+```json
+{
+    "extends": ["./node_modules/@anolilab/oxlint-config/.oxlintrc.json"],
+    "overrides": [
+        {
+            "files": ["**/*"],
+            "rules": {
+                "no-console": "off"
+            }
+        }
+    ]
+}
+```
+
+### Automatic JSX runtime
+
+The preset turns `react/react-in-jsx-scope` on for `.tsx` and `.jsx` files, as `@anolilab/eslint-config`
+does for the classic runtime. `@anolilab/eslint-config` turns the rule off when the tsconfig sets
+`jsx` to `react-jsx` or `react-jsxdev`, but a JSON config cannot read a tsconfig. To get the same
+result, use `oxlint.config.ts` and `jsxRuntimeOverrides`. It returns one override for each listed
+tsconfig that uses the automatic runtime:
+
+```ts
+import config, { jsxRuntimeOverrides } from "@anolilab/oxlint-config";
+
+export default {
+    ...config,
+    overrides: [...config.overrides, ...jsxRuntimeOverrides(["tsconfig.json", "packages/app/tsconfig.json"])],
+};
+```
+
+In a `.oxlintrc.json`, add an override that turns `react/react-in-jsx-scope` off for those files instead.
+
 ## What it sets
 
 - `categories`: `correctness: "error"`

@@ -169,11 +169,11 @@ catalogs:
       version: 0.28.2
   cli:
     '@anolilab/semantic-release-pnpm':
-      specifier: 8.1.36
-      version: 8.1.36
+      specifier: 8.1.37
+      version: 8.1.37
     '@anolilab/semantic-release-preset':
-      specifier: 13.4.38
-      version: 13.4.38
+      specifier: 13.4.39
+      version: 13.4.39
     commitizen:
       specifier: ^4.3.2
       version: 4.3.2
@@ -182,8 +182,8 @@ catalogs:
       version: 25.0.9
   default:
     '@anolilab/multi-semantic-release':
-      specifier: 4.6.1
-      version: 4.6.1
+      specifier: 4.6.3
+      version: 4.6.3
     '@commitlint/cli':
       specifier: 21.2.4
       version: 21.2.4
@@ -533,8 +533,8 @@ catalogs:
       specifier: 1.89.0
       version: 1.89.0
     oxlint-plugin-react-doctor:
-      specifier: 0.9.21
-      version: 0.9.21
+      specifier: 0.9.22
+      version: 0.9.22
     oxlint-tsgolint:
       specifier: 7.0.2005
       version: 7.0.2005
@@ -738,8 +738,8 @@ catalogs:
       specifier: 1.0.30001820
       version: 1.0.30001820
     semver:
-      specifier: 7.8.5
-      version: 7.8.5
+      specifier: 7.8.6
+      version: 7.8.6
 
 overrides:
   smol-toml@<1.7.1: '>=1.7.1 <2'
@@ -758,9 +758,9 @@ overrides:
   fast-uri@>=3.0.0 <3.1.3: ^4.2.3
   fast-uri@>=4.0.0 <4.1.5: ^4.2.3
   follow-redirects@<=1.15.11: '>=1.16.2'
-  '@hono/node-server@<2.0.5': '>=2.1.5'
+  '@hono/node-server@<2.0.5': '>=2.1.6'
   hono@<4.12.27: '>=4.13.16'
-  ip-address@<=10.1.0: '>=10.7.5'
+  ip-address@<=10.1.0: '>=10.7.6'
   js-yaml@>=3.0.0 <3.15.1: ^3.15.2
   lodash-es@<=4.17.23: '>=4.18.0'
   lodash-es@>=4.0.0 <=4.17.23: '>=4.18.0'
@@ -795,7 +795,7 @@ importers:
     dependencies:
       '@anolilab/multi-semantic-release':
         specifier: 'catalog:'
-        version: 4.6.1(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
+        version: 4.6.3(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -894,10 +894,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -958,10 +958,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1144,7 +1144,7 @@ importers:
         version: 2.0.0
       semver:
         specifier: catalog:utils
-        version: 7.8.5
+        version: 7.8.6
       toml-eslint-parser:
         specifier: catalog:lint
         version: 1.0.3
@@ -1160,10 +1160,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1353,10 +1353,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1403,17 +1403,17 @@ importers:
   packages/oxfmt-config:
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 31.0.0
-        version: 31.0.0(ef92d9141093978ee666b32e675f593c)
+        specifier: 31.0.3
+        version: 31.0.3(e65fe306797eb0d4c90f68f2f6c79362)
       '@anolilab/prettier-config':
         specifier: 11.0.0
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1464,20 +1464,20 @@ importers:
         version: 4.2.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))
       oxlint-plugin-react-doctor:
         specifier: catalog:lint
-        version: 0.9.21
+        version: 0.9.22
     devDependencies:
       '@anolilab/eslint-config':
-        specifier: 31.0.1
-        version: 31.0.1(52da092ca12932b0bcab4e583c05f2c8)
+        specifier: 31.0.3
+        version: 31.0.3(e65fe306797eb0d4c90f68f2f6c79362)
       '@anolilab/prettier-config':
         specifier: 11.0.0
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1516,10 +1516,10 @@ importers:
     devDependencies:
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1580,10 +1580,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1692,10 +1692,10 @@ importers:
         version: 11.0.0(prettier@3.9.10)
       '@anolilab/semantic-release-pnpm':
         specifier: catalog:cli
-        version: 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@anolilab/semantic-release-preset':
         specifier: catalog:cli
-        version: 13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+        version: 13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)
       '@arethetypeswrong/cli':
         specifier: catalog:dev
         version: 0.18.5
@@ -1835,11 +1835,11 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/eslint-config@31.0.1':
-    resolution: {integrity: sha512-1TXh3LFP4MKlF0dhZKvLmqMVo+Ojj5jIUcHKvUQmT2pPbt4SbpWLIMS4d3G1v55+VgRRveEEVwQN+ifXjyD+YA==}
+  '@anolilab/eslint-config@31.0.3':
+    resolution: {integrity: sha512-QVGRvSf5pXKpP7estAI+av9S0slRfcfWX2oz9vfurPyVAB3iP7gMVc/sUStaZTsjAns9cRyqLVfO++hoXOWvaw==}
     engines: {node: '>=22.12.0 <=25.*'}
     peerDependencies:
-      '@eslint-react/eslint-plugin': 5.28.2
+      '@eslint-react/eslint-plugin': 5.28.8
       '@eslint/css': 2.0.1
       '@ospm/eslint-plugin-react-unhookify': ^1.0.2
       '@tanstack/eslint-plugin-query': 5.104.5
@@ -1866,7 +1866,7 @@ packages:
       eslint-plugin-validate-jsx-nesting: ^0.1.1
       eslint-plugin-you-dont-need-lodash-underscore: ^6.14.0
       eslint-plugin-zod: 5.2.0
-      tailwind-csstree: 0.4.1
+      tailwind-csstree: 0.4.2
       typescript: '*'
     peerDependenciesMeta:
       '@eslint-react/eslint-plugin':
@@ -1926,8 +1926,8 @@ packages:
       typescript:
         optional: true
 
-  '@anolilab/multi-semantic-release@4.6.1':
-    resolution: {integrity: sha512-a901zDHLGG6ain4BfTwPQFESDlwSogUCAwlZhWMU873szvvCw60rhGH5Po7RXMlBG/uu06RCMcSxJKcYQX6PMQ==}
+  '@anolilab/multi-semantic-release@4.6.3':
+    resolution: {integrity: sha512-otVpADSuC6S8BaBrQFNPi5lHbHyv/bdxYtvKHi2Z7FAzOuXFco+QMUcnmrbUEsyW4Dzx3kjRgoyyQZtllXTXXg==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     hasBin: true
@@ -1945,20 +1945,20 @@ packages:
     resolution: {integrity: sha512-e3KBrm9Fr2xCmSyKc17cWyL6jOwHJWciiSb6FbRveAmykn0vwYQT1Bf4BJNkuEhCUXNsJL1aN70czA5atzlGzw==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-clean-package-json@5.5.28':
-    resolution: {integrity: sha512-dQfpxkB8UqKaa4xlBXB88a0ZSrR3AI78YC8zfKWjC87Nx2tsyZjw9Q+QVJr76iEFvR78fWsO96VHzxkni1R7bA==}
+  '@anolilab/semantic-release-clean-package-json@5.5.29':
+    resolution: {integrity: sha512-16W/nPcOD/q6HvgA8iY+ypphi94QvVsBbw8bMpOa7Hc1KKXxoMhrjjFC/BqBCRk5zdD/bRpZulcmjBh3SgiRZA==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-pnpm@8.1.36':
-    resolution: {integrity: sha512-oPvhZuZ0YlKUSLBpcGvqtmVp61cAXXo0pYUNT3gKF6QE3oCSMy2kLvHDoSGxm6qEcpK2F8VRF5FLXAjcBu10cw==}
+  '@anolilab/semantic-release-pnpm@8.1.37':
+    resolution: {integrity: sha512-Sph1jRQnw3+//dfq5qqAK9Fmim1jvN7KP+EHYtQStMBui2myQha++LbuynT89Ev7WHhGp5Ec6ydni3BpksfVDQ==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@anolilab/semantic-release-preset@13.4.38':
-    resolution: {integrity: sha512-AU3qY6WyPsCUP8Os7A01OxqUxR6Rqf87kXnMvvUfzx2zg309ttAu+RAncz99sfg7Rry86x74yoUmIPBcvasW5g==}
+  '@anolilab/semantic-release-preset@13.4.39':
+    resolution: {integrity: sha512-3FwytmfSb9S3KXtQcVYio5JCkHNWvcy6N1DEIBddn2dqyku3gsBdsfnBrUuWakr18kVQ5TUfnaAWT48xVU97wQ==}
     engines: {node: ^22.14.0 || >=24.10.0}
     os: [darwin, linux, win32]
     peerDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.36
+      '@anolilab/semantic-release-pnpm': 8.1.37
       '@semantic-release/npm': 13.2.0
       semantic-release: 25.0.9
       semantic-release-yarn: ^3.0.2
@@ -5732,28 +5732,6 @@ packages:
     resolution: {integrity: sha512-91WavXZKn62fN5nUbG4EQLqp4NMcxsgQPIQafudtkuyVV7Q7QmWIsg/EVKmYmufOYviEFKG8dXIp50X3/qwmtA==}
     engines: {node: ^22.14.0 || >=24.10.0}
 
-  '@visulima/fs@5.1.0':
-    resolution: {integrity: sha512-KJmLA9iJAwx+GOhjLT1kcqBhY/s1uOU8eJrBz+TeyZX0h2p5USYKHlNd1p+VaB4/9ltl1MR4oRuXgY5jLP0vOA==}
-    engines: {node: ^22.14.0 || >=24.10.0}
-    os: [darwin, linux, win32]
-    peerDependencies:
-      ini: ^7.0.0
-      json5: ^2.2.3
-      jsonc-parser: ^3.3.1
-      smol-toml: '>=1.7.1 <2'
-      yaml: '>=2.9.0'
-    peerDependenciesMeta:
-      ini:
-        optional: true
-      json5:
-        optional: true
-      jsonc-parser:
-        optional: true
-      smol-toml:
-        optional: true
-      yaml:
-        optional: true
-
   '@visulima/fs@6.0.5':
     resolution: {integrity: sha512-8VcxGvTYXEABrr6bNTYQ1Mma4sfn0XmGQAsXDXMEwu/1vpXd0iGBSAahEGB95TE+w6OrEre23HasbaeMNlMLaw==}
     engines: {node: ^22.14.0 || >=24.10.0}
@@ -8166,10 +8144,6 @@ packages:
     resolution: {integrity: sha512-CRT1WTyuQoD771GW56XEZFQ/ZoSfWid1alKGDYMmkt2yl8UXrVR4pspqWNEcqKvVIzg6PAltWjxcSSPrboA4iA==}
     engines: {node: '>=18.0.0'}
 
-  execa@10.2.0:
-    resolution: {integrity: sha512-j1pFOVxaybMVCTNHSBuISL2KQcDS3KIE1wBmUp4n2X+1FgaQI2ZDJVy9TYxDyMCzYojRIMh9O8X/UoWZtxTJdw==}
-    engines: {node: '>=22'}
-
   execa@10.2.1:
     resolution: {integrity: sha512-/Bofl3ZBh2Q4/PG0W63qFzP5vDAypi8Zc90UWTBzaDNIYiX7apPOd0N6L8hG8CojUdq4V51adu8BObP+iVsSTw==}
     engines: {node: '>=22'}
@@ -10574,8 +10548,8 @@ packages:
       vite-plus:
         optional: true
 
-  oxlint-plugin-react-doctor@0.9.21:
-    resolution: {integrity: sha512-6uezGzM98w3qS3q89NpfFm5melOhCoIsixc+C5bNQx7p4IZvfK/lkSrud3xmjNCu14N3WCSnPOXz0fRjmJWipQ==}
+  oxlint-plugin-react-doctor@0.9.22:
+    resolution: {integrity: sha512-kf9MwCpK3YlAWYUyX5Zx7XYrdIbA/4lQD2QREIqC8DvmNb2I+wP8zyjL4NeGl2FO2EC1sLuYvW8ir4Ooq1Xd2A==}
     engines: {node: ^20.19.0 || >=22.13.0}
 
   oxlint-tsgolint@7.0.2005:
@@ -11403,6 +11377,11 @@ packages:
 
   semver@7.8.5:
     resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.8.6:
+    resolution: {integrity: sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -12908,7 +12887,7 @@ snapshots:
       - ts-declaration-location
       - vitest
 
-  '@anolilab/eslint-config@31.0.1(52da092ca12932b0bcab4e583c05f2c8)':
+  '@anolilab/eslint-config@31.0.3(e65fe306797eb0d4c90f68f2f6c79362)':
     dependencies:
       '@e18e/eslint-plugin': 0.8.1(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.89.0(oxlint-tsgolint@7.0.2005))
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -12924,7 +12903,7 @@ snapshots:
       '@visulima/fs': 7.0.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/package': 6.0.0(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/tsconfig': 3.2.38(ini@7.0.0)(json5@2.2.3)(smol-toml@1.9.0)
-      '@vitest/eslint-plugin': 1.6.27(@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.5)
+      '@vitest/eslint-plugin': 1.6.28(@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.5)
       confusing-browser-globals: 1.0.11
       eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
       eslint-config-flat-gitignore: 2.4.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -12965,7 +12944,7 @@ snapshots:
       typescript-eslint: 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       yaml-eslint-parser: 2.1.0
     optionalDependencies:
-      '@eslint-react/eslint-plugin': 5.28.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint-plugin': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@eslint/css': 2.0.1
       '@tanstack/eslint-plugin-query': 5.104.5(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@tanstack/eslint-plugin-router': 1.162.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -12986,7 +12965,7 @@ snapshots:
       eslint-plugin-validate-jsx-nesting: 0.1.1(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-you-dont-need-lodash-underscore: 6.14.0
       eslint-plugin-zod: 5.2.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.89.0(oxlint-tsgolint@7.0.2005))(zod@4.6.7)
-      tailwind-csstree: 0.4.1(@eslint/css@2.0.1)
+      tailwind-csstree: 0.4.2(@eslint/css@2.0.1)
       typescript: 6.0.3
     transitivePeerDependencies:
       - '@eslint/json'
@@ -13002,15 +12981,15 @@ snapshots:
       - ts-declaration-location
       - vitest
 
-  '@anolilab/multi-semantic-release@4.6.1(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)':
+  '@anolilab/multi-semantic-release@4.6.3(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)':
     dependencies:
       '@semrel-extra/topo': 1.14.1
-      '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
+      '@visulima/fs': 7.0.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 3.1.0
       cosmiconfig: 10.0.1
       debug: 4.4.3(supports-color@10.2.2)
       detect-indent: 7.0.2
-      execa: 10.2.0
+      execa: 10.2.1
       git-log-parser: 1.2.1
       lodash-es: 4.18.1
       resolve-from: 5.0.0
@@ -13036,10 +13015,10 @@ snapshots:
       ini: 7.0.0
       ts-deepmerge: 8.0.0
 
-  '@anolilab/semantic-release-clean-package-json@5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)':
+  '@anolilab/semantic-release-clean-package-json@5.5.29(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)':
     dependencies:
       '@semantic-release/error': 4.0.0
-      '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
+      '@visulima/fs': 7.0.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 3.1.0
       detect-indent: 7.0.2
       type-fest: 5.10.0
@@ -13048,20 +13027,19 @@ snapshots:
       - json5
       - jsonc-parser
       - smol-toml
-      - yaml
 
-  '@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
+  '@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)':
     dependencies:
       '@actions/core': 3.0.1
       '@anolilab/rc': 4.0.9
       '@semantic-release/error': 4.0.0
-      '@visulima/fs': 5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
+      '@visulima/fs': 7.0.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/package': 5.0.43(ini@7.0.0)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@visulima/path': 3.1.0
       debug: 4.4.3(supports-color@10.2.2)
       detect-indent: 7.0.2
       env-ci: 11.2.0
-      execa: 10.2.0
+      execa: 10.2.1
       ini: 7.0.0
       normalize-url: 9.0.1
       registry-auth-token: 5.1.1
@@ -13071,11 +13049,10 @@ snapshots:
       - jsonc-parser
       - smol-toml
       - supports-color
-      - yaml
 
-  '@anolilab/semantic-release-preset@13.4.38(@anolilab/semantic-release-pnpm@8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)':
+  '@anolilab/semantic-release-preset@13.4.39(@anolilab/semantic-release-pnpm@8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2))(@semantic-release/npm@13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3)))(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(smol-toml@1.9.0)(supports-color@10.2.2)':
     dependencies:
-      '@anolilab/semantic-release-clean-package-json': 5.5.28(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)
+      '@anolilab/semantic-release-clean-package-json': 5.5.29(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)
       '@semantic-release/changelog': 7.0.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
       '@semantic-release/exec': 7.1.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)
@@ -13085,7 +13062,7 @@ snapshots:
       conventional-changelog-conventionalcommits: 9.3.1
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
     optionalDependencies:
-      '@anolilab/semantic-release-pnpm': 8.1.36(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)(yaml@2.9.1)
+      '@anolilab/semantic-release-pnpm': 8.1.37(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(supports-color@10.2.2)
       '@semantic-release/npm': 13.2.0(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))
     transitivePeerDependencies:
       - ini
@@ -13094,7 +13071,6 @@ snapshots:
       - kerberos
       - smol-toml
       - supports-color
-      - yaml
 
   '@antfu/install-pkg@2.1.0':
     dependencies:
@@ -13114,7 +13090,7 @@ snapshots:
       commander: 10.0.1
       marked: 9.1.6
       marked-terminal: 7.3.0(marked@9.1.6)
-      semver: 7.8.5
+      semver: 7.8.6
 
   '@arethetypeswrong/core@0.18.5':
     dependencies:
@@ -13123,7 +13099,7 @@ snapshots:
       cjs-module-lexer: 1.4.3
       fflate: 0.8.3
       lru-cache: 11.5.3
-      semver: 7.8.5
+      semver: 7.8.6
       typescript: 5.6.1-rc
       validate-npm-package-name: 5.0.1
 
@@ -13602,7 +13578,7 @@ snapshots:
   '@commitlint/is-ignored@21.2.3':
     dependencies:
       '@commitlint/types': 21.2.3
-      semver: 7.8.5
+      semver: 7.8.6
 
   '@commitlint/lint@21.2.4':
     dependencies:
@@ -14006,6 +13982,18 @@ snapshots:
       - supports-color
     optional: true
 
+  '@eslint-react/ast@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/typescript-estree': 8.72.0(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   '@eslint-react/ast@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/types': 8.72.0
@@ -14025,6 +14013,22 @@ snapshots:
       '@eslint-react/var': 5.28.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/core@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       ts-pattern: 5.9.2
       typescript: 6.0.3
     optionalDependencies:
@@ -14064,6 +14068,22 @@ snapshots:
       - supports-color
     optional: true
 
+  '@eslint-react/eslint-plugin@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-dom: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-jsx: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-naming-convention: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-rsc: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-web-api: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint-plugin-react-x: 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   '@eslint-react/eslint-plugin@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@eslint-react/shared': 5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -14090,6 +14110,17 @@ snapshots:
       - supports-color
     optional: true
 
+  '@eslint-react/eslint@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   '@eslint-react/eslint@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/types': 8.72.0
@@ -14107,6 +14138,21 @@ snapshots:
       '@eslint-react/var': 5.28.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/jsx@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       ts-pattern: 5.9.2
       typescript: 6.0.3
     optionalDependencies:
@@ -14142,6 +14188,19 @@ snapshots:
       - supports-color
     optional: true
 
+  '@eslint-react/shared@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+      zod: 4.6.7
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   '@eslint-react/shared@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@eslint-react/eslint': 5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -14161,6 +14220,21 @@ snapshots:
       '@typescript-eslint/scope-manager': 8.72.0
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@eslint-react/var@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.72.0
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       ts-pattern: 5.9.2
       typescript: 6.0.3
     optionalDependencies:
@@ -14722,7 +14796,7 @@ snapshots:
       nopt: 7.2.1
       proc-log: 3.0.0
       read-package-json-fast: 3.0.2
-      semver: 7.8.5
+      semver: 7.8.6
       walk-up-path: 3.0.1
 
   '@npmcli/map-workspaces@3.0.6':
@@ -15770,7 +15844,7 @@ snapshots:
       aggregate-error: 5.0.0
       debug: 4.4.3(supports-color@10.2.2)
       dir-glob: 3.0.1
-      execa: 10.2.0
+      execa: 10.2.1
       lodash-es: 4.18.1
       micromatch: 4.0.8
       p-reduce: 3.0.0
@@ -15818,7 +15892,7 @@ snapshots:
       read-pkg: 10.1.0
       registry-auth-token: 5.1.1
       semantic-release: 25.0.9(supports-color@10.2.2)(typescript@6.0.3)
-      semver: 7.8.5
+      semver: 7.8.6
       tempy: 3.2.0
 
   '@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(supports-color@10.2.2)(typescript@6.0.3))(supports-color@10.2.2)':
@@ -16651,7 +16725,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.56.1
       debug: 4.4.3(supports-color@10.2.2)
       minimatch: 10.2.6
-      semver: 7.8.5
+      semver: 7.8.6
       tinyglobby: 0.2.17
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
@@ -16666,7 +16740,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.71.2
       debug: 4.4.3(supports-color@10.2.2)
       minimatch: 10.2.6
-      semver: 7.8.5
+      semver: 7.8.6
       tinyglobby: 0.2.17
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
@@ -16681,7 +16755,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.72.0
       debug: 4.4.3(supports-color@10.2.2)
       minimatch: 10.2.6
-      semver: 7.8.5
+      semver: 7.8.6
       tinyglobby: 0.2.17
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
@@ -16900,17 +16974,6 @@ snapshots:
   '@visulima/css-style-inject@1.1.0': {}
 
   '@visulima/find-cache-dir@3.0.1': {}
-
-  '@visulima/fs@5.1.0(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)(yaml@2.9.1)':
-    dependencies:
-      '@visulima/path': 3.1.0
-      '@visulima/yaml': 1.0.0
-    optionalDependencies:
-      ini: 7.0.0
-      json5: 2.2.3
-      jsonc-parser: 3.3.1
-      smol-toml: 1.9.0
-      yaml: 2.9.1
 
   '@visulima/fs@6.0.5(ini@7.0.0)(json5@2.2.3)(jsonc-parser@3.3.1)(smol-toml@1.9.0)':
     dependencies:
@@ -17334,6 +17397,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@vitest/eslint-plugin@1.6.28(@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.5)':
+    dependencies:
+      '@typescript-eslint/scope-manager': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    optionalDependencies:
+      '@typescript-eslint/eslint-plugin': 8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+      vitest: 5.0.5(@types/node@26.6.5)(@vitest/coverage-v8@5.0.5)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1))
+    transitivePeerDependencies:
+      - supports-color
+
   '@vitest/eslint-plugin@1.6.28(@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.5)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.72.0
@@ -17713,7 +17788,7 @@ snapshots:
       eslint-scope: 9.1.2
       eslint-visitor-keys: 5.0.1
       espree: 11.2.0
-      semver: 7.8.5
+      semver: 7.8.6
       tinyglobby: 0.2.17
     transitivePeerDependencies:
       - supports-color
@@ -18197,7 +18272,7 @@ snapshots:
       conventional-commits-filter: 5.0.0
       handlebars: 4.7.10
       meow: 13.2.0
-      semver: 7.8.5
+      semver: 7.8.6
 
   conventional-commit-types@3.0.0: {}
 
@@ -18775,12 +18850,12 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
-      semver: 7.8.5
+      semver: 7.8.6
 
   eslint-compat-utils@0.5.1(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
       eslint: 10.8.1(jiti@2.7.0)(supports-color@10.2.2)
-      semver: 7.8.5
+      semver: 7.8.6
 
   eslint-config-flat-gitignore@2.4.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
@@ -18939,7 +19014,7 @@ snapshots:
       find-up: 5.0.0
       globals: 15.15.0
       lodash.memoize: 4.1.2
-      semver: 7.8.5
+      semver: 7.8.6
 
   eslint-plugin-compat@7.0.2(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2)):
     dependencies:
@@ -18951,7 +19026,7 @@ snapshots:
       find-up: 5.0.0
       globals: 15.15.0
       lodash.memoize: 4.1.2
-      semver: 7.8.5
+      semver: 7.8.6
 
   eslint-plugin-erasable-syntax-only@0.7.2(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
@@ -19041,7 +19116,7 @@ snapshots:
       eslint-import-context: 0.1.9(unrs-resolver@1.12.2)
       is-glob: 4.0.3
       minimatch: 10.2.6
-      semver: 7.8.5
+      semver: 7.8.6
       stable-hash-x: 0.2.0
       unrs-resolver: 1.12.2
     optionalDependencies:
@@ -19059,7 +19134,7 @@ snapshots:
       eslint-import-context: 0.1.9(unrs-resolver@1.12.2)
       is-glob: 4.0.3
       minimatch: 10.2.6
-      semver: 7.8.5
+      semver: 7.8.6
       stable-hash-x: 0.2.0
       unrs-resolver: 1.12.2
     optionalDependencies:
@@ -19083,7 +19158,7 @@ snapshots:
       html-entities: 2.6.0
       object-deep-merge: 2.0.1
       parse-imports-exports: 0.2.4
-      semver: 7.8.5
+      semver: 7.8.6
       spdx-expression-parse: 5.0.0
       to-valid-identifier: 1.0.0
     optionalDependencies:
@@ -19107,7 +19182,7 @@ snapshots:
       html-entities: 2.6.0
       object-deep-merge: 2.0.1
       parse-imports-exports: 0.2.4
-      semver: 7.8.5
+      semver: 7.8.6
       spdx-expression-parse: 5.0.0
       to-valid-identifier: 1.0.0
     optionalDependencies:
@@ -19131,7 +19206,7 @@ snapshots:
       html-entities: 2.6.0
       object-deep-merge: 2.0.1
       parse-imports-exports: 0.2.4
-      semver: 7.8.5
+      semver: 7.8.6
       spdx-expression-parse: 5.0.0
       to-valid-identifier: 1.0.0
     optionalDependencies:
@@ -19199,7 +19274,7 @@ snapshots:
       globrex: 0.1.2
       ignore: 5.3.2
       js-yaml: 5.4.3
-      semver: 7.8.5
+      semver: 7.8.6
     optionalDependencies:
       typescript: 6.0.3
 
@@ -19214,7 +19289,7 @@ snapshots:
       globrex: 0.1.2
       ignore: 5.3.2
       js-yaml: 5.4.3
-      semver: 7.8.5
+      semver: 7.8.6
     optionalDependencies:
       typescript: 6.0.3
 
@@ -19373,6 +19448,24 @@ snapshots:
       - supports-color
     optional: true
 
+  eslint-plugin-react-dom@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      compare-versions: 6.1.1
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   eslint-plugin-react-dom@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@eslint-react/ast': 5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -19429,6 +19522,22 @@ snapshots:
       - supports-color
     optional: true
 
+  eslint-plugin-react-jsx@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   eslint-plugin-react-jsx@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@eslint-react/ast': 5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -19453,6 +19562,23 @@ snapshots:
       '@eslint-react/var': 5.28.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-naming-convention@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       ts-pattern: 5.9.2
       typescript: 6.0.3
     optionalDependencies:
@@ -19506,6 +19632,22 @@ snapshots:
       - supports-color
     optional: true
 
+  eslint-plugin-react-rsc@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
   eslint-plugin-react-rsc@5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@eslint-react/ast': 5.28.8(eslint@10.8.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -19530,6 +19672,23 @@ snapshots:
       '@eslint-react/var': 5.28.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-web-api@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       ts-pattern: 5.9.2
       typescript: 6.0.3
     optionalDependencies:
@@ -19566,6 +19725,29 @@ snapshots:
       '@typescript-eslint/types': 8.72.0
       '@typescript-eslint/typescript-estree': 8.72.0(supports-color@10.2.2)(typescript@6.0.3)
       '@typescript-eslint/utils': 8.71.2(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      compare-versions: 6.1.1
+      string-ts: 2.3.1
+      ts-api-utils: 2.5.0(typescript@6.0.3)
+      ts-pattern: 5.9.2
+      typescript: 6.0.3
+    optionalDependencies:
+      eslint: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  eslint-plugin-react-x@5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+    dependencies:
+      '@eslint-react/ast': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/core': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/eslint': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/jsx': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/shared': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@eslint-react/var': 5.28.8(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.72.0
+      '@typescript-eslint/types': 8.72.0
+      '@typescript-eslint/typescript-estree': 8.72.0(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       compare-versions: 6.1.1
       string-ts: 2.3.1
       ts-api-utils: 2.5.0(typescript@6.0.3)
@@ -19679,7 +19861,7 @@ snapshots:
       lodash.merge: 4.6.2
       minimatch: 10.2.6
       scslre: 0.3.0
-      semver: 7.8.5
+      semver: 7.8.6
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
       yaml: 2.9.1
@@ -19697,7 +19879,7 @@ snapshots:
       lodash.merge: 4.6.2
       minimatch: 10.2.6
       scslre: 0.3.0
-      semver: 7.8.5
+      semver: 7.8.6
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
       yaml: 2.9.1
@@ -19844,7 +20026,7 @@ snapshots:
       quote-js-string: 0.1.0
       regjsparser: 0.13.4
       reserved-identifiers: 1.2.0
-      semver: 7.8.5
+      semver: 7.8.6
       strip-indent: 4.1.1
       yaml: 2.9.1
 
@@ -19868,7 +20050,7 @@ snapshots:
       quote-js-string: 0.1.0
       regjsparser: 0.13.4
       reserved-identifiers: 1.2.0
-      semver: 7.8.5
+      semver: 7.8.6
       strip-indent: 4.1.1
       yaml: 2.9.1
 
@@ -20145,21 +20327,6 @@ snapshots:
   eventsource@3.0.7:
     dependencies:
       eventsource-parser: 3.1.1
-
-  execa@10.2.0:
-    dependencies:
-      '@sindresorhus/merge-streams': 4.0.0
-      figures: 6.1.0
-      get-stream: 9.0.1
-      human-signals: 8.0.1
-      is-plain-obj: 4.1.0
-      is-stream: 4.0.1
-      npm-run-path: 6.0.0
-      pretty-ms: 9.3.1
-      signal-exit: 4.1.0
-      strip-final-newline: 4.0.0
-      which-command: 0.1.0
-      yoctocolors: 2.2.0
 
   execa@10.2.1:
     dependencies:
@@ -20985,7 +21152,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.8.6
 
   is-callable@1.2.7: {}
 
@@ -21207,7 +21374,7 @@ snapshots:
       '@babel/parser': 7.29.9
       '@istanbuljs/schema': 0.1.6
       istanbul-lib-coverage: 3.2.2
-      semver: 7.8.5
+      semver: 7.8.6
     transitivePeerDependencies:
       - supports-color
 
@@ -21500,7 +21667,7 @@ snapshots:
       jest-message-util: 30.5.1
       jest-util: 30.5.1
       pretty-format: 30.5.1
-      semver: 7.8.5
+      semver: 7.8.6
       synckit: 0.11.13
     transitivePeerDependencies:
       - supports-color
@@ -21861,7 +22028,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.8.6
 
   map-like@1.1.3: {}
 
@@ -23020,26 +23187,26 @@ snapshots:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.17.0
-      semver: 7.8.5
+      semver: 7.8.6
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@4.0.1:
     dependencies:
       hosted-git-info: 5.2.1
       is-core-module: 2.17.0
-      semver: 7.8.5
+      semver: 7.8.6
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.8.5
+      semver: 7.8.6
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@8.0.0:
     dependencies:
       hosted-git-info: 9.0.3
-      semver: 7.8.5
+      semver: 7.8.6
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@9.0.0:
@@ -23492,7 +23659,7 @@ snapshots:
       '@oxfmt/binding-win32-ia32-msvc': 0.75.0
       '@oxfmt/binding-win32-x64-msvc': 0.75.0
 
-  oxlint-plugin-react-doctor@0.9.21:
+  oxlint-plugin-react-doctor@0.9.22:
     dependencies:
       '@shaderfrog/glsl-parser': 7.0.1
       '@typescript-eslint/types': 8.72.0
@@ -23611,7 +23778,7 @@ snapshots:
       got: 12.6.1
       registry-auth-token: 5.1.1
       registry-url: 6.0.1
-      semver: 7.8.5
+      semver: 7.8.6
 
   package-manager-detector@1.9.0: {}
 
@@ -24499,7 +24666,7 @@ snapshots:
       p-reduce: 3.0.0
       read-package-up: 12.0.0
       resolve-from: 5.0.0
-      semver: 7.8.5
+      semver: 7.8.6
       signale: 1.4.0
       yargs: 18.2.0
     transitivePeerDependencies:
@@ -24509,13 +24676,15 @@ snapshots:
 
   semver-diff@4.0.0:
     dependencies:
-      semver: 7.8.5
+      semver: 7.8.6
 
   semver-regex@4.0.5: {}
 
   semver@6.3.1: {}
 
   semver@7.8.5: {}
+
+  semver@7.8.6: {}
 
   sentence-splitter@2.3.2:
     dependencies:
@@ -24630,7 +24799,7 @@ snapshots:
       detect-newline: 4.0.1
       git-hooks-list: 4.2.1
       is-plain-obj: 4.1.0
-      semver: 7.8.5
+      semver: 7.8.6
       sort-object-keys: 2.1.0
       tinyglobby: 0.2.17
 
@@ -24740,7 +24909,7 @@ snapshots:
       oxc-parser: 0.127.0
       oxc-resolver: 11.21.2
       recast: 0.23.21
-      semver: 7.8.5
+      semver: 7.8.6
       use-sync-external-store: 1.7.0(react@19.3.1)
       ws: 8.22.0
     optionalDependencies:
@@ -25755,7 +25924,7 @@ snapshots:
       is-yarn-global: 0.4.1
       latest-version: 7.0.0
       pupa: 3.3.0
-      semver: 7.8.5
+      semver: 7.8.6
       semver-diff: 4.0.0
       xdg-basedir: 5.1.0
 
